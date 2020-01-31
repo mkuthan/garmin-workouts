@@ -1,11 +1,17 @@
+bike: &BIKE
+  duration: "15:00"
+  target_power: [88,92]
+recover: &RECOVER
+  duration: "3:00"
+  target_power: "z2"
+
 cycling:
   name: "SweetSpot 3x15"
   steps:
     - warmup: !include warmup.yaml
-    - bike:
-      duration: "15:00"
-      target_power: "90%"
-    - recover:
-        duration: "3:00"
-        target_power: "z2"
+    - bike: *BIKE
+    - recover: *RECOVER
+    - bike: *BIKE
+    - recover: *RECOVER
+    - bike: *BIKE
     - cooldown: !include cooldown.yaml

@@ -15,9 +15,12 @@ def main():
     configuration = ConfigReader(args.configuration).read()
     print(configuration)
 
-    with GarminClient(username=args.username, password=args.password) as connection:
-        workouts = connection.list_workouts()
-        print(workouts)
+    # with GarminClient(username=args.username, password=args.password) as connection:
+    #     workouts = connection.list_workouts()
+    #     print(workouts)
+    #
+    #     workout = connection.get_workout("176144123")
+    #     print(workout)
 
 
 if __name__ == "__main__":
