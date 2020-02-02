@@ -1,0 +1,21 @@
+name: "A OU 3x9"
+description: "2 min @ 95%, 1 min @ 105% x3, 3min % 50%"
+
+steps:
+  - !include inc/warmup-long.yaml
+  - &INTERVAL
+    - { power: 95, duration: "2:00" }
+    - { power: 105, duration: "1:00" }
+  - *INTERVAL
+  - *INTERVAL
+  - &RECOVERY
+    - { power: 50, duration: "3:00" }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *RECOVERY
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - !include inc/cooldown-default.yaml
+

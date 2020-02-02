@@ -1,0 +1,9 @@
+- { power: 50, duration: "2:00" }
+- { power: 60, duration: "2:00" }
+- { power: 70, duration: "2:00" }
+- { power: 90, duration: "0:30" }
+- { power: 50, duration: "0:30" }
+- { power: 95, duration: "0:30" }
+- { power: 50, duration: "0:30" }
+- { power: 100, duration: "0:30" }
+- { power: 50 }

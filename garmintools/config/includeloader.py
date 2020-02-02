@@ -3,17 +3,6 @@ import os
 import yaml
 
 
-class ConfigReader(object):
-
-    def __init__(self, filename):
-        self.filename = filename
-
-    def read(self):
-        with open(self.filename, 'r') as f:
-            data = yaml.load(f, IncludeLoader)
-        return data
-
-
 class IncludeLoader(yaml.SafeLoader):
 
     def __init__(self, stream):

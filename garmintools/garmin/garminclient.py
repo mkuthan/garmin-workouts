@@ -3,11 +3,16 @@ import re
 
 import requests
 
-SSO_LOGIN_URL = "https://sso.garmin.com/sso/signin"
-WORKOUT_SERVICE_URL = "https://connect.garmin.com/modern/proxy/workout-service"
-
 
 class GarminClient(object):
+    SSO_LOGIN_URL = "https://sso.garmin.com/sso/signin"
+    WORKOUT_SERVICE_URL = "https://connect.garmin.com/modern/proxy/workout-service"
+
+    REQUIRED_HEADERS = {
+        "Referer": "https://connect.garmin.com/modern/workouts",
+        "nk": "NT"
+    }
+
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -30,24 +35,38 @@ class GarminClient(object):
             self.session = None
 
     def list_workouts(self):
-        self._require_session()
+        assert self.session
 
-        response = self.session.get(WORKOUT_SERVICE_URL + "/workouts")
+        response = self.session.get(GarminClient.WORKOUT_SERVICE_URL + "/workouts")
         response.raise_for_status()
 
         return json.loads(response.text)
 
     def get_workout(self, id):
-        self._require_session()
+        assert self.session
 
-        response = self.session.get(WORKOUT_SERVICE_URL + "/workout/%s" % id)
+        response = self.session.get(GarminClient.WORKOUT_SERVICE_URL + "/workout/%s" % id)
         response.raise_for_status()
 
         return json.loads(response.text)
 
-    def _require_session(self):
-        if not self.session:
-            raise Exception("Session is not initialized, call connect()")
+    def save_workout(self, workout):
+        assert self.session
+
+        response = self.session.post(GarminClient.WORKOUT_SERVICE_URL + "/workout",
+                                     headers=GarminClient.REQUIRED_HEADERS, json=workout)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def delete_workout(self, id):
+        assert self.session
+
+        response = self.session.delete(GarminClient.WORKOUT_SERVICE_URL + "/workout/%s" % id,
+                                       headers=GarminClient.REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        return json.loads(response.text)
 
     def _authenticate(self):
         form_data = {
@@ -60,7 +79,8 @@ class GarminClient(object):
         }
         headers = {'origin': 'https://sso.garmin.com'}
 
-        auth_response = self.session.post(SSO_LOGIN_URL, headers=headers, params=request_params, data=form_data)
+        auth_response = self.session.post(
+            GarminClient.SSO_LOGIN_URL, headers=headers, params=request_params, data=form_data)
         auth_response.raise_for_status()
 
         auth_ticket_url = self._extract_auth_ticket_url(auth_response.text)
