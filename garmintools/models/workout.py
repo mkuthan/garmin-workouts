@@ -45,20 +45,14 @@ def _steps(steps_config, ftp, power_target_diff):
 def _step(step_config, i, ftp, power_target_diff):
     return {
         "type": "ExecutableStepDTO",
-        "stepId": None,
-        "childStepId": None,
         "stepOrder": i + 1,
-        "description": None,
+        "description": step_config.get("description"),
         "stepType": _INTERVAL_STEP_TYPE,
         "endCondition": _end_condition(step_config),
         "endConditionValue": _end_condition_value(step_config),
-        "preferredEndConditionUnit": None,
-        "endConditionCompare": None,
-        "endConditionZone": None,
         "targetType": _target_type(step_config),
         "targetValueOne": _target_value(step_config, ftp, -power_target_diff),
-        "targetValueTwo": _target_value(step_config, ftp, +power_target_diff),
-        "zoneNumber": None
+        "targetValueTwo": _target_value(step_config, ftp, +power_target_diff)
     }
 
 

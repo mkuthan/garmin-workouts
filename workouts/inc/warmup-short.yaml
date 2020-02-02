@@ -6,4 +6,4 @@
 - { power: 95, duration: "0:30" }
 - { power: 50, duration: "0:30" }
 - { power: 100, duration: "0:30" }
-- { power: 50 }
+- { power: 50, description: "Recover for about 1 minute" }

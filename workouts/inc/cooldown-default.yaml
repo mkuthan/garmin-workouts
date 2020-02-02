@@ -1,1 +1,1 @@
-- { power: 50 }
+- { power: 50, description: "Cooldown for 3 to 5 minutes" }

@@ -21,19 +21,25 @@ def main():
 
     with GarminClient(username=args.username, password=args.password) as connection:
         existing_workouts = connection.list_workouts()
+        existing_workouts_names = {get_workout_name(w): get_workout_id(w) for w in existing_workouts}
 
         for workout in workouts:
             workout_name = get_workout_name(workout)
-            workout_id = next(get_workout_id(existing_workout)
-                              for existing_workout in existing_workouts
-                              if get_workout_name(existing_workout) == get_workout_name(workout_name))
+            workout_id = existing_workouts_names.get(workout_name)
+
+            # workout["workoutId"] = workout_id
+            # print("Updating: %s (%s)" % (workout_name, workout_id))
+            # saved = connection.update_workout(workout_id, workout)
+            # print("Updated: %s (%s)" % (get_workout_name(saved), get_workout_id(saved)))
 
             if workout_id:
-                print("Delete workout: %s (%s)" % (workout_name, workout_id))
+                print("Deleting: '%s' (%s)" % (workout_name, workout_id))
                 connection.delete_workout(workout_id)
+                print("Deleted: '%s' (%s)" % (workout_name, workout_id))
 
-            print("Save workout: %s" % workout_name)
-            connection.save_workout(workout)
+            print("Saving: '%s'" % workout_name)
+            saved = connection.save_workout(workout)
+            print("Saved: '%s' (%s)" % (get_workout_name(saved), get_workout_id(saved)))
 
 
 if __name__ == "__main__":
