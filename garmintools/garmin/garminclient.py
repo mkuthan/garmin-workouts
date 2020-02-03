@@ -1,5 +1,6 @@
 import http
 import json
+import os
 import re
 
 import requests
@@ -14,9 +15,10 @@ class GarminClient(object):
         "nk": "NT"
     }
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, cookie_jar):
         self.username = username
         self.password = password
+        self.cookie_jar = cookie_jar
         self.session = None
 
     def __enter__(self):
@@ -28,9 +30,12 @@ class GarminClient(object):
 
     def connect(self):
         self.session = requests.Session()
-        self.session.cookies = http.cookiejar.LWPCookieJar(".garminclient-cookies.txt")
+        self.session.cookies = http.cookiejar.LWPCookieJar(self.cookie_jar)
 
-        self._authenticate()
+        if os.path.isfile(self.cookie_jar):
+            self.session.cookies.load(ignore_discard=True, ignore_expires=True)
+        else:
+            self._authenticate()
 
     def disconnect(self):
         if self.session:
@@ -63,14 +68,12 @@ class GarminClient(object):
 
         return json.loads(response.text)
 
-    def update_workout(self, id, workout):
+    def update_workout(self, workout_id, workout):
         assert self.session
 
-        response = self.session.put(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % id,
+        response = self.session.put(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id,
                                     headers=GarminClient._REQUIRED_HEADERS, json=workout)
         response.raise_for_status()
-
-        return json.loads(response.text)
 
     def delete_workout(self, id):
         assert self.session
@@ -84,12 +87,6 @@ class GarminClient(object):
 
     def _authenticate(self):
         assert self.session
-
-        try:
-            self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-            return
-        except FileNotFoundError:
-            self.session.cookies.save()
 
         form_data = {
             "username": self.username,
