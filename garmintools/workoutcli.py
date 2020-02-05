@@ -2,6 +2,7 @@
 
 import argparse
 import glob
+import json
 
 from config.config import read_config
 from garmin.garminclient import GarminClient
@@ -12,25 +13,28 @@ def command_import(args):
     workout_files = glob.glob(args.workout)
 
     workout_configs = [read_config(workout_file) for workout_file in workout_files]
-    workouts = [Workout.create_cycling_workout(workout_config, args.ftp) for workout_config in workout_configs]
+    workouts = [Workout(workout_config, args.ftp) for workout_config in workout_configs]
+    print(json.dumps(workouts[0].create_workout()))
+    exit(0)
 
     with GarminClient(username=args.username, password=args.password, cookie_jar=args.cookie_jar) as connection:
-        existing_workouts = [Workout(existing_workout) for existing_workout in connection.list_workouts()]
-        existing_workouts_by_name = {w.get_name(): w for w in existing_workouts}
+        existing_workouts_by_name = {Workout.get_workout_name(w): w for w in connection.list_workouts()}
 
         for workout in workouts:
-            workout_name = workout.get_name()
+            workout_name = workout.config.name
             existing_workout = existing_workouts_by_name.get(workout_name)
 
             if existing_workout:
-                workout.update(existing_workout)
-                workout_id = workout.get_id()
+                workout_id = Workout.get_workout_id(existing_workout)
+                workout_owner_id = Workout.get_workout_owner_id(existing_workout)
+                payload = workout.create_workout(workout_id, workout_owner_id)
                 print("Updating '%s'" % workout_name, end="... ")
-                connection.update_workout(workout_id, workout.workout)
+                connection.update_workout(workout_id, payload)
                 print("done.")
             else:
+                payload = workout.create_workout()
                 print("Saving '%s'" % workout_name, end="... ")
-                connection.save_workout(workout.workout)
+                connection.save_workout(payload)
                 print("done.")
 
 
