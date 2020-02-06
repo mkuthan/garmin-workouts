@@ -28,7 +28,6 @@ $ pipenv shell
 First call to Garmin Connect takes some time to authenticate user. 
 Once user is authenticated [cookie jar](https://docs.python.org/3/library/http.cookiejar.html) is created with session cookies for further calls.
 It is required due to strict request limits for Garmin [SSO](https://en.wikipedia.org/wiki/Single_sign-on) service.
-If you get Authentication 403 errors, just remove cookie jar file in the current directory to wipe out session cookies and force re-authentication.
 
 ## Workouts
 
