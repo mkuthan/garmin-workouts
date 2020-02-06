@@ -29,7 +29,7 @@ class Workout(object):
         return {
             self._WORKOUT_ID_FIELD: workout_id,
             self._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
-            self._WORKOUT_NAME_FIELD: self.config["name"],
+            self._WORKOUT_NAME_FIELD: self.get_workout_name(),
             "description": self._generate_description(),
             "sportType": self._CYCLING_SPORT_TYPE,
             "workoutSegments": [
@@ -41,23 +41,26 @@ class Workout(object):
             ]
         }
 
+    def get_workout_name(self):
+        return self.config["name"]
+
     @staticmethod
-    def get_workout_id(workout):
+    def extract_workout_id(workout):
         return workout[Workout._WORKOUT_ID_FIELD]
 
     @staticmethod
-    def get_workout_name(workout):
+    def extract_workout_name(workout):
         return workout[Workout._WORKOUT_NAME_FIELD]
 
     @staticmethod
-    def get_workout_owner_id(workout):
+    def extract_workout_owner_id(workout):
         return workout[Workout._WORKOUT_OWNER_ID_FIELD]
 
     def _generate_description(self):
         return "TODO: TSS, Stress, Intensity, Time in Zones"
 
     def _steps(self, steps_config):
-        steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, 0)
+        steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
         return steps
 
     def _steps_recursive(self, steps_config, step_order, child_step_id):
@@ -77,7 +80,7 @@ class Workout(object):
         for repeats, step_config in steps_config_agg:
             step_order = step_order + 1
             if isinstance(step_config, list):
-                child_step_id = child_step_id + 1
+                child_step_id = child_step_id + 1 if child_step_id else 1
 
                 repeat_step_order = step_order
                 repeat_child_step_id = child_step_id
@@ -85,7 +88,7 @@ class Workout(object):
                 nested_steps, step_order, child_step_id = self._steps_recursive(step_config, step_order, child_step_id)
                 steps.append(self._repeat_step(repeat_step_order, repeat_child_step_id, repeats, nested_steps))
             else:
-                steps.append(self._interval_step(step_config, step_order))
+                steps.append(self._interval_step(step_config, child_step_id, step_order))
 
         return steps, step_order, child_step_id
 
@@ -96,14 +99,16 @@ class Workout(object):
             "stepType": self._REPEAT_STEP_TYPE,
             "childStepId": child_step_id,
             "numberOfIterations": repeats,
-            "workoutSteps": nested_steps
+            "workoutSteps": nested_steps,
+            "smartRepeat": False
         }
 
-    def _interval_step(self, step_config, step_order):
+    def _interval_step(self, step_config, child_step_id, step_order):
         return {
             "type": "ExecutableStepDTO",
             "stepOrder": step_order,
             "stepType": self._INTERVAL_STEP_TYPE,
+            "childStepId": child_step_id,
             "endCondition": self._end_condition(step_config),
             "endConditionValue": self._end_condition_value(step_config),
             "targetType": self._target_type(step_config),
