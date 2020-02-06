@@ -32,8 +32,11 @@ If you get Authentication 403 errors, just remove cookie jar file in the current
 
 ## Workouts
 
+### Import Workouts
+
 Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org) files.
-If the workout of defined name already exist it will be updated: 
+If the workout of defined name already exist it will be updated:
+ 
 ```shell script
 $ ./garmintools/workoutcli.py -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] workouts/*.yaml
 ```
@@ -104,4 +107,12 @@ steps:
 
 * All nested sections are mapped as repeated steps in Garmin Connect.
 First repeat for warmup, second repeat for main interval (repeated 3 times) and the last repeat for cooldown.
-  
+
+
+### Export Workouts
+
+Export all workouts from Garmin Connect into local directory:
+ 
+```shell script
+$ ./garmintools/workoutcli.py -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
+```

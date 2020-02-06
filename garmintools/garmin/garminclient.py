@@ -1,5 +1,6 @@
 import http
 import json
+import logging
 import os
 import re
 
@@ -14,6 +15,8 @@ class GarminClient(object):
         "Referer": "https://connect.garmin.com/modern/workouts",
         "nk": "NT"
     }
+
+    _LOG = logging.getLogger(__name__)
 
     def __init__(self, username, password, cookie_jar):
         self.username = username
@@ -34,8 +37,13 @@ class GarminClient(object):
 
         if os.path.isfile(self.cookie_jar):
             self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-        else:
+
+        response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
+        if response.status_code != 200:
+            self._LOG.info("Authenticate user '%s'", self.username)
             self._authenticate()
+        else:
+            self._LOG.info("User '%s' already authenticated", self.username)
 
     def disconnect(self):
         if self.session:
@@ -59,6 +67,15 @@ class GarminClient(object):
 
         return json.loads(response.text)
 
+    def download_workout(self, id, file):
+        assert self.session
+
+        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/FIT/%s" % id)
+        response.raise_for_status()
+
+        with open(file, "wb") as f:
+            f.write(response.content)
+
     def save_workout(self, workout):
         assert self.session
 
@@ -81,9 +98,6 @@ class GarminClient(object):
         response = self.session.delete(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % id,
                                        headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
-
-    def _initialize_cookies(self):
-        assert self.session
 
     def _authenticate(self):
         assert self.session
