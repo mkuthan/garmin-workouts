@@ -3,9 +3,9 @@
 - { power: 70, duration: "3:30" }
 - { power: 90, duration: "0:30" }
 - { power: 50, duration: "0:30" }
-- { power: 100, duration: "0:30", description: "go!" }
-- { power: 50, duration: "0:30", description: "easy" }
-- { power: 110, duration: "0:30", description: "go!" }
-- { power: 50, duration: "0:30", description: "easy" }
-- { power: 120, duration: "0:30", description: "go!" }
-- { power: 50, description: "recover ~2 mins" }
+- { power: 100, duration: "0:30" }
+- { power: 50, duration: "0:30" }
+- { power: 110, duration: "0:30" }
+- { power: 50, duration: "0:30" }
+- { power: 120, duration: "0:30" }
+- { power: 50 }

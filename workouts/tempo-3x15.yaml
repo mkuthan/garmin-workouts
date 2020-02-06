@@ -1,11 +1,10 @@
 name: "A TEMPO 3x15"
-description: "15 min @ 85%, 3 min @ 60%"
 
 steps:
   - !include inc/warmup-short.yaml
   - &INTERVAL
-    - { power: 85, duration: "15:00", description: "go!" }
-    - { power: 60, duration: "3:00", description: "slow down" }
+    - { power: 85, duration: "15:00" }
+    - { power: 60, duration: "3:00" }
   - *INTERVAL
   - *INTERVAL
   - !include inc/cooldown-default.yaml
