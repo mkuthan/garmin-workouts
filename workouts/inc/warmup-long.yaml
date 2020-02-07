@@ -5,7 +5,7 @@
 - { power: 50, duration: "0:30" }
 - { power: 100, duration: "0:30" }
 - { power: 50, duration: "0:30" }
-- { power: 110, duration: "0:30" }
+- { power: 105, duration: "0:30" }
 - { power: 50, duration: "0:30" }
-- { power: 120, duration: "0:30" }
+- { power: 110, duration: "0:30" }
 - { power: 50 }

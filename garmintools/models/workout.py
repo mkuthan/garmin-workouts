@@ -1,3 +1,7 @@
+from models.duration import Duration
+from models.power import Power
+
+
 class Workout(object):
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
@@ -57,7 +61,8 @@ class Workout(object):
         return workout[Workout._WORKOUT_OWNER_ID_FIELD]
 
     def _generate_description(self):
-        return "TODO: TSS, Stress, Intensity, Time in Zones"
+        # TODO: calculate TSS, Stress, Intensity, Time in Zones
+        return None
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
@@ -118,7 +123,8 @@ class Workout(object):
 
     @staticmethod
     def _get_duration(step_config):
-        return step_config.get("duration")
+        duration = step_config.get("duration")
+        return Duration(str(duration)) if duration else None
 
     def _end_condition(self, step_config):
         duration = self._get_duration(step_config)
@@ -131,16 +137,12 @@ class Workout(object):
 
     def _end_condition_value(self, step_config):
         duration = self._get_duration(step_config)
-        return Workout._calculate_duration(duration) if duration else None
-
-    @staticmethod
-    def _calculate_duration(duration):
-        (minutes, seconds) = duration.split(":")
-        return int(minutes) * 60 + int(seconds)
+        return duration.to_seconds() if duration else None
 
     @staticmethod
     def _get_power(step):
-        return step.get("power")
+        power = step.get("power")
+        return Power(str(power)) if power else None
 
     def _target_type(self, step_config):
         power = self._get_power(step_config)
@@ -153,13 +155,8 @@ class Workout(object):
 
     def _target_value_one(self, step_config):
         power = self._get_power(step_config)
-        return self._calculate_power(power, self.ftp, -self.power_target_diff) if power else None
+        return power.to_watts(self.ftp, -self.power_target_diff) if power else None
 
     def _target_value_two(self, step_config):
         power = self._get_power(step_config)
-        return self._calculate_power(power, self.ftp, +self.power_target_diff) if power else None
-
-    @staticmethod
-    def _calculate_power(power, ftp, diff):
-        final_power = int(power) * (1 + diff)
-        return round(final_power * ftp / 100)
+        return power.to_watts(self.ftp, +self.power_target_diff) if power else None

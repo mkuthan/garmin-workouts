@@ -54,7 +54,8 @@ steps:
 
 * Target power is defined as percent of FTP (provided as mandatory command line parameter).
 If the target power is not specified "No target" will be used for the workout step.
-* Duration is defined as MM:SS format. 
+* Target power may be defined as absolute value like: "150W", it could be useful in FTP ramp tests.
+* Duration is defined as HH:MM:SS (or MM:SS, or SS) format. 
 If the duration is not specified "Lap Button Press" will be used to move into next workout step.
 
 Reusing workout definitions:
@@ -105,7 +106,7 @@ steps:
 ```
 
 * All nested sections are mapped as repeated steps in Garmin Connect.
-First repeat for warmup, second repeat for main interval (repeated 3 times) and the last repeat for cooldown.
+First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
 
 
 ### Export Workouts

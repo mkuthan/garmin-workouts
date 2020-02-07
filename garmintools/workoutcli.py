@@ -28,7 +28,7 @@ def command_import(args):
                 workout_id = Workout.extract_workout_id(existing_workout)
                 workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
                 payload = workout.create_workout(workout_id, workout_owner_id)
-                logging.info("Updating workout '%s'")
+                logging.info("Updating workout '%s'", workout_name)
                 connection.update_workout(workout_id, payload)
             else:
                 payload = workout.create_workout()
@@ -46,12 +46,11 @@ def command_export(args):
 
 
 def main():
-    logging.basicConfig(level=logging.INFO)
-
     parser = argparse.ArgumentParser(description="Manage Garmin workout(s)")
     parser.add_argument("--username", "-u", required=True)
     parser.add_argument("--password", "-p", required=True)
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt")
+    parser.add_argument("--debug", action='store_true')
 
     subparsers = parser.add_subparsers(title="Commands")
 
@@ -65,6 +64,10 @@ def main():
     parser_export.set_defaults(func=command_export)
 
     args = parser.parse_args()
+
+    logging_level = logging.DEBUG if args.debug else logging.INFO
+    logging.basicConfig(level=logging_level)
+
     args.func(args)
 
 
