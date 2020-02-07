@@ -71,6 +71,8 @@ steps:
   - !include inc/cooldown.yaml
 ```
 
+* `!include` is a custom YAML directive for including another file as a part of the workout.
+
 Reusing workout steps:
 ```yaml
 name: "Boring as hell but simple workout"
@@ -111,7 +113,8 @@ First repeat for warmup, second repeat for main interval (repeated 3 times) and 
 
 ### Export Workouts
 
-Export all workouts from Garmin Connect into local directory:
+Export all workouts from Garmin Connect into local directory.
+This is the easiest way to synchronize all workouts with Garmin device:
  
 ```shell script
 $ ./garmintools/workoutcli.py -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
