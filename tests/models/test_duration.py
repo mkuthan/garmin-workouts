@@ -1,6 +1,6 @@
 import unittest
 
-from models.duration import Duration
+from garmintools.models.duration import Duration
 
 
 class DurationTestCase(unittest.TestCase):

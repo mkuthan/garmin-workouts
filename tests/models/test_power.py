@@ -1,6 +1,6 @@
 import unittest
 
-from models.power import Power
+from garmintools.models.power import Power
 
 
 class PowerTestCase(unittest.TestCase):
