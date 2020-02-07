@@ -1,6 +1,8 @@
 Garmin CLI Tools
 ================
 
+![Python application](https://github.com/mkuthan/garmin-tools/workflows/Python%20application/badge.svg)
+
 Command line tools for Garmin Connect.
 
 # Installation
