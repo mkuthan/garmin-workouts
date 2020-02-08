@@ -1,5 +1,6 @@
-from models.duration import Duration
-from models.power import Power
+from utils import functional, math
+from .duration import Duration
+from .power import Power
 
 
 class Workout(object):
@@ -61,8 +62,27 @@ class Workout(object):
         return workout[Workout._WORKOUT_OWNER_ID_FIELD]
 
     def _generate_description(self):
-        # TODO: calculate TSS, Stress, Intensity, Time in Zones
-        return None
+        # TODO: calculate Time in Zones
+        flatten_steps = functional.flatten(self.config["steps"])
+
+        seconds = 0
+        xs = []
+
+        for step in flatten_steps:
+            power = self._get_power(step)
+            power_watts = power.to_watts(self.ftp) if power else None
+            duration = self._get_duration(step)
+            duration_secs = duration.to_seconds() if duration else None
+
+            if power_watts and duration_secs:
+                seconds = seconds + duration_secs
+                xs = functional.concatenate(xs, functional.fill(power_watts, duration_secs))
+
+        norm_pwr = math.normalized_power(xs)
+        int_fct = math.intensity_factor(norm_pwr, self.ftp)
+        tss = math.training_stress_score(seconds, norm_pwr, self.ftp)
+
+        return "FTP %d, TSS %d, NP %d, IF %.2f" % (self.ftp, tss, norm_pwr, int_fct)
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)

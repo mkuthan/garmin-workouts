@@ -9,6 +9,7 @@ pytest = "*"
 [packages]
 requests = "*"
 pyyaml = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"

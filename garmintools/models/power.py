@@ -5,7 +5,7 @@ from dataclasses import dataclass
 class Power:
     power: str
 
-    def to_watts(self, ftp, diff):
+    def to_watts(self, ftp, diff=0):
         if not 0 <= int(ftp) < 1000:
             raise ValueError("FTP must be between 0 [W] and 999 [W] but was %s" % ftp)
 
