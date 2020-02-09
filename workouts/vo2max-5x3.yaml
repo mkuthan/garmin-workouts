@@ -1,13 +1,12 @@
-name: "OU 3x6"
+name: "VO2MAX 5x3"
 
 steps:
   - !include inc/warmup-long.yaml
   - &INTERVAL
-    - &UNDER { power: 95, duration: "2:00" }
-    - &OVER { power: 105, duration: "1:00" }
-    - *UNDER
-    - *OVER
+    - { power: 120, duration: "3:00" }
     - { power: 50, duration: "3:00" }
+  - *INTERVAL
+  - *INTERVAL
   - *INTERVAL
   - *INTERVAL
   - !include inc/cooldown-default.yaml

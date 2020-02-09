@@ -1,0 +1,13 @@
+name: "VO2MAX 5x4"
+
+steps:
+  - !include inc/warmup-long.yaml
+  - &INTERVAL
+    - { power: 120, duration: "4:00" }
+    - { power: 50, duration: "4:00" }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - !include inc/cooldown-default.yaml
+

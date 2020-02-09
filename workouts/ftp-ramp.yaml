@@ -1,4 +1,4 @@
-name: "Ramp Test"
+name: "FTP RAMP"
 
 steps:
   - !include inc/warmup-long.yaml

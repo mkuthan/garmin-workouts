@@ -1,4 +1,4 @@
-name: "A SS 4x9"
+name: "SS 4x9"
 
 steps:
   - !include inc/warmup-short.yaml

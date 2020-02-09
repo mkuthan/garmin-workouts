@@ -1,4 +1,4 @@
-name: "A OU 3x9"
+name: "OU 3x9"
 
 steps:
   - !include inc/warmup-long.yaml

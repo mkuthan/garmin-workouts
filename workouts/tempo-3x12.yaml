@@ -1,4 +1,4 @@
-name: "A TEMPO 3x12"
+name: "TEMPO 3x12"
 
 steps:
   - !include inc/warmup-short.yaml
