@@ -126,7 +126,7 @@ garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASS
 Print summary for all workouts (workout identifier, workout name and description):
 
 ```shell script
-$ python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
+garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 188952654 VO2MAX 5x4           FTP 214, TSS 80, NP 205, IF 0.96
 188952362 TEMPO 3x15           FTP 214, TSS 68, NP 172, IF 0.81
 188952359 SS 3x12              FTP 214, TSS 65, NP 178, IF 0.83
