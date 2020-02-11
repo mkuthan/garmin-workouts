@@ -1,11 +1,14 @@
-from utils import functional, math
-from .duration import Duration
-from .power import Power
+import json
+
+from garminworkouts.models.duration import Duration
+from garminworkouts.models.power import Power
+from garminworkouts.utils import functional, math
 
 
 class Workout(object):
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
+    _WORKOUT_DESCRIPTION_FIELD = "description"
     _WORKOUT_OWNER_ID_FIELD = "ownerId"
 
     _CYCLING_SPORT_TYPE = {
@@ -23,9 +26,7 @@ class Workout(object):
         "stepTypeKey": "repeat",
     }
 
-    _POWER_TARGET_DIFF = 0.05
-
-    def __init__(self, config, ftp, power_target_diff=_POWER_TARGET_DIFF):
+    def __init__(self, config, ftp, power_target_diff):
         self.config = config
         self.ftp = ftp
         self.power_target_diff = power_target_diff
@@ -35,7 +36,7 @@ class Workout(object):
             self._WORKOUT_ID_FIELD: workout_id,
             self._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
             self._WORKOUT_NAME_FIELD: self.get_workout_name(),
-            "description": self._generate_description(),
+            self._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
             "sportType": self._CYCLING_SPORT_TYPE,
             "workoutSegments": [
                 {
@@ -58,8 +59,23 @@ class Workout(object):
         return workout[Workout._WORKOUT_NAME_FIELD]
 
     @staticmethod
+    def extract_workout_description(workout):
+        return workout[Workout._WORKOUT_DESCRIPTION_FIELD]
+
+    @staticmethod
     def extract_workout_owner_id(workout):
         return workout[Workout._WORKOUT_OWNER_ID_FIELD]
+
+    @staticmethod
+    def print_workout_json(workout):
+        print(json.dumps(functional.filter_empty(workout)))
+
+    @staticmethod
+    def print_workout_summary(workout):
+        workout_id = Workout.extract_workout_id(workout)
+        workout_name = Workout.extract_workout_name(workout)
+        workout_description = Workout.extract_workout_description(workout)
+        print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
 
     def _generate_description(self):
         # TODO: calculate Time in Zones

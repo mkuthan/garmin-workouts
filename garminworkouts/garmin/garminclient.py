@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import re
+import sys
 
 import requests
 
@@ -25,52 +26,42 @@ class GarminClient(object):
         self.session = None
 
     def __enter__(self):
-        self.connect()
+        self._connect()
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self.disconnect()
+        self._disconnect()
 
-    def connect(self):
-        self.session = requests.Session()
-        self.session.cookies = http.cookiejar.LWPCookieJar(self.cookie_jar)
-
-        if os.path.isfile(self.cookie_jar):
-            self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-
-        response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
-        if response.status_code != 200:
-            self._LOG.info("Authenticate user '%s'", self.username)
-            self._authenticate()
-        else:
-            self._LOG.info("User '%s' already authenticated", self.username)
-
-    def disconnect(self):
-        if self.session:
-            self.session.cookies.save(ignore_discard=True, ignore_expires=True)
-            self.session.close()
-            self.session = None
-
-    def list_workouts(self):
+    def list_workouts(self, batch_size=100):
         assert self.session
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts")
+        for start_index in range(0, sys.maxsize, batch_size):
+            params = {
+                "start": start_index,
+                "limit": batch_size
+            }
+            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params)
+            response.raise_for_status()
+
+            response_jsons = json.loads(response.text)
+            if not response_jsons or response_jsons == []:
+                break
+
+            for response_json in response_jsons:
+                yield response_json
+
+    def get_workout(self, workout_id):
+        assert self.session
+
+        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id)
         response.raise_for_status()
 
         return json.loads(response.text)
 
-    def get_workout(self, id):
+    def download_workout(self, workout_id, file):
         assert self.session
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % id)
-        response.raise_for_status()
-
-        return json.loads(response.text)
-
-    def download_workout(self, id, file):
-        assert self.session
-
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/FIT/%s" % id)
+        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/FIT/%s" % workout_id)
         response.raise_for_status()
 
         with open(file, "wb") as f:
@@ -98,6 +89,26 @@ class GarminClient(object):
         response = self.session.delete(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % id,
                                        headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
+
+    def _connect(self):
+        self.session = requests.Session()
+        self.session.cookies = http.cookiejar.LWPCookieJar(self.cookie_jar)
+
+        if os.path.isfile(self.cookie_jar):
+            self.session.cookies.load(ignore_discard=True, ignore_expires=True)
+
+        response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
+        if response.status_code != 200:
+            self._LOG.info("Authenticate user '%s'", self.username)
+            self._authenticate()
+        else:
+            self._LOG.info("User '%s' already authenticated", self.username)
+
+    def _disconnect(self):
+        if self.session:
+            self.session.cookies.save(ignore_discard=True, ignore_expires=True)
+            self.session.close()
+            self.session = None
 
     def _authenticate(self):
         assert self.session

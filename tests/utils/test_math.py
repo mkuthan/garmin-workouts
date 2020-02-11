@@ -3,10 +3,10 @@ import unittest
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 
-from garmintools.utils import math
+from garminworkouts.utils import math
 
 
-class WorkoutMathCase(unittest.TestCase):
+class MathTestCase(unittest.TestCase):
     def test_moving_average(self):
         x = np.concatenate((np.full(5, 1), np.full(5, 2), np.full(5, 1)))
         y = math.moving_average(x, 5)

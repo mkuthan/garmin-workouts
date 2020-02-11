@@ -1,6 +1,6 @@
 import yaml
 
-from config.includeloader import IncludeLoader
+from garminworkouts.config.includeloader import IncludeLoader
 
 
 def read_config(filename):
