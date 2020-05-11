@@ -5,6 +5,14 @@ Garmin Connect Workouts Tools
 
 Command line tools for managing Garmin Connect workouts.
 
+Features:
+
+* Target power is set according to Your current FTP.
+* All workouts under Your control stored as JSON files.
+* Easy to understand workout format, see examples below.
+* Workout parts like warm-up or cool-down are reusable.
+* The most important parameters (TSS, IF, NP) in workout description field.
+
 # Installation
 
 Requirements:
