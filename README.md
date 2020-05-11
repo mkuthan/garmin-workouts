@@ -11,7 +11,7 @@ Features:
 * All workouts under Your control stored as JSON files.
 * Easy to understand workout format, see examples below.
 * Workout parts like warm-up or cool-down are reusable.
-* The most important parameters (TSS, IF, NP) in workout description field.
+* The most important parameters (TSS, IF, NP) embedded in workout description field.
 
 # Installation
 
