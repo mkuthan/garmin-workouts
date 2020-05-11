@@ -145,7 +145,6 @@ garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASS
 188952351 TEMPO 3x12           FTP 214, TSS 57, NP 171, IF 0.80
 188952349 OU 3x6               FTP 214, TSS 47, NP 181, IF 0.85
 188952348 SS 6x6               FTP 214, TSS 65, NP 178, IF 0.83
-187538946 TD Tempo 3x15        None
 127739603 FTP RAMP             FTP 214, TSS 62, NP 230, IF 1.08
 ```
 
