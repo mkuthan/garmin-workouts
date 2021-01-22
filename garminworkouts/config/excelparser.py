@@ -12,12 +12,12 @@ def excel_to_yaml(filename,ftp):
         if str(x) == str(np.nan):
             return x
         elif "%" in str(x):
-            x=x.replace("%","").replace(" ","")
-            x=int(x)
+            x=str(x).replace("%","").replace(" ","").replace(",",".")
+            x=float(x)
             return x
         else:
             x=float(x)/float(ftp)*100
-            x=round(x)
+            x=float(x)
             return x
 
     df["start"]=df["start"].apply(lambda x: Normalise(x) )
@@ -32,23 +32,23 @@ def excel_to_yaml(filename,ftp):
         end=df.loc[i,"end"]
         duration=df.loc[i,"duration"]
         if str(end) == str(np.nan):
-            return '  - {{ power: {power}, duration: "{duration}" }}\n'.format(power=int(start), duration=duration)
+            return '  - {{ power: {power}, duration: "{duration}" }}\n'.format(power=round(start,2), duration=duration)
         else:
-            if float(start) == float(end):
-                return '  - {{ power: {power}, duration: "{duration}" }}\n'.format(power=int(start), duration=duration)
-            elif float(start) != float(end):
+            if start == end:
+                return '  - {{ power: {power}, duration: "{duration}" }}\n'.format(power=round(start,2), duration=duration)
+            elif start != end:
                 seconds=int(duration.split(":")[-1])+int(duration.split(":")[-2])*60
                 n_blocks=seconds/seconds_block
-                power_dif=abs(int(end) - int(start))
+                power_dif=abs(end - start)
                 power_step=power_dif/n_blocks            
                 steps_text=""
                 total_time=0
                 while total_time <= seconds:
-                    text='  - {{ power: {0}, duration: "00:10" }}\n'.format(int(start))
+                    text='  - {{ power: {0}, duration: "00:10" }}\n'.format(round(start,2))
                     steps_text=steps_text+text
-                    if int(start) <= int(end):
+                    if start <= end:
                         start=start+power_step
-                    elif int(start) >= int(end):
+                    elif start >= end:
                         start=start-power_step
                     total_time=total_time+10
                 return steps_text
