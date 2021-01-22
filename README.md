@@ -119,9 +119,9 @@ steps:
 * All nested sections are mapped as repeated steps in Garmin Connect.
 First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
 
-* Importing from `xlsx` files. 
+Importing from `xlsx` files. 
 
-Construct a table in excel that looks like this:
+Construct a table in excel that looks like this (making sure that all excel cells are set to text and not to date or any other format):
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
@@ -136,6 +136,12 @@ If your start and end power differ a ramp of 10 seconds steps will be created fo
 | 43% | 85%  | 3:00 | 
 | 85%  |  | 15:00 | 
 | 85% | 43% | 2:00 |
+
+You can then import as with the `yaml` files:
+```shell script
+garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
+```
+This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
 
 
 ## Export Workouts
