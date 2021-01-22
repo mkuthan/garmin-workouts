@@ -1,0 +1,13 @@
+#LWP-Cookies-2.0
+Set-Cookie3: __cfduid=d3470da7738234b45a4e15c7b980049fd1611315206; path="/"; domain=".connect.garmin.com"; path_spec; domain_dot; secure; expires="2021-02-21 11:33:26Z"; HttpOnly=None; SameSite=Lax; version=0
+Set-Cookie3: GARMIN-SSO=1; path="/"; domain=".garmin.com"; path_spec; discard; version=0
+Set-Cookie3: GARMIN-SSO-CUST-GUID="7e0f41f0-c4c7-4e8e-bec9-25b4cc6dfecb"; path="/"; domain=".garmin.com"; path_spec; discard; version=0
+Set-Cookie3: GARMIN-SSO-GUID=668FADC844BD1AACA076E0EC191CE7961DC2E0D3; path="/"; domain=".garmin.com"; path_spec; discard; version=0
+Set-Cookie3: GarminNoCache=true; path="/"; domain=".garmin.com"; path_spec; discard; version=0
+Set-Cookie3: __cfduid=d00955a60c7eec32fddf5be3aeecfa6811611315207; path="/"; domain=".sso.garmin.com"; path_spec; domain_dot; secure; expires="2021-02-21 11:33:27Z"; HttpOnly=None; SameSite=Lax; version=0
+Set-Cookie3: __cfruid="d3eb14a4d0ce69312cbd68c617f1d849a6ce0f95-1611315207"; path="/"; domain=".sso.garmin.com"; path_spec; domain_dot; secure; discard; HttpOnly=None; SameSite=None; version=0
+Set-Cookie3: SESSIONID="5ac634bc-7e9e-4fc7-b764-3f6738031018"; path="/"; domain="connect.garmin.com"; path_spec; secure; discard; HttpOnly=None; version=0
+Set-Cookie3: __cflb=02DiuJLbVZHipNWxN8xjNziif9XwiLsQejkZnvurP3LoW; path="/"; domain="connect.garmin.com"; path_spec; secure; expires="2021-01-23 10:33:26Z"; HttpOnly=None; SameSite=None; version=0
+Set-Cookie3: __cflb=02DiuHkH2SZrbLnjiuZcrrhAPFnPkNcRwWJ8sAdC5nncU; path="/"; domain="sso.garmin.com"; path_spec; expires="2021-01-23 10:33:27Z"; HttpOnly=None; SameSite=Lax; version=0
+Set-Cookie3: org.springframework.web.servlet.i18n.CookieLocaleResolver.LOCALE=en; path="/"; domain="sso.garmin.com"; path_spec; discard; version=0
+Set-Cookie3: CASTGC="TGT-206645-wprR1Wbr7cCj4oefCURgNsfsfXQE6CZrIWapfnS5PvGlbb15P4-cas"; path="/sso"; domain="sso.garmin.com"; path_spec; secure; discard; HttpOnly=None; version=0

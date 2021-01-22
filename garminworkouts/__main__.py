@@ -5,6 +5,8 @@ import glob
 import logging
 import os
 
+import sys
+
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
@@ -14,7 +16,8 @@ from garminworkouts.utils.validators import writeable_dir
 def command_import(args):
     workout_files = glob.glob(args.workout)
 
-    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
+    workout_configs = [configreader.read_config(workout_file, args.ftp) for workout_file in workout_files]
+    # sys.exit(0)
     workouts = [Workout(workout_config, args.ftp, args.target_power_diff) for workout_config in workout_configs]
 
     with _garmin_client(args) as connection:

@@ -119,7 +119,6 @@ steps:
 * All nested sections are mapped as repeated steps in Garmin Connect.
 First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
 
-
 ## Export Workouts
 
 Export all workouts from Garmin Connect into local directory as FIT files.
@@ -163,4 +162,12 @@ Permanently delete workout from Garmin Connect:
 
 ```shell script
 garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
+```
+
+# Contributing
+
+For installing garmin-workout in dev mod you can 
+
+```
+pipenv install --dev
 ```
