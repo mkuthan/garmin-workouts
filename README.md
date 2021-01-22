@@ -119,9 +119,7 @@ steps:
 * All nested sections are mapped as repeated steps in Garmin Connect.
 First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
 
-Importing from `xlsx` files. 
-
-Construct a table in excel that looks like this (making sure that all excel cells are set to text and not to date or any other format):
+To import your workout from an `xlsx` file, construct a table in excel that looks like this (making sure that all excel cells are set to text and not to date or any other format):
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
@@ -129,7 +127,7 @@ Construct a table in excel that looks like this (making sure that all excel cell
 | 160  |  | 15:00 | 
 | 160 | 80 | 2:00 |
 
-If your start and end power differ a ramp of 10 seconds steps will be created for the choosen duration. If you wish to give in % of your FTP instead of absolue W you can do it like this:
+If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created for the choosen duration. If you wish to give in % of your FTP instead of absolue W you can do it like this:
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
