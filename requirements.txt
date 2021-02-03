@@ -1,0 +1,3 @@
+requests==2.22.*
+pyyaml==5.3.*
+numpy==1.18.*
