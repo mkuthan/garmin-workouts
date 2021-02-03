@@ -28,6 +28,11 @@ Set your shell to use the venv paths for Python by activating the virtual enviro
 $ source venv/bin/activate
 ```
 
+Install dependencies:
+```shell script
+$ pip install -r requirements.txt
+```
+
 # Usage
 
 First call to Garmin Connect takes some time to authenticate user. 
