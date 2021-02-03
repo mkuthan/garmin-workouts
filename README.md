@@ -18,20 +18,14 @@ Features:
 Requirements:
 * Python 3.x ([doc](https://www.python.org/downloads/))
 
-Install Pipenv ([doc](https://pipenv-fork.readthedocs.io/en/latest/install.html)):
-```bash
-$ pip install --user pipenv
+Use the venv command to create a virtual copy of the entire Python installation.:
+```shell script
+$ python -m venv venv
 ```
 
-Install dependencies:
+Set your shell to use the venv paths for Python by activating the virtual environment:
 ```shell script
-$ pipenv install
-```
-
-Run Pipenv shell:
-```shell script
-$ pipenv shell
-garmin-workouts % 
+$ source venv/bin/activate
 ```
 
 # Usage
@@ -46,7 +40,7 @@ Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org)
 If the workout already exists it will be updated:
  
 ```shell script
-garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] workouts/*.yaml
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -126,7 +120,7 @@ Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
  
 ```shell script
-garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
 ```
 
 ## List Workouts
@@ -134,7 +128,7 @@ garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASS
 Print summary for all workouts (workout identifier, workout name and description):
 
 ```shell script
-garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 188952654 VO2MAX 5x4           FTP 214, TSS 80, NP 205, IF 0.96
 188952362 TEMPO 3x15           FTP 214, TSS 68, NP 172, IF 0.81
 188952359 SS 3x12              FTP 214, TSS 65, NP 178, IF 0.83
@@ -153,7 +147,7 @@ garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASS
 Print full workout definition (as JSON):
 
 ```shell script
-garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [WORKOUT_ID]
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [WORKOUT_ID]
 {"workoutId": 188952654, "ownerId": 2043461, "workoutName": "VO2MAX 5x4", "description": "FTP 214, TSS 80, NP 205, IF 0.96", "updatedDate": "2020-02-11T14:37:56.0", ...
 ```
 
@@ -162,5 +156,5 @@ garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASS
 Permanently delete workout from Garmin Connect:
 
 ```shell script
-garmin-workouts % python3 -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
 ```
