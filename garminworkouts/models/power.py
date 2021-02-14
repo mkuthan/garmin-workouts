@@ -32,4 +32,4 @@ class Power:
 
     @staticmethod
     def _to_absolute(power, ftp):
-        return float(power) * ftp / 100
+        return int(power) * ftp / 100
