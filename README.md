@@ -128,17 +128,17 @@ To import your workout from an `xlsx` file, construct a table in excel that look
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
-| 80 | 160  | 3:00 | 
-| 160  |  | 15:00 | 
-| 160 | 80 | 2:00 |
+| 43 | 85  | 3:00 | 
+| 85  |  | 15:00 | 
+| 85 | 43 | 2:00 |
 
-If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created for the choosen duration. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you wish to give in % of your FTP instead of absolute W you can do it like this:
+If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created by default for the choosen duration. If more than 50 total steps are to be uploaded ramp's steps will get longer so that the total number of steps is under Garmins maximum value of 50. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you wish to give your values in W instead of % of your FTP:
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
-| 43% | 85%  | 3:00 | 
-| 85%  |  | 15:00 | 
-| 85% | 43% | 2:00 |
+| 80W | 160W  | 3:00 | 
+| 160W  |  | 15:00 | 
+| 160W | 80W | 2:00 |
 
 You can then import as with the `yaml` files:
 ```shell script
