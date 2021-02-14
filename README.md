@@ -37,7 +37,7 @@ $ source venv/bin/activate
 Install dependencies:
 ```bash
 $ pip3 install -r requirements.txt
-```
+``
 
 # Usage
 
@@ -51,7 +51,7 @@ Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org)
 If the workout already exists it will be updated:
  
 ```shell script
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -190,12 +190,4 @@ Permanently delete workout from Garmin Connect:
 
 ```shell script
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
-```
-
-# Contributing
-
-For installing garmin-workout in dev mod you can 
-
-```
-pipenv install --dev
 ```
