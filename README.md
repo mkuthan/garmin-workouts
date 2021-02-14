@@ -127,7 +127,7 @@ To import your workout from an `xlsx` file, construct a table in excel that look
 | 160  |  | 15:00 | 
 | 160 | 80 | 2:00 |
 
-If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created for the choosen duration. If you wish to give in % of your FTP instead of absolue W you can do it like this:
+If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created for the choosen duration. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you wish to give in % of your FTP instead of absolute W you can do it like this:
 
 | Start  | End | Duration | 
 | ------------- | ------------- | ------------- |
