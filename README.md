@@ -18,9 +18,15 @@ Features:
 Requirements:
 * Python 3.x ([doc](https://www.python.org/downloads/))
 
+Clone this repo:
+```bash
+$ git clone https://github.com/mkuthan/garmin-workouts.git
+```
+
 Use the venv command to create a virtual copy of the entire Python installation.:
-```shell script
-$ python -m venv venv
+```bash
+$ cd garmin-workouts
+$ python3 -m venv venv
 ```
 
 Set your shell to use the venv paths for Python by activating the virtual environment:
@@ -29,8 +35,8 @@ $ source venv/bin/activate
 ```
 
 Install dependencies:
-```shell script
-$ pip install -r requirements.txt
+```bash
+$ pip3 install -r requirements.txt
 ```
 
 # Usage
@@ -117,6 +123,28 @@ steps:
 
 * All nested sections are mapped as repeated steps in Garmin Connect.
 First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
+
+To import your workout from an `xlsx` file, construct a table in excel that looks like this (making sure that all excel cells are set to text and not to date or any other format):
+
+| Start  | End | Duration | 
+| ------------- | ------------- | ------------- |
+| 43 | 85  | 3:00 | 
+| 85  |  | 15:00 | 
+| 85 | 43 | 2:00 |
+
+If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created by default for the choosen duration. If more than 50 total steps are to be uploaded ramp's steps will get longer so that the total number of steps is under Garmins maximum value of 50. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you wish to give your values in W instead of % of your FTP:
+
+| Start  | End | Duration | 
+| ------------- | ------------- | ------------- |
+| 80W | 160W  | 3:00 | 
+| 160W  |  | 15:00 | 
+| 160W | 80W | 2:00 |
+
+You can then import as with the `yaml` files:
+```shell script
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
+```
+This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
 
 
 ## Export Workouts
