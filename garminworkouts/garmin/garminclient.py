@@ -40,7 +40,7 @@ class GarminClient(object):
                 "start": start_index,
                 "limit": batch_size
             }
-            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params)
+            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params, headers=GarminClient._REQUIRED_HEADERS)
             response.raise_for_status()
 
             response_jsons = json.loads(response.text)
@@ -53,7 +53,7 @@ class GarminClient(object):
     def get_workout(self, workout_id):
         assert self.session
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id)
+        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
         return json.loads(response.text)
