@@ -5,8 +5,6 @@ import glob
 import logging
 import os
 
-import sys
-
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
