@@ -6,11 +6,12 @@ import re
 import sys
 
 import requests
+import cloudscraper
 
 
 class GarminClient(object):
     _SSO_LOGIN_URL = "https://sso.garmin.com/sso/signin"
-    _WORKOUT_SERVICE_URL = "https://connect.garmin.com/modern/proxy/workout-service"
+    _WORKOUT_SERVICE_URL = "https://connect.garmin.com/proxy/workout-service"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
@@ -91,7 +92,7 @@ class GarminClient(object):
         response.raise_for_status()
 
     def _connect(self):
-        self.session = requests.Session()
+        self.session = cloudscraper.CloudScraper()
         self.session.cookies = http.cookiejar.LWPCookieJar(self.cookie_jar)
 
         if os.path.isfile(self.cookie_jar):
