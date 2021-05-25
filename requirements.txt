@@ -3,3 +3,4 @@ pyyaml==5.3.*
 numpy==1.18.*
 xlrd==1.2.0
 pandas==1.1.3
+cloudscraper==1.2.58
