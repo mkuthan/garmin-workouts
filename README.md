@@ -28,10 +28,11 @@ Use the venv command to create a virtual copy of the entire Python installation.
 $ cd garmin-workouts
 $ python3 -m venv venv
 ```
+You may need to use simply `python -m venv venv` and not `python3`, depending on installation.
 
 Set your shell to use the venv paths for Python by activating the virtual environment:
 ```shell script
-$ source venv/bin/activate
+$ source venv/Scripts/activate
 ```
 
 Install dependencies:
