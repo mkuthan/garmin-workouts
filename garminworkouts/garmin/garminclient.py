@@ -4,8 +4,8 @@ import logging
 import os
 import re
 import sys
-
 import cloudscraper
+
 
 
 class GarminClient(object):
@@ -83,6 +83,14 @@ class GarminClient(object):
                                     headers=GarminClient._REQUIRED_HEADERS, json=workout)
         response.raise_for_status()
 
+    def schedule_workout(self, workout_id, date):
+        #new method to schedule a workout
+        assert self.session
+        json_data = {"date": date}
+        response  = self.session.post(GarminClient._WORKOUT_SERVICE_URL + "/schedule/%s" % workout_id,headers=GarminClient._REQUIRED_HEADERS, json=json_data)
+
+        response.raise_for_status()
+
     def delete_workout(self, id):
         assert self.session
 
@@ -96,7 +104,7 @@ class GarminClient(object):
 
         if os.path.isfile(self.cookie_jar):
             self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-
+        
         response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
         if response.status_code != 200:
             self._LOG.info("Authenticate user '%s'", self.username)
