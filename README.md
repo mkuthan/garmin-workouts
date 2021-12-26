@@ -11,6 +11,7 @@ Features:
 * All workouts under Your control stored as JSON files.
 * Easy to understand workout format, see examples below.
 * Workout parts like warm-up or cool-down are reusable.
+* Schedule saved workouts
 * The most important parameters (TSS, IF, NP) embedded in workout description field.
 
 # Installation
@@ -190,4 +191,12 @@ Permanently delete workout from Garmin Connect:
 
 ```shell script
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
+```
+## Schedule  Workouts
+
+Schedule prexisting workouts using the workout number (e.g. "https://connect.garmin.com/modern/workout/234567894")
+The workout number is the last digits of the URL here: 234567894
+Note: the date format is as follows : 2021-12-31
+```shell script
+$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
 ```
