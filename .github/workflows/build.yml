@@ -11,6 +11,9 @@ jobs:
       matrix:
         python-version: [ 3.8, 3.9 ]
 
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,7 +36,9 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pytest --cov=./ --cov-report=xml tests
+          pytest --cov=garminworkouts --cov-report=xml tests
 
       - name: Upload test coverage results
         uses: codecov/codecov-action@v3
+        with:
+          env_vars: PYTHON_VERSION
