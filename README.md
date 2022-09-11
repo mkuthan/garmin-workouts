@@ -16,45 +16,52 @@ Features:
 # Installation
 
 Requirements:
+
 * Python 3.x ([doc](https://www.python.org/downloads/))
 
 Clone this repo:
-```bash
+
+```shell
 $ git clone https://github.com/mkuthan/garmin-workouts.git
 ```
 
 Use the venv command to create a virtual copy of the entire Python installation.:
-```bash
+
+```shell
 $ cd garmin-workouts
 $ python3 -m venv venv
 ```
 
 Set your shell to use the venv paths for Python by activating the virtual environment:
-```shell script
+
+```shell
 $ source venv/bin/activate
 ```
 
 Install dependencies:
-```bash
+
+```shell
 $ pip3 install -r requirements.txt
 ```
 
 # Usage
 
-First call to Garmin Connect takes some time to authenticate user. 
-Once user is authenticated [cookie jar](https://docs.python.org/3/library/http.cookiejar.html) is created with session cookies for further calls.
+First call to Garmin Connect takes some time to authenticate user.
+Once user is authenticated [cookie jar](https://docs.python.org/3/library/http.cookiejar.html) is created with session
+cookies for further calls.
 It is required due to strict request limits for Garmin [SSO](https://en.wikipedia.org/wiki/Single_sign-on) service.
 
 ## Import Workouts
 
 Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org) files.
 If the workout already exists it will be updated:
- 
-```shell script
+
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
+
 ```yaml
 name: "Boring as hell but simple workout"
 
@@ -67,10 +74,10 @@ steps:
 ```
 
 * Target power is defined as percent of FTP (provided as mandatory command line parameter).
-If the target power is not specified "No target" will be used for the workout step.
+  If the target power is not specified "No target" will be used for the workout step.
 * Target power may be defined as absolute value like: "150W", it could be useful in FTP ramp tests.
-* Duration is defined as HH:MM:SS (or MM:SS, or SS) format. 
-If the duration is not specified "Lap Button Press" will be used to move into next workout step.
+* Duration is defined as HH:MM:SS (or MM:SS, or SS) format.
+  If the duration is not specified "Lap Button Press" will be used to move into next workout step.
 
 Reusing workout definitions:
 
@@ -88,6 +95,7 @@ steps:
 * `!include` is a custom YAML directive for including another file as a part of the workout.
 
 Reusing workout steps:
+
 ```yaml
 name: "Boring as hell but simple workout"
 
@@ -122,37 +130,43 @@ steps:
 ```
 
 * All nested sections are mapped as repeated steps in Garmin Connect.
-First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
+  First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
 
-To import your workout from an `xlsx` file, construct a table in excel that looks like this (making sure that all excel cells are set to text and not to date or any other format):
+To import your workout from an `xlsx` file, construct a table in Excel that looks like this (making sure that all Excel
+cells are set to text and not to date or any other format):
 
-| Start  | End | Duration | 
-| ------------- | ------------- | ------------- |
-| 43 | 85  | 3:00 | 
-| 85  |  | 15:00 | 
-| 85 | 43 | 2:00 |
+| Start | End | Duration |
+|-------|-----|----------|
+| 43    | 85  | 3:00     |
+| 85    |     | 15:00    |
+| 85    | 43  | 2:00     |
 
-If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created by default for the choosen duration. If more than 50 total steps are to be uploaded ramp's steps will get longer so that the total number of steps is under Garmins maximum value of 50. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you wish to give your values in W instead of % of your FTP:
+If your "start" and "end" power for a step differ, a ramp of 10 seconds steps will be created by default for the chosen
+duration. If more than 50 total steps are to be uploaded ramp's steps will get longer so that the total number of steps
+is under Garmin maximum value of 50. **TIPS** *Do not use your TACX without the power cable as your Garmin will have a
+hard time controlling the trainer while changing from one step to the next. Turn off the tones in your Garmin.* If you
+wish to give your values in W instead of % of your FTP:
 
-| Start  | End | Duration | 
-| ------------- | ------------- | ------------- |
-| 80W | 160W  | 3:00 | 
-| 160W  |  | 15:00 | 
-| 160W | 80W | 2:00 |
+| Start | End  | Duration |
+|-------|------|----------|
+| 80W   | 160W | 3:00     |
+| 160W  |      | 15:00    |
+| 160W  | 80W  | 2:00     |
 
 You can then import as with the `yaml` files:
-```shell script
+
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
 ```
-This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
 
+This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
 
 ## Export Workouts
 
 Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
- 
-```shell script
+
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
 ```
 
@@ -160,7 +174,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt
 
 Print summary for all workouts (workout identifier, workout name and description):
 
-```shell script
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 188952654 VO2MAX 5x4           FTP 214, TSS 80, NP 205, IF 0.96
 188952362 TEMPO 3x15           FTP 214, TSS 68, NP 172, IF 0.81
@@ -179,7 +193,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 
 Print full workout definition (as JSON):
 
-```shell script
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [WORKOUT_ID]
 {"workoutId": 188952654, "ownerId": 2043461, "workoutName": "VO2MAX 5x4", "description": "FTP 214, TSS 80, NP 205, IF 0.96", "updatedDate": "2020-02-11T14:37:56.0", ...
 ```
@@ -188,6 +202,6 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [W
 
 Permanently delete workout from Garmin Connect:
 
-```shell script
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
 ```
