@@ -1,17 +1,17 @@
 import unittest
 
 import numpy as np
-from numpy.testing import assert_array_almost_equal
 
 from garminworkouts.utils import math
 
 
 class MathTestCase(unittest.TestCase):
-    def test_moving_average(self):
+    @staticmethod
+    def test_moving_average():
         x = np.concatenate((np.full(5, 1), np.full(5, 2), np.full(5, 1)))
         y = math.moving_average(x, 5)
         expected = [1, 1.2, 1.4, 1.6, 1.8, 2, 1.8, 1.6, 1.4, 1.2, 1]
-        assert_array_almost_equal(y, expected)
+        np.testing.assert_array_almost_equal(y, expected)
 
     def test_normalized_power(self):
         x = np.concatenate((np.full(300, 150), np.full(300, 200), np.full(300, 150)))

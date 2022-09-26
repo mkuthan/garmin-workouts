@@ -1,6 +1,6 @@
 import unittest
 
-from numpy.testing import assert_array_equal
+import numpy as np
 
 from garminworkouts.utils import functional
 
@@ -15,11 +15,13 @@ class FunctionalTestCase(unittest.TestCase):
     def test_flatten_nested(self):
         self.assertEqual(functional.flatten([1, [2], 3]), [1, 2, 3])
 
-    def test_fill(self):
-        assert_array_equal(functional.fill(10, 2), [10, 10])
+    @staticmethod
+    def test_fill():
+        np.testing.assert_array_equal(functional.fill(10, 2), [10, 10])
 
-    def test_concatenate(self):
-        assert_array_equal(functional.concatenate([0, 1], [2, 3]), [0, 1, 2, 3])
+    @staticmethod
+    def test_concatenate():
+        np.testing.assert_array_equal(functional.concatenate([0, 1], [2, 3]), [0, 1, 2, 3])
 
     def test_filter_empty_value_is_none(self):
         value = {"k1": "v1", "k2": None}
