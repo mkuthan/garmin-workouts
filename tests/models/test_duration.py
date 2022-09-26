@@ -23,11 +23,13 @@ class DurationTestCase(unittest.TestCase):
                 self.assertEqual(Duration(duration).to_seconds(), seconds)
 
     def test_invalid_duration_to_seconds_conversion(self):
-        invalid_durations = ["-1", "60", "-1:10", "60:10", "-1:10:10", "24:10:10", "foo", "foo:bar", "foo:bar:baz", "1:1:1:1"]
+        invalid_durations = ["-1", "60", "-1:10", "60:10", "-1:10:10", "24:10:10", "foo", "foo:bar", "foo:bar:baz",
+                             "1:1:1:1"]
         for duration in invalid_durations:
             with self.subTest(msg="Expected ValueError for '%s" % duration):
                 with self.assertRaises(ValueError):
                     Duration(duration).to_seconds()
 
-    if __name__ == '__main__':
-        unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
