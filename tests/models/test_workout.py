@@ -33,18 +33,22 @@ class WorkoutTestCase(unittest.TestCase):
                     'segmentOrder': 1,
                     'sportType': {'sportTypeId': 2, 'sportTypeKey': 'cycling'},
                     'workoutSteps': [
-                        {'type': 'ExecutableStepDTO', 'stepOrder': 1, 'stepType': {'stepTypeId': 3, 'stepTypeKey': 'interval'}, 'childStepId': None,
+                        {'type': 'ExecutableStepDTO', 'stepOrder': 1,
+                         'stepType': {'stepTypeId': 3, 'stepTypeKey': 'interval'}, 'childStepId': None,
                          'endCondition': {'conditionTypeId': 2, 'conditionTypeKey': 'time'}, 'endConditionValue': 60,
-                         'targetType': {'workoutTargetTypeId': 2, 'workoutTargetTypeKey': 'power.zone'}, 'targetValueOne': 95, 'targetValueTwo': 105},
-                        {'type': 'ExecutableStepDTO', 'stepOrder': 2, 'stepType': {'stepTypeId': 3, 'stepTypeKey': 'interval'}, 'childStepId': None,
+                         'targetType': {'workoutTargetTypeId': 2, 'workoutTargetTypeKey': 'power.zone'},
+                         'targetValueOne': 95, 'targetValueTwo': 105},
+                        {'type': 'ExecutableStepDTO', 'stepOrder': 2,
+                         'stepType': {'stepTypeId': 3, 'stepTypeKey': 'interval'}, 'childStepId': None,
                          'endCondition': {'conditionTypeId': 2, 'conditionTypeKey': 'time'}, 'endConditionValue': 120,
-                         'targetType': {'workoutTargetTypeId': 2, 'workoutTargetTypeKey': 'power.zone'}, 'targetValueOne': 114, 'targetValueTwo': 126}
+                         'targetType': {'workoutTargetTypeId': 2, 'workoutTargetTypeKey': 'power.zone'},
+                         'targetValueOne': 114, 'targetValueTwo': 126}
                     ]
                 }
             ]
         }
 
-        self.assertEqual(payload, expected_workout_payload)
+        self.assertDictEqual(payload, expected_workout_payload)
 
 
 if __name__ == '__main__':
