@@ -11,7 +11,6 @@ from garminworkouts.models.workout import Workout
 from garminworkouts.utils.validators import writeable_dir
 
 
-
 def command_import(args):
     workout_files = glob.glob(args.workout)
 
@@ -52,12 +51,12 @@ def command_list(args):
         for workout in connection.list_workouts():
             Workout.print_workout_summary(workout)
 
+
 def command_schedule(args):
     with _garmin_client(args) as connection:
         workout_id = args.workout_id
         date = args.date
         connection.schedule_workout(workout_id, date)
-        #print(result)
 
 
 def command_get(args):
@@ -77,7 +76,8 @@ def _garmin_client(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Manage Garmin Connect workout(s)")
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+                                     description="Manage Garmin Connect workout(s)")
     parser.add_argument("--username", "-u", required=True, help="Garmin Connect account username")
     parser.add_argument("--password", "-p", required=True, help="Garmin Connect account password")
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
@@ -86,21 +86,26 @@ def main():
     subparsers = parser.add_subparsers(title="Commands")
 
     parser_import = subparsers.add_parser("import", description="Import workout(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("workout", help="File(s) with workout(s) to import, wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.add_argument("--ftp", required=True, type=int, help="FTP to calculate absolute target power from relative value")
-    parser_import.add_argument("--target-power-diff", default=0.05, type=float, help="Percent of target power to calculate final target power range")
+    parser_import.add_argument("workout",
+                               help="File(s) with workout(s) to import, wildcards are supported e.g: sample_workouts/*.yaml")
+    parser_import.add_argument("--ftp", required=True, type=int,
+                               help="FTP to calculate absolute target power from relative value")
+    parser_import.add_argument("--target-power-diff", default=0.05, type=float,
+                               help="Percent of target power to calculate final target power range")
     parser_import.set_defaults(func=command_import)
 
-    parser_export = subparsers.add_parser("export", description="Export all workouts from Garmin Connect and save into directory")
-    parser_export.add_argument("directory", type=writeable_dir, help="Destination directory where workout(s) will be exported")
+    parser_export = subparsers.add_parser("export",
+                                          description="Export all workouts from Garmin Connect and save into directory")
+    parser_export.add_argument("directory", type=writeable_dir,
+                               help="Destination directory where workout(s) will be exported")
     parser_export.set_defaults(func=command_export)
 
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)
-    
+
     parser_schedule = subparsers.add_parser("schedule", description="Schedule a workouts")
-    parser_schedule.add_argument("--workout_id","-w", required=True, help="Workout id to schedule")
-    parser_schedule.add_argument("--date", "-d",required=True, help="Date to which schedule the workout")
+    parser_schedule.add_argument("--workout_id", "-w", required=True, help="Workout id to schedule")
+    parser_schedule.add_argument("--date", "-d", required=True, help="Date to which schedule the workout")
     parser_schedule.set_defaults(func=command_schedule)
 
     parser_get = subparsers.add_parser("get", description="Get workout")

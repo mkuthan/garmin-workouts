@@ -206,11 +206,13 @@ Permanently delete workout from Garmin Connect:
 ```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
 ```
+
 ## Schedule  Workouts
 
-Schedule prexisting workouts using the workout number (e.g. "https://connect.garmin.com/modern/workout/234567894")
+Schedule preexisting workouts using the workout number (e.g. "https://connect.garmin.com/modern/workout/234567894")
 The workout number is the last digits of the URL here: 234567894
 Note: the date format is as follows : 2021-12-31
-```shell script
+
+```shell
 $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
 ```

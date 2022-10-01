@@ -4,8 +4,8 @@ import logging
 import os
 import re
 import sys
-import cloudscraper
 
+import cloudscraper
 
 
 class GarminClient(object):
@@ -40,7 +40,8 @@ class GarminClient(object):
                 "start": start_index,
                 "limit": batch_size
             }
-            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params, headers=GarminClient._REQUIRED_HEADERS)
+            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params,
+                                        headers=GarminClient._REQUIRED_HEADERS)
             response.raise_for_status()
 
             response_jsons = json.loads(response.text)
@@ -53,7 +54,8 @@ class GarminClient(object):
     def get_workout(self, workout_id):
         assert self.session
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id, headers=GarminClient._REQUIRED_HEADERS)
+        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id,
+                                    headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
         return json.loads(response.text)
@@ -84,10 +86,10 @@ class GarminClient(object):
         response.raise_for_status()
 
     def schedule_workout(self, workout_id, date):
-        #new method to schedule a workout
         assert self.session
         json_data = {"date": date}
-        response  = self.session.post(GarminClient._WORKOUT_SERVICE_URL + "/schedule/%s" % workout_id,headers=GarminClient._REQUIRED_HEADERS, json=json_data)
+        response = self.session.post(GarminClient._WORKOUT_SERVICE_URL + "/schedule/%s" % workout_id,
+                                     headers=GarminClient._REQUIRED_HEADERS, json=json_data)
 
         response.raise_for_status()
 
@@ -104,7 +106,7 @@ class GarminClient(object):
 
         if os.path.isfile(self.cookie_jar):
             self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-        
+
         response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
         if response.status_code != 200:
             self._LOG.info("Authenticate user '%s'", self.username)
