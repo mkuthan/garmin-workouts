@@ -72,7 +72,13 @@ def command_delete(args):
 
 
 def _garmin_client(args):
-    return GarminClient(username=args.username, password=args.password, cookie_jar=args.cookie_jar)
+    return GarminClient(
+        connect_url=args.connect_url,
+        sso_url=args.sso_url,
+        username=args.username,
+        password=args.password,
+        cookie_jar=args.cookie_jar
+    )
 
 
 def main():
@@ -81,6 +87,8 @@ def main():
     parser.add_argument("--username", "-u", required=True, help="Garmin Connect account username")
     parser.add_argument("--password", "-p", required=True, help="Garmin Connect account password")
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
+    parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
+    parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
     parser.add_argument("--debug", action='store_true', help="Enables more detailed messages")
 
     subparsers = parser.add_subparsers(title="Commands")
