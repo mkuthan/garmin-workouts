@@ -11,6 +11,7 @@ from garminworkouts.models.workout import Workout
 from garminworkouts.utils.validators import writeable_dir
 
 
+
 def command_import(args):
     workout_files = glob.glob(args.workout)
 
@@ -51,6 +52,13 @@ def command_list(args):
         for workout in connection.list_workouts():
             Workout.print_workout_summary(workout)
 
+def command_schedule(args):
+    with _garmin_client(args) as connection:
+        workout_id = args.workout_id
+        date = args.date
+        connection.schedule_workout(workout_id, date)
+        #print(result)
+
 
 def command_get(args):
     with _garmin_client(args) as connection:
@@ -89,6 +97,11 @@ def main():
 
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)
+    
+    parser_schedule = subparsers.add_parser("schedule", description="Schedule a workouts")
+    parser_schedule.add_argument("--workout_id","-w", required=True, help="Workout id to schedule")
+    parser_schedule.add_argument("--date", "-d",required=True, help="Date to which schedule the workout")
+    parser_schedule.set_defaults(func=command_schedule)
 
     parser_get = subparsers.add_parser("get", description="Get workout")
     parser_get.add_argument("--id", required=True, help="Workout id, use list command to get workouts identifiers")
