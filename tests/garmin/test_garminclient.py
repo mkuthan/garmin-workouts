@@ -7,9 +7,7 @@ from garminworkouts.garmin.garminclient import GarminClient
 
 
 class GarminClientTestCase(unittest.TestCase):
-    _EMPTY_RESPONSE = []
     _ANY_WORKOUT = [{"foo1": "bar1"}]
-    _ANY_WORKOUTS = [{"foo1": "bar1"}, {"foo2": "bar2"}]
 
     def setUp(self):
         self.httpserver = HTTPServer()
@@ -18,7 +16,7 @@ class GarminClientTestCase(unittest.TestCase):
 
         # simulate authenticated user
         self.httpserver \
-            .expect_request(GarminClient._MODERN_SETTINGS_ENDPOINT) \
+            .expect_request("/modern/settings") \
             .respond_with_data()
 
         url = "http://{}:{}".format(self.httpserver.host, self.httpserver.port)
@@ -33,19 +31,21 @@ class GarminClientTestCase(unittest.TestCase):
     def test_list_workouts(self):
         batch_size = 10
 
+        any_workouts = [{"foo1": "bar1"}, {"foo2": "bar2"}]
         self.httpserver \
             .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts",
                             query_string={"start": str(0), "limit": str(batch_size)}) \
-            .respond_with_json(GarminClientTestCase._ANY_WORKOUTS)
+            .respond_with_json(any_workouts)
 
+        empty_response = []
         self.httpserver \
             .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts",
                             query_string={"start": str(batch_size), "limit": str(batch_size)}) \
-            .respond_with_json(GarminClientTestCase._EMPTY_RESPONSE)
+            .respond_with_json(empty_response)
 
         with self.client as connection:
             workouts = connection.list_workouts(batch_size)
-            self.assertEqual(list(workouts), GarminClientTestCase._ANY_WORKOUTS)
+            self.assertEqual(list(workouts), any_workouts)
 
     def test_list_workouts_error_handling(self):
         batch_size = 10
