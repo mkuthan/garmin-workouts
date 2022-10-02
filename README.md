@@ -2,6 +2,7 @@ Garmin Connect Workouts Tools
 ================
 
 ![Python application](https://github.com/mkuthan/garmin-workouts/workflows/Python%20application/badge.svg)
+[![codecov](https://codecov.io/gh/mkuthan/garmin-workouts/branch/master/graph/badge.svg?token=ZC7VITLNHF)](https://codecov.io/gh/mkuthan/garmin-workouts)
 
 Command line tools for managing Garmin Connect workouts.
 
