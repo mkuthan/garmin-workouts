@@ -1,47 +1,40 @@
-import http
 import json
-import logging
-import os
-import re
 import sys
 
-import cloudscraper
+from garminworkouts.garmin.session import connect, disconnect
 
 
 class GarminClient(object):
-    _SSO_LOGIN_URL = "https://sso.garmin.com/sso/signin"
-    _WORKOUT_SERVICE_URL = "https://connect.garmin.com/proxy/workout-service"
+    _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
         "nk": "NT"
     }
 
-    _LOG = logging.getLogger(__name__)
-
-    def __init__(self, username, password, cookie_jar):
+    def __init__(self, connect_url, sso_url, username, password, cookie_jar):
+        self.connect_url = connect_url
+        self.sso_url = sso_url
         self.username = username
         self.password = password
         self.cookie_jar = cookie_jar
-        self.session = None
 
     def __enter__(self):
-        self._connect()
+        self.session = connect(self.connect_url, self.sso_url, self.username, self.password, self.cookie_jar)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        self._disconnect()
+        disconnect(self.session)
 
     def list_workouts(self, batch_size=100):
-        assert self.session
-
         for start_index in range(0, sys.maxsize, batch_size):
+
+            url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts"
             params = {
                 "start": start_index,
                 "limit": batch_size
             }
-            response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workouts", params=params,
-                                        headers=GarminClient._REQUIRED_HEADERS)
+            response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
             response.raise_for_status()
 
             response_jsons = json.loads(response.text)
@@ -52,100 +45,43 @@ class GarminClient(object):
                 yield response_json
 
     def get_workout(self, workout_id):
-        assert self.session
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id,
-                                    headers=GarminClient._REQUIRED_HEADERS)
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
         return json.loads(response.text)
 
     def download_workout(self, workout_id, file):
-        assert self.session
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/FIT/%s" % workout_id
 
-        response = self.session.get(GarminClient._WORKOUT_SERVICE_URL + "/workout/FIT/%s" % workout_id)
+        response = self.session.get(url)
         response.raise_for_status()
 
         with open(file, "wb") as f:
             f.write(response.content)
 
     def save_workout(self, workout):
-        assert self.session
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout"
 
-        response = self.session.post(GarminClient._WORKOUT_SERVICE_URL + "/workout",
-                                     headers=GarminClient._REQUIRED_HEADERS, json=workout)
+        response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=workout)
         response.raise_for_status()
-
-        return json.loads(response.text)
 
     def update_workout(self, workout_id, workout):
-        assert self.session
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id
 
-        response = self.session.put(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % workout_id,
-                                    headers=GarminClient._REQUIRED_HEADERS, json=workout)
-        response.raise_for_status()
-
-    def schedule_workout(self, workout_id, date):
-        assert self.session
-        json_data = {"date": date}
-        response = self.session.post(GarminClient._WORKOUT_SERVICE_URL + "/schedule/%s" % workout_id,
-                                     headers=GarminClient._REQUIRED_HEADERS, json=json_data)
-
+        response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=workout)
         response.raise_for_status()
 
     def delete_workout(self, id):
-        assert self.session
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % id
 
-        response = self.session.delete(GarminClient._WORKOUT_SERVICE_URL + "/workout/%s" % id,
-                                       headers=GarminClient._REQUIRED_HEADERS)
+        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
-    def _connect(self):
-        self.session = cloudscraper.CloudScraper()
-        self.session.cookies = http.cookiejar.LWPCookieJar(self.cookie_jar)
+    def schedule_workout(self, workout_id, date):
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/schedule/%s" % workout_id
+        json_data = {"date": date}
 
-        if os.path.isfile(self.cookie_jar):
-            self.session.cookies.load(ignore_discard=True, ignore_expires=True)
-
-        response = self.session.get("https://connect.garmin.com/modern/settings", allow_redirects=False)
-        if response.status_code != 200:
-            self._LOG.info("Authenticate user '%s'", self.username)
-            self._authenticate()
-        else:
-            self._LOG.info("User '%s' already authenticated", self.username)
-
-    def _disconnect(self):
-        if self.session:
-            self.session.cookies.save(ignore_discard=True, ignore_expires=True)
-            self.session.close()
-            self.session = None
-
-    def _authenticate(self):
-        assert self.session
-
-        form_data = {
-            "username": self.username,
-            "password": self.password,
-            "embed": "false"
-        }
-        request_params = {
-            "service": "https://connect.garmin.com/modern"
-        }
-        headers = {'origin': 'https://sso.garmin.com'}
-
-        auth_response = self.session.post(
-            GarminClient._SSO_LOGIN_URL, headers=headers, params=request_params, data=form_data)
-        auth_response.raise_for_status()
-
-        auth_ticket_url = self._extract_auth_ticket_url(auth_response.text)
-
-        response = self.session.get(auth_ticket_url)
+        response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=json_data)
         response.raise_for_status()
-
-    @staticmethod
-    def _extract_auth_ticket_url(auth_response):
-        match = re.search(r'response_url\s*=\s*"(https:[^"]+)"', auth_response)
-        if not match:
-            raise Exception("Unable to extract auth ticket URL from:\n%s" % auth_response)
-        auth_ticket_url = match.group(1).replace("\\", "")
-        return auth_ticket_url
