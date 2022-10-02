@@ -84,14 +84,20 @@ class GarminClient(object):
         response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=workout)
         response.raise_for_status()
 
-        return json.loads(response.text)
-
     def update_workout(self, workout_id, workout):
         assert self.session
 
         url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id
 
         response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=workout)
+        response.raise_for_status()
+
+    def delete_workout(self, id):
+        assert self.session
+
+        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % id
+
+        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
     def schedule_workout(self, workout_id, date):
@@ -101,14 +107,6 @@ class GarminClient(object):
         json_data = {"date": date}
 
         response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=json_data)
-        response.raise_for_status()
-
-    def delete_workout(self, id):
-        assert self.session
-
-        url = self.connect_url + GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % id
-
-        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
     def _connect(self):
