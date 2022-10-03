@@ -1,6 +1,6 @@
-import http
 import os
 import re
+from http import cookiejar
 
 import cloudscraper
 
@@ -24,13 +24,13 @@ def disconnect(session):
 
 def _load_cookie_jar(session, cookie_jar):
     if cookie_jar:
-        session.cookies = http.cookiejar.LWPCookieJar(cookie_jar)
+        session.cookies = cookiejar.LWPCookieJar(cookie_jar)
         if os.path.isfile(cookie_jar):
             session.cookies.load(ignore_discard=True, ignore_expires=True)
 
 
 def _save_cookie_jar(session):
-    if isinstance(session.cookies, http.cookiejar.LWPCookieJar):
+    if isinstance(session.cookies, cookiejar.LWPCookieJar):
         session.cookies.save(ignore_discard=True, ignore_expires=True)
 
 

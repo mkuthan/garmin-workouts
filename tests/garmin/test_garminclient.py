@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import mock_open, patch
 
 import requests
 from pytest_httpserver import HTTPServer
@@ -19,7 +20,7 @@ class GarminClientTestCase(unittest.TestCase):
             .expect_request("/modern/settings") \
             .respond_with_data()
 
-        url = "http://{}:{}".format(self.httpserver.host, self.httpserver.port)
+        url = f"http://{self.httpserver.host}:{self.httpserver.port}"
         self.client = GarminClient(
             connect_url=url,
             sso_url=url,
@@ -30,18 +31,15 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_list_workouts(self):
         batch_size = 10
-
         any_workouts = [{"foo1": "bar1"}, {"foo2": "bar2"}]
-        self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts",
-                            query_string={"start": str(0), "limit": str(batch_size)}) \
-            .respond_with_json(any_workouts)
-
         empty_response = []
-        self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts",
-                            query_string={"start": str(batch_size), "limit": str(batch_size)}) \
-            .respond_with_json(empty_response)
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
+        params1 = {"start": str(0), "limit": str(batch_size)}
+        params2 = {"start": str(batch_size), "limit": str(batch_size)}
+
+        self.httpserver.expect_request(url, query_string=params1).respond_with_json(any_workouts)
+        self.httpserver.expect_request(url, query_string=params2).respond_with_json(empty_response)
 
         with self.client as connection:
             workouts = connection.list_workouts(batch_size)
@@ -50,10 +48,10 @@ class GarminClientTestCase(unittest.TestCase):
     def test_list_workouts_error_handling(self):
         batch_size = 10
 
-        self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workouts",
-                            query_string={"start": str(0), "limit": str(batch_size)}) \
-            .respond_with_data(status=500)
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
+        params = {"start": str(0), "limit": str(batch_size)}
+
+        self.httpserver.expect_request(url, query_string=params).respond_with_data(status=500)
 
         with self.client as connection:
             with self.assertRaises(requests.exceptions.HTTPError):
@@ -62,9 +60,9 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_get_workout(self):
         workout_id = 1
-        self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id) \
-            .respond_with_json(GarminClientTestCase._ANY_WORKOUT)
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
+        self.httpserver.expect_request(url).respond_with_json(GarminClientTestCase._ANY_WORKOUT)
 
         with self.client as connection:
             workout = connection.get_workout(workout_id)
@@ -72,28 +70,51 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_get_workout_error_handling(self):
         workout_id = 1
-        self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id) \
-            .respond_with_data(status=500)
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
+        self.httpserver.expect_request(url).respond_with_data(status=500)
 
         with self.client as connection:
             self.assertRaises(requests.exceptions.HTTPError, connection.get_workout, workout_id)
 
-    # TODO: test_download_workout
+    def test_download_workout(self):
+        workout_id = 1
+        file = "workout.fit"
+        content = "any content"
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
+        self.httpserver.expect_request(url).respond_with_data(content)
+
+        with self.client as connection:
+            with patch('builtins.open', mock_open()) as mocked_file:
+                connection.download_workout(workout_id, file)
+
+                mocked_file.assert_called_once_with(file, 'wb')
+                mocked_file().write.assert_called_once_with(content.encode())
+
+    def test_download_workout_error_handling(self):
+        workout_id = 1
+        file = "workout.fit"
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
+        self.httpserver.expect_request(url).respond_with_data(status=500)
+
+        with self.client as connection:
+            self.assertRaises(requests.exceptions.HTTPError, connection.download_workout, workout_id, file)
 
     def test_save_workout(self):
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout", method="POST",
-                            json=GarminClientTestCase._ANY_WORKOUT) \
+            .expect_request(url, method="POST", json=GarminClientTestCase._ANY_WORKOUT) \
             .respond_with_data()
 
         with self.client as connection:
             connection.save_workout(GarminClientTestCase._ANY_WORKOUT)
 
     def test_save_workout_error_handling(self):
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout", method="POST",
-                            json=GarminClientTestCase._ANY_WORKOUT) \
+            .expect_request(url, method="POST", json=GarminClientTestCase._ANY_WORKOUT) \
             .respond_with_data(status=500)
 
         with self.client as connection:
@@ -101,9 +122,10 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_update_workout(self):
         workout_id = 1
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id, method="PUT",
-                            json=GarminClientTestCase._ANY_WORKOUT) \
+            .expect_request(url, method="PUT", json=GarminClientTestCase._ANY_WORKOUT) \
             .respond_with_data()
 
         with self.client as connection:
@@ -111,9 +133,10 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_update_workout_error_handling(self):
         workout_id = 1
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id, method="PUT",
-                            json=GarminClientTestCase._ANY_WORKOUT) \
+            .expect_request(url, method="PUT", json=GarminClientTestCase._ANY_WORKOUT) \
             .respond_with_data(status=500)
 
         with self.client as connection:
@@ -122,8 +145,10 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_delete_workout(self):
         workout_id = 1
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id, method="DELETE") \
+            .expect_request(url, method="DELETE") \
             .respond_with_data()
 
         with self.client as connection:
@@ -131,8 +156,10 @@ class GarminClientTestCase(unittest.TestCase):
 
     def test_delete_workout_error_handling(self):
         workout_id = 1
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/workout/%s" % workout_id, method="DELETE") \
+            .expect_request(url, method="DELETE") \
             .respond_with_data(status=500)
 
         with self.client as connection:
@@ -141,9 +168,10 @@ class GarminClientTestCase(unittest.TestCase):
     def test_schedule_workout(self):
         workout_id = 1
         date = "any date"
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/schedule/%s" % workout_id, method="POST",
-                            json={"date": date}) \
+            .expect_request(url, method="POST", json={"date": date}) \
             .respond_with_data()
 
         with self.client as connection:
@@ -152,9 +180,10 @@ class GarminClientTestCase(unittest.TestCase):
     def test_schedule_workout_error_handling(self):
         workout_id = 1
         date = "any date"
+
+        url = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         self.httpserver \
-            .expect_request(GarminClient._WORKOUT_SERVICE_ENDPOINT + "/schedule/%s" % workout_id, method="POST",
-                            json={"date": date}) \
+            .expect_request(url, method="POST", json={"date": date}) \
             .respond_with_data(status=500)
 
         with self.client as connection:

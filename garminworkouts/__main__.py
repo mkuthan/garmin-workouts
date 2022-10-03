@@ -95,7 +95,8 @@ def main():
 
     parser_import = subparsers.add_parser("import", description="Import workout(s) from file(s) into Garmin Connect")
     parser_import.add_argument("workout",
-                               help="File(s) with workout(s) to import, wildcards are supported e.g: sample_workouts/*.yaml")
+                               help="File(s) with workout(s) to import, "
+                                    "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.add_argument("--ftp", required=True, type=int,
                                help="FTP to calculate absolute target power from relative value")
     parser_import.add_argument("--target-power-diff", default=0.05, type=float,

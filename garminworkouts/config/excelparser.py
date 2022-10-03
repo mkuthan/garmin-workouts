@@ -2,13 +2,13 @@ import numpy as np
 import pandas as pd
 
 
-def excel_to_yaml(filename, seconds_block=10):
+def excel_to_yaml(filename, seconds_block=10):  # noqa: C901
     df = pd.read_excel(filename)
     df = df[df.columns.tolist()[:3]]
     df.columns = ["start", "end", "duration"]
     df.reset_index(inplace=True, drop=True)
 
-    def Normalise(x):
+    def normalise(x):
         if str(x) == str(np.nan):
             return x
         elif "W" in str(x):
@@ -27,8 +27,8 @@ def excel_to_yaml(filename, seconds_block=10):
 
     df["power_type"] = df["start"].apply(lambda x: check_power_type(x))
 
-    df["start"] = df["start"].apply(lambda x: Normalise(x))
-    df["end"] = df["end"].apply(lambda x: Normalise(x))
+    df["start"] = df["start"].apply(lambda x: normalise(x))
+    df["end"] = df["end"].apply(lambda x: normalise(x))
     df["duration"] = df["duration"].astype(str)
 
     def check_n_steps(df, seconds_block=seconds_block):
@@ -68,7 +68,8 @@ def excel_to_yaml(filename, seconds_block=10):
         n_blocks = df.loc[i, "n_blocks"]
         power_type = df.loc[i, "power_type"]
         if n_blocks == 1:
-            return '  - {{ power: {power}{power_type}, duration: "{duration}" }}\n'.format(power=int(start), power_type=power_type, duration=duration)
+            template = '  - {{ power: {power}{power_type}, duration: "{duration}" }}\n'
+            return template.format(power=int(start), power_type=power_type, duration=duration)
         elif n_blocks > 1:
             seconds = int(duration.split(":")[-1]) + int(duration.split(":")[-2]) * 60
             # n_blocks=seconds/seconds_block

@@ -13,7 +13,7 @@ class SessionTestCase(unittest.TestCase):
         self.httpserver.start()
         self.addCleanup(self.httpserver.stop)
 
-        self.url = "http://{}:{}".format(self.httpserver.host, self.httpserver.port)
+        self.url = f"http://{self.httpserver.host}:{self.httpserver.port}"
         self.username = "any-username"
         self.password = "any-password"
 
