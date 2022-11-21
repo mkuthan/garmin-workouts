@@ -1,7 +1,7 @@
 Garmin Connect Workouts Tools
 ================
 
-[![Build](https://github.com/mkuthan/garmin-workouts/actions/workflows/build.yml/badge.svg)](https://github.com/mkuthan/garmin-workouts/actions/workflows/build.yml)
+[![CI](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/mkuthan/garmin-workouts/branch/master/graph/badge.svg?token=ZC7VITLNHF)](https://codecov.io/gh/mkuthan/garmin-workouts)
 
 Command line tools for managing Garmin Connect workouts.
@@ -24,26 +24,26 @@ Requirements:
 Clone this repo:
 
 ```shell
-$ git clone https://github.com/mkuthan/garmin-workouts.git
+git clone https://github.com/mkuthan/garmin-workouts.git
 ```
 
 Use the venv command to create a virtual copy of the entire Python installation.:
 
 ```shell
-$ cd garmin-workouts
-$ python3 -m venv venv
+cd garmin-workouts
+python3 -m venv venv
 ```
 
 Set your shell to use the venv paths for Python by activating the virtual environment:
 
 ```shell
-$ source venv/bin/activate
+source venv/bin/activate
 ```
 
 Install dependencies:
 
 ```shell
-$ pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 # Usage
@@ -59,7 +59,7 @@ Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org)
 If the workout already exists it will be updated:
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
+python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -158,7 +158,7 @@ wish to give your values in W instead of % of your FTP:
 You can then import as with the `yaml` files:
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
+python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
 ```
 
 This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
@@ -169,7 +169,7 @@ Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
+python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
 ```
 
 ## List Workouts
@@ -205,7 +205,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [W
 Permanently delete workout from Garmin Connect:
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
+python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
 ```
 
 ## Schedule  Workouts
@@ -215,5 +215,5 @@ The workout number is the last digits of the URL here: 234567894
 Note: the date format is as follows : 2021-12-31
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
+python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
 ```
