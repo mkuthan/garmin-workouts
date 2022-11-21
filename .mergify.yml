@@ -2,7 +2,7 @@ pull_request_rules:
    - name: automatic merge when author is dependabot
      conditions:
        - author=dependabot[bot]
-       - check-success=build
+       - check-success=test
        - base=main
      actions:
        merge:
