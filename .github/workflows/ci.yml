@@ -2,9 +2,6 @@ name: CI
 
 on:
   push:
-    branches:
-      - "main"
-  pull_request:
   workflow_dispatch:
 
 concurrency:
@@ -25,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11"]
 
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
@@ -45,20 +42,3 @@ jobs:
     needs: [lint, test]
     steps:
       - run: exit 0
-
-  dependabot:
-    runs-on: ubuntu-latest
-    needs: [required-checks]
-    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
-
-    permissions:
-      pull-requests: write
-      contents: write
-
-    env:
-      PR_URL: ${{github.event.pull_request.html_url}}
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-    steps:
-      - run: gh pr review --approve "$PR_URL"
-      - run: gh pr merge --auto --merge "$PR_URL"
