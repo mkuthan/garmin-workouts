@@ -3,5 +3,5 @@ pyyaml==6.0
 numpy==1.24.1
 xlrd==2.0.1
 pandas==1.5.0
-cloudscraper==1.2.66
+cloudscraper==1.2.67
 pytest-httpserver==1.0.6
