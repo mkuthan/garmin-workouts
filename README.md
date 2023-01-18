@@ -217,3 +217,13 @@ Note: the date format is as follows : 2021-12-31
 ```shell
 python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
 ```
+
+## Username and password from environment variables
+
+Alternatively to the `-u` and `-p` arguments, it is possible to load the username and password from the `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
+
+```shell
+export GARMIN_USERNAME=username
+export GARMIN_PASSWORD=password
+python -m garminworkouts list
+```
