@@ -4,3 +4,5 @@ venv
 .coverage
 .garmin-cookies.txt
 coverage.xml
+.env
+.env.*

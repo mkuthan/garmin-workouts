@@ -232,3 +232,30 @@ Note: the date format is as follows : 2021-12-31
 ```shell
 python -m garminworkouts schedule -d [DATE] -w [WORKOUT_ID]
 ```
+
+## Username and password from environment variables
+
+Alternatively to the `-u` and `-p` arguments, it is possible to load the username and password from the `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
+
+```shell
+export GARMIN_USERNAME=username
+export GARMIN_PASSWORD=password
+python -m garminworkouts list
+```
+
+# Usage with Docker
+
+```shell
+# store your credentials in a .env file
+cat <<EOT >> .env
+GARMIN_USERNAME=user@domain.com
+GARMIN_PASSWORD=mypassword
+EOT
+# name the image
+IMAGE=garminworkouts
+# build the image
+docker build --load -t ${IMAGE} .
+# run the image (the "-v /tmp/garmin:/data" part is optional
+# and will be used to persist the cookies file)
+docker run --env-file=./.env -v /tmp/garmin:/data -ti ${IMAGE} [your command and arguments: list, export, etc.]
+```
