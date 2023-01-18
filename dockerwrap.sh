@@ -4,5 +4,5 @@ set -u
 IMAGE="${IMAGE}"
 ENVFILE="${ENVFILE-.env}"
 TMPDIR="${TMPDIR-/tmp/garmin}"
-
-exec docker run --env-file=${ENVFILE} -v ${TMPDIR}:/data -ti ${IMAGE} $@
+DATADIR="${DATADIR-./}"
+exec docker run --env-file=${ENVFILE} -v ${TMPDIR}:/tmp -v ${DATADIR}:/data/ -ti ${IMAGE} $@
