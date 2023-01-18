@@ -258,4 +258,6 @@ docker build --load -t ${IMAGE} .
 # run the image (the "-v /tmp/garmin:/data" part is optional
 # and will be used to persist the cookies file)
 docker run --env-file=./.env -v /tmp/garmin:/data -ti ${IMAGE} [your command and arguments: list, export, etc.]
+# alternatively you can use this wrapper
+./dockerwrap.sh [your command and arguments: list, export, etc.]
 ```
