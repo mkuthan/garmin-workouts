@@ -9,6 +9,7 @@ from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
 from garminworkouts.utils.validators import writeable_dir
+from garminworkouts.utils.envdefault import EnvDefault
 
 
 def command_import(args):
@@ -84,8 +85,10 @@ def _garmin_client(args):
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--username", "-u", required=True, help="Garmin Connect account username")
-    parser.add_argument("--password", "-p", required=True, help="Garmin Connect account password")
+    parser.add_argument("--username", "-u", action=EnvDefault, envvar="GARMIN_USERNAME",
+                        required=True, help="Garmin Connect account username")
+    parser.add_argument("--password", "-p", action=EnvDefault, envvar="GARMIN_PASSWORD",
+                        required=True, help="Garmin Connect account password")
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
     parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
     parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
