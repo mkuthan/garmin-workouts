@@ -53,13 +53,28 @@ Once user is authenticated [cookie jar](https://docs.python.org/3/library/http.c
 cookies for further calls.
 It is required due to strict request limits for Garmin [SSO](https://en.wikipedia.org/wiki/Single_sign-on) service.
 
+## Authentication
+
+Define Garmin connect account credentials as `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
+
+```shell
+export GARMIN_USERNAME=username
+export GARMIN_PASSWORD=password
+```
+
+Alternatively use `-u` and `-p` command line arguments:
+
+```shell
+python -m garminworkouts -u [USERNAME] -p [PASSWORD]
+```
+
 ## Import Workouts
 
 Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org) files.
 If the workout already exists it will be updated:
 
 ```shell
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
+python -m garminworkouts import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -158,7 +173,7 @@ wish to give your values in W instead of % of your FTP:
 You can then import as with the `yaml` files:
 
 ```shell
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] import --ftp [YOUR_FTP] my.workout.xlsx
+python -m garminworkouts import --ftp [YOUR_FTP] my.workout.xlsx
 ```
 
 This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
@@ -169,7 +184,7 @@ Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
 
 ```shell
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] export /mnt/GARMIN/NewFiles
+python -m garminworkouts export /mnt/GARMIN/NewFiles
 ```
 
 ## List Workouts
@@ -196,7 +211,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 Print full workout definition (as JSON):
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [WORKOUT_ID]
+$ python -m garminworkouts get --id [WORKOUT_ID]
 {"workoutId": 188952654, "ownerId": 2043461, "workoutName": "VO2MAX 5x4", "description": "FTP 214, TSS 80, NP 205, IF 0.96", "updatedDate": "2020-02-11T14:37:56.0", ...
 ```
 
@@ -205,7 +220,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] get --id [W
 Permanently delete workout from Garmin Connect:
 
 ```shell
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] delete --id [WORKOUT_ID]
+python -m garminworkouts delete --id [WORKOUT_ID]
 ```
 
 ## Schedule  Workouts
@@ -215,15 +230,5 @@ The workout number is the last digits of the URL here: 234567894
 Note: the date format is as follows : 2021-12-31
 
 ```shell
-python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] schedule -d [DATE] -w [WORKOUT_ID]
-```
-
-## Username and password from environment variables
-
-Alternatively to the `-u` and `-p` arguments, it is possible to load the username and password from the `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
-
-```shell
-export GARMIN_USERNAME=username
-export GARMIN_PASSWORD=password
-python -m garminworkouts list
+python -m garminworkouts schedule -d [DATE] -w [WORKOUT_ID]
 ```

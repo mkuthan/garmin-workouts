@@ -85,9 +85,9 @@ def _garmin_client(args):
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--username", "-u", action=EnvDefault, envvar="GARMIN_USERNAME",
+    parser.add_argument("--username", "-u", action=EnvDefault, env_var="GARMIN_USERNAME",
                         required=True, help="Garmin Connect account username")
-    parser.add_argument("--password", "-p", action=EnvDefault, envvar="GARMIN_PASSWORD",
+    parser.add_argument("--password", "-p", action=EnvDefault, env_var="GARMIN_PASSWORD",
                         required=True, help="Garmin Connect account password")
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
     parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
