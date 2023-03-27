@@ -4,44 +4,98 @@ import argparse
 import glob
 import logging
 import os
+from datetime import date, timedelta
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.workout import Workout
+from garminworkouts.models.running_workout import RunningWorkout
 from garminworkouts.utils.validators import writeable_dir
-from garminworkouts.utils.envdefault import EnvDefault
+
+import account
 
 
 def command_import(args):
     workout_files = glob.glob(args.workout)
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    workouts = [Workout(workout_config, args.ftp, args.target_power_diff) for workout_config in workout_configs]
+    target = configreader.read_config(r'pace.yaml')
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
 
     with _garmin_client(args) as connection:
-        existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
+        existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
 
         for workout in workouts:
             workout_name = workout.get_workout_name()
             existing_workout = existing_workouts_by_name.get(workout_name)
 
-            if existing_workout:
-                workout_id = Workout.extract_workout_id(existing_workout)
-                workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
-                payload = workout.create_workout(workout_id, workout_owner_id)
-                logging.info("Updating workout '%s'", workout_name)
-                connection.update_workout(workout_id, payload)
+            if workout_name.startswith("R"):
+                ind = 1
+                W=-int(workout_name[ind:workout_name.index('_')])
+                D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
             else:
-                payload = workout.create_workout()
-                logging.info("Creating workout '%s'", workout_name)
-                connection.save_workout(payload)
+                ind = 0            
+                W=int(workout_name[ind:workout_name.index('_')])
+                D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
 
+            d = account.race - timedelta(weeks = W + 1) + timedelta(days = D)
+
+            if existing_workout:
+                workout_id = RunningWorkout.extract_workout_id(existing_workout)
+                if d >= date.today() and d <= date.today() + timedelta(weeks = 2):
+                    workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
+                    payload = workout.create_workout(workout_id, workout_owner_id)
+                    logging.info("Updating workout '%s'", workout_name)
+                    connection.update_workout(workout_id, payload)
+                else:
+                    logging.info("Deleting workout '%s'", workout_name)
+                    connection.delete_workout(workout_id)
+            else:
+                if d >= date.today() and d <= date.today() + timedelta(weeks = 2):
+                    payload = workout.create_workout()
+                    logging.info("Creating workout '%s'", workout_name)
+                    connection.save_workout(payload)
+
+                    existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
+                    existing_workout = existing_workouts_by_name.get(workout_name)
+                    workout_id = RunningWorkout.extract_workout_id(existing_workout)
+                    
+                    connection.schedule_workout(workout_id, d.strftime("%Y-%m-%d"))
+
+def command_metrics(args):
+    workout_files = glob.glob(args.workout)
+
+    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
+    target = configreader.read_config(r'pace.yaml')
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
+
+    mileage = [0 for i in range(17,-6,-1)] 
+    duration = [timedelta(seconds=0) for i in range(17,-6,-1)] 
+
+    for workout in workouts:
+        workout_name = workout.get_workout_name()
+
+        if workout_name.startswith("R"):
+            ind = 1
+            W=-int(workout_name[ind:workout_name.index('_')])
+            D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+        else:
+            ind = 0            
+            W=int(workout_name[ind:workout_name.index('_')])
+            D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+
+        mileage[W] = mileage[W] + workout.mileage # type: ignore
+        duration[W] = duration[W] + workout.duration
+
+        print(workout_name,workout.mileage)
+
+    for i in range(17,-6,-1):
+        print('Week ' + str(i) + ': ' + str(mileage[i]) +' km - Duration: ' + str(duration[i]))
 
 def command_export(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            workout_id = Workout.extract_workout_id(workout)
-            workout_name = Workout.extract_workout_name(workout)
+            workout_id = RunningWorkout.extract_workout_id(workout)
+            workout_name = RunningWorkout.extract_workout_name(workout)
             file = os.path.join(args.directory, str(workout_id)) + ".fit"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout(workout_id, file)
@@ -50,7 +104,7 @@ def command_export(args):
 def command_list(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            Workout.print_workout_summary(workout)
+            RunningWorkout.print_workout_summary(workout)
 
 
 def command_schedule(args):
@@ -63,7 +117,7 @@ def command_schedule(args):
 def command_get(args):
     with _garmin_client(args) as connection:
         workout = connection.get_workout(args.id)
-        Workout.print_workout_json(workout)
+        RunningWorkout.print_workout_json(workout)
 
 
 def command_delete(args):
@@ -76,8 +130,8 @@ def _garmin_client(args):
     return GarminClient(
         connect_url=args.connect_url,
         sso_url=args.sso_url,
-        username=args.username,
-        password=args.password,
+        username=account.USERNAME,
+        password=account.PASSWORD,
         cookie_jar=args.cookie_jar
     )
 
@@ -85,10 +139,6 @@ def _garmin_client(args):
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--username", "-u", action=EnvDefault, env_var="GARMIN_USERNAME",
-                        required=True, help="Garmin Connect account username")
-    parser.add_argument("--password", "-p", action=EnvDefault, env_var="GARMIN_PASSWORD",
-                        required=True, help="Garmin Connect account password")
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
     parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
     parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
@@ -100,11 +150,13 @@ def main():
     parser_import.add_argument("workout",
                                help="File(s) with workout(s) to import, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.add_argument("--ftp", required=True, type=int,
-                               help="FTP to calculate absolute target power from relative value")
-    parser_import.add_argument("--target-power-diff", default=0.05, type=float,
-                               help="Percent of target power to calculate final target power range")
-    parser_import.set_defaults(func=command_import)
+    parser_import.set_defaults(func=command_import)    
+
+    parser_import = subparsers.add_parser("metrics", description="Get workout(s) metrics from file(s)")
+    parser_import.add_argument("workout",
+                               help="File(s) with workout(s) to import, "
+                                    "wildcards are supported e.g: sample_workouts/*.yaml")
+    parser_import.set_defaults(func=command_metrics)
 
     parser_export = subparsers.add_parser("export",
                                           description="Export all workouts from Garmin Connect and save into directory")

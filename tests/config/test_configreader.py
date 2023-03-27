@@ -11,10 +11,10 @@ class MyTestCase(unittest.TestCase):
 
         expected_config = {'name': 'Test',
                            'steps': [
-                               [{'power': 50, 'duration': '2:00'}],
+                               {'power': 50, 'duration': '2:00'},
                                [{'power': 90, 'duration': '12:00'}, {'power': 60, 'duration': '4:00'}],
                                [{'power': 90, 'duration': '12:00'}, {'power': 60, 'duration': '4:00'}],
-                               [{'power': 50, 'duration': '2:00'}]
+                               {'power': 50, 'duration': '2:00'}
                            ]}
 
         self.assertDictEqual(config, expected_config)

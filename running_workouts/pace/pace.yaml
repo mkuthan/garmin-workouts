@@ -1,8 +1,0 @@
-RECOVERY_PACE: {type: "pace", min: "5:30", max: "6:00" }
-LONG_RUN_PACE: {type: "pace", min: "4:30", max: "5:30" }
-TEMPO_PACE: {type: "pace", min: "4:45", max: "5:05" }
-10K_PACE: {type: "pace", min: "4:35", max: "4:54" }
-5K_PACE: {type: "pace", min: "4:04", max: "4:45" }
-MILE_PACE: {type: "pace", min: "4:03", max: "4:22" }
-HARD_PACE: {type: "pace", min: "4:00", max: "5:00" }
-EASY_PACE: {type: "pace", min: "5:00", max: "6:00" }
