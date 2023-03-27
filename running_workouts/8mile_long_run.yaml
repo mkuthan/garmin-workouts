@@ -1,0 +1,9 @@
+name: "8mile Long Run"
+description: "Long Run"
+
+steps:
+  - { type: "run", duration: "2.65km", target: LONG_RUN_PACE, description: "05:18 Target Pace"}
+  - { type: "run", duration: "2.65km", target: LONG_RUN_PACE, description: "05:14 Target Pace"}
+  - { type: "run", duration: "2.65km", target: LONG_RUN_PACE, description: "05:10 Target Pace"}
+  - { type: "run", duration: "2.65km", target: LONG_RUN_PACE, description: "05:06 Target Pace"}
+  - { type: "run", duration: "2.50km", target: LONG_RUN_PACE, description: "05:02 Target Pace"}

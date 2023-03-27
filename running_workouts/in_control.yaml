@@ -1,0 +1,14 @@
+name: "In Control"
+description: "Fartlek"
+
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE }
+  - &INTERVAL
+    - { type: "run", duration: "2:00", target: HARD_PACE, description: "Hard pace" }
+    - { type: "recovery", duration: "1:00", target: EASY_PACE, description: "Easy pace" }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

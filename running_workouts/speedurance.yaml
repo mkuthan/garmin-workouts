@@ -1,0 +1,15 @@
+name: "Speedurance"
+description: "Intervals"
+
+steps:
+  - { type: "warmup", duration: "7:00", target: RECOVERY_PACE }
+  - &INTERVAL
+    - { type: "run", duration: "2:00", target: 5K_PACE, description: "5K pace" }
+    - { type: "recovery", duration: "1:00", target: RECOVERY_PACE, description: "Recovery pace" }
+  - *INTERVAL
+  - *INTERVAL
+  - { type: "run", duration: "10:00", target: TEMPO_PACE, description: "Tempo pace" }
+  - { type: "recovery", duration: "2:00", target: RECOVERY_PACE, description: "Recovery pace" }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
