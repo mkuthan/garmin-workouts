@@ -1,0 +1,5 @@
+name: "12_4_Gen-aerobic"
+description: "General aerobic"
+
+steps:
+  - !include ..\..\..\inc\aerobic_13.yaml

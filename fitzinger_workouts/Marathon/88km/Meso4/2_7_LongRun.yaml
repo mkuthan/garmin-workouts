@@ -1,0 +1,5 @@
+name: "2_7_LongRun"
+description: "Long Run"
+
+steps:
+  - !include ..\..\..\inc\lr_26.yaml

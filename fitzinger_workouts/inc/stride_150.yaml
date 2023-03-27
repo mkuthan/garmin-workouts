@@ -1,0 +1,2 @@
+- { type: "run", duration: "0.15km", target: V02MAX_PACE, description: "Strides pace" }
+- { type: "recovery", duration: "0.25km", target: RECOVERY_PACE, description: "Recovery pace" }

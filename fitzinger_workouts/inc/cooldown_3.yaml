@@ -1,0 +1,1 @@
+- { type: "cooldown", duration: "3km", target: AEROBIC_PACE, description: "Aerobic pace" }

@@ -1,0 +1,10 @@
+name: "8_3_VO2max"
+description: "VO2max"
+
+steps:
+  - !include ..\..\..\inc\warmup.yaml
+  - !include ..\..\..\inc\800.yaml
+  - !include ..\..\..\inc\800.yaml
+  - !include ..\..\..\inc\800.yaml
+  - !include ..\..\..\inc\800.yaml
+  - !include ..\..\..\inc\800.yaml

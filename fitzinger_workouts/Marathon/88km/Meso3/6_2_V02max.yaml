@@ -1,0 +1,11 @@
+name: "6_2_VO2max"
+description: "VO2max"
+
+steps:
+  - !include ..\..\..\inc\warmup.yaml
+  - !include ..\..\..\inc\600.yaml
+  - !include ..\..\..\inc\600.yaml
+  - !include ..\..\..\inc\600.yaml
+  - !include ..\..\..\inc\600.yaml
+  - !include ..\..\..\inc\600.yaml
+  - !include ..\..\..\inc\cooldown_6.yaml

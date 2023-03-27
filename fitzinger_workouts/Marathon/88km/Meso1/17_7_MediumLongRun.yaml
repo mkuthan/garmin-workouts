@@ -1,0 +1,5 @@
+name: "17_7_MedLong Run"
+description: "Medium Long Run"
+
+steps:
+  - !include ..\..\..\inc\lr_19.yaml

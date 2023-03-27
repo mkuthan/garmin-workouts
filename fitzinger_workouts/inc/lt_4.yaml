@@ -1,0 +1,1 @@
+- { type: "run", duration: "4km", target: HALF_MARATHON_PACE, description: "Threshold pace" }

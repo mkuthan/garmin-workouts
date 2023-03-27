@@ -1,0 +1,7 @@
+name: "10_5_LT"
+description: "Lactate threshold"
+
+steps:
+  - !include ..\..\..\inc\warmup.yaml
+  - !include ..\..\..\inc\lt_10.yaml
+  - !include ..\..\..\inc\cooldown_2.yaml

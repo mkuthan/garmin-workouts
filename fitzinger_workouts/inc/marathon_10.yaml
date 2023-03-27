@@ -1,0 +1,1 @@
+- { type: "run", duration: "10km", target: MARATHON_PACE, description: "Marathon pace run" }
