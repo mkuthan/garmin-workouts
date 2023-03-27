@@ -1,0 +1,15 @@
+name: "12_2_general aerobic and speed"
+description: "General aerobic and speed"
+
+steps:
+  - !include ..\..\..\inc\aerobic_13.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml

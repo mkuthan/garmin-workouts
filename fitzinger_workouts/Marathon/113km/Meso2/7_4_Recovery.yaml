@@ -1,0 +1,5 @@
+name: "7_4_Recovery"
+description: "Recovery"
+
+steps:
+  - !include ..\..\..\inc\recovery_10.yaml

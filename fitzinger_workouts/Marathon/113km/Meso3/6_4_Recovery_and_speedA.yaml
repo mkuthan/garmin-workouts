@@ -1,0 +1,11 @@
+name: "6_4_Recovery_and_speedA"
+description: "Recovery and speed"
+
+steps:
+  - !include ..\..\..\inc\recovery_10.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
