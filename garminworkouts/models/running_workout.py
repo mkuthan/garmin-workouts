@@ -82,18 +82,23 @@ class RunningWorkout(object):
         meters = 0
 
         for step in flatten_steps:
-            duration = self._get_duration(step)
+            duration = self._get_duration(step)            
             t2 = self._target_value_two(step)
             t1 = self._target_value_one(step)
-            t0 = t1 + 1 *(t2 - t1) # type: ignore
+            if 'ZONE' in step['target']:                     
+               t2 = round((t2 - fmin) / (fmax - fmin),2) / vVO2 * 1000
+               t1 = round((t1 - fmin) / (fmax - fmin),2) / vVO2 * 1000
+                           
+            t0 = min(t1,t2) # type: ignore
+            duration_secs = 0
             
             if duration:
                 if self._end_condition(step)['conditionTypeKey']=='time':
                     duration_secs = self._end_condition_value(step)
-                    duration_meters = duration_secs * t0
+                    duration_meters = round(duration_secs * t0)
                 if self._end_condition(step)['conditionTypeKey']=='distance':
                     duration_meters = self._end_condition_value(step)
-                    duration_secs = duration_meters / t0 
+                    duration_secs = round(duration_meters / t0)
             
             sec = sec + duration_secs # type: ignore
             meters = meters + duration_meters # type: ignore
@@ -101,6 +106,7 @@ class RunningWorkout(object):
         self.ratio = round(self.vVO2 / (sec / meters * 1000) * 100)
         self.duration = datetime.timedelta(seconds=(sec//60)*60)
         self.mileage = round(meters/1000, 2)
+        self.tss = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
   
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
@@ -303,7 +309,7 @@ class RunningWorkout(object):
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
-        description = self.config.get('description') + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2'
+        description = self.config.get('description') + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2. rTSS: ' + str(self.tss).format('2:2f')
 
         if description:
             return description

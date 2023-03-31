@@ -70,6 +70,7 @@ def command_metrics(args):
 
     mileage = [0 for i in range(17,-6,-1)] 
     duration = [timedelta(seconds=0) for i in range(17,-6,-1)] 
+    tss = [0 for i in range(17,-6,-1)] 
 
     for workout in workouts:
         workout_name = workout.get_workout_name()
@@ -85,11 +86,12 @@ def command_metrics(args):
 
         mileage[W] = mileage[W] + workout.mileage # type: ignore
         duration[W] = duration[W] + workout.duration
+        tss[W] = tss[W] + workout.tss
 
-        print(workout_name,workout.mileage)
+        print(workout_name,round(workout.mileage,2),round(workout.tss,2))
 
     for i in range(17,-6,-1):
-        print('Week ' + str(i) + ': ' + str(mileage[i]) +' km - Duration: ' + str(duration[i]))
+        print('Week ' + str(i) + ': ' + str(round(mileage[i])) +' km - Duration: ' + str(duration[i]) + ' - rTSS: ' + str(tss[i]))
 
 def command_export(args):
     with _garmin_client(args) as connection:
