@@ -1,0 +1,5 @@
+name: "0_7 Race"
+description: "Half Marathon goal race"
+
+steps:
+  - !include ..\..\inc\race_half_sub_1_40.yaml
