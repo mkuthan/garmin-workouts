@@ -208,7 +208,7 @@ class RunningWorkout(object):
         return {
             "type": "ExecutableStepDTO",
             "stepOrder": step_order,
-            "stepType": self._INTERVAL_STEP_TYPE,
+            "stepType": self._get_step_type(step_config),# type: ignore
             "childStepId": child_step_id,
             "endCondition": self._end_condition(step_config),
             "endConditionValue": self._end_condition_value(step_config),
