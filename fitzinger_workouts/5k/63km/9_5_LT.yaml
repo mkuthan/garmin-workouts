@@ -1,0 +1,13 @@
+name: "9_5 LT"
+description: "Lactate threshold"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - { type: "run", duration: "8:00", target: THRESHOLD_PACE, description: "LT run" }
+  - { type: "run", duration: "3:00", target: RECOVERY_PACE, description: "Recovery run" }
+  - { type: "run", duration: "8:00", target: THRESHOLD_PACE, description: "LT run" }
+  - { type: "run", duration: "3:00", target: RECOVERY_PACE, description: "Recovery run" }
+  - { type: "run", duration: "8:00", target: THRESHOLD_PACE, description: "LT run" }
+  - { type: "run", duration: "3:00", target: RECOVERY_PACE, description: "Recovery run" }
+  - { type: "run", duration: "8:00", target: THRESHOLD_PACE, description: "LT run" }
+  - { type: "run", duration: "3:00", target: RECOVERY_PACE, description: "Recovery run" }

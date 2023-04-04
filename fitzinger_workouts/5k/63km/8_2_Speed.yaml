@@ -1,0 +1,15 @@
+name: "8_2 Speed"
+description: "Speed"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - { type: "recovery", duration: "4:00", target: RECOVERY_PACE, description: "Recovery pace" }
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\200.yaml
+  - !include ..\..\inc\cooldown_3.yaml

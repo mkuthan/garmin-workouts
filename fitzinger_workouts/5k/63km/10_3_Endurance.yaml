@@ -1,0 +1,5 @@
+name: "10_3 Endurance"
+description: "Endurance"
+
+steps:
+  - !include ..\..\inc\lr_13.yaml

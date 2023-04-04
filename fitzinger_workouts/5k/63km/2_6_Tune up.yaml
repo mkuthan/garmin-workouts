@@ -1,0 +1,6 @@
+name: "2_6_Tune up"
+description: "Tune up"
+
+steps:
+  - { type: "run", duration: "3km", target: 5KM_PACE, description: "1K pace" }
+  - !include ..\..\inc\aerobic_10.yaml
