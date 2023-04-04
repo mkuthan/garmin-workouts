@@ -1,2 +1,2 @@
 - { type: "run", duration: "1km", target: 5KM_PACE, description: "5K pace" }
-- { type: "recovery", duration: "3:30", target: AEROBIC_PACE, description: "Aerobic pace" }
+- { type: "recovery", duration: "2:15", target: AEROBIC_PACE, description: "Aerobic pace" }
