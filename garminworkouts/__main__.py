@@ -69,9 +69,9 @@ def command_metrics(args):
     target = configreader.read_config(r'pace.yaml')
     workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
 
-    mileage = [0 for i in range(17,-6,-1)] 
-    duration = [timedelta(seconds=0) for i in range(17,-6,-1)] 
-    tss = [0 for i in range(17,-6,-1)] 
+    mileage = [0 for i in range(24,-6,-1)] 
+    duration = [timedelta(seconds=0) for i in range(24,-6,-1)] 
+    tss = [0 for i in range(24,-6,-1)] 
 
     for workout in workouts:
         workout_name = workout.get_workout_name()
@@ -79,11 +79,9 @@ def command_metrics(args):
         if workout_name.startswith("R"):
             ind = 1
             W=-int(workout_name[ind:workout_name.index('_')])
-            D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
         else:
             ind = 0            
             W=int(workout_name[ind:workout_name.index('_')])
-            D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
 
         mileage[W] = mileage[W] + workout.mileage # type: ignore
         duration[W] = duration[W] + workout.duration
@@ -91,8 +89,9 @@ def command_metrics(args):
 
         print(workout_name,round(workout.mileage,2),round(workout.tss,2))
 
-    for i in range(17,-6,-1):
-        print('Week ' + str(i) + ': ' + str(round(mileage[i])) +' km - Duration: ' + str(duration[i]) + ' - rTSS: ' + str(tss[i]))
+    for i in range(24,-6,-1):
+        if mileage[i] > 0:
+            print('Week ' + str(i) + ': ' + str(round(mileage[i])) +' km - Duration: ' + str(duration[i]) + ' - rTSS: ' + str(tss[i]))
 
 def command_export(args):
     with _garmin_client(args) as connection:
