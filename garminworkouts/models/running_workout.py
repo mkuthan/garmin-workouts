@@ -69,7 +69,7 @@ class RunningWorkout(object):
         "workoutTargetTypeKey": "heart.rate.zone",
     }
 
-    def __init__(self, config, target, vVO2, fmin, fmax, duration = None, mileage = None):
+    def __init__(self, config, target, vVO2, fmin, fmax, duration = None):
         self.config = config
         self.target = target
         self.vVO2 = vVO2
@@ -284,6 +284,11 @@ class RunningWorkout(object):
 
     def _target_type(self, step_config):
         target = step_config.get("target")
+        if ">" in target:
+            d, target = target.split(">")
+        elif "<" in target:
+            d, target = target.split("<")
+
         if not target:
             return self._NO_TARGET_TYPE_KEY
         if target not in self.target:
@@ -297,7 +302,14 @@ class RunningWorkout(object):
         if not target:
             return None
         if target not in self.target:
-            return None
+            if ">" in target:
+                d, target = target.split(">")
+                return 1000.0/(1000.0/self._get_target_value(target, key='min') - float(d)) # type: ignore
+            elif "<" in target:                
+                d, target = target.split("<")
+                return 1000.0/(1000.0/self._get_target_value(target, key='min') + float(d)) # type: ignore
+            else:
+                return None
         return self._get_target_value(target, key='min')
 
     def _target_value_two(self, step_config):
@@ -305,7 +317,14 @@ class RunningWorkout(object):
         if not target:
             return None
         if target not in self.target:
-            return None
+            if ">" in target:
+                d, target = target.split(">")
+                return 1000.0/(1000.0/self._get_target_value(target, key='max') - float(d)) # type: ignore
+            elif "<" in target:                
+                d, target = target.split("<")
+                return 1000.0/(1000.0/self._get_target_value(target, key='max') + float(d)) # type: ignore
+            else:
+                return None
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
