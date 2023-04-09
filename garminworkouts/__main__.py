@@ -41,16 +41,17 @@ def command_import(args):
 
             if existing_workout:
                 workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                if d >= date.today() and d <= date.today() + timedelta(weeks = 2):
-                    workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
-                    payload = workout.create_workout(workout_id, workout_owner_id)
-                    logging.info("Updating workout '%s'", workout_name)
-                    connection.update_workout(workout_id, payload)
+                if d >= date.today():
+                    if  d <= date.today() + timedelta(weeks = 2):
+                        workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
+                        payload = workout.create_workout(workout_id, workout_owner_id)
+                        logging.info("Updating workout '%s'", workout_name)
+                        connection.update_workout(workout_id, payload)
                 else:
                     logging.info("Deleting workout '%s'", workout_name)
                     connection.delete_workout(workout_id)
             else:
-                if d >= date.today() and d <= date.today() + timedelta(weeks = 2):
+                if d >= date.today():
                     payload = workout.create_workout()
                     logging.info("Creating workout '%s'", workout_name)
                     connection.save_workout(payload)
