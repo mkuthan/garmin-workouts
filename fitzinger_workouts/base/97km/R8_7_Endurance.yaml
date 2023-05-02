@@ -1,0 +1,5 @@
+name: "R8_7_Endurance"
+description: "Endurance"
+
+steps:
+  - !include ..\..\inc\lr_23.yaml

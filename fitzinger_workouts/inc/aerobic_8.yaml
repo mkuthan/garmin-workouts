@@ -1,1 +1,1 @@
-- { type: "run", duration: "9km", target: AEROBIC_PACE, description: "Aerobic pace" }
+- { type: "run", duration: "8km", target: AEROBIC_PACE, description: "Aerobic pace" }

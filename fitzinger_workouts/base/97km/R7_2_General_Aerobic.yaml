@@ -1,0 +1,5 @@
+name: "R7_2_General aerobic"
+description: "General aerobic"
+
+steps:
+  - !include ..\..\inc\aerobic_16.yaml
