@@ -2,4 +2,4 @@ name: "0_7_Marathon"
 description: "Marathon"
 
 steps:
-  - !include ..\..\..\inc\race_marathon_sub_4.yaml
+  - !include ..\..\..\inc\race_marathon_sub_3_40.yaml
