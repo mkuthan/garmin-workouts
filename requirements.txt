@@ -1,6 +1,6 @@
 requests==2.29.0
 pyyaml==6.0
-numpy==1.24.2
+numpy==1.24.3
 xlrd==2.0.1
 pandas==2.0.0
 cloudscraper==1.2.69
