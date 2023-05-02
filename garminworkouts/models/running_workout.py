@@ -85,9 +85,14 @@ class RunningWorkout(object):
             duration = self._get_duration(step)            
             t2 = self._target_value_two(step)
             t1 = self._target_value_one(step)
-            if 'ZONE' in step['target']:                     
-               t2 = round((t2 - fmin) / (fmax - fmin),2) / vVO2 * 1000
-               t1 = round((t1 - fmin) / (fmax - fmin),2) / vVO2 * 1000
+
+            try:
+                if 'ZONE' in step['target']:                     
+                    t2 = round((t2 - fmin) / (fmax - fmin),2) / vVO2 * 1000
+                    t1 = round((t1 - fmin) / (fmax - fmin),2) / vVO2 * 1000
+            except:
+                t2 = 0
+                t1 = 0
                            
             t0 = min(t1,t2) # type: ignore
             duration_secs = 0
@@ -103,7 +108,10 @@ class RunningWorkout(object):
             sec = sec + duration_secs # type: ignore
             meters = meters + duration_meters # type: ignore
         
-        self.ratio = round(self.vVO2 / (sec / meters * 1000) * 100)
+        try:
+            self.ratio = round(self.vVO2 / (sec / meters * 1000) * 100)
+        except:
+            self.ratio = 0
         self.duration = datetime.timedelta(seconds=(sec//60)*60)
         self.mileage = round(meters/1000, 2)
         self.tss = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
@@ -328,7 +336,7 @@ class RunningWorkout(object):
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
-        description = self.config.get('description') + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2. rTSS: ' + str(self.tss).format('2:2f')
+        description = self.config.get('description') + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2. rTSS: ' + str(self.tss).format('2:2f') # type: ignore
 
         if description:
             return description
