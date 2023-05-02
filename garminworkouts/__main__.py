@@ -14,6 +14,30 @@ from garminworkouts.utils.validators import writeable_dir
 import account
 
 
+def command_reset(args):
+    workout_files = glob.glob(args.workout)
+
+    if not workout_files:
+        planning = configreader.read_config(r'planning.yaml')
+        workout_files = glob.glob(planning[args.workout]['workouts'])
+
+    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
+    target = configreader.read_config(r'pace.yaml')
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
+
+    with _garmin_client(args) as connection:
+        existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
+
+        for workout in workouts:
+            workout_name = workout.get_workout_name()
+            existing_workout = existing_workouts_by_name.get(workout_name)   
+
+            if existing_workout:
+                workout_id = RunningWorkout.extract_workout_id(existing_workout)                
+                logging.info("Deleting workout '%s'", workout_name)
+                connection.delete_workout(workout_id)
+
+
 def command_import(args):
     workout_files = glob.glob(args.workout)
 
@@ -147,6 +171,12 @@ def main():
     parser.add_argument("--debug", action='store_true', help="Enables more detailed messages")
 
     subparsers = parser.add_subparsers(title="Commands")
+
+    parser_import = subparsers.add_parser("reset", description="Reset workout(s) from file(s) into Garmin Connect")
+    parser_import.add_argument("workout",
+                               help="File(s) with workout(s) to reset, "
+                                    "wildcards are supported e.g: sample_workouts/*.yaml")
+    parser_import.set_defaults(func=command_reset)   
 
     parser_import = subparsers.add_parser("import", description="Import workout(s) from file(s) into Garmin Connect")
     parser_import.add_argument("workout",
