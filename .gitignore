@@ -6,3 +6,4 @@ venv
 coverage.xml
 account.py
 *.json
+planning.yaml

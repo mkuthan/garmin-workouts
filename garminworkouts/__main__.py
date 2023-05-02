@@ -40,6 +40,12 @@ def command_reset(args):
 
 def command_import(args):
     workout_files = glob.glob(args.workout)
+    race = account.race
+    
+    if not workout_files:
+        planning = configreader.read_config(r'planning.yaml')
+        workout_files = glob.glob(planning[args.workout]['workouts'])
+        race =  date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])    
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
@@ -61,7 +67,7 @@ def command_import(args):
                 W=int(workout_name[ind:workout_name.index('_')])
                 D=int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
 
-            d = account.race - timedelta(weeks = W + 1) + timedelta(days = D)
+            d = race - timedelta(weeks = W + 1) + timedelta(days = D)
 
             if existing_workout:
                 workout_id = RunningWorkout.extract_workout_id(existing_workout)
@@ -84,10 +90,14 @@ def command_import(args):
                     existing_workout = existing_workouts_by_name.get(workout_name)
                     workout_id = RunningWorkout.extract_workout_id(existing_workout)
                     
-                    connection.schedule_workout(workout_id, d.strftime("%Y-%m-%d"))
+                    connection.schedule_workout(workout_id, d.isoformat())
 
 def command_metrics(args):
     workout_files = glob.glob(args.workout)
+
+    if not workout_files:
+        planning = configreader.read_config(r'planning.yaml')
+        workout_files = glob.glob(planning[args.workout]['workouts'])
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
@@ -102,10 +112,10 @@ def command_metrics(args):
 
         if workout_name.startswith("R"):
             ind = 1
-            W=-int(workout_name[ind:workout_name.index('_')])
+            W = -int(workout_name[ind:workout_name.index('_')])
         else:
             ind = 0            
-            W=int(workout_name[ind:workout_name.index('_')])
+            W = int(workout_name[ind:workout_name.index('_')])
 
         mileage[W] = mileage[W] + workout.mileage # type: ignore
         duration[W] = duration[W] + workout.duration
