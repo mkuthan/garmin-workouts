@@ -1,0 +1,7 @@
+name: "5_3 LT"
+description: "Lactate threshold"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - { type: "run", duration: "3km", target: AEROBIC_PACE, description: "Aerobic run" }
+  - { type: "run", duration: "40:00", target: THRESHOLD_PACE, description: "LT run" }

@@ -1,0 +1,15 @@
+name: "5_6 General aerobic and speed"
+description: "General aerobic and speed"
+
+steps:
+  - !include ..\..\inc\aerobic_11.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml

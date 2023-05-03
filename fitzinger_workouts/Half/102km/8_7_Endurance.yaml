@@ -1,0 +1,5 @@
+name: "8_7 Progression"
+description: "Progression"
+
+steps:
+  - !include ..\..\inc\lr_18.yaml

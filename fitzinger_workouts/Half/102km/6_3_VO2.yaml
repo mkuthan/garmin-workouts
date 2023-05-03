@@ -1,0 +1,11 @@
+name: "6_3 VO2"
+description: "VO2"
+
+steps:  
+  - !include ..\..\inc\aerobic_7.yaml
+  - !include ..\..\inc\1200.yaml
+  - !include ..\..\inc\1200.yaml
+  - !include ..\..\inc\1200.yaml
+  - !include ..\..\inc\1000.yaml
+  - !include ..\..\inc\1000.yaml
+  - !include ..\..\inc\1000.yaml

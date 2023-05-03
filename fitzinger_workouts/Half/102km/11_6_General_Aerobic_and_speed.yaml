@@ -1,0 +1,18 @@
+name: "11_6 General aerobic and speed"
+description: "General aerobic and speed"
+
+steps:
+  - !include ..\..\inc\aerobic_7.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - { type: "run", duration: "4:00", target: RECOVERY_PACE, description: "Recovery run" }
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml
+  - !include ..\..\inc\stride.yaml

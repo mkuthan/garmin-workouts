@@ -1,0 +1,6 @@
+name: "7_7 Progression"
+description: "Progression"
+
+steps:
+  - !include ..\..\inc\lr_18.yaml
+  - { type: "run", duration: "5km", target: THRESHOLD_PACE, description: "LT run" }
