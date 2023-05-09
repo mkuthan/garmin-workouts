@@ -1,4 +1,4 @@
-RECOVERY_PACE: {type: "pace", min: "0.7", max: "0.64" }
+RECOVERY_PACE: {type: "pace", min: "0.7", max: "0.59" }
 AEROBIC_PACE:  {type: "pace", min: "0.75", max: "0.64" }
 LONG_RUN_PACE: {type: "pace", min: "0.78", max: "0.69" }
 MARATHON_PACE: {type: "pace", min: "0.83", max: "0.73" }
