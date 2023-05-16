@@ -69,12 +69,13 @@ class RunningWorkout(object):
         "workoutTargetTypeKey": "heart.rate.zone",
     }
 
-    def __init__(self, config, target, vVO2, fmin, fmax, duration = None):
+    def __init__(self, config, target, vVO2, fmin, fmax, plan, duration = None):
         self.config = config
         self.target = target
         self.vVO2 = vVO2
         self.fmin = fmin
         self.fmax = fmax
+        self.plan = plan
 
         flatten_steps = functional.flatten(self.config["steps"])
 
@@ -336,7 +337,7 @@ class RunningWorkout(object):
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
-        description = self.config.get('description') + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2. rTSS: ' + str(self.tss).format('2:2f') # type: ignore
+        description = self.config.get('description') + '. Plan: ' + self.plan + '. Estimated Duration: ' + str(self.duration) + '; ' + str(self.mileage).format('2:2f') + ' km. ' + str(round(self.ratio,2)).format('2:2f') +'% vVO2. rTSS: ' + str(self.tss).format('2:2f') # type: ignore
 
         if description:
             return description

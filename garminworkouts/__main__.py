@@ -20,10 +20,13 @@ def command_reset(args):
     if not workout_files:
         planning = configreader.read_config(r'planning.yaml')
         workout_files = glob.glob(planning[args.workout]['workouts'])
+        plan = args.workout
+    else:
+        plan = ''
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan) for workout_config in workout_configs]
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -47,11 +50,13 @@ def command_import(args):
             planning = configreader.read_config(r'planning.yaml')
             workout_files = glob.glob(planning[args.workout]['workouts'])
             race =  date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])    
+            plan = args.workout
         except:
             print(args.workout + ' not found in planning, please check "planning.yaml"')
+            plan = ''
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan) for workout_config in workout_configs] # type: ignore
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -73,15 +78,16 @@ def command_import(args):
 
             if existing_workout:
                 workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                if d >= date.today():
-                    if  d <= date.today() + timedelta(weeks = 2):
-                        workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
-                        payload = workout.create_workout(workout_id, workout_owner_id)
-                        logging.info("Updating workout '%s'", workout_name)
-                        connection.update_workout(workout_id, payload)
-                else:
-                    logging.info("Deleting workout '%s'", workout_name)
-                    connection.delete_workout(workout_id)
+                if plan in RunningWorkout.extract_workout_description(existing_workout): # type: ignore
+                    if d >= date.today():
+                        if  d <= date.today() + timedelta(weeks = 2):
+                            workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
+                            payload = workout.create_workout(workout_id, workout_owner_id)
+                            logging.info("Updating workout '%s'", workout_name)
+                            connection.update_workout(workout_id, payload)
+                    else:
+                        logging.info("Deleting workout '%s'", workout_name)
+                        connection.delete_workout(workout_id)
             else:
                 if d >= date.today():
                     payload = workout.create_workout()
@@ -103,7 +109,7 @@ def command_metrics(args):
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs]
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax) for workout_config in workout_configs] # type: ignore
 
     mileage = [0 for i in range(24,-11,-1)] 
     duration = [timedelta(seconds=0) for i in range(24,-11,-1)] 
