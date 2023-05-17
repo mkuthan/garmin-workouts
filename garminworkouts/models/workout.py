@@ -4,6 +4,7 @@ from garminworkouts.models.duration import Duration
 from garminworkouts.models.power import Power
 from garminworkouts.utils import functional, math
 
+
 class Workout(object):
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
@@ -112,7 +113,7 @@ class Workout(object):
         for step_config in steps_config[1:]:
             (repeats, prev_step_config) = steps_config_agg[-1]
             if prev_step_config == step_config:  # repeated step
-                steps_config_agg[-1] = (repeats + 1, step_config) # type: ignore
+                steps_config_agg[-1] = (repeats + 1, step_config)  # type: ignore
             else:
                 steps_config_agg.append((1, step_config))
 

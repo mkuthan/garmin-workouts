@@ -8,10 +8,10 @@ class Duration:
     def to_seconds(self):
         if self._has_hours():
             hours, minutes, seconds = self._tokenize()
-            return self._to_seconds(seconds, minutes, hours) # type: ignore
+            return self._to_seconds(seconds, minutes, hours)  # type: ignore
         elif self._has_minutes():
             minutes, seconds = self._tokenize()
-            return self._to_seconds(seconds, minutes) # type: ignore
+            return self._to_seconds(seconds, minutes)  # type: ignore
         elif self._has_seconds():
             [seconds] = self._tokenize()
             return self._to_seconds(seconds)
@@ -22,7 +22,7 @@ class Duration:
         return self.duration.split(":")
 
     def _has_seconds(self):
-        if not 'km' in self.duration:
+        if 'km' not in self.duration:
             return len(self._tokenize()) == 1
         else:
             return 0
