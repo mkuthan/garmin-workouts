@@ -1,8 +1,7 @@
 Garmin Connect Workouts Tools
 ================
 
-[![CI](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/mkuthan/garmin-workouts/branch/master/graph/badge.svg?token=ZC7VITLNHF)](https://codecov.io/gh/mkuthan/garmin-workouts)
+[![CI](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml)
 
 Command line tools for managing Garmin Connect workouts.
 
@@ -24,7 +23,7 @@ Requirements:
 Clone this repo:
 
 ```shell
-git clone https://github.com/mkuthan/garmin-workouts.git
+git clone https://github.com/OscarSalgado/garmin-workouts.git
 ```
 
 Use the venv command to create a virtual copy of the entire Python installation.:
