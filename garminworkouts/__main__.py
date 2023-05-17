@@ -50,14 +50,14 @@ def command_import(args):
         try:
             planning = configreader.read_config(r'planning.yaml')
             workout_files = glob.glob(planning[args.workout]['workouts'])
-            race =  date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
+            race = date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
             plan = args.workout
         except ValueError:
             print(args.workout + ' not found in planning, please check "planning.yaml"')
             plan = ''
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan) # type: ignore
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan)  # type: ignore
                 for workout_config in workout_configs]
 
     with _garmin_client(args) as connection:
@@ -76,13 +76,13 @@ def command_import(args):
                 week = int(workout_name[ind:workout_name.index('_')])
                 day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
 
-            day_d = race - timedelta(weeks = week + 1) + timedelta(days = day)
+            day_d = race - timedelta(weeks=week + 1) + timedelta(days=day)
 
             if existing_workout:
                 workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                if plan in RunningWorkout.extract_workout_description(existing_workout): # type: ignore
+                if plan in RunningWorkout.extract_workout_description(existing_workout):  # type: ignore
                     if day_d >= date.today():
-                        if  day_d <= date.today() + timedelta(weeks = 2):
+                        if day_d <= date.today() + timedelta(weeks=2):
                             workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
                             payload = workout.create_workout(workout_id, workout_owner_id)
                             logging.info("Updating workout '%s'", workout_name)
@@ -100,8 +100,8 @@ def command_import(args):
                                                  for w in connection.list_workouts()}
                     existing_workout = existing_workouts_by_name.get(workout_name)
                     workout_id = RunningWorkout.extract_workout_id(existing_workout)
-
                     connection.schedule_workout(workout_id, day_d.isoformat())
+
 
 def command_metrics(args):
     workout_files = glob.glob(args.workout)
@@ -113,11 +113,11 @@ def command_metrics(args):
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
     workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan=None)
-                for workout_config in workout_configs] # type: ignore
+                for workout_config in workout_configs]  # type: ignore
 
-    mileage = [0 for i in range(24,-11,-1)]
-    duration = [timedelta(seconds=0) for i in range(24,-11,-1)]
-    tss = [0 for i in range(24,-11,-1)]
+    mileage = [0 for i in range(24, -11, -1)]
+    duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
+    tss = [0 for i in range(24, -11, -1)]
 
     for workout in workouts:
         workout_name = workout.get_workout_name()
@@ -129,16 +129,17 @@ def command_metrics(args):
             ind = 0
             week = int(workout_name[ind:workout_name.index('_')])
 
-        mileage[week] = mileage[week] + workout.mileage # type: ignore
+        mileage[week] = mileage[week] + workout.mileage  # type: ignore
         duration[week] = duration[week] + workout.duration
         tss[week] = tss[week] + workout.tss
 
-        print(workout_name,round(workout.mileage,2),round(workout.tss,2))
+        print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
-    for i in range(24,-11,-1):
+    for i in range(24, -11, -1):
         if mileage[i] > 0:
-            print('Week ' + str(i) + ': ' + str(round(mileage[i],2)) +
+            print('Week ' + str(i) + ': ' + str(round(mileage[i], 2)) +
                   ' km - Duration: ' + str(duration[i]) + ' - rTSS: ' + str(tss[i]))
+
 
 def command_export(args):
     with _garmin_client(args) as connection:
