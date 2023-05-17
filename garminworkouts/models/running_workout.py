@@ -340,12 +340,12 @@ class RunningWorkout(object):
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
-        description = self.config.get('description')\
-            + '. Plan: ' + self.plan\
-            + '. Estimated Duration: ' + str(self.duration) + '; '\
-            + str(self.mileage).format('2:2f') + ' km. '\
-            + str(round(self.ratio, 2)).format('2:2f')\
-            + '% vVO2. rTSS: ' + str(self.tss).format('2:2f')  # type: ignore
+        description = (self.config.get('description')
+                       + '. Plan: ' + self.plan
+                       + '. Estimated Duration: ' + str(self.duration) + '; '
+                       + str(self.mileage).format('2:2f') + ' km. '
+                       + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. rTSS: '
+                       + str(self.tss).format('2:2f'))  # type: ignore
 
         if description:
             return description

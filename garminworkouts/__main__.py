@@ -15,14 +15,7 @@ import account
 
 
 def command_reset(args):
-    workout_files = glob.glob(args.workout)
-
-    if not workout_files:
-        planning = configreader.read_config(r'planning.yaml')
-        workout_files = glob.glob(planning[args.workout]['workouts'])
-        plan = args.workout
-    else:
-        plan = ''
+    workout_files, race, plan = setting(args, account)  # type: ignore
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
@@ -43,22 +36,7 @@ def command_reset(args):
 
 
 def command_import(args):
-    workout_files = glob.glob(args.workout)
-    race = account.race
-
-    if not workout_files:
-        try:
-            planning = configreader.read_config(r'planning.yaml')
-            workout_files = glob.glob(planning[args.workout]['workouts'])
-            race = date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
-            plan = args.workout
-        except ValueError:
-            print(args.workout + ' not found in planning, please check "planning.yaml"')
-            plan = ''
-    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan)  # type: ignore
-                for workout_config in workout_configs]
+    workouts, race, plan = setting(args, account)  # type: ignore
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -104,16 +82,7 @@ def command_import(args):
 
 
 def command_metrics(args):
-    workout_files = glob.glob(args.workout)
-
-    if not workout_files:
-        planning = configreader.read_config(r'planning.yaml')
-        workout_files = glob.glob(planning[args.workout]['workouts'])
-
-    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan=None)
-                for workout_config in workout_configs]  # type: ignore
+    workouts, race, plan = setting(args, account)  # type: ignore
 
     mileage = [0 for i in range(24, -11, -1)]
     duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
@@ -182,6 +151,28 @@ def _garmin_client(args):
         password=account.PASSWORD,
         cookie_jar=args.cookie_jar
     )
+
+
+def setting(args, account):
+    workout_files = glob.glob(args.workout)
+
+    if not workout_files:
+        try:
+            planning = configreader.read_config(r'planning.yaml')
+            workout_files = glob.glob(planning[args.workout]['workouts'])
+            race = date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
+            plan = args.workout
+        except KeyError:
+            print(args.workout + ' not found in planning, please check "planning.yaml"')
+            race = account.race
+            plan = ''
+
+    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
+    target = configreader.read_config(r'pace.yaml')
+    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan)  # type: ignore
+                for workout_config in workout_configs]
+
+    return workouts, race, plan  # type: ignore
 
 
 def main():
