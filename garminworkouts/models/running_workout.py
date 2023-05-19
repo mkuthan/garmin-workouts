@@ -212,7 +212,7 @@ class RunningWorkout(object):
     def _interval_step(self, step_config, child_step_id, step_order):
         return WorkoutStep(order=step_order,
                            child_step_id=child_step_id,
-                           step_type=self._get_step_type(step_config)['stepTypeKey'],
+                           step_type=step_config['type'],
                            end_condition=self._end_condition(step_config)['conditionTypeKey'],
                            end_condition_value=step_config['duration'],
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
@@ -259,7 +259,7 @@ class RunningWorkout(object):
         if duration:
             if self._str_is_time(duration):
                 return self.get_end_condition("time")
-            if self._str_is_distance(duration):
+            elif self._str_is_distance(duration):
                 return self.get_end_condition("distance")
         return self.get_end_condition("lap.button")
 
