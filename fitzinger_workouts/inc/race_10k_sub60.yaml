@@ -1,2 +1,2 @@
-- { type: "run", duration: "7km", target: ZONE_3, description: "10k run" }
-- { type: "run", duration: "3km", target: ZONE_4, description: "10k run" }
+- { type: "run", duration: "7km", target: HEART_RATE_ZONE_3, description: "10k run" }
+- { type: "run", duration: "3km", target: HEART_RATE_ZONE_4, description: "10k run" }

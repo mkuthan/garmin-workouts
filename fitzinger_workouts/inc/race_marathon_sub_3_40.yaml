@@ -1,3 +1,3 @@
-- { type: "run", duration: "10km", target: ZONE_1, description: "Marathon run" }
-- { type: "run", duration: "25km", target: ZONE_2, description: "Marathon run" }
-- { type: "run", duration: "7.2km", target: ZONE_3, description: "Marathon run" }
+- { type: "run", duration: "10km", target: HEART_RATE_ZONE_1, description: "Marathon run" }
+- { type: "run", duration: "25km", target: HEART_RATE_ZONE_2, description: "Marathon run" }
+- { type: "run", duration: "7.2km", target: HEART_RATE_ZONE_3, description: "Marathon run" }

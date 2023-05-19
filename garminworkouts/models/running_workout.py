@@ -59,7 +59,7 @@ class RunningWorkout(object):
             t1 = self._target_value_one(step)
 
             try:
-                if 'ZONE' in step['target']:
+                if 'HEART_RATE_ZONE' in step['target']:
                     t2 = round((t2 - fmin) / (fmax - fmin), 2) / vVO2 * 1000
                     t1 = round((t1 - fmin) / (fmax - fmin), 2) / vVO2 * 1000
             except ValueError:
@@ -275,9 +275,9 @@ class RunningWorkout(object):
     def _get_target_value(self, target, key):
         target_type = self.target[target]['type']
         target_value = self.target[target][key]
-        if target_type.lower() == 'pace':
+        if target_type.lower() == 'pace.zone':
             return 1000.0 / self._str_to_seconds(target_value)
-        if target_type.lower() == 'heartrate':
+        if target_type.lower() == 'heart.rate.zone':
             return round(self.fmin + float(target_value) * (self.fmax-self.fmin))
 
     def _target_type(self, step_config):
