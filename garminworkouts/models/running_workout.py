@@ -4,6 +4,34 @@ import datetime
 from garminworkouts.models.duration import Duration
 from garminworkouts.utils import functional
 
+SPORT_TYPES = {
+    "running": 1,
+}
+
+STEP_TYPES = {
+    "warmup": 1,
+    "cooldown": 2,
+    "interval": 3,
+    "recovery": 4,
+    "run": 5,
+    "repeat": 6
+}
+
+END_CONDITIONS = {
+    "lap.button": 1,
+    "time": 2,
+    "distance": 3,
+}
+
+TARGET_TYPES = {
+    "no.target": 1,
+    "power.zone": 2,
+    "cadence.zone": 3,
+    "heart.rate.zone": 4,
+    "speed.zone": 5,
+    "pace.zone": 6,  # meters per second
+}
+
 
 class RunningWorkout(object):
     _WORKOUT_ID_FIELD = "workoutId"
@@ -11,67 +39,8 @@ class RunningWorkout(object):
     _WORKOUT_DESCRIPTION_FIELD = "description"
     _WORKOUT_OWNER_ID_FIELD = "ownerId"
 
-    _RUNNING_SPORT_TYPE = {
-        "sportTypeId": 1,
-        "sportTypeKey": "running"
-    }
-
-    _INTERVAL_STEP_TYPE = {
-        "stepTypeId": 3,
-        "stepTypeKey": "interval",
-    }
-
-    _REPEAT_STEP_TYPE = {
-        "stepTypeId": 6,
-        "stepTypeKey": "repeat",
-    }
-
-    _RECOVERY_STEP_TYPE = {
-        "stepTypeId": 4,
-        "stepTypeKey": "recovery",
-    }
-
-    _WARMUP_STEP_TYPE = {
-        "stepTypeId": 1,
-        "stepTypeKey": "warmup",
-    }
-
-    _COOLDOWN_STEP_TYPE = {
-        "stepTypeId": 2,
-        "stepTypeKey": "cooldown",
-    }
-
-    _LAP_BUTTON_CONDITION_TYPE_KEY = {
-        "conditionTypeId": 1,
-        "conditionTypeKey": "lap.button",
-    }
-
-    _TIME_CONDITION_TYPE_KEY = {
-        "conditionTypeId": 2,
-        "conditionTypeKey": "time",
-    }
-
-    _DISTANCE_CONDITION_TYPE_KEY = {
-        "conditionTypeId": 3,
-        "conditionTypeKey": "distance",
-    }
-
-    _NO_TARGET_TYPE_KEY = {
-        "workoutTargetTypeId": 1,
-        "workoutTargetTypeKey": "no.target",
-    }
-
-    _RUNNING_PACE_TARGET_TYPE_KEY = {
-        "workoutTargetTypeId": 6,
-        "workoutTargetTypeKey": "pace.zone",
-    }
-
-    _RUNNING_HEARTRATE_TARGET_TYPE_KEY = {
-        "workoutTargetTypeId": 4,
-        "workoutTargetTypeKey": "heart.rate.zone",
-    }
-
-    def __init__(self, config, target, vVO2, fmin, fmax, plan, duration=None):
+    def __init__(self, sport_type, config, target, vVO2, fmin, fmax, plan, duration=None):
+        self.sport_type = sport_type,
         self.config = config
         self.target = target
         self.vVO2 = vVO2
@@ -126,11 +95,11 @@ class RunningWorkout(object):
             self._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
             self._WORKOUT_NAME_FIELD: self.get_workout_name(),
             self._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
-            "sportType": self._RUNNING_SPORT_TYPE,
+            "sportType": self.get_sport_type(self.sport_type[0]),
             "workoutSegments": [
                 {
                     "segmentOrder": 1,
-                    "sportType": self._RUNNING_SPORT_TYPE,
+                    "sportType": self.get_sport_type(self.sport_type[0]),
                     "workoutSteps": self._steps(self.config["steps"])
                 }
             ]
@@ -165,6 +134,30 @@ class RunningWorkout(object):
         workout_name = RunningWorkout.extract_workout_name(running_workout)
         workout_description = RunningWorkout.extract_workout_description(running_workout)
         print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
+
+    def get_sport_type(self, sport_type):
+        return {
+                "sportTypeId": SPORT_TYPES[sport_type],
+                "sportTypeKey": sport_type,
+            }
+
+    def get_step_type(self, step_type):
+        return {
+                "stepTypeId": STEP_TYPES[step_type],
+                "stepTypeKey": step_type,
+            }
+
+    def get_end_condition(self, end_condition):
+        return {
+                "conditionTypeId": END_CONDITIONS[end_condition],
+                "conditionTypeKey": end_condition,
+            }
+
+    def get_target_type(self, target_type):
+        return {
+                "workoutTargetTypeId": TARGET_TYPES[target_type],
+                "workoutTargetTypeKey": target_type,
+            }
 
     def _get_step_description(self, step_config):
         step_description = step_config.get('description')
@@ -209,7 +202,7 @@ class RunningWorkout(object):
         return {
             "type": "RepeatGroupDTO",
             "stepOrder": step_order,
-            "stepType": self._REPEAT_STEP_TYPE,
+            "stepType": self.get_step_type("repeat"),
             "childStepId": child_step_id,
             "numberOfIterations": repeats,
             "workoutSteps": nested_steps,
@@ -219,6 +212,7 @@ class RunningWorkout(object):
     def _interval_step(self, step_config, child_step_id, step_order):
         return {
             "type": "ExecutableStepDTO",
+            "stepId": None,
             "stepOrder": step_order,
             "stepType": self._get_step_type(step_config),
             "childStepId": child_step_id,
@@ -236,13 +230,7 @@ class RunningWorkout(object):
 
     def _get_step_type(self, step_config):
         step_type = step_config.get('type')
-        if step_type.lower() == 'warmup':
-            return self._WARMUP_STEP_TYPE
-        if step_type.lower() == 'cooldown':
-            return self._COOLDOWN_STEP_TYPE
-        if step_type.lower() == 'recovery':
-            return self._RECOVERY_STEP_TYPE
-        return self._INTERVAL_STEP_TYPE
+        return self.get_step_type(step_type.lower())
 
     def _str_is_time(self, string):
         if ':' in string:
@@ -272,10 +260,10 @@ class RunningWorkout(object):
         duration = step_config.get("duration")
         if duration:
             if self._str_is_time(duration):
-                return self._TIME_CONDITION_TYPE_KEY
+                return self.get_end_condition("time")
             if self._str_is_distance(duration):
-                return self._DISTANCE_CONDITION_TYPE_KEY
-        return self._LAP_BUTTON_CONDITION_TYPE_KEY
+                return self.get_end_condition("distance")
+        return self.get_end_condition("lap.button")
 
     def _end_condition_value(self, step_config):
         duration = step_config.get("duration")
@@ -302,12 +290,12 @@ class RunningWorkout(object):
             d, target = target.split("<")
 
         if not target:
-            return self._NO_TARGET_TYPE_KEY
+            return self.get_target_type("no.target")
         if target not in self.target:
-            return self._NO_TARGET_TYPE_KEY
+            return self.get_target_type("no.target")
         if 'zone' in target.lower():
-            return self._RUNNING_HEARTRATE_TARGET_TYPE_KEY
-        return self._RUNNING_PACE_TARGET_TYPE_KEY
+            return self.get_target_type("heart.rate.zone")
+        return self.get_target_type("pace.zone")
 
     def _target_value_one(self, step_config):
         target = step_config.get("target")

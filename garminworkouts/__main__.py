@@ -15,12 +15,7 @@ import account
 
 
 def command_reset(args):
-    workout_files, race, plan = setting(args, account)  # type: ignore
-
-    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan)
-                for workout_config in workout_configs]
+    workouts, race, plan = setting(args, account)  # type: ignore
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -169,7 +164,13 @@ def setting(args, account):
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config, target, account.vV02, account.fmin, account.fmax, plan)  # type: ignore
+    workouts = [RunningWorkout("running",
+                               workout_config,
+                               target,
+                               account.vV02,
+                               account.fmin,
+                               account.fmax,
+                               plan)  # type: ignore
                 for workout_config in workout_configs]
 
     return workouts, race, plan  # type: ignore
