@@ -210,18 +210,16 @@ class RunningWorkout(object):
         }
 
     def _interval_step(self, step_config, child_step_id, step_order):
-        return {
-            "type": "ExecutableStepDTO",
-            "stepId": None,
-            "stepOrder": step_order,
-            "stepType": self._get_step_type(step_config),
-            "childStepId": child_step_id,
-            "endCondition": self._end_condition(step_config),
-            "endConditionValue": self._end_condition_value(step_config),
-            "targetType": self._target_type(step_config),
-            "targetValueOne": self._target_value_one(step_config),
-            "targetValueTwo": self._target_value_two(step_config)
-        }
+        return WorkoutStep(order=step_order,
+                           child_step_id=child_step_id,
+                           step_type=self._get_step_type(step_config)['stepTypeKey'],
+                           end_condition=self._end_condition(step_config)['conditionTypeKey'],
+                           end_condition_value=step_config['duration'],
+                           target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
+                                         to_value=self._target_value_one(step_config),
+                                         from_value=self._target_value_two(step_config)
+                                         )
+                           ).create_workout_step()
 
     @staticmethod
     def _get_duration(step_config):
@@ -338,3 +336,85 @@ class RunningWorkout(object):
         if description:
             return description
         return ''
+
+
+class WorkoutStep:
+    def __init__(
+        self,
+        order,
+        child_step_id,
+        step_type,
+        end_condition="lap.button",
+        end_condition_value=None,
+        target=None,
+    ):
+        """Valid end condition values:
+        - distance: '2.0km', '1.125km', '1.6km'
+        - time: 0:40, 4:20
+        - lap.button
+        """
+        self.order = order
+        self.child_step_id = child_step_id
+        self.step_type = step_type
+        self.end_condition = end_condition
+        self.end_condition_value = end_condition_value
+        self.target = target or Target()
+
+    def end_condition_unit(self):
+        if self.end_condition and self.end_condition.endswith("km"):
+            return {"unitKey": "kilometer"}
+        else:
+            return None
+
+    def parsed_end_condition_value(self):
+        # distance
+        if self.end_condition_value and self.end_condition_value.endswith("km"):
+            return int(float(self.end_condition_value.replace("km", "")) * 1000)
+
+        # time
+        elif self.end_condition_value and ":" in self.end_condition_value:
+            m, s = [int(x) for x in self.end_condition_value.split(":")]
+            return m * 60 + s
+        else:
+            return None
+
+    def create_workout_step(self):
+        return {
+            "type": "ExecutableStepDTO",
+            "stepId": None,
+            "stepOrder": self.order,
+            "childStepId": self.child_step_id,
+            "description": None,
+            "stepType": {
+                "stepTypeId": STEP_TYPES[self.step_type],
+                "stepTypeKey": self.step_type,
+            },
+            "endCondition": {
+                "conditionTypeKey": self.end_condition,
+                "conditionTypeId": END_CONDITIONS[self.end_condition],
+            },
+            "preferredEndConditionUnit": self.end_condition_unit(),
+            "endConditionValue": self.parsed_end_condition_value(),
+            "endConditionCompare": None,
+            "endConditionZone": None,
+            **self.target.create_target(),
+        }
+
+
+class Target:
+    def __init__(self, target="no.target", to_value=None, from_value=None, zone=None):
+        self.target = target
+        self.to_value = to_value
+        self.from_value = from_value
+        self.zone = zone
+
+    def create_target(self):
+        return {
+            "targetType": {
+                "workoutTargetTypeId": TARGET_TYPES[self.target],
+                "workoutTargetTypeKey": self.target,
+            },
+            "targetValueOne": self.to_value,
+            "targetValueTwo": self.from_value,
+            "zoneNumber": self.zone,
+        }
