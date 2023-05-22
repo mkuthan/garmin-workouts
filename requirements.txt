@@ -1,4 +1,4 @@
-requests==2.30.0
+requests==2.31.0
 pyyaml==6.0
 numpy==1.24.3
 xlrd==2.0.1
