@@ -39,13 +39,28 @@ class RunningWorkout(object):
     _WORKOUT_DESCRIPTION_FIELD = "description"
     _WORKOUT_OWNER_ID_FIELD = "ownerId"
 
-    def __init__(self, sport_type, config, target, vVO2, fmin, fmax, plan, duration=None):
+    def __init__(
+            self,
+            sport_type="running",
+            config=[],
+            target=[],
+            vVO2=360,
+            fmin=60,
+            fmax=200,
+            rFTP=200,
+            cFTP=200,
+            plan=[],
+            duration=[]
+            ):
+
         self.sport_type = sport_type,
         self.config = config
         self.target = target
         self.vVO2 = vVO2
         self.fmin = fmin
         self.fmax = fmax
+        self.rFTP = rFTP
+        self.cFTP = cFTP
         self.plan = plan
 
         flatten_steps = functional.flatten(self.config["steps"])
@@ -66,7 +81,7 @@ class RunningWorkout(object):
                 t2 = 0
                 t1 = 0
 
-            t0 = min(t1, t2)  # type: ignore
+            t0 = min(t1, t2)
             duration_secs = 0
 
             if duration:
@@ -77,7 +92,7 @@ class RunningWorkout(object):
                     duration_meters = self._end_condition_value(step)
                     duration_secs = round(duration_meters / t0)
 
-            sec = sec + duration_secs  # type: ignore
+            sec = sec + duration_secs
             meters = meters + duration_meters  # type: ignore
 
         try:
@@ -163,7 +178,7 @@ class RunningWorkout(object):
         step_description = step_config.get('description')
         if step_description:
             return step_description
-        return None
+        return ""
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
@@ -224,7 +239,7 @@ class RunningWorkout(object):
     @staticmethod
     def _get_duration(step_config):
         duration = step_config.get("duration")
-        return Duration(str(duration)) if duration else None
+        return Duration(str(duration)) if duration else Duration("0")
 
     def _get_step_type(self, step_config):
         step_type = step_config.get('type')
@@ -239,7 +254,7 @@ class RunningWorkout(object):
         if self._str_is_time(time_string):
             return Duration(str(time_string)).to_seconds()
         else:
-            return self.vVO2/float(time_string)
+            return int(self.vVO2/float(time_string))
 
     def _str_to_minutes(self, time_string):
         return self._str_to_seconds(time_string) / 60.0
@@ -270,7 +285,7 @@ class RunningWorkout(object):
                 return self._str_to_seconds(duration)
             if self._str_is_distance(duration):
                 return self._str_to_meters(duration)
-        return None
+        return int(0)
 
     def _get_target_value(self, target, key):
         target_type = self.target[target]['type']
@@ -298,31 +313,31 @@ class RunningWorkout(object):
     def _target_value_one(self, step_config):
         target = step_config.get("target")
         if not target:
-            return None
+            return 0
         if target not in self.target:
             if ">" in target:
                 d, target = target.split(">")
-                return 1000.0/(1000.0/self._get_target_value(target, key='min') - float(d))  # type: ignore
+                return 1000.0/(1000.0/self._get_target_value(target, key='min') - float(d))
             elif "<" in target:
                 d, target = target.split("<")
-                return 1000.0/(1000.0/self._get_target_value(target, key='min') + float(d))  # type: ignore
+                return 1000.0/(1000.0/self._get_target_value(target, key='min') + float(d))
             else:
-                return None
+                return 0
         return self._get_target_value(target, key='min')
 
     def _target_value_two(self, step_config):
         target = step_config.get("target")
         if not target:
-            return None
+            return 0
         if target not in self.target:
             if ">" in target:
                 d, target = target.split(">")
-                return 1000.0/(1000.0/self._get_target_value(target, key='max') - float(d))  # type: ignore
+                return 1000.0/(1000.0/self._get_target_value(target, key='max') - float(d))
             elif "<" in target:
                 d, target = target.split("<")
-                return 1000.0/(1000.0/self._get_target_value(target, key='max') + float(d))  # type: ignore
+                return 1000.0/(1000.0/self._get_target_value(target, key='max') + float(d))
             else:
-                return None
+                return 0
         return self._get_target_value(target, key='max')
 
     def _generate_description(self):
@@ -331,7 +346,7 @@ class RunningWorkout(object):
                        + '. Estimated Duration: ' + str(self.duration) + '; '
                        + str(self.mileage).format('2:2f') + ' km. '
                        + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. rTSS: '
-                       + str(self.tss).format('2:2f'))  # type: ignore
+                       + str(self.tss).format('2:2f'))
 
         if description:
             return description
@@ -402,7 +417,14 @@ class WorkoutStep:
 
 
 class Target:
-    def __init__(self, target="no.target", to_value=None, from_value=None, zone=None):
+    def __init__(
+            self,
+            target="no.target",
+            to_value=None,
+            from_value=None,
+            zone=None
+            ):
+
         self.target = target
         self.to_value = to_value
         self.from_value = from_value

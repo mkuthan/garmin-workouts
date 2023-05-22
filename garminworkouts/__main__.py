@@ -170,7 +170,9 @@ def setting(args, account):
                                account.vV02,
                                account.fmin,
                                account.fmax,
-                               plan)  # type: ignore
+                               account.rFTP,
+                               account.cFTP,
+                               plan)   # type: ignore
                 for workout_config in workout_configs]
 
     return workouts, race, plan  # type: ignore
