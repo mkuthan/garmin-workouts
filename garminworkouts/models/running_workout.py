@@ -44,23 +44,22 @@ class RunningWorkout(object):
             sport_type="running",
             config=[],
             target=[],
-            vVO2=360,
+            vVO2=Duration('5:00'),
             fmin=60,
             fmax=200,
-            rFTP=200,
-            cFTP=200,
-            plan=[],
-            duration=[]
+            rFTP=Power('400w'),
+            cFTP=Power('200w'),
+            plan=[]
             ):
 
         self.sport_type = sport_type,
         self.config = config
         self.target = target
-        self.vVO2 = vVO2
+        self.vVO2 = vVO2.to_seconds()
         self.fmin = fmin
         self.fmax = fmax
-        self.rFTP = rFTP
-        self.cFTP = cFTP
+        self.rFTP = rFTP.to_watts(0, 0)
+        self.cFTP = cFTP.to_watts(0, 0)
         self.plan = plan
 
         flatten_steps = functional.flatten(self.config["steps"])

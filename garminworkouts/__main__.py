@@ -31,7 +31,7 @@ def command_reset(args):
 
 
 def command_import(args):
-    workouts, race, plan = setting(args, account)  # type: ignore
+    workouts, race, plan = setting(args, account)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -150,7 +150,8 @@ def _garmin_client(args):
 
 def setting(args, account):
     workout_files = glob.glob(args.workout)
-
+    plan = ''
+    race = account.race
     if not workout_files:
         try:
             planning = configreader.read_config(r'planning.yaml')
@@ -159,8 +160,6 @@ def setting(args, account):
             plan = args.workout
         except KeyError:
             print(args.workout + ' not found in planning, please check "planning.yaml"')
-            race = account.race
-            plan = ''
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
@@ -172,10 +171,10 @@ def setting(args, account):
                                account.fmax,
                                account.rFTP,
                                account.cFTP,
-                               plan)   # type: ignore
+                               plan)
                 for workout_config in workout_configs]
 
-    return workouts, race, plan  # type: ignore
+    return workouts, race, plan
 
 
 def main():
