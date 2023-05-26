@@ -62,44 +62,36 @@ class RunningWorkout(object):
         self.cFTP = cFTP.to_watts(0, 0)
         self.plan = plan
 
+        self.duration = datetime.timedelta(seconds=0)
+        self.mileage = 0
+        self.tss = 0
+        self.ratio = 0
+
         flatten_steps = functional.flatten(self.config["steps"])
 
         sec = 0
         meters = 0
+        duration_secs = 0
+        duration_meters = 0
 
         for step in flatten_steps:
-            duration = self._get_duration(step)
-            t2 = self._target_value_two(step)
-            t1 = self._target_value_one(step)
-
-            try:
-                if 'HEART_RATE_ZONE' in step['target']:
-                    t2 = round((t2 - fmin) / (fmax - fmin), 2) / vVO2 * 1000
-                    t1 = round((t1 - fmin) / (fmax - fmin), 2) / vVO2 * 1000
-            except ValueError:
-                t2 = 0
-                t1 = 0
-
-            t0 = min(t1, t2)
-            duration_secs = 0
-
-            if duration:
+            if not self._end_condition(step)['conditionTypeKey'] == 'lap.button':
                 if self._end_condition(step)['conditionTypeKey'] == 'time':
                     duration_secs = self._end_condition_value(step)
-                    duration_meters = round(duration_secs * t0)
+                    duration_meters = round(duration_secs * self._equivalent_pace(step))
                 if self._end_condition(step)['conditionTypeKey'] == 'distance':
                     duration_meters = self._end_condition_value(step)
-                    duration_secs = round(duration_meters / t0)
+                    duration_secs = round(duration_meters / self._equivalent_pace(step))
 
-            sec = sec + duration_secs
-            meters = meters + duration_meters  # type: ignore
+                sec = sec + duration_secs
+                meters = meters + duration_meters
 
         try:
             self.ratio = round(self.vVO2 / (sec / meters * 1000) * 100)
         except ValueError:
             self.ratio = 0
 
-        self.duration = datetime.timedelta(seconds=(sec//60)*60)
+        self.duration = datetime.timedelta(seconds=sec)
         self.mileage = round(meters/1000, 2)
         self.tss = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
 
