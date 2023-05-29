@@ -115,6 +115,16 @@ def command_export(args):
             connection.download_workout(workout_id, file)
 
 
+def command_export_yaml(args):
+    with _garmin_client(args) as connection:
+        for workout in connection.list_workouts():
+            workout_id = RunningWorkout.extract_workout_id(workout)
+            workout_name = RunningWorkout.extract_workout_name(workout)
+            file = os.path.join(args.directory, str(workout_id)) + ".yaml"
+            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+            connection.download_workout_yaml(workout_id, file)
+
+
 def command_list(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
@@ -210,6 +220,12 @@ def main():
     parser_export.add_argument("directory", type=writeable_dir,
                                help="Destination directory where workout(s) will be exported")
     parser_export.set_defaults(func=command_export)
+
+    parser_export = subparsers.add_parser("export-yaml",
+                                          description="Export all workouts from Garmin Connect and save into directory")
+    parser_export.add_argument("directory", type=writeable_dir,
+                               help="Destination directory where workout(s) will be exported")
+    parser_export.set_defaults(func=command_export_yaml)
 
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)

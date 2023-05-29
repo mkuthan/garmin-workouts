@@ -2,7 +2,10 @@ import json
 import datetime
 
 from garminworkouts.models.duration import Duration
+from garminworkouts.models.power import Power
+from datetime import timedelta
 from garminworkouts.utils import functional
+import yaml
 
 SPORT_TYPES = {
     "running": 1,
@@ -369,6 +372,38 @@ class RunningWorkout(object):
         if description:
             return description
         return ''
+
+    @staticmethod
+    def export_yaml(workout, filename):
+        workout_dict = {}
+        workout_dict['name'] = workout['workoutName']
+        workout_dict['description'] = workout['description']
+        workout_dict['steps'] = []
+
+        for i in range(len(workout['workoutSegments'][0]['workoutSteps'])):
+            step_json = workout['workoutSegments'][0]['workoutSteps'][i]
+
+            if step_json['stepType']['stepTypeKey'] != 'repeat':
+                step = {}
+                step['type'] = step_json['stepType']['stepTypeKey']
+
+                if step_json['endCondition']['conditionTypeKey'] == 'time':
+                    step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
+                elif step_json['endCondition']['conditionTypeKey'] == 'distance':
+                    step['duration'] = str(float(step_json['endConditionValue'])/1000) + 'km'
+
+                step['target'] = {}
+                step['target']['type'] = step_json['targetType']['workoutTargetTypeKey']
+                if step['target']['type'] != 'no.target':
+                    step['target']['min'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueOne']))))[2:]
+                    step['target']['max'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueTwo']))))[2:]
+
+                step['description'] = step_json['description'] if step_json['description'] else ''
+
+                workout_dict["steps"].append(step)
+
+        with open(filename, 'w') as file:
+            yaml.dump(workout_dict, file)
 
 
 class WorkoutStep:

@@ -2,6 +2,7 @@ import json
 import sys
 
 from garminworkouts.garmin.session import connect, disconnect
+from garminworkouts.models.running_workout import RunningWorkout
 
 
 class GarminClient(object):
@@ -51,6 +52,9 @@ class GarminClient(object):
         response.raise_for_status()
 
         return json.loads(response.text)
+
+    def download_workout_yaml(self, workout_id, filename):
+        RunningWorkout.export_yaml(self.get_workout(workout_id), filename)
 
     def download_workout(self, workout_id, file):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
