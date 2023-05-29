@@ -348,18 +348,26 @@ class RunningWorkout(object):
         target_type = self.target[target]['type']
         target_value = self.target[target][key]
 
-        if target_type == "power.zone":
-            return int(float(target_value) * self.rFTP)
-        elif target_type == "cadence.zone":
-            return int(target_value)
-        elif target_type == "heart.rate.zone":
-            return int(self.fmin + float(target_value) * (self.fmax-self.fmin))
-        elif target_type == "speed.zone":
-            return float(target_value)
-        elif target_type == "pace.zone":
-            return float(target_value) * 1000.0 / self.vVO2
+        if self.sport_type[0] == 'running':
+            if target_type == "power.zone":
+                return int(float(target_value) * self.rFTP)
+            elif target_type == "cadence.zone":
+                return int(target_value)
+            elif target_type == "heart.rate.zone":
+                return int(self.fmin + float(target_value) * (self.fmax-self.fmin))
+            elif target_type == "speed.zone":
+                return float(target_value)
+            elif target_type == "pace.zone":
+                return float(target_value) * 1000.0 / self.vVO2
+            else:
+                return int(target_value)
+        elif self.sport_type[0] == 'cycling':
+            if target_type == "power.zone":
+                return int(float(target_value) * self.cFTP)
+            else:
+                return int(target_value)
         else:
-            return int(0)
+            return int(target_value)
 
     def _target_type(self, step_config):
         target = step_config.get("target")
@@ -410,8 +418,8 @@ class RunningWorkout(object):
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
 
-            t2 = round((t2 - self.fmin) / (self.fmax - self.fmin), 2) / self.vVO2 * 1000
-            t1 = round((t1 - self.fmin) / (self.fmax - self.fmin), 2) / self.vVO2 * 1000
+            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000
+            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000
         elif target_type == "speed.zone":
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
@@ -425,14 +433,14 @@ class RunningWorkout(object):
 
     def _generate_description(self):
         description = ''
-        if self.sport_type == 'running':
+        if self.sport_type[0] == 'running':
             description = (self.config.get('description')
                            + '. Plan: ' + self.plan
                            + '. Estimated Duration: ' + str(self.duration) + '; '
                            + str(self.mileage).format('2:2f') + ' km. '
                            + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
                            + 'rTSS: ' + str(self.tss).format('2:2f'))
-        elif self.sport_type == 'cycling':
+        elif self.sport_type[0] == 'cycling':
             description = "FTP %d, TSS %d, NP %d, IF %.2f" % (self.cFTP, self.tss, self.norm_pwr, self.int_fct)
         if description:
             return description
