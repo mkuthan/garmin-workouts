@@ -271,38 +271,19 @@ class RunningWorkout(object):
                            end_condition=self._end_condition(step_config)['conditionTypeKey'],
                            end_condition_value=step_config['duration'],
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
-                                         to_value=self._target_value_one(step_config),
-                                         from_value=self._target_value_two(step_config)
+                                         to_value=self._target_value(step_config, 'min'),
+                                         from_value=self._target_value(step_config, 'max')
                                          )
                            ).create_workout_step()
 
-    @staticmethod
-    def _get_duration(step_config):
-        duration = step_config.get("duration")
-        return Duration(str(duration)) if duration else Duration("0")
-
-    def _get_step_type(self, step_config):
-        step_type = step_config.get('type')
-        return self.get_step_type(step_type.lower())
-
     def _str_is_time(self, string):
-        if ':' in string:
-            return True
-        return False
+        return True if ':' in string else False
 
     def _str_to_seconds(self, time_string):
-        if self._str_is_time(time_string):
-            return Duration(str(time_string)).to_seconds()
-        else:
-            return int(self.vVO2/float(time_string))
-
-    def _str_to_minutes(self, time_string):
-        return self._str_to_seconds(time_string) / 60.0
+        return Duration(str(time_string)).to_seconds()
 
     def _str_is_distance(self, string):
-        if 'm' in string.lower():
-            return True
-        return False
+        return True if 'm' in string.lower() else False
 
     def _str_to_meters(self, distance_string):
         if 'km' in distance_string.lower():
