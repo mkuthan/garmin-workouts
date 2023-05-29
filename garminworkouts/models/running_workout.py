@@ -43,6 +43,7 @@ TARGET_TYPES = {
     "no.target": 1,
     "power.zone": 2,
     "cadence.zone": 3,
+    "cadence": 3,
     "heart.rate.zone": 4,
     "speed.zone": 5,
     "pace.zone": 6,  # meters per second
