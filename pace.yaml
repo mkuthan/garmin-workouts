@@ -14,3 +14,10 @@ HEART_RATE_ZONE_2: {type: "heart.rate.zone", min: "0.7", max: "0.8"}
 HEART_RATE_ZONE_3: {type: "heart.rate.zone", min: "0.8", max: "0.84"}
 HEART_RATE_ZONE_4: {type: "heart.rate.zone", min: "0.84", max: "1"}
 HEART_RATE_ZONE_5: {type: "heart.rate.zone", min: "1", max: "1.1"}
+RECOVERY_POWER: {type: "power.zone", min: "0.3", max: "0.55" }
+ENDURANCE_POWER:  {type: "power.zone", min: "0.55", max: "0.75" }
+TEMPO_POWER: {type: "power.zone", min: "0.76", max: "0.87" }
+SWEET_SPOT_POWER: {type: "power.zone", min: "0.88", max: "0.94" }
+THRESHOLD_POWER: {type: "power.zone", min: "0.95", max: "1.05" }
+VO2MAX_POWER: {type: "power.zone", min: "1.06", max: "1.2" }
+ANAEROBIC_POWER: {type: "power.zone", min: "1.2", max: "1.5" }
