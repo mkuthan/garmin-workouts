@@ -1,7 +1,7 @@
-RECOVERY_PACE: {type: "pace.zone", min: "0.7", max: "0.59" }
-AEROBIC_PACE:  {type: "pace.zone", min: "0.75", max: "0.64" }
-LONG_RUN_PACE: {type: "pace.zone", min: "0.78", max: "0.69" }
-MARATHON_PACE: {type: "pace.zone", min: "0.83", max: "0.73" }
+RECOVERY_PACE: {type: "heart.rate.zone", min: "0.46", max: "0.7" }
+AEROBIC_PACE:  {type: "heart.rate.zone", min: "0.64", max: "0.75" }
+LONG_RUN_PACE: {type: "heart.rate.zone", min: "0.69", max: "0.78" }
+MARATHON_PACE: {type: "heart.rate.zone", min: "0.73", max: "0.83" }
 THRESHOLD_PACE: {type: "pace.zone", min: "0.92", max: "0.90" }
 V02MAX_PACE: {type: "pace.zone", min: "1.0", max: "0.95" }
 1KM_PACE: {type: "pace.zone", min: "1.1", max: "1.05" }
