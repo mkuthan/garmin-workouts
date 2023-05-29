@@ -14,9 +14,10 @@ SPORT_TYPES = {
 STEP_TYPES = {
     "warmup": 1,
     "cooldown": 2,
+    "run": 3,
     "interval": 3,
     "recovery": 4,
-    "run": 5,
+    "rest": 5,
     "repeat": 6
 }
 
