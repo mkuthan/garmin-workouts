@@ -32,6 +32,11 @@ END_CONDITIONS = {
     "lap.button": 1,
     "time": 2,
     "distance": 3,
+    "calories": 4,
+    "power": 5,         # Potencia por encima de un umbral ("endConditionCompare": "gt")
+                        # Potencia por debajo de un umbral ("endConditionCompare": "lt")
+    "heart.rate": 6,    # Pulsaciones por encima de un umbral ("endConditionCompare": "lt")
+                        # Pulsaciones por debajo de un umbral ("endConditionCompare": "gt")
 }
 
 TARGET_TYPES = {
