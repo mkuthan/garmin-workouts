@@ -53,16 +53,21 @@ def command_import(args):
 
             if existing_workout:
                 workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                if plan in RunningWorkout.extract_workout_description(existing_workout):  # type: ignore
-                    if day_d >= date.today():
-                        if day_d <= date.today() + timedelta(weeks=2):
-                            workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
-                            payload = workout.create_workout(workout_id, workout_owner_id)
-                            logging.info("Updating workout '%s'", workout_name)
-                            connection.update_workout(workout_id, payload)
-                    else:
-                        logging.info("Deleting workout '%s'", workout_name)
-                        connection.delete_workout(workout_id)
+                description = RunningWorkout.extract_workout_description(existing_workout)
+                if description:
+                    if plan in description:
+                        if day_d >= date.today():
+                            if day_d <= date.today() + timedelta(weeks=2):
+                                workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
+                                payload = workout.create_workout(workout_id, workout_owner_id)
+                                logging.info("Updating workout '%s'", workout_name)
+                                connection.update_workout(workout_id, payload)
+                        else:
+                            logging.info("Deleting workout '%s'", workout_name)
+                            connection.delete_workout(workout_id)
+                else:
+                    logging.info("Deleting workout '%s'", workout_name)
+                    connection.delete_workout(workout_id)
             else:
                 if day_d >= date.today():
                     payload = workout.create_workout()
@@ -77,7 +82,7 @@ def command_import(args):
 
 
 def command_metrics(args):
-    workouts, race, plan = setting(args, account)  # type: ignore
+    workouts, race, plan = setting(args, account)
 
     mileage = [0 for i in range(24, -11, -1)]
     duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
@@ -101,8 +106,10 @@ def command_metrics(args):
 
     for i in range(24, -11, -1):
         if mileage[i] > 0:
-            print('Week ' + str(i) + ': ' + str(round(mileage[i], 2)) +
-                  ' km - Duration: ' + str(duration[i]) + ' - rTSS: ' + str(tss[i]))
+            print('Week ' + str(i) + ': '
+                  + str(round(mileage[i], 2)) + ' km - '
+                  + 'Duration: ' + str(duration[i]) + ' - '
+                  + 'rTSS: ' + str(tss[i]))
 
 
 def command_export(args):
