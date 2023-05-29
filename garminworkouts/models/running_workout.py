@@ -4,7 +4,7 @@ import datetime
 from garminworkouts.models.duration import Duration
 from garminworkouts.models.power import Power
 from datetime import timedelta
-from garminworkouts.utils import functional
+from garminworkouts.utils import functional, math
 import yaml
 
 SPORT_TYPES = {
@@ -108,9 +108,17 @@ class RunningWorkout(object):
         self.mileage = 0
         self.tss = 0
         self.ratio = 0
+        self.norm_pwr = 0
+        self.int_fct = 0
 
         flatten_steps = functional.flatten(self.config["steps"])
 
+        if sport_type == "running":
+            self.running_values(flatten_steps)
+        elif sport_type == "cycling":
+            self.cycling_values(flatten_steps)
+
+    def running_values(self, flatten_steps):
         sec = 0
         meters = 0
         duration_secs = 0
@@ -136,6 +144,24 @@ class RunningWorkout(object):
         self.duration = datetime.timedelta(seconds=sec)
         self.mileage = round(meters/1000, 2)
         self.tss = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
+
+    def cycling_values(self, flatten_steps):
+        seconds = 0
+        xs = []
+
+        for step in flatten_steps:
+            power = self._get_power(step)
+            power_watts = power.to_watts(self.cFTP) if power else None
+            duration = self._get_duration(step)
+            duration_secs = duration.to_seconds() if duration else None
+
+            if power_watts and duration_secs:
+                seconds = seconds + duration_secs
+                xs = functional.concatenate(xs, functional.fill(power_watts, duration_secs))
+
+        self.norm_pwr = math.normalized_power(xs)
+        self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP)
+        self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP)
 
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
@@ -182,6 +208,16 @@ class RunningWorkout(object):
         workout_name = RunningWorkout.extract_workout_name(running_workout)
         workout_description = RunningWorkout.extract_workout_description(running_workout)
         print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
+
+    @staticmethod
+    def _get_duration(step_config):
+        duration = step_config.get("duration")
+        return Duration(str(duration)) if duration else None
+
+    @staticmethod
+    def _get_power(step):
+        power = step.get("power")
+        return Power(str(power)) if power else None
 
     def get_sport_type(self, sport_type):
         return {
@@ -388,13 +424,16 @@ class RunningWorkout(object):
         return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
 
     def _generate_description(self):
-        description = (self.config.get('description')
-                       + '. Plan: ' + self.plan
-                       + '. Estimated Duration: ' + str(self.duration) + '; '
-                       + str(self.mileage).format('2:2f') + ' km. '
-                       + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. rTSS: '
-                       + str(self.tss).format('2:2f'))
-
+        description = ''
+        if self.sport_type == 'running':
+            description = (self.config.get('description')
+                           + '. Plan: ' + self.plan
+                           + '. Estimated Duration: ' + str(self.duration) + '; '
+                           + str(self.mileage).format('2:2f') + ' km. '
+                           + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
+                           + 'rTSS: ' + str(self.tss).format('2:2f'))
+        elif self.sport_type == 'cycling':
+            description = "FTP %d, TSS %d, NP %d, IF %.2f" % (self.cFTP, self.tss, self.norm_pwr, self.int_fct)
         if description:
             return description
         return ''
