@@ -9,6 +9,13 @@ import yaml
 
 SPORT_TYPES = {
     "running": 1,
+    "cycling": 2,
+    "swimming": 4,
+    "strength_training": 5,
+    "cardio_training": 6,
+    "yoga": 7,
+    "hiit": 9,
+    "other": 9
 }
 
 STEP_TYPES = {
