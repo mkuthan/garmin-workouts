@@ -46,6 +46,31 @@ TARGET_TYPES = {
     "heart.rate.zone": 4,
     "speed.zone": 5,
     "pace.zone": 6,  # meters per second
+    "power.curve": 16
+}
+
+STROKE_TYPES = {
+    "any_stroke": 1,        # Cualquiera
+    "backstroke": 2,        # Espalda
+    "breaststroke": 3,      # Braza
+    "drill": 4,             # Tecnica
+    "fly": 5,               # Mariposa
+    "free": 6,              # Croll
+    "individual_medley": 7  # Estilos
+}
+
+EQUIPMENT_TYPES = {
+    "fins": 1,          # Aletas
+    "kickboard": 2,     # Tabla
+    "paddles": 3,       # Palas
+    "pull_buoy": 4,     # Pull buoy
+    "snorkel": 5,       # Tubo buceo
+    "none": 0           # Sin equipo
+}
+
+POOL_LENGTHS = {
+    "short": 25,
+    "olympic": 50
 }
 
 
@@ -181,11 +206,17 @@ class RunningWorkout(object):
                 "workoutTargetTypeKey": target_type,
             }
 
-    def _get_step_description(self, step_config):
-        step_description = step_config.get('description')
-        if step_description:
-            return step_description
-        return ""
+    def get_stroke_type(self, stroke_type):
+        return {
+                "strokeTypeId": STROKE_TYPES[stroke_type],
+                "strokeTypeKey": stroke_type,
+            }
+
+    def get_equipment_type(self, equipment_type):
+        return {
+                "equipmentTypeId": EQUIPMENT_TYPES[equipment_type],
+                "equipmentTypeKey": equipment_type,
+            }
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
