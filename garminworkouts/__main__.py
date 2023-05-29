@@ -190,26 +190,37 @@ def setting(args, account):
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
-    parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
-    parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
-    parser.add_argument("--debug", action='store_true', help="Enables more detailed messages")
+    parser.add_argument("--cookie-jar",
+                        default=".garmin-cookies.txt",
+                        help="Filename with authentication cookies")
+    parser.add_argument("--connect-url",
+                        default="https://connect.garmin.com",
+                        help="Garmin Connect url")
+    parser.add_argument("--sso-url",
+                        default="https://sso.garmin.com",
+                        help="Garmin SSO url")
+    parser.add_argument("--debug",
+                        action='store_true',
+                        help="Enables more detailed messages")
 
     subparsers = parser.add_subparsers(title="Commands")
 
-    parser_import = subparsers.add_parser("reset", description="Reset workout(s) from file(s) into Garmin Connect")
+    parser_import = subparsers.add_parser("reset",
+                                          description="Reset workout(s) from file(s) into Garmin Connect")
     parser_import.add_argument("workout",
                                help="File(s) with workout(s) to reset, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.set_defaults(func=command_reset)
 
-    parser_import = subparsers.add_parser("import", description="Import workout(s) from file(s) into Garmin Connect")
+    parser_import = subparsers.add_parser("import",
+                                          description="Import workout(s) from file(s) into Garmin Connect")
     parser_import.add_argument("workout",
                                help="File(s) with workout(s) to import, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.set_defaults(func=command_import)
 
-    parser_import = subparsers.add_parser("metrics", description="Get workout(s) metrics from file(s)")
+    parser_import = subparsers.add_parser("metrics",
+                                          description="Get workout(s) metrics from file(s)")
     parser_import.add_argument("workout",
                                help="File(s) with workout(s) to import, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
@@ -217,7 +228,8 @@ def main():
 
     parser_export = subparsers.add_parser("export",
                                           description="Export all workouts from Garmin Connect and save into directory")
-    parser_export.add_argument("directory", type=writeable_dir,
+    parser_export.add_argument("directory",
+                               type=writeable_dir,
                                help="Destination directory where workout(s) will be exported")
     parser_export.set_defaults(func=command_export)
 
@@ -230,17 +242,30 @@ def main():
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)
 
-    parser_schedule = subparsers.add_parser("schedule", description="Schedule a workouts")
-    parser_schedule.add_argument("--workout_id", "-w", required=True, help="Workout id to schedule")
-    parser_schedule.add_argument("--date", "-d", required=True, help="Date to which schedule the workout")
+    parser_schedule = subparsers.add_parser("schedule",
+                                            description="Schedule a workouts")
+    parser_schedule.add_argument("--workout_id",
+                                 "-w",
+                                 required=True,
+                                 help="Workout id to schedule")
+    parser_schedule.add_argument("--date",
+                                 "-d",
+                                 required=True,
+                                 help="Date to which schedule the workout")
     parser_schedule.set_defaults(func=command_schedule)
 
-    parser_get = subparsers.add_parser("get", description="Get workout")
-    parser_get.add_argument("--id", required=True, help="Workout id, use list command to get workouts identifiers")
+    parser_get = subparsers.add_parser("get",
+                                       description="Get workout")
+    parser_get.add_argument("--id",
+                            required=True,
+                            help="Workout id, use list command to get workouts identifiers")
     parser_get.set_defaults(func=command_get)
 
-    parser_delete = subparsers.add_parser("delete", description="Delete workout")
-    parser_delete.add_argument("--id", required=True, help="Workout id, use list command to get workouts identifiers")
+    parser_delete = subparsers.add_parser("delete",
+                                          description="Delete workout")
+    parser_delete.add_argument("--id",
+                               required=True,
+                               help="Workout id, use list command to get workouts identifiers")
     parser_delete.set_defaults(func=command_delete)
 
     args = parser.parse_args()
