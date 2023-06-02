@@ -1,1 +1,0 @@
-- { type: "run", duration: "10km", target: RECOVERY_PACE, description: "Recovery pace" }
