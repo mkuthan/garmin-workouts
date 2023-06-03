@@ -1,5 +1,6 @@
-name: "4_6_Tune up"
+name: "4_6"
 description: "Tune up"
+sport: "running"
 
 steps:
   - !include ..\..\inc\lt_13.yaml

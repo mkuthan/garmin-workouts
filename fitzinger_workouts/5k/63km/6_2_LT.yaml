@@ -1,7 +1,8 @@
-name: "6_2 LT"
+name: "6_2"
 description: "Lactate threshold"
+sport: "running"
 
 steps:
   - !include ..\..\inc\warmup.yaml
-  - { type: "run", duration: "20:00", target: THRESHOLD_PACE, description: "LT run" }
+  - !include ..\..\inc\lt_20min.yaml
   - !include ..\..\inc\cooldown_4.yaml

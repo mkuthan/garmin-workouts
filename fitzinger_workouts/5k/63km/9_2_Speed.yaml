@@ -1,12 +1,13 @@
-name: "9_2 Speed"
+name: "9_2"
 description: "Speed"
+sport: "running"
 
 steps:
   - !include ..\..\inc\warmup.yaml
   - !include ..\..\inc\300.yaml
   - !include ..\..\inc\300.yaml
   - !include ..\..\inc\300.yaml
-  - { type: "recovery", duration: "4:00", target: RECOVERY_PACE, description: "Recovery pace" }
+  - !include ..\..\inc\recovery_4min.yaml
   - !include ..\..\inc\300.yaml
   - !include ..\..\inc\300.yaml
   - !include ..\..\inc\300.yaml

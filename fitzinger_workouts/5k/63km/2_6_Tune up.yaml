@@ -1,6 +1,7 @@
-name: "2_6_Tune up"
+name: "2_6"
 description: "Tune up"
+sport: "running"
 
 steps:
-  - { type: "run", duration: "3km", target: 5KM_PACE, description: "1K pace" }
+  - !include ..\..\inc\tuneup_3.yaml
   - !include ..\..\inc\aerobic_10.yaml

@@ -1,5 +1,6 @@
-name: "11_7 Endurance"
+name: "11_7"
 description: "Endurance"
+sport: "running"
 
 steps:
   - !include ..\..\inc\lr_14.yaml

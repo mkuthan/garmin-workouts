@@ -1,5 +1,6 @@
-name: "0_7_Race"
+name: "0_7"
 description: "Race"
+sport: "running"
 
 steps:
   - { type: "run", duration: "5km", target: 5KM_PACE, description: "Race 5K" }
