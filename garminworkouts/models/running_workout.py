@@ -25,7 +25,8 @@ STEP_TYPES = {
     "interval": 3,
     "recovery": 4,
     "rest": 5,
-    "repeat": 6
+    "repeat": 6,
+    "other": 7
 }
 
 END_CONDITIONS = {
