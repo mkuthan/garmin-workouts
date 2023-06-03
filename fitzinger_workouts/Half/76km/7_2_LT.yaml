@@ -1,8 +1,9 @@
-name: "7_2 LT"
+name: "7_2"
 description: "Lactate threshold"
+sport: "running"
 
 steps:
   - !include ..\..\inc\warmup.yaml
-  - { type: "run", duration: "20:00", target: THRESHOLD_PACE, description: "LT run" }
-  - { type: "run", duration: "4:00", target: RECOVERY_PACE, description: "Recovery run" }
-  - { type: "run", duration: "16:00", target: THRESHOLD_PACE, description: "LT run" }
+  - !include ..\..\inc\lt_20min.yaml
+  - !include ..\..\inc\recovery_4min.yaml
+  - !include ..\..\inc\lt_16min.yaml

@@ -1,5 +1,6 @@
-name: "1_5 VO2max"
-description: "Lactate threshold"
+name: "1_5"
+description: "VO2max"
+sport: "running"
 
 steps:
   - !include ..\..\inc\warmup.yaml

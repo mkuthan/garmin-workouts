@@ -1,5 +1,6 @@
-name: "5_7_Progression_Long_Run"
+name: "5_7"
 description: "Progression Long Run"
+sport: "running"
 
 steps:
   - !include ..\..\inc\lr_16.yaml
