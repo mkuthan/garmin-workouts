@@ -180,8 +180,7 @@ def setting(args, account):
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout("running",
-                               workout_config,
+    workouts = [RunningWorkout(workout_config,
                                target,
                                account.vV02,
                                account.fmin,

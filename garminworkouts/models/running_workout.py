@@ -83,7 +83,6 @@ class RunningWorkout(object):
 
     def __init__(
             self,
-            sport_type="running",
             config=[],
             target=[],
             vVO2=Duration('5:00'),
@@ -94,7 +93,7 @@ class RunningWorkout(object):
             plan=[]
             ):
 
-        self.sport_type = sport_type,
+        self.sport_type = config['sport'].lower(),
         self.config = config
         self.target = target
         self.vVO2 = vVO2.to_seconds()
@@ -113,9 +112,9 @@ class RunningWorkout(object):
 
         flatten_steps = functional.flatten(self.config["steps"])
 
-        if sport_type == "running":
+        if self.sport_type[0] == "running":
             self.running_values(flatten_steps)
-        elif sport_type == "cycling":
+        elif self.sport_type[0] == "cycling":
             self.cycling_values(flatten_steps)
 
     def running_values(self, flatten_steps):
@@ -180,7 +179,7 @@ class RunningWorkout(object):
         }
 
     def get_workout_name(self):
-        return self.config["name"]
+        return self.config["name"] + '-' + self.config["description"]
 
     @staticmethod
     def extract_workout_id(running_workout):
