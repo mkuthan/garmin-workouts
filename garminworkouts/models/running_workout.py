@@ -76,6 +76,31 @@ POOL_LENGTHS = {
 }
 
 
+@staticmethod
+def step_extraction(step_json):
+    if step_json['stepType']['stepTypeKey'] != 'repeat':
+        step = {}
+        step['type'] = step_json['stepType']['stepTypeKey']
+
+        if step_json['endCondition']['conditionTypeKey'] == 'time':
+            step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
+        elif step_json['endCondition']['conditionTypeKey'] == 'distance':
+            step['duration'] = str(float(step_json['endConditionValue'])/1000) + 'km'
+
+        step['target'] = {}
+        step['target']['type'] = step_json['targetType']['workoutTargetTypeKey']
+        if step['target']['type'] == 'pace.zone':
+            step['target']['min'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueOne']))))[2:]
+            step['target']['max'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueTwo']))))[2:]
+        elif step['target']['type'] == 'cadence':
+            step['target']['min'] = str(int(step_json['targetValueOne']))
+            step['target']['max'] = str(int(step_json['targetValueTwo']))
+
+        step['description'] = step_json['description'] if step_json['description'] else ''
+
+        return step
+
+
 class RunningWorkout(object):
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
@@ -450,31 +475,22 @@ class RunningWorkout(object):
     def export_yaml(workout, filename):
         workout_dict = {}
         workout_dict['name'] = workout['workoutName']
+        workout_dict['sport'] = workout['sportType']['sportTypeKey']
         workout_dict['description'] = workout['description']
         workout_dict['steps'] = []
 
-        for i in range(len(workout['workoutSegments'][0]['workoutSteps'])):
-            step_json = workout['workoutSegments'][0]['workoutSteps'][i]
+        if len(workout['workoutSegments']) > 0:
+            for i in range(len(workout['workoutSegments'][0]['workoutSteps'])):
+                step_json = workout['workoutSegments'][0]['workoutSteps'][i]
 
-            if step_json['stepType']['stepTypeKey'] != 'repeat':
-                step = {}
-                step['type'] = step_json['stepType']['stepTypeKey']
-
-                if step_json['endCondition']['conditionTypeKey'] == 'time':
-                    step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
-                elif step_json['endCondition']['conditionTypeKey'] == 'distance':
-                    step['duration'] = str(float(step_json['endConditionValue'])/1000) + 'km'
-
-                step['target'] = {}
-                step['target']['type'] = step_json['targetType']['workoutTargetTypeKey']
-                if step['target']['type'] != 'no.target':
-                    step['target']['min'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueOne']))))[2:]
-                    step['target']['max'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueTwo']))))[2:]
-
-                step['description'] = step_json['description'] if step_json['description'] else ''
-
-                workout_dict["steps"].append(step)
-
+                if step_json['stepType']['stepTypeKey'] != 'repeat':
+                    workout_dict["steps"].append(step_extraction(step_json))
+                else:
+                    for j in range(step_json['numberOfIterations']):
+                        for k in range(len(step_json['workoutSteps'])):
+                            workout_dict["steps"].append(step_extraction(step_json['workoutSteps'][k]))
+        else:
+            print(filename)
         with open(filename, 'w') as file:
             yaml.dump(workout_dict, file)
 
