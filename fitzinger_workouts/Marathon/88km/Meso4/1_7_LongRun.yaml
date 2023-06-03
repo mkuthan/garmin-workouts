@@ -1,5 +1,6 @@
-name: "1_7_LongRun"
+name: "1_7"
 description: "Long Run"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\lr_19.yaml

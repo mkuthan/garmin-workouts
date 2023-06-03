@@ -1,5 +1,6 @@
-name: "10_5_LT"
+name: "10_5"
 description: "Lactate threshold"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml

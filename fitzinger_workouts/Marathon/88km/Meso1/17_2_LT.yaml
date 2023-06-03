@@ -1,7 +1,8 @@
-name: "7_3_LT"
+name: "17_2"
 description: "Lactate threshold"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml
-  - !include ..\..\..\inc\lt_11.yaml
+  - !include ..\..\..\inc\lt_6.yaml
   - !include ..\..\..\inc\cooldown_3.yaml
