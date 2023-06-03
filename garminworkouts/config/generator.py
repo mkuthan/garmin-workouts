@@ -58,6 +58,16 @@ def hm_step_generator(duration):
     return step
 
 
+def tuneup_step_generator(duration):
+    step = {}
+    step['type'] = 'run'
+    step['duration'] = duration
+    step['target'] = '10KM_PACE'
+    step['description'] = '10K pace run'
+
+    return step
+
+
 def cooldown_step_generator(duration):
     step = {}
     step['type'] = 'cooldown'
