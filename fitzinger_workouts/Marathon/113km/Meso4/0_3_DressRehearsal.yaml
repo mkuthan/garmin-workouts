@@ -1,5 +1,6 @@
-name: "0_3_DressRehearsal"
-description: "Tune-up race"
+name: "0_3"
+description: "Dress Rehearsal"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml

@@ -1,5 +1,6 @@
-name: "5_4_RecoveryA"
-description: "Recovery"
+name: "5_4"
+description: "Recovery A"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\recovery_10.yaml

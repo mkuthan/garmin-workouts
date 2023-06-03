@@ -1,5 +1,6 @@
-name: "1_4_VO2max"
+name: "1_4"
 description: "VO2max"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml

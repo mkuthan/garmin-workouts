@@ -1,5 +1,6 @@
-name: "4_6_TuneUp"
+name: "4_6"
 description: "Tune-up race"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml

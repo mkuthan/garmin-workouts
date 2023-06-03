@@ -1,5 +1,6 @@
-name: "13_7_Marathon pace run"
+name: "13_7"
 description: "Marathon pace run"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\warmup.yaml
