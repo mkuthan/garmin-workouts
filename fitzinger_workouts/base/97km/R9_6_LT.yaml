@@ -1,5 +1,6 @@
-name: "R9_6_LT"
+name: "R9_6"
 description: "Lactate Threshold"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_12.yaml

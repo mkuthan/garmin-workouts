@@ -1,6 +1,0 @@
-name: "R5_6_LT"
-description: "Lactate Threshold"
-
-steps:
-  - !include ..\..\inc\aerobic_10.yaml
-  - { type: "run", duration: "0:20", target: THRESHOLD_PACE, description: "LT pace" }

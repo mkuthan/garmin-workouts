@@ -1,5 +1,6 @@
-name: "R10_3_General aerobic"
+name: "R10_3"
 description: "General aerobic"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_11.yaml

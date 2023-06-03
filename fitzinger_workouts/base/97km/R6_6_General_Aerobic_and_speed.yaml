@@ -1,5 +1,6 @@
-name: "R6_6_General aerobic and speed"
+name: "R6_6"
 description: "General aerobic and speed"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_8.yaml
