@@ -1,5 +1,6 @@
-name: "0_7 Race"
+name: "0_7"
 description: "Half Marathon goal race"
+sport: "running"
 
 steps:
   - !include ..\..\inc\race_half_sub_1_40.yaml

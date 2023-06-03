@@ -1,5 +1,6 @@
-name: "10_6 General aerobic and speed"
+name: "10_6"
 description: "General aerobic and speed"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_8.yaml
@@ -9,7 +10,7 @@ steps:
   - !include ..\..\inc\hill.yaml
   - !include ..\..\inc\hill.yaml
   - !include ..\..\inc\hill.yaml
-  - { type: "run", duration: "4:00", target: RECOVERY_PACE, description: "Recovery run" }
+  - !include ..\..\inc\recovery_4min.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml

@@ -1,9 +1,10 @@
-name: "0_2 General aerobic and speed"
+name: "0_2"
 description: "General aerobic and speed"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_8.yaml
-  - { type: "run", duration: "3km", target: HALF_MARATHON_PACE, description: "Half Marathon Pace" }
+  - !include ..\..\inc\hm_3.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml

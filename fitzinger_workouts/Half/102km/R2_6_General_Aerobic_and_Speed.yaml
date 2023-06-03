@@ -1,5 +1,6 @@
-name: "R2_6_general aerobic and speed"
+name: "R2_6"
 description: "General aerobic and speed"
+sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_9.yaml
@@ -9,7 +10,7 @@ steps:
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml
-  - { type: "recovery", duration: "3:00", target: THRESHOLD_PACE, description: "Recovery" }
+  - !include ..\..\inc\recovery_3min.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml
   - !include ..\..\inc\stride.yaml

@@ -1,6 +1,7 @@
-name: "9_7 Progression"
+name: "9_7"
 description: "Progression"
+sport: "running"
 
 steps:
   - !include ..\..\inc\lr_20.yaml
-  - { type: "run", duration: "3km", target: THRESHOLD_PACE, description: "LT run" }
+  - !include ..\..\inc\lt_3.yaml

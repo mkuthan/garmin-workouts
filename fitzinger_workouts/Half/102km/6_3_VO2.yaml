@@ -1,5 +1,6 @@
-name: "6_3 VO2"
+name: "6_3"
 description: "VO2"
+sport: "running"
 
 steps:  
   - !include ..\..\inc\aerobic_7.yaml
