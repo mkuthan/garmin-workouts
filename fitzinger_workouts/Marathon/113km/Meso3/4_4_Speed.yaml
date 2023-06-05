@@ -1,0 +1,11 @@
+name: "4_4"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml

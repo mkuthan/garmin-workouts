@@ -1,0 +1,6 @@
+name: "5_2"
+description: "General aerobic and speed"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\aerobic_11.yaml

@@ -1,0 +1,6 @@
+name: "0_2"
+description: "Race pace"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\hm_11.yaml

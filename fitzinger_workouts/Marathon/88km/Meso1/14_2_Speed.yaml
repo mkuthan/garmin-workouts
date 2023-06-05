@@ -1,0 +1,19 @@
+name: "14_2"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\hill.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml
+  - !include ..\..\..\inc\stride.yaml

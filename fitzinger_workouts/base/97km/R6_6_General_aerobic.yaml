@@ -1,0 +1,6 @@
+name: "R6_6"
+description: "General aerobic"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\aerobic_8.yaml

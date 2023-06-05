@@ -1,6 +1,6 @@
 name: "R5_7"
 description: "Medium Long Run"
-sport: "Running"
+sport: "running"
 
 steps:
   - !include ..\..\..\inc\lr_18.yaml
