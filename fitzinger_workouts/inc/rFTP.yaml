@@ -1,0 +1,9 @@
+- { type: warmup, duration: 00:15:00, target: HEART_RATE_ZONE_1, description: Warm up for 15 minutes, preparing for hard effort at the end of it } 
+- { type: interval, duration: 00:03:00, target: HEART_RATE_ZONE_4, description: Conduct a 3 minute interval at maximal effort } 
+- { type: recovery, duration: 00:05:00, target: HEART_RATE_ZONE_0, description: 5 minute walk } 
+- { type: interval, duration: 00:10:00, target: HEART_RATE_ZONE_1, description: 10 minute easy jog }   
+- { type: recovery, duration: 00:05:00, target: HEART_RATE_ZONE_0, description: 5 minute walk } 
+- { type: interval, duration: 00:05:00, target: HEART_RATE_ZONE_1, description: 5 minute easy jog }   
+- { type: recovery, duration: 00:05:00, target: HEART_RATE_ZONE_0, description: 5 minute walk again } 
+- { type: interval, duration: 00:09:00, target: HEART_RATE_ZONE_4, description: Conduct a 9 minute interval at maximal effort } 
+- { type: cooldown, duration: 00:15:00, target: HEART_RATE_ZONE_1, description: Cool down 10 to 15 minutes easy } 
