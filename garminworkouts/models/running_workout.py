@@ -532,8 +532,8 @@ class WorkoutStep:
 
         # time
         elif self.end_condition_value and ":" in self.end_condition_value:
-            h, m, s = [int(x) for x in self.end_condition_value.split(":")]
-            return h * 3600 + m * 60 + s
+            m, s = [int(x) for x in self.end_condition_value.split(":")]
+            return m * 60 + s
         else:
             return None
 
