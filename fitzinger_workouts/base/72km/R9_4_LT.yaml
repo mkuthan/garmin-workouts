@@ -1,0 +1,7 @@
+name: "R9_4"
+description: "Lactate Threshold"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\aerobic_11.yaml
+  - !include ..\..\inc\lt_22min.yaml
