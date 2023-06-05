@@ -4,4 +4,4 @@ sport: "running"
 
 steps:
   - !include ..\..\inc\aerobic_13.yaml
-  - { type: "run", duration: "0:22", target: THRESHOLD_PACE, description: "LT pace" }
+  - !include ..\..\inc\lt_22min.yaml
