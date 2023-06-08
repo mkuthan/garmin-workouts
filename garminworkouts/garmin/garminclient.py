@@ -10,7 +10,7 @@ class GarminClient(object):
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
-        "nk": "NT"
+        "NK": "NT"
     }
 
     def __init__(self, connect_url, sso_url, username, password, cookie_jar):

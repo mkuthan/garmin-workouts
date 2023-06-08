@@ -15,7 +15,7 @@ import account
 
 
 def command_reset(args):
-    workouts, race, plan = setting(args, account)  # type: ignore
+    workouts, race, plan = setting(args)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -31,7 +31,7 @@ def command_reset(args):
 
 
 def command_import(args):
-    workouts, race, plan = setting(args, account)
+    workouts, race, plan = setting(args)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -82,7 +82,7 @@ def command_import(args):
 
 
 def command_metrics(args):
-    workouts, race, plan = setting(args, account)
+    workouts, race, plan = setting(args)
 
     mileage = [0 for i in range(24, -11, -1)]
     duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
@@ -165,7 +165,7 @@ def _garmin_client(args):
     )
 
 
-def setting(args, account):
+def setting(args):
     workout_files = glob.glob(args.workout)
     plan = ''
     race = account.race
