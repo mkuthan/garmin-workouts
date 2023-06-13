@@ -8,7 +8,7 @@ from datetime import date, timedelta
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.running_workout import RunningWorkout
+from garminworkouts.models.running_workout import Workout
 from garminworkouts.utils.validators import writeable_dir
 
 import account
@@ -18,14 +18,14 @@ def command_reset(args):
     workouts, race, plan = setting(args)
 
     with _garmin_client(args) as connection:
-        existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
+        existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
 
         for workout in workouts:
             workout_name = workout.get_workout_name()
             existing_workout = existing_workouts_by_name.get(workout_name)
 
             if existing_workout:
-                workout_id = RunningWorkout.extract_workout_id(existing_workout)
+                workout_id = Workout.extract_workout_id(existing_workout)
                 logging.info("Deleting workout '%s'", workout_name)
                 connection.delete_workout(workout_id)
 
@@ -34,7 +34,7 @@ def command_import(args):
     workouts, race, plan = setting(args)
 
     with _garmin_client(args) as connection:
-        existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w for w in connection.list_workouts()}
+        existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
 
         for workout in workouts:
             workout_name = workout.get_workout_name()
@@ -52,33 +52,36 @@ def command_import(args):
             day_d = race - timedelta(weeks=week + 1) + timedelta(days=day)
 
             if existing_workout:
-                workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                description = RunningWorkout.extract_workout_description(existing_workout)
+                workout_id = Workout.extract_workout_id(existing_workout)
+                description = Workout.extract_workout_description(existing_workout)
                 if description:
                     if plan in description:
                         if day_d >= date.today():
                             if day_d <= date.today() + timedelta(weeks=2):
-                                workout_owner_id = RunningWorkout.extract_workout_owner_id(existing_workout)
+                                workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
                                 payload = workout.create_workout(workout_id, workout_owner_id)
                                 logging.info("Updating workout '%s'", workout_name)
                                 connection.update_workout(workout_id, payload)
                         else:
-                            logging.info("Deleting workout '%s'", workout_name)
-                            connection.delete_workout(workout_id)
+                            if day_d >= date.today() + timedelta(weeks=-2):
+                                logging.info("Remove workout '%s'", workout_name)
+                                connection.remove_workout(workout_id)
+                            else:
+                                logging.info("Deleting workout '%s'", workout_name)
+                                connection.delete_workout(workout_id)
                 else:
                     logging.info("Deleting workout '%s'", workout_name)
                     connection.delete_workout(workout_id)
-            else:
-                if day_d >= date.today():
-                    payload = workout.create_workout()
-                    logging.info("Creating workout '%s'", workout_name)
-                    connection.save_workout(payload)
+            elif day_d >= date.today():
+                payload = workout.create_workout()
+                logging.info("Creating workout '%s'", workout_name)
+                connection.save_workout(payload)
 
-                    existing_workouts_by_name = {RunningWorkout.extract_workout_name(w): w
-                                                 for w in connection.list_workouts()}
-                    existing_workout = existing_workouts_by_name.get(workout_name)
-                    workout_id = RunningWorkout.extract_workout_id(existing_workout)
-                    connection.schedule_workout(workout_id, day_d.isoformat())
+                existing_workouts_by_name = {Workout.extract_workout_name(w):
+                                             w for w in connection.list_workouts()}
+                existing_workout = existing_workouts_by_name.get(workout_name)
+                workout_id = Workout.extract_workout_id(existing_workout)
+                connection.schedule_workout(workout_id, day_d.isoformat())
 
 
 def command_metrics(args):
@@ -115,8 +118,8 @@ def command_metrics(args):
 def command_export(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            workout_id = RunningWorkout.extract_workout_id(workout)
-            workout_name = RunningWorkout.extract_workout_name(workout)
+            workout_id = Workout.extract_workout_id(workout)
+            workout_name = Workout.extract_workout_name(workout)
             file = os.path.join(args.directory, str(workout_id)) + ".fit"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout(workout_id, file)
@@ -125,8 +128,8 @@ def command_export(args):
 def command_export_yaml(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            workout_id = RunningWorkout.extract_workout_id(workout)
-            workout_name = RunningWorkout.extract_workout_name(workout)
+            workout_id = Workout.extract_workout_id(workout)
+            workout_name = Workout.extract_workout_name(workout)
             file = os.path.join(args.directory, str(workout_id)) + ".yaml"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout_yaml(workout_id, file)
@@ -146,7 +149,7 @@ def command_schedule(args):
 def command_get(args):
     with _garmin_client(args) as connection:
         workout = connection.get_workout(args.id)
-        RunningWorkout.print_workout_json(workout)
+        Workout.print_workout_json(workout)
 
 
 def command_delete(args):
@@ -180,14 +183,14 @@ def setting(args):
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
     target = configreader.read_config(r'pace.yaml')
-    workouts = [RunningWorkout(workout_config,
-                               target,
-                               account.vV02,
-                               account.fmin,
-                               account.fmax,
-                               account.rFTP,
-                               account.cFTP,
-                               plan)
+    workouts = [Workout(workout_config,
+                        target,
+                        account.vV02,
+                        account.fmin,
+                        account.fmax,
+                        account.rFTP,
+                        account.cFTP,
+                        plan)
                 for workout_config in workout_configs]
 
     return workouts, race, plan

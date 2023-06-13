@@ -2,7 +2,7 @@ import json
 import sys
 
 from garminworkouts.garmin.session import connect, disconnect
-from garminworkouts.models.running_workout import RunningWorkout
+from garminworkouts.models.running_workout import Workout
 
 
 class GarminClient(object):

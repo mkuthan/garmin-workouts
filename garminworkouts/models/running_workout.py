@@ -101,7 +101,7 @@ def step_extraction(step_json):
         return step
 
 
-class RunningWorkout(object):
+class Workout(object):
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
     _WORKOUT_DESCRIPTION_FIELD = "description"
@@ -208,30 +208,30 @@ class RunningWorkout(object):
         return self.config["name"] + '-' + self.config["description"]
 
     @staticmethod
-    def extract_workout_id(running_workout):
-        return running_workout[RunningWorkout._WORKOUT_ID_FIELD]
+    def extract_workout_id(workout):
+        return workout[Workout._WORKOUT_ID_FIELD]
 
     @staticmethod
-    def extract_workout_name(running_workout):
-        return running_workout[RunningWorkout._WORKOUT_NAME_FIELD]
+    def extract_workout_name(workout):
+        return workout[Workout._WORKOUT_NAME_FIELD]
 
     @staticmethod
-    def extract_workout_description(running_workout):
-        return running_workout[RunningWorkout._WORKOUT_DESCRIPTION_FIELD]
+    def extract_workout_description(workout):
+        return workout[Workout._WORKOUT_DESCRIPTION_FIELD]
 
     @staticmethod
-    def extract_workout_owner_id(running_workout):
-        return running_workout[RunningWorkout._WORKOUT_OWNER_ID_FIELD]
+    def extract_workout_owner_id(workout):
+        return workout[Workout._WORKOUT_OWNER_ID_FIELD]
 
     @staticmethod
-    def print_workout_json(running_workout):
-        print(json.dumps(functional.filter_empty(running_workout)))
+    def print_workout_json(workout):
+        print(json.dumps(functional.filter_empty(workout)))
 
     @staticmethod
-    def print_workout_summary(running_workout):
-        workout_id = RunningWorkout.extract_workout_id(running_workout)
-        workout_name = RunningWorkout.extract_workout_name(running_workout)
-        workout_description = RunningWorkout.extract_workout_description(running_workout)
+    def print_workout_summary(workout):
+        workout_id = Workout.extract_workout_id(workout)
+        workout_name = Workout.extract_workout_name(workout)
+        workout_description = Workout.extract_workout_description(workout)
         print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
 
     @staticmethod
