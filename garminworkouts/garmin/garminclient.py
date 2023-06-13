@@ -10,7 +10,7 @@ class GarminClient(object):
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
-        "NK": "NT"
+        "Nk": "NT"
     }
 
     def __init__(self, connect_url, sso_url, username, password, cookie_jar):
@@ -54,7 +54,7 @@ class GarminClient(object):
         return json.loads(response.text)
 
     def download_workout_yaml(self, workout_id, filename):
-        RunningWorkout.export_yaml(self.get_workout(workout_id), filename)
+        Workout.export_yaml(self.get_workout(workout_id), filename)
 
     def download_workout(self, workout_id, file):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
@@ -88,4 +88,11 @@ class GarminClient(object):
         json_data = {"date": date}
 
         response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=json_data)
+        response.raise_for_status()
+
+    def remove_workout(self, workout_id, date):
+        url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
+        json_data = {"date": date}
+
+        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS, json=json_data)
         response.raise_for_status()
