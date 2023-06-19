@@ -63,10 +63,6 @@ def command_import(args):
                                 logging.info("Updating workout '%s'", workout_name)
                                 connection.update_workout(workout_id, payload)
                         else:
-                            if day_d >= date.today() + timedelta(weeks=-2):
-                                logging.info("Remove workout '%s'", workout_name)
-                                connection.remove_workout(workout_id)
-                            else:
                                 logging.info("Deleting workout '%s'", workout_name)
                                 connection.delete_workout(workout_id)
                 else:

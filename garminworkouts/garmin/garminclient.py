@@ -1,5 +1,7 @@
 import json
 import sys
+import logging
+from datetime import datetime
 
 from garminworkouts.garmin.session import connect, disconnect
 from garminworkouts.models.running_workout import Workout
@@ -7,6 +9,7 @@ from garminworkouts.models.running_workout import Workout
 
 class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
+    _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
@@ -82,6 +85,22 @@ class GarminClient(object):
 
         response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
+
+    def get_calendar(self, date):
+        year = str(date.year)
+        month = str(date.month - 1)
+        url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        response_jsons = json.loads(response.text)
+
+        for item in response_jsons['calendarItems']:
+            if datetime.strptime(item['date'], '%Y-%m-%d').date() < date and item['itemType'] == 'workout':
+                print(item['title'], item['date'], item['id'], item['itemType'])
+                logging.info("Deleting workout '%s'", item['title'])
+                self.delete_workout(item['id'])
 
     def schedule_workout(self, workout_id, date):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
