@@ -106,6 +106,10 @@ class Workout(object):
     _WORKOUT_NAME_FIELD = "workoutName"
     _WORKOUT_DESCRIPTION_FIELD = "description"
     _WORKOUT_OWNER_ID_FIELD = "ownerId"
+    _WORKOUT_SPORT_TYPE_FIELD = "sportType"
+    _WORKOUT_SEGMENTS_FIELD = "workoutSegments"
+    _WORKOUT_STEPS_FIELD = "workoutSteps"
+    _WORKOUT_ORDER_FIELD = "segmentOrder"
 
     def __init__(
             self,
@@ -195,12 +199,12 @@ class Workout(object):
             self._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
             self._WORKOUT_NAME_FIELD: self.get_workout_name(),
             self._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
-            "sportType": self.get_sport_type(self.sport_type[0]),
-            "workoutSegments": [
+            self._WORKOUT_SPORT_TYPE_FIELD: self.get_sport_type(self.sport_type[0]),
+            self._WORKOUT_SEGMENTS_FIELD: [
                 {
-                    "segmentOrder": 1,
-                    "sportType": self.get_sport_type(self.sport_type[0]),
-                    "workoutSteps": self._steps(self.config["steps"])
+                    self._WORKOUT_ORDER_FIELD: 1,
+                    self._WORKOUT_SPORT_TYPE_FIELD: self.get_sport_type(self.sport_type[0]),
+                    self._WORKOUT_STEPS_FIELD: self._steps(self.config["steps"])
                 }
             ]
         }
@@ -654,8 +658,8 @@ class Event(object):
                 'startTimeHhMm': self.time,
                 'timeZoneId': 'Europe/Paris'
                 },
-            'note': '',
-            'workoutId': None,
+            'note': None,
+            Workout._WORKOUT_ID_FIELD: None,
             'location': self.location,
             'eventType': self.sport,
             'eventPrivacy': {
