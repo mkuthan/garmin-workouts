@@ -588,3 +588,90 @@ class Target:
             "targetValueTwo": self.from_value,
             "zoneNumber": self.zone,
         }
+
+
+class Event(object):
+    _EVENT_ID_FIELD = "id"
+    _EVENT_NAME_FIELD = "eventName"
+    _EVENT_DATE_FIELD = "date"
+    _EVENT_LOCATION_FIELD = "location"
+    _EVENT_TIME_FIELD = "eventTimeLocal"
+
+    def __init__(
+            self,
+            config
+            ):
+
+        self.name = config['name']
+        self.date = date(config['date']['year'], config['date']['month'], config['date']['day'])
+        self.url = config['url']
+        self.location = config['location']
+        self.time = config['time']
+        self.distance = config['distance']
+        self.goal = Duration(config['goal']).to_seconds()
+        self.sport = config['sport']
+
+    @staticmethod
+    def extract_event_id(event):
+        return event[Event._EVENT_ID_FIELD]
+
+    @staticmethod
+    def extract_event_name(event):
+        return event[Event._EVENT_NAME_FIELD]
+
+    @staticmethod
+    def extract_event_date(event):
+        return event[Event._EVENT_DATE_FIELD]
+
+    @staticmethod
+    def extract_event_location(event):
+        return event[Event._EVENT_LOCATION_FIELD]
+
+    @staticmethod
+    def extract_event_time(event):
+        return event[Event._EVENT_TIME_FIELD]
+
+    @staticmethod
+    def print_event_summary(event):
+        event_id = Event.extract_event_id(event)
+        event_name = Event.extract_event_name(event)
+        event_date = Event.extract_event_date(event)
+        event_location = Event.extract_event_location(event)
+        print("{0} {1:20} {2:10} {3}".format(event_id, event_name, event_location, event_date))
+
+    def create_event(self, event_id=None):
+        return {
+            self._EVENT_NAME_FIELD: self.name,
+            'date': str(self.date),
+            'url': self.url,
+            'registrationUrl': None,
+            'completionTarget': {
+                'value': self.distance,
+                'unit': 'kilometer',
+                'unitType': 'distance'
+                },
+            self._EVENT_TIME_FIELD: {
+                'startTimeHhMm': self.time,
+                'timeZoneId': 'Europe/Paris'
+                },
+            'note': '',
+            'workoutId': None,
+            'location': self.location,
+            'eventType': self.sport,
+            'eventPrivacy': {
+                'label': 'PRIVATE',
+                'isShareable': False,
+                'isDiscoverable': False
+                },
+            'shareableEventUuid': None,
+            'eventCustomization': {
+                'customGoal': {
+                    'value': self.goal,
+                    'unit': 'second',
+                    'unitType': 'time'},
+                'isPrimaryEvent': None,
+                'isTrainingEvent': True},
+            'race': True,
+            'eventOrganizer': True,
+            'subscribed': True
+            }

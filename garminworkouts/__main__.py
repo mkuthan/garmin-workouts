@@ -8,7 +8,7 @@ from datetime import date, timedelta
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.running_workout import Workout
+from garminworkouts.models.running_workout import Workout, Event
 from garminworkouts.utils.validators import writeable_dir
 
 import account
@@ -83,6 +83,35 @@ def command_import(args):
                 connection.schedule_workout(workout_id, day_d.isoformat())
 
 
+def command_import_event(args):
+    try:
+        planning = configreader.read_config(r'planning.yaml')
+        event_files = glob.glob(planning[args.event]['workouts'])
+    except KeyError:
+        print(args.workout + ' not found in planning, please check "planning.yaml"')
+        event_files = glob.glob(args.event)
+
+    event_configs = [configreader.read_config(event_file) for event_file in event_files]
+    events = [Event(event_config) for event_config in event_configs]
+
+    with _garmin_client(args) as connection:
+        existing_events_by_name = {Event.extract_event_name(w): w for w in connection.list_events()}
+
+        for event in events:
+            event_name = event.name
+            existing_event = existing_events_by_name.get(event_name)
+
+            if existing_event:
+                event_id = Event.extract_event_id(existing_event)
+                payload = event.create_event(event_id)
+                logging.info("Updating event '%s'", event_name)
+                connection.update_event(event_id, payload)
+            else:
+                payload = event.create_event()
+                logging.info("Creating event '%s'", event_name)
+                connection.save_event(payload)
+
+
 def command_metrics(args):
     workouts, race, plan = setting(args)
 
@@ -137,7 +166,13 @@ def command_export_yaml(args):
 def command_list(args):
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            RunningWorkout.print_workout_summary(workout)
+            Workout.print_workout_summary(workout)
+
+
+def command_list_events(args):
+    with _garmin_client(args) as connection:
+        for event in connection.list_events():
+            Event.print_event_summary(event)
 
 
 def command_schedule(args):
@@ -148,6 +183,12 @@ def command_schedule(args):
 def command_get(args):
     with _garmin_client(args) as connection:
         workout = connection.get_workout(args.id)
+        Workout.print_workout_json(workout)
+
+
+def command_get_event(args):
+    with _garmin_client(args) as connection:
+        workout = connection.get_event(args.id)
         Workout.print_workout_json(workout)
 
 
@@ -227,6 +268,13 @@ def main():
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.set_defaults(func=command_import)
 
+    parser_import = subparsers.add_parser("import_event",
+                                          description="Import event(s) from file(s) into Garmin Connect")
+    parser_import.add_argument("event",
+                               help="File(s) with event(s) to import, "
+                                    "wildcards are supported e.g: events/*.yaml")
+    parser_import.set_defaults(func=command_import_event)
+
     parser_import = subparsers.add_parser("metrics",
                                           description="Get workout(s) metrics from file(s)")
     parser_import.add_argument("workout",
@@ -250,6 +298,9 @@ def main():
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)
 
+    parser_list = subparsers.add_parser("list_events", description="List all events")
+    parser_list.set_defaults(func=command_list_events)
+
     parser_schedule = subparsers.add_parser("schedule",
                                             description="Schedule a workouts")
     parser_schedule.add_argument("--workout_id",
@@ -268,6 +319,13 @@ def main():
                             required=True,
                             help="Workout id, use list command to get workouts identifiers")
     parser_get.set_defaults(func=command_get)
+
+    parser_get = subparsers.add_parser("get_event",
+                                       description="Get event")
+    parser_get.add_argument("--id",
+                            required=True,
+                            help="Event id, use list command to get event identifiers")
+    parser_get.set_defaults(func=command_get_event)
 
     parser_delete = subparsers.add_parser("delete",
                                           description="Delete workout")

@@ -115,3 +115,47 @@ class GarminClient(object):
 
         response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS, json=json_data)
         response.raise_for_status()
+
+    def list_events(self, batch_size=20):
+        for start_index in range(1, sys.maxsize, batch_size):
+            url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/events"
+            params = {
+                "startDate": datetime.today(),
+                "pageIndex": start_index,
+                "limit": batch_size
+            }
+            response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+            response.raise_for_status()
+
+            response_jsons = json.loads(response.text)
+            if not response_jsons or response_jsons == []:
+                break
+
+            for response_json in response_jsons:
+                yield response_json
+
+    def get_event(self, event_id):
+        url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def save_event(self, event):
+        url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event"
+
+        response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=event)
+        response.raise_for_status()
+
+    def update_event(self, event_id, event):
+        url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
+
+        response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=event)
+        response.raise_for_status()
+
+    def delete_event(self, event_id):
+        url = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
+
+        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
