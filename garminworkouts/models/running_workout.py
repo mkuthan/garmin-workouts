@@ -540,8 +540,7 @@ class WorkoutStep:
 
         # time
         elif self.end_condition_value and ":" in self.end_condition_value:
-            m, s = [int(x) for x in self.end_condition_value.split(":")]
-            return m * 60 + s
+            return Duration(self.end_condition_value).to_seconds()
         else:
             return None
 
