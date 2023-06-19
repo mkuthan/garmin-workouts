@@ -40,16 +40,19 @@ def command_import(args):
             workout_name = workout.get_workout_name()
             existing_workout = existing_workouts_by_name.get(workout_name)
 
-            if workout_name.startswith("R"):
-                ind = 1
-                week = -int(workout_name[ind:workout_name.index('_')])
-                day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
-            else:
-                ind = 0
-                week = int(workout_name[ind:workout_name.index('_')])
-                day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+            if '_' in workout_name:
+                if workout_name.startswith("R"):
+                    ind = 1
+                    week = -int(workout_name[ind:workout_name.index('_')])
+                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+                else:
+                    ind = 0
+                    week = int(workout_name[ind:workout_name.index('_')])
+                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
 
-            day_d = race - timedelta(weeks=week + 1) + timedelta(days=day)
+                day_d = race - timedelta(weeks=week + 1) + timedelta(days=day)
+            else:
+                day_d = workout.get_workout_date()
 
             if existing_workout:
                 workout_id = Workout.extract_workout_id(existing_workout)
@@ -63,8 +66,8 @@ def command_import(args):
                                 logging.info("Updating workout '%s'", workout_name)
                                 connection.update_workout(workout_id, payload)
                         else:
-                                logging.info("Deleting workout '%s'", workout_name)
-                                connection.delete_workout(workout_id)
+                            logging.info("Deleting workout '%s'", workout_name)
+                            connection.get_calendar(date.today())
                 else:
                     logging.info("Deleting workout '%s'", workout_name)
                     connection.delete_workout(workout_id)

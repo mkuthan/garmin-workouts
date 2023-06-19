@@ -3,7 +3,7 @@ import datetime
 
 from garminworkouts.models.duration import Duration
 from garminworkouts.models.power import Power
-from datetime import timedelta
+from datetime import date, timedelta
 from garminworkouts.utils import functional, math
 import yaml
 
@@ -121,6 +121,7 @@ class Workout(object):
 
         self.sport_type = config['sport'].lower(),
         self.config = config
+        self.date = config['date'] if 'date' in config else None
         self.target = target
         self.vVO2 = vVO2.to_seconds()
         self.fmin = fmin
@@ -206,6 +207,9 @@ class Workout(object):
 
     def get_workout_name(self):
         return self.config["name"] + '-' + self.config["description"]
+
+    def get_workout_date(self):
+        return date(self.date['year'], self.date['month'], self.date['day'])  # type: ignore
 
     @staticmethod
     def extract_workout_id(workout):
