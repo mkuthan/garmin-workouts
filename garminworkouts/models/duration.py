@@ -8,13 +8,13 @@ class Duration:
     def to_seconds(self):
         if self._has_hours():
             hours, minutes, seconds = self._tokenize()
-            return self._to_seconds(seconds, minutes, hours)  # type: ignore
+            return self._to_seconds(int(seconds), int(minutes), int(hours))
         elif self._has_minutes():
             minutes, seconds = self._tokenize()
-            return self._to_seconds(seconds, minutes)  # type: ignore
+            return self._to_seconds(int(seconds), int(minutes))
         elif self._has_seconds():
             [seconds] = self._tokenize()
-            return self._to_seconds(seconds)
+            return self._to_seconds(int(seconds))
         else:
             raise ValueError("Unknown duration %s, expected format HH:MM:SS" % self.duration)
 
@@ -25,7 +25,7 @@ class Duration:
         if 'km' not in self.duration:
             return len(self._tokenize()) == 1
         else:
-            return 0
+            return bool(0)
 
     def _has_minutes(self):
         return len(self._tokenize()) == 2

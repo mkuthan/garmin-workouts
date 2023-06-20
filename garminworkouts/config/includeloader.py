@@ -59,6 +59,9 @@ class IncludeLoader(yaml.SafeLoader):
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
 
+        if len(d) == 0:
+            print(filename + ' not found; empty step defined')
+
         return d
 
 

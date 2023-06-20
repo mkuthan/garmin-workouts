@@ -6,7 +6,7 @@ def moving_average(x, n):
 
 
 def normalized_power(x):
-    return np.sqrt(np.sqrt(np.mean(moving_average(x, 30) ** 4)))  # type: ignore
+    return np.sqrt(np.sqrt(np.mean(moving_average(x, 30) ** 4)))
 
 
 def intensity_factor(norm_pwr, ftp):

@@ -25,10 +25,10 @@ class Power:
         return round(absolute_power * (1 + diff))
 
     def _has_watt(self):
-        return self.power.lower().endswith("w")
+        return (self.power.lower()).endswith("w")
 
     def _has_percent(self):
-        return self.power.lower().endswith("%")
+        return (self.power.lower()).endswith("%")
 
     @staticmethod
     def _to_absolute(power, ftp):
