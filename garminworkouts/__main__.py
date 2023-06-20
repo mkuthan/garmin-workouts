@@ -281,7 +281,7 @@ def main():
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.set_defaults(func=command_import)
 
-    parser_import = subparsers.add_parser("import_event",
+    parser_import = subparsers.add_parser("event",
                                           description="Import event(s) from file(s) into Garmin Connect")
     parser_import.add_argument("event",
                                help="File(s) with event(s) to import, "
@@ -315,7 +315,7 @@ def main():
     parser_list = subparsers.add_parser("list", description="List all workouts")
     parser_list.set_defaults(func=command_list)
 
-    parser_list = subparsers.add_parser("list_events", description="List all events")
+    parser_list = subparsers.add_parser("event-list", description="List all events")
     parser_list.set_defaults(func=command_list_events)
 
     parser_schedule = subparsers.add_parser("schedule",
@@ -337,7 +337,7 @@ def main():
                             help="Workout id, use list command to get workouts identifiers")
     parser_get.set_defaults(func=command_get)
 
-    parser_get = subparsers.add_parser("get_event",
+    parser_get = subparsers.add_parser("get-event",
                                        description="Get event")
     parser_get.add_argument("--id",
                             required=True,
