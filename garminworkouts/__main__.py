@@ -15,7 +15,7 @@ import account
 
 
 def command_reset(args):
-    workouts, race, plan = setting(args)
+    workouts, plan = setting(args)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -31,7 +31,7 @@ def command_reset(args):
 
 
 def command_import(args):
-    workouts, race, plan = setting(args)
+    workouts, plan = setting(args)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -113,11 +113,11 @@ def command_import_event(args):
 
 
 def command_metrics(args):
-    workouts, race, plan = setting(args)
+    workouts, plan = setting(args)
 
-    mileage = [0 for i in range(24, -11, -1)]
+    mileage = [float(0) for i in range(24, -11, -1)]
     duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
-    tss = [0 for i in range(24, -11, -1)]
+    tss = [float(0) for i in range(24, -11, -1)]
 
     for workout in workouts:
         workout_name = workout.get_workout_name()
@@ -136,7 +136,7 @@ def command_metrics(args):
         print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
     for i in range(24, -11, -1):
-        if mileage[i] > 0:
+        if mileage[i] > float(0):
             print('Week ' + str(i) + ': '
                   + str(round(mileage[i], 2)) + ' km - '
                   + 'Duration: ' + str(duration[i]) + ' - '
@@ -210,7 +210,7 @@ def _garmin_client(args):
 
 def setting(args):
     workout_files = glob.glob(args.workout)
-    plan = ''
+    plan = str('')
     race = account.race
     if not workout_files:
         try:
@@ -230,7 +230,8 @@ def setting(args):
                         account.fmax,
                         account.rFTP,
                         account.cFTP,
-                        plan)
+                        plan,
+                        race)
                 for workout_config in workout_configs]
 
     return workouts, plan

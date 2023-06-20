@@ -120,10 +120,11 @@ class Workout(object):
             fmax=200,
             rFTP=Power('400w'),
             cFTP=Power('200w'),
-            plan=[]
+            plan=[],
+            race=date(1, 1, 1)
             ):
 
-        self.sport_type = config['sport'].lower(),
+        self.sport_type = config['sport'].lower() if 'sport' in config else None,
         self.config = config
         self.date = config['date'] if 'date' in config else None
         self.target = target
@@ -133,6 +134,7 @@ class Workout(object):
         self.rFTP = rFTP.to_watts(0, 0)
         self.cFTP = cFTP.to_watts(0, 0)
         self.plan = plan
+        self.race = race
 
         self.duration = datetime.timedelta(seconds=0)
         self.mileage = 0
@@ -141,7 +143,7 @@ class Workout(object):
         self.norm_pwr = 0
         self.int_fct = 0
 
-        flatten_steps = functional.flatten(self.config["steps"])
+        flatten_steps = functional.flatten(self.config["steps"]) if 'steps' in self.config else []
 
         if self.sport_type[0] == "running":
             self.running_values(flatten_steps)
@@ -348,10 +350,10 @@ class Workout(object):
     def _interval_step(self, step_config, child_step_id, step_order):
         return WorkoutStep(order=step_order,
                            child_step_id=child_step_id,
-                           description=step_config['description'],
-                           step_type=step_config['type'],
+                           description=step_config['description'] if 'description' in step_config else None,
+                           step_type=step_config['type'] if 'duration' in step_config else None,
                            end_condition=self._end_condition(step_config)['conditionTypeKey'],
-                           end_condition_value=step_config['duration'],
+                           end_condition_value=step_config['duration'] if 'duration' in step_config else None,
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
                                          to_value=self._target_value(step_config, 'min'),
                                          from_value=self._target_value(step_config, 'max')
@@ -480,12 +482,14 @@ class Workout(object):
     def _generate_description(self):
         description = ''
         if self.sport_type[0] == 'running':
-            description = (self.config.get('description')
-                           + '. Plan: ' + self.plan
-                           + '. Estimated Duration: ' + str(self.duration) + '; '
-                           + str(self.mileage).format('2:2f') + ' km. '
-                           + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
-                           + 'rTSS: ' + str(self.tss).format('2:2f'))
+            if 'description' in self.config:
+                description += self.config.get('description') + '. '
+            if self.plan != '':
+                description += 'Plan: ' + self.plan + '. '
+            description += ('Estimated Duration: ' + str(self.duration) + '; '
+                            + str(self.mileage).format('2:2f') + ' km. '
+                            + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
+                            + 'rTSS: ' + str(self.tss).format('2:2f'))
         elif self.sport_type[0] == 'cycling':
             description = "FTP %d, TSS %d, NP %d, IF %.2f" % (self.cFTP, self.tss, self.norm_pwr, self.int_fct)
         if description:
@@ -620,11 +624,12 @@ class Event(object):
 
         self.name = config['name']
         self.date = date(config['date']['year'], config['date']['month'], config['date']['day'])
-        self.url = config['url']
-        self.location = config['location']
-        self.time = config['time']
-        self.distance = config['distance']
-        self.goal = Duration(config['goal']).to_seconds()
+        self.url = config['url'] if 'url' in config else None
+        self.location = config['location'] if 'location' in config else None
+        self.time = config['time'] if 'time' in config else None
+        self.distance = config['distance'] if 'distance' in config else None
+        self.goal = Duration(config['goal']).to_seconds() if 'goal' in config else None
+        self.course = config['course'] if 'course' in config else None
         self.sport = config['sport']
 
     @staticmethod
