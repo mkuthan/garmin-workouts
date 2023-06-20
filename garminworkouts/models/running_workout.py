@@ -170,6 +170,8 @@ class Workout(object):
 
         try:
             self.ratio = round(self.vVO2 / (sec / meters * 1000) * 100)
+        except ZeroDivisionError:
+            self.ratio = 0
         except ValueError:
             self.ratio = 0
 
@@ -225,10 +227,29 @@ class Workout(object):
         }
 
     def get_workout_name(self):
-        return self.config["name"] + '-' + self.config["description"]
+        if 'description' in self.config:
+            return self.config['name'] + '-' + self.config['description']
+        else:
+            return self.config['name']
 
     def get_workout_date(self):
-        return date(self.date['year'], self.date['month'], self.date['day'])  # type: ignore
+        if self.date:
+            return date(self.date['year'], self.date['month'], self.date['day']), int(0), int(0)
+        else:
+            workout_name = self.config['name']
+            if '_' in workout_name:
+                if workout_name.startswith("R"):
+                    ind = 1
+                    week = -int(workout_name[ind:workout_name.index('_')])
+                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+                else:
+                    ind = 0
+                    week = int(workout_name[ind:workout_name.index('_')])
+                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
+
+                return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
+            else:
+                return date(year=1, month=1, day=1), int(0), int(0)
 
     @staticmethod
     def extract_workout_id(workout):

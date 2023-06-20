@@ -38,49 +38,31 @@ def command_import(args):
 
         for workout in workouts:
             workout_name = workout.get_workout_name()
-            existing_workout = existing_workouts_by_name.get(workout_name)
+            day_d, week, day = workout.get_workout_date()
 
-            if '_' in workout_name:
-                if workout_name.startswith("R"):
-                    ind = 1
-                    week = -int(workout_name[ind:workout_name.index('_')])
-                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
-                else:
-                    ind = 0
-                    week = int(workout_name[ind:workout_name.index('_')])
-                    day = int(workout_name[workout_name.index('_') + 1:workout_name.index('_') + 2])
-
-                day_d = race - timedelta(weeks=week + 1) + timedelta(days=day)
-            else:
-                day_d = workout.get_workout_date()
-
-            if existing_workout:
-                workout_id = Workout.extract_workout_id(existing_workout)
-                description = Workout.extract_workout_description(existing_workout)
-                if description:
-                    if plan in description:
-                        if day_d >= date.today():
-                            if day_d <= date.today() + timedelta(weeks=2):
-                                workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
-                                payload = workout.create_workout(workout_id, workout_owner_id)
-                                logging.info("Updating workout '%s'", workout_name)
-                                connection.update_workout(workout_id, payload)
-                        else:
-                            logging.info("Deleting workout '%s'", workout_name)
-                            connection.get_calendar(date.today())
-                else:
-                    logging.info("Deleting workout '%s'", workout_name)
-                    connection.delete_workout(workout_id)
-            elif day_d >= date.today():
-                payload = workout.create_workout()
-                logging.info("Creating workout '%s'", workout_name)
-                connection.save_workout(payload)
-
-                existing_workouts_by_name = {Workout.extract_workout_name(w):
-                                             w for w in connection.list_workouts()}
+            if day_d >= date.today():
                 existing_workout = existing_workouts_by_name.get(workout_name)
-                workout_id = Workout.extract_workout_id(existing_workout)
-                connection.schedule_workout(workout_id, day_d.isoformat())
+                if existing_workout:
+                    workout_id = Workout.extract_workout_id(existing_workout)
+                    description = Workout.extract_workout_description(existing_workout)
+                    if description and (plan in description) and (day_d <= date.today() + timedelta(weeks=2)):
+                        workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
+                        payload = workout.create_workout(workout_id, workout_owner_id)
+                        logging.info("Updating workout '%s'", workout_name)
+                        connection.update_workout(workout_id, payload)
+                else:
+                    payload = workout.create_workout()
+                    logging.info("Creating workout '%s'", workout_name)
+                    connection.save_workout(payload)
+
+                    existing_workouts_by_name = {Workout.extract_workout_name(w):
+                                                 w for w in connection.list_workouts()}
+                    existing_workout = existing_workouts_by_name.get(workout_name)
+                    workout_id = Workout.extract_workout_id(existing_workout)
+                    connection.schedule_workout(workout_id, day_d.isoformat())
+            else:
+                logging.info("Deleting workout '%s'", workout_name)
+                connection.get_calendar(date.today())
 
 
 def command_import_event(args):
@@ -125,15 +107,9 @@ def command_metrics(args):
 
     for workout in workouts:
         workout_name = workout.get_workout_name()
+        day_d, week, day = workout.get_workout_date()
 
-        if workout_name.startswith("R"):
-            ind = 1
-            week = -int(workout_name[ind:workout_name.index('_')])
-        else:
-            ind = 0
-            week = int(workout_name[ind:workout_name.index('_')])
-
-        mileage[week] = mileage[week] + workout.mileage  # type: ignore
+        mileage[week] = mileage[week] + workout.mileage
         duration[week] = duration[week] + workout.duration
         tss[week] = tss[week] + workout.tss
 
