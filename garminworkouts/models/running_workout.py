@@ -193,6 +193,19 @@ class Workout(object):
         self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP)
         self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP)
 
+    def zones(self):
+        zones = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1]
+        hr_zones = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+        print('::Heart Rate Zones::')
+        for i in range(len(zones)-1):
+            print('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
+
+        zones = [0.6, 0.8, 0.88, 0.95, 1.05, 1.15, 1.28, 1.45]
+        power_zones = [round(self.rFTP * zone) for zone in zones]
+        print('::Running Power Zones::')
+        for i in range(len(zones)-1):
+            print('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1])
+
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
             self._WORKOUT_ID_FIELD: workout_id,

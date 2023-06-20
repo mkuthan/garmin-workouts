@@ -233,7 +233,20 @@ def setting(args):
                         plan)
                 for workout_config in workout_configs]
 
-    return workouts, race, plan
+    return workouts, plan
+
+
+def command_zones(args):
+    Workout([],
+            [],
+            account.vV02,
+            account.fmin,
+            account.fmax,
+            account.rFTP,
+            account.cFTP,
+            str(''),
+            date(0, 1, 1)
+            ).zones()
 
 
 def main():
@@ -281,6 +294,10 @@ def main():
                                help="File(s) with workout(s) to import, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml")
     parser_import.set_defaults(func=command_metrics)
+
+    parser_import = subparsers.add_parser("zones",
+                                          description="Get training zones")
+    parser_import.set_defaults(func=command_zones)
 
     parser_export = subparsers.add_parser("export",
                                           description="Export all workouts from Garmin Connect and save into directory")
