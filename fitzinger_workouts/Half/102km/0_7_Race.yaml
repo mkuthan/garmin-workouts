@@ -3,4 +3,4 @@ description: "Half Marathon goal race"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\race_half_sub_1_40.yaml
+  - !include ..\..\inc\hm_21.yaml

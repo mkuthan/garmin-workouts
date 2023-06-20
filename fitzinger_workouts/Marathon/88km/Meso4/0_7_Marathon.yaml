@@ -3,4 +3,4 @@ description: "Marathon"
 sport: "running"
 
 steps:
-  - !include ..\..\..\inc\race_marathon_sub_3_40.yaml
+  - !include ..\..\..\inc\marathon_42.yaml
