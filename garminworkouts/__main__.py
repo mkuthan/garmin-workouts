@@ -96,18 +96,22 @@ def command_import_event(args):
 
     with _garmin_client(args) as connection:
         existing_events_by_name = {Event.extract_event_name(w): w for w in connection.list_events()}
+        existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
 
         for event in events:
             event_name = event.name
             existing_event = existing_events_by_name.get(event_name)
 
+            existing_workout = existing_workouts_by_name.get(event_name)
+            workout_id = Workout.extract_workout_id(existing_workout) if existing_workout else None
+
             if existing_event:
                 event_id = Event.extract_event_id(existing_event)
-                payload = event.create_event(event_id)
+                payload = event.create_event(event_id, workout_id)
                 logging.info("Updating event '%s'", event_name)
                 connection.update_event(event_id, payload)
             else:
-                payload = event.create_event()
+                payload = event.create_event(workout_id=workout_id)
                 logging.info("Creating event '%s'", event_name)
                 connection.save_event(payload)
 

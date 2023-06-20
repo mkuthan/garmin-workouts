@@ -660,12 +660,14 @@ class Event(object):
         event_location = Event.extract_event_location(event)
         print("{0} {1:20} {2:10} {3}".format(event_id, event_name, event_location, event_date))
 
-    def create_event(self, event_id=None):
+    def create_event(self, event_id=None, workout_id=None):
         return {
+            'id': event_id,
             self._EVENT_NAME_FIELD: self.name,
             'date': str(self.date),
             'url': self.url,
             'registrationUrl': None,
+            'courseId': self.course,
             'completionTarget': {
                 'value': self.distance,
                 'unit': 'kilometer',
@@ -676,7 +678,7 @@ class Event(object):
                 'timeZoneId': 'Europe/Paris'
                 },
             'note': None,
-            Workout._WORKOUT_ID_FIELD: None,
+            Workout._WORKOUT_ID_FIELD: workout_id,
             'location': self.location,
             'eventType': self.sport,
             'eventPrivacy': {
