@@ -8,3 +8,4 @@ account.py
 *.json
 planning.yaml
 exported/*.yaml
+events/*.yaml
