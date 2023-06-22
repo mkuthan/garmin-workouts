@@ -135,6 +135,18 @@ def command_export(args):
 
 def command_export_yaml(args):
     with _garmin_client(args) as connection:
+        for workout in connection.external_workouts():
+            code = workout['workoutSourceId']
+            workout = connection.get_external_workout(code)
+            workout['workoutId'] = code
+
+            workout_id = Workout.extract_workout_id(workout)
+            workout_name = Workout.extract_workout_name(workout)
+            file = os.path.join(args.directory, str(workout_id)) + ".yaml"
+            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+            Workout.export_yaml(workout, file)
+
+    with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
