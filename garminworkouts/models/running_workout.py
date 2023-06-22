@@ -410,7 +410,16 @@ class Workout(object):
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
                                          to_value=self._target_value(step_config, 'min'),
                                          from_value=self._target_value(step_config, 'max')
-                                         )
+                                         ),
+                           secondary_target=Target(
+                                            target=self._target_type(
+                                                                step_config,
+                                                                'secondary' in step_config)['workoutTargetTypeKey'],
+                                            to_value=self._target_value(step_config, 'min',
+                                                                        'secondary' in step_config),
+                                            from_value=self._target_value(step_config, 'max',
+                                                                          'secondary' in step_config)
+                                            ) if 'secondary' in step_config else None,
                            ).create_workout_step()
 
     def _str_is_time(self, string):
@@ -472,8 +481,8 @@ class Workout(object):
         else:
             return None
 
-    def _target_type(self, step_config):
-        target = step_config.get("target")
+    def _target_type(self, step_config, secondary=False):
+        target = step_config.get("secondary") if secondary else step_config.get("target")
         if ">" in target:
             d, target = target.split(">")
         elif "<" in target:
@@ -487,8 +496,8 @@ class Workout(object):
         else:
             return self.get_target_type(self.target[target]['type'])
 
-    def _target_value(self, step_config, val):
-        target = step_config.get("target")
+    def _target_value(self, step_config, val, secondary=False):
+        target = step_config.get("secondary") if secondary else step_config.get("target")
         if isinstance(target, str):
             target_type = self.target[target]['type']
         elif isinstance(target, dict):
@@ -594,6 +603,7 @@ class WorkoutStep:
         end_condition="lap.button",
         end_condition_value=None,
         target=None,
+        secondary_target=None,
     ):
         """Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
@@ -607,6 +617,7 @@ class WorkoutStep:
         self.end_condition = end_condition
         self.end_condition_value = end_condition_value
         self.target = target or Target()
+        self.secondary_target = secondary_target or Target()
 
     def end_condition_unit(self):
         if self.end_condition and self.end_condition.endswith("km"):
@@ -648,6 +659,7 @@ class WorkoutStep:
             "endConditionCompare": None,
             "endConditionZone": None,
             **self.target.create_target(),
+            **self.secondary_target.create_secondary_target(),
         }
 
 
@@ -675,6 +687,20 @@ class Target:
             "targetValueTwo": self.from_value,
             "zoneNumber": self.zone,
         }
+
+    def create_secondary_target(self):
+        if self.target == 'no.target':
+            return {}
+        else:
+            return {
+                "secondaryTargetType": {
+                    "workoutTargetTypeId": TARGET_TYPES[self.target],
+                    "workoutTargetTypeKey": self.target,
+                },
+                "secondaryTargetValueOne": self.to_value,
+                "secondaryTargetValueTwo": self.from_value,
+                "secondaryZoneNumber": self.zone,
+            }
 
 
 class Event(object):
