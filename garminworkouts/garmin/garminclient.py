@@ -124,9 +124,8 @@ class GarminClient(object):
 
         for item in response_jsons['calendarItems']:
             if datetime.strptime(item['date'], '%Y-%m-%d').date() < date and item['itemType'] == 'workout':
-                print(item['title'], item['date'], item['id'], item['itemType'])
                 logging.info("Deleting workout '%s'", item['title'])
-                self.delete_workout(item['id'])
+                self.delete_workout(item['workoutId'])
 
     def schedule_workout(self, workout_id, date):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
@@ -185,3 +184,42 @@ class GarminClient(object):
 
         response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
+
+    def get_activities_by_date(self, startdate, enddate, activitytype=None):
+        """
+        Fetch available activities between specific dates
+        :param startdate: String in the format YYYY-MM-DD
+        :param enddate: String in the format YYYY-MM-DD
+        :param activitytype: (Optional) Type of activity you are searching
+                             Possible values are [cycling, running, swimming,
+                             multi_sport, fitness_equipment, hiking, walking, other]
+        :return: list of JSON activities
+        """
+
+        activities = []
+        start = 0
+        limit = 20
+        # mimicking the behavior of the web interface that fetches 20 activities at a time
+        # and automatically loads more on scroll
+        url = f"{self.connect_url}{GarminClient._ACTIVITY_SERVICE_ENDPOINT}"
+        params = {
+            "startDate": str(startdate),
+            "endDate": str(enddate),
+            "start": str(start),
+            "limit": str(limit),
+        }
+        if activitytype:
+            params["activityType"] = str(activitytype)
+
+        print(f"Requesting activities by date from {startdate} to {enddate}")
+        while True:
+            params["start"] = str(start)
+            print(f"Requesting activities {start} to {start+limit}")
+            act = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params).json()
+            if act:
+                activities.extend(act)
+                start = start + limit
+            else:
+                break
+
+        return activities
