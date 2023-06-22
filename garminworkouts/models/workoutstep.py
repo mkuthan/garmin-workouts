@@ -138,6 +138,10 @@ class WorkoutStep:
         return WorkoutStep.get_end_condition("lap.button")
 
     @staticmethod
+    def _end_condition_key(step_config):
+        return step_config['conditionTypeKey']
+
+    @staticmethod
     def _end_condition_value(step_config):
         duration = step_config.get("duration")
         if duration:
@@ -167,14 +171,17 @@ class WorkoutStep:
 
     @staticmethod
     def _weight(weight):
-        return {
-            "weightValue": weight,
-            "weightUnit": {
-                "unitId": 8,
-                "unitKey": "kilogram",
-                "factor": 1000.0
+        if weight:
+            return {
+                "weightValue": weight,
+                "weightUnit": {
+                    "unitId": 8,
+                    "unitKey": "kilogram",
+                    "factor": 1000.0
+                }
             }
-        }
+        else:
+            return {}
 
     @staticmethod
     def parsed_end_condition_value(end_condition_value):
@@ -193,17 +200,23 @@ class WorkoutStep:
 
     @staticmethod
     def get_stroke_type(stroke_type):
-        return {
-                "strokeTypeId": STROKE_TYPES[stroke_type],
-                "strokeTypeKey": stroke_type,
-            }
+        if stroke_type:
+            return {
+                    "strokeTypeId": STROKE_TYPES[stroke_type],
+                    "strokeTypeKey": stroke_type,
+                }
+        else:
+            return {}
 
     @staticmethod
     def get_equipment_type(equipment_type):
-        return {
-                "equipmentTypeId": EQUIPMENT_TYPES[equipment_type],
-                "equipmentTypeKey": equipment_type,
-            }
+        if equipment_type:
+            return {
+                    "equipmentTypeId": EQUIPMENT_TYPES[equipment_type],
+                    "equipmentTypeKey": equipment_type,
+                }
+        else:
+            return {}
 
     def create_workout_step(self):
         return {
@@ -225,10 +238,10 @@ class WorkoutStep:
             "endConditionCompare": None,
             "endConditionZone": None,
             "category": self.category[0],
-            "exerciseName": self.exerciseName,
+            "exerciseName": self.exerciseName[0],
             **self.target.create_target(),
             **self.secondary_target.create_secondary_target(),
             **self.get_stroke_type(self.stroke),
             **self.get_equipment_type(self.equipment),
-            **self._weight(self.weight)
+            **self._weight(self.weight[0])
         }

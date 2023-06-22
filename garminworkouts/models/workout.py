@@ -126,12 +126,14 @@ class Workout(object):
         duration_meters = 0
 
         for step in flatten_steps:
-            if not WorkoutStep._end_condition(step)['conditionTypeKey'] == 'lap.button':
-                if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'time':
-                    duration_secs = WorkoutStep._end_condition_value(step)
+            key = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
+            duration = WorkoutStep._end_condition_value(step)
+            if not key == 'lap.button':
+                if key == 'time':
+                    duration_secs = duration
                     duration_meters = round(duration_secs * self._equivalent_pace(step))
-                if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'distance':
-                    duration_meters = WorkoutStep._end_condition_value(step)
+                if key == 'distance':
+                    duration_meters = duration
                     duration_secs = round(duration_meters / self._equivalent_pace(step))
 
                 sec = sec + duration_secs
@@ -156,7 +158,7 @@ class Workout(object):
             power = WorkoutStep._get_power(step)
             power_watts = power.to_watts(self.cFTP) if power else float(0)
 
-            if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'time':
+            if WorkoutStep._end_condition_key(step) == 'time':
                 duration_secs = WorkoutStep._end_condition_value(step)
             else:
                 duration_secs = float(0)
@@ -243,10 +245,8 @@ class Workout(object):
         else:
             target_type = self.target[step['target']]['type']
 
-        if target_type == "power.zone":
-            t2 = self._target_value(step, 'max')
-            t1 = self._target_value(step, 'min')
-        elif target_type == "cadence.zone":
+        if (target_type == "power.zone") or (target_type == "cadence.zone") or \
+           (target_type == "speed.zone") or (target_type == "pace.zone"):
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
         elif target_type == "heart.rate.zone":
@@ -255,12 +255,6 @@ class Workout(object):
 
             t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000  # type: ignore
             t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000  # type: ignore
-        elif target_type == "speed.zone":
-            t2 = self._target_value(step, 'max')
-            t1 = self._target_value(step, 'min')
-        elif target_type == "pace.zone":
-            t2 = self._target_value(step, 'max')
-            t1 = self._target_value(step, 'min')
         else:
             t2 = 0
             t1 = 0
@@ -283,7 +277,6 @@ class Workout(object):
             description = self.config.get('description')
         if description:
             return description
-        return ''
 
     @staticmethod
     def extract_workout_id(workout):
