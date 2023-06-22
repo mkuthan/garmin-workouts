@@ -30,6 +30,14 @@ class GarminClient(object):
     def __exit__(self, exc_type, exc_value, traceback):
         disconnect(self.session)
 
+    def list_types(self):
+        url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/types"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
     def list_workouts(self, batch_size=100):
         for start_index in range(0, sys.maxsize, batch_size):
 
