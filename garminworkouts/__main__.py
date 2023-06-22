@@ -8,7 +8,9 @@ from datetime import date, timedelta
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.running_workout import Workout, Event
+from garminworkouts.models.running_workout import Workout
+from garminworkouts.models.event import Event
+from garminworkouts.models.paceband import PaceBand
 from garminworkouts.utils.validators import writeable_dir
 
 import account
@@ -75,10 +77,12 @@ def command_event_import(args):
 
     event_configs = [configreader.read_config(event_file) for event_file in event_files]
     events = [Event(event_config) for event_config in event_configs]
+    pacebands = [PaceBand(event_config) for event_config in event_configs]
 
     with _garmin_client(args) as connection:
         existing_events_by_name = {Event.extract_event_name(w): w for w in connection.list_events()}
         existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
+        existing_pacebands_by_name = {PaceBand.extract_paceband_name(w): w for w in connection.list_pacebands()}
 
         for event in events:
             event_name = event.name
@@ -96,6 +100,21 @@ def command_event_import(args):
                 payload = event.create_event(workout_id=workout_id)
                 logging.info("Creating event '%s'", event_name)
                 connection.save_event(payload)
+
+        for paceband in pacebands:
+            paceband_name = paceband.name
+            existing_paceband = existing_pacebands_by_name.get(paceband_name)
+
+            if existing_paceband:
+                paceband_id = PaceBand.extract_paceband_id(existing_paceband)
+                payload = paceband.create_paceband(paceband_id)
+                logging.info("Updating paceband '%s'", paceband_name)
+                connection.update_paceband(paceband_id, payload)
+            elif paceband.course:
+                payload = paceband.create_paceband()
+                logging.info("Creating paceband '%s'", paceband_name)
+                print(payload)
+                connection.save_paceband(paceband=payload)
 
 
 def command_trainingplan_metrics(args):
@@ -182,6 +201,12 @@ def command_event_get(args):
     with _garmin_client(args) as connection:
         event = connection.get_event(args.id)
         Event.print_event_json(event)
+
+
+def command_paceband_get(args):
+    with _garmin_client(args) as connection:
+        paceband = connection.get_paceband(args.id)
+        PaceBand.print_paceband_summary(paceband)
 
 
 def command_workout_delete(args):
@@ -342,7 +367,7 @@ def main():
     parser_get.add_argument("--id",
                             required=True,
                             help="Course id, use list command to get course identifiers")
-    parser_get.set_defaults(func=command_get_paceband)
+    parser_get.set_defaults(func=command_paceband_get)
 
     parser_delete = subparsers.add_parser("delete-workout",
                                           description="Delete workout")
