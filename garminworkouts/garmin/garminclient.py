@@ -11,6 +11,7 @@ class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activitylist-service/activities/search/activities"
+    _COURSE_SERVICE_ENDPOINT = "/proxy/course-service"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
@@ -224,3 +225,37 @@ class GarminClient(object):
                 break
 
         return activities
+
+    def get_paceband(self, course_id):
+        url = f"{self.connect_url}{GarminClient._COURSE_SERVICE_ENDPOINT}/pacebands/summaries"
+        params = {
+            "courseId": str(course_id)
+        }
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def save_paceband(self, paceband):
+        url = f"{self.connect_url}{GarminClient._COURSE_SERVICE_ENDPOINT}/pacebands/summaries"
+
+        response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, json=paceband)
+        response.raise_for_status()
+
+    def update_paceband(self, course_id, paceband):
+        url = f"{self.connect_url}{GarminClient._COURSE_SERVICE_ENDPOINT}/pacebands/{course_id}"
+
+        response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=paceband)
+        response.raise_for_status()
+
+    def list_pacebands(self, batch_size=20):
+        url = f"{self.connect_url}{GarminClient._COURSE_SERVICE_ENDPOINT}/pacebands/summaries"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        response_jsons = json.loads(response.text)
+
+        for response_json in response_jsons:
+            yield response_json
