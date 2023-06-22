@@ -17,8 +17,9 @@ SPORT_TYPES = {
     "strength_training": 5,
     "cardio_training": 6,
     "yoga": 7,
+    "pilates": 8,
     "hiit": 9,
-    "other": 9
+    "other": 3
 }
 
 STEP_TYPES = {
@@ -36,10 +37,26 @@ END_CONDITIONS = {
     "time": 2,
     "distance": 3,
     "calories": 4,
+    "iterations": 7,
+    "fixed.rest": 8,
+    "fixed.repetition": 9,
+    "training.peaks.tss": 11,
+    "repetition.time": 12,
+    "time.at.valid.cda": 13,
+    "power.last.lap": 14,
+    "max.power.last.lap": 15,
+    "reps": 10,
     "power": 5,         # Potencia por encima de un umbral ("endConditionCompare": "gt")
                         # Potencia por debajo de un umbral ("endConditionCompare": "lt")
     "heart.rate": 6,    # Pulsaciones por encima de un umbral ("endConditionCompare": "lt")
                         # Pulsaciones por debajo de un umbral ("endConditionCompare": "gt")
+}
+
+INTENSITY_TYPES = {
+    "active": 1,
+    "rest": 2,
+    "warmup": 3,
+    "cooldown": 4,
 }
 
 TARGET_TYPES = {
@@ -197,15 +214,18 @@ class Workout(object):
 
         for step in flatten_steps:
             power = self._get_power(step)
-            power_watts = power.to_watts(self.cFTP) if power else None
-            duration = self._get_duration(step)
-            duration_secs = duration.to_seconds() if duration else None
+            power_watts = power.to_watts(self.cFTP) if power else float(0)
+
+            if self._end_condition(step)['conditionTypeKey'] == 'time':
+                duration_secs = self._end_condition_value(step)
+            else:
+                duration_secs = float(0)
 
             if power_watts and duration_secs:
                 seconds = seconds + duration_secs
                 xs = functional.concatenate(xs, functional.fill(power_watts, duration_secs))
 
-        self.norm_pwr = math.normalized_power(xs)
+        self.norm_pwr = math.normalized_power(xs) if xs else float(0)
         self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP)
         self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP)
 
@@ -239,7 +259,7 @@ class Workout(object):
         }
 
     def get_workout_name(self):
-        if 'description' in self.config:
+        if self.sport_type[0] == 'running' and 'description' in self.config:
             return self.config['name'] + '-' + self.config['description']
         else:
             return self.config['name']
@@ -261,7 +281,7 @@ class Workout(object):
 
                 return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
             else:
-                return date(year=1, month=1, day=1), int(0), int(0)
+                return date.today(), int(0), int(0)
 
     @staticmethod
     def extract_workout_id(workout):
@@ -426,29 +446,31 @@ class Workout(object):
         return int(0)
 
     def _get_target_value(self, target, key):
-        target_type = self.target[target]['type']
-        target_value = self.target[target][key]
-
-        if self.sport_type[0] == 'running':
-            if target_type == "power.zone":
-                return int(float(target_value) * self.rFTP)
-            elif target_type == "cadence.zone":
-                return int(target_value)
-            elif target_type == "heart.rate.zone":
-                return int(self.fmin + float(target_value) * (self.fmax-self.fmin))
-            elif target_type == "speed.zone":
-                return float(target_value)
-            elif target_type == "pace.zone":
-                return float(target_value) * 1000.0 / self.vVO2
-            else:
-                return int(target_value)
-        elif self.sport_type[0] == 'cycling':
-            if target_type == "power.zone":
-                return int(float(target_value) * self.cFTP)
-            else:
-                return int(target_value)
+        if isinstance(target, dict):
+            target_type = target['type']
+            target_value = target[key] if key in 'target' else None
         else:
-            return int(target_value)
+            target_type = self.target[target]['type']
+            target_value = self.target[target][key]
+
+        if target_type == "power.zone":
+            if self.sport_type[0] == 'running':
+                return float(target_value * self.rFTP)
+            elif self.sport_type[0] == 'cycling':
+                return float(target_value * self.cFTP)
+        elif target_type == "cadence.zone":
+            return float(target_value)
+        elif target_type == "heart.rate.zone":
+            return int(self.fmin + float(target_value) * (self.fmax-self.fmin))
+        elif target_type == "speed.zone":
+            return float(target_value)
+        elif target_type == "pace.zone":
+            if self.sport_type[0] == 'running':
+                return float(target_value * 1000.0 / self.vVO2)
+            else:
+                return float(target_value)
+        else:
+            return None
 
     def _target_type(self, step_config):
         target = step_config.get("target")
@@ -456,6 +478,9 @@ class Workout(object):
             d, target = target.split(">")
         elif "<" in target:
             d, target = target.split("<")
+
+        if isinstance(target, dict):
+            return self.get_target_type(target['type'])
 
         if not target or (target not in self.target):
             return self.get_target_type("no.target")
@@ -466,21 +491,26 @@ class Workout(object):
         target = step_config.get("target")
         if isinstance(target, str):
             target_type = self.target[target]['type']
+        elif isinstance(target, dict):
+            target_type = target['type']
         else:
             return Duration(str(target[val])).to_seconds()
 
         if not target:
-            return int(0)
+            return float(0)
 
-        if target not in self.target:
-            if ">" in target and target_type == "pace.zone":
-                d, target = target.split(">")
-                return 1000.0/(1000.0/self._get_target_value(target, key=val) - float(d))
-            elif "<" in target and target_type == "pace.zone":
-                d, target = target.split("<")
-                return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))
-            else:
-                return int(0)
+        if isinstance(target, dict):
+            return self._get_target_value(target, key=val)
+        else:
+            if target not in self.target:
+                if ">" in target and target_type == "pace.zone":
+                    d, target = target.split(">")
+                    return 1000.0/(1000.0/self._get_target_value(target, key=val) - float(d))  # type: ignore
+                elif "<" in target and target_type == "pace.zone":
+                    d, target = target.split("<")
+                    return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))  # type: ignore
+                else:
+                    return float(0)
         return self._get_target_value(target, key=val)
 
     def _equivalent_pace(self, step):
@@ -499,8 +529,8 @@ class Workout(object):
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
 
-            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000
-            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000
+            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000  # type: ignore
+            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) / self.vVO2 * 1000  # type: ignore
         elif target_type == "speed.zone":
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
@@ -534,7 +564,7 @@ class Workout(object):
         workout_dict = {}
         workout_dict['name'] = workout['workoutName']
         workout_dict['sport'] = workout['sportType']['sportTypeKey']
-        workout_dict['description'] = workout['description']
+        workout_dict['description'] = workout['description'] if 'description' in workout else ''
         workout_dict['steps'] = []
 
         if len(workout['workoutSegments']) > 0:
@@ -544,9 +574,10 @@ class Workout(object):
                 if step_json['stepType']['stepTypeKey'] != 'repeat':
                     workout_dict["steps"].append(step_extraction(step_json))
                 else:
-                    for j in range(step_json['numberOfIterations']):
-                        for k in range(len(step_json['workoutSteps'])):
-                            workout_dict["steps"].append(step_extraction(step_json['workoutSteps'][k]))
+                    if ('numberOfIterations' in step_json) and (step_json['numberOfIterations'] is not None):
+                        for j in range(step_json['numberOfIterations']):
+                            for k in range(len(step_json['workoutSteps'])):
+                                workout_dict["steps"].append(step_extraction(step_json['workoutSteps'][k]))
         else:
             print(filename)
         with open(filename, 'w') as file:
@@ -585,8 +616,11 @@ class WorkoutStep:
 
     def parsed_end_condition_value(self):
         # distance
-        if self.end_condition_value and self.end_condition_value.endswith("km"):
-            return int(float(self.end_condition_value.replace("km", "")) * 1000)
+        if self.end_condition_value and "m" in self.end_condition_value:
+            if self.end_condition_value.endswith("km"):
+                return int(float(self.end_condition_value.replace("km", "")) * 1000)
+            else:
+                return int(self.end_condition_value.replace("m", ""))
 
         # time
         elif self.end_condition_value and ":" in self.end_condition_value:

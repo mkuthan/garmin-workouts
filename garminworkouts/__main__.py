@@ -168,8 +168,8 @@ def command_get(args):
 
 def command_get_event(args):
     with _garmin_client(args) as connection:
-        workout = connection.get_event(args.id)
-        Workout.print_workout_json(workout)
+        event = connection.get_event(args.id)
+        Event.print_event_json(event)
 
 
 def command_delete(args):
