@@ -1,5 +1,6 @@
 
 from garminworkouts.models.duration import Duration
+from garminworkouts.models.power import Power
 from garminworkouts.models.target import Target
 
 STEP_TYPES = {
@@ -62,6 +63,16 @@ class WorkoutStep:
         self.secondary_target = secondary_target or Target()
         self.category = category,
         self.exerciseName = exerciseName
+
+    @staticmethod
+    def _get_duration(step):
+        duration = step.get("duration")
+        return Duration(str(duration)) if duration else None
+
+    @staticmethod
+    def _get_power(step):
+        power = step.get("power")
+        return Power(str(power)) if power else None
 
     @staticmethod
     def get_step_type(step_type):

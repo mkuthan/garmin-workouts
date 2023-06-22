@@ -141,7 +141,7 @@ class Workout(object):
         xs = []
 
         for step in flatten_steps:
-            power = self._get_power(step)
+            power = WorkoutStep._get_power(step)
             power_watts = power.to_watts(self.cFTP) if power else float(0)
 
             if self._end_condition(step)['conditionTypeKey'] == 'time':
@@ -237,16 +237,6 @@ class Workout(object):
         workout_name = Workout.extract_workout_name(workout)
         workout_description = Workout.extract_workout_description(workout)
         print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
-
-    @staticmethod
-    def _get_duration(step_config):
-        duration = step_config.get("duration")
-        return Duration(str(duration)) if duration else None
-
-    @staticmethod
-    def _get_power(step):
-        power = step.get("power")
-        return Power(str(power)) if power else None
 
     @staticmethod
     def get_sport_type(sport_type):
