@@ -2,6 +2,7 @@ import json
 
 from garminworkouts.models.duration import Duration
 from garminworkouts.models.power import Power
+from garminworkouts.models.target import Target
 from datetime import date, timedelta
 from garminworkouts.utils import functional, math
 import yaml
@@ -58,25 +59,6 @@ INTENSITY_TYPES = {
     "cooldown": 4,
 }
 
-TARGET_TYPES = {
-    "no.target": 1,
-    "power.zone": 2,
-    "cadence.zone": 3,
-    "cadence": 3,
-    "heart.rate.zone": 4,
-    "speed.zone": 5,
-    "pace.zone": 6,  # meters per second
-    "grade": 7,
-    "heart.rate.lap": 8,
-    "power.lap": 9,
-    "power.3s": 10,
-    "power.10s": 11,
-    "power.30s": 12,
-    "speed.lap": 13,
-    "swim.stroke": 14,
-    "resistance": 15,
-    "power.curve": 16
-}
 
 STROKE_TYPES = {
     "any_stroke": 1,         # Cualquiera
@@ -383,13 +365,6 @@ class Workout(object):
             }
 
     @staticmethod
-    def get_target_type(target_type):
-        return {
-                "workoutTargetTypeId": TARGET_TYPES[target_type],
-                "workoutTargetTypeKey": target_type,
-            }
-
-    @staticmethod
     def get_intensity_type(target_type):
         return {
                 "intensityTypeId": INTENSITY_TYPES[target_type],
@@ -556,12 +531,12 @@ class Workout(object):
             d, target = target.split("<")
 
         if isinstance(target, dict):
-            return self.get_target_type(target['type'])
+            return Target.get_target_type(target['type'])
 
         if not target or (target not in self.target):
-            return self.get_target_type("no.target")
+            return Target.get_target_type("no.target")
         else:
-            return self.get_target_type(self.target[target]['type'])
+            return Target.get_target_type(self.target[target]['type'])
 
     def _target_value(self, step_config, val, secondary=False):
         target = step_config.get("secondary") if secondary else step_config.get("target")
@@ -754,43 +729,3 @@ class WorkoutStep:
             **self.stroke(),
             **self.equipment(),
         }
-
-
-class Target:
-    def __init__(
-            self,
-            target="no.target",
-            to_value=None,
-            from_value=None,
-            zone=None
-            ):
-
-        self.target = target
-        self.to_value = to_value
-        self.from_value = from_value
-        self.zone = zone
-
-    def create_target(self):
-        return {
-            "targetType": {
-                "workoutTargetTypeId": TARGET_TYPES[self.target],
-                "workoutTargetTypeKey": self.target,
-            },
-            "targetValueOne": self.to_value,
-            "targetValueTwo": self.from_value,
-            "zoneNumber": self.zone,
-        }
-
-    def create_secondary_target(self):
-        if self.target == 'no.target':
-            return {}
-        else:
-            return {
-                "secondaryTargetType": {
-                    "workoutTargetTypeId": TARGET_TYPES[self.target],
-                    "workoutTargetTypeKey": self.target,
-                },
-                "secondaryTargetValueOne": self.to_value,
-                "secondaryTargetValueTwo": self.from_value,
-                "secondaryZoneNumber": self.zone,
-            }
