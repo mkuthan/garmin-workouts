@@ -683,6 +683,7 @@ class Event(object):
     _EVENT_DATE_FIELD = "date"
     _EVENT_LOCATION_FIELD = "location"
     _EVENT_TIME_FIELD = "eventTimeLocal"
+    _COURSE_FIELD = "courseId"
 
     def __init__(
             self,
@@ -720,12 +721,20 @@ class Event(object):
         return event[Event._EVENT_TIME_FIELD]
 
     @staticmethod
+    def extract_course(event):
+        return event[Event._COURSE_FIELD]
+
+    @staticmethod
     def print_event_summary(event):
         event_id = Event.extract_event_id(event)
         event_name = Event.extract_event_name(event)
         event_date = Event.extract_event_date(event)
         event_location = Event.extract_event_location(event)
         print("{0} {1:20} {2:10} {3}".format(event_id, event_name, event_location, event_date))
+
+    @staticmethod
+    def print_event_json(event):
+        print(json.dumps(functional.filter_empty(event)))
 
     def create_event(self, event_id=None, workout_id=None):
         return {
@@ -734,7 +743,7 @@ class Event(object):
             'date': str(self.date),
             'url': self.url,
             'registrationUrl': None,
-            'courseId': self.course,
+            self._COURSE_FIELD: self.course,
             'completionTarget': {
                 'value': self.distance,
                 'unit': 'kilometer',
