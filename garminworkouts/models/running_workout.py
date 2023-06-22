@@ -458,9 +458,11 @@ class Workout(object):
         return WorkoutStep(order=step_order,
                            child_step_id=child_step_id,
                            description=step_config['description'] if 'description' in step_config else None,
-                           step_type=step_config['type'] if 'duration' in step_config else None,
+                           step_type=step_config['type'] if 'type' in step_config else None,
                            end_condition=self._end_condition(step_config)['conditionTypeKey'],
                            end_condition_value=step_config['duration'] if 'duration' in step_config else None,
+                           category=step_config['category'] if 'category' in step_config else None,
+                           exerciseName=step_config['exerciseName'] if 'exerciseName' in step_config else None,
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
                                          to_value=self._target_value(step_config, 'min'),
                                          from_value=self._target_value(step_config, 'max')
@@ -474,7 +476,18 @@ class Workout(object):
                                             from_value=self._target_value(step_config, 'max',
                                                                           'secondary' in step_config)
                                             ) if 'secondary' in step_config else None,
+                           **self._weight(step_config)
                            ).create_workout_step()
+
+    def _weight(self, step_config):
+        return {
+            "weightValue": step_config['weight'] if 'weight' in step_config else None,
+            "weightUnit": {
+                "unitId": 8,
+                "unitKey": "kilogram",
+                "factor": 1000.0
+            }
+        }
 
     def _str_is_time(self, string):
         return True if ':' in string else False
@@ -660,6 +673,8 @@ class WorkoutStep:
         end_condition_value=None,
         target=None,
         secondary_target=None,
+        category=None,
+        exerciseName=None
     ):
         """Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
@@ -674,6 +689,8 @@ class WorkoutStep:
         self.end_condition_value = end_condition_value
         self.target = target or Target()
         self.secondary_target = secondary_target or Target()
+        self.category = category,
+        self.exerciseName = exerciseName
 
     def end_condition_unit(self):
         if self.end_condition and self.end_condition.endswith("km"):
@@ -695,6 +712,22 @@ class WorkoutStep:
         else:
             return None
 
+    def stroke(self):
+        return {
+            "strokeType": {
+                "strokeTypeId": 0,
+                "displayOrder": 0
+            }
+        }
+
+    def equipment(self):
+        return {
+            "equipmentType": {
+                "equipmentTypeId": 0,
+                "displayOrder": 0
+            }
+        }
+
     def create_workout_step(self):
         return {
             "type": "ExecutableStepDTO",
@@ -714,8 +747,12 @@ class WorkoutStep:
             "endConditionValue": self.parsed_end_condition_value(),
             "endConditionCompare": None,
             "endConditionZone": None,
+            "category": self.category[0],
+            "exerciseName": self.exerciseName,
             **self.target.create_target(),
             **self.secondary_target.create_secondary_target(),
+            **self.stroke(),
+            **self.equipment(),
         }
 
 
