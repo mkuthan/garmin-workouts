@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 
 from garminworkouts.garmin.session import connect, disconnect
-from garminworkouts.models.running_workout import Workout
+from garminworkouts.models.extraction import export_yaml
 
 
 class GarminClient(object):
@@ -85,7 +85,7 @@ class GarminClient(object):
         return json.loads(response.text)
 
     def download_workout_yaml(self, workout_id, filename):
-        Workout.export_yaml(self.get_workout(workout_id), filename)
+        export_yaml(self.get_workout(workout_id), filename)
 
     def download_workout(self, workout_id, file):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
