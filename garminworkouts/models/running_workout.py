@@ -9,7 +9,10 @@ import yaml
 
 SPORT_TYPES = {
     "running": 1,
+    "trail_running": 1,
     "cycling": 2,
+    "gravel_cycling": 2,
+    "mountain_biking": 2,
     "swimming": 4,
     "strength_training": 5,
     "cardio_training": 6,
@@ -21,7 +24,6 @@ SPORT_TYPES = {
 STEP_TYPES = {
     "warmup": 1,
     "cooldown": 2,
-    "run": 3,
     "interval": 3,
     "recovery": 4,
     "rest": 5,
@@ -48,17 +50,27 @@ TARGET_TYPES = {
     "heart.rate.zone": 4,
     "speed.zone": 5,
     "pace.zone": 6,  # meters per second
+    "grade": 7,
+    "heart.rate.lap": 8,
+    "power.lap": 9,
+    "power.3s": 10,
+    "power.10s": 11,
+    "power.30s": 12,
+    "speed.lap": 13,
+    "swim.stroke": 14,
+    "resistance": 15,
     "power.curve": 16
 }
 
 STROKE_TYPES = {
-    "any_stroke": 1,        # Cualquiera
-    "backstroke": 2,        # Espalda
-    "breaststroke": 3,      # Braza
-    "drill": 4,             # Tecnica
-    "fly": 5,               # Mariposa
-    "free": 6,              # Croll
-    "individual_medley": 7  # Estilos
+    "any_stroke": 1,         # Cualquiera
+    "backstroke": 2,         # Espalda
+    "breaststroke": 3,       # Braza
+    "drill": 4,              # Tecnica
+    "fly": 5,                # Mariposa
+    "free": 6,               # Croll
+    "individual_medley": 7,  # Estilos
+    "mixed": 8,
 }
 
 EQUIPMENT_TYPES = {
