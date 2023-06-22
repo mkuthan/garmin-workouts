@@ -1,5 +1,5 @@
 from datetime import date
-from garminworkouts.models.running_workout import Workout
+from garminworkouts.models.workout import Workout
 from garminworkouts.models.duration import Duration
 from garminworkouts.utils import functional
 import json

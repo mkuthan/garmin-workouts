@@ -1,7 +1,7 @@
 import unittest
 
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.running_workout import Workout
+from garminworkouts.models.workout import Workout
 
 import account
 
