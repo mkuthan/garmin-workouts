@@ -320,37 +320,50 @@ class Workout(object):
         power = step.get("power")
         return Power(str(power)) if power else None
 
-    def get_sport_type(self, sport_type):
+    @staticmethod
+    def get_sport_type(sport_type):
         return {
                 "sportTypeId": SPORT_TYPES[sport_type],
                 "sportTypeKey": sport_type,
             }
 
-    def get_step_type(self, step_type):
+    @staticmethod
+    def get_step_type(step_type):
         return {
                 "stepTypeId": STEP_TYPES[step_type],
                 "stepTypeKey": step_type,
             }
 
-    def get_end_condition(self, end_condition):
+    @staticmethod
+    def get_end_condition(end_condition):
         return {
                 "conditionTypeId": END_CONDITIONS[end_condition],
                 "conditionTypeKey": end_condition,
             }
 
-    def get_target_type(self, target_type):
+    @staticmethod
+    def get_target_type(target_type):
         return {
                 "workoutTargetTypeId": TARGET_TYPES[target_type],
                 "workoutTargetTypeKey": target_type,
             }
 
-    def get_stroke_type(self, stroke_type):
+    @staticmethod
+    def get_intensity_type(target_type):
+        return {
+                "intensityTypeId": INTENSITY_TYPES[target_type],
+                "intensityTypeKey": target_type,
+            }
+
+    @staticmethod
+    def get_stroke_type(stroke_type):
         return {
                 "strokeTypeId": STROKE_TYPES[stroke_type],
                 "strokeTypeKey": stroke_type,
             }
 
-    def get_equipment_type(self, equipment_type):
+    @staticmethod
+    def get_equipment_type(equipment_type):
         return {
                 "equipmentTypeId": EQUIPMENT_TYPES[equipment_type],
                 "equipmentTypeKey": equipment_type,
@@ -549,7 +562,7 @@ class Workout(object):
         else:
             t2 = 0
             t1 = 0
-        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
+        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))  # type: ignore
 
     def _generate_description(self):
         description = ''
@@ -564,6 +577,8 @@ class Workout(object):
                             + 'rTSS: ' + str(self.tss).format('2:2f'))
         elif self.sport_type[0] == 'cycling':
             description = "FTP %d, TSS %d, NP %d, IF %.2f" % (self.cFTP, self.tss, self.norm_pwr, self.int_fct)
+        else:
+            description = self.config.get('description')
         if description:
             return description
         return ''
