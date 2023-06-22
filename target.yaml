@@ -34,3 +34,5 @@ POWER_ZONE_4: {type: "power.zone", min: "0.96", max: "1.05" }
 POWER_ZONE_5: {type: "power.zone", min: "1.06", max: "1.15" }
 POWER_ZONE_6: {type: "power.zone", min: "1.16", max: "1.28" }
 POWER_ZONE_7: {type: "power.zone", min: "1.29", max: "1.45" }
+CADENCE: {type: "cadence", min: "175", max: "185" }
+NO_TARGET: {type: "no.target" }
