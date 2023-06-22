@@ -11,6 +11,7 @@ from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.running_workout import Workout
 from garminworkouts.models.event import Event
 from garminworkouts.models.paceband import PaceBand
+from garminworkouts.models.extraction import export_yaml
 from garminworkouts.utils.validators import writeable_dir
 
 import account
@@ -163,7 +164,7 @@ def command_workout_export_yaml(args):
             workout_name = Workout.extract_workout_name(workout)
             file = os.path.join(args.directory, str(workout_id)) + ".yaml"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            Workout.export_yaml(workout, file)
+            export_yaml(workout, file)
 
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
