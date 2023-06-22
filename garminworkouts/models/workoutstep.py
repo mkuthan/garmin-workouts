@@ -6,6 +6,7 @@ from garminworkouts.models.target import Target
 STEP_TYPES = {
     "warmup": 1,
     "cooldown": 2,
+    "run": 3,
     "interval": 3,
     "recovery": 4,
     "rest": 5,
@@ -46,7 +47,8 @@ class WorkoutStep:
         target=None,
         secondary_target=None,
         category=None,
-        exerciseName=None
+        exerciseName=None,
+        weight=None,
     ):
         """Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
@@ -63,6 +65,7 @@ class WorkoutStep:
         self.secondary_target = secondary_target or Target()
         self.category = category,
         self.exerciseName = exerciseName
+        self.weight = weight
 
     @staticmethod
     def _get_duration(step):
@@ -88,23 +91,74 @@ class WorkoutStep:
                 "conditionTypeKey": end_condition,
             }
 
-    def end_condition_unit(self):
-        if self.end_condition and self.end_condition.endswith("km"):
+    @staticmethod
+    def end_condition_unit(end_condition):
+        if end_condition and end_condition.endswith("km"):
             return {"unitKey": "kilometer"}
         else:
             return None
 
-    def parsed_end_condition_value(self):
+    @staticmethod
+    def _end_condition(step_config):
+        duration = step_config.get("duration")
+        if duration:
+            if WorkoutStep._str_is_time(duration):
+                return WorkoutStep.get_end_condition("time")
+            elif WorkoutStep._str_is_distance(duration):
+                return WorkoutStep.get_end_condition("distance")
+        return WorkoutStep.get_end_condition("lap.button")
+
+    @staticmethod
+    def _end_condition_value(step_config):
+        duration = step_config.get("duration")
+        if duration:
+            if WorkoutStep._str_is_time(duration):
+                return WorkoutStep._str_to_seconds(duration)
+            if WorkoutStep._str_is_distance(duration):
+                return WorkoutStep._str_to_meters(duration)
+        return int(0)
+
+    @staticmethod
+    def _str_is_time(string):
+        return True if ':' in string else False
+
+    @staticmethod
+    def _str_to_seconds(time_string):
+        return Duration(str(time_string)).to_seconds()
+
+    @staticmethod
+    def _str_is_distance(string):
+        return True if 'm' in string.lower() else False
+
+    @staticmethod
+    def _str_to_meters(distance_string):
+        if 'km' in distance_string.lower():
+            return float(distance_string.lower().split('km')[0])*1000.0
+        return float(distance_string.lower().split('m')[0])
+
+    @staticmethod
+    def _weight(weight):
+        return {
+            "weightValue": weight,
+            "weightUnit": {
+                "unitId": 8,
+                "unitKey": "kilogram",
+                "factor": 1000.0
+            }
+        }
+
+    @staticmethod
+    def parsed_end_condition_value(end_condition_value):
         # distance
-        if self.end_condition_value and "m" in self.end_condition_value:
-            if self.end_condition_value.endswith("km"):
-                return int(float(self.end_condition_value.replace("km", "")) * 1000)
+        if end_condition_value and "m" in end_condition_value:
+            if end_condition_value.endswith("km"):
+                return int(float(end_condition_value.replace("km", "")) * 1000)
             else:
-                return int(self.end_condition_value.replace("m", ""))
+                return int(end_condition_value.replace("m", ""))
 
         # time
-        elif self.end_condition_value and ":" in self.end_condition_value:
-            return Duration(self.end_condition_value).to_seconds()
+        elif end_condition_value and ":" in end_condition_value:
+            return Duration(end_condition_value).to_seconds()
         else:
             return None
 
@@ -139,8 +193,8 @@ class WorkoutStep:
                 "conditionTypeKey": self.end_condition,
                 "conditionTypeId": END_CONDITIONS[self.end_condition],
             },
-            "preferredEndConditionUnit": self.end_condition_unit(),
-            "endConditionValue": self.parsed_end_condition_value(),
+            "preferredEndConditionUnit": WorkoutStep.end_condition_unit(self.end_condition),
+            "endConditionValue": WorkoutStep.parsed_end_condition_value(self.end_condition_value),
             "endConditionCompare": None,
             "endConditionZone": None,
             "category": self.category[0],
@@ -149,4 +203,5 @@ class WorkoutStep:
             **self.secondary_target.create_secondary_target(),
             **self.stroke(),
             **self.equipment(),
+            **self._weight(self.weight)
         }

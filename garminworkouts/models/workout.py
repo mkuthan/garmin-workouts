@@ -114,12 +114,12 @@ class Workout(object):
         duration_meters = 0
 
         for step in flatten_steps:
-            if not self._end_condition(step)['conditionTypeKey'] == 'lap.button':
-                if self._end_condition(step)['conditionTypeKey'] == 'time':
-                    duration_secs = self._end_condition_value(step)
+            if not WorkoutStep._end_condition(step)['conditionTypeKey'] == 'lap.button':
+                if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'time':
+                    duration_secs = WorkoutStep._end_condition_value(step)
                     duration_meters = round(duration_secs * self._equivalent_pace(step))
-                if self._end_condition(step)['conditionTypeKey'] == 'distance':
-                    duration_meters = self._end_condition_value(step)
+                if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'distance':
+                    duration_meters = WorkoutStep._end_condition_value(step)
                     duration_secs = round(duration_meters / self._equivalent_pace(step))
 
                 sec = sec + duration_secs
@@ -144,8 +144,8 @@ class Workout(object):
             power = WorkoutStep._get_power(step)
             power_watts = power.to_watts(self.cFTP) if power else float(0)
 
-            if self._end_condition(step)['conditionTypeKey'] == 'time':
-                duration_secs = self._end_condition_value(step)
+            if WorkoutStep._end_condition(step)['conditionTypeKey'] == 'time':
+                duration_secs = WorkoutStep._end_condition_value(step)
             else:
                 duration_secs = float(0)
 
@@ -315,7 +315,7 @@ class Workout(object):
                            child_step_id=child_step_id,
                            description=step_config['description'] if 'description' in step_config else None,
                            step_type=step_config['type'] if 'type' in step_config else None,
-                           end_condition=self._end_condition(step_config)['conditionTypeKey'],
+                           end_condition=WorkoutStep._end_condition(step_config)['conditionTypeKey'],
                            end_condition_value=step_config['duration'] if 'duration' in step_config else None,
                            category=step_config['category'] if 'category' in step_config else None,
                            exerciseName=step_config['exerciseName'] if 'exerciseName' in step_config else None,
@@ -332,50 +332,8 @@ class Workout(object):
                                             from_value=self._target_value(step_config, 'max',
                                                                           'secondary' in step_config)
                                             ) if 'secondary' in step_config else None,
-                           **self._weight(step_config)
+                           weight=step_config['weight'] if 'weight' in step_config else None
                            ).create_workout_step()
-
-    def _weight(self, step_config):
-        return {
-            "weightValue": step_config['weight'] if 'weight' in step_config else None,
-            "weightUnit": {
-                "unitId": 8,
-                "unitKey": "kilogram",
-                "factor": 1000.0
-            }
-        }
-
-    def _str_is_time(self, string):
-        return True if ':' in string else False
-
-    def _str_to_seconds(self, time_string):
-        return Duration(str(time_string)).to_seconds()
-
-    def _str_is_distance(self, string):
-        return True if 'm' in string.lower() else False
-
-    def _str_to_meters(self, distance_string):
-        if 'km' in distance_string.lower():
-            return float(distance_string.lower().split('km')[0])*1000.0
-        return float(distance_string.lower().split('m')[0])
-
-    def _end_condition(self, step_config):
-        duration = step_config.get("duration")
-        if duration:
-            if self._str_is_time(duration):
-                return WorkoutStep.get_end_condition("time")
-            elif self._str_is_distance(duration):
-                return WorkoutStep.get_end_condition("distance")
-        return WorkoutStep.get_end_condition("lap.button")
-
-    def _end_condition_value(self, step_config):
-        duration = step_config.get("duration")
-        if duration:
-            if self._str_is_time(duration):
-                return self._str_to_seconds(duration)
-            if self._str_is_distance(duration):
-                return self._str_to_meters(duration)
-        return int(0)
 
     def _get_target_value(self, target, key):
         if isinstance(target, dict):
