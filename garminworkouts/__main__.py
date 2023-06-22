@@ -202,7 +202,7 @@ def setting(args):
             print(args.workout + ' not found in planning, please check "planning.yaml"')
 
     workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    target = configreader.read_config(r'pace.yaml')
+    target = configreader.read_config(r'target.yaml')
     workouts = [Workout(workout_config,
                         target,
                         account.vV02,
@@ -311,7 +311,7 @@ def main():
                                  help="Date to which schedule the workout")
     parser_schedule.set_defaults(func=command_schedule)
 
-    parser_get = subparsers.add_parser("get",
+    parser_get = subparsers.add_parser("get-workout",
                                        description="Get workout")
     parser_get.add_argument("--id",
                             required=True,
@@ -324,6 +324,13 @@ def main():
                             required=True,
                             help="Event id, use list command to get event identifiers")
     parser_get.set_defaults(func=command_get_event)
+
+    parser_get = subparsers.add_parser("get-paceband",
+                                       description="Get paceband")
+    parser_get.add_argument("--id",
+                            required=True,
+                            help="Course id, use list command to get course identifiers")
+    parser_get.set_defaults(func=command_get_paceband)
 
     parser_delete = subparsers.add_parser("delete",
                                           description="Delete workout")
