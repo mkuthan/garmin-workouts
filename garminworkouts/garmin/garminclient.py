@@ -10,6 +10,7 @@ from garminworkouts.models.running_workout import Workout
 class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
+    _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activitylist-service/activities/search/activities"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
