@@ -34,6 +34,31 @@ END_CONDITIONS = {
                         # Pulsaciones por debajo de un umbral ("endConditionCompare": "gt")
 }
 
+STROKE_TYPES = {
+    "any_stroke": 1,         # Cualquiera
+    "backstroke": 2,         # Espalda
+    "breaststroke": 3,       # Braza
+    "drill": 4,              # Tecnica
+    "fly": 5,                # Mariposa
+    "free": 6,               # Croll
+    "individual_medley": 7,  # Estilos
+    "mixed": 8,
+}
+
+EQUIPMENT_TYPES = {
+    "fins": 1,          # Aletas
+    "kickboard": 2,     # Tabla
+    "paddles": 3,       # Palas
+    "pull_buoy": 4,     # Pull buoy
+    "snorkel": 5,       # Tubo buceo
+    "none": 0           # Sin equipo
+}
+
+POOL_LENGTHS = {
+    "short": 25,
+    "olympic": 50
+}
+
 
 class WorkoutStep:
     def __init__(
@@ -49,6 +74,8 @@ class WorkoutStep:
         category=None,
         exerciseName=None,
         weight=None,
+        equipment=None,
+        stroke=None,
     ):
         """Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
@@ -64,8 +91,10 @@ class WorkoutStep:
         self.target = target or Target()
         self.secondary_target = secondary_target or Target()
         self.category = category,
-        self.exerciseName = exerciseName
-        self.weight = weight
+        self.exerciseName = exerciseName,
+        self.weight = weight,
+        self.equipment = equipment
+        self.stroke = stroke
 
     @staticmethod
     def _get_duration(step):
@@ -162,21 +191,19 @@ class WorkoutStep:
         else:
             return None
 
-    def stroke(self):
+    @staticmethod
+    def get_stroke_type(stroke_type):
         return {
-            "strokeType": {
-                "strokeTypeId": 0,
-                "displayOrder": 0
+                "strokeTypeId": STROKE_TYPES[stroke_type],
+                "strokeTypeKey": stroke_type,
             }
-        }
 
-    def equipment(self):
+    @staticmethod
+    def get_equipment_type(equipment_type):
         return {
-            "equipmentType": {
-                "equipmentTypeId": 0,
-                "displayOrder": 0
+                "equipmentTypeId": EQUIPMENT_TYPES[equipment_type],
+                "equipmentTypeKey": equipment_type,
             }
-        }
 
     def create_workout_step(self):
         return {
@@ -201,7 +228,7 @@ class WorkoutStep:
             "exerciseName": self.exerciseName,
             **self.target.create_target(),
             **self.secondary_target.create_secondary_target(),
-            **self.stroke(),
-            **self.equipment(),
+            **self.get_stroke_type(self.stroke),
+            **self.get_equipment_type(self.equipment),
             **self._weight(self.weight)
         }
