@@ -38,6 +38,24 @@ class GarminClient(object):
 
         return json.loads(response.text)
 
+    def external_workouts(self):
+        url = f"{self.connect_url}/web-data/workouts/es-ES/index.json"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        workout_list = json.loads(response.text)
+        return workout_list['workouts']
+
+    def get_external_workout(self, code):
+        url = f"{self.connect_url}/web-data/workouts/es-ES/{code}.json"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        workout = json.loads(response.text)
+        return workout
+
     def list_workouts(self, batch_size=100):
         for start_index in range(0, sys.maxsize, batch_size):
 
