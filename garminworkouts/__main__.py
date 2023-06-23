@@ -64,7 +64,6 @@ def command_workout_import(args):
                     workout_id = Workout.extract_workout_id(existing_workout)
                     connection.schedule_workout(workout_id, day_d.isoformat())
             else:
-                logging.info("Deleting workout '%s'", workout_name)
                 connection.get_calendar(date.today())
 
 

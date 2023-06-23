@@ -192,7 +192,7 @@ class Workout(object):
             return float(target_value)
         elif target_type == "pace.zone":
             if self.sport_type[0] == 'running':
-                return float(target_value * 1000.0 / self.vVO2)
+                return float(target_value) * 1000.0 / self.vVO2
             else:
                 return float(target_value)
         else:
