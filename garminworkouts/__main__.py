@@ -8,6 +8,7 @@ from datetime import date, timedelta
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
+from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
 from garminworkouts.models.paceband import PaceBand
