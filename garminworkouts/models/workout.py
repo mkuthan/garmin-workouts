@@ -354,16 +354,16 @@ class Workout(object):
 
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
-            self._WORKOUT_ID_FIELD: workout_id,
-            self._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
-            self._WORKOUT_NAME_FIELD: self.get_workout_name(),
-            self._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
-            self._WORKOUT_SPORT_TYPE_FIELD: self.get_sport_type(self.sport_type[0]),
-            self._WORKOUT_SEGMENTS_FIELD: [
+            Workout._WORKOUT_ID_FIELD: workout_id,
+            Workout._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
+            Workout._WORKOUT_NAME_FIELD: self.get_workout_name(),
+            Workout._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
+            Workout._WORKOUT_SPORT_TYPE_FIELD: Workout.get_sport_type(self.sport_type[0]),
+            Workout._WORKOUT_SEGMENTS_FIELD: [
                 {
-                    self._WORKOUT_ORDER_FIELD: 1,
-                    self._WORKOUT_SPORT_TYPE_FIELD: self.get_sport_type(self.sport_type[0]),
-                    self._WORKOUT_STEPS_FIELD: self._steps(self.config["steps"])
+                    Workout._WORKOUT_ORDER_FIELD: 1,
+                    Workout._WORKOUT_SPORT_TYPE_FIELD: Workout.get_sport_type(self.sport_type[0]),
+                    Workout._WORKOUT_STEPS_FIELD: self._steps(self.config["steps"])
                 }
             ]
         }
