@@ -122,8 +122,13 @@ class WorkoutStep:
 
     @staticmethod
     def end_condition_unit(end_condition):
-        if end_condition and end_condition.endswith("km"):
-            return {"unitKey": "kilometer"}
+        if end_condition:
+            if end_condition.endswith("km"):
+                return {"unitKey": "kilometer"}
+            elif end_condition.endswith("cals"):
+                return {"unitKey": "calories"}
+            else:
+                return {"unitKey": None}
         else:
             return None
 
@@ -135,6 +140,10 @@ class WorkoutStep:
                 return WorkoutStep.get_end_condition("time")
             elif WorkoutStep._str_is_distance(duration):
                 return WorkoutStep.get_end_condition("distance")
+            elif WorkoutStep._str_is_calories(duration):
+                return WorkoutStep.get_end_condition("calories")
+            else:
+                return WorkoutStep.get_end_condition("lap.button")
         return WorkoutStep.get_end_condition("lap.button")
 
     @staticmethod
@@ -147,8 +156,12 @@ class WorkoutStep:
         if duration:
             if WorkoutStep._str_is_time(duration):
                 return WorkoutStep._str_to_seconds(duration)
-            if WorkoutStep._str_is_distance(duration):
+            elif WorkoutStep._str_is_distance(duration):
                 return WorkoutStep._str_to_meters(duration)
+            elif WorkoutStep._str_is_calories(duration):
+                return WorkoutStep._str_to_calories(duration)
+            elif WorkoutStep._str_is_ppm(duration):
+                return WorkoutStep._str_to_ppm(duration)
         return int(0)
 
     @staticmethod
@@ -164,10 +177,26 @@ class WorkoutStep:
         return True if 'm' in string.lower() else False
 
     @staticmethod
-    def _str_to_meters(distance_string):
-        if 'km' in distance_string.lower():
-            return float(distance_string.lower().split('km')[0])*1000.0
-        return float(distance_string.lower().split('m')[0])
+    def _str_to_meters(string):
+        if 'km' in string.lower():
+            return float(string.lower().split('km')[0])*1000.0
+        return float(string.lower().split('m')[0])
+
+    @staticmethod
+    def _str_is_calories(string):
+        return True if 'cals' in string else False
+
+    @staticmethod
+    def _str_to_calories(string):
+        return float(string.lower().split('cals')[0])
+
+    @staticmethod
+    def _str_is_ppm(string):
+        return True if 'ppm' in string else False
+
+    @staticmethod
+    def _str_to_ppm(string):
+        return float(string.lower().split('ppm')[0])
 
     @staticmethod
     def _weight(weight):
@@ -185,16 +214,22 @@ class WorkoutStep:
 
     @staticmethod
     def parsed_end_condition_value(end_condition_value):
-        # distance
-        if end_condition_value and "m" in end_condition_value:
-            if end_condition_value.endswith("km"):
-                return int(float(end_condition_value.replace("km", "")) * 1000)
-            else:
-                return int(end_condition_value.replace("m", ""))
-
-        # time
-        elif end_condition_value and ":" in end_condition_value:
-            return Duration(end_condition_value).to_seconds()
+        if end_condition_value:
+            if "m" in end_condition_value:
+                # Heart zones
+                if 'ppm' in end_condition_value:
+                    return int(end_condition_value.split('ppm')[0])
+                # distance
+                elif end_condition_value.endswith("km"):
+                    return int(float(end_condition_value.replace("km", "")) * 1000)
+                else:
+                    return int(end_condition_value.replace("m", ""))
+            # time
+            elif ":" in end_condition_value:
+                return Duration(end_condition_value).to_seconds()
+            # calories
+            elif end_condition_value and "cals" in end_condition_value:
+                return int(end_condition_value.replace("cals", ""))
         else:
             return None
 
