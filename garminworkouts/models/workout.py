@@ -390,7 +390,8 @@ class Workout(object):
                            exerciseName=step_config['exerciseName'] if 'exerciseName' in step_config else None,
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
                                          to_value=self._target_value(step_config, 'min'),
-                                         from_value=self._target_value(step_config, 'max')
+                                         from_value=self._target_value(step_config, 'max'),
+                                         secondary=False
                                          ),
                            secondary_target=Target(
                                             target=self._target_type(
@@ -399,7 +400,8 @@ class Workout(object):
                                             to_value=self._target_value(step_config, 'min',
                                                                         'secondary' in step_config),
                                             from_value=self._target_value(step_config, 'max',
-                                                                          'secondary' in step_config)
+                                                                          'secondary' in step_config),
+                                            secondary=True
                                             ) if 'secondary' in step_config else None,
                            weight=step_config['weight'] if 'weight' in step_config else None
                            ).create_workout_step()

@@ -275,7 +275,7 @@ class WorkoutStep:
             "category": self.category[0],
             "exerciseName": self.exerciseName[0],
             **self.target.create_target(),
-            **self.secondary_target.create_secondary_target(),
+            **self.secondary_target.create_target(),
             **self.get_stroke_type(self.stroke),
             **self.get_equipment_type(self.equipment),
             **self._weight(self.weight[0])
