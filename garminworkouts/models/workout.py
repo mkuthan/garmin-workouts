@@ -6,42 +6,13 @@ from garminworkouts.models.power import Power
 from garminworkouts.models.target import Target
 from datetime import date, timedelta
 from garminworkouts.utils import functional, math
-
-
-SPORT_TYPES = {
-    "running": 1,
-    "trail_running": 1,
-    "cycling": 2,
-    "gravel_cycling": 2,
-    "mountain_biking": 2,
-    "swimming": 4,
-    "strength_training": 5,
-    "cardio_training": 6,
-    "yoga": 7,
-    "pilates": 8,
-    "hiit": 9,
-    "other": 3
-}
-
-
-INTENSITY_TYPES = {
-    "active": 1,
-    "rest": 2,
-    "warmup": 3,
-    "cooldown": 4,
-}
+from garminworkouts.models.fields import get_sport_type, get_target_type, get_step_type, _STEP_TYPE_FIELD
+from garminworkouts.models.fields import _WORKOUT_ID_FIELD, _WORKOUT_NAME_FIELD, _WORKOUT_DESCRIPTION_FIELD
+from garminworkouts.models.fields import _WORKOUT_OWNER_ID_FIELD, _WORKOUT_SPORT_TYPE_FIELD, _WORKOUT_SEGMENTS_FIELD
+from garminworkouts.models.fields import _WORKOUT_ORDER_FIELD, _WORKOUT_STEPS_FIELD
 
 
 class Workout(object):
-    _WORKOUT_ID_FIELD = "workoutId"
-    _WORKOUT_NAME_FIELD = "workoutName"
-    _WORKOUT_DESCRIPTION_FIELD = "description"
-    _WORKOUT_OWNER_ID_FIELD = "ownerId"
-    _WORKOUT_SPORT_TYPE_FIELD = "sportType"
-    _WORKOUT_SEGMENTS_FIELD = "workoutSegments"
-    _WORKOUT_STEPS_FIELD = "workoutSteps"
-    _WORKOUT_ORDER_FIELD = "segmentOrder"
-
     def __init__(
             self,
             config=[],
@@ -206,12 +177,12 @@ class Workout(object):
             d, target = target.split("<")
 
         if isinstance(target, dict):
-            return Target.get_target_type(target['type'])
+            return get_target_type(target['type'])
 
         if not target or (target not in self.target):
-            return Target.get_target_type("no.target")
+            return get_target_type("no.target")
         else:
-            return Target.get_target_type(self.target[target]['type'])
+            return get_target_type(self.target[target]['type'])
 
     def _target_value(self, step_config, val, secondary=False):
         target = step_config.get("secondary") if secondary else step_config.get("target")
@@ -280,19 +251,19 @@ class Workout(object):
 
     @staticmethod
     def extract_workout_id(workout):
-        return workout[Workout._WORKOUT_ID_FIELD]
+        return workout[_WORKOUT_ID_FIELD]
 
     @staticmethod
     def extract_workout_name(workout):
-        return workout[Workout._WORKOUT_NAME_FIELD]
+        return workout[_WORKOUT_NAME_FIELD]
 
     @staticmethod
     def extract_workout_description(workout):
-        return workout[Workout._WORKOUT_DESCRIPTION_FIELD]
+        return workout[_WORKOUT_DESCRIPTION_FIELD]
 
     @staticmethod
     def extract_workout_owner_id(workout):
-        return workout[Workout._WORKOUT_OWNER_ID_FIELD]
+        return workout[_WORKOUT_OWNER_ID_FIELD]
 
     @staticmethod
     def print_workout_json(workout):
@@ -304,20 +275,6 @@ class Workout(object):
         workout_name = Workout.extract_workout_name(workout)
         workout_description = Workout.extract_workout_description(workout)
         print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
-
-    @staticmethod
-    def get_sport_type(sport_type):
-        return {
-                "sportTypeId": SPORT_TYPES[sport_type],
-                "sportTypeKey": sport_type,
-            }
-
-    @staticmethod
-    def get_intensity_type(target_type):
-        return {
-                "intensityTypeId": INTENSITY_TYPES[target_type],
-                "intensityTypeKey": target_type,
-            }
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
@@ -354,16 +311,16 @@ class Workout(object):
 
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
-            Workout._WORKOUT_ID_FIELD: workout_id,
-            Workout._WORKOUT_OWNER_ID_FIELD: workout_owner_id,
-            Workout._WORKOUT_NAME_FIELD: self.get_workout_name(),
-            Workout._WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
-            Workout._WORKOUT_SPORT_TYPE_FIELD: Workout.get_sport_type(self.sport_type[0]),
-            Workout._WORKOUT_SEGMENTS_FIELD: [
+            _WORKOUT_ID_FIELD: workout_id,
+            _WORKOUT_OWNER_ID_FIELD: workout_owner_id,
+            _WORKOUT_NAME_FIELD: self.get_workout_name(),
+            _WORKOUT_DESCRIPTION_FIELD: self._generate_description(),
+            _WORKOUT_SPORT_TYPE_FIELD: get_sport_type(self.sport_type[0]),
+            _WORKOUT_SEGMENTS_FIELD: [
                 {
-                    Workout._WORKOUT_ORDER_FIELD: 1,
-                    Workout._WORKOUT_SPORT_TYPE_FIELD: Workout.get_sport_type(self.sport_type[0]),
-                    Workout._WORKOUT_STEPS_FIELD: self._steps(self.config["steps"])
+                    _WORKOUT_ORDER_FIELD: 1,
+                    _WORKOUT_SPORT_TYPE_FIELD: get_sport_type(self.sport_type[0]),
+                    _WORKOUT_STEPS_FIELD: self._steps(self.config["steps"])
                 }
             ]
         }
@@ -372,7 +329,7 @@ class Workout(object):
         return {
             "type": "RepeatGroupDTO",
             "stepOrder": step_order,
-            "stepType": WorkoutStep.get_step_type("repeat"),
+            _STEP_TYPE_FIELD: get_step_type("repeat"),
             "childStepId": child_step_id,
             "numberOfIterations": repeats,
             "workoutSteps": nested_steps,

@@ -1,18 +1,12 @@
 from datetime import date
-from garminworkouts.models.workout import Workout
+from garminworkouts.models.fields import _WORKOUT_ID_FIELD, _EVENT_ID_FIELD, _EVENT_NAME_FIELD, _EVENT_DATE_FIELD
+from garminworkouts.models.fields import _EVENT_LOCATION_FIELD, _EVENT_TIME_FIELD, _COURSE_FIELD
 from garminworkouts.models.duration import Duration
 from garminworkouts.utils import functional
 import json
 
 
 class Event(object):
-    _EVENT_ID_FIELD = "id"
-    _EVENT_NAME_FIELD = "eventName"
-    _EVENT_DATE_FIELD = "date"
-    _EVENT_LOCATION_FIELD = "location"
-    _EVENT_TIME_FIELD = "eventTimeLocal"
-    _COURSE_FIELD = "courseId"
-
     def __init__(
             self,
             config
@@ -30,27 +24,27 @@ class Event(object):
 
     @staticmethod
     def extract_event_id(event):
-        return event[Event._EVENT_ID_FIELD]
+        return event[_EVENT_ID_FIELD]
 
     @staticmethod
     def extract_event_name(event):
-        return event[Event._EVENT_NAME_FIELD]
+        return event[_EVENT_NAME_FIELD]
 
     @staticmethod
     def extract_event_date(event):
-        return event[Event._EVENT_DATE_FIELD]
+        return event[_EVENT_DATE_FIELD]
 
     @staticmethod
     def extract_event_location(event):
-        return event[Event._EVENT_LOCATION_FIELD]
+        return event[_EVENT_LOCATION_FIELD]
 
     @staticmethod
     def extract_event_time(event):
-        return event[Event._EVENT_TIME_FIELD]
+        return event[_EVENT_TIME_FIELD]
 
     @staticmethod
     def extract_course(event):
-        return event[Event._COURSE_FIELD]
+        return event[_COURSE_FIELD]
 
     @staticmethod
     def print_event_summary(event):
@@ -67,22 +61,22 @@ class Event(object):
     def create_event(self, event_id=None, workout_id=None):
         return {
             'id': event_id,
-            self._EVENT_NAME_FIELD: self.name,
+            _EVENT_NAME_FIELD: self.name,
             'date': str(self.date),
             'url': self.url,
             'registrationUrl': None,
-            self._COURSE_FIELD: self.course,
+            _COURSE_FIELD: self.course,
             'completionTarget': {
                 'value': self.distance,
                 'unit': 'kilometer',
                 'unitType': 'distance'
                 },
-            self._EVENT_TIME_FIELD: {
+            _EVENT_TIME_FIELD: {
                 'startTimeHhMm': self.time,
                 'timeZoneId': 'Europe/Paris'
                 },
             'note': None,
-            Workout._WORKOUT_ID_FIELD: workout_id,
+            _WORKOUT_ID_FIELD: workout_id,
             'location': self.location,
             'eventType': self.sport,
             'eventPrivacy': {

@@ -86,34 +86,31 @@ def command_event_import(args):
         existing_pacebands_by_name = {PaceBand.extract_paceband_name(w): w for w in connection.list_pacebands()}
 
         for event in events:
-            event_name = event.name
-            existing_event = existing_events_by_name.get(event_name)
-
-            existing_workout = existing_workouts_by_name.get(event_name)
+            existing_event = existing_events_by_name.get(event.name)
+            existing_workout = existing_workouts_by_name.get(event.name)
             workout_id = Workout.extract_workout_id(existing_workout) if existing_workout else None
 
             if existing_event:
                 event_id = Event.extract_event_id(existing_event)
                 payload = event.create_event(event_id, workout_id)
-                logging.info("Updating event '%s'", event_name)
+                logging.info("Updating event '%s'", event.name)
                 connection.update_event(event_id, payload)
             else:
                 payload = event.create_event(workout_id=workout_id)
-                logging.info("Creating event '%s'", event_name)
+                logging.info("Creating event '%s'", event.name)
                 connection.save_event(payload)
 
         for paceband in pacebands:
-            paceband_name = paceband.name
-            existing_paceband = existing_pacebands_by_name.get(paceband_name)
+            existing_paceband = existing_pacebands_by_name.get(paceband.name)
 
             if existing_paceband:
                 paceband_id = PaceBand.extract_paceband_id(existing_paceband)
                 payload = paceband.create_paceband(paceband_id)
-                logging.info("Updating paceband '%s'", paceband_name)
+                logging.info("Updating paceband '%s'", paceband.name)
                 connection.update_paceband(paceband_id, payload)
             elif paceband.course:
                 payload = paceband.create_paceband()
-                logging.info("Creating paceband '%s'", paceband_name)
+                logging.info("Creating paceband '%s'", paceband.name)
                 print(payload)
                 connection.save_paceband(paceband=payload)
 
@@ -194,20 +191,17 @@ def command_workout_schedule(args):
 
 def command_workout_get(args):
     with _garmin_client(args) as connection:
-        workout = connection.get_workout(args.id)
-        Workout.print_workout_json(workout)
+        Workout.print_workout_json(connection.get_workout(args.id))
 
 
 def command_event_get(args):
     with _garmin_client(args) as connection:
-        event = connection.get_event(args.id)
-        Event.print_event_json(event)
+        Event.print_event_json(connection.get_event(args.id))
 
 
 def command_paceband_get(args):
     with _garmin_client(args) as connection:
-        paceband = connection.get_paceband(args.id)
-        PaceBand.print_paceband_summary(paceband)
+        PaceBand.print_paceband_summary(connection.get_paceband(args.id))
 
 
 def command_workout_delete(args):
@@ -224,35 +218,6 @@ def _garmin_client(args):
         password=account.PASSWORD,
         cookie_jar=args.cookie_jar
     )
-
-
-def settings(args):
-    workout_files = glob.glob(args.workout)
-    plan = str('')
-    race = account.race
-    if not workout_files:
-        try:
-            planning = configreader.read_config(r'planning.yaml')
-            workout_files = glob.glob(planning[args.workout]['workouts'])
-            race = date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
-            plan = args.workout
-        except KeyError:
-            print(args.workout + ' not found in planning, please check "planning.yaml"')
-
-    workout_configs = [configreader.read_config(workout_file) for workout_file in workout_files]
-    target = configreader.read_config(r'target.yaml')
-    workouts = [Workout(workout_config,
-                        target,
-                        account.vV02,
-                        account.fmin,
-                        account.fmax,
-                        account.rFTP,
-                        account.cFTP,
-                        plan,
-                        race)
-                for workout_config in workout_configs]
-
-    return workouts, plan
 
 
 def command_user_zones(args):
