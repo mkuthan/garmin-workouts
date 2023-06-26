@@ -346,18 +346,18 @@ class Workout(object):
                            category=step_config['category'] if 'category' in step_config else None,
                            exerciseName=step_config['exerciseName'] if 'exerciseName' in step_config else None,
                            target=Target(target=self._target_type(step_config)['workoutTargetTypeKey'],
-                                         to_value=self._target_value(step_config, 'min'),
-                                         from_value=self._target_value(step_config, 'max'),
+                                         value_one=self._target_value(step_config, 'min'),
+                                         value_two=self._target_value(step_config, 'max'),
                                          secondary=False
                                          ),
                            secondary_target=Target(
                                             target=self._target_type(
                                                                 step_config,
                                                                 'secondary' in step_config)['workoutTargetTypeKey'],
-                                            to_value=self._target_value(step_config, 'min',
-                                                                        'secondary' in step_config),
-                                            from_value=self._target_value(step_config, 'max',
-                                                                          'secondary' in step_config),
+                                            value_one=self._target_value(step_config, 'min',
+                                                                         'secondary' in step_config),
+                                            value_two=self._target_value(step_config, 'max',
+                                                                         'secondary' in step_config),
                                             secondary=True
                                             ) if 'secondary' in step_config else None,
                            weight=step_config['weight'] if 'weight' in step_config else None
