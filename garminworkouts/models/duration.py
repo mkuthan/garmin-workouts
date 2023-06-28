@@ -1,45 +1,65 @@
 from dataclasses import dataclass
+from garminworkouts.models.time import Time
 
 
 @dataclass(frozen=True)
 class Duration:
     duration: str
 
-    def to_seconds(self):
-        if self._has_hours():
-            hours, minutes, seconds = self._tokenize()
-            return self._to_seconds(int(seconds), int(minutes), int(hours))
-        elif self._has_minutes():
-            minutes, seconds = self._tokenize()
-            return self._to_seconds(int(seconds), int(minutes))
-        elif self._has_seconds():
-            [seconds] = self._tokenize()
-            return self._to_seconds(int(seconds))
-        else:
-            raise ValueError("Unknown duration %s, expected format HH:MM:SS" % self.duration)
-
-    def _tokenize(self):
-        return self.duration.split(":")
-
-    def _has_seconds(self):
-        if 'km' not in self.duration:
-            return len(self._tokenize()) == 1
-        else:
-            return bool(0)
-
-    def _has_minutes(self):
-        return len(self._tokenize()) == 2
-
-    def _has_hours(self):
-        return len(self._tokenize()) == 3
+    def get_type(self):
+        if self.duration:
+            if Duration.is_heart_rate(self.duration):
+                return 'heart.rate'
+            elif Duration.is_distance(self.duration):
+                return 'distance'
+            elif Duration.is_energy(self.duration):
+                return 'calories'
+            elif Duration.is_reps(self.duration):
+                return "reps"
+            elif Duration.is_power(self.duration):
+                return 'power'
+            elif Duration.is_time(self.duration):
+                return 'time'
+        return "lap.button"
 
     @staticmethod
-    def _to_seconds(seconds, minutes=0, hours=0):
-        if not 0 <= int(seconds) < 60:
-            raise ValueError("Seconds must be between 0 and 59 but was %s" % seconds)
-        if not 0 <= int(minutes) < 60:
-            raise ValueError("Minutes must be between 0 and 59 but was %s" % seconds)
-        if not 0 <= int(hours) < 24:
-            raise ValueError("Hours must be between 0 and 23 but was %s" % seconds)
+    def get_value(duration: str):
+        if 'ppm' in duration:
+            return int(duration.split('ppm')[0])
+        elif "km" in duration:
+            return int(float(duration.split('km')[0]) * 1000)
+        elif "m" in duration:
+            return int(float(duration.split('m')[0]))
+        elif "cals" in duration:
+            return int(float(duration.split('cals')[0]))
+        elif "reps" in duration:
+            return int(duration.split('reps')[0])
+        elif ":" in duration:
+            return Time(duration).to_seconds()
 
-        return int(hours) * 3600 + int(minutes) * 60 + int(seconds)
+    @staticmethod
+    def is_time(string: str):
+        return True if ':' in string else False
+
+    @staticmethod
+    def is_distance(string: str):
+        return True if 'm' in string.lower() else False
+
+    @staticmethod
+    def is_reps(string: str):
+        return True if 'reps' in string.lower() else False
+
+    @staticmethod
+    def is_heart_rate(string: str):
+        return True if 'ppm' in string.lower() else False
+
+    @staticmethod
+    def is_power(string: str):
+        return True if 'w' in string.lower() else False
+
+    @staticmethod
+    def is_energy(string: str):
+        return True if 'cals' in string.lower() else False
+
+    def to_seconds(self):
+        return Time(self.duration).to_seconds()
