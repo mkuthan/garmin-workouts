@@ -5,12 +5,9 @@ from dataclasses import dataclass
 class Power:
     power: str
 
-    def to_watts(self, ftp, diff=0):
+    def to_watts(self, ftp):
         if not 0 <= int(ftp) < 1000:
             raise ValueError("FTP must be between 0 [W] and 999 [W] but was %s" % ftp)
-
-        if not -1.0 < float(diff) < 1.0:
-            raise ValueError("Power diff must be between -0.99 and 0.99 but was %s" % diff)
 
         if self._has_watt():
             absolute_power = int(self.power[:-1])
@@ -22,7 +19,7 @@ class Power:
         if not 0 <= int(absolute_power) < 5000:
             raise ValueError("Power must be between 0 [W] and 49999 [W] but was %s" % absolute_power)
 
-        return round(absolute_power * (1 + diff))
+        return float(round(absolute_power))
 
     def _has_watt(self):
         return (self.power.lower()).endswith("w")
@@ -33,3 +30,10 @@ class Power:
     @staticmethod
     def _to_absolute(power, ftp):
         return int(power) * ftp / 100
+
+    @staticmethod
+    def power_zones(zones: list[float], ftp):
+        power_zones = [round(int(ftp.to_watts()) * zone) for zone in zones]
+        print('::Power Zones::')
+        for i in range(len(zones)-1):
+            print('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1])

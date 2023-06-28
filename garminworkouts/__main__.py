@@ -229,7 +229,7 @@ def command_user_zones(args):
             account.rFTP,
             account.cFTP,
             str(''),
-            date(0, 1, 1)
+            date.today()
             ).zones()
 
 

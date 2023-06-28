@@ -1,6 +1,5 @@
 
 from garminworkouts.models.duration import Duration
-from garminworkouts.models.power import Power
 from garminworkouts.models.target import Target
 
 from garminworkouts.models.fields import get_end_condition, _STEP_TYPE_FIELD, get_step_type, get_stroke_type
@@ -44,16 +43,6 @@ class WorkoutStep:
         self.stroke = stroke
 
     @staticmethod
-    def _get_duration(step):
-        duration = step.get("duration")
-        return Duration(str(duration)) if duration else None
-
-    @staticmethod
-    def _get_power(step):
-        power = step.get("power")
-        return Power(str(power)) if power else None
-
-    @staticmethod
     def end_condition_unit(end_condition):
         if end_condition:
             if end_condition.endswith("km"):
@@ -95,7 +84,7 @@ class WorkoutStep:
                 return WorkoutStep._str_to_calories(duration)
             elif WorkoutStep._str_is_ppm(duration):
                 return WorkoutStep._str_to_ppm(duration)
-        return int(0)
+        return float(0)
 
     @staticmethod
     def _str_is_time(string):
