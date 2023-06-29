@@ -11,6 +11,7 @@ class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activitylist-service/activities/search/activities"
+    _TRAINING_PLAN_SERVICE_ENDPOINT = "/proxy/trainingplan-service/trainingplan"
     _COURSE_SERVICE_ENDPOINT = "/proxy/course-service"
 
     _REQUIRED_HEADERS = {
@@ -127,6 +128,7 @@ class GarminClient(object):
         for item in response_jsons['calendarItems']:
             if datetime.strptime(item['date'], '%Y-%m-%d').date() < date and item['itemType'] == 'workout':
                 logging.info("Deleting workout '%s'", item['title'])
+                print(item)
                 self.delete_workout(item['workoutId'])
 
     def schedule_workout(self, workout_id, date):
@@ -225,6 +227,47 @@ class GarminClient(object):
                 break
 
         return activities
+
+    def list_trainingplans(self, locale):
+        url = f"{self.connect_url}{self._TRAINING_PLAN_SERVICE_ENDPOINT}/search"
+        params = {
+            "start": '1',
+            "limit": '1000',
+            "locale": locale,
+        }
+
+        response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+        response.raise_for_status()
+
+        return json.loads(response.text)['trainingPlanList']
+
+    def schedule_training_plan(self, plan_id, startDate):
+        url = f"{self.connect_url}{self._TRAINING_PLAN_SERVICE_ENDPOINT}/schedule/{plan_id}"
+        params = {
+            "startDate": startDate,
+        }
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def get_training_plan(self, plan_id, locale):
+        url = f"{self.connect_url}{self._TRAINING_PLAN_SERVICE_ENDPOINT}/tasks/{plan_id}"
+        params = {
+            "localeKey": locale,
+        }
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def delete_training_plan(self, plan_id):
+        url = f"{self.connect_url}{self._TRAINING_PLAN_SERVICE_ENDPOINT}/trainingplan/{plan_id}"
+
+        response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
 
     def get_paceband(self, course_id):
         url = f"{self.connect_url}{GarminClient._COURSE_SERVICE_ENDPOINT}/pacebands/summaries"
