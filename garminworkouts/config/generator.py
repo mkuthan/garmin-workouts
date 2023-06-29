@@ -1,6 +1,6 @@
 def recovery_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'RECOVERY_HEART_RATE'
     step['description'] = 'Recovery pace'
@@ -10,7 +10,7 @@ def recovery_step_generator(duration):
 
 def aerobic_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'AEROBIC_HEART_RATE'
     step['description'] = 'Aerobic pace'
@@ -20,7 +20,7 @@ def aerobic_step_generator(duration):
 
 def lt_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'HALF_MARATHON_PACE'
     step['description'] = 'Threshold pace'
@@ -30,7 +30,7 @@ def lt_step_generator(duration):
 
 def lr_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'LONG_RUN_HEART_RATE'
     step['description'] = 'Long run pace'
@@ -40,7 +40,7 @@ def lr_step_generator(duration):
 
 def marathon_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'MARATHON_HEART_RATE'
     step['description'] = 'Marathon pace run'
@@ -50,7 +50,7 @@ def marathon_step_generator(duration):
 
 def hm_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'HALF_MARATHON_PACE'
     step['description'] = 'Half Marathon pace'
@@ -60,7 +60,7 @@ def hm_step_generator(duration):
 
 def tuneup_step_generator(duration):
     step = {}
-    step['type'] = 'run'
+    step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = '10KM_PACE'
     step['description'] = '10K pace run'
