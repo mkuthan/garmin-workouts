@@ -43,8 +43,8 @@ class Target:
         else:
             target, zone = get_target_fields(self.secondary)
             return {
-                f"{target}Type": get_target_type(self.target),
-                f"{target}ValueOne": self.value_one,
-                f"{target}ValueTwo": self.value_two,
-                f"{zone}Number": self.zone,
+                f'{target}Type': get_target_type(self.target),
+                f'{target}ValueOne': self.value_one,
+                f'{target}ValueTwo': self.value_two,
+                f'{zone}Number': self.zone,
                 }

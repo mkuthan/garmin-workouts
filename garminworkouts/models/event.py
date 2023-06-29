@@ -1,6 +1,6 @@
 from datetime import date
-from garminworkouts.models.fields import _WORKOUT_ID_FIELD, _EVENT_ID_FIELD, _EVENT_NAME_FIELD, _EVENT_DATE_FIELD
-from garminworkouts.models.fields import _EVENT_LOCATION_FIELD, _EVENT_TIME_FIELD, _COURSE_FIELD
+from garminworkouts.models.fields import _WORKOUT_ID, _EVENT_NAME, _DATE, _NAME, _COURSE
+from garminworkouts.models.fields import _LOCATION, _EVENT_TIME, _ID, _COURSE_ID, _SPORT, _GOAL
 from garminworkouts.models.duration import Duration
 from garminworkouts.utils import functional
 import json
@@ -12,39 +12,39 @@ class Event(object):
             config
             ):
 
-        self.name = config['name']
-        self.date = date(config['date']['year'], config['date']['month'], config['date']['day'])
+        self.name = config[_NAME]
+        self.date = date(config[_DATE]['year'], config[_DATE]['month'], config[_DATE]['day'])
         self.url = config['url'] if 'url' in config else None
-        self.location = config['location'] if 'location' in config else None
+        self.location = config[_LOCATION] if _LOCATION in config else None
         self.time = config['time'] if 'time' in config else None
         self.distance = config['distance'] if 'distance' in config else None
-        self.goal = Duration(config['goal']).to_seconds() if 'goal' in config else None
-        self.course = config['course'] if 'course' in config else None
-        self.sport = config['sport']
+        self.goal = Duration(config[_GOAL]).to_seconds() if _GOAL in config else None
+        self.course = config[_COURSE] if _COURSE in config else None
+        self.sport = config[_SPORT]
 
     @staticmethod
     def extract_event_id(event):
-        return event[_EVENT_ID_FIELD]
+        return event[_ID]
 
     @staticmethod
     def extract_event_name(event):
-        return event[_EVENT_NAME_FIELD]
+        return event[_EVENT_NAME]
 
     @staticmethod
     def extract_event_date(event):
-        return event[_EVENT_DATE_FIELD]
+        return event[_DATE]
 
     @staticmethod
     def extract_event_location(event):
-        return event[_EVENT_LOCATION_FIELD]
+        return event[_LOCATION]
 
     @staticmethod
     def extract_event_time(event):
-        return event[_EVENT_TIME_FIELD]
+        return event[_EVENT_TIME]
 
     @staticmethod
     def extract_course(event):
-        return event[_COURSE_FIELD]
+        return event[_COURSE_ID]
 
     @staticmethod
     def print_event_summary(event):
@@ -60,24 +60,24 @@ class Event(object):
 
     def create_event(self, event_id=None, workout_id=None):
         return {
-            'id': event_id,
-            _EVENT_NAME_FIELD: self.name,
-            'date': str(self.date),
+            _ID: event_id,
+            _EVENT_NAME: self.name,
+            _DATE: str(self.date),
             'url': self.url,
             'registrationUrl': None,
-            _COURSE_FIELD: self.course,
+            _COURSE_ID: self.course,
             'completionTarget': {
                 'value': self.distance,
                 'unit': 'kilometer',
                 'unitType': 'distance'
                 },
-            _EVENT_TIME_FIELD: {
+            _EVENT_TIME: {
                 'startTimeHhMm': self.time,
                 'timeZoneId': 'Europe/Paris'
                 },
             'note': None,
-            _WORKOUT_ID_FIELD: workout_id,
-            'location': self.location,
+            _WORKOUT_ID: workout_id,
+            _LOCATION: self.location,
             'eventType': self.sport,
             'eventPrivacy': {
                 'label': 'PRIVATE',

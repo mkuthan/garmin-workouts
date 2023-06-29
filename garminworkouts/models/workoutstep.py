@@ -2,8 +2,11 @@
 from garminworkouts.models.duration import Duration
 from garminworkouts.models.target import Target
 
-from garminworkouts.models.fields import get_end_condition, _STEP_TYPE_FIELD, get_step_type, get_stroke_type
-from garminworkouts.models.fields import get_equipment_type, _END_CONDITION_FIELD, get_weight
+from garminworkouts.models.fields import get_end_condition, _STEP_TYPE, get_step_type, get_stroke_type
+from garminworkouts.models.fields import get_equipment_type, _END_CONDITION, get_weight, _TYPE, _CATEGORY
+from garminworkouts.models.fields import _STEP_ID, _STEP_ORDER, _CHILD_STEP_ID, _DESCRIPTION, _END_CONDITION_VALUE
+from garminworkouts.models.fields import _END_CONDITION_COMPARE, _END_CONDITION_ZONE, _EXERCISE_NAME, _EXECUTABLE_STEP
+from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, _CONDITION_TYPE_KEY, _UNIT_KEY, _DURATION
 
 
 class WorkoutStep:
@@ -13,7 +16,7 @@ class WorkoutStep:
         child_step_id,
         description,
         step_type,
-        end_condition="lap.button",
+        end_condition='lap.button',
         end_condition_value=None,
         target=None,
         secondary_target=None,
@@ -23,11 +26,11 @@ class WorkoutStep:
         equipment=None,
         stroke=None,
     ):
-        """Valid end condition values:
+        '''Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
         - time: 0:40, 4:20
         - lap.button
-        """
+        '''
         self.order = order
         self.child_step_id = child_step_id
         self.description = description
@@ -45,36 +48,36 @@ class WorkoutStep:
     @staticmethod
     def end_condition_unit(end_condition):
         if end_condition:
-            if end_condition.endswith("km"):
-                return {"unitKey": "kilometer"}
-            elif end_condition.endswith("cals"):
-                return {"unitKey": "calories"}
+            if end_condition.endswith('km'):
+                return {_UNIT_KEY: 'kilometer'}
+            elif end_condition.endswith('cals'):
+                return {_UNIT_KEY: 'calories'}
             else:
-                return {"unitKey": None}
+                return {_UNIT_KEY: None}
         else:
             return None
 
     @staticmethod
     def _end_condition(step_config):
-        duration = step_config.get("duration")
+        duration = step_config.get(_DURATION)
         if duration:
             if WorkoutStep._str_is_time(duration):
-                return get_end_condition("time")
+                return get_end_condition('time')
             elif WorkoutStep._str_is_distance(duration):
-                return get_end_condition("distance")
+                return get_end_condition('distance')
             elif WorkoutStep._str_is_calories(duration):
-                return get_end_condition("calories")
+                return get_end_condition('calories')
             else:
-                return get_end_condition("lap.button")
-        return get_end_condition("lap.button")
+                return get_end_condition('lap.button')
+        return get_end_condition('lap.button')
 
     @staticmethod
     def _end_condition_key(step_config):
-        return step_config['conditionTypeKey']
+        return step_config[_CONDITION_TYPE_KEY]
 
     @staticmethod
     def _end_condition_value(step_config):
-        duration = step_config.get("duration")
+        duration = step_config.get(_DURATION)
         if duration:
             if WorkoutStep._str_is_time(duration):
                 return WorkoutStep._str_to_seconds(duration)
@@ -123,39 +126,39 @@ class WorkoutStep:
     @staticmethod
     def parsed_end_condition_value(end_condition_value):
         if end_condition_value:
-            if "m" in end_condition_value:
+            if 'm' in end_condition_value:
                 # Heart zones
                 if 'ppm' in end_condition_value:
                     return int(end_condition_value.split('ppm')[0])
                 # distance
-                elif end_condition_value.endswith("km"):
-                    return int(float(end_condition_value.replace("km", "")) * 1000)
+                elif end_condition_value.endswith('km'):
+                    return int(float(end_condition_value.replace('km', '')) * 1000)
                 else:
-                    return int(end_condition_value.replace("m", ""))
+                    return int(end_condition_value.replace('m', ''))
             # time
-            elif ":" in end_condition_value:
+            elif ':' in end_condition_value:
                 return Duration(end_condition_value).to_seconds()
             # calories
-            elif end_condition_value and "cals" in end_condition_value:
-                return int(end_condition_value.replace("cals", ""))
+            elif end_condition_value and 'cals' in end_condition_value:
+                return int(end_condition_value.replace('cals', ''))
         else:
             return None
 
     def create_workout_step(self):
         return {
-            "type": "ExecutableStepDTO",
-            "stepId": None,
-            "stepOrder": self.order,
-            "childStepId": self.child_step_id,
-            "description": self.description,
-            _STEP_TYPE_FIELD: get_step_type(self.step_type),
-            _END_CONDITION_FIELD: get_end_condition(self.end_condition),
-            "preferredEndConditionUnit": WorkoutStep.end_condition_unit(self.end_condition),
-            f"{_END_CONDITION_FIELD}Value": WorkoutStep.parsed_end_condition_value(self.end_condition_value),
-            f"{_END_CONDITION_FIELD}Compare": None,
-            f"{_END_CONDITION_FIELD}Zone": None,
-            "category": self.category[0],
-            "exerciseName": self.exerciseName[0],
+            _TYPE: _EXECUTABLE_STEP,
+            _STEP_ID: None,
+            _STEP_ORDER: self.order,
+            _CHILD_STEP_ID: self.child_step_id,
+            _DESCRIPTION: self.description,
+            _STEP_TYPE: get_step_type(self.step_type),
+            _END_CONDITION: get_end_condition(self.end_condition),
+            _PREFERRED_END_CONDITION_UNIT: WorkoutStep.end_condition_unit(self.end_condition),
+            _END_CONDITION_VALUE: WorkoutStep.parsed_end_condition_value(self.end_condition_value),
+            _END_CONDITION_COMPARE: None,
+            _END_CONDITION_ZONE: None,
+            _CATEGORY: self.category[0],
+            _EXERCISE_NAME: self.exerciseName[0],
             **self.target.create_target(),
             **self.secondary_target.create_target(),
             **get_stroke_type(self.stroke),

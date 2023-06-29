@@ -14,6 +14,7 @@ from garminworkouts.models.event import Event
 from garminworkouts.models.paceband import PaceBand
 from garminworkouts.models.extraction import export_yaml
 from garminworkouts.utils.validators import writeable_dir
+from garminworkouts.models.fields import _WORKOUT_ID, _ID
 
 import account
 
@@ -155,7 +156,7 @@ def command_workout_export_yaml(args):
         for workout in connection.external_workouts(account.locale):
             code = workout['workoutSourceId']
             workout = connection.get_external_workout(code, account.locale)
-            workout['workoutId'] = code
+            workout[_WORKOUT_ID] = code
 
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
@@ -267,7 +268,7 @@ def main():
 
     parser_import = subparsers.add_parser("import-event",
                                           description="Import event(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("event",
+    parser_import.add_argument("workout",
                                help="File(s) with event(s) to import, "
                                     "wildcards are supported e.g: events/*.yaml")
     parser_import.set_defaults(func=command_event_import)
