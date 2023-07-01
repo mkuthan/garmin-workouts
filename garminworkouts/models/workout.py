@@ -156,7 +156,7 @@ class Workout(object):
         elif target_type == 'cadence.zone':
             return float(target_value)
         elif target_type == 'heart.rate.zone':
-            return float(self.fmin + float(target_value) * (self.fmax-self.fmin))
+            return float(int(self.fmin + float(target_value) * (self.fmax-self.fmin)))
         elif target_type == 'speed.zone':
             return float(target_value)
         elif target_type == 'pace.zone':

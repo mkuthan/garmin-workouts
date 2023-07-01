@@ -72,19 +72,17 @@ def command_workout_import(args):
 def command_event_import(args):
     try:
         planning = configreader.read_config(r'planning.yaml')
-        event_files = glob.glob(planning[args.event]['workouts'])
+        event_files = glob.glob(planning[args.workout]['workouts'])
     except KeyError:
         print(args.workout + ' not found in planning, please check "planning.yaml"')
-        event_files = glob.glob(args.event)
+        event_files = glob.glob(args.workout)
 
     event_configs = [configreader.read_config(event_file) for event_file in event_files]
     events = [Event(event_config) for event_config in event_configs]
-    pacebands = [PaceBand(event_config) for event_config in event_configs]
 
     with _garmin_client(args) as connection:
         existing_events_by_name = {Event.extract_event_name(w): w for w in connection.list_events()}
         existing_workouts_by_name = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        existing_pacebands_by_name = {PaceBand.extract_paceband_name(w): w for w in connection.list_pacebands()}
 
         for event in events:
             existing_event = existing_events_by_name.get(event.name)
@@ -101,19 +99,7 @@ def command_event_import(args):
                 logging.info("Creating event '%s'", event.name)
                 connection.save_event(payload)
 
-        for paceband in pacebands:
-            existing_paceband = existing_pacebands_by_name.get(paceband.name)
-
-            if existing_paceband:
-                paceband_id = PaceBand.extract_paceband_id(existing_paceband)
-                payload = paceband.create_paceband(paceband_id)
-                logging.info("Updating paceband '%s'", paceband.name)
-                connection.update_paceband(paceband_id, payload)
-            elif paceband.course:
-                payload = paceband.create_paceband()
-                logging.info("Creating paceband '%s'", paceband.name)
-                print(payload)
-                connection.save_paceband(paceband=payload)
+        command_workout_import(args)
 
 
 def command_trainingplan_metrics(args):
@@ -198,11 +184,6 @@ def command_workout_get(args):
 def command_event_get(args):
     with _garmin_client(args) as connection:
         Event.print_event_json(connection.get_event(args.id))
-
-
-def command_paceband_get(args):
-    with _garmin_client(args) as connection:
-        PaceBand.print_paceband_summary(connection.get_paceband(args.id))
 
 
 def command_workout_delete(args):
@@ -328,13 +309,6 @@ def main():
                             required=True,
                             help="Event id, use list command to get event identifiers")
     parser_get.set_defaults(func=command_event_get)
-
-    parser_get = subparsers.add_parser("get-paceband",
-                                       description="Get paceband")
-    parser_get.add_argument("--id",
-                            required=True,
-                            help="Course id, use list command to get course identifiers")
-    parser_get.set_defaults(func=command_paceband_get)
 
     parser_delete = subparsers.add_parser("delete-workout",
                                           description="Delete workout")
