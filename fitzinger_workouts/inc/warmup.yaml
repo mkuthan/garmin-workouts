@@ -1,1 +1,1 @@
-- { type: "warmup", duration: "4km", target: AEROBIC_PACE, description: "Aerobic pace" }
+- { type: warmup, duration: 4km, target: AEROBIC_PACE, description: Aerobic pace }
