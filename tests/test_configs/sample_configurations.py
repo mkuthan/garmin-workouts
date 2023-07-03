@@ -10,5 +10,5 @@ class Arg(object):
         self.workout = workout
 
 
-args = Arg(workout='./test_configs/*.yaml')
-workout, plan = settings(args)
+args = Arg(workout='./tests/test_configs/*.yaml')
+workouts, plan = settings(args)

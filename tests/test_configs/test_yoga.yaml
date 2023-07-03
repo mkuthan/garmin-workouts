@@ -1,0 +1,15 @@
+description: "Comienza el d\xEDa con estos movimientos matutinos.Esta rutina te ayudar\xE1\
+  \ a despertar a primera hora de la ma\xF1ana. Empezar\xE1s a trabajar de manera\
+  \ lenta y gradual para llenar de energ\xEDa el cuerpo y la mente. Estas posturas\
+  \ abren la columna y las caderas, y fortalecen la Parte Inferior del Cuerpo y los\
+  \ abdominales. Tr\xE1tate con cuidado para empezar el d\xEDa con buen pie."
+name: "Despierta y llenate de energia!"
+sport: yoga
+steps:
+- category: MOVE
+  description: ''
+  duration: 0:00:10
+  exerciseName: V_LEG_CRUNCHES
+  target:
+    type: no.target
+  type: interval
