@@ -1,0 +1,10 @@
+description: " \u2022 Race a half marathon or run a half marathon distance at marathon\
+  \ pace."
+name: W10D7-Half Marathon
+sport: running
+steps:
+- description: ''
+  duration: 21.082km
+  target:
+    type: no.target
+  type: interval

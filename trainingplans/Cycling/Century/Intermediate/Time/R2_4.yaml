@@ -1,0 +1,16 @@
+description: "\u2022 \u8F15\u9B06\u9A0E\u884C 32 \u516C\u91CC\n\u2022 \u7DAD\u6301\
+  \u8207\u7B2C\u4E00\u5468\u5DEE\u4E0D\u591A\u7684\u5F37\u5EA6\uFF0C\u4F46\u9047\u5230\
+  \u722C\u5761\u6642\uFF0C\u53EF\u589E\u52A0\u904B\u52D5\u5F37\u5EA6\n\u2022 \u7DE9\
+  \u548C\u904B\u52D5 5-10\u5206\u9418\n\u2022 \u4F38\u5C55\u904B\u52D5"
+name: W02D4-Easy Ride
+sport: cycling
+steps:
+- description: ''
+  duration: 32.18688km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

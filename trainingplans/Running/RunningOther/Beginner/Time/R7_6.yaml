@@ -1,0 +1,9 @@
+description: Run a 10K race.
+name: W07D6-10K Race
+sport: running
+steps:
+- description: ''
+  duration: 9.978km
+  target:
+    type: no.target
+  type: interval

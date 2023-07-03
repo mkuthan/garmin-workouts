@@ -1,0 +1,138 @@
+description: "\u2022 Bike, Z1, 5 minutes, 85 RPM.\n \u2022 Bike, Z2, 5 minutes, 90\
+  \ RPM.\n \u2022 Bike, Z3, 5 minutes, 95 RPM.\n \u2022 Bike, Z1, 5 minutes.\n \u2022\
+  \ Bike, Z4, 3 minutes, 95 RPM. Bike, Z1, 2 minutes, 85 RPM. Bike, Z5, 30 seconds,\
+  \ 100 RPM. Bike, Z1, 2 minutes, 85 RPM. Repeat 4 times.\n \u2022 Bike, Z1, 5 minutes,\
+  \ 90 RPM.\n \u2022 Cool down, 5-10 minutes.\n"
+name: W11D4-Hard Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

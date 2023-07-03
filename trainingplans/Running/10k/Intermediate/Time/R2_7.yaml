@@ -1,0 +1,14 @@
+description: "\u2022 Run, easy pace, 70 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n\
+  \ \u2022 Stretch."
+name: W02D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:10:00'
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,37 @@
+description: "\u2022 Bike, easy effort, 6 minutes, 95 RPM.\n\u2022 Bike swapping legs\
+  \ every 30 seconds, easy effort, 3 minutes, 90 RPM.\n\u2022 Bike, moderate effort,\
+  \ 8 minutes, 75 RPM.\n\u2022 Bike, easy effort, 2 minutes, 85 RPM.\n\u2022 Bike,\
+  \ easy effort, easy spinning, 5 minutes.\n\u2022 Cool down, 5-10 minutes.\n\u2022\
+  \ Do this session on the trainer or a set of rollers."
+name: W02D3-Steady Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:06:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

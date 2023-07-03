@@ -1,0 +1,355 @@
+description: Sometimes you need to throw rules out the window and push harder than
+  most "experts" tell you. This plan will have you ready for any situation in no time
+  by pushing at a rapid intensity and incorporating the best exercises. Just follow
+  the template and watch what happens.
+name: The Instant-Results Workout
+sport: strength_training
+steps:
+- category: DEADLIFT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHRUG
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BACK_SQUAT_WITH_BODY_BAR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHRUG
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BACK_SQUAT_WITH_BODY_BAR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHRUG
+  description: ''
+  duration: 0:00:45
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: BACK_SQUAT_WITH_BODY_BAR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LATERAL_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: CABLE_FRONT_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LATERAL_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: CABLE_FRONT_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LATERAL_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: CABLE_FRONT_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LATERAL_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: CABLE_FRONT_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:45
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: MOUNTAIN_CLIMBER_WITH_FEET_ON_BOSU_BALL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:45
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: MOUNTAIN_CLIMBER_WITH_FEET_ON_BOSU_BALL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:45
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: MOUNTAIN_CLIMBER_WITH_FEET_ON_BOSU_BALL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:45
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: MOUNTAIN_CLIMBER_WITH_FEET_ON_BOSU_BALL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 0:00:45
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest

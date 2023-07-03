@@ -1,0 +1,38 @@
+description: "\u2022 Bike, easy effort, 5 minutes, 85 RPM.\n\u2022 Bike, moderate\
+  \ effort, 5 minutes, 90 RPM.\n\u2022 Bike, med-high effort, 5 minutes, 95 RPM.\n\
+  \u2022 Bike, easy effort, 5 minutes.\n\u2022 Bike, time trial, best effort, 16km.\
+  \ Record time and heart rate.\n\u2022 Bike in easy effort, 10 minutes.\n\u2022 Cool\
+  \ down, 5-10 minutes.\n\u2022 Try to use the same location for subsequent tests.\
+  \ Can be done on road or trainer."
+name: W03D3-Test Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 16.0km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

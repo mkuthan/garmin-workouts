@@ -1,0 +1,161 @@
+description: A quick fix for a tight upper bodyThis quick 5-minute shoulder-opening
+  routine makes a great break in the day for anyone who stays hunched over a desk
+  or computer or who carries tension in their shoulders. The more space you create
+  in your body, the better you will feel.
+name: Quick Shoulder Relaxer
+sport: yoga
+steps:
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: THUNDERBOLT_POSE_BOTH_SIDES_ARM_STRETCH
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:15
+  exerciseName: COW_FACE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:15
+  exerciseName: COW_FACE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: ALL_FOURS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:30
+  exerciseName: THREAD_THE_NEEDLE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:30
+  exerciseName: THREAD_THE_NEEDLE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: DOLPHIN
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: SPHINX
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: LOCUST
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: EXTENDED_PUPPY
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: STANDING_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: STANDING_ARMS_UP
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:20
+  exerciseName: STANDING_SIDE_OPENER
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:20
+  exerciseName: STANDING_SIDE_OPENER
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:45
+  exerciseName: PRAYER_MUDRA
+  target:
+    type: no.target
+  type: interval

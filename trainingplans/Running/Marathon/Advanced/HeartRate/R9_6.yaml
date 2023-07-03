@@ -1,0 +1,58 @@
+description: "\u2022 Warm up, 10 minutes.\n \u2022 Run in Z4, threshold, 10 minutes.\
+  \ \n \u2022 Run in Z4, moderate to hard pace. Run up hills if possible. Run in Z2,\
+  \ recovery pace, 3 minutes. Repeat 3 times. \n \u2022 Cool down, 5-10 minutes.\n\
+  \ \u2022 Stretch."
+name: W09D6b-Hills
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

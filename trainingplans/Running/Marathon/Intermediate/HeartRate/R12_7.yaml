@@ -1,0 +1,21 @@
+description: " \u2022 Run in Z2, easy pace, 135 minutes.\n \u2022 Run in Z3, marathon\
+  \ pace, 45 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W12D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '2:15:00'
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:45:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

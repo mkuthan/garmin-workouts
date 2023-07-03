@@ -1,0 +1,14 @@
+description: "\u2022 Run, Z1, 20 minutes.\n \u2022 Cool down, 5-10 minutes."
+name: W10D6b-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

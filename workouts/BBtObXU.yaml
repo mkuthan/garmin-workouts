@@ -1,0 +1,245 @@
+description: Guys love to train chest. So much so, in fact, that they'll spend an
+  hour or more on it, pounding their pecs with so many sets that they look enormous
+  by the time they leave the gym. As soon as their "pump" deflates, however, they're
+  left with the same sunken chests they've always had-and lots of soreness. Our plan
+  trains your chest twice as hard in half the time and yields results you keep.
+name: 30-Minute Blast
+sport: strength_training
+steps:
+- category: BENCH_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: FLYE
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_FLYE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: FLYE
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_FLYE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: FLYE
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_FLYE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  exerciseName: PARTIAL_LOCKOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 8reps
+  exerciseName: REVERSE_GRIP_BARBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  exerciseName: PARTIAL_LOCKOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 8reps
+  exerciseName: REVERSE_GRIP_BARBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  exerciseName: PARTIAL_LOCKOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 8reps
+  exerciseName: REVERSE_GRIP_BARBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BACK_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BACK_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BACK_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 8reps
+  exerciseName: BARBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 8reps
+  exerciseName: TRICEPS_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest

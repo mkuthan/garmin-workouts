@@ -1,0 +1,10 @@
+description: Run a 10K Race
+name: W07D6-10K Race
+sport: running
+steps:
+- description: ''
+  duration: 9.978km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval

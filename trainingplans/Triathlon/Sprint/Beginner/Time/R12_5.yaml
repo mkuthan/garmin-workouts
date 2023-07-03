@@ -1,0 +1,71 @@
+description: "\u2022 Run, easy effort, 5 minutes.\n\u2022 Run, high effort, 30 seconds.\
+  \ Run, moderate effort, 1 minute 30 seconds. Repeat 5 times.\n\u2022 Run, easy effort,\
+  \ 5 minutes.\n\u2022 Cool down, 5 to 10 minutes.\n\u2022 Stretch.\n\u2022 Run on\
+  \ soft surface in your race shoes. Don't force the pace in 30 sec pick ups."
+name: W12D5-Pick Up Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

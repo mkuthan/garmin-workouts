@@ -1,0 +1,85 @@
+description: '4x5 min Zone 4
+
+  - 30 min Warm Up
+
+  - 4x5 min Zone 4, 5 min easy between
+
+  - Cool Down Zone 2'
+name: W11-D2
+sport: cycling
+steps:
+- description: ''
+  duration: 0:30:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: cooldown

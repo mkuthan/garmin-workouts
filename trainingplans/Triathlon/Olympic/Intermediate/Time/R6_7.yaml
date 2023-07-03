@@ -1,0 +1,18 @@
+description: "\u2022 Run, easy effort, 80 minutes.\n\u2022 Cool down, 5-10 minutes.\n\
+  \u2022 Stretch, 5-10 minutes.\n\u2022 Keep intensity even throughout the session.\
+  \ This will help build your base endurance which will support your higher intensity\
+  \ work later on. Keep RPM high throughout and stand tall with good technique.\n\u2022\
+  \ Congratulations! You're halfway through your preparation. Aim to continue being\
+  \ consistent in your training"
+name: W06D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:20:00'
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

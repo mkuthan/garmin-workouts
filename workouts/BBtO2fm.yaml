@@ -1,0 +1,171 @@
+description: Summer is just around the corner, so grab a pair of dumbbells (heavy
+  enough to fatigue your legs within about 15 reps) and get ready to sweat! This workout
+  combines lower-body strength moves and cardio bursts to help you burn fat and build
+  lean muscle for even more gorgeous gams.
+name: Fit For Summer Workout
+sport: strength_training
+steps:
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: BARBELL_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:00:30
+  exerciseName: SQUAT_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: RUNNERS_LUNGE_TO_BALANCE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_JUMP_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 30reps
+  exerciseName: SHIFTING_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_JUMP_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: PRISONER_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:00:30
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:00:30
+  exerciseName: CARDIO_CORE_CRAWL
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: LUNGE_WITH_ARM_REACH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: BARBELL_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:00:30
+  exerciseName: SQUAT_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: RUNNERS_LUNGE_TO_BALANCE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_JUMP_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 30reps
+  exerciseName: SHIFTING_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_JUMP_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: PRISONER_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:00:30
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:00:30
+  exerciseName: CARDIO_CORE_CRAWL
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: LUNGE_WITH_ARM_REACH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest

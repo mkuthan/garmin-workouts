@@ -1,0 +1,131 @@
+description: Improve muscular endurance and strength with two sets of this full-body
+  sculpting cardio workout.
+name: Hone & Tone
+sport: cardio_training
+steps:
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIDE_TO_SIDE_LUNGE_CHOPS
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: RUNNERS_LUNGE_TO_BALANCE
+  target:
+    type: no.target
+  type: interval
+- category: HIP_SWING
+  description: ''
+  duration: 0:01:00
+  exerciseName: ONE_ARM_SWING
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: GET_UP_SIT_UP
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: V_UP
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_HAMMER_CURL
+  target:
+    type: no.target
+  type: interval
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIDE_TO_SIDE_LUNGE_CHOPS
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: RUNNERS_LUNGE_TO_BALANCE
+  target:
+    type: no.target
+  type: interval
+- category: HIP_SWING
+  description: ''
+  duration: 0:01:00
+  exerciseName: ONE_ARM_SWING
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: GET_UP_SIT_UP
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: V_UP
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_HAMMER_CURL
+  target:
+    type: no.target
+  type: interval
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval

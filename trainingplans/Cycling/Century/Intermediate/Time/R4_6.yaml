@@ -1,0 +1,16 @@
+description: "\u2022 \u8F15\u9B06\u9A0E 80 \u516C\u91CC\n\u2022 \u7DE9\u548C\u904B\
+  \u52D5 5-10\u5206\u9418\n\u2022 \u4F38\u5C55\u904B\u52D5\n\u2022 \u7DAD\u6301\u8207\
+  \u524D\u4E00\u5468\u5DEE\u4E0D\u591A\u7684\u5F37\u5EA6\uFF0C\u4E26\u5728\u4ECA\u5929\
+  \u7684\u9577\u8DDD\u96E2\u9A0E\u884C\u4E2D\u8ABF\u6574\u9069\u7576\u901F\u5EA6"
+name: W04D6-Long Ride
+sport: cycling
+steps:
+- description: ''
+  duration: 80.46719999999999km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

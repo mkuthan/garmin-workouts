@@ -1,0 +1,15 @@
+description: "\u2022 Run, recovery pace, 40 minutes.\r\n \u2022 Cool down, 5 to 10\
+  \ minutes.\r\n \u2022 Stretch.\r\n \u2022 Optional: Rest day, depending on how your\
+  \ legs are feeling."
+name: W13D1-Recovery Run
+sport: running
+steps:
+- description: ''
+  duration: 0:40:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

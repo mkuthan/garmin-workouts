@@ -1,0 +1,28 @@
+description: "\u2022 Run easy, Z2, 15 minutes.\n \u2022 Run, threshold effort, Z4,\
+  \ 15 minutes.\n \u2022 Run easy, Z2, 15 minutes.\n \u2022 Cool down, 5-10 minutes.\n\
+  \ \u2022 Stretch."
+name: W09D2-Threshold Run
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

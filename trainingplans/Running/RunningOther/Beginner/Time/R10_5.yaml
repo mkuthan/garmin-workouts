@@ -1,0 +1,24 @@
+description: "\u2022 Warm up, 5 minutes.\n \u2022 Run, easy pace, 10 minutes.\n \u2022\
+  \ Walk, brisk pace, 5 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W10D5-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,48 @@
+description: "\u2022 Use the same location as your test in week 3.\n \u2022 Bike,\
+  \ Z1, 5 minutes, 85 RPM.\n \u2022 Bike, Z2, 5 minutes, 90 RPM.\n \u2022 Bike, Z3,\
+  \ 5 minutes, 95 RPM.\n \u2022 Bike, Z1, 5 minutes.\n \u2022 Bike, time trial, 16km\
+  \ at your best effort. Record time and heart rate.\n \u2022 Bike, Z1, 10 minutes.\n\
+  \ \u2022 Cool down, 5-10 minutes."
+name: W08D6-Test Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 16.0km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

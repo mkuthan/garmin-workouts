@@ -1,0 +1,65 @@
+description: "\u2022 Riscaldamento, 15 minuti.\n\n \u2022 Corsa, passo da 10K, 2 minuti.\
+  \ Corsa di recupero, 1 minuto. Ripetere per 5 volte.\n\n \u2022 Defaticamento, da\
+  \ 5 a 10 minuti.\n\n \u2022 Stretching."
+name: W12D5-Intervalli
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

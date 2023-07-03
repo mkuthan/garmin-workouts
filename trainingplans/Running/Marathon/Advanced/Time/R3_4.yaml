@@ -1,0 +1,25 @@
+description: "\u2022 Run, easy pace, 20 minutes. \r\n \u2022 Run, steady pace, 20\
+  \ minutes. \r\n \u2022 Run, threshold pace, 20 minutes.\r\n \u2022 Cool Down, 5\
+  \ to 10 minutes.\r\n \u2022 Stretch.  \r\n"
+name: W03D4b-Steady Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

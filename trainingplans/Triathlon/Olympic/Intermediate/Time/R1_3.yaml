@@ -1,0 +1,31 @@
+description: "\u2022 Bike, easy effort, 5 minutes at 90 RPM.\n\u2022 Bike, easy effort,\
+  \ 5 minutes at 80 RPM.\n\u2022 Bike, easy effort, 55 minutes at 90-95 RPM.\n\u2022\
+  \ Bike, very easy, 5 minutes.\n\u2022 Cool down, 5-10 minutes.\n\u2022 You can do\
+  \ this on road or trainer. Focus on smooth pedaling."
+name: W01D3-Easy Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

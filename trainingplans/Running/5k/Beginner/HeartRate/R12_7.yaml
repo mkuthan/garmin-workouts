@@ -1,0 +1,10 @@
+description: RACE DAY! GOOD LUCK!
+name: W12D7-5k Race
+sport: running
+steps:
+- description: ''
+  duration: 5.005km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval

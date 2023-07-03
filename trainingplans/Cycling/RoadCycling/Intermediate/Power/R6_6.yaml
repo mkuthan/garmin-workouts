@@ -1,0 +1,65 @@
+description: '4x15 min Sweet Spot
+
+  - 30 min Warm Up
+
+  - 4x15 min High Zone 3, 10 min easy between
+
+  - Cool Down Zone 2'
+name: W06-D6
+sport: cycling
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: '1:20:00'
+  target:
+    type: power.zone
+    zone: '2'
+  type: cooldown

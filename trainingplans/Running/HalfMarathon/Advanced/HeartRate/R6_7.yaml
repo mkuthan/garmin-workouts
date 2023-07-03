@@ -1,0 +1,15 @@
+description: " \u2022 Run in Z2, easy relaxed pace, 120 minutes.\n \u2022 Introduce\
+  \ more road.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W06D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '2:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

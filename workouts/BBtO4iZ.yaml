@@ -1,0 +1,402 @@
+description: 'This series consists of two 8-minute Tabata workouts separated by a
+  minute of rest.  For this series, each 8-minute sequence consists of four alternating
+  exercises.This series follows the pattern:20s of exercise #1, 10s rest20s of exercise
+  #2, 10s rest20s of exercise #3, 10s rest20s of exercise #4, 10s restRepeat this
+  combination for 4 rounds1 minute rest20s of exercise #1, 10s rest20s of exercise
+  #2, 10s rest20s of exercise #3, 10s rest20s of exercise #4, 10s rest Repeat this
+  combination for 4 roundsThe Tabata protocol, developed by Dr. Izumi Tabata, consists
+  of alternating short periods of intense exercise with short periods of rest for
+  a period of 4 minutes. The Tabata protocol can be applied to a variety of exercises
+  including lifting weights and aerobic exercises.'
+name: Tabata Alternating Lunges, Crunches, Burpees & Planks
+sport: cardio_training
+steps:
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest

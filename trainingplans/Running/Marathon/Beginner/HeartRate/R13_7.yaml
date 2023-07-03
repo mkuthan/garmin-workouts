@@ -1,0 +1,69 @@
+description: "\u2022 Walk in Z2, brisk pace, 5 minutes. Run in Z3, marathon pace 25\
+  \ minutes. Repeat 5 times.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W13D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

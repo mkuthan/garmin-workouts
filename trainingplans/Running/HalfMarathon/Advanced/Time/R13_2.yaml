@@ -1,0 +1,176 @@
+description: "\u2022 Evening run.\r\n \u2022 Warm up, 15 minutes.\r\n \u2022 Run,10K\
+  \ pace, 400m. Jog, recovery pace, 30 seconds. Repeat 5 times.\r\n \u2022 Run, recovery\
+  \ pace, 90 seconds.\r\n \u2022 Repeat 3 times.\r\n \u2022 Cool down, 5 to 10 minutes.\r\
+  \n \u2022 Stretch."
+name: W13D2b-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

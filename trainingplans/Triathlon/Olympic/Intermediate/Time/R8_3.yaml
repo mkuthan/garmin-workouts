@@ -1,0 +1,31 @@
+description: "\u2022 Run, easy effort, 20 minutes.\n\u2022 Run, moderate effort, 15\
+  \ minutes.\n\u2022 Run, med-high effort, 10 minutes.\n\u2022 Run, easy effort, 5\
+  \ minutes.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Use same course as in week 3.\
+  \ You should see an increase in distance run for same effort."
+name: W08D3-Build Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

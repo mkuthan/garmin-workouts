@@ -1,0 +1,59 @@
+description: During the long swim, build confidence in the water. Count strokes every
+  third 50m to make sure you're holding your form together.
+name: Olympic Triathlon Level 1 W10D5 - Steady Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 1.8km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  target:
+    type: no.target
+  type: rest

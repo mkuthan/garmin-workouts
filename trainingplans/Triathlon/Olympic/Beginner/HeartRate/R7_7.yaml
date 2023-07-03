@@ -1,0 +1,34 @@
+description: "\u2022 Bike, Z1, 5 minutes, 90 RPM.\n \u2022 Bike, Z1, 5 minutes, 80\
+  \ RPM.\n \u2022 Bike, Z1, 65 minutes, 90-95 RPM.\n \u2022 Bike, very easy, 5 minutes.\n\
+  \ \u2022 Cool down, 5-10 minutes.\n \u2022 Can do this on road or trainer. Focus\
+  \ on smooth pedaling. This will help your legs recover from yesterday's hard run."
+name: W07D7-Easy Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: '1:05:00'
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,95 @@
+description: "\u2022 Bike, Z1, 5 minutes, 95 RPM.\n \u2022 Bike, single leg, Z1, 3\
+  \ minutes, 90 RPM, swap legs every 30 seconds. Bike, Z2, 10 minutes, 75 RPM.  Bike,\
+  \ Z2, 2 minutes, 85 RPM. Repeat 4 times\n \u2022 Bike, Z1, 5 minutes.\n \u2022 Cool\
+  \ down, 5-10 minutes.\n \u2022 Do this session on the trainer or a set or rollers."
+name: W08D2-Steady Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,11 @@
+description: "2 Hour Workout \nRide steady for 2 hours, and let the terrain dictate\
+  \ your effort."
+name: Mountain Bike
+sport: cycling
+steps:
+- description: ''
+  duration: '2:00:00'
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval

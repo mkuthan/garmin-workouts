@@ -1,0 +1,14 @@
+description: "\u2022 Bike ride, 60 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022\
+  \ Stretch."
+name: W16D6-Bike Ride
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

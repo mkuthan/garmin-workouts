@@ -1,0 +1,10 @@
+description: RACE DAY! GOOD LUCK!
+name: W16D7-HALF MARATHON
+sport: running
+steps:
+- description: ''
+  duration: 21.082km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval

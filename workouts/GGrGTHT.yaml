@@ -1,0 +1,229 @@
+description: "This 30-minute EMOM includes three rounds of 10 exercises, 30 reps each.\
+  \ You\u2019ll work at the top of every minute. Once the reps are completed, you\u2019\
+  ll rest for the remainder of the minute. EMOM workouts are great for accomplishing\
+  \ a lot of work in a short period and challenging your fitness."
+name: 30 for 30 Full-Body EMOM
+sport: hiit
+steps:
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIT_UP
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_JUMP_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIT_UP
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_JUMP_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIT_UP
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_JUMP_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 0:01:00
+  exerciseName: DUMBBELL_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:01:00
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

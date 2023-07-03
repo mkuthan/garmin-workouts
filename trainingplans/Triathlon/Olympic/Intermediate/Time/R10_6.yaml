@@ -1,0 +1,20 @@
+description: "\u2022 Run, med-high effort, 7km.\r\n\u2022 Run, easy effort, 10 minutes.\r\
+  \n\u2022 Cool down, 5-10 minutes.\r\n\u2022 Use this session to practice for the\
+  \ race. Use race kit."
+name: W10D6b-Tempo Run
+sport: running
+steps:
+- description: ''
+  duration: 7.0km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

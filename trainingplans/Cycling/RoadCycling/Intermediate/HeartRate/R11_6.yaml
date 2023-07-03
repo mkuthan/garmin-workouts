@@ -1,0 +1,16 @@
+description: "\"Find a route or loop with rolling hills that simulates UNBOUND. \n\
+  \nPractice eating and drinking while riding. Use the same food and hydration drink\
+  \ you plan on using at UNBOUND . \n\nUse the same equipment you plan on using at\
+  \ UNBOUND  including the same cycling shorts/bibs, top/jersey, and shoes. Make sure\
+  \ these are comfortable or make adjustmetns as needed after this ride.\n\nRide your\
+  \ goal race pace or effort to practice. Recover well after this big effort!\"\n"
+name: W11-D6
+sport: cycling
+steps:
+- description: ''
+  duration: 80.467km
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval

@@ -1,0 +1,33 @@
+description: "\u2022 Run, Z3, 10 minutes. \n\u2022 Run, Z1, 5 minutes, repeat 2 times.\
+  \  \n\u2022 Cool down, 5-10 minutes.\n\u2022 Practice pacing and use race equipment."
+name: W11D6b-Tempo Run
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

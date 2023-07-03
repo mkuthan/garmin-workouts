@@ -1,0 +1,96 @@
+description: '- Warm up.
+
+  - Ride 2 minutes at the high end of zone 5 (not max. effort).
+
+  - Ride in zone 2 for 20 minutes.
+
+  - Ride 8 minutes at high-end of zone 4 (not max. effort).
+
+  - Cool down.
+
+
+  Try this workout before you do a proper fitness signature test. The goal is to do
+  an effort that''s almost as long as the test effort, but short enough so that you''re
+  not exhausted by the end. After you''ve done this workout, you''ll have a much better
+  starting point for the fitness signature test workouts.'
+name: Fitness Test Prep. (2 Min. + 8 Min.)
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:05
+  target:
+    type: power.zone
+    zone: '7'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval

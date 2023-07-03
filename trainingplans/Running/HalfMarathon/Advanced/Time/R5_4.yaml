@@ -1,0 +1,30 @@
+description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Run, steady pace, 15 minutes.\r\
+  \n \u2022 Run, threshold pace, 15 minutes.\r\n \u2022 Run, easy pace, 10 minutes.\r\
+  \n \u2022 Cool down, 5 to 10 minutes.\r\n \u2022 Stretch."
+name: W05D4b-Mixed Run
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

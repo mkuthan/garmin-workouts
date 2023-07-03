@@ -1,0 +1,124 @@
+description: 'Zone 3 Efforts
+
+  - 60 min Warm Up
+
+  - 2x20 min Zone 3, 10 min easy between
+
+  - 3x15 min Zone 3, 8 min easy between
+
+  - 4x10 min Zone 3, 5 min easy between
+
+  - Cool Down Zone 2'
+name: W09-D6
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:20:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: '1:55:00'
+  target:
+    type: power.zone
+    zone: '2'
+  type: cooldown

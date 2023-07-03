@@ -1,0 +1,14 @@
+description: RACE DAY! GOOD LUCK!
+name: W16D7-Marathon
+sport: running
+steps:
+- description: ''
+  duration: 42.197km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: interval

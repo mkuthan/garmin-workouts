@@ -1,0 +1,101 @@
+description: Use the 1500m rep to practice your pacing for your race. Visualize yourself
+  swimming in the event.
+name: Olympic Triathlon Level 2 W10D5 - Tempo Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 1.5km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  target:
+    type: no.target
+  type: rest

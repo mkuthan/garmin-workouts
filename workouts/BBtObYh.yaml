@@ -1,0 +1,389 @@
+description: You've heard of the pump. The amazing feeling you get when your muscles
+  are full and tight and you look your best. The pump is actually essential for growth,
+  and that's especially true for your arms. This routine is designed for the pump-and
+  then some. It's one of the most intense arm workouts ever created, but the result
+  is a pair of biceps and triceps worthy of praise and perfection.
+name: Perfect Arm Routine
+sport: strength_training
+steps:
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: FORWARD_BEND_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: FORWARD_BEND_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: FORWARD_BEND_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: DEAD_HANG_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: DEAD_HANG_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: DEAD_HANG_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ONE_ARM_CONCENTRATION_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ONE_ARM_CONCENTRATION_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ONE_ARM_CONCENTRATION_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 10reps
+  exerciseName: CLOSE_GRIP_BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: INCLINE_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 10reps
+  exerciseName: CLOSE_GRIP_BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: INCLINE_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 10reps
+  exerciseName: CLOSE_GRIP_BARBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: INCLINE_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_SINGLE_ARM_OVERHEAD_DUMBBELL_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_SINGLE_ARM_OVERHEAD_DUMBBELL_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: SEATED_SINGLE_ARM_OVERHEAD_DUMBBELL_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: ROPE_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: TRICEPS_EXTENSION_ON_FLOOR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: ROPE_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: TRICEPS_EXTENSION_ON_FLOOR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: ROPE_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: TRICEPS_EXTENSION_ON_FLOOR
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: DUMBBELL_KICKBACK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: DUMBBELL_KICKBACK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: DUMBBELL_KICKBACK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

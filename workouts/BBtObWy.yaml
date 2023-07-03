@@ -1,0 +1,261 @@
+description: 'You know the drill. You walk into the hotel gym, expect to see a variety
+  of equipment, and all you have is a short stack of dumbbells and some cardio equipment.
+  It might be a disappointment, but it''s no reason to stop you from pushing your
+  body and getting a great workout. This plan is designed for the road warrior as
+  well as someone with limited equipment. Our warning: Don''t underestimate this plan.
+  You''ll be amazed at what you can do in eight weeks with just a few dumbbells.'
+name: The Hotel Workout
+sport: strength_training
+steps:
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_FLOOR_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_FLOOR_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_FLOOR_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 30reps
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 30reps
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 30reps
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: WIDE_STANCE_GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: WIDE_STANCE_GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: WIDE_STANCE_GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 30reps
+  exerciseName: SINGLE_LEG_DEADLIFT_WITH_BARBELL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 30reps
+  exerciseName: SINGLE_LEG_DEADLIFT_WITH_BARBELL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 30reps
+  exerciseName: SINGLE_LEG_DEADLIFT_WITH_BARBELL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 30reps
+  exerciseName: ONE_ARM_BENT_OVER_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 30reps
+  exerciseName: ONE_ARM_BENT_OVER_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 30reps
+  exerciseName: ONE_ARM_BENT_OVER_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_SWING
+  description: ''
+  duration: 30reps
+  exerciseName: ONE_ARM_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 10reps
+  exerciseName: GET_UP_SIT_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 10reps
+  exerciseName: GET_UP_SIT_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,17 @@
+description: "\u2022 Run, Z1, 60 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022\
+  \ Stretch, 5-10 minutes.\n \u2022 Keep intensity even throughout the session. This\
+  \ will help to build your base endurance which will support your higher intensity\
+  \ work later on. Keep RPM high throughout and stand tall with good technique."
+name: W02D2-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

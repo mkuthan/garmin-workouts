@@ -1,0 +1,19 @@
+description: "\u2022 Run, med-high effort, 20 minutes.\n\u2022 Run, easy effort, 10\
+  \ minutes.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Work on form during your run."
+name: W04D6b-Tempo Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

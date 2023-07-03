@@ -1,0 +1,21 @@
+description: "\u2022 Run in Z2, easy, 60 minutes.\n \u2022 Run in Z4, threshold, 30\
+  \ minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W11D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

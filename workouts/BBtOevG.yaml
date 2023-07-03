@@ -1,0 +1,186 @@
+description: It's easy to forget about the biggest muscle in your body when you're
+  sitting on it all day.  But it's important to keep your rear toned for several reasons.  The
+  glutes are the biggest muscle in your body for a reason - they provide stabilization
+  and power required to perform any upright motion.  They are the powerhouse for your
+  lower body.For best results, do this routine three times per week. Start with 10
+  minutes of cardio at a slow pace.  Pair with a healthy diet, to yield best resultsThis
+  plan walks you through five exercises to refine the behind.
+name: 'Gold''s Gym : Anything "Butt"'
+sport: cardio_training
+steps:
+- category: RUN
+  description: ''
+  duration: 0:10:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: LEG_CURL
+  description: ''
+  duration: 15reps
+  exerciseName: GOOD_MORNING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: LEG_CURL
+  description: ''
+  duration: 15reps
+  exerciseName: GOOD_MORNING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: LEG_CURL
+  description: ''
+  duration: 15reps
+  exerciseName: GOOD_MORNING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: BODY_WEIGHT_JUMP_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: BODY_WEIGHT_JUMP_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: BODY_WEIGHT_JUMP_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 10reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 10reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 10reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

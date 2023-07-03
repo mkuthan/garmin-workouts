@@ -1,0 +1,77 @@
+description: Hold your technique together as you increase your speed. Remember to
+  relax your arm during the recovery phase.
+name: Olympic Triathlon Level 2 W09D5 - Build Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.8km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.6km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.4km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.3km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  target:
+    type: no.target
+  type: rest

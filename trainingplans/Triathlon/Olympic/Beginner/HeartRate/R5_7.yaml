@@ -1,0 +1,17 @@
+description: "\u2022 Run, Z1, 60 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022\
+  \ Keep intensity even throughout the session. Legs might be tired from your long\
+  \ ride yesterday, so make sure you focus on holding good form. Keep RPM high and\
+  \ stand tall."
+name: W05D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

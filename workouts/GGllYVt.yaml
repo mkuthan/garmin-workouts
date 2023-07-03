@@ -1,0 +1,113 @@
+description: A cardio workout with plenty of volume to build strength and burn fat
+  in just 15 minutes. No equipment needed, so you can sweat it out anywhere.
+name: 15-Minute Full-Body Sweat
+sport: cardio_training
+steps:
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: CARDIO_CORE_CRAWL
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: CROSS_BODY_MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: PRISONER_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT_AND_SIDE_KICK
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+  target:
+    type: no.target
+  type: interval
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:01:00
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: CARDIO_CORE_CRAWL
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: CROSS_BODY_MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: PRISONER_SQUAT
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT_AND_SIDE_KICK
+  target:
+    type: no.target
+  type: interval
+- category: PLYO
+  description: ''
+  duration: 0:01:00
+  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+  target:
+    type: no.target
+  type: interval
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:01:00
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest

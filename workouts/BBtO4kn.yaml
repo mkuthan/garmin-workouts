@@ -1,0 +1,242 @@
+description: Circuit training is not dead-it has evolved. Instead of a world with
+  machines, the new circuit includes multi-muscle movements that will fire up your
+  metabolism and help you achieve greater results in less time. This workout is a
+  perfect example of an upper body circuit designed to blast fat and leave you pumped.
+name: Rapid Fat Loss
+sport: strength_training
+steps:
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:30
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 0:00:30
+  exerciseName: SWISS_BALL_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- category: SHRUG
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:00:30
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: BENCH_PRESS
+  description: ''
+  duration: 0:00:30
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:30
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 0:00:30
+  exerciseName: SWISS_BALL_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- category: SHRUG
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:00:30
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: BENCH_PRESS
+  description: ''
+  duration: 0:00:30
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:30
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 0:00:30
+  exerciseName: SWISS_BALL_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- category: SHRUG
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:00:30
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: BENCH_PRESS
+  description: ''
+  duration: 0:00:30
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:30
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 0:00:30
+  exerciseName: SWISS_BALL_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- category: SHRUG
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:00:30
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: BENCH_PRESS
+  description: ''
+  duration: 0:00:30
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 0:00:30
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: ROW
+  description: ''
+  duration: 0:00:30
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 0:00:30
+  exerciseName: SWISS_BALL_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- category: SHRUG
+  description: ''
+  duration: 0:00:30
+  exerciseName: BARBELL_UPRIGHT_ROW
+  target:
+    type: no.target
+  type: interval
+- category: CURL
+  description: ''
+  duration: 0:00:30
+  exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- category: BENCH_PRESS
+  description: ''
+  duration: 0:00:30
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,96 @@
+description: Try these five ab exercises for core strength.This workout builds core
+  strength with the most common abdominal exercises of the Pilates technique.
+name: The Fab 5
+sport: pilates
+steps:
+- category: MOVE
+  description: ''
+  duration: 0:00:30
+  exerciseName: BELLY_BREATHING
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:30
+  exerciseName: RIBCAGE_BREATHING
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:30
+  exerciseName: SCAPULAR_STABILIZATION
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:01:00
+  exerciseName: PELVIC_CLOCKS
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:45
+  exerciseName: KNEE_FOLDS
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:30
+  exerciseName: SINGLE_LEG_STRETCH
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:30
+  exerciseName: DOUBLE_LEG_STRETCH
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:45
+  exerciseName: CRISS_CROSS
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:30
+  exerciseName: SCISSORS
+  target:
+    type: no.target
+  type: interval
+- category: CORE
+  description: ''
+  duration: 0:00:30
+  exerciseName: LOWER_LIFT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:01:00
+  exerciseName: BRIDGE
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:20
+  exerciseName: HAMSTRING_STRETCH
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:01:00
+  exerciseName: MERMAID_STRETCH
+  target:
+    type: no.target
+  type: interval

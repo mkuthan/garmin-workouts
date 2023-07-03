@@ -1,0 +1,35 @@
+description: " \u2022 Warm up, 15 minutes.\n \u2022 Run, threshold pace, 10 minutes.\
+  \ Recovery jog, 3 minutes. Repeat 2 times.\n \u2022 Cool down, 5 to 10 minutes.\n\
+  \ \u2022 Stretch."
+name: W10D2-Interval
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

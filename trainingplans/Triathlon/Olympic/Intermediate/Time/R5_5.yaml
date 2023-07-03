@@ -1,0 +1,68 @@
+description: "\u2022 Run, easy effort, 5 minutes.\n\u2022 Run, moderate effort, 5\
+  \ minutes.\n\u2022 Run, med-high effort, 5 minutes.\n\u2022 Recovery run, easy effort,\
+  \ 2 minutes.\n\u2022 Run, high effort, 6 minutes. Recovery run, easy effort, 2 minutes.\
+  \ Repeat 3 times.\n\u2022 Run, easy effort, 9 minutes.\n\u2022 Cool down, 5-10 minutes.\n\
+  \u2022 Aim to be as fast on your third rep as your first. Keep cadence high even\
+  \ when tiring, and remember your recovery nutrition."
+name: W05D5-Hard Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:06:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:06:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:06:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:09:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

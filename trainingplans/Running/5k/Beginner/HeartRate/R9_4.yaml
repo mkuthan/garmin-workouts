@@ -1,0 +1,34 @@
+description: " \u2022 Run in Z2, easy pace, 6 minutes.\n \u2022 Run in Z3, steady\
+  \ pace, 6 minutes.\n \u2022 Run in Z4, threshold pace, 6 minutes.\n \u2022 Run in\
+  \ Z2, easy pace, 6 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W09D4-Threshold Run
+sport: running
+steps:
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

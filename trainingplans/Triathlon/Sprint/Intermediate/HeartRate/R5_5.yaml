@@ -1,0 +1,74 @@
+description: "\u2022 Run, Z1, 5 minutes.\r\n \u2022 Run, Z2, 5 minutes.\r\n \u2022\
+  \ Run, Z3, 5 minutes.\r\n \u2022 Recovery jog, 2 minutes.\r\n \u2022 Run, Z4, 6\
+  \ minutes. Recovery jog, 2 minutes. Repeat 3 times.\r\n \u2022 Run, Z1, 9 minutes.\r\
+  \n \u2022 Cool down, 5 to 10 minutes.\r\n \u2022 Stretch.\r\n \u2022 Aim to be as\
+  \ fast on your third rep as your first. Keep cadence high even when tiring."
+name: W05D5-Hard Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:09:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

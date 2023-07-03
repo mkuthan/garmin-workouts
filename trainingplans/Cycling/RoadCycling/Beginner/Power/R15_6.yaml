@@ -1,0 +1,14 @@
+description: 'Good Luck! Pace your effort throughout the race and focus on your nutrition
+  and hydration plan!
+
+  Have fun!
+
+  '
+name: W15-D6
+sport: cycling
+steps:
+- description: ''
+  duration: 40.234km
+  target:
+    type: no.target
+  type: interval

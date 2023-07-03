@@ -1,0 +1,14 @@
+description: "\u2022 Corsa a passo rilassato, 30 minuti.\n\n \u2022 Defaticamento,\
+  \ da 5 a 10 minuti.\n\n \u2022 Stretching."
+name: W05D1a-Corsa di recupero
+sport: running
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

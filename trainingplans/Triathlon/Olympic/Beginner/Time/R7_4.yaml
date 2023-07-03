@@ -1,0 +1,41 @@
+description: "\u2022 Bike, easy effort, 20 minutes, 90 RPM. Bike, moderate effort,\
+  \ 10 minutes, 75 RPM. Repeat 3 times.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Long\
+  \ ride over hilly terrain. Pedal smoothly over hills. Remember to hydrate and fuel\
+  \ during the ride."
+name: W07D4-Hilly Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

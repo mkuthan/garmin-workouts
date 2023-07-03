@@ -1,0 +1,14 @@
+description: 'Base Ride, 1 hr
+
+  - Steady Zone 2'
+name: W12-D3
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval

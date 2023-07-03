@@ -1,0 +1,38 @@
+description: "2x10 min Sweet Spot \n- 45 min Warm Up\n- 2x10 min High Zone 3, 10 min\
+  \ easy between\n- Cool Down Zone 2"
+name: W13-D3
+sport: cycling
+steps:
+- description: ''
+  duration: 0:45:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:35:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: cooldown

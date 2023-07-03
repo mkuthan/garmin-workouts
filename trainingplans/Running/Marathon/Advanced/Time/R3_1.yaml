@@ -1,0 +1,14 @@
+description: "\u2022 Run, easy pace, 40 minutes. \r\n \u2022 Cool down, 5 to 10 minutes.\r\
+  \n \u2022 Stretch."
+name: W03D1a-Recovery Run
+sport: running
+steps:
+- description: ''
+  duration: 0:40:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

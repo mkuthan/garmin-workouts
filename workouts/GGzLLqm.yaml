@@ -1,0 +1,206 @@
+description: Build your endurance and strength with a mix of resistance training and
+  running. This minimal-equipment cardio workout will challenge your legs while working
+  your entire body.
+name: Squat, Sprint & Sweat
+sport: cardio_training
+steps:
+- category: RUN
+  description: ''
+  duration: 0:02:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:02:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:02:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:02:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:02:00
+  exerciseName: JOG
+  target:
+    type: no.target
+  type: interval
+- category: HIP_RAISE
+  description: ''
+  duration: 0:01:00
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: RUN
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,112 @@
+description: Work on your recovery and catch at front of stroke.
+name: Sprint Triathlon Level 1 W01D5 -&nbsp;Tech Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.075km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.075km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.075km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.15km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval

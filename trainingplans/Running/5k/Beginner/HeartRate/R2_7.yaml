@@ -1,0 +1,44 @@
+description: " \u2022 Warm up walk, 2 minutes.\n \u2022 Run in Z2, easy pace, 6 minutes.\n\
+  \ \u2022 Recovery walk, 2 minutes.\n \u2022 Run in Z2, easy pace, 6 minutes.\n \u2022\
+  \ Recovery walk, 2 minutes.\n \u2022 Run in Z2, easy pace, 6 minutes.\n \u2022 Cool\
+  \ down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W02D7-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,582 @@
+description: 'Moves to enhance physical-and mental-flexibilityYour body tends to follow
+  your  mind: When you''re stressed and anxious, your body also gets tense. When you''re
+  open-minded and flexible, your body feels looser. This routine will get you moving,
+  breathing, and creating space. Approach each move gently-no pushing or forcing-and
+  you''ll notice that it''s easier to loosen up.'
+name: Open Mind, Open Body
+sport: yoga
+steps:
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: EASY_SEATED
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:25
+  exerciseName: PRAYER_MUDRA
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:15
+  exerciseName: SEATED_EASY_SIDE_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:15
+  exerciseName: SEATED_EASY_SIDE_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: ALL_FOURS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: CAT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: COW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LOW_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LOW_LUNGE_WITH_KNEE_DOWN
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: RUNNERS_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: LOW_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:20
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND_WITH_IT_BAND_OPENER
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: STANDING_WIDE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:20
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: LIZARD
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: ALL_FOURS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: LOW_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: LOW_LUNGE_WITH_KNEE_DOWN
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: RUNNERS_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: MOVE
+  description: ''
+  duration: 0:00:15
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND_WITH_IT_BAND_OPENER
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: STANDING_SINGLE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: STANDING_WIDE_LEG_FORWARD_BEND
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 1
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: Side 2
+  duration: 0:00:15
+  exerciseName: WIDE_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: LIZARD
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: ALL_FOURS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: LOCUST
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: CHILDS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: ONE_LEGGED_PIGEON
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: MERMAID
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: GATE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:30
+  exerciseName: REVOLVED_HEAD_TO_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: FULL_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:05
+  exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: ONE_LEGGED_PIGEON
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: MERMAID
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: GATE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: REVOLVED_HEAD_TO_KNEE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:15
+  exerciseName: DOWN_DOG_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: FULL_SPLIT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: DOWNWARD_FACING_DOG
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: BOW
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: CHILDS
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:40
+  exerciseName: BRIDGE
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:20
+  exerciseName: RECLINED_HAND_TO_FOOT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: SUPINE_SPINAL_TWIST
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: RECLINED_HAND_TO_FOOT
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:00:25
+  exerciseName: SUPINE_SPINAL_TWIST
+  target:
+    type: no.target
+  type: interval
+- category: POSE
+  description: ''
+  duration: 0:01:00
+  exerciseName: CORPSE
+  target:
+    type: no.target
+  type: interval

@@ -1,0 +1,72 @@
+description: "\u2022 Evening run.\n \u2022 Warm up, 15 minutes.\n \u2022 Run in Z4,\
+  \ threshold pace, 15 minutes.\n \u2022 Run in Z4, 10K pace, 1K. Jog, recovery pace,\
+  \ 90 seconds. Repeat 4 times.\n \u2022 Run in Z4, threshold pace, 15 minutes.\n\
+  \ \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
+name: W11D2b-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,77 @@
+description: "\u2022 Bike, easy effort, 85 RPM, 5 minutes.\n\u2022 Bike, moderate\
+  \ effort, 90 RPM, 5 minutes.\n\u2022 Bike, med-high effort, 95 RPM, 5 minutes.\n\
+  \u2022 Bike, easy effort, 5 minutes.\n\u2022 Bike, med-high effort, 95 RPM, 8 minutes.\
+  \ Bike, easy effort, 85 RPM, 2 minutes. Repeat 4 times.\n\u2022 Bike, easy effort,\
+  \ 90 RPM, 10 minutes.\n\u2022 Cool down, 5 to 10 minutes.\n\u2022 Stretch."
+name: W08D5-Tempo Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

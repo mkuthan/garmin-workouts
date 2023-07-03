@@ -1,0 +1,16 @@
+description: "\u2022 Run, easy effort, 70 minutes.\n\u2022 Cool down, 5-10 minutes.\n\
+  \u2022 Slight increase in the length of your long run. Keep working on your technique.\
+  \ Take a couple of gels with you and take one at 20 minutes and another at 40 minutes\
+  \ to keep energy levels up and to help recover faster."
+name: W07D6-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

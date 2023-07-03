@@ -1,0 +1,108 @@
+description: No matter how much your health and wellness are the primary reasons you
+  exercise, there's something to be said about vanity. Looking good feels good. Problem
+  is, most people can only talk about looking good rather than actually show it off.
+  This summer, don't settle for something less than what you want. This program will
+  have you looking great at the beach, at barbecues, or in your bedroom. This is the
+  summer of abs.
+name: Summer Abs Workout
+sport: strength_training
+steps:
+- category: CARDIO
+  description: ''
+  duration: 0:00:15
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 0:00:15
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 0:00:15
+  exerciseName: JUMP_ROPE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PULL_UP
+  description: ''
+  duration: 50reps
+  exerciseName: PULL_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 50reps
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 50reps
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  exerciseName: KNEELING_AB_WHEEL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  exerciseName: KNEELING_AB_WHEEL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  exerciseName: KNEELING_AB_WHEEL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

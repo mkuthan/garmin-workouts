@@ -1,0 +1,18 @@
+description: "\u2022 Run, easy effort, 20 minutes.\n\u2022 Cool down, 5-10 minutes.\n\
+  \u2022 Optional: If you are feeling tired take the day off. Otherwise, work on your\
+  \ weakest discipline. You may swap Easy Run 20 for Easy Bike 50 or Steady Swim 1.4.\
+  \ Don't worry about speed, just get some extra miles in on your weakest sport.\n\
+  \u2022 Congratulations! You're halfway through your preparation. Aim to continue\
+  \ being consistent with your training."
+name: W06D7-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

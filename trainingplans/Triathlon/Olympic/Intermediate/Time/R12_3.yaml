@@ -1,0 +1,58 @@
+description: "\u2022 Bike, easy effort, 3 minutes, 85 RPM.\r\n\u2022 Bike, moderate\
+  \ effort, 3 minutes, 90 RPM.\r\n\u2022 Bike, med-high, 5 minutes, 95 RPM.\r\n\u2022\
+  \ Bike, easy effort, 3 minutes.\r\n\u2022 Bike, high effort, 2 minutes, 95 RPM.\r\
+  \n\u2022 Bike, easy effort, 1 minutes, 85 RPM.\r\n\u2022 Bike, max effort, 30 seconds,\
+  \ 100 RPM.\r\n\u2022 Bike, easy effort, 2 minutes, 85 RPM.\r\n\u2022 Bike in easy\
+  \ effort, 5 minutes, 90 RPM.\r\n\u2022 Cool down, 5-10 minutes."
+name: W12D3-Hard Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,95 @@
+description: "5x5 min Zone 4\n - 20 min warm up\n - 5x5 min Zone 4 \n     - 5 min\
+  \ easy between\n - Cool down Zone 2\"\n"
+name: W09-D4
+sport: cycling
+steps:
+- description: ''
+  duration: 0:20:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: cooldown

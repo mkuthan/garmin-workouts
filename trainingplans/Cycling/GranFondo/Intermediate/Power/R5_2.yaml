@@ -1,0 +1,95 @@
+description: '90 Minute Workout
+
+  - Warm up.
+
+  - Ride 10 minutes at threshold. Rest as much as needed (up to 10 minutes to stay
+  within 90 minutes). Repeat 4 times.
+
+  - Finish the 90 minutes riding in zone 2.
+
+  - Cool down.'
+name: 10 Min. Threshold Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval

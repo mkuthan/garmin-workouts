@@ -1,0 +1,27 @@
+description: " \u2022 Run in Z2, easy pace, 10 minutes.\n \u2022 Recovery walk, 5\
+  \ minutes.\n \u2022 Run in Z2, easy pace, 10 minutes.\n \u2022 Cool down, 5 to 10\
+  \ minutes.\n \u2022 Stretch."
+name: W03D4-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

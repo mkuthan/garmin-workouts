@@ -1,0 +1,61 @@
+description: Don't worry too much about speed on this session, just get used to being
+  in the water and feeling relaxed. Work on technique, especially your catch and body
+  rotation.
+name: Olympic Triathlon Level 1 W01D1 - Easy Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  target:
+    type: no.target
+  type: rest

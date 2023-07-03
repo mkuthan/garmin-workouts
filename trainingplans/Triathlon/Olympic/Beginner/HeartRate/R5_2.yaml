@@ -1,0 +1,48 @@
+description: "\u2022 Bike, Z1, 5 minutes, 85 RPM.\n \u2022 Bike, Z2, 5 minutes, 90\
+  \ RPM.\n \u2022 Bike, Z3, 5 minutes, 95 RPM.\n \u2022 Bike, Z1, 5 minutes.\n \u2022\
+  \ Bike, time trial, best effort, 16km TT. Record time and heart rate.\n \u2022 Bike,\
+  \ Z1, 10 minutes.\n \u2022 Cool down, 5-10 minutes\n \u2022 Can be done on the road\
+  \ or trainer. Try to use the same location for subsequent tests."
+name: W05D2-Test Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 16.0km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

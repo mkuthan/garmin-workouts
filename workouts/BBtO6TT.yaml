@@ -1,0 +1,296 @@
+description: Sometimes it's not your program or your desire that prevents you from
+  achieving your fitness goals-it's your gym. A crowded space can make it nearly impossible
+  to do what you need to get in a great workout. While a home gym would be great,
+  a workout that makes it impossible for others to interfere is your best bet. And
+  that's exactly what you'll find with this program.
+name: The No-Wait Workout
+sport: strength_training
+steps:
+- category: BENCH_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 5reps
+  exerciseName: INCLINE_DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 5reps
+  exerciseName: INCLINE_DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: SINGLE_ARM_DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 10reps
+  exerciseName: DUMBBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_SWING
+  description: ''
+  duration: 20reps
+  exerciseName: SINGLE_ARM_DUMBBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 8reps
+  exerciseName: SINGLE_ARM_DUMBBELL_SHOULDER_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 10reps
+  exerciseName: DUMBBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_SWING
+  description: ''
+  duration: 20reps
+  exerciseName: SINGLE_ARM_DUMBBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_STEP_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 12reps
+  exerciseName: DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 12reps
+  exerciseName: DUMBBELL_LYING_TRICEPS_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 8reps
+  exerciseName: DUMBBELL_STEP_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 12reps
+  exerciseName: DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 12reps
+  exerciseName: DUMBBELL_LYING_TRICEPS_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,95 @@
+description: "\u2022 Warm up, 15 minutes.\n \u2022 Run in Z4, threshold, 1 km. Run\
+  \ in Z2, recovery, 90 seconds. Repeat 3 times.\n \u2022 Run in Z2, easy, 3 minutes.\n\
+  \ \u2022 Run in Z4, threshold, 1 km. Run in Z2, recovery, 90 seconds. Repeat 3 times.\n\
+  \ \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W07D4b-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  duration: 0.997km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

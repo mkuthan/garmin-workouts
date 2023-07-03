@@ -1,0 +1,36 @@
+description: "\u2022 Warm up, core strength exercises, 10-15 minutes.\n\u2022 Run,\
+  \ easy effort, 15 minutes.\n\u2022 Run, moderate effort, 8 minutes.\n\u2022 Run,\
+  \ med-high effort, 4 minutes.\n\u2022 Run, easy effort, 5 minutes.\n\u2022 Cool\
+  \ down, 5-10 minutes.\n\u2022 Stretch, 10 minutes.\n\u2022 Build your pace throughout\
+  \ the session and maintain your form."
+name: W02D5-Build Run
+sport: running
+steps:
+- description: ''
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

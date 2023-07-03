@@ -1,0 +1,107 @@
+description: "\u2022 Bike, easy effort, 5 minutes, 90 RPM.\r\n\u2022 Bike, easy effort,\
+  \ 5 minutes, 80 RPM.\r\n\u2022 Bike, max effort, 15 seconds, 100-105 RPM. Bike,\
+  \ easy effort, 4 minutes and 45 seconds, 90 RPM. Repeat 8 times.\r\n\u2022 Bike,\
+  \ easy effort, 10 minutes.\r\n\u2022 Cool down, 5-10 minutes.\r\n\u2022 The sprints\
+  \ will help to wake up your legs."
+name: W09D4-Easy Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

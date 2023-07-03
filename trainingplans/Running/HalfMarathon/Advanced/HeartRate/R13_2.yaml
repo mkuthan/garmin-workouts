@@ -1,0 +1,193 @@
+description: "\u2022 Evening run.\n \u2022 Warm up, 15 minutes.\n \u2022 Run in Z4,\
+  \ 10K pace, 400m. Jog, recovery pace, 30 seconds. Repeat 5 times.\n \u2022 Run in\
+  \ Z2, recovery pace, 90 seconds.\n \u2022 Repeat 3 times.\n \u2022 Cool down, 5\
+  \ to 10 minutes.\n \u2022 Stretch."
+name: W13D2b-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:01:30
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.402km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

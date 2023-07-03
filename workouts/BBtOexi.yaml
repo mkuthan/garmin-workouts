@@ -1,0 +1,343 @@
+description: To offset the aging process, you'll combine metabolic boosters that will
+  keep you burning calories 24 hours a day and strength training movements that will
+  be easy on your joints but hard on your fat cells. Once you start this workout,
+  your body-and the aging process-won't stand a chance.
+name: The Anti-Aging Workout
+sport: strength_training
+steps:
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 20reps
+  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 20reps
+  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: SHOULDER_PRESS
+  description: ''
+  duration: 20reps
+  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 10reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 15reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 8reps
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 15reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 8reps
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 15reps
+  exerciseName: SQUAT_THRUSTS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 8reps
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 8reps
+  exerciseName: OVERHEAD_DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 12reps
+  exerciseName: T_PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 8reps
+  exerciseName: OVERHEAD_DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 12reps
+  exerciseName: T_PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 8reps
+  exerciseName: OVERHEAD_DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 12reps
+  exerciseName: T_PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 8reps
+  exerciseName: OVERHEAD_DUMBBELL_SPLIT_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PUSH_UP
+  description: ''
+  duration: 12reps
+  exerciseName: T_PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_REVERSE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: SWISS_BALL_ROLLOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_REVERSE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: SWISS_BALL_ROLLOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_REVERSE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: SWISS_BALL_ROLLOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_REVERSE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: SWISS_BALL_ROLLOUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,11 @@
+description: "Night Ride\n- 2 hrs\n- Practice riding at night. Use the lights and\
+  \ equipment you plan on running at UNBOUND XL. \n - Steady Zone 2 \n"
+name: W08-D7
+sport: cycling
+steps:
+- description: ''
+  duration: '2:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval

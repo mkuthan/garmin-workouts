@@ -1,0 +1,12 @@
+description: "Base Ride \n- Steady Zone 2, 1 hr"
+name: W02-D4
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  secondaryTarget:
+    type: no.target
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval

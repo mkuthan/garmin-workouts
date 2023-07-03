@@ -1,0 +1,16 @@
+description: "\u2022 Run, Z1, 40 minutes\n \u2022 Cool down, 5-10 minutes\n \u2022\
+  \ Aim for consistent HR\n \u2022 Optional: Otherwise, work on your weakest discipline,\
+  \ Easy bike, 70 minutes, Steady swim, 1.8\n"
+name: W09D6-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:40:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

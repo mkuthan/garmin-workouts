@@ -1,0 +1,144 @@
+description: "All you need is 18 minutes for this at-home, no-equipment EMOM workout\
+  \ that cycles through three rounds of six exercises. You\u2019ll work at the top\
+  \ of every minute."
+name: Body Awake Body Weight Circuit
+sport: hiit
+steps:
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: PUSH_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: PUSH_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: MOUNTAIN_CLIMBER
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: SQUAT_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 0:01:00
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- category: PUSH_UP
+  description: ''
+  duration: 0:01:00
+  exerciseName: PUSH_UP
+  target:
+    type: no.target
+  type: interval
+- category: LUNGE
+  description: ''
+  duration: 0:01:00
+  exerciseName: WALKING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 0:01:00
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

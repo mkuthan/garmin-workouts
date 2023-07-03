@@ -1,0 +1,77 @@
+description: "\u2022 Bike, easy effort, 5 minutes, 90 RPM.\n\u2022 Bike, easy effort,\
+  \ 5 minutes, 80 RPM.\n\u2022 Bike, max effort, 15 seconds, 100-105 RPM. Bike, easy\
+  \ effort, 4 minutes and 45 seconds at 90 RPM. Repeat 5 times.\n\u2022 Bike, easy\
+  \ effort, 5 minutes.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Can do this on road\
+  \ or trainer. The sprints will help wake up your legs."
+name: W10D2-Easy Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:04:45
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

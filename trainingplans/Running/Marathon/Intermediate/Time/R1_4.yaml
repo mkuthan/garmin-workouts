@@ -1,0 +1,25 @@
+description: "\u2022 Corsa a passo rilassato, 15 minuti.\n\n \u2022 Corsa, passo di\
+  \ soglia, 15 minuti.\n\n \u2022 Corsa a passo rilassato, 15 minuti.\n\n \u2022 Defaticamento,\
+  \ da 5 a 10 minuti.\n\n \u2022 Stretching."
+name: W01D4b-Corsa di soglia
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

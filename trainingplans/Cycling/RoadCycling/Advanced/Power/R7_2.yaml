@@ -1,0 +1,207 @@
+description: '8x30 sec Zone 5
+
+  - 30 min Warm Up
+
+  - 8x30 sec Zone 5, 30 sec easy between
+
+  - 10 min Easy Riding
+
+  - 8x30 sec Zone 5, 30 sec easy between
+
+  - Cool Down Zone 2'
+name: W07-D2
+sport: cycling
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:35:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: cooldown

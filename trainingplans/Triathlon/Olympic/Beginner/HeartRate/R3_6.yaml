@@ -1,0 +1,16 @@
+description: "\u2022 Run, Z1, 30 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022\
+  \ Keep RPM up when running off bike. Aim for around 93-95 RPM. Remember to hydrate\
+  \ during the session."
+name: W03D6b-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

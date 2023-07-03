@@ -1,0 +1,43 @@
+description: "\u2022 Run, easy effort, 5 minutes.\r\n\u2022 Run, moderate effort,\
+  \ 3 minutes.\r\n\u2022 Run, med-high effort, 2 minutes.\r\n\u2022 Run in easy effort,\
+  \ 5 minutes.\r\n\u2022 Run 3km, time trial, best effort. Record time and HR.\r\n\
+  \u2022 Run in easy effort, 10 minutes.\r\n\u2022 Cool down, 5 to 10 minutes.\r\n\
+  \u2022 Stretch.\r\n\u2022 Use the same location as your run test in week 4. Don't\
+  \ go out too hard, pace your effort. Run in the same shoes as you'll race in."
+name: W09D3-Test Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 3.0km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

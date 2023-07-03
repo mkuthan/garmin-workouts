@@ -1,0 +1,32 @@
+description: "\u2022 Bike, easy effort, 55 minutes. Bike, moderate effort, 20 minutes.\
+  \ Repeat 2 times.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Long easy to steady ride\
+  \ on flat to hilly terrain. Focus on keeping cadence around 90-95 and being efficient.\
+  \ Remember to eat and drink during the ride. Ride with a group of friends if you\
+  \ can."
+name: W03D7-Long Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

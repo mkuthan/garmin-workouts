@@ -1,0 +1,50 @@
+description: "2x10 min Sweet Spot \n- 20 min warm up\n - 2x10 min High Zone 3 \n \
+  \    - 5 min easy between\n - Cool down Zone 2\"\n"
+name: W05-D4
+sport: cycling
+steps:
+- description: ''
+  duration: 0:20:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:10:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:25:00
+  secondaryTarget:
+    type: no.target
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: cooldown

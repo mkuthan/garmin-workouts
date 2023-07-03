@@ -1,0 +1,117 @@
+description: The Tabata Protocol is a four-minute, high intensity workout where you
+  perform as many reps as possible during a 20 second work period, followed by 10
+  seconds of rest, repeated 8 times.For this beginner Tabata, you will perform four
+  alternating exercises in sequence and then repeat for a total of 4 minutes of work.As
+  you get familiar with Tabata workouts, begin by pacing yourself to ensure you get
+  through the workout successfully. Try to add to your total number of reps each time
+  you do the workout.The Tabata protocol, developed by Dr. Izumi Tabata, consists
+  of alternating short periods of intense exercise with short periods of rest for
+  a period of 4 minutes. The Tabata protocol can be applied to a variety of exercises
+  including lifting weights and aerobic exercises.
+name: Tabata Intro Lunges, Crunches, Burpees & Planks
+sport: hiit
+steps:
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:20
+  exerciseName: LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 0:00:20
+  exerciseName: CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:20
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:20
+  exerciseName: PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest

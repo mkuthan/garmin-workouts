@@ -1,0 +1,16 @@
+description: "\u2022 Run, Z1, 60 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022\
+  \ Stretch.\n \u2022 Remember to keep working on technique: high knees, RPM around\
+  \ 94 and standing tall."
+name: W08D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

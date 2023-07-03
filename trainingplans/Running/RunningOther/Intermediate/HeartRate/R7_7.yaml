@@ -1,0 +1,15 @@
+description: "\u2022 Run, easy, conversational effort, Z2, 60 minutes.\n \u2022 Cool\
+  \ down, 5-10 minutes.\n \u2022 Stretch."
+name: W07D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

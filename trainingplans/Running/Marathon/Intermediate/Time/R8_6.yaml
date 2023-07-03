@@ -1,0 +1,46 @@
+description: "  \u2022 Riscaldamento, 10 minuti.\n\n \u2022 Corsa, passo da moderato\
+  \ a deciso, 8 minuti. Jogging di recupero, 90 secondi. Ripetere per 3 volte.\n\n\
+  \ \u2022 Corsa in salita, se possibile.\n\n \u2022 Defaticamento, da 5 a 10 minuti.\n\
+  \n \u2022 Stretching."
+name: W08D6b-Salite
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

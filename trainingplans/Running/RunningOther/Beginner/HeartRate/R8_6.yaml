@@ -1,0 +1,15 @@
+description: "\u2022 Run and walk, Z2, 25 minutes.\n \u2022 Choose hilly terrain if\
+  \ possible.\n \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W08D6-Hill Run
+sport: running
+steps:
+- description: ''
+  duration: 0:25:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

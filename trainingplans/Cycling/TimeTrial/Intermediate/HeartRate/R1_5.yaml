@@ -1,0 +1,59 @@
+description: This is a climbing workout that will stretch your limits for holding
+  your threshold. The climb can be simulated if indoors, but try to keep your cadence
+  up above 75 RPM, if you can.
+name: 20 Min. Climbing Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:20:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery

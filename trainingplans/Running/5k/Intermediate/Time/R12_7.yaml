@@ -1,0 +1,9 @@
+description: RACE DAY! GOOD LUCK!
+name: W12D7-5K Race
+sport: running
+steps:
+- description: ''
+  duration: 5.005km
+  target:
+    type: no.target
+  type: interval

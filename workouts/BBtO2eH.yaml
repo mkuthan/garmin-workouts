@@ -1,0 +1,195 @@
+description: What does it take to see your six-pack? Sure, you need a good diet and
+  some cardio. But the best fitness pros know that you need to hit your abs from multiple
+  angles and use added resistance. After all, your abs are a muscle and they respond
+  to overload. This plan will challenge your abs in every way possible to make them
+  pop.
+name: Razor-Sharp Abs
+sport: strength_training
+steps:
+- category: PLANK
+  description: ''
+  duration: 0:00:10
+  exerciseName: WEIGHTED_PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:10
+  exerciseName: WEIGHTED_PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:10
+  exerciseName: WEIGHTED_PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:10
+  exerciseName: WEIGHTED_PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:10
+  exerciseName: WEIGHTED_PLANK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 10reps
+  exerciseName: SWISS_BALL_JACKKNIFE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 10reps
+  exerciseName: SWISS_BALL_JACKKNIFE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 10reps
+  exerciseName: SWISS_BALL_JACKKNIFE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: PLANK_WITH_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: PLANK_WITH_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: PLANK_WITH_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 10reps
+  exerciseName: V_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 10reps
+  exerciseName: V_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 10reps
+  exerciseName: V_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 12reps
+  exerciseName: HANGING_KNEE_RAISE_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 12reps
+  exerciseName: HANGING_KNEE_RAISE_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 12reps
+  exerciseName: HANGING_KNEE_RAISE_OBLIQUE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest

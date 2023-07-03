@@ -1,0 +1,30 @@
+description: "\u2022 Bike, easy effort, 55 minutes. Bike in moderate effort, 20 minutes.\
+  \ Repeat 2 times.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Pushing your long ride\
+  \ out a bit. Ride on hilly terrain. Stay in seat over any hills and pedal smoothly."
+name: W05D6-Long Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

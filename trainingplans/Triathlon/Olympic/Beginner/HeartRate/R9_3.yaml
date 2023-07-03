@@ -1,0 +1,49 @@
+description: "\u2022 Use the same location as your run test in week 4.\n \u2022 Run,\
+  \ Z1, 5 minutes.\n \u2022 Run, Z2, 3 minutes.\n \u2022 Run, Z3, 2 minutes.\n \u2022\
+  \ Run, Z1, 5 minutes.\n \u2022 Run, time trial, 3km, best effort. Record time and\
+  \ heart rate.\n \u2022 Run, Z1, 10 minutes.\n \u2022 Cool down, 5-10 minutes.\n\
+  \ \u2022 Don't go out too hard, pace your effort. Run in the same shoes as you'll\
+  \ race in, and don't wear socks if you won't race in them."
+name: W09D3-Test Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 3.0km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

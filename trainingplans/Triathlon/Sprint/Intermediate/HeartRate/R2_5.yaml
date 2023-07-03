@@ -1,0 +1,39 @@
+description: "\u2022 Warm up, core strength exercises, 10 to 15 minutes.\n \u2022\
+  \ Run, Z1, 15 minutes.\n \u2022 Run, Z2, 10 minutes.\n \u2022 Run, Z3, 6 minutes.\n\
+  \ \u2022 Run, Z1, 5 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch.\n\
+  \ \u2022 Build your pace throughout the session and maintain your form."
+name: W02D5-Build Run
+sport: running
+steps:
+- description: ''
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:06:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

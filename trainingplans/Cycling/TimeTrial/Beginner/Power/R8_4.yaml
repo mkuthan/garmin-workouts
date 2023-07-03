@@ -1,0 +1,14 @@
+description: "60 Minute Workout\n- Quick warm up.\n- Choose one of \n   - Ride 2 minutes\
+  \ in zone 5 (not max. effort). Repeat 2 times.\n   OR\n   - Ride 10 minutes in zone\
+  \ 4 (not max. effort). Repeat 2 times.\n- Cool down.\n\nThis workout is flexible.\
+  \ If you're the type of rider that enjoys grinding away at a steady pace, then do\
+  \ the 10 minute intervals. If you thrive on high power efforts, then do a couple\
+  \ of 2 minute intervals at a power output you might be able to hold for 4 or 5 minutes."
+name: 'Your Choice: Zone 3 or 5 Intervals '
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: no.target
+  type: interval

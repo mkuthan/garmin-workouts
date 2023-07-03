@@ -1,0 +1,283 @@
+description: Sometimes you don't need fancy exercises or equipment. Instead, a simplified
+  approach could be all that stands between you and the body of your dreams. This
+  program may look basic, but it has everything you need to take the fastest approach
+  to the look you've been waiting for.
+name: Back-to-Basics Workout
+sport: strength_training
+steps:
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: DUMBBELL_BENCH_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: CABLE_ROW_STANDING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: CABLE_ROW_STANDING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: GOBLET_SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: CABLE_ROW_STANDING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: MEDICINE_BALL_SLAM
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: MEDICINE_BALL_SLAM
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 15reps
+  exerciseName: MEDICINE_BALL_SLAM
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_SWING
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest

@@ -1,0 +1,17 @@
+description: "\u2022 Run, Z1, 30 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u2022\
+  \ Optional: Day off if you are tired, or work on your weakest discipline. Easy Bike\
+  \ 60 or Tech Swim 1.2. Work on technique, don't worry about speed. Just get in some\
+  \ miles in your weakest sport."
+name: W11D3-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

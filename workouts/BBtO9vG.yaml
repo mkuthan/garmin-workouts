@@ -1,0 +1,487 @@
+description: 'While your lifestyle might differ from a celeb, your goals are similar:
+  You want to be lean, sexy, and strong, but achieve that in the shortest time possible.
+  This workout is designed for just that purpose and to have you looking red-carpet
+  ready in just four weeks!.'
+name: Hollywood Body Plan
+sport: strength_training
+steps:
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: SHIFTING_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: SKATER_CRUNCH_CROSS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 20reps
+  exerciseName: SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: ELEVATOR_ABS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: SHIFTING_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: SKATER_CRUNCH_CROSS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 20reps
+  exerciseName: SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: ELEVATOR_ABS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: SHIFTING_SIDE_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: SKATER_CRUNCH_CROSS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 15reps
+  exerciseName: ALTERNATING_DUMBBELL_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 20reps
+  exerciseName: SQUAT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: BENCH_PRESS
+  description: ''
+  duration: 15reps
+  exerciseName: KETTLEBELL_CHEST_PRESS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 12reps
+  exerciseName: ELEVATOR_ABS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_GRIP_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 15reps
+  exerciseName: STANDING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 12reps
+  exerciseName: SINGLE_LEG_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 20reps
+  exerciseName: MOUNTAIN_CLIMBER_ON_SLIDING_DISCS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_GRIP_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 15reps
+  exerciseName: STANDING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 12reps
+  exerciseName: SINGLE_LEG_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 20reps
+  exerciseName: MOUNTAIN_CLIMBER_ON_SLIDING_DISCS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_SLIDING_LUNGE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_GRIP_PRESSDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 15reps
+  exerciseName: STANDING_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 12reps
+  exerciseName: SINGLE_LEG_DIP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 20reps
+  exerciseName: MOUNTAIN_CLIMBER_ON_SLIDING_DISCS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: HIP_RAISE
+  description: ''
+  duration: 15reps
+  exerciseName: SINGLE_LEG_HIP_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: SIT_UP
+  description: ''
+  duration: 12reps
+  exerciseName: SIT_UP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: WARM_UP
+  description: ''
+  duration: 20reps
+  exerciseName: OPPOSITE_ARM_AND_LEG_BALANCE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 15reps
+  exerciseName: REVERSE_CRUNCH_ON_A_BENCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest

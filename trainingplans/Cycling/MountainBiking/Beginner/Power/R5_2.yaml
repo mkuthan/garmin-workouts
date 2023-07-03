@@ -1,0 +1,10 @@
+description: "60 Minute Workout \nThis should be a fairly easy ride. Focus on technique\
+  \ rather than intensity. Mostly, have fun out there!"
+name: Mountain Bike
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  target:
+    type: no.target
+  type: interval

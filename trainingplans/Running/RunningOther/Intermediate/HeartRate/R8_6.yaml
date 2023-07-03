@@ -1,0 +1,20 @@
+description: "\u2022 Warm up, 15 minutes.\n \u2022 Run at 10K effort, Z4, 3 miles.\n\
+  \ \u2022 Cool down, 15 minutes.\n \u2022 Stretch."
+name: W08D6-Steady Run
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 4.828km
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

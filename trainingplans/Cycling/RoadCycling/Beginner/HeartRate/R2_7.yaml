@@ -1,0 +1,14 @@
+description: 'Fun Ride
+
+  - Fun ride of your choice. Group ride, mountain bike ride, gravel ride. Get out
+  and enjoy your day.'
+name: W02-D7
+sport: cycling
+steps:
+- description: ''
+  duration: '1:00:00'
+  secondaryTarget:
+    type: no.target
+  target:
+    type: no.target
+  type: interval

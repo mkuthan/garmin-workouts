@@ -1,0 +1,295 @@
+description: Mother Nature isn't always the best workout partner, sending extreme
+  heat, freezing cold, and pouring rains without any heads up. Avoid a weather mishap-and
+  treadmill monotony-with a fun, indoor cardio routine done in the comfort of your
+  living room.
+name: Indoor Cardio Workout
+sport: cardio_training
+steps:
+- category: RUN
+  description: ''
+  duration: 0:00:45
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: LOW_LUNGE_WITH_ISOMETRIC_ADDUCTION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_JUMPS_IN_N_OUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 0:00:45
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:45
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 0:00:45
+  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_AND_SIDE_KICK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:00:45
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: LOW_LUNGE_WITH_ISOMETRIC_ADDUCTION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_JUMPS_IN_N_OUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 0:00:45
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:45
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 0:00:45
+  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_AND_SIDE_KICK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest
+- category: RUN
+  description: ''
+  duration: 0:00:45
+  exerciseName: RUN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLANK
+  description: ''
+  duration: 0:00:45
+  exerciseName: PLANK_WITH_ARM_RAISE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: LUNGE
+  description: ''
+  duration: 0:00:45
+  exerciseName: LOW_LUNGE_WITH_ISOMETRIC_ADDUCTION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_JUMPS_IN_N_OUT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: CARDIO
+  description: ''
+  duration: 0:00:45
+  exerciseName: JUMPING_JACKS
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: TOTAL_BODY
+  description: ''
+  duration: 0:00:45
+  exerciseName: BURPEE
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: PLYO
+  description: ''
+  duration: 0:00:45
+  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- category: SQUAT
+  description: ''
+  duration: 0:00:45
+  exerciseName: SQUAT_AND_SIDE_KICK
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:15
+  target:
+    type: no.target
+  type: rest

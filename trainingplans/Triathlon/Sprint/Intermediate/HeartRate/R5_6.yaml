@@ -1,0 +1,47 @@
+description: " \u2022 Bike, Z1, 90 RPM, 30 minutes. Bike, Z2, 75 RPM, 10 minutes.\
+  \ Repeat 3 times.\n \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch.\n \u2022\
+  \ Ride over hilly terrain. Pedal smoothly over hills. Remember to hydrate and fuel\
+  \ during the ride"
+name: W05D6-Hilly Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,356 @@
+description: Total-body workouts are great, unless you have a very specific goal.
+  For many guys, building a bigger body is one of the first steps to living large.
+  This program is a concentrated approach at giving you what you want-a bigger chest,
+  arms, back, and shoulders. Nothing fancy. No special exercises. Just a routine that
+  will work and deliver what you want.
+name: Maximize Your Upper Body
+sport: strength_training
+steps:
+- category: ROW
+  description: ''
+  duration: 10reps
+  exerciseName: RENEGADE_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 10reps
+  exerciseName: RENEGADE_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: ROW
+  description: ''
+  duration: 10reps
+  exerciseName: RENEGADE_ROW
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: EZ_BAR_OVERHEAD_TRICEPS_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PULL_UP
+  description: ''
+  duration: 10reps
+  exerciseName: LAT_PULLDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: EZ_BAR_OVERHEAD_TRICEPS_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PULL_UP
+  description: ''
+  duration: 10reps
+  exerciseName: LAT_PULLDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: TRICEPS_EXTENSION
+  description: ''
+  duration: 10reps
+  exerciseName: EZ_BAR_OVERHEAD_TRICEPS_EXTENSION
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: PULL_UP
+  description: ''
+  duration: 10reps
+  exerciseName: LAT_PULLDOWN
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ALTERNATING_INCLINE_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ALTERNATING_INCLINE_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ALTERNATING_INCLINE_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: DEADLIFT
+  description: ''
+  duration: 15reps
+  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CURL
+  description: ''
+  duration: 10reps
+  exerciseName: ALTERNATING_INCLINE_DUMBBELL_BICEPS_CURL
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: RUSSIAN_TWIST
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: CABLE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: RUSSIAN_TWIST
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: CABLE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: RUSSIAN_TWIST
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: CABLE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CORE
+  description: ''
+  duration: 20reps
+  exerciseName: RUSSIAN_TWIST
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: CABLE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_CRUNCH
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest

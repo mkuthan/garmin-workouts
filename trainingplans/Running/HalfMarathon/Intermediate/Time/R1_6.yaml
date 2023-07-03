@@ -1,0 +1,14 @@
+description: "\u2022 Run, 25 minutes. Vary your intensity throughout the workout.\r\
+  \n \u2022 Cool down, 5 to 10 minutes.\r\n \u2022 Stretch."
+name: W01D6-Fartlek
+sport: running
+steps:
+- description: ''
+  duration: 0:25:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

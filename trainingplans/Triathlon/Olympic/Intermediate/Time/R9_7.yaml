@@ -1,0 +1,43 @@
+description: "\u2022 Bike, easy effort, 5 minutes, 85 RPM.\r\n\u2022 Bike, moderate\
+  \ effort, 5 minutes, 90 RPM.\r\n\u2022 Bike, med-high effort, 5 minutes, 95 RPM.\r\
+  \n\u2022 Bike, easy effort, 5 minutes.\r\n\u2022 Bike, time trial, best effort,\
+  \ 16km. Record time and heart rate.\r\n\u2022 Bike in easy effort, 10 minutes.\r\
+  \n\u2022 Cool down, 5-10 minutes.\r\n\u2022 Use the same location as your test in\
+  \ week 3."
+name: W09D7-Test Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 16.0km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

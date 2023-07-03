@@ -1,0 +1,14 @@
+description: "\u2022 \u591C\u8DD1\n\u2022 \u6062\u590D\u8DD1 40 \u5206\u949F\n\u2022\
+  \ \u7F13\u548C 5-10 \u5206\u949F\n\u2022 \u62C9\u4F38"
+name: W03D4b-Recovery Run
+sport: running
+steps:
+- description: ''
+  duration: 0:40:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

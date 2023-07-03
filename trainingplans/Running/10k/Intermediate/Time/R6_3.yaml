@@ -1,0 +1,25 @@
+description: "\u2022 Run, easy pace, 20 minutes.\n \u2022 Run, threshold pace, 20\
+  \ minutes.\n \u2022 Run, easy pace, 20 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n\
+  \ \u2022 Stretch."
+name: W06D3-Threshold Run
+sport: running
+steps:
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:20:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

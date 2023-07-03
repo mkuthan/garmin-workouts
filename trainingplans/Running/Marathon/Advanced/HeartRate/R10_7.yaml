@@ -1,0 +1,11 @@
+description: "\u2022 Race a half marathon or do a half marathon time trial. Run in\
+  \ Zone 3 or 4. \n \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W10D7-Half Marathon
+sport: running
+steps:
+- description: ''
+  duration: 21.082km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
