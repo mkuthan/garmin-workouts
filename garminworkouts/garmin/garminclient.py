@@ -10,8 +10,10 @@ from garminworkouts.models.extraction import export_yaml
 class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
-    _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activitylist-service/activities/search/activities"
+    _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activity-service"
+    _ACTIVITY_LIST_SERVICE_ENDPOINT = "/proxy/activitylist-service"
     _TRAINING_PLAN_SERVICE_ENDPOINT = "/proxy/trainingplan-service/trainingplan"
+    _GOLF_COMMUNITY_ENDPOINT = "/proxy/gcs-golfcommunity/api/v2/club"
 
     _REQUIRED_HEADERS = {
         "Referer": "https://connect.garmin.com/modern/workouts",
@@ -127,7 +129,6 @@ class GarminClient(object):
         for item in response_jsons['calendarItems']:
             if datetime.strptime(item['date'], '%Y-%m-%d').date() < date and item['itemType'] == 'workout':
                 logging.info("Deleting workout '%s'", item['title'])
-                print(item)
                 self.delete_workout(item['workoutId'])
 
     def schedule_workout(self, workout_id, date):
@@ -204,7 +205,7 @@ class GarminClient(object):
         limit = 20
         # mimicking the behavior of the web interface that fetches 20 activities at a time
         # and automatically loads more on scroll
-        url = f"{self.connect_url}{GarminClient._ACTIVITY_SERVICE_ENDPOINT}"
+        url = f"{self.connect_url}{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
         params = {
             "startDate": str(startdate),
             "endDate": str(enddate),
@@ -232,7 +233,7 @@ class GarminClient(object):
         params = {
             "start": '1',
             "limit": '1000',
-            "locale": locale,
+            "locale": locale.split('-')[0],
         }
 
         response = self.session.post(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
@@ -267,3 +268,92 @@ class GarminClient(object):
 
         response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
+
+    def get_types(self):
+        url = f"{self.connect_url}{self._WORKOUT_SERVICE_ENDPOINT}/workout/types"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = {}
+        for type in json.loads(response.text)['workoutSportTypes']:
+            sec.update({type['sportTypeKey']: type['sportTypeId']})
+        print('SPORT_TYPES =', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutIntensityTypes']:
+            sec.update({type['intensityTypeKey']: type['intensityTypeId']})
+        print('INTENSITY_TYPES =', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutStepTypes']:
+            sec.update({type['stepTypeKey']: type['stepTypeId']})
+        print('STEP_TYPES =', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutConditionTypes']:
+            sec.update({type['conditionTypeKey']: type['conditionTypeId']})
+        print('END_CONDITIONS = ', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutTargetTypes']:
+            sec.update({type['workoutTargetTypeKey']: type['workoutTargetTypeId']})
+        print('TARGET_TYPES = ', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutEquipmentTypes']:
+            sec.update({type['equipmentTypeKey']: type['equipmentTypeId']})
+        print('EQUIPMENT_TYPES = ', sec, '\n')
+
+        sec = {}
+        for type in json.loads(response.text)['workoutStrokeTypes']:
+            sec.update({type['strokeTypeKey']: type['strokeTypeId']})
+        print('STROKE_TYPES = ', sec, '\n')
+
+        self.get_activity_types()
+        self.get_event_types()
+        self.get_golf_types()
+
+    def get_activity_types(self):
+        url = f"{self.connect_url}{self._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = {}
+        for type in json.loads(response.text):
+            sec.update({type['typeKey']: type['typeId']})
+        print('ACTIVITY_TYPES = ', sec, '\n')
+
+    def get_event_types(self):
+        url = f"{self.connect_url}{self._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = {}
+
+        for type in json.loads(response.text):
+            sec.update({type['typeKey']: type['typeId']})
+        print('EVENT_TYPES = ', sec, '\n')
+
+    def get_golf_types(self):
+        url = f"{self.connect_url}{self._GOLF_COMMUNITY_ENDPOINT}/types"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = {}
+        for type in json.loads(response.text):
+            sec.update({type['name']: type['value']})
+        print('GOLF_CLUB = ', sec, '\n')
+
+        url = f"{self.connect_url}{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = {}
+        for type in json.loads(response.text):
+            sec.update({type['name']: type['id']})
+        print('GOLF_FLEX = ', sec, '\n')

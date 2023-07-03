@@ -250,6 +250,11 @@ def command_user_zones(args):
             ).zones()
 
 
+def command_update_types(args):
+    with _garmin_client(args) as connection:
+        connection.get_types()
+
+
 def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
@@ -354,6 +359,10 @@ def main():
                                required=True,
                                help="Workout id, use list command to get workouts identifiers")
     parser_delete.set_defaults(func=command_workout_delete)
+
+    parser_delete = subparsers.add_parser("update-types",
+                                          description="Update types")
+    parser_delete.set_defaults(func=command_update_types)
 
     args = parser.parse_args()
 

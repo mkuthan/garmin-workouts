@@ -13,78 +13,48 @@ SPORT_TYPES = {
     'other': 3
 }
 
-
 INTENSITY_TYPES = {
     'active': 1,
     'rest': 2,
     'warmup': 3,
-    'cooldown': 4,
+    'cooldown': 4
 }
 
 STEP_TYPES = {
     'warmup': 1,
     'cooldown': 2,
-    'run': 3,
     'interval': 3,
     'recovery': 4,
-    'rest': 5,
     'repeat': 6,
+    'rest': 5,
     'other': 7
 }
 
 END_CONDITIONS = {
-    'lap.button': 1,
-    'time': 2,
-    'distance': 3,
     'calories': 4,
+    'distance': 3,
+    'heart.rate': 6,
+    'lap.button': 1,
     'iterations': 7,
+    'power': 5,
+    'time': 2,
     'fixed.rest': 8,
     'fixed.repetition': 9,
+    'reps': 10,
     'training.peaks.tss': 11,
     'repetition.time': 12,
     'time.at.valid.cda': 13,
     'power.last.lap': 14,
-    'max.power.last.lap': 15,
-    'reps': 10,
-    'power': 5,         # Potencia por encima de un umbral ('endConditionCompare': 'gt')
-                        # Potencia por debajo de un umbral ('endConditionCompare': 'lt')
-    'heart.rate': 6,    # Pulsaciones por encima de un umbral ('endConditionCompare': 'lt')
-                        # Pulsaciones por debajo de un umbral ('endConditionCompare': 'gt')
-}
-
-STROKE_TYPES = {
-    'any_stroke': 1,         # Cualquiera
-    'backstroke': 2,         # Espalda
-    'breaststroke': 3,       # Braza
-    'drill': 4,              # Tecnica
-    'fly': 5,                # Mariposa
-    'free': 6,               # Croll
-    'individual_medley': 7,  # Estilos
-    'mixed': 8,
-}
-
-EQUIPMENT_TYPES = {
-    'fins': 1,          # Aletas
-    'kickboard': 2,     # Tabla
-    'paddles': 3,       # Palas
-    'pull_buoy': 4,     # Pull buoy
-    'snorkel': 5,       # Tubo buceo
-    'none': 0           # Sin equipo
-}
-
-POOL_LENGTHS = {
-    'short': 25,
-    'olympic': 50
+    'max.power.last.lap': 15
 }
 
 TARGET_TYPES = {
     'no.target': 1,
-    'power.zone': 2,
-    'cadence.zone': 3,
     'cadence': 3,
     'heart.rate.zone': 4,
+    'pace.zone': 6,
+    'power.zone': 2,
     'speed.zone': 5,
-    'pace.zone': 6,  # meters per second
     'grade': 7,
     'heart.rate.lap': 8,
     'power.lap': 9,
@@ -97,10 +67,30 @@ TARGET_TYPES = {
     'power.curve': 16
 }
 
+EQUIPMENT_TYPES = {
+    'fins': 1,
+    'kickboard': 2,
+    'paddles': 3,
+    'pull_buoy': 4,
+    'snorkel': 5
+}
+
+STROKE_TYPES = {
+    'any_stroke': 1,
+    'backstroke': 2,
+    'breaststroke': 3,
+    'drill': 4,
+    'fly': 5,
+    'free': 6,
+    'individual_medley': 7,
+    'mixed': 8
+}
+
 ACTIVITY_TYPES = {
     'running': 1,
     'cycling': 2,
-    'hiking': 3, 'other': 4,
+    'hiking': 3,
+    'other': 4,
     'mountain_biking': 5,
     'trail_running': 6,
     'street_running': 7,
@@ -234,4 +224,51 @@ ACTIVITY_TYPES = {
     'mixed_martial_arts': 248,
     'overland': 249,
     'snorkeling': 250
-    }
+}
+
+EVENT_TYPES = {
+    'race': 1,
+    'recreation': 2,
+    'specialEvent': 3,
+    'training': 4,
+    'transportation': 5,
+    'touring': 6,
+    'geocaching': 7,
+    'fitness': 8,
+    'uncategorized': 9
+}
+
+GOLF_CLUB = {
+    'Driver': 1,
+    '3 Wood': 2,
+    '5 Wood': 3,
+    '1 Hybrid': 4,
+    '2 Hybrid': 5,
+    '3 Hybrid': 6,
+    '4 Hybrid': 7,
+    '5 Hybrid': 8,
+    '6 Hybrid': 9,
+    '1 Iron': 10,
+    '2 Iron': 11,
+    '3 Iron': 12,
+    '4 Iron': 13,
+    '5 Iron': 14,
+    '6 Iron': 15,
+    '7 Iron': 16,
+    '8 Iron': 17,
+    '9 Iron': 18,
+    'Pitching Wedge': 19,
+    'Gap Wedge': 20,
+    'Sand Wedge': 21,
+    'Lob Wedge': 22,
+    'Putter': 23
+}
+
+GOLF_FLEX = {
+    'Regular': 0,
+    'Stiff': 1,
+    'Extra Stiff': 2,
+    'Senior': 3,
+    'Ladies': 4,
+    'Stiff/Regular': 5
+}
