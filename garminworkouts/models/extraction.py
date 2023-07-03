@@ -8,11 +8,11 @@ def end_condition_extraction(step_json, step):
     if end_condition == 'time' or end_condition == 'fixed.rest':
         step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
     elif end_condition == 'distance':
-        step['duration'] = str(float(step_json['endConditionValue'])/1000) + 'km'
+        step['duration'] = str(round(float(step_json['endConditionValue'])/1000, 3)) + 'km'
     elif end_condition == 'reps':
-        step['duration'] = str(step_json['endConditionValue']) + 'reps'
+        step['duration'] = str(int(step_json['endConditionValue'])) + 'reps'
     elif end_condition == 'heart.rate':
-        step['duration'] = str(step_json['endConditionValue']) + 'ppm' + step_json['endConditionCompare']
+        step['duration'] = str(int(step_json['endConditionValue'])) + 'ppm' + step_json['endConditionCompare']
     elif end_condition != 'lap.button':
         print(end_condition, step_json['endConditionValue'])
     return step
