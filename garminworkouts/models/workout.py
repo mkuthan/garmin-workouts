@@ -41,6 +41,7 @@ class Workout(object):
         self.race = race
 
         self.duration = timedelta(seconds=0)
+        self.sec: float = 0
         self.mileage: float = 0
         self.tss: float = 0
         self.ratio: float = 0
@@ -115,6 +116,7 @@ class Workout(object):
         except ValueError:
             self.ratio = float(0)
 
+        self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
         self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
@@ -316,7 +318,9 @@ class Workout(object):
                     _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
                     _WORKOUT_STEPS: self._steps(self.config[_STEPS])
                 }
-            ]
+            ],
+            "estimatedDurationInSecs": self.sec,
+            "estimatedDistanceInMeters": self.mileage * 1000,
         }
 
     def _repeat_step(self, step_order, child_step_id, repeats, nested_steps):
