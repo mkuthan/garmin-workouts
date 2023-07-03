@@ -11,7 +11,7 @@ from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
-from garminworkouts.models.paceband import PaceBand
+from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.extraction import export_yaml
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
@@ -146,15 +146,44 @@ def command_workout_export_yaml(args):
 
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join(args.directory, str(workout_id)) + ".yaml"
+            newpath = os.path.join('.\\workouts')
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            file = os.path.join(newpath, str(workout_id)) + ".yaml"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             export_yaml(workout, file)
 
-    with _garmin_client(args) as connection:
+        for tp in connection.list_trainingplans(account.locale):
+            tp = TrainingPlan.export_trainingplan(tp)
+            tp_type = tp['type']
+            tp_subtype = tp['subtype']
+            tp_level = tp['level']
+            tp_version = tp['version']
+
+            tp = connection.schedule_training_plan(tp[_ID], str(date.today()))
+
+            for w in connection.get_training_plan(TrainingPlan.export_trainingplan(tp)[_ID], account.locale):
+                if w['taskWorkout']:
+                    week = w['weekId']
+                    day = w['dayOfWeekId']
+                    workout_id = w['taskWorkout']['workoutId']
+                    workout_name = f'R{week}_{day}'
+                    workout = connection.get_workout(workout_id)
+
+                    newpath = os.path.join('.\\trainingplans', tp_type, tp_subtype, tp_level, tp_version)
+                    if not os.path.exists(newpath):
+                        os.makedirs(newpath)
+
+                    file = os.path.join(newpath, workout_name) + ".yaml"
+                    logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+                    export_yaml(workout, file)
+
+            connection.delete_training_plan(tp['trainingPlanId'])
+
         for workout in connection.list_workouts():
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join(args.directory, str(workout_id)) + ".yaml"
+            file = os.path.join('.\\exported', str(workout_id)) + ".yaml"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout_yaml(workout_id, file)
 
@@ -169,6 +198,12 @@ def command_event_list(args):
     with _garmin_client(args) as connection:
         for event in connection.list_events():
             Event.print_event_summary(event)
+
+
+def command_trainingplan_list(args):
+    with _garmin_client(args) as connection:
+        for tp in connection.list_trainingplans(account.locale):
+            TrainingPlan.print_trainingplan_summary(tp)
 
 
 def command_workout_schedule(args):
@@ -266,17 +301,20 @@ def main():
     parser_import.set_defaults(func=command_user_zones)
 
     parser_export = subparsers.add_parser("export-workout",
-                                          description="Export all workouts from Garmin Connect and save into directory")
+                                          description="Export all workouts from Garmin Connect\
+                                              and save them into a directory")
     parser_export.add_argument("directory",
                                type=writeable_dir,
                                help="Destination directory where workout(s) will be exported")
     parser_export.set_defaults(func=command_workout_export)
 
     parser_export = subparsers.add_parser("export-yaml",
-                                          description="Export all workouts from Garmin Connect and save into directory")
-    parser_export.add_argument("directory", type=writeable_dir,
-                               help="Destination directory where workout(s) will be exported")
+                                          description="Export all workouts from Garmin Connect\
+                                              and save them into a directory")
     parser_export.set_defaults(func=command_workout_export_yaml)
+
+    parser_list = subparsers.add_parser("trainingplan-list", description="List all workouts")
+    parser_list.set_defaults(func=command_trainingplan_list)
 
     parser_list = subparsers.add_parser("workout-list", description="List all workouts")
     parser_list.set_defaults(func=command_workout_list)
