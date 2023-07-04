@@ -1,3 +1,3 @@
-- { type: warmup, duration: 15:00, target: HEART_RATE_ZONE_1, description: Warm up for 15 minutes, preparing for hard effort at the end of it } 
-- { type: interval, duration: 30:00, target: HEART_RATE_ZONE_4, description: 30-minute time trial (best effort) } 
-- { type: cooldown, duration: 15:00, target: HEART_RATE_ZONE_1, description: Cool down 10 to 15 minutes easy } 
+- { type: warmup, duration: '15:00', target: HEART_RATE_ZONE_1, description: Warm up for 15 minutes, preparing for hard effort at the end of it } 
+- { type: interval, duration: '30:00', target: HEART_RATE_ZONE_4, description: 30-minute time trial (best effort) } 
+- { type: cooldown, duration: '15:00', target: HEART_RATE_ZONE_1, description: Cool down 10 to 15 minutes easy } 
