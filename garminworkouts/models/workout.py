@@ -3,6 +3,7 @@ import json
 from garminworkouts.models.workoutstep import WorkoutStep
 from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
+from garminworkouts.models.duration import Duration
 from garminworkouts.models.target import Target
 from datetime import date, timedelta
 from garminworkouts.utils import functional, math
@@ -12,6 +13,8 @@ from garminworkouts.models.fields import _WORKOUT_SPORT_TYPE, _WORKOUT_SEGMENTS,
 from garminworkouts.models.fields import _STEP_TYPE, _TYPE, _SPORT, _DATE, _TARGET, _NAME, _SECONDARY, _REPEAT_GROUP
 from garminworkouts.models.fields import _DURATION, _WEIGHT, _CONDITION_TYPE_KEY, _CATEGORY, _STEP_ORDER, _EXERCISE_NAME
 from garminworkouts.models.fields import _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS, _CHILD_STEP_ID
+from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE
+from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, get_end_condition
 
 
 class Workout(object):
@@ -273,12 +276,13 @@ class Workout(object):
         print('{0} {1:20} {2}'.format(workout_id, workout_name, workout_description))
 
     def _steps(self, steps_config):
-        steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)
+        steps, step_order, child_step_id, repeatDuration = self._steps_recursive(steps_config, 0, None)
         return steps
 
     def _steps_recursive(self, steps_config, step_order, child_step_id):
+        repeatDuration = None
         if not steps_config:
-            return [], step_order, child_step_id
+            return [], step_order, child_step_id, repeatDuration
 
         steps_config_agg = [(1, steps_config[0])]
 
@@ -298,12 +302,17 @@ class Workout(object):
                 repeat_step_order = step_order
                 repeat_child_step_id = child_step_id
 
-                nested_steps, step_order, child_step_id = self._steps_recursive(step_config, step_order, child_step_id)
-                steps.append(self._repeat_step(repeat_step_order, repeat_child_step_id, repeats, nested_steps))
+                repeatDuration = step_config[0]['repeatDuration'] if 'repeatDuration' in step_config[0] else None,
+                repeatDuration = repeatDuration[0]
+
+                nested_steps, step_order, child_step_id, amrat = self._steps_recursive(
+                    step_config, step_order, child_step_id)
+                steps.append(self._repeat_step(repeat_step_order, repeat_child_step_id, repeats, nested_steps,
+                                               repeatDuration))
             else:
                 steps.append(self._interval_step(step_config, child_step_id, step_order))
 
-        return steps, step_order, child_step_id
+        return steps, step_order, child_step_id, repeatDuration
 
     def create_workout(self, workout_id=None, workout_owner_id=None):
         return {
@@ -319,19 +328,22 @@ class Workout(object):
                     _WORKOUT_STEPS: self._steps(self.config[_STEPS])
                 }
             ],
-            "estimatedDurationInSecs": self.sec,
-            "estimatedDistanceInMeters": self.mileage * 1000,
+            "estimatedDurationInSecs": self.sec if self.sec > 0 else None,
+            "estimatedDistanceInMeters": self.mileage * 1000 if self.mileage > 0 else None,
         }
 
-    def _repeat_step(self, step_order, child_step_id, repeats, nested_steps):
+    def _repeat_step(self, step_order, child_step_id, repeats, nested_steps, repeatDuration):
         return {
             _TYPE: _REPEAT_GROUP,
             _STEP_ORDER: step_order,
             _STEP_TYPE: get_step_type('repeat'),
             _CHILD_STEP_ID: child_step_id,
-            _ITERATIONS: repeats,
+            _ITERATIONS: repeats if not repeatDuration else None,
             _WORKOUT_STEPS: nested_steps,
-            _REPEAT: False
+            _REPEAT: False,
+            _END_CONDITION: get_end_condition('time') if repeatDuration else None,
+            _PREFERRED_END_CONDITION_UNIT: WorkoutStep.end_condition_unit('time') if repeatDuration else None,
+            _END_CONDITION_VALUE: Duration(repeatDuration).to_seconds() if repeatDuration else None,
         }
 
     def _interval_step(self, step_config, child_step_id, step_order):

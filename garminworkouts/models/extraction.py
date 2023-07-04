@@ -109,6 +109,8 @@ def step_extraction(step_json):
             step['category'] = step_json['category']
         if ('exerciseName' in step_json) and (step_json['exerciseName'] is not None):
             step['exerciseName'] = step_json['exerciseName']
+        if ('repeatDuration' in step_json) and (step_json['repeatDuration'] is not None):
+            step['repeatDuration'] = step_json['repeatDuration']
 
         return step
 
@@ -126,12 +128,17 @@ def export_yaml(workout, filename):
             step_json = workout['workoutSegments'][0]['workoutSteps'][i]
 
             if step_json['stepType']['stepTypeKey'] != 'repeat':
-                workout_dict["steps"].append(step_extraction(step_json))
+                workout_dict['steps'].append(step_extraction(step_json))
             else:
                 if ('numberOfIterations' in step_json) and (step_json['numberOfIterations'] is not None):
                     for j in range(step_json['numberOfIterations']):
                         for k in range(len(step_json['workoutSteps'])):
-                            workout_dict["steps"].append(step_extraction(step_json['workoutSteps'][k]))
+                            workout_dict['steps'].append(step_extraction(step_json['workoutSteps'][k]))
+                else:
+                    for k in range(len(step_json['workoutSteps'])):
+                        step_json['workoutSteps'][k]['repeatDuration'] = str(
+                            timedelta(seconds=int(step_json['endConditionValue'])))
+                        workout_dict['steps'].append(step_extraction(step_json['workoutSteps'][k]))
     else:
         print(filename)
     with open(filename, 'w') as file:
