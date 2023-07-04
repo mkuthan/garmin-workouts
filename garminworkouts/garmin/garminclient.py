@@ -313,6 +313,7 @@ class GarminClient(object):
         self.get_activity_types()
         self.get_event_types()
         self.get_golf_types()
+        self.get_strength_types()
 
     def get_activity_types(self):
         url = f"{self.connect_url}{self._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
@@ -357,3 +358,13 @@ class GarminClient(object):
         for type in json.loads(response.text):
             sec.update({type['name']: type['id']})
         print('GOLF_FLEX = ', sec, '\n')
+
+    def get_strength_types(self):
+        url = f"{self.connect_url}/web-data/exercises/Exercises.json"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        sec = json.loads(response.text)
+        with open(".\\garminworkouts\\models\\strength.py", "w") as fp:
+            json.dump(sec, fp)  # encode dict into JSON
