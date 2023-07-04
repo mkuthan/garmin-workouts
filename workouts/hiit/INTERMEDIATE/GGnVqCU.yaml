@@ -3,4 +3,44 @@ description: This 10-minute ab AMRAP is a perfect finisher or standalone core wo
   rounds as possible in 10 minutes.
 name: AMRAP Ab Burnout
 sport: hiit
-steps: []
+steps:
+- category: PLANK
+  description: Side 1
+  duration: 20reps
+  exerciseName: SIDE_PLANK
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: SIT_UP
+  description: ''
+  duration: 20reps
+  exerciseName: SIT_UP
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: Side 2
+  duration: 20reps
+  exerciseName: SIDE_PLANK
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: REVERSE_CRUNCH
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: CRUNCH
+  description: ''
+  duration: 20reps
+  exerciseName: BICYCLE_CRUNCH
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval

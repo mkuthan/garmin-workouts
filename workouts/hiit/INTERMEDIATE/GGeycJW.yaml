@@ -2,4 +2,44 @@ description: A strength-training routine you can do anywhere. Complete as many r
   as possible in 10 minutes.
 name: 10-Minute Body Weight AMRAP
 sport: hiit
-steps: []
+steps:
+- category: PUSH_UP
+  description: ''
+  duration: 5reps
+  exerciseName: PUSH_UP
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: TOTAL_BODY
+  description: ''
+  duration: 10reps
+  exerciseName: BURPEE
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: SQUAT
+  description: ''
+  duration: 15reps
+  exerciseName: SQUAT
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: CARDIO
+  description: ''
+  duration: 20reps
+  exerciseName: JUMPING_JACKS
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- category: PLANK
+  description: ''
+  duration: 25reps
+  exerciseName: MOUNTAIN_CLIMBER
+  repeatDuration: 0:10:00
+  target:
+    type: no.target
+  type: interval
