@@ -17,22 +17,22 @@ def extract_duration(s):
 def step_generator(s, duration):
     d = {}
 
-    if s == 'recovery':
-        d = generator.recovery_step_generator(duration)
-    elif s == 'aerobic':
-        d = generator.aerobic_step_generator(duration)
-    elif s == 'lt':
+    if 'recovery' in s:
+        d = generator.recovery_step_generator(duration, 'p' in s)
+    elif 'aerobic' in s:
+        d = generator.aerobic_step_generator(duration, 'p' in s)
+    elif 'lt' in s:
         d = generator.lt_step_generator(duration)
-    elif s == 'lr':
-        d = generator.lr_step_generator(duration)
-    elif s == 'marathon':
-        d = generator.marathon_step_generator(duration)
-    elif s == 'hm':
+    elif 'lr' in s:
+        d = generator.lr_step_generator(duration, 'p' in s)
+    elif 'marathon' in s:
+        d = generator.marathon_step_generator(duration, 'p' in s)
+    elif 'hm' in s:
         d = generator.hm_step_generator(duration)
-    elif s == 'tuneup':
+    elif 'tuneup' in s:
         d = generator.tuneup_step_generator(duration)
-    elif s == 'cooldown':
-        d = generator.cooldown_step_generator(duration)
+    elif 'cooldown' in s:
+        d = generator.cooldown_step_generator(duration, 'p' in s)
 
     return d
 

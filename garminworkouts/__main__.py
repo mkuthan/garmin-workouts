@@ -35,7 +35,7 @@ def command_trainingplan_reset(args):
                 connection.delete_workout(workout_id)
 
 
-def command_workout_import(args, event=False):
+def command_workout_import(args, event=True):
     workouts, plan = settings(args)
 
     with _garmin_client(args) as connection:

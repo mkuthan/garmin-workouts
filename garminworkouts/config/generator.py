@@ -1,18 +1,24 @@
-def recovery_step_generator(duration):
+def recovery_step_generator(duration, pace=False):
     step = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'RECOVERY_HEART_RATE'
+    if pace:
+        step['target'] = 'RECOVERY_PACE'
+    else:
+        step['target'] = 'RECOVERY_HEART_RATE'
     step['description'] = 'Recovery pace'
 
     return step
 
 
-def aerobic_step_generator(duration):
+def aerobic_step_generator(duration, pace=False):
     step = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'AEROBIC_HEART_RATE'
+    if pace:
+        step['target'] = 'AEROBIC_PACE'
+    else:
+        step['target'] = 'AEROBIC_HEART_RATE'
     step['description'] = 'Aerobic pace'
 
     return step
@@ -28,21 +34,27 @@ def lt_step_generator(duration):
     return step
 
 
-def lr_step_generator(duration):
+def lr_step_generator(duration, pace=False):
     step = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'LONG_RUN_HEART_RATE'
+    if pace:
+        step['target'] = 'LONG_RUN_PACE'
+    else:
+        step['target'] = 'LONG_RUN_HEART_RATE'
     step['description'] = 'Long run pace'
 
     return step
 
 
-def marathon_step_generator(duration):
+def marathon_step_generator(duration, pace=False):
     step = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'MARATHON_HEART_RATE'
+    if pace:
+        step['target'] = 'MARATHON_PACE'
+    else:
+        step['target'] = 'MARATHON_HEART_RATE'
     step['description'] = 'Marathon pace run'
 
     return step
@@ -68,11 +80,14 @@ def tuneup_step_generator(duration):
     return step
 
 
-def cooldown_step_generator(duration):
+def cooldown_step_generator(duration, pace=False):
     step = {}
     step['type'] = 'cooldown'
     step['duration'] = duration
-    step['target'] = 'AEROBIC_HEART_RATE'
+    if pace:
+        step['target'] = 'AEROBIC_PACE'
+    else:
+        step['target'] = 'AEROBIC_HEART_RATE'
     step['description'] = 'Aerobic pace'
 
     return step
