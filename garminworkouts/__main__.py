@@ -35,7 +35,7 @@ def command_trainingplan_reset(args):
                 connection.delete_workout(workout_id)
 
 
-def command_workout_import(args):
+def command_workout_import(args, event=False):
     workouts, plan = settings(args)
 
     with _garmin_client(args) as connection:
@@ -50,7 +50,8 @@ def command_workout_import(args):
                 if existing_workout:
                     workout_id = Workout.extract_workout_id(existing_workout)
                     description = Workout.extract_workout_description(existing_workout)
-                    if description and (plan in description) and (day_d <= date.today() + timedelta(weeks=2)):
+                    if event or ((day_d <= date.today() + timedelta(weeks=2))
+                                 and description and (plan in description)):
                         workout_owner_id = Workout.extract_workout_owner_id(existing_workout)
                         payload = workout.create_workout(workout_id, workout_owner_id)
                         logging.info("Updating workout '%s'", workout_name)
@@ -99,7 +100,7 @@ def command_event_import(args):
                 logging.info("Creating event '%s'", event.name)
                 connection.save_event(payload)
 
-        command_workout_import(args)
+        command_workout_import(args, event=True)
 
 
 def command_trainingplan_metrics(args):
