@@ -28,7 +28,7 @@ jobs:
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
       USERNAME: ${{ secrets.GARMIN_USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
+      PASSWORD: ${{ secrets. PASSWORD }}
       vV02: ${{ secrets.vV02 }}
       fmin: ${{ secrets.fmin }}
       fmax: ${{ secrets.fmax }}
@@ -41,18 +41,10 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           python-version: ${{ matrix.python-version }}
-          USERNAME: ${{ secrets.GARMIN_USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          vV02: ${{ secrets.vV02 }}
-          fmin: ${{ secrets.fmin }}
-          fmax: ${{ secrets.fmax }}
-          rFTP: ${{ secrets.rFTP }}
-          cFTP: ${{ secrets.cFTP }}
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
       - run: pytest --cov=garminworkouts --cov-report=xml tests
       - uses: codecov/codecov-action@v3
         with:
-          env_vars: PYTHON_VERSION
+          env_vars: PYTHON_VERSION, USERNAME, PASSWORD, vVO2, fmin, fmax, rFTP, cFTP, BOT_TOKEN
 
   required-checks:
     runs-on: ubuntu-latest
