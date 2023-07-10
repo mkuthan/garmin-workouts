@@ -4,7 +4,6 @@ from decouple import config
 
 USERNAME = config('GARMIN_USERNAME')
 PASSWORD = config('PASSWORD')
-DISPLAYNAME = config('DISPLAYNAME')
 locale = 'en-US'
 vV02 = Pace(config('vV02'))  # type: ignore
 fmin = int(config('fmin'))
