@@ -27,6 +27,14 @@ jobs:
 
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
+      USERNAME: ${{ secrets.GARMIN_USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      vV02: ${{ secrets.vV02 }}
+      fmin: ${{ secrets.fmin }}
+      fmax: ${{ secrets.fmax }}
+      rFTP: ${{ secrets.rFTP }}
+      cFTP: ${{ secrets.cFTP }}
+      BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
