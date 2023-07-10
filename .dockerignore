@@ -1,0 +1,12 @@
+./workouts
+./trainingplans
+./tests
+./exported
+sample_account.py
+sample_planning.yaml
+session.json
+Dockerfile
+__pycache__
+docker-compose.yaml
+LICENSE
+README.md
