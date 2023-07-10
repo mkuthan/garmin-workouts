@@ -66,8 +66,7 @@ def command_workout_import(args, event=False):
                     existing_workout = existing_workouts_by_name.get(workout_name)
                     workout_id = Workout.extract_workout_id(existing_workout)
                     connection.schedule_workout(workout_id, day_d.isoformat())
-            else:
-                connection.get_calendar(date.today())
+        connection.get_calendar(date.today())
 
 
 def command_event_import(args):
