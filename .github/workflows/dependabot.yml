@@ -9,7 +9,7 @@ jobs:
 
     env:
       PR_URL: ${{ github.event.pull_request.html_url }}
-      GITHUB_TOKEN: ${{ secrets.DEPENDABOT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Enable auto-merge for Dependabot PRs
