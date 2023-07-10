@@ -6,9 +6,12 @@ from garminworkouts.models.workout import Workout
 
 
 def settings(args):
+    if isinstance(args.workout, tuple):
+        args.workout = ''.join(args.workout)
+
     workout_files = glob.glob(args.workout)
     plan = str('')
-    race = account.race
+    race = date.today()
     if not workout_files:
         try:
             planning = configreader.read_config(r'planning.yaml')

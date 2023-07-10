@@ -28,6 +28,13 @@ class GarminClient(object):
         self.cookie_jar = cookie_jar
 
     def __enter__(self):
+        if isinstance(self.connect_url, tuple):
+            self.connect_url = ''.join(self.connect_url)
+        if isinstance(self.sso_url, tuple):
+            self.sso_url = ''.join(self.sso_url)
+        if isinstance(self.cookie_jar, tuple):
+            self.cookie_jar = ''.join(self.sso_url)
+        print(self.username, self.password)
         self.session = connect(self.connect_url, self.sso_url, self.username, self.password, self.cookie_jar)
         return self
 
