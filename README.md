@@ -2,23 +2,24 @@ Garmin Connect Workouts Tools
 ================
 
 [![CI](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/github-code-scanning/codeql)
+[![Dependency Review](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/dependency-review.yml)
 
 Command line tools for managing Garmin Connect workouts.
 
 Features:
 
-* Target power is set according to Your current FTP.
 * All workouts under Your control stored as JSON files.
 * Easy to understand workout format, see examples below.
 * Workout parts like warm-up or cool-down are reusable.
 * Schedule saved workouts
-* The most important parameters (TSS, IF, NP) embedded in workout description field.
+* The most important parameters embedded in workout description field.
 
 # Installation
 
 Requirements:
 
-* Python 3.x ([doc](https://www.python.org/downloads/))
+* Python 3.10/11 ([doc](https://www.python.org/downloads/))
 
 Clone this repo:
 
@@ -60,12 +61,9 @@ Define Garmin connect account credentials as `GARMIN_USERNAME` and `GARMIN_PASSW
 export GARMIN_USERNAME=username
 export GARMIN_PASSWORD=password
 ```
+or  alternatively you can store them in a .env file.
 
-Alternatively use `-u` and `-p` command line arguments:
-
-```shell
-python -m garminworkouts -u [USERNAME] -p [PASSWORD]
-```
+Similarly, you need to define additional user characteristics such as vVO2 (time per km), fmin and fmax (bpm), and running and cycling FTP (rFTP and cFTP respectively in watts)
 
 ## Import Workouts
 
@@ -73,7 +71,7 @@ Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org)
 If the workout already exists it will be updated:
 
 ```shell
-python -m garminworkouts import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
+python -m garminworkouts import 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -172,7 +170,7 @@ wish to give your values in W instead of % of your FTP:
 You can then import as with the `yaml` files:
 
 ```shell
-python -m garminworkouts import --ftp [YOUR_FTP] my.workout.xlsx
+python -m garminworkouts import  my.workout.xlsx
 ```
 
 This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
