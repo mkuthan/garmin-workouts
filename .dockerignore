@@ -2,7 +2,9 @@
 ./trainingplans
 ./tests
 ./exported
-sample_account.py
+./.github
+.dockerignore
+.flake8
 sample_planning.yaml
 session.json
 Dockerfile
