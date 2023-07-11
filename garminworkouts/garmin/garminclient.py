@@ -34,7 +34,7 @@ class GarminClient(object):
             self.sso_url = ''.join(self.sso_url)
         if isinstance(self.cookie_jar, tuple):
             self.cookie_jar = ''.join(self.sso_url)
-        print(self.username, self.password)
+
         self.session = connect(self.connect_url, self.sso_url, self.username, self.password, self.cookie_jar)
         return self
 
