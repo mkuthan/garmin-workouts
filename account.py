@@ -3,7 +3,7 @@ from garminworkouts.models.power import Power
 from decouple import config
 
 USERNAME = config('GARMIN_USERNAME')
-PASSWORD = config('PASSWORD')
+PASSWORD = config('GARMIN_PASSWORD')
 locale = 'en-US'
 vV02 = Pace(config('vV02'))  # type: ignore
 fmin = int(config('fmin'))
