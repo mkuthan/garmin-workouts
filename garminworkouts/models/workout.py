@@ -228,7 +228,7 @@ class Workout(object):
         else:
             t2 = 0
             t1 = 0
-        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))  # type: ignore
+        return min(t1, t2)  # + 0.5 * (max(t1, t2) - min(t1, t2))  # type: ignore
 
     def _generate_description(self):
         description = ''
