@@ -1,10 +1,13 @@
+pip==23.2
+setuptools==68.0.0
+wheel == 0.40.0
 requests==2.31.0
-pyyaml==6.0
+pyyaml==6.0.1
 numpy==1.25.1
 xlrd==2.0.1
 pandas==2.0.3
 cloudscraper==1.2.71
 pytest-httpserver==1.0.8
 python-decouple==3.8
-python-telegram-bot==20.3
+python-telegram-bot==20.4
 bpython == 0.24
