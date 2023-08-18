@@ -109,16 +109,27 @@ def command_trainingplan_metrics(args):
     duration = [timedelta(seconds=0) for i in range(24, -11, -1)]
     tss = [float(0) for i in range(24, -11, -1)]
 
+    day_min = None
+    day_max = None
+
     for workout in workouts:
         workout_name = workout.get_workout_name()
         day_d, week, day = workout.get_workout_date()
-
+        if day_min is None:
+            day_min = day_d
+        if day_max is None:
+            day_max = day_d
+        if day_min > day_d:
+            day_min = day_d
+        if day_max < day_d:
+            day_max = day_d
         mileage[week] = mileage[week] + workout.mileage
         duration[week] = duration[week] + workout.duration
         tss[week] = tss[week] + workout.tss
 
         print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
+    print('From ', str(day_min), ' to ', str(day_max))
     for i in range(24, -11, -1):
         if mileage[i] > float(0):
             print('Week ' + str(i) + ': '
