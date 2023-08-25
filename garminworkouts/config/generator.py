@@ -25,10 +25,18 @@ def aerobic_step_generator(duration, pace=False) -> dict:
 
 
 def lt_step_generator(target: str, duration, pace=False) -> dict:
+    if '>' in target:
+        d, target = target.split('>')
+        d: str = d + '>'
+    elif '<' in target:
+        d, target = target.split('<')
+        d = d + '<'
+    else:
+        d = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'HALF_MARATHON_PACE'
+    step['target'] = d + 'THRESHOLD_PACE'
     step['description'] = 'Threshold pace'
 
     return step
@@ -48,23 +56,36 @@ def lr_step_generator(duration, pace=False) -> dict:
 
 
 def marathon_step_generator(target: str, duration, pace=False) -> dict:
+    if '>' in target:
+        d, target = target.split('>')
+        d = d + '>'
+    elif '<' in target:
+        d, target = target.split('<')
+        d = d + '<'
+    else:
+        d: str = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    if pace:
-        step['target'] = 'MARATHON_PACE'
-    else:
-        step['target'] = 'MARATHON_HEART_RATE'
+    step['target'] = d + 'MARATHON_PACE'
     step['description'] = 'Marathon pace run'
 
     return step
 
 
 def hm_step_generator(target: str, duration, pace=False) -> dict:
+    if '>' in target:
+        d, target = target.split('>')
+        d = d + '>'
+    elif '<' in target:
+        d, target = target.split('<')
+        d = d + '<'
+    else:
+        d: str = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = 'HALF_MARATHON_PACE'
+    step['target'] = d + 'HALF_MARATHON_PACE'
     step['description'] = 'Half Marathon pace'
 
     return step
@@ -89,5 +110,15 @@ def cooldown_step_generator(duration, pace=False) -> dict:
     else:
         step['target'] = 'AEROBIC_HEART_RATE'
     step['description'] = 'Aerobic pace'
+
+    return step
+
+
+def walk_step_generator(duration) -> dict:
+    step: dict = {}
+    step['type'] = 'recovery'
+    step['duration'] = duration
+    step['target'] = 'NO_TARGET'
+    step['description'] = 'Walk'
 
     return step

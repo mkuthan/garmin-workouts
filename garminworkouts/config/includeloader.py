@@ -7,7 +7,18 @@ import garminworkouts.config.generator as generator
 @staticmethod
 def extract_duration(s) -> str:
     if 'min' in s:
-        duration = s.split('min')[0] + ':00'
+        sec: str = s.split('min')[0]
+        hh = str(int(sec) // 60)
+        mm = str(int(sec) % 60)
+        duration = hh + ':' + mm + ':00'
+    elif 's' in s:
+        duration: str = '00:' + s.split('s')[0]
+    elif ':' in s:
+        duration = s
+    elif 'km' in s:
+        duration = s
+    elif 'm' in s:
+        duration = s
     else:
         duration = s + 'km'
     return duration
@@ -22,17 +33,19 @@ def step_generator(s, duration) -> dict:
     elif 'aerobic' in s:
         d = generator.aerobic_step_generator(duration, 'p' in s)
     elif 'lt' in s:
-        d = generator.lt_step_generator(duration)
+        d = generator.lt_step_generator(s, duration, 'p' in s)
     elif 'lr' in s:
         d = generator.lr_step_generator(duration, 'p' in s)
     elif 'marathon' in s:
-        d = generator.marathon_step_generator(duration, 'p' in s)
+        d = generator.marathon_step_generator(s, duration, 'p' in s)
     elif 'hm' in s:
-        d = generator.hm_step_generator(duration)
+        d = generator.hm_step_generator(s, duration, 'p' in s)
     elif 'tuneup' in s:
         d = generator.tuneup_step_generator(duration)
     elif 'cooldown' in s:
         d = generator.cooldown_step_generator(duration, 'p' in s)
+    elif 'walk' in s:
+        d = generator.walk_step_generator(duration)
 
     return d
 

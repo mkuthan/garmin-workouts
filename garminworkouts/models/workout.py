@@ -194,9 +194,17 @@ class Workout(object):
         target: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
         d: str = ''
         if isinstance(target, dict):
-            target_type = target[_TYPE]
+            target_type: str = target[_TYPE]
         else:
-            target_type = self.target[target][_TYPE]
+            target_i: str = ''
+            if '>' in target:
+                d, target_i = target.split('>')
+                target_type = self.target[target_i][_TYPE]
+            elif '<' in target:
+                d, target_i = target.split('<')
+                target_type = self.target[target_i][_TYPE]
+            else:
+                target_type = self.target[target][_TYPE]
 
         if not target:
             return float(0)
@@ -219,7 +227,12 @@ class Workout(object):
         if isinstance(step[_TARGET], dict):
             target_type = step[_TARGET][_TYPE]
         else:
-            target_type = self.target[step[_TARGET]][_TYPE]
+            target = step[_TARGET]
+            if '>' in target:
+                d, target = target.split('>')
+            elif '<' in target:
+                d, target = target.split('<')
+            target_type = self.target[target][_TYPE]
 
         if (target_type == 'power.zone') or (target_type == 'cadence.zone') or \
            (target_type == 'speed.zone') or (target_type == 'pace.zone'):
