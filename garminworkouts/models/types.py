@@ -64,7 +64,8 @@ TARGET_TYPES: dict[str, int] = {
     'speed.lap': 13,
     'swim.stroke': 14,
     'resistance': 15,
-    'power.curve': 16
+    'power.curve': 16,
+    'swim.instruction': 18
 }
 
 EQUIPMENT_TYPES: dict[str, int] = {
