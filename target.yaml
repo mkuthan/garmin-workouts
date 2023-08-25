@@ -3,8 +3,10 @@ AEROBIC_PACE:  {type: "pace.zone", min: "0.75", max: "0.64" }
 LONG_RUN_PACE: {type: "pace.zone", min: "0.78", max: "0.69" }
 MARATHON_PACE: {type: "pace.zone", min: "0.83", max: "0.73" }
 THRESHOLD_PACE: {type: "pace.zone", min: "0.92", max: "0.90" }
-V02MAX_PACE: {type: "pace.zone", min: "1.0", max: "0.95" }
+VO2MAX_PACE: {type: "pace.zone", min: "1.0", max: "0.95" }
 1KM_PACE: {type: "pace.zone", min: "1.1", max: "1.05" }
+1500M_PACE: {type: "pace.zone", min: "1.05", max: "1.0" }
+3KM_PACE: {type: "pace.zone", min: "1.0", max: "0.95" }
 5KM_PACE: {type: "pace.zone", min: "0.96", max: "0.92" }
 10KM_PACE: {type: "pace.zone", min: "0.93", max: "0.89" }
 HALF_MARATHON_PACE: {type: "pace.zone", min: "0.88", max: "0.82" }
