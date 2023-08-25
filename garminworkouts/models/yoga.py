@@ -1,4 +1,4 @@
-YOGA_POSES = {
+YOGA_POSES: dict = {
     "POSE": {
         "ALL_FOURS": {},
         "ANKLE_TO_KNEE": {},

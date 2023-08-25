@@ -1,4 +1,4 @@
-STRENGTH_EXERCISES = {
+STRENGTH_EXERCISES: dict = {
     "BANDED_EXERCISES": {
         "exercises": {
             "AB_TWIST": {

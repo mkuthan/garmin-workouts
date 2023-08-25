@@ -10,55 +10,55 @@ class Event(object):
     def __init__(
             self,
             config
-            ):
+            ) -> None:
 
-        self.name = config[_NAME]
+        self.name: str = config[_NAME]
         self.date = date(config[_DATE]['year'], config[_DATE]['month'], config[_DATE]['day'])
-        self.url = config['url'] if 'url' in config else None
-        self.location = config[_LOCATION] if _LOCATION in config else None
-        self.time = config['time'] if 'time' in config else None
-        self.distance = config['distance'] if 'distance' in config else None
-        self.goal = Duration(config[_GOAL]).to_seconds() if _GOAL in config else None
-        self.course = config[_COURSE] if _COURSE in config else None
-        self.sport = config[_SPORT]
+        self.url: str | None = config['url'] if 'url' in config else None
+        self.location: str | None = config[_LOCATION] if _LOCATION in config else None
+        self.time: str | None = config['time'] if 'time' in config else None
+        self.distance: str | None = config['distance'] if 'distance' in config else None
+        self.goal: int | None = Duration(config[_GOAL]).to_seconds() if _GOAL in config else None
+        self.course: str | None = config[_COURSE] if _COURSE in config else None
+        self.sport: str = config[_SPORT]
 
     @staticmethod
-    def extract_event_id(event):
+    def extract_event_id(event) -> str:
         return event[_ID]
 
     @staticmethod
-    def extract_event_name(event):
+    def extract_event_name(event) -> str:
         return event[_EVENT_NAME]
 
     @staticmethod
-    def extract_event_date(event):
+    def extract_event_date(event) -> str:
         return event[_DATE]
 
     @staticmethod
-    def extract_event_location(event):
+    def extract_event_location(event) -> str:
         return event[_LOCATION]
 
     @staticmethod
-    def extract_event_time(event):
+    def extract_event_time(event) -> str:
         return event[_EVENT_TIME]
 
     @staticmethod
-    def extract_course(event):
+    def extract_course(event) -> str:
         return event[_COURSE_ID]
 
     @staticmethod
-    def print_event_summary(event):
-        event_id = Event.extract_event_id(event)
-        event_name = Event.extract_event_name(event)
-        event_date = Event.extract_event_date(event)
-        event_location = Event.extract_event_location(event)
+    def print_event_summary(event) -> None:
+        event_id: str = Event.extract_event_id(event)
+        event_name: str = Event.extract_event_name(event)
+        event_date: str = Event.extract_event_date(event)
+        event_location: str = Event.extract_event_location(event)
         print("{0} {1:20} {2:10} {3}".format(event_id, event_name, event_location, event_date))
 
     @staticmethod
-    def print_event_json(event):
+    def print_event_json(event) -> None:
         print(json.dumps(functional.filter_empty(event)))
 
-    def create_event(self, event_id=None, workout_id=None):
+    def create_event(self, event_id=None, workout_id=None) -> dict:
         return {
             _ID: event_id,
             _EVENT_NAME: self.name,

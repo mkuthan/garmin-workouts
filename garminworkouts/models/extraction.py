@@ -3,8 +3,8 @@ import yaml
 
 
 @staticmethod
-def end_condition_extraction(step_json, step):
-    end_condition = step_json['endCondition']['conditionTypeKey']
+def end_condition_extraction(step_json, step) -> dict:
+    end_condition: str = step_json['endCondition']['conditionTypeKey']
     if end_condition == 'time' or end_condition == 'fixed.rest':
         step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
     elif end_condition == 'distance':
@@ -19,7 +19,7 @@ def end_condition_extraction(step_json, step):
 
 
 @staticmethod
-def target_extraction(step_json, step):
+def target_extraction(step_json, step) -> dict:
     step['target'] = {}
     step['target']['type'] = 'no.target'
     if ('targetType' in step_json) and (step_json['targetType'] is not None):
@@ -45,7 +45,7 @@ def target_extraction(step_json, step):
     return step
 
 
-def secondary_target_extraction(step_json, step):
+def secondary_target_extraction(step_json, step) -> dict:
     if ('secondaryTargetType' in step_json) and (step_json['secondaryTargetType'] is not None):
         step['secondaryTarget'] = {}
         step['secondaryTarget']['type'] = step_json['secondaryTargetType']['workoutTargetTypeKey']
@@ -76,7 +76,7 @@ def secondary_target_extraction(step_json, step):
 
 
 @staticmethod
-def weight_extraction(step_json, step):
+def weight_extraction(step_json, step) -> dict:
     if ('weightValue' in step_json) and (step_json['weightValue'] is not None):
         if step_json['weightUnit']['unitKey'] == 'kilogram':
             step['weight'] = str(step_json['weightValue']) + 'kg'
@@ -88,7 +88,7 @@ def weight_extraction(step_json, step):
 
 
 @staticmethod
-def step_extraction(step_json):
+def step_extraction(step_json) -> dict | None:
     if step_json['stepType']['stepTypeKey'] != 'repeat':
         step: dict = {}
         step['type'] = step_json['stepType']['stepTypeKey']
@@ -116,8 +116,8 @@ def step_extraction(step_json):
 
 
 @staticmethod
-def export_yaml(workout, filename):
-    workout_dict = {}
+def export_yaml(workout, filename) -> None:
+    workout_dict: dict = {}
     workout_dict['name'] = workout['workoutName']
     workout_dict['sport'] = workout['sportType']['sportTypeKey']
     workout_dict['description'] = workout['description'] if 'description' in workout else ''

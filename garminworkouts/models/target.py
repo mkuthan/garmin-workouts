@@ -10,13 +10,13 @@ class Target:
             value_two=None,
             zone=None,
             secondary=False,
-    ):
+    ) -> None:
 
-        self.target = target
-        self.value_one = value_one if target != 'no.target' else None
-        self.value_two = value_two if target != 'no.target' else None
-        self.zone = zone if target == 'heart.rate.zone' else None
-        self.secondary = secondary
+        self.target: str = target
+        self.value_one: str | None = value_one if target != 'no.target' else None
+        self.value_two: str | None = value_two if target != 'no.target' else None
+        self.zone: str | None = zone if target == 'heart.rate.zone' else None
+        self.secondary: bool = secondary
 
         if target not in TARGET_TYPES.keys():
             raise TypeError(' %s Undefined target type' % target)
@@ -41,10 +41,12 @@ class Target:
                (self.zone < 1 and self.zone > 5)):  # type: ignore
                 raise TypeError('Zone %s needs to be in bool format is undefined' % self.zone)
 
-    def create_target(self):
+    def create_target(self) -> dict:
         if self.target == 'no.target':
             return {}
         else:
+            target: str = ''
+            zone: str = ''
             target, zone = get_target_fields(self.secondary)
             return {
                 f'{target}Type': get_target_type(self.target),

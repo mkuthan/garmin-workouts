@@ -4,8 +4,8 @@ from garminworkouts.models.duration import Duration
 
 
 class DurationTestCase(unittest.TestCase):
-    def test_valid_duration_to_seconds_conversion(self):
-        valid_durations = [
+    def test_valid_duration_to_seconds_conversion(self) -> None:
+        valid_durations: list = [
             ("0", 0),
             ("10", 10),
             ("10", 10),
@@ -22,9 +22,9 @@ class DurationTestCase(unittest.TestCase):
             with self.subTest(msg="Expected %d seconds for '%s'" % (seconds, duration)):
                 self.assertEqual(Duration(duration).to_seconds(), seconds)
 
-    def test_invalid_duration_to_seconds_conversion(self):
-        invalid_durations = ["-1", "60", "-1:10", "60:10", "-1:10:10", "24:10:10", "foo", "foo:bar", "foo:bar:baz",
-                             "1:1:1:1"]
+    def test_invalid_duration_to_seconds_conversion(self) -> None:
+        invalid_durations: list[str] = ["-1", "60", "-1:10", "60:10", "-1:10:10", "24:10:10", "foo", "foo:bar",
+                                        "foo:bar:baz", "1:1:1:1"]
         for duration in invalid_durations:
             with self.subTest(msg="Expected ValueError for '%s" % duration):
                 with self.assertRaises(ValueError):

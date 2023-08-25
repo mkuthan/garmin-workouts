@@ -1,4 +1,4 @@
-SPORT_TYPES = {
+SPORT_TYPES: dict[str, int] = {
     'running': 1,
     'trail_running': 1,
     'cycling': 2,
@@ -13,14 +13,14 @@ SPORT_TYPES = {
     'other': 3
 }
 
-INTENSITY_TYPES = {
+INTENSITY_TYPES: dict[str, int] = {
     'active': 1,
     'rest': 2,
     'warmup': 3,
     'cooldown': 4
 }
 
-STEP_TYPES = {
+STEP_TYPES: dict[str, int] = {
     'warmup': 1,
     'cooldown': 2,
     'interval': 3,
@@ -30,7 +30,7 @@ STEP_TYPES = {
     'other': 7
 }
 
-END_CONDITIONS = {
+END_CONDITIONS: dict[str, int] = {
     'calories': 4,
     'distance': 3,
     'heart.rate': 6,
@@ -48,7 +48,7 @@ END_CONDITIONS = {
     'max.power.last.lap': 15
 }
 
-TARGET_TYPES = {
+TARGET_TYPES: dict[str, int] = {
     'no.target': 1,
     'cadence': 3,
     'heart.rate.zone': 4,
@@ -67,7 +67,7 @@ TARGET_TYPES = {
     'power.curve': 16
 }
 
-EQUIPMENT_TYPES = {
+EQUIPMENT_TYPES: dict[str, int] = {
     'fins': 1,
     'kickboard': 2,
     'paddles': 3,
@@ -75,7 +75,7 @@ EQUIPMENT_TYPES = {
     'snorkel': 5
 }
 
-STROKE_TYPES = {
+STROKE_TYPES: dict[str, int] = {
     'any_stroke': 1,
     'backstroke': 2,
     'breaststroke': 3,
@@ -86,7 +86,7 @@ STROKE_TYPES = {
     'mixed': 8
 }
 
-ACTIVITY_TYPES = {
+ACTIVITY_TYPES: dict[str, int] = {
     'running': 1,
     'cycling': 2,
     'hiking': 3,
@@ -226,7 +226,7 @@ ACTIVITY_TYPES = {
     'snorkeling': 250
 }
 
-EVENT_TYPES = {
+EVENT_TYPES: dict[str, int] = {
     'race': 1,
     'recreation': 2,
     'specialEvent': 3,
@@ -238,7 +238,7 @@ EVENT_TYPES = {
     'uncategorized': 9
 }
 
-GOLF_CLUB = {
+GOLF_CLUB: dict[str, int] = {
     'Driver': 1,
     '3 Wood': 2,
     '5 Wood': 3,
@@ -264,7 +264,7 @@ GOLF_CLUB = {
     'Putter': 23
 }
 
-GOLF_FLEX = {
+GOLF_FLEX: dict[str, int] = {
     'Regular': 0,
     'Stiff': 1,
     'Extra Stiff': 2,

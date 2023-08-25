@@ -6,7 +6,7 @@ class Arg(object):
     def __init__(
         self,
         workout
-    ):
+    ) -> None:
         self.workout = workout
 
 

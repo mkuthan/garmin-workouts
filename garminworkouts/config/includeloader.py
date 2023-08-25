@@ -5,7 +5,7 @@ import garminworkouts.config.generator as generator
 
 
 @staticmethod
-def extract_duration(s):
+def extract_duration(s) -> str:
     if 'min' in s:
         duration = s.split('min')[0] + ':00'
     else:
@@ -14,8 +14,8 @@ def extract_duration(s):
 
 
 @staticmethod
-def step_generator(s, duration):
-    d = {}
+def step_generator(s, duration) -> dict:
+    d: dict = {}
 
     if 'recovery' in s:
         d = generator.recovery_step_generator(duration, 'p' in s)
@@ -39,13 +39,13 @@ def step_generator(s, duration):
 
 class IncludeLoader(yaml.SafeLoader):
 
-    def __init__(self, stream):
+    def __init__(self, stream) -> None:
         self._root = os.path.split(stream.name)[0]  # type: ignore
 
         super(IncludeLoader, self).__init__(stream)
 
     def include(self, node):
-        filename = os.path.join(self._root, self.construct_scalar(node))  # type: ignore
+        filename: str = os.path.join(self._root, self.construct_scalar(node))  # type: ignore
 
         if os.path.isfile(filename):
             with open(filename, 'r') as f:
@@ -54,7 +54,7 @@ class IncludeLoader(yaml.SafeLoader):
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
 
-            d = step_generator(s[0], extract_duration(s[1]))
+            d: dict = step_generator(s[0], extract_duration(s[1]))
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]

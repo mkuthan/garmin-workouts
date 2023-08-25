@@ -8,7 +8,7 @@ from garminworkouts.models.fields import _STEP_TYPE, _SPORT_TYPE, _STROKE_TYPE, 
 from garminworkouts.models.fields import _INTENSITY_TYPE, _WORKOUT_TARGET, _EQUIPMENT_TYPE
 
 
-def _garmin_client():
+def _garmin_client() -> GarminClient:
     return GarminClient(
         connect_url="https://connect.garmin.com",
         sso_url="https://sso.garmin.com",
@@ -18,14 +18,14 @@ def _garmin_client():
 
 
 class TypesTestCase(unittest.TestCase):
-    def test_types(self):
+    def test_types(self) -> None:
         with _garmin_client() as connection:
-            types = connection.list_types()
+            types: dict = connection.list_types()
 
             for type in types.keys():
                 for i in range(len(types[type])-1):
                     with self.subTest(type):
-                        elem = types[type][i]
+                        elem: dict = types[type][i]
                         if type == "workoutStepTypes":
                             self.assertEqual(elem[f"{_STEP_TYPE}Id"],
                                              get_step_type(elem[f"{_STEP_TYPE}Key"])[

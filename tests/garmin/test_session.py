@@ -8,20 +8,20 @@ from garminworkouts.garmin.session import connect, disconnect
 
 class SessionTestCase(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.httpserver = HTTPServer()
         self.httpserver.start()
         self.addCleanup(self.httpserver.stop)
 
-        self.url = f"http://{self.httpserver.host}:{self.httpserver.port}"
+        self.url: str = f"http://{self.httpserver.host}:{self.httpserver.port}"
         self.username = "any-username"
         self.password = "any-password"
 
-    def test_already_authenticated(self):
+    def test_already_authenticated(self) -> None:
         self._modern_settings_request(status=200)
         self._try_connect()
 
-    def test_authentication_succeeded(self):
+    def test_authentication_succeeded(self) -> None:
         self._modern_settings_request(status=403)
 
         self.httpserver \
@@ -34,7 +34,7 @@ class SessionTestCase(unittest.TestCase):
 
         self._try_connect()
 
-    def test_authentication_failed_wrong_ticket(self):
+    def test_authentication_failed_wrong_ticket(self) -> None:
         self._modern_settings_request(status=403)
 
         self.httpserver \
@@ -48,7 +48,7 @@ class SessionTestCase(unittest.TestCase):
         with self.assertRaises(requests.exceptions.HTTPError):
             self._try_connect()
 
-    def test_authentication_failed_unknown_ticket(self):
+    def test_authentication_failed_unknown_ticket(self) -> None:
         self._modern_settings_request(status=403)
 
         self.httpserver \
@@ -58,7 +58,7 @@ class SessionTestCase(unittest.TestCase):
         with self.assertRaises(Exception):
             self._try_connect()
 
-    def test_authentication_failed_signin(self):
+    def test_authentication_failed_signin(self) -> None:
         self._modern_settings_request(status=403)
 
         self.httpserver \
@@ -68,7 +68,7 @@ class SessionTestCase(unittest.TestCase):
         with self.assertRaises(requests.exceptions.HTTPError):
             self._try_connect()
 
-    def _try_connect(self):
+    def _try_connect(self) -> None:
         session = connect(connect_url=self.url,
                           sso_url=self.url,
                           username=self.username,
@@ -76,10 +76,10 @@ class SessionTestCase(unittest.TestCase):
                           cookie_jar=None)
         disconnect(session)
 
-    def _modern_settings_request(self, status):
+    def _modern_settings_request(self, status) -> None:
         self.httpserver \
             .expect_request("/modern/settings") \
             .respond_with_data(status=status)
 
-    def _signin_data(self):
+    def _signin_data(self) -> str:
         return f"username={self.username}&password={self.password}&embed=false"

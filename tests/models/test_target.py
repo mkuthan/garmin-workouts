@@ -5,17 +5,17 @@ from garminworkouts.models.target import Target
 
 
 class TestTarget(unittest.TestCase):
-    def test_get_target_type(self):
+    def test_get_target_type(self) -> None:
         for target_type in TARGET_TYPES.keys():
             with self.subTest('Test types'):
-                TT = {
+                TT: dict = {
                     f"{_WORKOUT_TARGET}Id": TARGET_TYPES[target_type],
                     f"{_WORKOUT_TARGET}Key": target_type,
                 }
                 self.assertDictEqual(TT, get_target_type(target_type))
 
-    def test_create_target_assertions(self):
-        targets = [
+    def test_create_target_assertions(self) -> None:
+        targets: list[dict] = [
             {'target': 'no.targe', 'value_one': None, 'value_two': None, 'zone': None, 'secondary': False},
             {'target': 'heart.rate', 'value_one': 120, 'value_two': None, 'zone': None, 'secondary': False},
             {'target': 'heart.rate', 'value_one': None, 'value_two': 120, 'zone': None, 'secondary': False},

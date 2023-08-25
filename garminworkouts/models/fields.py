@@ -37,64 +37,64 @@ _LOCAL = 'local'
 _EXERCISE = 'exercise'
 
 
-_WORKOUT_ID = f'{_WORKOUT}{_ID.capitalize()}'
-_WORKOUT_NAME = f'{_WORKOUT}{_NAME.capitalize()}'
-_WORKOUT_OWNER_ID = f'{_OWNER}{_ID.capitalize()}'
-_WORKOUT_SPORT_TYPE = f'{_SPORT}{_TYPE.capitalize()}'
-_WORKOUT_SEGMENTS = f'{_WORKOUT}{_SEGMENT.capitalize()}s'
-_WORKOUT_STEPS = f'{_WORKOUT}{_STEP.capitalize()}s'
-_WORKOUT_ORDER = f'{_SEGMENT}{_ORDER.capitalize()}'
-_SPORT_TYPE = f'{_SPORT}{_TYPE.capitalize()}'
-_INTENSITY_TYPE = f'{_INTENSITY}{_TYPE.capitalize()}'
-_STEP_TYPE = f'{_STEP}{_TYPE.capitalize()}'
-_CONDITION_TYPE = f'{_CONDITION}{_TYPE.capitalize()}'
-_STROKE_TYPE = f'{_STROKE}{_TYPE.capitalize()}'
-_EQUIPMENT_TYPE = f'{_EQUIPMENT}{_TYPE.capitalize()}'
-_END_CONDITION = f'end{_CONDITION.capitalize()}'
-_WORKOUT_TARGET = f'{_WORKOUT}{_TARGET.capitalize()}{_TYPE.capitalize()}'
+_WORKOUT_ID: str = f'{_WORKOUT}{_ID.capitalize()}'
+_WORKOUT_NAME: str = f'{_WORKOUT}{_NAME.capitalize()}'
+_WORKOUT_OWNER_ID: str = f'{_OWNER}{_ID.capitalize()}'
+_WORKOUT_SPORT_TYPE: str = f'{_SPORT}{_TYPE.capitalize()}'
+_WORKOUT_SEGMENTS: str = f'{_WORKOUT}{_SEGMENT.capitalize()}s'
+_WORKOUT_STEPS: str = f'{_WORKOUT}{_STEP.capitalize()}s'
+_WORKOUT_ORDER: str = f'{_SEGMENT}{_ORDER.capitalize()}'
+_SPORT_TYPE: str = f'{_SPORT}{_TYPE.capitalize()}'
+_INTENSITY_TYPE: str = f'{_INTENSITY}{_TYPE.capitalize()}'
+_STEP_TYPE: str = f'{_STEP}{_TYPE.capitalize()}'
+_CONDITION_TYPE: str = f'{_CONDITION}{_TYPE.capitalize()}'
+_STROKE_TYPE: str = f'{_STROKE}{_TYPE.capitalize()}'
+_EQUIPMENT_TYPE: str = f'{_EQUIPMENT}{_TYPE.capitalize()}'
+_END_CONDITION: str = f'end{_CONDITION.capitalize()}'
+_WORKOUT_TARGET: str = f'{_WORKOUT}{_TARGET.capitalize()}{_TYPE.capitalize()}'
 
-_EVENT_NAME = f'{_EVENT}{_NAME.capitalize()}'
-_EVENT_TIME = f'{_EVENT}{_TIME.capitalize()}{_LOCAL.capitalize()}'
-_COURSE_ID = f'{_COURSE}{_ID.capitalize()}'
+_EVENT_NAME: str = f'{_EVENT}{_NAME.capitalize()}'
+_EVENT_TIME: str = f'{_EVENT}{_TIME.capitalize()}{_LOCAL.capitalize()}'
+_COURSE_ID: str = f'{_COURSE}{_ID.capitalize()}'
 
-_SPORT_TYPE_ID = f'{_SPORT_TYPE}{_ID.capitalize()}'
-_SPORT_TYPE_KEY = f'{_SPORT_TYPE}{_KEY.capitalize()}'
-_INTENSITY_TYPE_ID = f'{_INTENSITY_TYPE}{_ID.capitalize()}'
-_INTENSITY_TYPE_KEY = f'{_INTENSITY_TYPE}{_KEY.capitalize()}'
-_STEP_TYPE_ID = f'{_STEP_TYPE}{_ID.capitalize()}'
-_STEP_TYPE_KEY = f'{_STEP_TYPE}{_KEY.capitalize()}'
-_CONDITION_TYPE_ID = f'{_CONDITION_TYPE}{_ID.capitalize()}'
-_CONDITION_TYPE_KEY = f'{_CONDITION_TYPE}{_KEY.capitalize()}'
-_WORKOUT_TARGET_ID = f'{_WORKOUT_TARGET}{_ID.capitalize()}'
-_WORKOUT_TARGET_KEY = f'{_WORKOUT_TARGET}{_KEY.capitalize()}'
-_STROKE_TYPE_ID = f'{_STROKE_TYPE}{_ID.capitalize()}'
-_STROKE_TYPE_KEY = f'{_STROKE_TYPE}{_KEY.capitalize()}'
-_EQUIPMENT_TYPE_ID = f'{_EQUIPMENT_TYPE}{_ID.capitalize()}'
-_EQUIPMENT_TYPE_KEY = f'{_EQUIPMENT_TYPE}{_KEY.capitalize()}'
-_SECONDARY_TARGET = f'{_SECONDARY}{_TARGET.capitalize()}'
-_SECONDARY_ZONE = f'{_SECONDARY}{_ZONE.capitalize()}'
-_WEIGHT_VALUE = f'{_WEIGHT}{_VALUE.capitalize()}'
-_WEIGHT_UNIT = f'{_WEIGHT}{_UNIT.capitalize()}'
-_UNIT_ID = f'{_UNIT}{_ID.capitalize()}'
-_UNIT_KEY = f'{_UNIT}{_KEY.capitalize()}'
-_STEP_ORDER = f'{_STEP}{_ORDER.capitalize()}'
-_EXERCISE_NAME = f'{_EXERCISE}{_NAME.capitalize()}'
-_STEPS = f'{_STEP}s'
-_CHILD_STEP_ID = f'child{_STEP.capitalize()}{_ID.capitalize()}'
+_SPORT_TYPE_ID: str = f'{_SPORT_TYPE}{_ID.capitalize()}'
+_SPORT_TYPE_KEY: str = f'{_SPORT_TYPE}{_KEY.capitalize()}'
+_INTENSITY_TYPE_ID: str = f'{_INTENSITY_TYPE}{_ID.capitalize()}'
+_INTENSITY_TYPE_KEY: str = f'{_INTENSITY_TYPE}{_KEY.capitalize()}'
+_STEP_TYPE_ID: str = f'{_STEP_TYPE}{_ID.capitalize()}'
+_STEP_TYPE_KEY: str = f'{_STEP_TYPE}{_KEY.capitalize()}'
+_CONDITION_TYPE_ID: str = f'{_CONDITION_TYPE}{_ID.capitalize()}'
+_CONDITION_TYPE_KEY: str = f'{_CONDITION_TYPE}{_KEY.capitalize()}'
+_WORKOUT_TARGET_ID: str = f'{_WORKOUT_TARGET}{_ID.capitalize()}'
+_WORKOUT_TARGET_KEY: str = f'{_WORKOUT_TARGET}{_KEY.capitalize()}'
+_STROKE_TYPE_ID: str = f'{_STROKE_TYPE}{_ID.capitalize()}'
+_STROKE_TYPE_KEY: str = f'{_STROKE_TYPE}{_KEY.capitalize()}'
+_EQUIPMENT_TYPE_ID: str = f'{_EQUIPMENT_TYPE}{_ID.capitalize()}'
+_EQUIPMENT_TYPE_KEY: str = f'{_EQUIPMENT_TYPE}{_KEY.capitalize()}'
+_SECONDARY_TARGET: str = f'{_SECONDARY}{_TARGET.capitalize()}'
+_SECONDARY_ZONE: str = f'{_SECONDARY}{_ZONE.capitalize()}'
+_WEIGHT_VALUE: str = f'{_WEIGHT}{_VALUE.capitalize()}'
+_WEIGHT_UNIT: str = f'{_WEIGHT}{_UNIT.capitalize()}'
+_UNIT_ID: str = f'{_UNIT}{_ID.capitalize()}'
+_UNIT_KEY: str = f'{_UNIT}{_KEY.capitalize()}'
+_STEP_ORDER: str = f'{_STEP}{_ORDER.capitalize()}'
+_EXERCISE_NAME: str = f'{_EXERCISE}{_NAME.capitalize()}'
+_STEPS: str = f'{_STEP}s'
+_CHILD_STEP_ID: str = f'child{_STEP.capitalize()}{_ID.capitalize()}'
 _ITERATIONS = 'numberOfIterations'
 _REPEAT = 'smartRepeat'
 _COMPARE = 'compare'
-_STEP_ID = f'{_STEP}{_ID.capitalize()}'
-_END_CONDITION_VALUE = f'{_END_CONDITION}{_VALUE.capitalize()}'
-_END_CONDITION_COMPARE = f'{_END_CONDITION}{_COMPARE.capitalize()}'
-_END_CONDITION_ZONE = f'{_END_CONDITION}{_ZONE.capitalize()}'
+_STEP_ID: str = f'{_STEP}{_ID.capitalize()}'
+_END_CONDITION_VALUE: str = f'{_END_CONDITION}{_VALUE.capitalize()}'
+_END_CONDITION_COMPARE: str = f'{_END_CONDITION}{_COMPARE.capitalize()}'
+_END_CONDITION_ZONE: str = f'{_END_CONDITION}{_ZONE.capitalize()}'
 _REPEAT_GROUP = 'RepeatGroupDTO'
 _EXECUTABLE_STEP = 'ExecutableStepDTO'
-_PREFERRED_END_CONDITION_UNIT = f'preferredEnd{_CONDITION.capitalize()}{_UNIT.capitalize()}'
+_PREFERRED_END_CONDITION_UNIT: str = f'preferredEnd{_CONDITION.capitalize()}{_UNIT.capitalize()}'
 
 
 @staticmethod
-def get_sport_type(sport_type):
+def get_sport_type(sport_type) -> dict:
     return {
             _SPORT_TYPE_ID: SPORT_TYPES[sport_type],
             _SPORT_TYPE_KEY: sport_type,
@@ -102,7 +102,7 @@ def get_sport_type(sport_type):
 
 
 @staticmethod
-def get_intensity_type(target_type):
+def get_intensity_type(target_type) -> dict:
     return {
             _INTENSITY_TYPE_ID: INTENSITY_TYPES[target_type],
             _INTENSITY_TYPE_KEY: target_type,
@@ -110,14 +110,14 @@ def get_intensity_type(target_type):
 
 
 @staticmethod
-def get_target_fields(secondary):
-    target = _TARGET if not secondary else _SECONDARY_TARGET
-    zone = _ZONE if not secondary else _SECONDARY_ZONE
+def get_target_fields(secondary) -> tuple[str, str]:
+    target: str = _TARGET if not secondary else _SECONDARY_TARGET
+    zone: str = _ZONE if not secondary else _SECONDARY_ZONE
     return target, zone
 
 
 @staticmethod
-def get_step_type(step_type):
+def get_step_type(step_type) -> dict:
     return {
         _STEP_TYPE_ID: STEP_TYPES[step_type],
         _STEP_TYPE_KEY: step_type,
@@ -125,7 +125,7 @@ def get_step_type(step_type):
 
 
 @staticmethod
-def get_end_condition(end_condition):
+def get_end_condition(end_condition) -> dict:
     return {
         _CONDITION_TYPE_ID: END_CONDITIONS[end_condition],
         _CONDITION_TYPE_KEY: end_condition,
@@ -133,7 +133,7 @@ def get_end_condition(end_condition):
 
 
 @staticmethod
-def get_target_type(target_type):
+def get_target_type(target_type) -> dict:
     return {
         _WORKOUT_TARGET_ID: TARGET_TYPES[target_type],
         _WORKOUT_TARGET_KEY: target_type,
@@ -141,7 +141,7 @@ def get_target_type(target_type):
 
 
 @staticmethod
-def get_stroke_type(stroke_type):
+def get_stroke_type(stroke_type) -> dict:
     return {
         _STROKE_TYPE_ID: STROKE_TYPES[stroke_type],
         _STROKE_TYPE_KEY: stroke_type,
@@ -149,7 +149,7 @@ def get_stroke_type(stroke_type):
 
 
 @staticmethod
-def get_equipment_type(equipment_type):
+def get_equipment_type(equipment_type) -> dict:
     return {
         _EQUIPMENT_TYPE_ID: EQUIPMENT_TYPES[equipment_type],
         _EQUIPMENT_TYPE_KEY: equipment_type,
@@ -157,7 +157,7 @@ def get_equipment_type(equipment_type):
 
 
 @staticmethod
-def get_weight(weight):
+def get_weight(weight) -> dict:
     return {
         _WEIGHT_VALUE: weight,
         _WEIGHT_UNIT: {

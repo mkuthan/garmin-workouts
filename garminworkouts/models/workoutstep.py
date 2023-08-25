@@ -25,28 +25,28 @@ class WorkoutStep:
         weight=None,
         equipment=None,
         stroke=None,
-    ):
+    ) -> None:
         '''Valid end condition values:
         - distance: '2.0km', '1.125km', '1.6km'
         - time: 0:40, 4:20
         - lap.button
         '''
-        self.order = order
-        self.child_step_id = child_step_id
-        self.description = description
+        self.order: str = order
+        self.child_step_id: str = child_step_id
+        self.description: str = description
         self.step_type = step_type
-        self.end_condition = end_condition
-        self.end_condition_value = end_condition_value
-        self.target = target or Target()
-        self.secondary_target = secondary_target or Target()
-        self.category = category,
+        self.end_condition: str = end_condition
+        self.end_condition_value: str | None = end_condition_value
+        self.target: Target = target or Target()
+        self.secondary_target: Target = secondary_target or Target()
+        self.category: tuple = category,
         self.exerciseName = exerciseName,
         self.weight = weight,
-        self.equipment = equipment
-        self.stroke = stroke
+        self.equipment: str | None = equipment
+        self.stroke: str | None = stroke
 
     @staticmethod
-    def end_condition_unit(end_condition):
+    def end_condition_unit(end_condition) -> dict | None:
         if end_condition:
             if end_condition.endswith('km'):
                 return {_UNIT_KEY: 'kilometer'}
@@ -72,7 +72,7 @@ class WorkoutStep:
         return get_end_condition('lap.button')
 
     @staticmethod
-    def _end_condition_key(step_config):
+    def _end_condition_key(step_config) -> str:
         return step_config[_CONDITION_TYPE_KEY]
 
     @staticmethod
@@ -87,44 +87,44 @@ class WorkoutStep:
                 return WorkoutStep._str_to_calories(duration)
             elif WorkoutStep._str_is_ppm(duration):
                 return WorkoutStep._str_to_ppm(duration)
-        return float(0)
+        return int(0)
 
     @staticmethod
-    def _str_is_time(string):
+    def _str_is_time(string) -> bool:
         return True if ':' in string else False
 
     @staticmethod
-    def _str_to_seconds(time_string):
+    def _str_to_seconds(time_string) -> int:
         return Duration(str(time_string)).to_seconds()
 
     @staticmethod
-    def _str_is_distance(string):
+    def _str_is_distance(string) -> bool:
         return True if 'm' in string.lower() else False
 
     @staticmethod
-    def _str_to_meters(string):
+    def _str_to_meters(string) -> int:
         if 'km' in string.lower():
-            return float(string.lower().split('km')[0])*1000.0
-        return float(string.lower().split('m')[0])
+            return int(float(string.lower().split('km')[0])*1000)
+        return int(string.lower().split('m')[0])
 
     @staticmethod
-    def _str_is_calories(string):
+    def _str_is_calories(string) -> bool:
         return True if 'cals' in string else False
 
     @staticmethod
-    def _str_to_calories(string):
-        return float(string.lower().split('cals')[0])
+    def _str_to_calories(string) -> int:
+        return int(string.lower().split('cals')[0])
 
     @staticmethod
-    def _str_is_ppm(string):
+    def _str_is_ppm(string) -> bool:
         return True if 'ppm' in string else False
 
     @staticmethod
-    def _str_to_ppm(string):
-        return float(string.lower().split('ppm')[0])
+    def _str_to_ppm(string) -> int:
+        return int(string.lower().split('ppm')[0])
 
     @staticmethod
-    def parsed_end_condition_value(end_condition_value):
+    def parsed_end_condition_value(end_condition_value) -> int | None:
         if end_condition_value:
             if 'm' in end_condition_value:
                 # Heart zones
@@ -144,7 +144,7 @@ class WorkoutStep:
         else:
             return None
 
-    def create_workout_step(self):
+    def create_workout_step(self) -> dict:
         return {
             _TYPE: _EXECUTABLE_STEP,
             _STEP_ID: None,

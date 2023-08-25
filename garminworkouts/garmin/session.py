@@ -9,7 +9,7 @@ def connect(connect_url, sso_url, username, password, cookie_jar):
     session = cloudscraper.CloudScraper()
     _load_cookie_jar(session, cookie_jar)
 
-    url = connect_url + "/modern/settings"
+    url: str = connect_url + "/modern/settings"
     response = session.get(url, allow_redirects=False)
     if response.status_code != 200:
         _authenticate(session, connect_url, sso_url, username, password)
@@ -17,30 +17,30 @@ def connect(connect_url, sso_url, username, password, cookie_jar):
     return session
 
 
-def disconnect(session):
+def disconnect(session) -> None:
     _save_cookie_jar(session)
     session.close()
 
 
-def _load_cookie_jar(session, cookie_jar):
+def _load_cookie_jar(session, cookie_jar) -> None:
     if cookie_jar:
         session.cookies = cookiejar.LWPCookieJar(cookie_jar)
         if os.path.isfile(cookie_jar):
             session.cookies.load(ignore_discard=True, ignore_expires=True)
 
 
-def _save_cookie_jar(session):
+def _save_cookie_jar(session) -> None:
     if isinstance(session.cookies, cookiejar.LWPCookieJar):
         session.cookies.save(ignore_discard=True, ignore_expires=True)
 
 
-def _authenticate(session, connect_url, sso_url, username, password):
-    url = sso_url + "/sso/signin"
-    headers = {'origin': 'https://sso.garmin.com'}
-    params = {
+def _authenticate(session, connect_url, sso_url, username, password) -> None:
+    url: str = sso_url + "/sso/signin"
+    headers: dict[str, str] = {'origin': 'https://sso.garmin.com'}
+    params: dict[str, str] = {
         "service": "https://connect.garmin.com/modern"
     }
-    data = {
+    data: dict = {
         "username": username,
         "password": password,
         "embed": "false"

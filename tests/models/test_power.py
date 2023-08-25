@@ -4,9 +4,9 @@ from garminworkouts.models.power import Power
 
 
 class PowerTestCase(unittest.TestCase):
-    def test_valid_power_to_watts_conversion(self):
+    def test_valid_power_to_watts_conversion(self) -> None:
         ftp = 200
-        valid_powers = [
+        valid_powers: list = [
             ("0", 0),
             ("0%", 0),
             ("10", 20),
@@ -29,18 +29,18 @@ class PowerTestCase(unittest.TestCase):
             with self.subTest(msg="Expected %d watts for '%s' (ftp=%s)" % (watts, power, ftp)):
                 self.assertEqual(Power(power).to_watts(ftp), watts)
 
-    def test_invalid_power_to_watts_conversion(self):
+    def test_invalid_power_to_watts_conversion(self) -> None:
         ftp = 200
-        invalid_powers = ["-1", "-1%", "2500", "2500%", "-1W", "5000W", "foo", "foo%", "fooW"]
+        invalid_powers: list[str] = ["-1", "-1%", "2500", "2500%", "-1W", "5000W", "foo", "foo%", "fooW"]
 
         for power in invalid_powers:
             with self.subTest(msg="Expected ValueError for '%s" % power):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp)
 
-    def test_power_to_watts_conversion_with_valid_ftp(self):
+    def test_power_to_watts_conversion_with_valid_ftp(self) -> None:
         power = "50"
-        valid_ftps = [
+        valid_ftps: list = [
             (0, 0),
             (100, 50),
             (250, 125),
@@ -50,7 +50,7 @@ class PowerTestCase(unittest.TestCase):
             with self.subTest(msg="Expected %d watts for ftp '%s' (power=%s)" % (watts, ftp, power)):
                 self.assertEqual(Power(power).to_watts(ftp), watts)
 
-    def test_power_to_watts_conversion_with_invalid_ftp(self):
+    def test_power_to_watts_conversion_with_invalid_ftp(self) -> None:
         power = "100"
         invalid_ftps = [-1, 1000, "foo"]
         for ftp in invalid_ftps:

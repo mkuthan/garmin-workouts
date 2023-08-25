@@ -1,6 +1,6 @@
-def recovery_step_generator(duration, pace=False):
-    step = {}
-    step['type'] = 'interval'
+def recovery_step_generator(duration, pace=False) -> dict:
+    step: dict = {}
+    step['type'] = 'recovery'
     step['duration'] = duration
     if pace:
         step['target'] = 'RECOVERY_PACE'
@@ -11,8 +11,8 @@ def recovery_step_generator(duration, pace=False):
     return step
 
 
-def aerobic_step_generator(duration, pace=False):
-    step = {}
+def aerobic_step_generator(duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     if pace:
@@ -24,8 +24,8 @@ def aerobic_step_generator(duration, pace=False):
     return step
 
 
-def lt_step_generator(duration):
-    step = {}
+def lt_step_generator(target: str, duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'HALF_MARATHON_PACE'
@@ -34,8 +34,8 @@ def lt_step_generator(duration):
     return step
 
 
-def lr_step_generator(duration, pace=False):
-    step = {}
+def lr_step_generator(duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     if pace:
@@ -47,8 +47,8 @@ def lr_step_generator(duration, pace=False):
     return step
 
 
-def marathon_step_generator(duration, pace=False):
-    step = {}
+def marathon_step_generator(target: str, duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     if pace:
@@ -60,8 +60,8 @@ def marathon_step_generator(duration, pace=False):
     return step
 
 
-def hm_step_generator(duration):
-    step = {}
+def hm_step_generator(target: str, duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = 'HALF_MARATHON_PACE'
@@ -70,8 +70,8 @@ def hm_step_generator(duration):
     return step
 
 
-def tuneup_step_generator(duration):
-    step = {}
+def tuneup_step_generator(duration) -> dict:
+    step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = '10KM_PACE'
@@ -80,8 +80,8 @@ def tuneup_step_generator(duration):
     return step
 
 
-def cooldown_step_generator(duration, pace=False):
-    step = {}
+def cooldown_step_generator(duration, pace=False) -> dict:
+    step: dict = {}
     step['type'] = 'cooldown'
     step['duration'] = duration
     if pace:
