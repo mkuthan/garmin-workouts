@@ -33,7 +33,7 @@ class Power:
 
     @staticmethod
     def power_zones(zones: list[float], ftp) -> None:
-        power_zones: list[int] = [round(int(ftp.to_watts()) * zone) for zone in zones]
+        power_zones: list[int] = [round(int(ftp.to_watts(ftp.power[:-1])) * zone) for zone in zones]
         print('::Power Zones::')
         for i in range(len(zones)-1):
-            print('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1])
+            print('Zone ', i, 'w: ', power_zones[i], '-', power_zones[i + 1], 'w')
