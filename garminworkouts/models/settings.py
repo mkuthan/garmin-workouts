@@ -12,7 +12,12 @@ def settings(args) -> tuple[list[Workout], str]:
     workout_files: list[str] = glob.glob(args.workout)
     plan = str('')
     race: date = date.today()
-    planning: dict = configreader.read_config(r'planning.yaml')
+    try:
+        planning: dict = configreader.read_config(r'planning.yaml')
+    except FileNotFoundError:
+        print('Planning does not exist')
+        planning = {}
+
     if not workout_files:
         try:
             workout_files = glob.glob(planning[args.workout]['workouts'])
