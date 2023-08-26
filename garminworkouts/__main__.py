@@ -70,8 +70,8 @@ def command_workout_import(args, event=False) -> None:
 
 
 def command_event_import(args) -> None:
+    planning: dict = configreader.read_config(r'planning.yaml')
     try:
-        planning: dict = configreader.read_config(r'planning.yaml')
         event_files: list = glob.glob(planning[args.workout]['workouts'])
     except KeyError:
         print(args.workout + ' not found in planning, please check "planning.yaml"')
@@ -109,11 +109,11 @@ def command_trainingplan_metrics(args) -> None:
     duration: list[timedelta] = [timedelta(seconds=0) for i in range(24, -11, -1)]
     tss: list[float] = [float(0) for i in range(24, -11, -1)]
 
-    day_min = None
-    day_max = None
+    day_min: date | None = None
+    day_max: date | None = None
 
     for workout in workouts:
-        workout_name = workout.get_workout_name()
+        workout_name: str = workout.get_workout_name()
         day_d, week, day = workout.get_workout_date()
         if day_min is None:
             day_min = day_d
@@ -138,12 +138,12 @@ def command_trainingplan_metrics(args) -> None:
                   + 'rTSS: ' + str(tss[i]))
 
 
-def command_workout_export(args):
+def command_workout_export(args) -> None:
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
-            workout_id = Workout.extract_workout_id(workout)
-            workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join(args.directory, str(workout_id)) + ".fit"
+            workout_id: str = Workout.extract_workout_id(workout)
+            workout_name: str = Workout.extract_workout_name(workout)
+            file: str = os.path.join(args.directory, str(workout_id)) + ".fit"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout(workout_id, file)
 
@@ -201,13 +201,13 @@ def command_workout_export_yaml(args):
             connection.download_workout_yaml(workout_id, file)
 
 
-def command_workout_list(args):
+def command_workout_list(args) -> None:
     with _garmin_client(args) as connection:
         for workout in connection.list_workouts():
             Workout.print_workout_summary(workout)
 
 
-def command_event_list(args):
+def command_event_list(args) -> None:
     with _garmin_client(args) as connection:
         for event in connection.list_events():
             Event.print_event_summary(event)
