@@ -1,0 +1,19 @@
+name: "12_1"
+description: "W1-Hills + Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &HILL
+    - !include ..\..\inc\hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - &SERIES
+    - !include ..\..\inc\10>lt_1min.yam
+    - !include ..\..\inc\walk_2min.yam
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - !include ..\..\inc\walk_5min.yam

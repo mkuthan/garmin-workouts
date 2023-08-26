@@ -1,0 +1,6 @@
+name: "16_5"
+description: "Additional"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\recovery_6.yaml

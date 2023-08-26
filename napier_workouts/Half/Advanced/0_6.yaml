@@ -1,0 +1,11 @@
+name: "0_6"
+description: "W2-Activation"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\aerobic_30min.yaml
+  - &HILL
+    - !include ..\..\inc\hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL

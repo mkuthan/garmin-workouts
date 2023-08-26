@@ -1,0 +1,8 @@
+name: "19_3"
+description: "W2-Tempo Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\recovery_30min.yaml
+  - !include ..\..\inc\lt_10min.yaml
+  - !include ..\..\inc\precovery_10min.yaml

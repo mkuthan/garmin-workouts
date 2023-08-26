@@ -1,0 +1,12 @@
+name: "18_6"
+description: "W3-Short Run + Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\aerobic_4.yaml
+  - &INTERVAL
+    - !include ..\..\inc\20<hm_3.yaml
+    - !include ..\..\inc\precovery_1.yaml
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

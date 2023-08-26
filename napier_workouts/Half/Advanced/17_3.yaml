@@ -1,0 +1,18 @@
+name: "17_3"
+description: "W2-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &INTERVAL
+    - { type: interval, duration: "1:30", target: 10>THRESHOLD_PACE, description: Tempo Run }
+    - { type: recovery, duration: "1:30", target: RECOVERY_PACE, description: Recovery }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

@@ -1,0 +1,8 @@
+name: "10_6"
+description: "W3-Tempo Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/aerobic_4.yaml
+  - !include ../../inc/15<hm_14.yaml
+  - !include ../../inc/aerobic_4.yaml

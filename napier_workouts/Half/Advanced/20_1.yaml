@@ -1,0 +1,14 @@
+name: "20_1"
+description: "W1-Sprints"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &SPRINT !include ..\..\inc\sprint.yaml
+  - *SPRINT 
+  - *SPRINT 
+  - *SPRINT 
+  - *SPRINT 
+  - *SPRINT 
+  - *SPRINT 
+  - *SPRINT 

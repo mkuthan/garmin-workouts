@@ -1,0 +1,23 @@
+name: "4_3"
+description: "W2-Hills + Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &HILL
+    - !include ..\..\inc\hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - &SERIES
+    - !include ..\..\inc\lt_4min.yaml
+    - !include ..\..\inc\paerobic_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

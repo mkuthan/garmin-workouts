@@ -1,0 +1,2 @@
+- { type: interval, duration: "0:15", target: 1KM_PACE, description: Hill climbing }
+- !include ..\..\inc\walk_2min.yaml

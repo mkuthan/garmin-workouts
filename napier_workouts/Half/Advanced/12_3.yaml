@@ -1,0 +1,19 @@
+name: "12_3"
+description: "W2-VO2max + Anaerobic Training"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &SERIES
+      - { type: interval, duration: "0.8km", target: 3KM_PACE, description: Series }
+      - !include ..\..\inc\walk_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - &ANAER
+      - { type: interval, duration: "0.2km", target: 1500M_PACE, description: Series }
+      - !include ..\..\inc\walk_1min.yaml
+  - *ANAER
+  - *ANAER
+  - *ANAER

@@ -1,0 +1,19 @@
+name: "9_1"
+description: "W1-Hills"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &HILL
+    - !include ..\..\inc\hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - &SERIES
+    - { type: interval, duration: "2:00", target: VO2MAX_PACE, description: Hill Series }
+    - !include ..\..\inc\recovery_4min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

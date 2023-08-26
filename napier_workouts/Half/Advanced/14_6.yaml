@@ -1,0 +1,15 @@
+name: "14_6"
+description: "W3-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &INTERVAL
+    - !include ..\..\inc\hm_1.yaml
+    - !include ..\..\inc\paerobic_1.yaml
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

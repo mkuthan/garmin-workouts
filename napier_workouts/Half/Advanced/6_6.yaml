@@ -1,0 +1,10 @@
+name: "6_6"
+description: "W3-Progression Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - !include ..\..\inc\45<hm_6.yaml
+  - !include ..\..\inc\30<hm_6.yaml
+  - !include ..\..\inc\15<hm_6.yaml
+  - !include ..\..\inc\hm_6.yaml

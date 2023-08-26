@@ -1,0 +1,15 @@
+name: "5_3"
+description: "W2-Hills + Progression Run"
+sport: "running"
+
+steps:
+  - !include ..\..\inc\warmup.yaml
+  - &HILL
+    - !include ..\..\inc\hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - !include ..\..\inc\15<lt_9min.yaml
+  - !include ..\..\inc\10<lt_9min.yaml
+  - !include ..\..\inc\5<lt_9min.yaml
+  - !include ..\..\inc\lt_9min.yaml
