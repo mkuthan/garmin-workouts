@@ -2,6 +2,15 @@ version: '3'
 
 services:
   bot:
-    container_name: workout-bot
+    container_name: garminworkouts-bot
+    environment:
+      GARMIN_USERNAME: ${GARMIN_USERNAME}
+      GARMIN_PASSWORD: ${GARMIN_PASSWORD}
+      vV02: ${vV02}
+      fmin: ${fmin}
+      fmax: ${fmax}
+      rFTP: ${rFTP}
+      cFTP: ${cFTP}
+      BOT_TOKEN: ${BOT_TOKEN}
     build: ./
     

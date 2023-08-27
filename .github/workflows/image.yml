@@ -16,8 +16,6 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          - linux/arm/v6
-          - linux/arm/v7
           - linux/arm64
     steps:
       -
@@ -49,6 +47,15 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
+            GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+            vV02: ${{ secrets.vV02 }}
+            fmin: ${{ secrets.fmin }}
+            fmax: ${{ secrets.fmax }}
+            rFTP: ${{ secrets.rFTP }}
+            cFTP: ${{ secrets.cFTP }}
+            BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
       -
         name: Export digest
