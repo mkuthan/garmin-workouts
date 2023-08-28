@@ -1,2 +1,2 @@
-- { type: "run", duration: "1km", target: HEART_RATE_ZONE_3, description: "5k run" }
-- { type: "run", duration: "4km", target: HEART_RATE_ZONE_4, description: "5k run" }
+- { type: "interval", duration: "1km", target: HEART_RATE_ZONE_3, description: "5k run" }
+- { type: "interval", duration: "4km", target: HEART_RATE_ZONE_4, description: "5k run" }
