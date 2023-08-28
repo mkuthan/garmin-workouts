@@ -1,3 +1,4 @@
+WALK: {type: "pace.zone", min: "0.45", max: "0.375" }
 RECOVERY_PACE: {type: "pace.zone", min: "0.70", max: "0.59" }
 AEROBIC_PACE:  {type: "pace.zone", min: "0.75", max: "0.64" }
 LONG_RUN_PACE: {type: "pace.zone", min: "0.78", max: "0.69" }

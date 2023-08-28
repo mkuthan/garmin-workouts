@@ -127,7 +127,7 @@ def walk_step_generator(duration) -> dict:
     step: dict = {}
     step['type'] = 'recovery'
     step['duration'] = duration
-    step['target'] = 'NO_TARGET'
+    step['target'] = 'WALK'
     step['description'] = 'Walk'
 
     return step
