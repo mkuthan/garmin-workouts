@@ -5,6 +5,7 @@
 ./.github
 .dockerignore
 .flake8
+*.env
 sample_planning.yaml
 session.json
 Dockerfile

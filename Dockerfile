@@ -1,5 +1,29 @@
 FROM python:3.11.5-slim-bookworm
 
+ARG GARMIN_USERNAME
+ENV GARMIN_USERNAME=$GARMIN_USERNAME
+
+ARG GARMIN_PASSWORD
+ENV GARMIN_PASSWORD=$GARMIN_PASSWORD
+
+ARG vV02
+ENV vV02=$vV02
+
+ARG fmin
+ENV fmin=$fmin
+
+ARG fmax
+ENV fmax=$fmax
+
+ARG rFTP
+ENV rFTP=$rFTP
+
+ARG cFTP
+ENV cFTP=$cFTP
+
+ARG BOT_TOKEN
+ENV BOT_TOKEN=$BOT_TOKEN
+
 WORKDIR /usr/src/app
 
 RUN apt-get -y update && apt-get install -y gcc g++
