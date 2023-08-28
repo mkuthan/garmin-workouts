@@ -13,7 +13,7 @@ def settings(args) -> tuple[list[Workout], str]:
     plan = str('')
     race: date = date.today()
     try:
-        planning: dict = configreader.read_config(r'planning.yaml')
+        planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
     except FileNotFoundError:
         print('Planning does not exist')
         planning = {}

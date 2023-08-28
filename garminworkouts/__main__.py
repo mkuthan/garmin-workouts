@@ -70,7 +70,7 @@ def command_workout_import(args, event=False) -> None:
 
 
 def command_event_import(args) -> None:
-    planning: dict = configreader.read_config(r'planning.yaml')
+    planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
     try:
         event_files: list = glob.glob(planning[args.workout]['workouts'])
     except KeyError:

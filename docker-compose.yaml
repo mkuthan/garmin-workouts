@@ -14,4 +14,6 @@ services:
         rFTP: ${rFTP}
         cFTP: ${cFTP}
         BOT_TOKEN: ${BOT_TOKEN}
-    
+    volumes:
+      - ./events:/events
+      - ./events/planning:/events/planning

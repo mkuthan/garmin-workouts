@@ -39,11 +39,11 @@ class Arg(object):
         cookie_jar,
         connect_url,
         sso_url
-    ):
-        self.workout = workout,
-        self.cookie_jar = cookie_jar,
-        self.connect_url = connect_url,
-        self.sso_url = sso_url,
+    ) -> None:
+        self.workout: tuple = workout,
+        self.cookie_jar: tuple = cookie_jar,
+        self.connect_url: tuple = connect_url,
+        self.sso_url: tuple = sso_url,
 
 
 logging.basicConfig(
@@ -54,9 +54,9 @@ logger = logging.getLogger(__name__)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a message with three inline buttons attached."""
-    planning = configreader.read_config(r'planning.yaml')
+    planning: dict = configreader.read_config(r'/events/planning/planning.yaml')
 
-    keyboard = [
+    keyboard: list[list[InlineKeyboardButton]] = [
         [
             InlineKeyboardButton("Option 1", callback_data="1"),
             InlineKeyboardButton("Option 2", callback_data="2"),
@@ -87,7 +87,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await query.edit_message_text(text=f"Selected option: {query.data}")
 
     if workout == 'Races':
-        cmd = str("python -m garminworkouts import-event ") + workout
+        cmd: str = str("python -m garminworkouts import-event ") + workout
     else:
         cmd = str("python -m garminworkouts import-workout ") + workout
 
