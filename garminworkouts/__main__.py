@@ -173,6 +173,7 @@ def command_workout_export_yaml(args):
             tp_subtype: str = tp['subtype']
             tp_level: str = tp['level']
             tp_version: str = tp['version']
+            tp_name: str = ''.join(letter for letter in tp['name'] if letter.isalnum())
 
             tp = connection.schedule_training_plan(tp[_ID], str(date.today()))
 
@@ -184,7 +185,12 @@ def command_workout_export_yaml(args):
                     workout_name: str = f'R{week}_{day}'
                     workout: dict = connection.get_workout(workout_id)
 
-                    newpath: str = os.path.join('.\\trainingplans', tp_type, tp_subtype, tp_level, tp_version)
+                    if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower()
+                                                                   == tp_name.lower()):
+                        newpath: str = os.path.join('.', 'trainingplans', tp_type, tp_subtype, tp_level, tp_version)
+                    else:
+                        newpath: str = os.path.join('.', 'trainingplans', tp_type, tp_subtype, tp_level, tp_version,
+                                                    tp_name)
                     if not os.path.exists(newpath):
                         os.makedirs(newpath)
 
@@ -197,7 +203,7 @@ def command_workout_export_yaml(args):
         for workout in connection.list_workouts():
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join('.\\exported', str(workout_id)) + ".yaml"
+            file = os.path.join('.', 'exported', str(workout_id)) + ".yaml"
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout_yaml(workout_id, file)
 
