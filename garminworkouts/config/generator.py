@@ -27,17 +27,20 @@ def aerobic_step_generator(duration, pace=False) -> dict:
 def lt_step_generator(target: str, duration, pace=False) -> dict:
     if '>' in target:
         d, target = target.split('>')
+        s: str = d + 's quicker than '
         d: str = d + '>'
     elif '<' in target:
         d, target = target.split('<')
+        s = d + 's slower than '
         d = d + '<'
     else:
         d = ''
+        s = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = d + 'THRESHOLD_PACE'
-    step['description'] = 'Threshold pace'
+    step['description'] = s + 'Threshold pace'
 
     return step
 
@@ -58,17 +61,20 @@ def lr_step_generator(duration, pace=False) -> dict:
 def marathon_step_generator(target: str, duration, pace=False) -> dict:
     if '>' in target:
         d, target = target.split('>')
-        d = d + '>'
+        s: str = d + 's quicker than '
+        d: str = d + '>'
     elif '<' in target:
         d, target = target.split('<')
+        s = d + 's slower than '
         d = d + '<'
     else:
-        d: str = ''
+        d = ''
+        s = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = d + 'MARATHON_PACE'
-    step['description'] = 'Marathon pace run'
+    step['description'] = s + 'Marathon pace run'
 
     return step
 
@@ -76,17 +82,20 @@ def marathon_step_generator(target: str, duration, pace=False) -> dict:
 def hm_step_generator(target: str, duration, pace=False) -> dict:
     if '>' in target:
         d, target = target.split('>')
-        d = d + '>'
+        s: str = d + 's quicker than '
+        d: str = d + '>'
     elif '<' in target:
         d, target = target.split('<')
+        s = d + 's slower than '
         d = d + '<'
     else:
-        d: str = ''
+        d = ''
+        s = ''
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = d + 'HALF_MARATHON_PACE'
-    step['description'] = 'Half Marathon pace'
+    step['description'] = s + 'Half Marathon pace'
 
     return step
 
