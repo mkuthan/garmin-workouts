@@ -158,9 +158,9 @@ def command_workout_export_yaml(args):
             workout = connection.get_external_workout(code, account.locale)
             workout[_WORKOUT_ID] = code
 
-            workout_id = Workout.extract_workout_id(workout)
+            workout_id: str = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
-            newpath = os.path.join('.\\workouts', sport, difficulty)
+            newpath = os.path.join('.', 'workouts', sport, difficulty)
             if not os.path.exists(newpath):
                 os.makedirs(newpath)
             file = os.path.join(newpath, str(workout_id)) + ".yaml"
