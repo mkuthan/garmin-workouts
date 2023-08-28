@@ -1,0 +1,112 @@
+description: null
+name: Sprint Triathlon Level 1 W12D1 - Max Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.4km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: cooldown

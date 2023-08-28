@@ -1,0 +1,82 @@
+description: null
+name: Sprint Triathlon Level 1 W09D1 - Tempo Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:15
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.8km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:30
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: interval

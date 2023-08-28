@@ -1,0 +1,39 @@
+description: "\u2022 Walk, brisk pace, 5 minutes. Run, easy pace, 55 minutes. Repeat\
+  \ 3 times.\r\n \u2022 Cool down, 5 to 10 minutes.\r\n \u2022 Stretch."
+name: W11D7-Long Run
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:55:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

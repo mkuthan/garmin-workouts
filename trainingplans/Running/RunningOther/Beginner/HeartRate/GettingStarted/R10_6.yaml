@@ -1,0 +1,15 @@
+description: "\u2022 Run a 5K race, mostly Z3.\n \u2022 Cool down, 5-10 minutes.\n\
+  \ \u2022 Stretch.\n"
+name: W10D6-5K Run
+sport: running
+steps:
+- description: ''
+  duration: 4.989km
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

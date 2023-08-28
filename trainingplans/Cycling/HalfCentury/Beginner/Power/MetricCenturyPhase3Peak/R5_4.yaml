@@ -1,0 +1,67 @@
+description: '60 Minute Workout
+
+  - Quick warm up.
+
+  - Ride 15 minutes at tempo. 3 minutes rest. Repeat 2 times.
+
+
+  Can be done indoors or on a climb; do whatever works best for your situation. Building
+  on earlier work you''ve done, this workout should start to stretch the amount of
+  time you can hold a higher power output. '
+name: 15 Min. Tempo Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery

@@ -1,0 +1,12 @@
+description: "3 Hour Workout \nThe goal is to complete a distance close to the distance\
+  \ you'll be racing, if not exceeding it. Intensity should be relatively low. Pack\
+  \ plenty of water and food, and bring tools and spare tubes so that you don't get\
+  \ stranded if you have a mechanical problem."
+name: Mountain Bike
+sport: cycling
+steps:
+- description: ''
+  duration: '3:00:00'
+  target:
+    type: no.target
+  type: interval

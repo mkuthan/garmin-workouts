@@ -1,0 +1,17 @@
+description: '3.5 Hour Workout
+
+  - Quick warm up.
+
+  - Ride at a steady pace in zone 2 most of the time.
+
+
+  Can be done as cross-training early in the season, if weather makes it difficult
+  to ride outdoors.'
+name: Aerobic
+sport: cycling
+steps:
+- description: ''
+  duration: '3:30:00'
+  target:
+    type: no.target
+  type: interval

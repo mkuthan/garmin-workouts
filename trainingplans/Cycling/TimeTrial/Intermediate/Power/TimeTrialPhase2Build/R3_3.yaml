@@ -1,0 +1,135 @@
+description: "90 Minute Workout\n- Warm up.\n- Ride 2 minutes in zone 5. 8 minutes\
+  \ rest. Repeat 4 times. \n- Ride 30 minutes in zone 2.\n- Cool down.\n\nThis workout\
+  \ is designed to boost your VO2 max. The goal is to hold a steady power for each\
+  \ of the five 2 minute intervals, but you should find it hard to finish each interval."
+name: Zone 5 Intervals (4 Times in 90 Min.)
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:05
+  target:
+    type: power.zone
+    zone: '7'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:30:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery

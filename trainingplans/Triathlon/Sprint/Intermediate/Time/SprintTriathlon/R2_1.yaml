@@ -1,0 +1,115 @@
+description: Count your strokes on every third 50m of your 200s and aim to swim the
+  same speed as last week taking 1 or 2 fewer strokes.
+name: Sprint Triathlon Level 2 W02D1 - Steady Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.3km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:10
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: cooldown

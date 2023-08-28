@@ -1,0 +1,113 @@
+description: '90 Minute Workout
+
+  - Warm up.
+
+  - Ride 2 minutes in zone 5, with a cadence above 90 RPM. Rest as much as needed.
+  Repeat 5 times.
+
+  - Ride 30 minutes in zone 2.
+
+
+  This workout is designed to boost your VO2 max. and your "speed endurance." The
+  goal is to hold a steady power for each of the five 2 minute intervals, but you
+  should find it hard to finish each interval.'
+name: Zone 5 Intervals (5 Times)
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval

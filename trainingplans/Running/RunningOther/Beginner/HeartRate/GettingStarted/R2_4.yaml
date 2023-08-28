@@ -1,0 +1,45 @@
+description: "\u2022 Walk, Z2, 5 minutes. Run easy, Z3, 2 minutes. Repeat 2 times.\n\
+  \ \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W02D4-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

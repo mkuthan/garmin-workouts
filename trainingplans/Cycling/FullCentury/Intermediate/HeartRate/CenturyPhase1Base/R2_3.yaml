@@ -1,0 +1,100 @@
+description: '60 Minute Workout
+
+  - Warm up.
+
+  - Ride 3 minutes hard in the high end of zone 5. Your heart rate won''t reach that
+  level until the end of the interval. If you don''t have a power meter, you will
+  have to estimate the effort.
+
+  - Ride 10 minutes hard at the high end of zone 4 or low end of zone 5.
+
+  - Cool down.
+
+
+  These intervals should be hard, but you shouldn''t have trouble finishing them.'
+name: Short Zone 5 Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:05
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:10:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval

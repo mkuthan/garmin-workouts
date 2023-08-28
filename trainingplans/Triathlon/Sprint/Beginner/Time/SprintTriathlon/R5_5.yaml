@@ -1,0 +1,73 @@
+description: Compare times and stroke counts to the same session in Week 3. You should
+  be going faster with the same stroke count or using fewer strokes for the same speed.
+name: Sprint Triathlon Level 1 W05D5 - Easy Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.2km
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.3km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.3km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.3km
+  equipment: pull_buoy
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  duration: 0.05km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  duration: 0.05km
+  equipment: kickboard
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,91 @@
+description: '60 Minute Workout
+
+  - Race warm up.
+
+  - Ride 15 minutes at threshold. 3 minutes rest. Repeat 2 times.
+
+
+  This workout should be done on a course that replicates the time trial course as
+  closely as possible. Perform this workout in the position you intend to race your
+  time trial. This is as an opportunity to test your race prep routine.'
+name: '15 Min. Time Trial Intervals '
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:05
+  target:
+    type: power.zone
+    zone: '7'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery

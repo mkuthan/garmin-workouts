@@ -1,0 +1,141 @@
+description: "90 Minute Workout\n- Quick warm up.\n- 3 pyramids of effort.\n   - 3\
+  \ minutes in zone 3.\n   - 2 minutes in zone 4.\n   - 1 minute in zone 5.\n   -\
+  \ 2 minutes in zone 4.\n   - 3 minutes in zone 3.\n- Ride at a steady pace for 30\
+  \ minutes.\n- 5 minutes at recovery pace between pyramids.\nThis is designed to\
+  \ stretch your ability to recover from higher intensity efforts, while still riding\
+  \ at a high effort."
+name: Pyramids
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:01:00
+  target:
+    type: heart.rate.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:30:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval

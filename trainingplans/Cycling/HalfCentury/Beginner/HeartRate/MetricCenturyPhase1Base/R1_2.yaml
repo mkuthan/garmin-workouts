@@ -1,0 +1,75 @@
+description: '60 Minute Workout
+
+  - Quick warm up.
+
+  - Ride 5 minutes at tempo. Rest as much as needed. Repeat 3 times.
+
+
+  Try to ride on the high end of zone 3 for the intervals. You can either spread out
+  the intervals or have them close together, depending on where you''re riding and
+  how you''re feeling.'
+name: 5 Min. Tempo Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: recovery

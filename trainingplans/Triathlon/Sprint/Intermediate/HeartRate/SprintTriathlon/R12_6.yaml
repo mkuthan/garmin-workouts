@@ -1,0 +1,87 @@
+description: null
+name: Sprint Triathlon Level 2 W12D6a - Easy Swim
+sport: swimming
+steps:
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.025km
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:00:20
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  target:
+    type: no.target
+  type: rest
+- description: ''
+  duration: 0.1km
+  target:
+    type: no.target
+  type: cooldown
+- description: ''
+  target:
+    type: no.target
+  type: rest

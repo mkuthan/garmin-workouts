@@ -1,0 +1,39 @@
+description: "\u2022 Run, easy pace, 5 minutes.  Walk, brisk pace, 3 minutes. Repeat\
+  \ 2 times.\n \u2022 Cool down, 5-10 minutes.\n \u2022 Stretch."
+name: W04D2-Intervals
+sport: running
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:03:00
+  target:
+    type: no.target
+  type: recovery
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

@@ -1,0 +1,32 @@
+description: "\u2022 Run, easy effort, 15 minutes.\r\n\u2022 Run, moderate effort,\
+  \ 12 minutes.\r\n\u2022 Run, med-high effort, 8 minutes.\r\n\u2022 Run, easy effort,\
+  \ 5 minutes.\r\n\u2022 Cool down, 5 to 10 minutes.\r\n\u2022 Stretch.\r\n\u2022\
+  \ Aiming to maintain the same pace as the build run the week before but for slightly\
+  \ longer."
+name: W10D3-Build Run
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:12:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

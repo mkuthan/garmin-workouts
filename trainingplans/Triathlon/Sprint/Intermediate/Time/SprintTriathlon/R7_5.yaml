@@ -1,0 +1,41 @@
+description: "\u2022 Bike, easy effort, 90 RPM, 30 minutes. Bike, moderate effort,\
+  \ 75 RPM, 10 minutes. Repeat 3 times.\r\n\u2022 Cool down, 5 to 10 minutes.\r\n\u2022\
+  \ Stretch.\r\n\u2022 Stay in the seat over the hills and practice pedaling full\
+  \ circle with no dead spots."
+name: W07D5-Hilly Bike
+sport: cycling
+steps:
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

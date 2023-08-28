@@ -1,0 +1,239 @@
+description: '60 Minute Workout
+
+  - Warm up.
+
+  - Ride 20 seconds hard, 40 seconds at tempo. Repeat 4 times.
+
+  - 5 minutes rest.
+
+  - Ride 20 seconds hard, 40 seconds at tempo. Repeat 4 times.
+
+  - 5 minutes rest.
+
+  - Ride 20 seconds hard, 40 seconds at tempo. Repeat 4 times.
+
+  - Ride 15 minutes to complete the hour.
+
+
+  This is a really tough workout that you can use to improve your ability to recover
+  from repeated hard efforts at the end of the ride or race. Try to hold an effort
+  that allows you to complete all 4 reps within each set without dropping off. '
+name: 20 Sec. Zone 5 by 40 Sec. Tempo Intervals
+sport: cycling
+steps:
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: warmup
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '4'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:30
+  target:
+    type: power.zone
+    zone: '5'
+  type: warmup
+- description: ''
+  duration: 0:02:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:05
+  target:
+    type: power.zone
+    zone: '7'
+  type: warmup
+- description: ''
+  duration: 0:03:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: warmup
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:00:20
+  target:
+    type: power.zone
+    zone: '5'
+  type: interval
+- description: ''
+  duration: 0:00:40
+  target:
+    type: power.zone
+    zone: '3'
+  type: recovery
+- description: ''
+  duration: 0:05:00
+  target:
+    type: power.zone
+    zone: '1'
+  type: recovery
+- description: ''
+  duration: 0:15:00
+  target:
+    type: power.zone
+    zone: '2'
+  type: interval

@@ -1,0 +1,20 @@
+description: "\u2022 Warm up, light mobility work, 5 to 10 minutes.\n\u2022 Run, Z1,\
+  \ 30 minutes.\n\u2022 Cool down, 5 to 10 minutes.\n\u2022 Stretch.\n\u2022 Keep\
+  \ working on your technique, even when running slowly. Don't get sloppy. Pick up\
+  \ knees, stand tall and keep RPM around 93 to 95."
+name: W06D3-Easy Run
+sport: running
+steps:
+- description: ''
+  target:
+    type: no.target
+  type: warmup
+- description: ''
+  duration: 0:30:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

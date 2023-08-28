@@ -1,0 +1,14 @@
+description: " \u2022 Run off bike, easy effort, 10 minutes. \n\u2022 Cool down, 5\
+  \ to 10 minutes.\n \u2022 Stretch.\n \u2022 Aim for 30-50 grams of carbs per hour."
+name: W02D6b-Easy Run
+sport: running
+steps:
+- description: ''
+  duration: 0:10:00
+  target:
+    type: no.target
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

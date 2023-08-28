@@ -1,0 +1,35 @@
+description: "\u2022 Run, Z1, 15 minutes.\n \u2022 Run, Z2, 12 minutes.\n \u2022 Run,\
+  \ Z3, 8 minutes.\n \u2022 Run, Z1, 5 minutes.\n \u2022 Cool down, 5 to 10 minutes.\n\
+  \ \u2022 Stretch.\n \u2022 Aiming to maintain the same pace as the build run the\
+  \ week before but for slightly longer."
+name: W10D3-Build Run
+sport: running
+steps:
+- description: ''
+  duration: 0:15:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  duration: 0:12:00
+  target:
+    type: heart.rate.zone
+    zone: '2'
+  type: interval
+- description: ''
+  duration: 0:08:00
+  target:
+    type: heart.rate.zone
+    zone: '3'
+  type: interval
+- description: ''
+  duration: 0:05:00
+  target:
+    type: heart.rate.zone
+    zone: '1'
+  type: interval
+- description: ''
+  target:
+    type: no.target
+  type: cooldown

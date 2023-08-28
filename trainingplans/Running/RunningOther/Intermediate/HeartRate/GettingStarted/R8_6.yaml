@@ -1,0 +1,9 @@
+description: Run a 5K race.
+name: W08D6-5K Race
+sport: running
+steps:
+- description: ''
+  duration: 4.989km
+  target:
+    type: no.target
+  type: interval
