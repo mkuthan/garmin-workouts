@@ -85,19 +85,20 @@ def command_event_import(args) -> None:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
 
         for event in events:
-            existing_event: dict | None = existing_events_by_name.get(event.name)
-            existing_workout: dict | None = existing_workouts_by_name.get(event.name)
-            workout_id: str | None = Workout.extract_workout_id(existing_workout) if existing_workout else None
+            if event.date >= date.today():
+                existing_event: dict | None = existing_events_by_name.get(event.name)
+                existing_workout: dict | None = existing_workouts_by_name.get(event.name)
+                workout_id: str | None = Workout.extract_workout_id(existing_workout) if existing_workout else None
 
-            if existing_event:
-                event_id: str = Event.extract_event_id(existing_event)
-                payload: dict = event.create_event(event_id, workout_id)
-                logging.info("Updating event '%s'", event.name)
-                connection.update_event(event_id, payload)
-            else:
-                payload = event.create_event(workout_id=workout_id)
-                logging.info("Creating event '%s'", event.name)
-                connection.save_event(payload)
+                if existing_event:
+                    event_id: str = Event.extract_event_id(existing_event)
+                    payload: dict = event.create_event(event_id, workout_id)
+                    logging.info("Updating event '%s'", event.name)
+                    connection.update_event(event_id, payload)
+                else:
+                    payload = event.create_event(workout_id=workout_id)
+                    logging.info("Creating event '%s'", event.name)
+                    connection.save_event(payload)
 
         command_workout_import(args, event=True)
 
