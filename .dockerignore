@@ -3,6 +3,7 @@
 ./tests
 ./exported
 ./.github
+./events
 .dockerignore
 .flake8
 *.env

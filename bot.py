@@ -54,7 +54,7 @@ logger = logging.getLogger(__name__)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a message with three inline buttons attached."""
-    planning: dict = configreader.read_config(r'/events/planning/planning.yaml')
+    planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
 
     keyboard: list[list[InlineKeyboardButton]] = [
         [
@@ -91,12 +91,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     else:
         cmd = str("python -m garminworkouts import-workout ") + workout
 
-    returned_value = subprocess.call(cmd, shell=True)
+    returned_value = subprocess.run(cmd, shell=True, capture_output=True)
 
-    if returned_value == 0:
-        output = 'Completed'
-    else:
-        output = f'Error {str(returned_value)}'
+    output: str = f'{str(returned_value)}'
 
     assert query.message is not None
     await query.message.reply_text(text=output)
