@@ -93,7 +93,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     returned_value = subprocess.run(cmd, shell=True, capture_output=True)
 
-    output: str = f'{str(returned_value)}'
+    output: str = f'{str(returned_value)}\n'
+
+    with open('./debug.log', 'r') as file:
+        output: str = output + file.read()
 
     assert query.message is not None
     await query.message.reply_text(text=output)

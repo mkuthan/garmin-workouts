@@ -4,6 +4,7 @@ import argparse
 import glob
 import logging
 import os
+import sys
 from datetime import date, timedelta
 
 from garminworkouts.config import configreader
@@ -387,10 +388,18 @@ def main() -> None:
     args = parser.parse_args()
 
     logging_level: int = logging.DEBUG if args.debug else logging.INFO
-    logging.basicConfig(level=logging_level)
+    logging.basicConfig(level=logging_level,
+                        handlers=[
+                            logging.FileHandler(debug_file),
+                            logging.StreamHandler(sys.stdout)
+                        ])
 
     args.func(args)
 
 
+debug_file = './debug.log'
+
 if __name__ == "__main__":
+    if os.path.exists(debug_file):
+        os.remove(debug_file)
     main()
