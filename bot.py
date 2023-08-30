@@ -56,15 +56,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a message with three inline buttons attached."""
     planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
 
-    keyboard: list[list[InlineKeyboardButton]] = [
-        [
-            InlineKeyboardButton("Option 1", callback_data="1"),
-            InlineKeyboardButton("Option 2", callback_data="2"),
-        ],
-        [InlineKeyboardButton("Workout import", callback_data="3")],
-    ]
-
-    keyboard = []
+    keyboard: list[list[InlineKeyboardButton]] = []
     for key in planning.keys():
         keyboard.append([InlineKeyboardButton(key, callback_data=key)])
 
@@ -96,7 +88,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     output: str = f'{str(returned_value)}\n'
 
     with open('./debug.log', 'r') as file:
-        output: str = output + file.read()
+        output: str = file.read()
 
     assert query.message is not None
     await query.message.reply_text(text=output)

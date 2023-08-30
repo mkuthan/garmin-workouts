@@ -9,3 +9,4 @@ planning.yaml
 exported/*.yaml
 events/*.yaml
 .env
+debug.log
