@@ -349,7 +349,7 @@ def main() -> None:
     parser_list.set_defaults(func=command_event_list)
 
     parser_schedule = subparsers.add_parser("schedule",
-                                            description="Schedule a workouts")
+                                            description="Schedule a workout")
     parser_schedule.add_argument("--workout_id",
                                  "-w",
                                  required=True,
@@ -364,7 +364,7 @@ def main() -> None:
                                        description="Get workout")
     parser_get.add_argument("--id",
                             required=True,
-                            help="Workout id, use list command to get workouts identifiers")
+                            help="Workout id, use list command to get workouts' identifiers")
     parser_get.set_defaults(func=command_workout_get)
 
     parser_get = subparsers.add_parser("get-event",

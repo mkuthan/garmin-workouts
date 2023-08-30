@@ -90,6 +90,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     with open('./debug.log', 'r') as file:
         output: str = file.read()
 
+    if output == '':
+        output = output + '\nCompleted'
+
     assert query.message is not None
     await query.message.reply_text(text=output)
 
