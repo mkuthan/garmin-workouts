@@ -12,7 +12,10 @@ def extract_duration(s) -> str:
         mm = str(int(sec) % 60)
         duration = hh + ':' + mm + ':00'
     elif 's' in s:
-        duration: str = '00:' + s.split('s')[0]
+        sec: str = s.split('s')[0]
+        mm = str(int(sec) // 60)
+        ss = str(int(sec) % 60)
+        duration: str = mm + ':' + ss
     elif ':' in s:
         duration = s
     elif 'km' in s:

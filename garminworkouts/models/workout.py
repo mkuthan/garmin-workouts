@@ -109,7 +109,7 @@ class Workout(object):
                     duration_meters: float = duration
                     duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
 
-                sec = sec + duration_secs  # type: ignore
+                sec = sec + duration_secs
                 meters: float = meters + duration_meters
 
         try:
@@ -143,7 +143,7 @@ class Workout(object):
 
         self.norm_pwr = math.normalized_power(xs) if xs else float(0)
         self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP.to_watts(self.cFTP))
-        self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP.to_watts(self.cFTP))  # type: ignore
+        self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP.to_watts(self.cFTP))
 
     def _get_target_value(self, target, key) -> float:
         if isinstance(target, dict):
@@ -190,6 +190,29 @@ class Workout(object):
         else:
             return get_target_type(self.target[target][_TYPE])
 
+    def _target_variations(self, target: str, target_type: str, val: str) -> float:
+        d: str = ''
+        if '>' in target and target_type == 'pace.zone':
+            d, target = target.split('>')
+            return 1000.0/(1000.0/self._get_target_value(target, key=val) - float(d))
+        elif '<' in target and target_type == 'pace.zone':
+            d, target = target.split('<')
+            return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))
+        elif '>' in target and target_type == 'heart.rate.zone':
+            d, target = target.split('>')
+            s: float = ((self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin) + 0.06
+                        ) * self.vVO2.to_pace()
+            s = 1000.0/(1000.0/s - float(d))
+            return round((s/self.vVO2.to_pace()-0.06)*(self.fmax - self.fmin) + self.fmin)
+        elif '<' in target and target_type == 'heart.rate.zone':
+            d, target = target.split('<')
+            s: float = ((self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin) + 0.06
+                        ) * self.vVO2.to_pace()
+            s = 1000.0/(1000.0/s + float(d))
+            return round((s/self.vVO2.to_pace()-0.06)*(self.fmax - self.fmin) + self.fmin)
+        else:
+            return float(0)
+
     def _target_value(self, step_config, val, secondary=False) -> float:
         target: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
         d: str = ''
@@ -213,41 +236,35 @@ class Workout(object):
             return self._get_target_value(target, key=val)
         else:
             if target not in self.target:
-                if '>' in target and target_type == 'pace.zone':
-                    d, target = target.split('>')
-                    return 1000.0/(1000.0/self._get_target_value(target, key=val) - float(d))  # type: ignore
-                elif '<' in target and target_type == 'pace.zone':
-                    d, target = target.split('<')
-                    return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))  # type: ignore
-                else:
-                    return float(0)
+                return self._target_variations(target, target_type, val)
         return self._get_target_value(target, key=val)
 
-    def _equivalent_pace(self, step):
+    def _equivalent_pace(self, step) -> float:
         if isinstance(step[_TARGET], dict):
             target_type = step[_TARGET][_TYPE]
         else:
-            target = step[_TARGET]
+            target: str = step[_TARGET]
+            d: str = ''
             if '>' in target:
                 d, target = target.split('>')
             elif '<' in target:
                 d, target = target.split('<')
-            target_type = self.target[target][_TYPE]
+            target_type: str = self.target[target][_TYPE]
 
         if (target_type == 'power.zone') or (target_type == 'cadence.zone') or \
            (target_type == 'speed.zone') or (target_type == 'pace.zone'):
-            t2 = self._target_value(step, 'max')
-            t1 = self._target_value(step, 'min')
+            t2: float = self._target_value(step, 'max')
+            t1: float = self._target_value(step, 'min')
         elif target_type == 'heart.rate.zone':
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
 
-            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()  # type: ignore
-            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()  # type: ignore
+            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
+            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
         else:
-            t2 = 0
-            t1 = 0
-        return min(t1, t2)  # + 0.5 * (max(t1, t2) - min(t1, t2))  # type: ignore
+            t2 = 0.0
+            t1 = 0.0
+        return min(t1, t2)  # + 0.5 * (max(t1, t2) - min(t1, t2))
 
     def _generate_description(self):
         description: str = ''
