@@ -6,9 +6,7 @@ steps:
   - !include ..\..\inc\warmup.yaml
   - &SERIES
     - { type: interval, duration: "2km", target: 10KM_PACE, description: Series }
-    - !include ..\..\inc\paerobic_3min.yaml
-  - *SERIES
-  - *SERIES
+    - !include ..\..\inc\paerobic_1.yaml
   - *SERIES
   - *SERIES
   - *SERIES
