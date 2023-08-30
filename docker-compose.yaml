@@ -16,4 +16,3 @@ services:
         BOT_TOKEN: ${BOT_TOKEN}
     volumes:
       - ./events:/usr/src/app/events
-      - ./events/planning:/usr/src/app/events/planning
