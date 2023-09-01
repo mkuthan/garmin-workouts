@@ -36,7 +36,7 @@ def command_trainingplan_reset(args) -> None:
                 connection.delete_workout(workout_id)
 
 
-def command_workout_import(args, event=False) -> None:
+def command_trainingplan_import(args, event=False) -> None:
     workouts, plan = settings(args)
 
     with _garmin_client(args) as connection:
@@ -101,7 +101,7 @@ def command_event_import(args) -> None:
                     logging.info("Creating event '%s'", event.name)
                     connection.save_event(payload)
 
-        command_workout_import(args, event=True)
+        command_trainingplan_import(args, event=True)
 
 
 def command_trainingplan_metrics(args) -> None:
@@ -294,61 +294,65 @@ def main() -> None:
 
     subparsers = parser.add_subparsers(title="Commands")
 
-    parser_import = subparsers.add_parser("trainingplan-reset",
-                                          description="Reset workout(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("workout",
-                               help="File(s) with workout(s) to reset, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.set_defaults(func=command_trainingplan_reset)
-
-    parser_import = subparsers.add_parser("import-workout",
-                                          description="Import workout(s) from file(s) into Garmin Connect")
+    parser_import = subparsers.add_parser("trainingplan-import",
+                                          description="Import workout(s) from file(s) into Garmin Connect ")
     parser_import.add_argument("workout",
                                help="File(s) with workout(s) to import, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.set_defaults(func=command_workout_import)
+                                    "wildcards are supported e.g: sample_workouts/*.yaml "
+                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import.set_defaults(func=command_trainingplan_import)
 
-    parser_import = subparsers.add_parser("import-event",
+    parser_import = subparsers.add_parser("trainingplan-reset",
+                                          description="Reset workout(s) from file(s) into Garmin Connect")
+    parser_import.add_argument("trainingplan",
+                               help="File(s) with workout(s) to reset, "
+                                    "wildcards are supported e.g: sample_workouts/*.yaml "
+                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import.set_defaults(func=command_trainingplan_reset)
+
+    parser_import = subparsers.add_parser("trainingplan-metrics",
+                                          description="Get workout(s) metrics from file(s)")
+    parser_import.add_argument("trainingplan",
+                               help="File(s) with workout(s) to import, "
+                                    "wildcards are supported e.g: sample_workouts/*.yaml "
+                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import.set_defaults(func=command_trainingplan_metrics)
+
+    parser_list = subparsers.add_parser("trainingplan-list", description="List all Garmin trainingplans")
+    parser_list.set_defaults(func=command_trainingplan_list)
+
+    parser_import = subparsers.add_parser("event-import",
                                           description="Import event(s) from file(s) into Garmin Connect")
     parser_import.add_argument("workout",
                                help="File(s) with event(s) to import, "
                                     "wildcards are supported e.g: events/*.yaml")
     parser_import.set_defaults(func=command_event_import)
 
-    parser_import = subparsers.add_parser("trainingplan-metrics",
-                                          description="Get workout(s) metrics from file(s)")
-    parser_import.add_argument("workout",
-                               help="File(s) with workout(s) to import, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.set_defaults(func=command_trainingplan_metrics)
-
-    parser_import = subparsers.add_parser("zones",
-                                          description="Get training zones")
-    parser_import.set_defaults(func=command_user_zones)
-
-    parser_export = subparsers.add_parser("export-workout",
-                                          description="Export all workouts from Garmin Connect\
-                                              and save them into a directory")
-    parser_export.add_argument("directory",
-                               type=writeable_dir,
-                               help="Destination directory where workout(s) will be exported")
-    parser_export.set_defaults(func=command_workout_export)
-
-    parser_export = subparsers.add_parser("export-yaml",
-                                          description="Export all workouts from Garmin Connect\
-                                              and save them into a directory")
-    parser_export.set_defaults(func=command_workout_export_yaml)
-
-    parser_list = subparsers.add_parser("trainingplan-list", description="List all workouts")
-    parser_list.set_defaults(func=command_trainingplan_list)
-
-    parser_list = subparsers.add_parser("workout-list", description="List all workouts")
-    parser_list.set_defaults(func=command_workout_list)
+    parser_get = subparsers.add_parser("event-get",
+                                       description="Get event")
+    parser_get.add_argument("--id",
+                            required=True,
+                            help="Event id, use list command to get event identifiers")
+    parser_get.set_defaults(func=command_event_get)
 
     parser_list = subparsers.add_parser("event-list", description="List all events")
     parser_list.set_defaults(func=command_event_list)
 
-    parser_schedule = subparsers.add_parser("schedule",
+    parser_get = subparsers.add_parser("workout-get",
+                                       description="Get workout")
+    parser_get.add_argument("--id",
+                            required=True,
+                            help="Workout id, use list command to get workouts' identifiers")
+    parser_get.set_defaults(func=command_workout_get)
+
+    parser_delete = subparsers.add_parser("workout-delete",
+                                          description="Delete workout")
+    parser_delete.add_argument("--id",
+                               required=True,
+                               help="Workout id, use list command to get workouts identifiers")
+    parser_delete.set_defaults(func=command_workout_delete)
+
+    parser_schedule = subparsers.add_parser("workout-schedule",
                                             description="Schedule a workout")
     parser_schedule.add_argument("--workout_id",
                                  "-w",
@@ -360,26 +364,25 @@ def main() -> None:
                                  help="Date to which schedule the workout")
     parser_schedule.set_defaults(func=command_workout_schedule)
 
-    parser_get = subparsers.add_parser("get-workout",
-                                       description="Get workout")
-    parser_get.add_argument("--id",
-                            required=True,
-                            help="Workout id, use list command to get workouts' identifiers")
-    parser_get.set_defaults(func=command_workout_get)
+    parser_export = subparsers.add_parser("workout-export",
+                                          description="Export all workouts from Garmin Connect\
+                                              and save them into a directory")
+    parser_export.add_argument("directory",
+                               type=writeable_dir,
+                               help="Destination directory where workout(s) will be exported")
+    parser_export.set_defaults(func=command_workout_export)
 
-    parser_get = subparsers.add_parser("get-event",
-                                       description="Get event")
-    parser_get.add_argument("--id",
-                            required=True,
-                            help="Event id, use list command to get event identifiers")
-    parser_get.set_defaults(func=command_event_get)
+    parser_export = subparsers.add_parser("workout-export-yaml",
+                                          description="Export all workouts from Garmin Connect\
+                                              and save them into a directory")
+    parser_export.set_defaults(func=command_workout_export_yaml)
 
-    parser_delete = subparsers.add_parser("delete-workout",
-                                          description="Delete workout")
-    parser_delete.add_argument("--id",
-                               required=True,
-                               help="Workout id, use list command to get workouts identifiers")
-    parser_delete.set_defaults(func=command_workout_delete)
+    parser_list = subparsers.add_parser("workout-list", description="List all workouts")
+    parser_list.set_defaults(func=command_workout_list)
+
+    parser_import = subparsers.add_parser("user-zones",
+                                          description="Get training zones")
+    parser_import.set_defaults(func=command_user_zones)
 
     parser_delete = subparsers.add_parser("update-types",
                                           description="Update types")
