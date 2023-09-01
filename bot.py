@@ -79,9 +79,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await query.edit_message_text(text=f"Selected option: {query.data}")
 
     if workout == 'Races':
-        cmd: str = str("python -m garminworkouts import-event ") + workout
+        cmd: str = str("python -m garminworkouts event-import ") + workout
     else:
-        cmd = str("python -m garminworkouts import-workout ") + workout
+        cmd = str("python -m garminworkouts trainingplan-import ") + workout
 
     returned_value = subprocess.run(cmd, shell=True, capture_output=True)
 
