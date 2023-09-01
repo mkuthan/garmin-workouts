@@ -1,9 +1,0 @@
-description: null
-name: Race
-sport: cycling
-steps:
-- description: ''
-  duration: '2:00:00'
-  target:
-    type: no.target
-  type: interval
