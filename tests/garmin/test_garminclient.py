@@ -20,7 +20,7 @@ class GarminClientTestCase(unittest.TestCase):
             .expect_request("/modern/settings") \
             .respond_with_data()
 
-        url = f"http://{self.httpserver.host}:{self.httpserver.port}"
+        url: str = f"http://{self.httpserver.host}:{self.httpserver.port}"
         self.client = GarminClient(
             connect_url=url,
             sso_url=url,

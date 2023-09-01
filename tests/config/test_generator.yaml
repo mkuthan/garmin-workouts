@@ -1,0 +1,23 @@
+name: "Test"
+
+steps:
+  - !include recovery_1.yaml
+  - !include recovery_1,5.yaml
+  - !include recovery_1min.yaml
+  - !include recovery_80min.yaml
+  - !include recovery_50s.yaml
+  - !include recovery_90s.yaml
+  - !include precovery_1.yaml
+  - !include paerobic_1.yaml
+  - !include aerobic_5.yaml
+  - !include lt_20min.yaml
+  - !include 10<lt_20min.yaml
+  - !include 10>lt_20min.yaml
+  - !include plr_1.yaml
+  - !include lr_5.yaml
+  - !include marathon_20min.yaml
+  - !include 10<marathon_20min.yaml
+  - !include 10>marathon_20min.yaml
+  - !include hm_20min.yaml
+  - !include 10<hm_20min.yaml
+  - !include 10>hm_20min.yaml

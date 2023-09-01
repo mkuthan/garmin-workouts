@@ -2,20 +2,15 @@ import os
 
 import yaml
 import garminworkouts.config.generator as generator
+import datetime
 
 
 @staticmethod
 def extract_duration(s) -> str:
     if 'min' in s:
-        sec: str = s.split('min')[0]
-        hh = str(int(sec) // 60)
-        mm = str(int(sec) % 60)
-        duration = hh + ':' + mm + ':00'
+        duration = str(datetime.timedelta(minutes=float(s.split('min')[0])))
     elif 's' in s:
-        sec: str = s.split('s')[0]
-        mm = str(int(sec) // 60)
-        ss = str(int(sec) % 60)
-        duration: str = mm + ':' + ss
+        duration = str(datetime.timedelta(seconds=float(s.split('s')[0])))
     elif ':' in s:
         duration = s
     elif 'km' in s:
@@ -23,7 +18,7 @@ def extract_duration(s) -> str:
     elif 'm' in s:
         duration = s
     else:
-        duration = s + 'km'
+        duration = s.replace(',', '.') + 'km'
     return duration
 
 

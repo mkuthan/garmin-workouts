@@ -74,7 +74,7 @@ def marathon_step_generator(target: str, duration, pace=False) -> dict:
     step['type'] = 'interval'
     step['duration'] = duration
     step['target'] = d + 'MARATHON_PACE'
-    step['description'] = s + 'Marathon pace run'
+    step['description'] = s + 'Marathon pace'
 
     return step
 
