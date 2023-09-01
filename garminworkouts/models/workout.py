@@ -262,8 +262,16 @@ class Workout(object):
             t2: float = self._target_value(step, 'max')
             t1: float = self._target_value(step, 'min')
         elif target_type == 'heart.rate.zone':
-            t2 = self._target_value(step, 'max')
-            t1 = self._target_value(step, 'min')
+            if 'zone' in step['target']:
+                zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1]
+                hr_zones: list[int] = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+
+                z = int(step['target']['zone'])
+                t2 = hr_zones[z + 1]
+                t1 = hr_zones[z]
+            else:
+                t2 = self._target_value(step, 'max')
+                t1 = self._target_value(step, 'min')
 
             t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
             t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
