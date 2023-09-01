@@ -49,10 +49,10 @@ def command_trainingplan_import(args, event=False) -> None:
             if day_d >= date.today():
                 existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
                 if existing_workout:
-                    workout_id: str = Workout.extract_workout_id(existing_workout)
                     description: str = Workout.extract_workout_description(existing_workout)
                     if event or ((day_d <= date.today() + timedelta(weeks=2))
                                  and description and (plan in description)):
+                        workout_id: str = Workout.extract_workout_id(existing_workout)
                         workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                         payload: dict = workout.create_workout(workout_id, workout_owner_id)
                         logging.info("Updating workout '%s'", workout_name)
@@ -71,7 +71,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
 
 def command_event_import(args) -> None:
-    planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
+    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning') + '.yaml')
     try:
         event_files: list = glob.glob(planning[args.workout]['workouts'])
     except KeyError:
@@ -145,7 +145,7 @@ def command_workout_export(args) -> None:
         for workout in connection.list_workouts():
             workout_id: str = Workout.extract_workout_id(workout)
             workout_name: str = Workout.extract_workout_name(workout)
-            file: str = os.path.join(args.directory, str(workout_id)) + ".fit"
+            file: str = os.path.join(args.directory, str(workout_id) + '.fit')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout(workout_id, file)
 
@@ -164,7 +164,7 @@ def command_workout_export_yaml(args):
             newpath = os.path.join('.', 'workouts', sport, difficulty)
             if not os.path.exists(newpath):
                 os.makedirs(newpath)
-            file = os.path.join(newpath, str(workout_id)) + ".yaml"
+            file = os.path.join(newpath, str(workout_id) + '.yaml')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             export_yaml(workout, file)
 
@@ -204,7 +204,7 @@ def command_workout_export_yaml(args):
         for workout in connection.list_workouts():
             workout_id = Workout.extract_workout_id(workout)
             workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join('.', 'exported', str(workout_id)) + ".yaml"
+            file = os.path.join('.', 'exported', str(workout_id) + '.yaml')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             connection.download_workout_yaml(workout_id, file)
 

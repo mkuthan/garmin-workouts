@@ -1,5 +1,6 @@
 import glob
 import account
+import os
 from garminworkouts.config import configreader
 from datetime import date
 from garminworkouts.models.workout import Workout
@@ -13,7 +14,7 @@ def settings(args) -> tuple[list[Workout], str]:
     plan = str('')
     race: date = date.today()
     try:
-        planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
+        planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
         print('Planning does not exist')
         planning = {}

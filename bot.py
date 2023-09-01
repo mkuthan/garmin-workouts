@@ -13,6 +13,7 @@ import asyncio
 import contextlib
 import logging
 import account
+import os
 
 from telegram import __version__ as TG_VER
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
@@ -54,7 +55,7 @@ logger = logging.getLogger(__name__)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Sends a message with three inline buttons attached."""
-    planning: dict = configreader.read_config(r'./events/planning/planning.yaml')
+    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
     keyboard: list[list[InlineKeyboardButton]] = []
     for key in planning.keys():
