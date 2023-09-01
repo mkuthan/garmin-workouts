@@ -7,10 +7,10 @@ from garminworkouts.models.workout import Workout
 
 
 def settings(args) -> tuple[list[Workout], str]:
-    if isinstance(args.workout, tuple):
-        args.workout = ''.join(args.workout)
+    if isinstance(args.trainingplan, tuple):
+        args.trainingplan = ''.join(args.trainingplan)
 
-    workout_files: list[str] = glob.glob(args.workout)
+    workout_files: list[str] = glob.glob(args.trainingplan)
     plan = str('')
     race: date = date.today()
     try:
@@ -21,12 +21,16 @@ def settings(args) -> tuple[list[Workout], str]:
 
     if not workout_files:
         try:
-            workout_files = glob.glob(planning[args.workout]['workouts'])
-            race = date(planning[args.workout]['year'], planning[args.workout]['month'], planning[args.workout]['day'])
-            plan: str = args.workout
+            workout_files = glob.glob(planning[args.trainingplan]['workouts'])
+            race = date(planning[args.trainingplan]['year'],
+                        planning[args.trainingplan]['month'],
+                        planning[args.trainingplan]['day'])
+            plan: str = args.trainingplan
         except KeyError:
-            if 'year' in planning[args.workout]:
-                print(args.workout + ' not found in planning, please check "planning.yaml"')
+            os.path.exists(args.trainingplan)
+            if '\\' not in args.trainingplan:
+                if 'year' in planning[args.trainingplan]:
+                    print(args.trainingplan + ' not found in planning, please check "planning.yaml"')
 
     workout_configs: list = [configreader.read_config(workout_file) for workout_file in workout_files]
     target: dict = configreader.read_config(r'target.yaml')

@@ -1,14 +1,14 @@
-
+import os
 from garminworkouts.models.settings import settings
 
 
 class Arg(object):
     def __init__(
         self,
-        workout
+        trainingplan
     ) -> None:
-        self.workout = workout
+        self.trainingplan: str = trainingplan
 
 
-args = Arg(workout='./tests/test_configs/*.yaml')
+args = Arg(trainingplan=os.path.join('.', 'tests', 'test_configs', '*.yaml'))
 workouts, plan = settings(args)
