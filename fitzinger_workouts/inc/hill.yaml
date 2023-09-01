@@ -1,2 +1,2 @@
-- { type: interval, duration: '0:10', target: V02MAX_PACE, description: Hills }
+- { type: interval, duration: '0:10', target: VO2MAX_PACE, description: Hills }
 - { type: recovery, duration: '0:20', target: RECOVERY_PACE, description: Recovery pace }
