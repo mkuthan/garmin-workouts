@@ -31,32 +31,35 @@ class Workout(object):
             race=date.today()
             ) -> None:
 
-        self.sport_type: tuple = config[_SPORT].lower() if _SPORT in config else None,
-        self.config: dict = config
-        self.date: dict | None = config[_DATE] if _DATE in config else None
-        self.target: dict = target
-        self.vVO2: Pace = vVO2
-        self.fmin: int = fmin
-        self.fmax: int = fmax
-        self.rFTP: Power = rFTP
-        self.cFTP: Power = cFTP
-        self.plan: str = plan
-        self.race: date = race
+        try:
+            self.sport_type: tuple = config[_SPORT].lower() if _SPORT in config else None,
+            self.config: dict = config
+            self.date: dict | None = config[_DATE] if _DATE in config else None
+            self.target: dict = target
+            self.vVO2: Pace = vVO2
+            self.fmin: int = fmin
+            self.fmax: int = fmax
+            self.rFTP: Power = rFTP
+            self.cFTP: Power = cFTP
+            self.plan: str = plan
+            self.race: date = race
 
-        self.duration = timedelta(seconds=0)
-        self.sec: float = 0
-        self.mileage: float = 0
-        self.tss: float = 0
-        self.ratio: float = 0
-        self.norm_pwr: float = 0
-        self.int_fct: float = 0
+            self.duration = timedelta(seconds=0)
+            self.sec: float = 0
+            self.mileage: float = 0
+            self.tss: float = 0
+            self.ratio: float = 0
+            self.norm_pwr: float = 0
+            self.int_fct: float = 0
 
-        flatten_steps: list = functional.flatten(self.config[_STEPS]) if _STEPS in self.config else []
+            flatten_steps: list = functional.flatten(self.config[_STEPS]) if _STEPS in self.config else []
 
-        if self.sport_type[0] == 'running':
-            self.running_values(flatten_steps)
-        elif self.sport_type[0] == 'cycling':
-            self.cycling_values(flatten_steps)
+            if self.sport_type[0] == 'running':
+                self.running_values(flatten_steps)
+            elif self.sport_type[0] == 'cycling':
+                self.cycling_values(flatten_steps)
+        except KeyError:
+            print(config['name'])
 
     def zones(self) -> None:
         zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1]
@@ -107,7 +110,10 @@ class Workout(object):
                     duration_meters = round(duration_secs * self._equivalent_pace(step))
                 if key == 'distance':
                     duration_meters: float = duration
-                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                    try:
+                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                    except ZeroDivisionError:
+                        duration_secs = float(0)
 
                 sec = sec + duration_secs
                 meters: float = meters + duration_meters
