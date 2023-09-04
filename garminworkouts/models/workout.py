@@ -250,9 +250,9 @@ class Workout(object):
 
         if target_type == 'power.zone':
             if self.sport_type[0] == 'running':
-                return Power(target_value).to_watts(ftp=self.rFTP.power)
+                return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
             elif self.sport_type[0] == 'cycling':
-                return Power(target_value).to_watts(ftp=self.cFTP.power)
+                return Power(target_value).to_watts(ftp=self.cFTP.power[:-1])
             else:
                 return float(0)
         elif target_type == 'cadence.zone':
@@ -366,7 +366,7 @@ class Workout(object):
                 d, target = target.split('<')
             target_type: str = self.target[target][_TYPE]
 
-        if (target_type == 'power.zone') or (target_type == 'cadence.zone') or \
+        if (target_type == 'cadence.zone') or \
            (target_type == 'speed.zone') or (target_type == 'pace.zone'):
             t2: float = self._target_value(step, 'max')
             t1: float = self._target_value(step, 'min')
