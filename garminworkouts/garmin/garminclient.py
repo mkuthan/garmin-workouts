@@ -11,6 +11,7 @@ class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activity-service"
+    _WELLNESS_SERVICE_ENDPOINT = "/proxy/wellness-service"
     _ACTIVITY_LIST_SERVICE_ENDPOINT = "/proxy/activitylist-service"
     _TRAINING_PLAN_SERVICE_ENDPOINT = "/proxy/trainingplan-service/trainingplan"
     _GOLF_COMMUNITY_ENDPOINT = "/proxy/gcs-golfcommunity/api/v2/club"
@@ -375,3 +376,15 @@ class GarminClient(object):
         sec: dict = json.loads(response.text)
         with open(".\\garminworkouts\\models\\strength.py", "w") as fp:
             json.dump(sec, fp)  # encode dict into JSON
+
+    def get_RHR(self) -> int:
+        url: str = f"{self.connect_url}{self._WELLNESS_SERVICE_ENDPOINT}/wellness/dailyHeartRate"
+        params: dict = {
+            "date": date.today(),
+        }
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
+        response.raise_for_status()
+
+        a: dict = json.loads(response.text)
+        return int(a['restingHeartRate'])
