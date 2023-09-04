@@ -156,15 +156,15 @@ def command_workout_export_yaml(args):
             code: str = workout['workoutSourceId']
             sport: str = workout['sportTypeKey']
             difficulty: str = workout['difficulty']
-            workout = connection.get_external_workout(code, account.locale)
+            workout: dict = connection.get_external_workout(code, account.locale)
             workout[_WORKOUT_ID] = code
 
             workout_id: str = Workout.extract_workout_id(workout)
-            workout_name = Workout.extract_workout_name(workout)
-            newpath = os.path.join('.', 'workouts', sport, difficulty)
+            workout_name: str = Workout.extract_workout_name(workout)
+            newpath: str = os.path.join('.', 'workouts', sport, difficulty)
             if not os.path.exists(newpath):
                 os.makedirs(newpath)
-            file = os.path.join(newpath, str(workout_id) + '.yaml')
+            file: str = os.path.join(newpath, str(workout_id) + '.yaml')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             export_yaml(workout, file)
 

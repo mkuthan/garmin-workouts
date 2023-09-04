@@ -237,7 +237,7 @@ class Workout(object):
 
         self.sec = sec
         self.duration = timedelta(seconds=sec)
-        self.mileage: float = reps
+        self.mileage: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
         self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
 
     def _get_target_value(self, target, key) -> float:
