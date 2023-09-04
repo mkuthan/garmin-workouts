@@ -60,6 +60,10 @@ class Workout(object):
                 self.running_values(flatten_steps)
             elif self.sport_type[0] == 'cycling':
                 self.cycling_values(flatten_steps)
+            elif self.sport_type[0] == 'swimming':
+                self.swimming_values(flatten_steps)
+            else:
+                self.cardio_values(flatten_steps)
         except KeyError:
             print(config['name'])
 
@@ -136,25 +140,105 @@ class Workout(object):
         self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
 
     def cycling_values(self, flatten_steps) -> None:
+        sec: float = 0
+        meters = 0
+        duration_secs = 0
+        duration_meters = 0
         seconds: float = 0
         xs: list[float] = []
 
         for step in flatten_steps:
             power: Power | None = Power(str(step.get('power'))) if step.get('power') else None
-            power_watts: float = power.to_watts(self.cFTP.power) if power else float(0)
+            power_watts: float = power.to_watts(self.cFTP.power[:-1]) if power else float(0)
 
-            if WorkoutStep._end_condition_key(step) == 'time':
-                duration_secs: float = WorkoutStep._end_condition_value(step)
-            else:
-                duration_secs = float(0)
+            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
+            duration: float = WorkoutStep._end_condition_value(step)
+            if not key == 'lap.button':
+                if key == 'time':
+                    duration_secs: float = duration
+                    duration_meters = round(duration_secs * self._equivalent_pace(step))
+                if key == 'distance':
+                    duration_meters: float = duration
+                    try:
+                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                    except ZeroDivisionError:
+                        duration_secs = float(0)
+
+                sec = sec + duration_secs
+                meters: float = meters + duration_meters
 
             if power_watts and duration_secs:
                 seconds = seconds + duration_secs
                 xs = functional.concatenate(xs, functional.fill(power_watts, duration_secs))  # type: ignore
 
+        self.sec = sec
+        self.duration = timedelta(seconds=sec)
+        self.mileage: float = round(meters/1000, 2)
         self.norm_pwr = math.normalized_power(xs) if xs else float(0)
-        self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP.to_watts(self.cFTP))
-        self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP.to_watts(self.cFTP))
+        self.int_fct = math.intensity_factor(self.norm_pwr, self.cFTP.to_watts(self.cFTP.power[:-1]))
+        self.tss = math.training_stress_score(seconds, self.norm_pwr, self.cFTP.to_watts(self.cFTP.power[:-1]))
+
+    def swimming_values(self, flatten_steps) -> None:
+        sec: float = 0
+        meters = 0
+        duration_secs = 0
+        duration_meters = 0
+
+        for step in flatten_steps:
+            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
+            duration: float = WorkoutStep._end_condition_value(step)
+            if not key == 'lap.button':
+                if key == 'time':
+                    duration_secs: float = duration
+                    duration_meters = round(duration_secs * self._equivalent_pace(step))
+                if key == 'distance':
+                    duration_meters: float = duration
+                    try:
+                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                    except ZeroDivisionError:
+                        duration_secs = float(0)
+
+                sec = sec + duration_secs
+                meters: float = meters + duration_meters
+
+        try:
+            self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
+        except ZeroDivisionError:
+            self.ratio = float(0)
+        except ValueError:
+            self.ratio = float(0)
+
+        self.sec = sec
+        self.duration = timedelta(seconds=sec)
+        self.mileage: float = round(meters/1000, 2)
+        self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
+
+    def cardio_values(self, flatten_steps) -> None:
+        sec: float = 0
+        duration_secs = 0
+        duration_reps = 0
+        reps = 0
+
+        for step in flatten_steps:
+            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
+            duration: float = WorkoutStep._end_condition_value(step)
+            if not key == 'lap.button':
+                if key == 'time':
+                    duration_secs: float = duration
+                    duration_reps = 0
+                if key == 'reps':
+                    duration_reps: float = duration
+                    duration_secs = float(0)
+
+                sec += duration_secs
+                reps += duration_reps
+
+        self.ratio = float(0)
+
+        self.sec = sec
+        self.duration = timedelta(seconds=sec)
+        self.mileage: float = reps
+        self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
 
     def _get_target_value(self, target, key) -> float:
         if isinstance(target, dict):
