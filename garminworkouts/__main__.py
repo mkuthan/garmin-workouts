@@ -264,6 +264,7 @@ def command_user_zones(args) -> None:
             account.vV02,
             account.fmin,
             account.fmax,
+            account.flt,
             account.rFTP,
             account.cFTP,
             str(''),

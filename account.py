@@ -26,6 +26,7 @@ with _garmin_client() as connection:
         fmin = int(config('fmin'))
 
 fmax = int(config('fmax'))
+flt = int(config('flt'))
 rFTP = Power(config('rFTP'))  # type: ignore
 cFTP = Power(config('cFTP'))  # type: ignore
 BOT_TOKEN: str | bool = config('BOT_TOKEN')
