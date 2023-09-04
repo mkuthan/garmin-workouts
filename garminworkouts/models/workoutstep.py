@@ -67,6 +67,10 @@ class WorkoutStep:
                 return get_end_condition('distance')
             elif WorkoutStep._str_is_calories(duration):
                 return get_end_condition('calories')
+            elif WorkoutStep._str_is_ppm(duration):
+                return get_end_condition('heart.rate')
+            elif WorkoutStep._str_is_reps(duration):
+                return get_end_condition('reps')
             else:
                 return get_end_condition('lap.button')
         return get_end_condition('lap.button')
@@ -87,6 +91,8 @@ class WorkoutStep:
                 return WorkoutStep._str_to_calories(duration)
             elif WorkoutStep._str_is_ppm(duration):
                 return WorkoutStep._str_to_ppm(duration)
+            elif WorkoutStep._str_is_reps(duration):
+                return WorkoutStep._str_to_reps(duration)
         return int(0)
 
     @staticmethod
@@ -122,6 +128,14 @@ class WorkoutStep:
     @staticmethod
     def _str_to_ppm(string) -> int:
         return int(string.lower().split('ppm')[0])
+
+    @staticmethod
+    def _str_is_reps(string) -> bool:
+        return True if 'reps' in string else False
+
+    @staticmethod
+    def _str_to_reps(string) -> int:
+        return int(string.lower().split('reps')[0])
 
     @staticmethod
     def parsed_end_condition_value(end_condition_value) -> int | None:
