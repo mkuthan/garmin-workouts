@@ -9,5 +9,5 @@ pandas==2.1.0
 cloudscraper==1.2.71
 pytest-httpserver==1.0.8
 python-decouple==3.8
-python-telegram-bot==20.4
+python-telegram-bot==20.5
 bpython == 0.24
