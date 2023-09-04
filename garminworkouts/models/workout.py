@@ -527,18 +527,30 @@ class Workout(object):
                            category=step_config[_CATEGORY] if _CATEGORY in step_config else None,
                            exerciseName=step_config[_EXERCISE_NAME] if _EXERCISE_NAME in step_config else None,
                            target=Target(target=self._target_type(step_config)[_WORKOUT_TARGET_KEY],
-                                         value_one=self._target_value(step_config, 'min'),
-                                         value_two=self._target_value(step_config, 'max'),
+                                         value_one=self._target_value(
+                                             step_config, 'min'),
+                                         value_two=self._target_value(
+                                             step_config, 'max'),
+                                         zone=self._target_value(
+                                             step_config, 'zone') if 'zone' in step_config else None,
                                          secondary=False
                                          ),
                            secondary_target=Target(
                                             target=self._target_type(
                                                                 step_config,
                                                                 _SECONDARY in step_config)[_WORKOUT_TARGET_KEY],
-                                            value_one=self._target_value(step_config, 'min',
-                                                                         _SECONDARY in step_config),
-                                            value_two=self._target_value(step_config, 'max',
-                                                                         _SECONDARY in step_config),
+                                            value_one=self._target_value(step_config,
+                                                                         'min',
+                                                                         _SECONDARY in step_config
+                                                                         ),
+                                            value_two=self._target_value(step_config,
+                                                                         'max',
+                                                                         _SECONDARY in step_config
+                                                                         ),
+                                            zone=self._target_value(step_config,
+                                                                    'zone',
+                                                                    _SECONDARY in step_config
+                                                                    ) if 'zone' in step_config else None,
                                             secondary=True
                                             ) if _SECONDARY in step_config else None,
                            weight=step_config[_WEIGHT] if _WEIGHT in step_config else None

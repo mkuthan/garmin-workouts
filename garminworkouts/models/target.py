@@ -15,7 +15,7 @@ class Target:
         self.target: str = target
         self.value_one: str | None = value_one if target != 'no.target' else None
         self.value_two: str | None = value_two if target != 'no.target' else None
-        self.zone: str | None = zone if target == 'heart.rate.zone' else None
+        self.zone: str | None = zone if target == 'heart.rate.zone' or 'power.zone' else None
         self.secondary: bool = secondary
 
         if target not in TARGET_TYPES.keys():
