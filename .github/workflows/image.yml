@@ -12,6 +12,7 @@ env:
   vV02: ${{ secrets.vV02 }}
   fmin: ${{ secrets.fmin }}
   fmax: ${{ secrets.fmax }}
+  flt: ${{ secrets.flt }}
   rFTP: ${{ secrets.rFTP }}
   cFTP: ${{ secrets.cFTP }}
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
@@ -61,6 +62,7 @@ jobs:
             vV02: ${{ env.vV02 }}
             fmin: ${{ env.fmin }}
             fmax: ${{ env.fmax }}
+            flt: ${{ env.flt }}
             rFTP: ${{ env.rFTP }}
             cFTP: ${{ env.cFTP }}
             BOT_TOKEN: ${{ env.BOT_TOKEN }}

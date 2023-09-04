@@ -15,6 +15,9 @@ ENV fmin=$fmin
 ARG fmax
 ENV fmax=$fmax
 
+ARG flt
+ENV flt=$flt
+
 ARG rFTP
 ENV rFTP=$rFTP
 

@@ -11,6 +11,7 @@ services:
         vV02: ${vV02}
         fmin: ${fmin}
         fmax: ${fmax}
+        flt: ${flt}
         rFTP: ${rFTP}
         cFTP: ${cFTP}
         BOT_TOKEN: ${BOT_TOKEN}

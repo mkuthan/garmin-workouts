@@ -32,6 +32,7 @@ jobs:
       vV02: ${{ secrets.vV02 }}
       fmin: ${{ secrets.fmin }}
       fmax: ${{ secrets.fmax }}
+      flt: ${{ secrets.flt }}
       rFTP: ${{ secrets.rFTP }}
       cFTP: ${{ secrets.cFTP }}
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
