@@ -32,8 +32,8 @@ class Power:
         return int(power) * ftp / 100
 
     @staticmethod
-    def power_zones(zones: list[float], ftp) -> None:
+    def power_zones(ftp) -> tuple[list[float], list[int]]:
+        zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1, 1.25, 1.3]
         power_zones: list[int] = [round(int(ftp.to_watts(ftp.power[:-1])) * zone) for zone in zones]
-        print('::Power Zones::')
-        for i in range(len(zones)-1):
-            print('Zone ', i, 'w: ', power_zones[i], '-', power_zones[i + 1], 'w')
+
+        return zones, power_zones

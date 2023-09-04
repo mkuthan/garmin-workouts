@@ -1,7 +1,7 @@
 import json
 import sys
 import logging
-from datetime import datetime
+from datetime import datetime, date
 
 from garminworkouts.garmin.session import connect, disconnect
 from garminworkouts.models.extraction import export_yaml
@@ -11,6 +11,7 @@ class GarminClient(object):
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/proxy/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/proxy/activity-service"
+    _BIOMETRIC_SERVICE_ENDPOINT = "/proxy/biometric-service"
     _WELLNESS_SERVICE_ENDPOINT = "/proxy/wellness-service"
     _ACTIVITY_LIST_SERVICE_ENDPOINT = "/proxy/activitylist-service"
     _TRAINING_PLAN_SERVICE_ENDPOINT = "/proxy/trainingplan-service/trainingplan"
@@ -388,3 +389,25 @@ class GarminClient(object):
 
         a: dict = json.loads(response.text)
         return int(a['restingHeartRate'])
+
+    def get_hr_zones(self) -> dict:
+        url: str = f"{self.connect_url}{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS,)
+        response.raise_for_status()
+
+        return json.loads(response.text)
+
+    def save_hr_zones(self, zones) -> None:
+        url: str = f"{self.connect_url}{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
+
+        response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=zones)
+        response.raise_for_status()
+
+    def get_power_zones(self):
+        url: str = f"{self.connect_url}{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/sports/all"
+
+        response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
+        response.raise_for_status()
+
+        return json.loads(response.text)

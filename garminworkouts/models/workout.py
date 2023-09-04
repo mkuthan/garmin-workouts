@@ -25,6 +25,7 @@ class Workout(object):
             vVO2=Pace('5:00'),
             fmin=60,
             fmax=200,
+            flt=185,
             rFTP=Power('400w'),
             cFTP=Power('200w'),
             plan=str(''),
@@ -39,6 +40,7 @@ class Workout(object):
             self.vVO2: Pace = vVO2
             self.fmin: int = fmin
             self.fmax: int = fmax
+            self.flt: int = flt
             self.rFTP: Power = rFTP
             self.cFTP: Power = cFTP
             self.plan: str = plan
@@ -62,13 +64,16 @@ class Workout(object):
             print(config['name'])
 
     def zones(self) -> None:
-        zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1]
-        hr_zones: list[int] = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+        zones, hr_zones, data = self.hr_zones()
         print('::Heart Rate Zones::')
         for i in range(len(zones)-1):
             print('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
 
-        Power.power_zones(zones, self.rFTP)
+        zones, power_zones = Power.power_zones(self.rFTP)
+
+        print('::Power Zones::')
+        for i in range(len(zones)-1):
+            print('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1], 'w')
 
     def get_workout_name(self) -> str:
         if self.sport_type[0] == 'running' and _DESCRIPTION in self.config:
@@ -245,6 +250,26 @@ class Workout(object):
                 return self._target_variations(target, target_type, val)
         return self._get_target_value(target, key=val)
 
+    def hr_zones(self) -> tuple[list[float], list[int], list[dict]]:
+        zones: list[float] = [0.46, 0.6, 0.7, 0.8, (self.flt - self.fmin)/(self.fmax - self.fmin), 1.0, 1.1]
+        hr_zones: list[int] = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+
+        data: list[dict] = [{
+            "changeState": "CHANGED",
+            "trainingMethod": "HR_RESERVE",
+            "lactateThresholdHeartRateUsed": hr_zones[4],
+            "maxHeartRateUsed": self.fmax,
+            "restingHrAutoUpdateUsed": False,
+            "sport": "DEFAULT",
+            "trainingMethod": "HR_RESERVE",
+            "zone1Floor": hr_zones[0],
+            "zone2Floor": hr_zones[1],
+            "zone3Floor": hr_zones[2],
+            "zone4Floor": hr_zones[3],
+            "zone5Floor": hr_zones[4]}]
+
+        return zones, hr_zones, data
+
     def _equivalent_pace(self, step) -> float:
         if isinstance(step[_TARGET], dict):
             target_type = step[_TARGET][_TYPE]
@@ -263,8 +288,7 @@ class Workout(object):
             t1: float = self._target_value(step, 'min')
         elif target_type == 'heart.rate.zone':
             if 'zone' in step['target']:
-                zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1]
-                hr_zones: list[int] = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+                zones, hr_zones, data = self.hr_zones()
 
                 z = int(step['target']['zone'])
                 t2 = hr_zones[z + 1]
@@ -275,6 +299,19 @@ class Workout(object):
 
             t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
             t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
+        elif target_type == 'power.zone':
+            if 'zone' in step['target']:
+                zones, power_zones = Power.power_zones(self.rFTP)
+
+                z = int(step['target']['zone'])
+                t2 = power_zones[z + 1]
+                t1 = power_zones[z]
+            else:
+                t2 = self._target_value(step, 'max')
+                t1 = self._target_value(step, 'min')
+
+            t2 = 0.0
+            t1 = 0.0
         else:
             t2 = 0.0
             t1 = 0.0

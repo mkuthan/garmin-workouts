@@ -39,6 +39,7 @@ def settings(args) -> tuple[list[Workout], str]:
                                        account.vV02,
                                        account.fmin,
                                        account.fmax,
+                                       account.flt,
                                        account.rFTP,
                                        account.cFTP,
                                        plan,

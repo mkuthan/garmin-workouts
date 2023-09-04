@@ -259,6 +259,22 @@ def _garmin_client(args) -> GarminClient:
 
 
 def command_user_zones(args) -> None:
+    zones, hr_zones, data = Workout(
+        [],
+        [],
+        account.vV02,
+        account.fmin,
+        account.fmax,
+        account.flt,
+        account.rFTP,
+        account.cFTP,
+        str(''),
+        date.today()
+        ).hr_zones()
+
+    with _garmin_client(args) as connection:
+        connection.save_hr_zones(data)
+
     Workout([],
             [],
             account.vV02,
@@ -297,7 +313,7 @@ def main() -> None:
 
     parser_import = subparsers.add_parser("trainingplan-import",
                                           description="Import workout(s) from file(s) into Garmin Connect ")
-    parser_import.add_argument("workout",
+    parser_import.add_argument("trainingplan",
                                help="File(s) with workout(s) to import, "
                                     "wildcards are supported e.g: sample_workouts/*.yaml "
                                     "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
