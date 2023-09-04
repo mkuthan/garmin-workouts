@@ -71,7 +71,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
 
 def command_event_import(args) -> None:
-    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning') + '.yaml')
+    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     try:
         event_files: list = glob.glob(planning[args.workout]['workouts'])
     except KeyError:
@@ -195,7 +195,7 @@ def command_workout_export_yaml(args):
                     if not os.path.exists(newpath):
                         os.makedirs(newpath)
 
-                    file: str = os.path.join(newpath, workout_name) + ".yaml"
+                    file: str = os.path.join(newpath, workout_name + ".yaml")
                     logging.info("Exporting workout '%s' into '%s'", workout_name, file)
                     export_yaml(workout, file)
 
