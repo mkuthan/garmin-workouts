@@ -6,8 +6,7 @@ steps:
   - !include ..\..\inc\warmup.yaml
   - &INTERVAL
     - !include ..\..\inc\lt_4min.yaml
-    - !include ..\..\inc\paerobic_2min.yaml
-  - *INTERVAL
+    - !include ..\..\inc\precovery_2min.yaml
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL
