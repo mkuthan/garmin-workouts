@@ -1,0 +1,11 @@
+name: "11_6"
+description: "W3-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/precovery_5.yaml
+  - !include ../../inc/marathon_3.yaml
+  - !include ../../inc/precovery_5.yaml
+  - !include ../../inc/marathon_4.yaml
+  - !include ../../inc/precovery_5.yaml
+  - !include ../../inc/marathon_5.yaml

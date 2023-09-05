@@ -1,0 +1,6 @@
+name: "23_2"
+description: "Additional"
+sport: "running"
+
+steps:
+  - !include ../../inc/recovery_4.yaml

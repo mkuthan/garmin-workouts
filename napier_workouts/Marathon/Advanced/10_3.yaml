@@ -1,0 +1,12 @@
+name: "10_3"
+description: "W2-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - &SERIES
+    - !include ../../inc/5>lt_10min.yaml
+    - !include ../../inc/paerobic_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES

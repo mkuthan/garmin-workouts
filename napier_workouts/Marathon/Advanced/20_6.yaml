@@ -1,0 +1,10 @@
+name: "20_6"
+description: "W3-Pace Change Run"
+sport: "running"
+
+steps:
+  - &SERIES
+    - !include ../../inc/precovery_5.yaml
+    - !include ../../inc/marathon_1.yaml
+  - *SERIES
+  - *SERIES

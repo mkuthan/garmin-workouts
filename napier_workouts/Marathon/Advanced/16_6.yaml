@@ -1,0 +1,7 @@
+name: "16_6"
+description: "W3-Tempo Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/recovery_5.yaml
+  - !include ../../inc/20<marathon_10.yaml

@@ -1,0 +1,16 @@
+name: "7_1"
+description: "W1-Steady Run and Hills"
+sport: "running"
+
+steps:
+  - !include ../../inc/aerobic_45min.yaml
+  - &HILL !include ../../inc/hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL

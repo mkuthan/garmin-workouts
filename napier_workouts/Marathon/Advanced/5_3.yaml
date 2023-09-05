@@ -1,0 +1,7 @@
+name: "5_3"
+description: "W2-Tempo Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/marathon_15.yaml

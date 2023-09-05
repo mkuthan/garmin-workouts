@@ -1,0 +1,13 @@
+name: "4_6"
+description: "W3-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - &SERIES
+    - !include ../../inc/marathon_4.yaml
+    - !include ../../inc/paerobic_1.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

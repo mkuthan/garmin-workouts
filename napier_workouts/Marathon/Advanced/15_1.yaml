@@ -1,0 +1,22 @@
+name: "15_1"
+description: "W1-Hills + Accelerations"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - &HILL !include ../../inc/hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - &ACC !include ../../inc/acc.yaml
+  - *ACC
+  - *ACC
+  - *ACC
+  - *ACC
+  - *ACC

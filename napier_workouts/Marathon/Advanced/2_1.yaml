@@ -1,0 +1,13 @@
+name: "2_1"
+description: "W1-Pace Change Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - &SERIES
+    - !include ../../inc/lt_4min.yaml
+    - !include ../../inc/precovery_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

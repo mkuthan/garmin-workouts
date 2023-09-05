@@ -1,0 +1,16 @@
+name: "14_6"
+description: "W3-Pace Change Run"
+sport: "running"
+
+steps:
+  - &SERIES
+    - !include ../../inc/marathon_1.yaml
+    - !include ../../inc/precovery_1.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

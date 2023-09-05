@@ -1,0 +1,11 @@
+name: "4_3"
+description: "W2-Progression Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/35<lt_10min.yaml
+  - !include ../../inc/25<lt_10min.yaml
+  - !include ../../inc/15<lt_10min.yaml
+  - !include ../../inc/5<lt_10min.yaml
+  - !include ../../inc/5>lt_10min.yaml

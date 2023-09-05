@@ -1,0 +1,14 @@
+name: "1_1"
+description: "W1-Hills and Progression Run"
+sport: "running"
+
+steps:
+  - &HILL !include ../../inc/hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - !include ../../inc/35<lt_7min.yaml
+  - !include ../../inc/25<lt_7min.yaml
+  - !include ../../inc/15<lt_7min.yaml
+  - !include ../../inc/5<lt_7min.yaml
+  - !include ../../inc/5>lt_7min.yaml

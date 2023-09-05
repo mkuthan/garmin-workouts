@@ -1,0 +1,9 @@
+name: "12_6"
+description: "W3-Progression Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/45<marathon_5.yaml
+  - !include ../../inc/30<marathon_5.yaml
+  - !include ../../inc/15<marathon_5.yaml
+  - !include ../../inc/marathon_5.yaml

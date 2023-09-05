@@ -1,0 +1,6 @@
+name: "23_6"
+description: "W3-Medium Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/aerobic_12.yaml

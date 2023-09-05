@@ -38,6 +38,7 @@ class TrainingPlanTestCase(unittest.TestCase):
 
     def test_trainingplan_napier(self) -> None:
         tp_list: list[str] = [
+            os.path.join('napier*', 'Marathon', 'Advanced', '*.yaml'),
             os.path.join('napier*', 'Half', 'Advanced', '*.yaml'),
         ]
 

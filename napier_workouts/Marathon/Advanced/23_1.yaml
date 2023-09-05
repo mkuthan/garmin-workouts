@@ -1,0 +1,6 @@
+name: "23_1"
+description: "W1-Short Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/aerobic_30min.yaml

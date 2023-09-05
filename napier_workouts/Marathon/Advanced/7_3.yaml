@@ -1,0 +1,7 @@
+name: "7_3"
+description: "W2-Steady and Tempo Run"
+sport: "running"
+
+steps:
+  - !include ../../inc/aerobic_6.yaml
+  - !include ../../inc/marathon_12.yaml

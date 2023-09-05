@@ -1,0 +1,10 @@
+name: "14_3"
+description: "W2-Easy Run + Hills"
+sport: "running"
+
+steps:
+  - !include ../../inc/recovery_30min.yaml
+  - &HILL !include ../../inc/hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
