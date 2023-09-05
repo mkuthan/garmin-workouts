@@ -46,6 +46,14 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           env_vars: PYTHON_VERSION
+          flags: unittests
+          verbose: true
+      - name: 🐛 Debug
+        uses: stateful/vscode-server-action@v1
+        if: failure()
+        with:
+          machineName: myMachine # optional, default: GitHub workflow run ID
+          timeout: '30000'       # optional, default: 30000
 
   required-checks:
     runs-on: ubuntu-latest
