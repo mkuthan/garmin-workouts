@@ -37,6 +37,10 @@ jobs:
       cFTP: ${{ secrets.cFTP }}
       BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
+    permissions:
+      actions: read
+      contents: read
+      
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
