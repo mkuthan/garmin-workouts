@@ -65,7 +65,7 @@ class IncludeLoader(yaml.SafeLoader):
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
 
-            d: dict = step_generator(s[0], extract_duration(s[1]))
+            d: dict = step_generator(s[0], extract_duration(s[1]) if len(s) >= 2 else '')
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
