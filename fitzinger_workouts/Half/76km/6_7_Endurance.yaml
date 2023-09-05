@@ -3,4 +3,4 @@ description: "Endurance"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\lr_19.yaml
+  - !include ../../inc/lr_19.yaml

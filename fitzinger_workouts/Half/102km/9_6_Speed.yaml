@@ -3,18 +3,18 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\hill.yaml
-  - !include ..\..\inc\recovery_4min.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
-  - !include ..\..\inc\stride.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/hill.yaml
+  - !include ../../inc/recovery_4min.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml

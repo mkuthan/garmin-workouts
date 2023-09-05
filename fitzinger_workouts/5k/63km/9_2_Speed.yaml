@@ -3,11 +3,11 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - !include ..\..\inc\300.yaml
-  - !include ..\..\inc\300.yaml
-  - !include ..\..\inc\300.yaml
-  - !include ..\..\inc\recovery_4min.yaml
-  - !include ..\..\inc\300.yaml
-  - !include ..\..\inc\300.yaml
-  - !include ..\..\inc\300.yaml
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/300.yaml
+  - !include ../../inc/300.yaml
+  - !include ../../inc/300.yaml
+  - !include ../../inc/recovery_4min.yaml
+  - !include ../../inc/300.yaml
+  - !include ../../inc/300.yaml
+  - !include ../../inc/300.yaml

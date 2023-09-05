@@ -2,11 +2,11 @@ name: "6_3"
 description: "VO2"
 sport: "running"
 
-steps:  
-  - !include ..\..\inc\aerobic_7.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1000.yaml
-  - !include ..\..\inc\1000.yaml
-  - !include ..\..\inc\1000.yaml
+steps:
+  - !include ../../inc/aerobic_7.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1000.yaml
+  - !include ../../inc/1000.yaml
+  - !include ../../inc/1000.yaml

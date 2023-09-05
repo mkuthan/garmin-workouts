@@ -3,6 +3,6 @@ description: "Marathon pace run"
 sport: "running"
 
 steps:
-  - !include ..\..\..\inc\warmup.yaml
-  - !include ..\..\..\inc\marathon_16.yaml
-  - !include ..\..\..\inc\lr_9.yaml
+  - !include ../../../inc/warmup.yaml
+  - !include ../../../inc/marathon_16.yaml
+  - !include ../../../inc/lr_9.yaml

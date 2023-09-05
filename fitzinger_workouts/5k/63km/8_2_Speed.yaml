@@ -3,14 +3,14 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\recovery_4min.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\200.yaml
-  - !include ..\..\inc\cooldown_3.yaml
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/recovery_4min.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/200.yaml
+  - !include ../../inc/cooldown_3.yaml

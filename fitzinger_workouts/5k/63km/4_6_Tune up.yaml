@@ -3,4 +3,4 @@ description: "Tune up"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\lt_13.yaml
+  - !include ../../inc/lt_13.yaml

@@ -3,6 +3,6 @@ description: "Long Run"
 sport: "running"
 
 steps:
-  - !include ..\..\..\inc\warmup.yaml
-  - !include ..\..\..\inc\lr_23.yaml
-  - !include ..\..\..\inc\cooldown_2.yaml
+  - !include ../../../inc/warmup.yaml
+  - !include ../../../inc/lr_23.yaml
+  - !include ../../../inc/cooldown_2.yaml

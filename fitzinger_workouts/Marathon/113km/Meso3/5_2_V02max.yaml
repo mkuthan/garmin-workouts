@@ -3,10 +3,10 @@ description: "VO2max"
 sport: "running"
 
 steps:
-  - !include ..\..\..\inc\warmup.yaml
-  - !include ..\..\..\inc\1000.yaml
-  - !include ..\..\..\inc\1000.yaml
-  - !include ..\..\..\inc\1000.yaml
-  - !include ..\..\..\inc\1000.yaml
-  - !include ..\..\..\inc\1000.yaml
-  - !include ..\..\..\inc\1000.yaml
+  - !include ../../../inc/warmup.yaml
+  - !include ../../../inc/1000.yaml
+  - !include ../../../inc/1000.yaml
+  - !include ../../../inc/1000.yaml
+  - !include ../../../inc/1000.yaml
+  - !include ../../../inc/1000.yaml
+  - !include ../../../inc/1000.yaml

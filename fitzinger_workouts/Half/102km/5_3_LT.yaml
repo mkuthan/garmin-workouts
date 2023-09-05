@@ -3,6 +3,6 @@ description: "Lactate threshold"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - !include ..\..\inc\aerobic_3min.yaml
-  - !include ..\..\inc\lt_40min.yaml
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/aerobic_3min.yaml
+  - !include ../../inc/lt_40min.yaml

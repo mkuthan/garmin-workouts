@@ -2,11 +2,11 @@ name: "3_4"
 description: "VO2"
 sport: "running"
 
-steps:  
-  - !include ..\..\inc\aerobic_9.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1200.yaml
-  - !include ..\..\inc\1000.yaml
-  - !include ..\..\inc\1000.yaml
-  - !include ..\..\inc\1000.yaml
+steps:
+  - !include ../../inc/aerobic_9.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1200.yaml
+  - !include ../../inc/1000.yaml
+  - !include ../../inc/1000.yaml
+  - !include ../../inc/1000.yaml

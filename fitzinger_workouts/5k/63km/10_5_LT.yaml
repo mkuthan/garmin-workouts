@@ -3,15 +3,15 @@ description: "Lactate threshold"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - !include ..\..\inc\lt_3min.yaml
-  - !include ..\..\inc\recovery_2min.yaml
-  - !include ..\..\inc\lt_3min.yaml
-  - !include ..\..\inc\recovery_2min.yaml
-  - !include ..\..\inc\lt_3min.yaml
-  - !include ..\..\inc\recovery_2min.yaml
-  - !include ..\..\inc\lt_3min.yaml
-  - !include ..\..\inc\recovery_2min.yaml
-  - !include ..\..\inc\lt_3min.yaml
-  - !include ..\..\inc\recovery_2min.yaml
-  - !include ..\..\inc\cooldown_3.yaml
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/lt_3min.yaml
+  - !include ../../inc/recovery_2min.yaml
+  - !include ../../inc/lt_3min.yaml
+  - !include ../../inc/recovery_2min.yaml
+  - !include ../../inc/lt_3min.yaml
+  - !include ../../inc/recovery_2min.yaml
+  - !include ../../inc/lt_3min.yaml
+  - !include ../../inc/recovery_2min.yaml
+  - !include ../../inc/lt_3min.yaml
+  - !include ../../inc/recovery_2min.yaml
+  - !include ../../inc/cooldown_3.yaml

@@ -3,13 +3,13 @@ description: "General aerobic"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\aerobic_11.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\recovery_4min.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
-  - !include ..\..\inc\stride_150.yaml
+  - !include ../../inc/aerobic_11.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/recovery_4min.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml
+  - !include ../../inc/stride_150.yaml

@@ -3,5 +3,5 @@ description: "TuneUp"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - !include ..\..\inc\tuneup_12.yaml
+  - !include ../../inc/warmup.yaml
+  - !include ../../inc/tuneup_12.yaml

@@ -3,6 +3,6 @@ description: "Marathon Pace Run"
 sport: "running"
 
 steps:
-  - !include ..\..\..\inc\warmup.yaml
-  - !include ..\..\..\inc\marathon_18.yaml
-  - !include ..\..\..\inc\cooldown_4.yaml
+  - !include ../../../inc/warmup.yaml
+  - !include ../../../inc/marathon_18.yaml
+  - !include ../../../inc/cooldown_4.yaml

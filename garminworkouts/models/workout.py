@@ -64,7 +64,11 @@ class Workout(object):
                 self.swimming_values(flatten_steps)
             else:
                 self.cardio_values(flatten_steps)
+            if self.mileage == 0 and self.sec == 0:
+                raise ValueError('Null workout')
         except KeyError:
+            print(config['name'])
+        except ValueError:
             print(config['name'])
 
     def zones(self) -> None:

@@ -3,4 +3,4 @@ description: "Progression"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\lr_18.yaml
+  - !include ../../inc/lr_18.yaml
