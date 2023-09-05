@@ -3,18 +3,18 @@ description: "W1-Pace Change Run + VO2MAX"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &SERIES
-    - !include ..\..\inc\lt_4min.yaml
-    - !include ..\..\inc\precovery_2min.yaml
+    - !include ../../inc/lt_4min.yaml
+    - !include ../../inc/precovery_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include ..\..\inc\walk_5min.yaml
+  - !include ../../inc/walk_5min.yaml
   - &ANAER
     - { type: interval, duration: "0:30", target: 3KM_PACE, description: Series }
-    - !include ..\..\inc\walk_1min.yaml
+    - !include ../../inc/walk_1min.yaml
   - *ANAER
   - *ANAER
   - *ANAER

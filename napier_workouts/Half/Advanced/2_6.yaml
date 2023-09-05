@@ -3,4 +3,4 @@ description: "W3-Tempo Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\hm_14.yaml
+  - !include ../../inc/hm_14.yaml

@@ -3,10 +3,10 @@ description: "W2-Hills + Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &HILL
-    - !include ..\..\inc\hill.yaml
+    - !include ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
-  - !include ..\..\inc\lt_40min.yaml
+  - !include ../../inc/lt_40min.yaml

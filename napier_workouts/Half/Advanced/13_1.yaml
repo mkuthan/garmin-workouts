@@ -3,15 +3,15 @@ description: "W1-Hills"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &HILL
-    - !include ..\..\inc\hill.yaml
+    - !include ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
   - &SERIES
     - { type: interval, duration: "1:00", target: VO2MAX_PACE, description: Hill Series }
-    - !include ..\..\inc\walk_2min.yaml
+    - !include ../../inc/walk_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

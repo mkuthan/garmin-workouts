@@ -3,16 +3,16 @@ description: "W1-Pace Change Run + Anaerobic Training"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &SERIES
     - { type: interval, duration: "3km", target: 10KM_PACE, description: Series }
-    - !include ..\..\inc\precovery_1.yaml
+    - !include ../../inc/precovery_1.yaml
   - *SERIES
   - *SERIES
-  - !include ..\..\inc\walk_5min.yaml
+  - !include ../../inc/walk_5min.yaml
   - &ANAER
     - { type: interval, duration: "0:30", target: 1500M_PACE, description: Series }
-    - !include ..\..\inc\walk_1min.yaml
+    - !include ../../inc/walk_1min.yaml
   - *ANAER
   - *ANAER
   - *ANAER

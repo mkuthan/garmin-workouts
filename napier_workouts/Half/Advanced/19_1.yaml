@@ -3,13 +3,13 @@ description: "W1-Hills + Sprints"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
-  - &HILL !include ..\..\inc\hill.yaml
+  - !include ../../inc/warmup.yaml
+  - &HILL !include ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
   - *HILL
-  - &SPRINT !include ..\..\inc\sprint.yaml
+  - &SPRINT !include ../../inc/sprint.yaml
   - *SPRINT
   - *SPRINT
   - *SPRINT

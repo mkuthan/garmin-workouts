@@ -3,9 +3,9 @@ description: "W3-Short Run + Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\aerobic_3.yaml
+  - !include ../../inc/aerobic_3.yaml
   - &INTERVAL
-    - !include ..\..\inc\hm_4.yaml
-    - !include ..\..\inc\precovery_1.yaml
+    - !include ../../inc/hm_4.yaml
+    - !include ../../inc/precovery_1.yaml
   - *INTERVAL
   - *INTERVAL

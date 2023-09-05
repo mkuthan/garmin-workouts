@@ -3,10 +3,10 @@ description: "W2-Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &INTERVAL
-    - !include ..\..\inc\10>lt_1min.yaml
-    - !include ..\..\inc\recovery_2min.yaml
+    - !include ../../inc/10>lt_1min.yaml
+    - !include ../../inc/recovery_2min.yaml
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL

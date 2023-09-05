@@ -3,8 +3,8 @@ description: "W2-Short Run + Hills"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\aerobic_30min.yaml
-  - &HILL !include ..\..\inc\hill.yaml
+  - !include ../../inc/aerobic_30min.yaml
+  - &HILL !include ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL

@@ -3,6 +3,6 @@ description: "W3-Short + Tempo Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\aerobic_5.yaml
-  - !include ..\..\inc\10<hm_14.yaml
-  - !include ..\..\inc\recovery_5.yaml
+  - !include ../../inc/aerobic_5.yaml
+  - !include ../../inc/10<hm_14.yaml
+  - !include ../../inc/recovery_5.yaml

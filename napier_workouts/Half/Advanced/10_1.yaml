@@ -3,13 +3,13 @@ description: "W1-Hills + Progression Run"
 sport: "running"
 
 steps:
-  - !include ..\..\inc\warmup.yaml
+  - !include ../../inc/warmup.yaml
   - &HILL
-    - !include ..\..\inc\hill.yaml
+    - !include ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
-  - !include ..\..\inc\30<lt_6min.yaml
-  - !include ..\..\inc\20<lt_6min.yaml
-  - !include ..\..\inc\10<lt_6min.yaml
-  - !include ..\..\inc\lt_6min.yaml
+  - !include ../../inc/30<lt_6min.yaml
+  - !include ../../inc/20<lt_6min.yaml
+  - !include ../../inc/10<lt_6min.yaml
+  - !include ../../inc/lt_6min.yaml
