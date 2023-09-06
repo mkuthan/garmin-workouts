@@ -3,6 +3,7 @@ description: "W3-Pace Change Run"
 sport: "running"
 
 steps:
+  - !include ../../inc/warmup.yaml
   - &SERIES
     - !include ../../inc/marathon_1.yaml
     - !include ../../inc/precovery_1.yaml

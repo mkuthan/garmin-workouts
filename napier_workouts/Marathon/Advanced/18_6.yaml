@@ -3,6 +3,7 @@ description: "W3-Progression Run"
 sport: "running"
 
 steps:
+  - !include ../../inc/warmup.yaml
   - !include ../../inc/40<marathon_5.yaml
   - !include ../../inc/30<marathon_4.yaml
   - !include ../../inc/20<marathon_3.yaml

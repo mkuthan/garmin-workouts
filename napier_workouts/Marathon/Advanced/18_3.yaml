@@ -5,4 +5,4 @@ sport: "running"
 steps:
   - !include ../../inc/recovery_30min.yaml
   - !include ../../inc/lt_10min.yaml
-  - !include ../../inc/precovery_10min.yaml
+  - !include ../../inc/recovery_10min.yaml
