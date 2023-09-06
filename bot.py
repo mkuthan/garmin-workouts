@@ -58,6 +58,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
     keyboard: list[list[InlineKeyboardButton]] = []
+    keyboard.append([InlineKeyboardButton('Zones', callback_data='Zones')])
     for key in planning.keys():
         keyboard.append([InlineKeyboardButton(key, callback_data=key)])
 
@@ -81,6 +82,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     if workout == 'Races':
         cmd: str = str("python -m garminworkouts event-import ") + workout
+    elif workout == 'Zones':
+        cmd: str = str("python -m garminworkouts user-zones ")
     else:
         cmd = str("python -m garminworkouts trainingplan-import ") + workout
 

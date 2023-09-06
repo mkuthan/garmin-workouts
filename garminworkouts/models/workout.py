@@ -69,11 +69,12 @@ class Workout(object):
         except KeyError:
             print(config['name'])
         except ValueError:
-            print(config['name'])
+            print(config['name'] if 'name' in config else '')
 
     def zones(self) -> None:
         zones, hr_zones, data = self.hr_zones()
         print('::Heart Rate Zones::')
+        print('fmin: ', str(self.fmin), ' flt: ', str(self.flt), ' fmax: ', str(self.fmax))
         for i in range(len(zones)-1):
             print('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
 
