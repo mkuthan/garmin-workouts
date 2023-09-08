@@ -31,7 +31,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get -y update && apt-get install -y gcc g++
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && rm requirements.txt
 
 COPY . .
 
