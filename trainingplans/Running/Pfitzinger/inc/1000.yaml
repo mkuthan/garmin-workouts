@@ -1,2 +1,2 @@
-- { type: interval, duration: 1km, target: 5KM_PACE, description: 5K pace }
-- { type: recovery, duration: '2:15', target: AEROBIC_PACE, description: Aerobic pace }
+- { type: interval, duration: 1km, target: 5KM_PACE, description: Series @5k pace }
+- { type: recovery, duration: '2:15', target: AEROBIC_PACE, description: Recover @aerobic pace }
