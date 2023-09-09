@@ -15,6 +15,7 @@ from garminworkouts.models.fields import _DURATION, _WEIGHT, _CONDITION_TYPE_KEY
 from garminworkouts.models.fields import _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS, _CHILD_STEP_ID
 from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE
 from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, get_end_condition
+import logging
 
 
 class Workout(object):
@@ -67,22 +68,22 @@ class Workout(object):
             if self.mileage == 0 and self.sec == 0:
                 raise ValueError('Null workout')
         except KeyError:
-            print(config['name'])
+            logging.error(config['name'])
         except ValueError:
-            print(config['name'] if 'name' in config else '')
+            logging.error(config['name'] if 'name' in config else '')
 
     def zones(self) -> None:
         zones, hr_zones, data = self.hr_zones()
-        print('::Heart Rate Zones::')
-        print('fmin: ', str(self.fmin), ' flt: ', str(self.flt), ' fmax: ', str(self.fmax))
+        logging.info('::Heart Rate Zones::')
+        logging.info('fmin: ', str(self.fmin), ' flt: ', str(self.flt), ' fmax: ', str(self.fmax))
         for i in range(len(zones)-1):
-            print('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
+            logging.info('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
 
         zones, power_zones = Power.power_zones(self.rFTP)
 
-        print('::Power Zones::')
+        logging.info('::Power Zones::')
         for i in range(len(zones)-1):
-            print('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1], 'w')
+            logging.info('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1], 'w')
 
     def get_workout_name(self) -> str:
         if self.sport_type[0] == 'running' and _DESCRIPTION in self.config:

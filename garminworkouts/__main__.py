@@ -75,7 +75,7 @@ def command_event_import(args) -> None:
     try:
         event_files: list = glob.glob(planning[args.workout]['workouts'])
     except KeyError:
-        print(args.workout + ' not found in planning, please check "planning.yaml"')
+        logging.error(args.workout + ' not found in planning, please check "planning.yaml"')
         event_files = glob.glob(args.workout)
 
     event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
@@ -131,13 +131,13 @@ def command_trainingplan_metrics(args) -> None:
 
         print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
-    print('From ', str(day_min), ' to ', str(day_max))
+    logging.info('From ', str(day_min), ' to ', str(day_max))
     for i in range(24, -11, -1):
         if mileage[i] > float(0):
-            print('Week ' + str(i) + ': '
-                  + str(round(mileage[i], 2)) + ' km - '
-                  + 'Duration: ' + str(duration[i]) + ' - '
-                  + 'rTSS: ' + str(tss[i]))
+            logging.info('Week ' + str(i) + ': '
+                         + str(round(mileage[i], 2)) + ' km - '
+                         + 'Duration: ' + str(duration[i]) + ' - '
+                         + 'rTSS: ' + str(tss[i]))
 
 
 def command_workout_export(args) -> None:
