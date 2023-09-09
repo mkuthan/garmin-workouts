@@ -68,22 +68,22 @@ class Workout(object):
             if self.mileage == 0 and self.sec == 0:
                 raise ValueError('Null workout')
         except KeyError:
-            logging.error(config['name'])
+            print(config['name'])
         except ValueError:
-            logging.error(config['name'] if 'name' in config else '')
+            print(config['name'] if 'name' in config else '')
 
     def zones(self) -> None:
         zones, hr_zones, data = self.hr_zones()
         logging.info('::Heart Rate Zones::')
-        logging.info('fmin: ', str(self.fmin), ' flt: ', str(self.flt), ' fmax: ', str(self.fmax))
+        logging.info("fmin: %s flt: %s fmax: %s", str(self.fmin), str(self.flt), str(self.fmax))
         for i in range(len(zones)-1):
-            logging.info('Zone ', i, ': ', hr_zones[i], '-', hr_zones[i + 1])
+            logging.info("Zone %s : %s- %s", i, hr_zones[i], hr_zones[i + 1])
 
         zones, power_zones = Power.power_zones(self.rFTP)
 
         logging.info('::Power Zones::')
         for i in range(len(zones)-1):
-            logging.info('Zone ', i, ': ', power_zones[i], '-', power_zones[i + 1], 'w')
+            logging.info("Zone %s : %s- %s w", i, power_zones[i], power_zones[i + 1])
 
     def get_workout_name(self) -> str:
         if self.sport_type[0] == 'running' and _DESCRIPTION in self.config:
