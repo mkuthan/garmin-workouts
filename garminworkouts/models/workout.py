@@ -77,16 +77,16 @@ class Workout(object):
         logging.info('::Heart Rate Zones::')
         logging.info("fmin: %s flt: %s fmax: %s", str(self.fmin), str(self.flt), str(self.fmax))
         for i in range(len(zones)-1):
-            logging.info("Zone %s : %s- %s", i, hr_zones[i], hr_zones[i + 1])
+            logging.info(" Zone %s: %s - %s", i, hr_zones[i], hr_zones[i + 1])
 
         zones, power_zones = Power.power_zones(self.rFTP)
 
         logging.info('::Power Zones::')
         for i in range(len(zones)-1):
-            logging.info("Zone %s : %s- %s w", i, power_zones[i], power_zones[i + 1])
+            logging.info(" Zone %s: %s - %s w", i, power_zones[i], power_zones[i + 1])
 
     def get_workout_name(self) -> str:
-        if self.sport_type[0] == 'running' and _DESCRIPTION in self.config:
+        if self.plan != '' and _DESCRIPTION in self.config:
             return str(self.config[_NAME] + '-' + self.config[_DESCRIPTION])
         else:
             return str(self.config[_NAME])
@@ -410,7 +410,7 @@ class Workout(object):
     def _generate_description(self):
         description: str = ''
         if self.sport_type[0] == 'running':
-            if _DESCRIPTION in self.config:
+            if self.plan == '' and _DESCRIPTION in self.config:
                 description += self.config[_DESCRIPTION] + '. '
             if self.plan != '':
                 description += 'Plan: ' + self.plan + '. '
