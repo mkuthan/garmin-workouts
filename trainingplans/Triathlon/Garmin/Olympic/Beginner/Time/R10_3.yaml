@@ -7,25 +7,20 @@ sport: running
 steps:
 - description: ''
   duration: 0:15:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:12:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:08:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:05:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

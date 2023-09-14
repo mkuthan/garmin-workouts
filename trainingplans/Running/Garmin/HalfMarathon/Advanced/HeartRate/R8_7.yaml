@@ -4,7 +4,5 @@ sport: running
 steps:
 - description: ''
   duration: 10.01km
-  target:
-    type: heart.rate.zone
-    zone: '4'
+  target: {type: heart.rate.zone, zone: '4'}
   type: interval

@@ -10,324 +10,104 @@ description: 'Every guy had a time in his life when he looked and felt his best.
 name: The Body-Changing Workout
 sport: strength_training
 steps:
-- category: LUNGE
-  description: ''
-  duration: 20reps
-  exerciseName: OVERHEAD_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: HYPEREXTENSION
-  description: ''
-  duration: 20reps
-  exerciseName: SWISS_BALL_HYPEREXTENSION
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 20reps
-  exerciseName: OVERHEAD_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: HYPEREXTENSION
-  description: ''
-  duration: 20reps
-  exerciseName: SWISS_BALL_HYPEREXTENSION
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 20reps
-  exerciseName: OVERHEAD_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: HYPEREXTENSION
-  description: ''
-  duration: 20reps
-  exerciseName: SWISS_BALL_HYPEREXTENSION
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CORE
-  description: ''
-  duration: 20reps
-  exerciseName: RUSSIAN_TWIST
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CORE
-  description: ''
-  duration: 20reps
-  exerciseName: RUSSIAN_TWIST
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CORE
-  description: ''
-  duration: 20reps
-  exerciseName: RUSSIAN_TWIST
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 10reps
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 10reps
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 10reps
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CURL
-  description: ''
-  duration: 10reps
-  exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 15reps
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CURL
-  description: ''
-  duration: 10reps
-  exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 15reps
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: CURL
-  description: ''
-  duration: 10reps
-  exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 15reps
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: LUNGE
+    description: ''
+    duration: 20reps
+    exerciseName: OVERHEAD_DUMBBELL_LUNGE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: HYPEREXTENSION
+    description: ''
+    duration: 20reps
+    exerciseName: SWISS_BALL_HYPEREXTENSION
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- &id002
+  - category: CORE
+    description: ''
+    duration: 20reps
+    exerciseName: RUSSIAN_TWIST
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: SHOULDER_PRESS
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: ROW
+    description: ''
+    duration: 10reps
+    exerciseName: REVERSE_GRIP_BARBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- &id003
+  - category: CARDIO
+    description: ''
+    duration: 10reps
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: ROW
+    description: ''
+    exerciseName: INVERTED_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- &id004
+  - category: CURL
+    description: ''
+    duration: 10reps
+    exerciseName: STANDING_ALTERNATING_DUMBBELL_CURLS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: PUSH_UP
+    description: ''
+    duration: 15reps
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id004
+- *id004

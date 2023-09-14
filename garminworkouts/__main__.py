@@ -188,9 +188,11 @@ def command_workout_export_yaml(args):
 
                     if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower()
                                                                    == tp_name.lower()):
-                        newpath: str = os.path.join('.', 'trainingplans', tp_type, tp_subtype, tp_level, tp_version)
+                        newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin',
+                                                    tp_subtype, tp_level, tp_version)
                     else:
-                        newpath: str = os.path.join('.', 'trainingplans', tp_type, tp_subtype, tp_level, tp_version,
+                        newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin',
+                                                    tp_subtype, tp_level, tp_version,
                                                     tp_name)
                     if not os.path.exists(newpath):
                         os.makedirs(newpath)

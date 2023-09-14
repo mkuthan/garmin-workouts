@@ -8,290 +8,241 @@ steps:
   description: ''
   duration: 10reps
   exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: BENCH_PRESS
   description: ''
   duration: 7reps
   exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: BENCH_PRESS
   description: ''
   duration: 5reps
   exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: BENCH_PRESS
   description: ''
   duration: 3reps
   exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: BENCH_PRESS
   description: ''
   duration: 1reps
   exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SQUAT
   description: ''
   duration: 10reps
   exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SQUAT
   description: ''
   duration: 7reps
   exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SQUAT
   description: ''
   duration: 5reps
   exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SQUAT
   description: ''
   duration: 3reps
   exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SQUAT
   description: ''
   duration: 1reps
   exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SHOULDER_PRESS
   description: ''
   duration: 10reps
   exerciseName: OVERHEAD_BARBELL_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SHOULDER_PRESS
   description: ''
   duration: 7reps
   exerciseName: OVERHEAD_BARBELL_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SHOULDER_PRESS
   description: ''
   duration: 5reps
   exerciseName: OVERHEAD_BARBELL_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SHOULDER_PRESS
   description: ''
   duration: 3reps
   exerciseName: OVERHEAD_BARBELL_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: SHOULDER_PRESS
   description: ''
   duration: 1reps
   exerciseName: OVERHEAD_BARBELL_PRESS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 10reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 7reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 5reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 3reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 1reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: ROW
   description: ''
   duration: 10reps
   exerciseName: BARBELL_ROW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: ROW
   description: ''
   duration: 7reps
   exerciseName: BARBELL_ROW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: ROW
   description: ''
   duration: 5reps
   exerciseName: BARBELL_ROW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: ROW
   description: ''
   duration: 3reps
   exerciseName: BARBELL_ROW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: ROW
   description: ''
   duration: 1reps
   exerciseName: BARBELL_ROW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

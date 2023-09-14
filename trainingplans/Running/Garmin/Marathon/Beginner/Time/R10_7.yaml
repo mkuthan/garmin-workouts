@@ -5,6 +5,5 @@ sport: running
 steps:
 - description: ''
   duration: 21.082km
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

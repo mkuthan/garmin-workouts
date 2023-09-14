@@ -5,7 +5,5 @@ sport: running
 steps:
 - description: ''
   duration: '1:45:00'
-  target:
-    type: heart.rate.zone
-    zone: '2'
+  target: {type: heart.rate.zone, zone: '2'}
   type: interval

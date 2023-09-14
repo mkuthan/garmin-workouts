@@ -8,97 +8,45 @@ description: 'Let''s be honest: Sometimes even the best workout seems to leave y
 name: The Fastest Fat-Loss Ever
 sport: cardio_training
 steps:
-- category: PLANK
-  description: ''
-  duration: 0:00:30
-  exerciseName: MOUNTAIN_CLIMBER
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 12reps
-  exerciseName: SPIDERMAN_PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 14reps
-  exerciseName: SIDE_LUNGE_JUMP_OFF
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 8reps
-  exerciseName: EXPLOSIVE_PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: CORE
-  description: ''
-  duration: 9reps
-  exerciseName: SWISS_BALL_ROLLOUT
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: KETTLEBELL_SWING
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PLANK
-  description: ''
-  duration: 0:00:30
-  exerciseName: MOUNTAIN_CLIMBER
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 12reps
-  exerciseName: SPIDERMAN_PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 14reps
-  exerciseName: SIDE_LUNGE_JUMP_OFF
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 8reps
-  exerciseName: EXPLOSIVE_PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: CORE
-  description: ''
-  duration: 9reps
-  exerciseName: SWISS_BALL_ROLLOUT
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: KETTLEBELL_SWING
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: PLANK
+    description: ''
+    duration: 0:00:30
+    exerciseName: MOUNTAIN_CLIMBER
+    target: {type: no.target}
+    type: interval
+  - category: PUSH_UP
+    description: ''
+    duration: 12reps
+    exerciseName: SPIDERMAN_PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - category: LUNGE
+    description: ''
+    duration: 14reps
+    exerciseName: SIDE_LUNGE_JUMP_OFF
+    target: {type: no.target}
+    type: interval
+  - category: PUSH_UP
+    description: ''
+    duration: 8reps
+    exerciseName: EXPLOSIVE_PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - category: CORE
+    description: ''
+    duration: 9reps
+    exerciseName: SWISS_BALL_ROLLOUT
+    target: {type: no.target}
+    type: interval
+  - category: HIP_RAISE
+    description: ''
+    duration: 10reps
+    exerciseName: KETTLEBELL_SWING
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001

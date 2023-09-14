@@ -11,392 +11,95 @@ description: 'This series consists of two 8-minute Tabata workouts separated by 
 name: Tabata Alternating Squats, Sit-Ups, Push-Ups & Squat Thrusts
 sport: cardio_training
 steps:
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: SQUAT
+    description: ''
+    duration: 0:00:20
+    exerciseName: SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: SIT_UP
+    description: ''
+    duration: 0:00:20
+    exerciseName: SIT_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: PUSH_UP
+    description: ''
+    duration: 0:00:20
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: TOTAL_BODY
+    description: ''
+    duration: 0:00:20
+    exerciseName: SQUAT_THRUSTS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:01:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: SIT_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIT_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:20
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: SQUAT_THRUSTS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
+- &id002
+  - category: SQUAT
+    description: ''
+    duration: 0:00:20
+    exerciseName: SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: SIT_UP
+    description: ''
+    duration: 0:00:20
+    exerciseName: SIT_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: PUSH_UP
+    description: ''
+    duration: 0:00:20
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+  - category: TOTAL_BODY
+    description: ''
+    duration: 0:00:20
+    exerciseName: SQUAT_THRUSTS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002

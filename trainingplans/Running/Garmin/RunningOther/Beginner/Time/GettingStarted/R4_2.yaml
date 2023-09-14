@@ -3,37 +3,17 @@ description: "\u2022 Run, easy pace, 5 minutes.  Walk, brisk pace, 3 minutes. Re
 name: W04D2-Intervals
 sport: running
 steps:
+- &id001
+  - description: ''
+    duration: 0:05:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:03:00
+    target: {type: no.target}
+    type: recovery
+- *id001
+- *id001
 - description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:03:00
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:03:00
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:03:00
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

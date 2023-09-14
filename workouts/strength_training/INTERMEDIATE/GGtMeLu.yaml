@@ -4,283 +4,65 @@ description: Target your legs and glutes with this lower-body burner. These six 
 name: Leg Day
 sport: strength_training
 steps:
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 10reps
-  exerciseName: ALTERNATING_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 10reps
-  exerciseName: ALTERNATING_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 10reps
-  exerciseName: ALTERNATING_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 10reps
-  exerciseName: ALTERNATING_DUMBBELL_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:45
-  target:
-    type: no.target
-  type: rest
-- category: HIP_RAISE
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: SQUAT
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_BACK_SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+  - category: LUNGE
+    description: ''
+    duration: 10reps
+    exerciseName: ALTERNATING_DUMBBELL_LUNGE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:45
+    target: {type: no.target}
+    type: rest
+  - category: DEADLIFT
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:45
+    target: {type: no.target}
+    type: rest
+  - category: SQUAT
+    description: ''
+    duration: 10reps
+    exerciseName: DUMBBELL_SPLIT_SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:45
+    target: {type: no.target}
+    type: rest
+  - category: SQUAT
+    description: ''
+    duration: 10reps
+    exerciseName: DUMBBELL_STEP_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:45
+    target: {type: no.target}
+    type: rest
+  - category: HIP_RAISE
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001

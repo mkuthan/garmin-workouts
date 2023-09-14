@@ -7,39 +7,25 @@ sport: cycling
 steps:
 - description: ''
   duration: 0:05:00
-  secondaryTarget:
-    type: no.target
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  secondaryTarget: {type: no.target}
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
   duration: 0:05:00
-  secondaryTarget:
-    type: no.target
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  secondaryTarget: {type: no.target}
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
   duration: 0:55:00
-  secondaryTarget:
-    type: no.target
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  secondaryTarget: {type: no.target}
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
   duration: 0:05:00
-  secondaryTarget:
-    type: no.target
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  secondaryTarget: {type: no.target}
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
-  secondaryTarget:
-    type: no.target
-  target:
-    type: no.target
+  secondaryTarget: {type: no.target}
+  target: {type: no.target}
   type: cooldown

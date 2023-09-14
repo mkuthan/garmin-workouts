@@ -4,43 +4,17 @@ description: "\u2022 Bike, Z1, 30 minutes, 90 RPM.  Bike, Z2, 20 minutes, 75 RPM
 name: W05D6-Hilly Bike
 sport: cycling
 steps:
+- &id001
+  - description: ''
+    duration: 0:30:00
+    target: {type: heart.rate.zone, zone: '1'}
+    type: interval
+  - description: ''
+    duration: 0:20:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: interval
+- *id001
+- *id001
 - description: ''
-  duration: 0:30:00
-  target:
-    type: heart.rate.zone
-    zone: '1'
-  type: interval
-- description: ''
-  duration: 0:20:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  duration: 0:30:00
-  target:
-    type: heart.rate.zone
-    zone: '1'
-  type: interval
-- description: ''
-  duration: 0:20:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  duration: 0:30:00
-  target:
-    type: heart.rate.zone
-    zone: '1'
-  type: interval
-- description: ''
-  duration: 0:20:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

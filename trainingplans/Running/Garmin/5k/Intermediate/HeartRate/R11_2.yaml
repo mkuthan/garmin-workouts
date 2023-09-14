@@ -1,175 +1,60 @@
-description: "\u2022 Warm up, 10 minutes.\n \u2022 Run in Z4, 5K pace, 1 minute. Run/walk\
-  \ in Z2, recovery, 1 minute. Repeat 4 times.\n \u2022 Run/walk in Z2, recovery 2\
-  \ minutes.\n \u2022 Run in Z4, 5K pace, 1 minute. Run/walk in Z2, recovery, 1 minute.\
-  \ Repeat 4 times.\n \u2022 Run/walk in Z2, recovery, 2 minutes.\n \u2022 Run in\
-  \ Z4, 5K pace, 1 minute. Run/walk in Z2, recovery, 1 minute. Repeat 4 times.\n \u2022\
-  \ Cool down, 5 to 10 minutes."
+description: "\u2022 Warm up, 10 minutes. \n \u2022 Run in Z4, 5K pace, 1 minute.\
+  \ Run/walk in Z2, recovery, 1 minute. Repeat 4 times. \n \u2022 Run/walk in Z2,\
+  \ recovery 2 minutes. \n \u2022 Run in Z4, 5K pace, 1 minute. Run/walk in Z2, recovery,\
+  \ 1 minute. Repeat 4 times. \n \u2022 Run/walk in Z2, recovery, 2 minutes. \n \u2022\
+  \ Run in Z4, 5K pace, 1 minute. Run/walk in Z2, recovery, 1 minute. Repeat 4 times.\
+  \ \n \u2022 Cool down, 5 to 10 minutes."
 name: W11D2-Intervals
 sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
+  target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
+- &id001
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: rest
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
+  target: {type: heart.rate.zone, zone: '2'}
   type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
+- &id002
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: rest
+- *id002
+- *id002
+- *id002
 - description: ''
   duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
+  target: {type: heart.rate.zone, zone: '2'}
   type: rest
+- &id003
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: rest
+- *id003
+- *id003
+- *id003
 - description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

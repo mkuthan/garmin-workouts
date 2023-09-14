@@ -8,41 +8,35 @@ steps:
   description: ''
   duration: 0:00:40
   exerciseName: ROLL_DOWN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: SPINE_STRETCH_FORWARD
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: ROLL_UP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:01:20
   exerciseName: ROLL_OVER
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:01:00
   exerciseName: BRIDGE_WITH_GLUTE_LOWER_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:30
   exerciseName: SEATED_LONG_LEG_FORWARD_BEND
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

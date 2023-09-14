@@ -1,15 +1,12 @@
-description: " \u2022 Run in Z3, steady pace, 60 minutes.\n \u2022 Cool down, 5 to\
-  \ 10 minutes.\n \u2022 Stretch."
+description: " \u2022 Run in Z3, steady pace, 60 minutes. \n \u2022 Cool down, 5 to\
+  \ 10 minutes. \n \u2022 Stretch."
 name: W12D7-Steady Run
 sport: running
 steps:
 - description: ''
   duration: '1:00:00'
-  target:
-    type: heart.rate.zone
-    zone: '3'
+  target: {type: heart.rate.zone, zone: '3'}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

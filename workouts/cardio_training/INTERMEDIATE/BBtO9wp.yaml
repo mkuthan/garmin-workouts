@@ -11,301 +11,65 @@ description: 'This series consists of three 4-minute Tabata workouts separated b
 name: Tabata Lunges, Crunches & Burpees
 sport: cardio_training
 steps:
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 0:00:20
-  exerciseName: LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: LUNGE
+    description: ''
+    duration: 0:00:20
+    exerciseName: LUNGE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:01:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: CRUNCH
-  description: ''
-  duration: 0:00:20
-  exerciseName: CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
+- &id002
+  - category: CRUNCH
+    description: ''
+    duration: 0:00:20
+    exerciseName: CRUNCH
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
 - description: ''
   duration: 0:01:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
-- category: TOTAL_BODY
-  description: ''
-  duration: 0:00:20
-  exerciseName: BURPEE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:10
-  target:
-    type: no.target
-  type: rest
+- &id003
+  - category: TOTAL_BODY
+    description: ''
+    duration: 0:00:20
+    exerciseName: BURPEE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003

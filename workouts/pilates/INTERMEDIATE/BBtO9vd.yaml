@@ -8,67 +8,57 @@ steps:
   description: ''
   duration: 0:00:30
   exerciseName: CAT_COW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: HYPEREXTENSION
   description: ''
   duration: 0:01:00
   exerciseName: COBRA
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:01:00
   exerciseName: SWAN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: ARM_AND_LEG_EXTENSION_ON_KNEES
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Lay on stomach
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: CORE
   description: ''
   duration: 0:00:30
   exerciseName: SWIMMING
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:30
   exerciseName: CAT_COW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: PLANK_UP_DOWNS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: Stretch each side
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

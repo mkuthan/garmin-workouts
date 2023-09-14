@@ -8,11 +8,8 @@ sport: running
 steps:
 - description: ''
   duration: 0:30:00
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

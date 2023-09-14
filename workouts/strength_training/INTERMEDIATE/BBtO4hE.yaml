@@ -5,411 +5,105 @@ description: 'They say that blood, sweat, and tears build a rock-solid body. We'
 name: Total Body Muscle
 sport: strength_training
 steps:
-- category: DEADLIFT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: PULL_UP
-  description: ''
-  duration: 5reps
-  exerciseName: CHIN_UP
-  target:
-    type: no.target
-  type: interval
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLOOR_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: PULL_UP
-  description: ''
-  duration: 5reps
-  exerciseName: CHIN_UP
-  target:
-    type: no.target
-  type: interval
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLOOR_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: PULL_UP
-  description: ''
-  duration: 5reps
-  exerciseName: CHIN_UP
-  target:
-    type: no.target
-  type: interval
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLOOR_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: PULL_UP
-  description: ''
-  duration: 5reps
-  exerciseName: CHIN_UP
-  target:
-    type: no.target
-  type: interval
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLOOR_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_BULGARIAN_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_BULGARIAN_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_BULGARIAN_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: LUNGE
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_BULGARIAN_SPLIT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 12reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 12reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 12reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 12reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 5reps
-  exerciseName: BARBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: HIP_RAISE
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: DEADLIFT
+    description: ''
+    duration: 5reps
+    exerciseName: BARBELL_DEADLIFT
+    target: {type: no.target}
+    type: interval
+  - category: PULL_UP
+    description: ''
+    duration: 5reps
+    exerciseName: CHIN_UP
+    target: {type: no.target}
+    type: interval
+  - category: BENCH_PRESS
+    description: ''
+    duration: 8reps
+    exerciseName: DUMBBELL_FLOOR_PRESS
+    target: {type: no.target}
+    type: interval
+  - category: LUNGE
+    description: ''
+    duration: 8reps
+    exerciseName: DUMBBELL_REVERSE_LUNGE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:30
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- &id002
+  - category: LUNGE
+    description: ''
+    duration: 12reps
+    exerciseName: BARBELL_BULGARIAN_SPLIT_SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
+- &id003
+  - category: BENCH_PRESS
+    description: ''
+    duration: 5reps
+    exerciseName: BARBELL_BENCH_PRESS
+    target: {type: no.target}
+    type: interval
+  - category: ROW
+    description: ''
+    duration: 12reps
+    exerciseName: DUMBBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: ''
+    duration: 0:00:20
+    exerciseName: SIDE_PLANK
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- *id003
+- &id004
+  - category: SQUAT
+    description: ''
+    duration: 5reps
+    exerciseName: BARBELL_FRONT_SQUAT
+    target: {type: no.target}
+    type: interval
+  - category: ROW
+    description: ''
+    duration: 8reps
+    exerciseName: INVERTED_ROW
+    target: {type: no.target}
+    type: interval
+  - category: HIP_RAISE
+    description: ''
+    duration: 8reps
+    exerciseName: BARBELL_HIP_THRUST_ON_FLOOR
+    target: {type: no.target}
+    type: interval
+  - category: PUSH_UP
+    description: ''
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id004
+- *id004
+- *id004

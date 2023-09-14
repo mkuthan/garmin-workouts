@@ -9,30 +9,26 @@ steps:
   duration: 10reps
   exerciseName: SQUAT
   repeatDuration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLYO
   description: ''
   duration: 10reps
   exerciseName: BODY_WEIGHT_JUMP_SQUAT
   repeatDuration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: LUNGE
   description: ''
   duration: 10reps
   exerciseName: LUNGE
   repeatDuration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLYO
   description: ''
   duration: 10reps
   exerciseName: ALTERNATING_JUMP_LUNGE
   repeatDuration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

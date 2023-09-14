@@ -5,123 +5,40 @@ description: "Boost your workout intensity with three rounds of high-impact jump
 name: Vertical Ups
 sport: cardio_training
 steps:
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: BODY_WEIGHT_JUMP_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SQUAT_JUMPS_IN_AND_OUT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: ALTERNATING_JUMP_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: CARDIO
-  description: ''
-  duration: 0:01:00
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: BODY_WEIGHT_JUMP_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SQUAT_JUMPS_IN_AND_OUT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: ALTERNATING_JUMP_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: CARDIO
-  description: ''
-  duration: 0:01:00
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: BODY_WEIGHT_JUMP_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SQUAT_JUMPS_IN_AND_OUT
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
-  target:
-    type: no.target
-  type: interval
-- category: PLYO
-  description: ''
-  duration: 0:01:00
-  exerciseName: ALTERNATING_JUMP_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: CARDIO
-  description: ''
-  duration: 0:01:00
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: PLYO
+    description: ''
+    duration: 0:01:00
+    exerciseName: BODY_WEIGHT_JUMP_SQUAT
+    target: {type: no.target}
+    type: interval
+  - category: PLYO
+    description: ''
+    duration: 0:01:00
+    exerciseName: SQUAT_JUMPS_IN_AND_OUT
+    target: {type: no.target}
+    type: interval
+  - category: PLYO
+    description: ''
+    duration: 0:01:00
+    exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
+    target: {type: no.target}
+    type: interval
+  - category: PLYO
+    description: ''
+    duration: 0:01:00
+    exerciseName: ALTERNATING_JUMP_LUNGE
+    target: {type: no.target}
+    type: interval
+  - category: CARDIO
+    description: ''
+    duration: 0:01:00
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001

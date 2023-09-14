@@ -7,193 +7,93 @@ description: Pretty much every woman wants tight, toned abs. We've known that fo
 name: The 10-Minute Muffin Top Solution
 sport: cardio_training
 steps:
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: SIT_UP
-  description: ''
-  duration: 0:00:30
-  exerciseName: V_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: SIT_UP
-  description: ''
-  duration: 0:00:30
-  exerciseName: V_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK_AND_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK_AND_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: CRUNCH
-  description: ''
-  duration: 25reps
-  exerciseName: KNEELING_CABLE_CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: CRUNCH
-  description: ''
-  duration: 25reps
-  exerciseName: KNEELING_CABLE_CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: CRUNCH
-  description: ''
-  duration: 0:00:30
-  exerciseName: BICYCLE_CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: CRUNCH
-  description: ''
-  duration: 0:00:30
-  exerciseName: BICYCLE_CRUNCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK_WITH_FEET_ON_BENCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:30
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:20
-  exerciseName: SIDE_PLANK_WITH_FEET_ON_BENCH
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: CARDIO
+    description: ''
+    duration: 0:00:30
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - category: SIT_UP
+    description: ''
+    duration: 0:00:30
+    exerciseName: V_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id001
+- &id002
+  - category: CARDIO
+    description: ''
+    duration: 0:00:30
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: ''
+    duration: 0:00:20
+    exerciseName: SIDE_PLANK_AND_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id002
+- &id003
+  - category: CARDIO
+    description: ''
+    duration: 0:00:30
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - category: CRUNCH
+    description: ''
+    duration: 25reps
+    exerciseName: KNEELING_CABLE_CRUNCH
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id003
+- &id004
+  - category: CARDIO
+    description: ''
+    duration: 0:00:30
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - category: CRUNCH
+    description: ''
+    duration: 0:00:30
+    exerciseName: BICYCLE_CRUNCH
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id004
+- &id005
+  - category: CARDIO
+    description: ''
+    duration: 0:00:30
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: ''
+    duration: 0:00:20
+    exerciseName: SIDE_PLANK_WITH_FEET_ON_BENCH
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id005

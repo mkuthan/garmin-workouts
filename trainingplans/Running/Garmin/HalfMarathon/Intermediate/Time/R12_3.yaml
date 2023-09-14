@@ -1,65 +1,26 @@
-description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Run, threshold pace, 5 minutes.\
-  \ Run, recovery pace, 1 minute. Repeat 5 times.\r\n \u2022 Cool down, 5 to 10 minutes.\r\
-  \n \u2022 Stretch."
+description: "\u2022 Warm up, 10 minutes. \n \u2022 Run, threshold pace, 5 minutes.\
+  \ Run, recovery pace, 1 minute. Repeat 5 times. \n \u2022 Cool down, 5 to 10 minutes.\
+  \ \n \u2022 Stretch."
 name: W12D3-Intervals
 sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
+- &id001
+  - description: ''
+    duration: 0:05:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
 - description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

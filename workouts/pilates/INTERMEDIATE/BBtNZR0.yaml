@@ -6,327 +6,279 @@ sport: pilates
 steps:
 - description: Start standing with chair
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: MOVE
   description: Parallel
   duration: 0:00:30
   exerciseName: PILATES_PLIE_SQUATS_PARALLEL_TURNED_OUT_FLAT_AND_HEELS_WITH_CHAIR
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: Turned Out
   duration: 0:00:30
   exerciseName: PILATES_PLIE_SQUATS_PARALLEL_TURNED_OUT_FLAT_AND_HEELS_WITH_CHAIR
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: Turned Out second position
   duration: 0:00:30
   exerciseName: PILATES_PLIE_SQUATS_PARALLEL_TURNED_OUT_FLAT_AND_HEELS_WITH_CHAIR
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:30
   exerciseName: SQUATS_WITH_BALL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:40
   exerciseName: ROLL_DOWN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:20
   exerciseName: PLANK_KNEE_PULLS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:30
   exerciseName: PLANK_KNEE_CROSSES
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: Side 1
   duration: 0:00:30
   exerciseName: LUNGE_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: Side 2
   duration: 0:00:30
   exerciseName: LUNGE_SQUAT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Lay on back
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: BICEP_CURL_WITH_LEG_EXTENSION
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: ROLL_UP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Add Ball
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: STRAIGHT_LEG_DIAGONAL_CRUNCH_WITH_BALL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:30
   exerciseName: STRAIGHT_LEG_CRUNCH_WITH_LEGS_CROSSED_WITH_BALL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:30
   exerciseName: STRAIGHT_LEG_CRUNCH_WITH_LEG_LIFT_WITH_BALL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Remove Ball
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: MOVE
   description: ''
   duration: 0:01:00
   exerciseName: DIAMOND_LEG_CRUNCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: DIAMOND_LEG_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: THE_HUNDRED
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: ROLLING
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: SCISSORS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: LOWER_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:30
   exerciseName: BICEP_CURL_WITH_LEG_EXTENSION
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Lay on back
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: HYPEREXTENSION
   description: ''
   duration: 0:00:45
   exerciseName: COBRA
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:01:00
   exerciseName: SWAN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:00:30
   exerciseName: PLANK_WITH_ARM_VARIATIONS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: Side 1
   duration: 0:00:30
   exerciseName: SIDE_PLANK
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: Side 2
   duration: 0:00:30
   exerciseName: SIDE_PLANK
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: V_LEG_CRUNCHES
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: CORKSCREW
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:00:45
   exerciseName: BRIDGE_WITH_GLUTE_LOWER_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: Side 1
   duration: 0:00:30
   exerciseName: BRIDGE_ONE_LEG_BRIDGE
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: Side2
   duration: 0:00:30
   exerciseName: BRIDGE_ONE_LEG_BRIDGE
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:01:00
   exerciseName: BRIDGE_WITH_BALL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:00:45
   exerciseName: PIRIFORMIS_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:01:00
   exerciseName: SEATED_HIP_STRETCHUP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:01:00
   exerciseName: FORWARD_FOLD
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:00:45
   exerciseName: PLANK_WITH_LEG_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

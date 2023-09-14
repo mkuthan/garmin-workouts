@@ -5,7 +5,5 @@ sport: cycling
 steps:
 - description: ''
   duration: '2:00:00'
-  target:
-    type: power.zone
-    zone: '2'
+  target: {type: power.zone, zone: '2'}
   type: interval

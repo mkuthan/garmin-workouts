@@ -4,129 +4,59 @@ description: This mini yoga sequence will help open the lower back, build streng
 name: Slow Salutation
 sport: yoga
 steps:
-- category: POSE
-  description: ''
-  duration: 0:00:15
-  exerciseName: STANDING_ARMS_UP
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: STANDING_FORWARD_BEND
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: HIGH_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:45
-  exerciseName: PLANK
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: UP_DOG
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: DOWNWARD_FACING_DOG
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: HIGH_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: STANDING_FORWARD_BEND
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:15
-  exerciseName: STANDING_ARMS_UP
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:15
-  exerciseName: STANDING_ARMS_UP
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: STANDING_FORWARD_BEND
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: HIGH_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:45
-  exerciseName: PLANK
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: UP_DOG
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: DOWNWARD_FACING_DOG
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: HIGH_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:45
-  exerciseName: STANDING_FORWARD_BEND
-  target:
-    type: no.target
-  type: interval
-- category: POSE
-  description: ''
-  duration: 0:00:15
-  exerciseName: STANDING_ARMS_UP
-  target:
-    type: no.target
-  type: interval
+- &id001
+  - category: POSE
+    description: ''
+    duration: 0:00:15
+    exerciseName: STANDING_ARMS_UP
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: STANDING_FORWARD_BEND
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: HIGH_LUNGE
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: ''
+    duration: 0:00:45
+    exerciseName: PLANK
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: UP_DOG
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: DOWNWARD_FACING_DOG
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: HIGH_LUNGE
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:45
+    exerciseName: STANDING_FORWARD_BEND
+    target: {type: no.target}
+    type: interval
+  - category: POSE
+    description: ''
+    duration: 0:00:15
+    exerciseName: STANDING_ARMS_UP
+    target: {type: no.target}
+    type: interval
+- *id001

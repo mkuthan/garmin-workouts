@@ -1,148 +1,60 @@
-description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Run, 5K pace, 1 minute. Recovery\
-  \ run/walk, 1 minute. Repeat 4 times.\r\n \u2022 Recovery run/walk, 2 minutes.\r\
-  \n \u2022 Run, 5K pace, 1 minute. Recovery run/walk, 1 minute. Repeat 4 times.\r\
-  \n \u2022 Recovery run/walk, 2 minutes.\r\n \u2022 Run, 5K pace, 1 minute. Recovery\
-  \ run/walk, 1 minute. Repeat 4 times.\r\n \u2022 Cool down, 5 to 10 minutes\r\n\
-  \ \u2022 Stretch."
+description: "\u2022 Warm up, 10 minutes. \n \u2022 Run, 5K pace, 1 minute. Recovery\
+  \ run/walk, 1 minute. Repeat 4 times. \n \u2022 Recovery run/walk, 2 minutes. \n\
+  \ \u2022 Run, 5K pace, 1 minute. Recovery run/walk, 1 minute. Repeat 4 times. \n\
+  \ \u2022 Recovery run/walk, 2 minutes. \n \u2022 Run, 5K pace, 1 minute. Recovery\
+  \ run/walk, 1 minute. Repeat 4 times. \n \u2022 Cool down, 5 to 10 minutes \n \u2022\
+  \ Stretch."
 name: W11D2-Intervals
 sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id002
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
 - description: ''
   duration: 0:02:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
+- &id003
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- *id003
 - description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

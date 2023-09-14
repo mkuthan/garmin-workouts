@@ -6,65 +6,21 @@ sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
+- &id001
+  - description: ''
+    duration: 0:02:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
 - description: ''
-  duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 0:02:00
-  target:
-    type: heart.rate.zone
-    zone: '4'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

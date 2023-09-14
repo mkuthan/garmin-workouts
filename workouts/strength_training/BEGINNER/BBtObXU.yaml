@@ -6,240 +6,91 @@ description: Guys love to train chest. So much so, in fact, that they'll spend a
 name: 30-Minute Blast
 sport: strength_training
 steps:
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: FLYE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLYE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: FLYE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLYE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BENCH_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: FLYE
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_FLYE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  exerciseName: PARTIAL_LOCKOUT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  exerciseName: PARTIAL_LOCKOUT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: BENCH_PRESS
-  description: ''
-  exerciseName: PARTIAL_LOCKOUT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: REVERSE_GRIP_BARBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 8reps
-  exerciseName: BARBELL_BACK_SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 8reps
-  exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: BENCH_PRESS
+    description: ''
+    duration: 8reps
+    exerciseName: BARBELL_BENCH_PRESS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:20
+    target: {type: no.target}
+    type: rest
+  - category: FLYE
+    description: ''
+    duration: 8reps
+    exerciseName: DUMBBELL_FLYE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:20
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- &id002
+  - category: BENCH_PRESS
+    description: ''
+    exerciseName: PARTIAL_LOCKOUT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:30
+    target: {type: no.target}
+    type: rest
+  - category: ROW
+    description: ''
+    duration: 8reps
+    exerciseName: REVERSE_GRIP_BARBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- &id003
+  - category: SQUAT
+    description: ''
+    duration: 8reps
+    exerciseName: BARBELL_BACK_SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: SHOULDER_PRESS
+    description: ''
+    duration: 8reps
+    exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
 - category: CURL
   description: ''
   duration: 8reps
   exerciseName: BARBELL_BICEPS_CURL
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:01:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: TRICEPS_EXTENSION
   description: ''
   duration: 8reps
   exerciseName: TRICEPS_PRESSDOWN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:01:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest

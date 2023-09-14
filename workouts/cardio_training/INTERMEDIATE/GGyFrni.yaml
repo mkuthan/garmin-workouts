@@ -7,34 +7,29 @@ steps:
   description: ''
   duration: 0:01:00
   exerciseName: PLANK_WITH_ARM_RAISE
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:01:00
   exerciseName: PLANK_WITH_OBLIQUE_CRUNCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:01:00
   exerciseName: SIDE_PLANK
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:01:00
   exerciseName: SIDE_PLANK
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:01:00
   exerciseName: PLANK
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

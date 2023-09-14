@@ -4,27 +4,16 @@ description: "\u2022 Run, med-high effort, 10 minutes. Run, easy effort, 5 minut
 name: W11D6b-Tempo Run
 sport: running
 steps:
+- &id001
+  - description: ''
+    duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:05:00
+    target: {type: no.target}
+    type: interval
+- *id001
 - description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:05:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

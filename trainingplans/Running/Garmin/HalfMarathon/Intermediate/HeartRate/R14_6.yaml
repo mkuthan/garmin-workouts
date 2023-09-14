@@ -1,15 +1,13 @@
 description: "\u2022 Run 40 minutes. Vary your intensity throughout the workout. On\
-  \ 3 or 4 hills, push to 90% maximum effort.\n \u2022 Cool down, 5 to 10 minutes.\n\
-  \ \u2022 Stretch."
+  \ 3 or 4 hills, push to 90% maximum effort. \n \u2022 Cool down, 5 to 10 minutes.\
+  \ \n \u2022 Stretch."
 name: W14D6-Fartlek
 sport: running
 steps:
 - description: ''
   duration: 0:40:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

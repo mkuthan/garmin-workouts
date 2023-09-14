@@ -23,151 +23,81 @@ sport: cycling
 steps:
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '2'
+  target: {type: power.zone, zone: '2'}
   type: warmup
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '4'
+  target: {type: power.zone, zone: '4'}
   type: warmup
 - description: ''
   duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
 - description: ''
   duration: 0:00:30
-  target:
-    type: power.zone
-    zone: '5'
+  target: {type: power.zone, zone: '5'}
   type: warmup
 - description: ''
   duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
 - description: ''
   duration: 0:00:05
-  target:
-    type: power.zone
-    zone: '7'
+  target: {type: power.zone, zone: '7'}
   type: warmup
 - description: ''
   duration: 0:03:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
 - description: ''
   duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '6'
+  target: {type: power.zone, zone: '6'}
   type: interval
 - description: ''
   duration: 0:08:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: recovery
 - description: ''
   duration: 0:04:00
-  target:
-    type: power.zone
-    zone: '5'
+  target: {type: power.zone, zone: '5'}
   type: interval
 - description: ''
   duration: 0:10:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: recovery
 - description: ''
   duration: 0:10:00
-  target:
-    type: power.zone
-    zone: '5'
+  target: {type: power.zone, zone: '5'}
   type: interval
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: recovery
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '1'
-  type: recovery
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '1'
-  type: recovery
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '1'
-  type: recovery
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: power.zone
-    zone: '1'
-  type: recovery
+- &id001
+  - description: ''
+    duration: 0:01:00
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: power.zone, zone: '1'}
+    type: recovery
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:04:00
-  target:
-    type: power.zone
-    zone: '5'
+  target: {type: power.zone, zone: '5'}
   type: interval
 - description: ''
   duration: 0:03:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: recovery
 - description: ''
   duration: 0:07:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: recovery

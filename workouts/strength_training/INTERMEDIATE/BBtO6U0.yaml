@@ -5,93 +5,23 @@ description: This workout takes you out of your normal comfort zone and into fat
 name: The Three-Exercise Body
 sport: strength_training
 steps:
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
-  target:
-    type: no.target
-  type: interval
+- &id001
+  - category: SHOULDER_PRESS
+    description: ''
+    exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
+    target: {type: no.target}
+    type: interval
+  - category: ROW
+    description: ''
+    exerciseName: INVERTED_ROW
+    target: {type: no.target}
+    type: interval
+  - category: SHOULDER_PRESS
+    description: ''
+    exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
+    target: {type: no.target}
+    type: interval
+- *id001
+- *id001
+- *id001
+- *id001

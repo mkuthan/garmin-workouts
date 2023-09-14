@@ -7,121 +7,103 @@ steps:
   description: ''
   duration: 0:00:30
   exerciseName: ROLL_DOWN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: LATERAL_RAISE
   description: ''
   duration: 0:00:30
   exerciseName: ARM_CIRCLES
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Sit Up
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: CORE
   description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:01:00
   exerciseName: THE_HUNDRED
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: CRISS_CROSS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: HYPEREXTENSION
   description: ''
   duration: 0:00:30
   exerciseName: COBRA
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:30
   exerciseName: SWAN
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: CORE
   description: ''
   duration: 0:00:45
   exerciseName: SWIMMING
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:00:30
   exerciseName: PLANK_WITH_ARM_VARIATIONS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: PLANK
   description: ''
   duration: 0:00:30
   exerciseName: PLANK_WITH_LEG_LIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: POSE
   description: ''
   duration: 0:00:20
   exerciseName: CHILDS
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: Lay on Back
   duration: 0:00:10
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: POSE
   description: ''
   duration: 0:00:45
   exerciseName: BRIDGE
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - category: MOVE
   description: ''
   duration: 0:01:00
   exerciseName: PIRIFORMIS_STRETCH
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval

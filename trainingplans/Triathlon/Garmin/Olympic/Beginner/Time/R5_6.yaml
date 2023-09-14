@@ -4,27 +4,16 @@ description: "\u2022 Bike, easy effort, 55 minutes. Bike in moderate effort, 20 
 name: W05D6-Long Bike
 sport: cycling
 steps:
+- &id001
+  - description: ''
+    duration: 0:55:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:20:00
+    target: {type: no.target}
+    type: interval
+- *id001
 - description: ''
-  duration: 0:55:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:20:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:55:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:20:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

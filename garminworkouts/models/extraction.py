@@ -131,9 +131,11 @@ def export_yaml(workout, filename) -> None:
                 workout_dict['steps'].append(step_extraction(step_json))
             else:
                 if ('numberOfIterations' in step_json) and (step_json['numberOfIterations'] is not None):
+                    rep_step = []
+                    for k in range(len(step_json['workoutSteps'])):
+                        rep_step.append(step_extraction(step_json['workoutSteps'][k]))
                     for j in range(step_json['numberOfIterations']):
-                        for k in range(len(step_json['workoutSteps'])):
-                            workout_dict['steps'].append(step_extraction(step_json['workoutSteps'][k]))
+                        workout_dict['steps'].append(rep_step)
                 else:
                     for k in range(len(step_json['workoutSteps'])):
                         step_json['workoutSteps'][k]['repeatDuration'] = str(
@@ -142,4 +144,4 @@ def export_yaml(workout, filename) -> None:
     else:
         print(filename)
     with open(filename, 'w') as file:
-        yaml.dump(workout_dict, file)
+        yaml.dump(workout_dict, file, default_flow_style=None)

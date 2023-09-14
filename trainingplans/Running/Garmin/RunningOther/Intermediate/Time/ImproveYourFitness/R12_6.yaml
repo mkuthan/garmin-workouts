@@ -6,30 +6,18 @@ sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
+- &id001
+  - description: ''
+    duration: 3.219km
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:10:00
+    target: {type: no.target}
+    type: rest
+- *id001
 - description: ''
-  duration: 3.219km
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  duration: 3.219km
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

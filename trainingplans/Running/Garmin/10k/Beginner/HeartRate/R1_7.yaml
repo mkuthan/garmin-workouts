@@ -3,43 +3,17 @@ description: "\u2022 Run easy, Z2, 5 minutes. Walk, Z2, 5 minutes. Repeat 3 time
 name: W01D7-Intervals
 sport: running
 steps:
+- &id001
+  - description: ''
+    duration: 0:05:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: interval
+  - description: ''
+    duration: 0:05:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: rest
+- *id001
+- *id001
 - description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: interval
-- description: ''
-  duration: 0:05:00
-  target:
-    type: heart.rate.zone
-    zone: '2'
-  type: rest
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

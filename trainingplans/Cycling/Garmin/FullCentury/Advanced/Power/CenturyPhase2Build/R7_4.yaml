@@ -16,98 +16,41 @@ sport: cycling
 steps:
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '2'
+  target: {type: power.zone, zone: '2'}
   type: warmup
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '3'
+  target: {type: power.zone, zone: '3'}
   type: warmup
 - description: ''
   duration: 0:05:00
-  target:
-    type: power.zone
-    zone: '4'
+  target: {type: power.zone, zone: '4'}
   type: warmup
 - description: ''
   duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
 - description: ''
   duration: 0:00:30
-  target:
-    type: power.zone
-    zone: '5'
+  target: {type: power.zone, zone: '5'}
   type: warmup
 - description: ''
   duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '1'
+  target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  target:
-    type: power.zone
-    zone: '2'
-  type: recovery
-- description: ''
-  duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  target:
-    type: power.zone
-    zone: '2'
-  type: recovery
-- description: ''
-  duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  target:
-    type: power.zone
-    zone: '2'
-  type: recovery
-- description: ''
-  duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  target:
-    type: power.zone
-    zone: '2'
-  type: recovery
-- description: ''
-  duration: 0:02:00
-  target:
-    type: power.zone
-    zone: '5'
-  type: interval
-- description: ''
-  target:
-    type: power.zone
-    zone: '2'
-  type: recovery
+- &id001
+  - description: ''
+    duration: 0:02:00
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - description: ''
+    target: {type: power.zone, zone: '2'}
+    type: recovery
+- *id001
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:30:00
-  target:
-    type: power.zone
-    zone: '2'
+  target: {type: power.zone, zone: '2'}
   type: interval

@@ -5,207 +5,64 @@ description: We all hate those workouts. You know the one's we're talking about.
 name: Get-Fit Real-Quick Workout
 sport: cardio_training
 steps:
-- category: DEADLIFT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: RENEGADE_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:30
-  exerciseName: MOUNTAIN_CLIMBER
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: BARBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:30
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:15
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: RENEGADE_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:30
-  exerciseName: MOUNTAIN_CLIMBER
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: BARBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:30
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:15
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: RENEGADE_ROW
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_FRONT_SQUAT
-  target:
-    type: no.target
-  type: interval
-- category: SHOULDER_PRESS
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_PUSH_PRESS
-  target:
-    type: no.target
-  type: interval
-- category: PLANK
-  description: ''
-  duration: 0:00:30
-  exerciseName: MOUNTAIN_CLIMBER
-  target:
-    type: no.target
-  type: interval
-- category: SQUAT
-  description: ''
-  duration: 0:00:30
-  exerciseName: BARBELL_STEP_UP
-  target:
-    type: no.target
-  type: interval
-- category: PUSH_UP
-  description: ''
-  duration: 0:00:30
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- category: LUNGE
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_REVERSE_LUNGE
-  target:
-    type: no.target
-  type: interval
-- category: ROW
-  description: ''
-  duration: 0:00:30
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:15
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: DEADLIFT
+    description: ''
+    duration: 0:00:30
+    exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
+    target: {type: no.target}
+    type: interval
+  - category: ROW
+    description: ''
+    duration: 0:00:30
+    exerciseName: RENEGADE_ROW
+    target: {type: no.target}
+    type: interval
+  - category: SQUAT
+    description: ''
+    duration: 0:00:30
+    exerciseName: DUMBBELL_FRONT_SQUAT
+    target: {type: no.target}
+    type: interval
+  - category: SHOULDER_PRESS
+    description: ''
+    duration: 0:00:30
+    exerciseName: DUMBBELL_PUSH_PRESS
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: ''
+    duration: 0:00:30
+    exerciseName: MOUNTAIN_CLIMBER
+    target: {type: no.target}
+    type: interval
+  - category: SQUAT
+    description: ''
+    duration: 0:00:30
+    exerciseName: BARBELL_STEP_UP
+    target: {type: no.target}
+    type: interval
+  - category: PUSH_UP
+    description: ''
+    duration: 0:00:30
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - category: LUNGE
+    description: ''
+    duration: 0:00:30
+    exerciseName: DUMBBELL_REVERSE_LUNGE
+    target: {type: no.target}
+    type: interval
+  - category: ROW
+    description: ''
+    duration: 0:00:30
+    exerciseName: DUMBBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:15
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001

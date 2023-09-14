@@ -6,16 +6,12 @@ name: W01D2-Easy Run
 sport: running
 steps:
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
 - description: ''
   duration: 0:20:00
-  target:
-    type: heart.rate.zone
-    zone: '1'
+  target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

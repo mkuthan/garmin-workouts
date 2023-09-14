@@ -7,102 +7,56 @@ description: No matter how much your health and wellness are the primary reasons
 name: Summer Abs Workout
 sport: strength_training
 steps:
-- category: CARDIO
-  description: ''
-  duration: 0:00:15
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:15
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: CARDIO
-  description: ''
-  duration: 0:00:15
-  exerciseName: JUMP_ROPE
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: CARDIO
+    description: ''
+    duration: 0:00:15
+    exerciseName: JUMP_ROPE
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
 - category: PULL_UP
   description: ''
   duration: 50reps
   exerciseName: PULL_UP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:00:30
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: DEADLIFT
   description: ''
   duration: 50reps
   exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:00:30
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
 - category: PUSH_UP
   description: ''
   duration: 50reps
   exerciseName: PUSH_UP
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:00:30
-  target:
-    type: no.target
+  target: {type: no.target}
   type: rest
-- category: CORE
-  description: ''
-  exerciseName: KNEELING_AB_WHEEL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: CORE
-  description: ''
-  exerciseName: KNEELING_AB_WHEEL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: CORE
-  description: ''
-  exerciseName: KNEELING_AB_WHEEL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
+- &id002
+  - category: CORE
+    description: ''
+    exerciseName: KNEELING_AB_WHEEL
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002

@@ -8,80 +8,37 @@ sport: cycling
 steps:
 - description: ''
   duration: 0:05:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:05:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:05:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
   duration: 0:05:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
+- &id001
+  - description: ''
+    duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- *id001
+- *id001
+- *id001
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: interval
 - description: ''
-  duration: 0:02:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:02:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:02:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:02:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:02:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:10:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

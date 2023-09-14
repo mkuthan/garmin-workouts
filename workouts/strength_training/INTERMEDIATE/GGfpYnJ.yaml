@@ -4,327 +4,90 @@ description: A strong back is key to whatever fitness or training goals you have
 name: The Back Burner
 sport: strength_training
 steps:
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: PULL_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: PULL_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: PULL_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: PULL_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: LAT_PULLDOWN
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHRUG
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_UPRIGHT_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: LAT_PULLDOWN
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHRUG
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_UPRIGHT_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: LAT_PULLDOWN
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHRUG
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_UPRIGHT_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: PULL_UP
-  description: ''
-  duration: 10reps
-  exerciseName: LAT_PULLDOWN
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SHRUG
-  description: ''
-  duration: 10reps
-  exerciseName: BARBELL_UPRIGHT_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: INVERTED_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: FACE_PULL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: FACE_PULL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: FACE_PULL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 10reps
-  exerciseName: FACE_PULL
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: DEADLIFT
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_DEADLIFT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- &id002
+  - category: PULL_UP
+    description: ''
+    duration: 10reps
+    exerciseName: PULL_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: ROW
+    description: ''
+    duration: 10reps
+    exerciseName: DUMBBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
+- &id003
+  - category: PULL_UP
+    description: ''
+    duration: 10reps
+    exerciseName: LAT_PULLDOWN
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+  - category: SHRUG
+    description: ''
+    duration: 10reps
+    exerciseName: BARBELL_UPRIGHT_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- *id003
+- &id004
+  - category: ROW
+    description: ''
+    duration: 10reps
+    exerciseName: INVERTED_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id004
+- *id004
+- *id004
+- &id005
+  - category: ROW
+    description: ''
+    duration: 10reps
+    exerciseName: FACE_PULL
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    target: {type: no.target}
+    type: rest
+- *id005
+- *id005
+- *id005

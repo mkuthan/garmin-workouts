@@ -1,45 +1,24 @@
-description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Run, threshold pace, 7 minutes.\
-  \ Recovery run, 90 seconds. Repeat 3 times.\r\n \u2022 Cool down, 5 to 10 minutes.\r\
-  \n \u2022 Stretch."
+description: "\u2022 Warm up, 10 minutes. \n \u2022 Run, threshold pace, 7 minutes.\
+  \ Recovery run, 90 seconds. Repeat 3 times. \n \u2022 Cool down, 5 to 10 minutes.\
+  \ \n \u2022 Stretch."
 name: W14D4-Intervals
 sport: running
 steps:
 - description: ''
   duration: 0:10:00
-  target:
-    type: no.target
+  target: {type: no.target}
   type: warmup
+- &id001
+  - description: ''
+    duration: 0:07:00
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:30
+    target: {type: no.target}
+    type: recovery
+- *id001
+- *id001
 - description: ''
-  duration: 0:07:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  duration: 0:07:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  duration: 0:07:00
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:30
-  target:
-    type: no.target
-  type: recovery
-- description: ''
-  target:
-    type: no.target
+  target: {type: no.target}
   type: cooldown

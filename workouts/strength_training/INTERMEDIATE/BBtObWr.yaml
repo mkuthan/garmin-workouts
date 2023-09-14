@@ -6,191 +6,58 @@ description: 'Sometimes it''s best to follow the KISS method: Keep It Simple, St
 name: Dumbbell Body Makeover
 sport: strength_training
 steps:
-- category: SQUAT
-  description: ''
-  duration: 20reps
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 20reps
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 20reps
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: SQUAT
-  description: ''
-  duration: 20reps
-  exerciseName: SQUAT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:01:00
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: DEADLIFT
-  description: ''
-  duration: 12reps
-  exerciseName: BARBELL_DEADLIFT
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: ROW
-  description: ''
-  duration: 8reps
-  exerciseName: DUMBBELL_ROW
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
-- category: PUSH_UP
-  description: ''
-  exerciseName: PUSH_UP
-  target:
-    type: no.target
-  type: interval
-- description: ''
-  duration: 0:00:30
-  target:
-    type: no.target
-  type: rest
+- &id001
+  - category: SQUAT
+    description: ''
+    duration: 20reps
+    exerciseName: SQUAT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:01:00
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- &id002
+  - category: DEADLIFT
+    description: ''
+    duration: 12reps
+    exerciseName: BARBELL_DEADLIFT
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
+- &id003
+  - category: ROW
+    description: ''
+    duration: 8reps
+    exerciseName: DUMBBELL_ROW
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- *id003
+- &id004
+  - category: PUSH_UP
+    description: ''
+    exerciseName: PUSH_UP
+    target: {type: no.target}
+    type: interval
+  - description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id004
+- *id004
+- *id004
