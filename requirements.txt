@@ -11,3 +11,4 @@ pytest-httpserver==1.0.8
 python-decouple==3.8
 python-telegram-bot==20.5
 bpython == 0.24
+certifi==2023.7.22
