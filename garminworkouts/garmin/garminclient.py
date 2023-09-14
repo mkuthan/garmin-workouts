@@ -404,10 +404,16 @@ class GarminClient(object):
         response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=zones)
         response.raise_for_status()
 
-    def get_power_zones(self):
+    def get_power_zones(self) -> dict:
         url: str = f"{self.connect_url}{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/sports/all"
 
         response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
         return json.loads(response.text)
+
+    def save_power_zones(self, zones) -> None:
+        url: str = f"{self.connect_url}{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
+
+        response = self.session.put(url, headers=GarminClient._REQUIRED_HEADERS, json=zones)
+        response.raise_for_status()

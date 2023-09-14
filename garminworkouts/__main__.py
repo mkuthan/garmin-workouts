@@ -12,6 +12,7 @@ from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
+from garminworkouts.models.power import Power
 from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.extraction import export_yaml
 from garminworkouts.utils.validators import writeable_dir
@@ -274,8 +275,11 @@ def command_user_zones(args) -> None:
         date.today()
         ).hr_zones()
 
+    pzones, rpower_zones, cpower_zones, pdata = Power.power_zones(account.rFTP, account.cFTP)
+
     with _garmin_client(args) as connection:
         connection.save_hr_zones(data)
+        connection.save_power_zones(pdata)
 
     Workout([],
             [],

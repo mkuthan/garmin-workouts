@@ -32,8 +32,36 @@ class Power:
         return int(power) * ftp / 100
 
     @staticmethod
-    def power_zones(ftp) -> tuple[list[float], list[int]]:
-        zones: list[float] = [0.46, 0.6, 0.7, 0.8, 0.84, 1.0, 1.1, 1.25, 1.3]
-        power_zones: list[int] = [round(int(ftp.to_watts(ftp.power[:-1])) * zone) for zone in zones]
+    def power_zones(rftp, cftp) -> tuple[list[float], list[int], list[int], list[dict]]:
+        zones: list[float] = [0.65, 0.8, 0.9, 1.0, 1.15, 1.3, 1.5]
+        rpower_zones: list[int] = [round(int(rftp.to_watts(rftp.power[:-1])) * zone) for zone in zones]
+        cpower_zones: list[int] = [round(int(cftp.to_watts(cftp.power[:-1])) * zone) for zone in zones]
 
-        return zones, power_zones
+        data = [
+            {
+                "sport": "CYCLING",
+                "functionalThresholdPower": cftp.power[:-1],
+                "zone1Floor": str(cpower_zones[0]),
+                "zone2Floor": str(cpower_zones[1]),
+                "zone3Floor": str(cpower_zones[2]),
+                "zone4Floor": str(cpower_zones[3]),
+                "zone5Floor": str(cpower_zones[4]),
+                "zone6Floor": str(cpower_zones[5]),
+                "zone7Floor": str(cpower_zones[6]),
+                "userLocalTime": None
+            },
+            {
+                "sport": "RUNNING",
+                "functionalThresholdPower": rftp.power[:-1],
+                "zone1Floor": str(rpower_zones[1]),
+                "zone2Floor": str(rpower_zones[2]),
+                "zone3Floor": str(rpower_zones[3]),
+                "zone4Floor": str(rpower_zones[4]),
+                "zone5Floor": str(rpower_zones[5]),
+                "zone6Floor": str(0.0),
+                "zone7Floor": str(0.0),
+                "userLocalTime": None
+            }
+        ]
+
+        return zones, rpower_zones, cpower_zones, data

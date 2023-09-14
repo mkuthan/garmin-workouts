@@ -79,11 +79,15 @@ class Workout(object):
         for i in range(len(zones)-1):
             logging.info(" Zone %s: %s - %s", i, hr_zones[i], hr_zones[i + 1])
 
-        zones, power_zones = Power.power_zones(self.rFTP)
+        zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
 
-        logging.info('::Power Zones::')
+        logging.info('::Running Power Zones::')
         for i in range(len(zones)-1):
-            logging.info(" Zone %s: %s - %s w", i, power_zones[i], power_zones[i + 1])
+            logging.info(" Zone %s: %s - %s w", i, rpower_zones[i], rpower_zones[i + 1])
+
+        logging.info('::Cycling Power Zones::')
+        for i in range(len(zones)-1):
+            logging.info(" Zone %s: %s - %s w", i, cpower_zones[i], cpower_zones[i + 1])
 
     def get_workout_name(self) -> str:
         if self.plan != '' and _DESCRIPTION in self.config:
@@ -391,11 +395,11 @@ class Workout(object):
             t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
         elif target_type == 'power.zone':
             if 'zone' in step['target']:
-                zones, power_zones = Power.power_zones(self.rFTP)
+                zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
 
                 z = int(step['target']['zone'])
-                t2 = power_zones[z + 1]
-                t1 = power_zones[z]
+                t2 = rpower_zones[z + 1]
+                t1 = rpower_zones[z]
             else:
                 t2 = self._target_value(step, 'max')
                 t1 = self._target_value(step, 'min')
