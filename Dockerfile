@@ -1,4 +1,5 @@
-FROM python:3.11.5-alpine
+FROM python:3.11.5-slim-bookworm
+
 ARG GARMIN_USERNAME
 ENV GARMIN_USERNAME=$GARMIN_USERNAME
 
@@ -28,7 +29,7 @@ ENV BOT_TOKEN=$BOT_TOKEN
 
 WORKDIR /usr/src/app
 
-RUN apk update && apk upgrade && apk add gcc g++
+RUN apt-get -y update && apt-get install -y gcc g++
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt && rm requirements.txt
 
