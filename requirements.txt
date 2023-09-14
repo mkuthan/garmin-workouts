@@ -1,5 +1,5 @@
 pip==23.2.1
-setuptools==68.2.1
+setuptools==68.2.2
 wheel == 0.41.2
 requests==2.31.0
 pyyaml==6.0.1
