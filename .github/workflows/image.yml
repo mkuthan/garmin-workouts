@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - "main"
+    paths:
+      - 'garminworkouts/**'
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot

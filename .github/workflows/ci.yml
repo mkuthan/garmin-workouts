@@ -2,6 +2,9 @@ name: CI
 
 on:
   push:
+    paths:
+      - 'garminworkouts/**'
+      - 'tests/**'
   pull_request_target:
   workflow_dispatch:
 
@@ -42,7 +45,7 @@ jobs:
       contents: read
       
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           python-version: ${{ matrix.python-version }}
