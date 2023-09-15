@@ -71,9 +71,19 @@ jobs:
         run: |
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}"
-          touch "/tmp/digests/${digest#sha256:}"          
-      -
-        name: Upload digest
+          touch "/tmp/digests/${digest#sha256:}"    
+      
+      - name: Docker Scout
+        id: docker-scout
+        uses: docker/scout-action@v0.23.4
+        with:
+          command: cves,recommendations,compare
+          to-latest: true
+          ignore-base: true
+          ignore-unchanged: true
+          only-fixed: true      
+      
+      - name: Upload digest
         uses: actions/upload-artifact@v3
         with:
           name: digests
