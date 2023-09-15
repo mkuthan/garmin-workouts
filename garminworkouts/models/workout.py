@@ -398,8 +398,8 @@ class Workout(object):
                 zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
 
                 z = int(step['target']['zone'])
-                t2 = rpower_zones[z + 1]
-                t1 = rpower_zones[z]
+                t2 = rpower_zones[z]
+                t1 = rpower_zones[z - 1]
             else:
                 t2 = self._target_value(step, 'max')
                 t1 = self._target_value(step, 'min')
