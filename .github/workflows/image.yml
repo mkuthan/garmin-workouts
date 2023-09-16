@@ -5,9 +5,11 @@ on:
     branches:
       - "main"
     paths:
-      - 'garminworkouts/**'
       - 'trainingplans/**'
       - 'workouts/**'
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed] #requested
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot
