@@ -250,7 +250,7 @@ class Workout(object):
         self.mileage: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
         self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
 
-    def _get_target_value(self, target, key) -> float:
+    def zone_extractor(self, target, key):
         if isinstance(target, dict):
             target_type = target[_TYPE]
             target_value: str = target[key] if key in _TARGET else str('')
@@ -258,6 +258,20 @@ class Workout(object):
             target_type: str = self.target[target][_TYPE]
             target_value: str = self.target[target][key] if key in self.target[target] else '0'
 
+        if 'zone' in self.target[target]:
+            z = int(self.target[target]['zone'])
+            if target_type == 'heart.rate.zone':
+                zones, hr_zones, data = self.hr_zones()
+                t = {'min': zones[z], 'max': zones[z + 1]}
+                target_value = str(t[key])
+            elif target_type == 'power.zone':
+                zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
+                t = {'min': zones[z - 1], 'max': zones[z]}
+                target_value = str(t[key])
+        return target_type, target_value
+
+    def _get_target_value(self, target, key) -> float:
+        target_type, target_value = self.zone_extractor(target, key)
         if target_type == 'power.zone':
             if self.sport_type[0] == 'running':
                 return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
