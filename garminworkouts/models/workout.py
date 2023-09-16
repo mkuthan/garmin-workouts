@@ -492,6 +492,8 @@ class Workout(object):
         for repeats, step_config in steps_config_agg:
             step_order = step_order + 1
             if isinstance(step_config, list):
+                if isinstance(step_config[0], list):
+                    step_config = step_config[0]
                 child_step_id = child_step_id + 1 if child_step_id else 1
 
                 repeat_step_order = step_order
