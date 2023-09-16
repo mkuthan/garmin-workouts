@@ -39,26 +39,30 @@ def command_trainingplan_reset(args) -> None:
 
 def command_trainingplan_import(args, event=False) -> None:
     workouts, plan = settings(args)
+    workouts_by_name: dict = {w.get_workout_name(): w for w in workouts}
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
+        ue: list = connection.get_calendar(date=date.today(), days=14)
+
+        for wname in ue:
+            existing_workout: dict | None = existing_workouts_by_name.get(
+                wname) if wname in workouts_by_name else None
+            if existing_workout:
+                workout_id: str = Workout.extract_workout_id(existing_workout)
+                workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
+                workout: Workout = workouts_by_name[wname]
+                payload: dict = workout.create_workout(workout_id, workout_owner_id)
+                logging.info("Updating workout '%s'", wname)
+                connection.update_workout(workout_id, payload)
 
         for workout in workouts:
-            workout_name: str = workout.get_workout_name()
             day_d, week, day = workout.get_workout_date()
 
             if day_d >= date.today():
+                workout_name: str = workout.get_workout_name()
                 existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
-                if existing_workout:
-                    description: str = Workout.extract_workout_description(existing_workout)
-                    if event or ((day_d <= date.today() + timedelta(weeks=2))
-                                 and description and (plan in description)):
-                        workout_id: str = Workout.extract_workout_id(existing_workout)
-                        workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
-                        payload: dict = workout.create_workout(workout_id, workout_owner_id)
-                        logging.info("Updating workout '%s'", workout_name)
-                        connection.update_workout(workout_id, payload)
-                else:
+                if not existing_workout:
                     payload = workout.create_workout()
                     logging.info("Creating workout '%s'", workout_name)
                     connection.save_workout(payload)
@@ -68,7 +72,6 @@ def command_trainingplan_import(args, event=False) -> None:
                     existing_workout = existing_workouts_by_name.get(workout_name)
                     workout_id = Workout.extract_workout_id(existing_workout)
                     connection.schedule_workout(workout_id, day_d.isoformat())
-        connection.get_calendar(date.today())
 
 
 def command_event_import(args) -> None:

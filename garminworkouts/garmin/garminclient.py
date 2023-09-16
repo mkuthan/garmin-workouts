@@ -1,7 +1,7 @@
 import json
 import sys
 import logging
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 from garminworkouts.garmin.session import connect, disconnect
 from garminworkouts.models.extraction import export_yaml
@@ -125,7 +125,7 @@ class GarminClient(object):
         response = self.session.delete(url, headers=GarminClient._REQUIRED_HEADERS)
         response.raise_for_status()
 
-    def get_calendar(self, date) -> None:
+    def get_calendar(self, date, days) -> list:
         year = str(date.year)
         month = str(date.month - 1)
         url: str = f"{self.connect_url}{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
@@ -135,10 +135,16 @@ class GarminClient(object):
 
         response_jsons: dict = json.loads(response.text)
 
+        updateable_elements = []
         for item in response_jsons['calendarItems']:
-            if datetime.strptime(item['date'], '%Y-%m-%d').date() < date and item['itemType'] == 'workout':
-                logging.info("Deleting workout '%s'", item['title'])
-                self.delete_workout(item['workoutId'])
+            if item['itemType'] == 'workout':
+                if datetime.strptime(item['date'], '%Y-%m-%d').date() < date:
+                    logging.info("Deleting workout '%s'", item['title'])
+                    self.delete_workout(item['workoutId'])
+                elif datetime.strptime(item['date'], '%Y-%m-%d').date() < date + timedelta(days=days):
+                    updateable_elements.append(item['title'])
+
+        return updateable_elements
 
     def schedule_workout(self, workout_id, date) -> None:
         url: str = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
