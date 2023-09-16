@@ -40,8 +40,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY_IMAGE }}
-          tags: type=pep440,pattern={{version}}
+          images: |
+            ${{ env.REGISTRY_IMAGE }}
+          tags: |
+            type=semver,pattern={{version}}
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -50,17 +52,20 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Login to Docker Hub
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Build and push by digest
+      - name: Build and push
         id: build
         uses: docker/build-push-action@v5
         with:
           context: .
           platforms: ${{ matrix.platform }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             GARMIN_USERNAME: ${{ env.GARMIN_USERNAME }}
@@ -79,7 +84,6 @@ jobs:
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}"
           touch "/tmp/digests/${digest#sha256:}"    
-      
       
       - name: Upload digest
         uses: actions/upload-artifact@v3
@@ -117,7 +121,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY_IMAGE }}
+          images: |
+            ${{ env.REGISTRY_IMAGE }}
+          tags: |
+            type=semver,pattern={{version}}
       
       - name: Login to Docker Hub
         uses: docker/login-action@v3
