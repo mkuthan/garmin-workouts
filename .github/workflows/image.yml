@@ -1,8 +1,6 @@
 name: Build docker images
 
 on:
-  schedule:
-    - cron: "0 10 * * *"
   push:
     tags:
       - "v*.*.*"
@@ -42,7 +40,6 @@ jobs:
           images: |
             ${{ env.REGISTRY_IMAGE }}
           tags: |
-            type=schedule
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
