@@ -17,12 +17,12 @@ LONG_RUN_HEART_RATE: {type: "heart.rate.zone", min: "0.65", max: "0.78" }
 MARATHON_HEART_RATE: {type: "heart.rate.zone", min: "0.76", max: "0.84" }
 THRESHOLD_HEART_RATE: {type: "heart.rate.zone", min: "0.75", max: "0.88" }
 V02MAX_HEART_RATE: {type: "heart.rate.zone", min: "0.91", max: "0.94" }
-HEART_RATE_ZONE_0: {type: "heart.rate.zone", zone: "1"}
-HEART_RATE_ZONE_1: {type: "heart.rate.zone", zone: "2"}
-HEART_RATE_ZONE_2: {type: "heart.rate.zone", zone: "3"}
-HEART_RATE_ZONE_3: {type: "heart.rate.zone", zone: "4"}
-HEART_RATE_ZONE_4: {type: "heart.rate.zone", zone: "5"}
-HEART_RATE_ZONE_5: {type: "heart.rate.zone", min: "1", max: "1.1"}
+HEART_RATE_ZONE_0: {type: "heart.rate.zone", zone: "0"}
+HEART_RATE_ZONE_1: {type: "heart.rate.zone", zone: "1"}
+HEART_RATE_ZONE_2: {type: "heart.rate.zone", zone: "2"}
+HEART_RATE_ZONE_3: {type: "heart.rate.zone", zone: "3"}
+HEART_RATE_ZONE_4: {type: "heart.rate.zone", zone: "4"}
+HEART_RATE_ZONE_5: {type: "heart.rate.zone", zone: "5"}
 RECOVERY_POWER: {type: "power.zone", min: "0.3", max: "0.55" }
 ENDURANCE_POWER:  {type: "power.zone", min: "0.55", max: "0.75" }
 TEMPO_POWER: {type: "power.zone", min: "0.76", max: "0.87" }
