@@ -1,12 +1,9 @@
 name: Build docker images
 
 on:
-  push:
-    tags:
-      - "v*.*.*"
   workflow_run:
-    workflows: ["CI"]
-    types: [completed] #requested
+    workflows: ["CI", "Dependabot auto-merge"]
+    types: [completed]
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot
