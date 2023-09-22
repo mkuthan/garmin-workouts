@@ -77,10 +77,10 @@ def command_trainingplan_import(args, event=False) -> None:
 def command_event_import(args) -> None:
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     try:
-        event_files: list = glob.glob(planning[args.workout]['workouts'])
+        event_files: list = glob.glob(planning[args.trainingplan]['workouts'])
     except KeyError:
-        logging.error(args.workout + ' not found in planning, please check "planning.yaml"')
-        event_files = glob.glob(args.workout)
+        logging.error(args.trainingplan + ' not found in planning, please check "planning.yaml"')
+        event_files = glob.glob(args.trainingplan)
 
     event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
     events: list = [Event(event_config) for event_config in event_configs]
@@ -349,7 +349,7 @@ def main() -> None:
 
     parser_import = subparsers.add_parser("event-import",
                                           description="Import event(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("workout",
+    parser_import.add_argument("trainingplan",
                                help="File(s) with event(s) to import, "
                                     "wildcards are supported e.g: events/*.yaml")
     parser_import.set_defaults(func=command_event_import)
