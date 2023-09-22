@@ -4,13 +4,8 @@ on:
   schedule:
     - cron: "0 10 * * *"
   push:
-    branches:
-      - main
     tags:
       - "v*.*.*"
-  pull_request:
-    branches:
-      - "main"
   workflow_run:
     workflows: ["CI"]
     types: [completed] #requested
@@ -87,7 +82,6 @@ jobs:
             rFTP: ${{ env.rFTP }}
             cFTP: ${{ env.cFTP }}
             BOT_TOKEN: ${{ env.BOT_TOKEN }}
-          outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
 
       - name: Docker Scout
         id: docker-scout
@@ -98,14 +92,6 @@ jobs:
           ignore-base: true
           ignore-unchanged: true
           only-fixed: true      
-      
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
       
       - name: Inspect image
         run: |
