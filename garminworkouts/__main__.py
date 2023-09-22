@@ -43,7 +43,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        ue: list = connection.get_calendar(date=date.today(), days=14)
+        ue: list = connection.get_calendar(date=date.today(), days=7)
 
         for wname in ue:
             existing_workout: dict | None = existing_workouts_by_name.get(
