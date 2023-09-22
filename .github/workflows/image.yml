@@ -1,11 +1,16 @@
 name: Build docker images
 
 on:
+  schedule:
+    - cron: "0 10 * * *"
   push:
     branches:
-      - "main"
+      - main
     tags:
-      - 'v*'
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - "main"
   workflow_run:
     workflows: ["CI"]
     types: [completed] #requested
@@ -42,10 +47,13 @@ jobs:
           images: |
             ${{ env.REGISTRY_IMAGE }}
           tags: |
+            type=schedule
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha   
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -80,21 +88,7 @@ jobs:
             cFTP: ${{ env.cFTP }}
             BOT_TOKEN: ${{ env.BOT_TOKEN }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
-      
-      - name: Export digest
-        run: |
-          mkdir -p /tmp/digests
-          digest="${{ steps.build.outputs.digest }}"
-          touch "/tmp/digests/${digest#sha256:}"    
-      
-      - name: Upload digest
-        uses: actions/upload-artifact@v3
-        with:
-          name: digests
-          path: /tmp/digests/*
-          if-no-files-found: error
-          retention-days: 1
-  
+
       - name: Docker Scout
         id: docker-scout
         uses: docker/scout-action@v0.23.4
@@ -105,43 +99,13 @@ jobs:
           ignore-unchanged: true
           only-fixed: true      
       
-  merge:
-    runs-on: ubuntu-latest
-    needs:
-      - build
-    steps:
-      - name: Download digests
-        uses: actions/download-artifact@v3
+      - name: Build and push
+        uses: docker/build-push-action@v5
         with:
-          name: digests
-          path: /tmp/digests
-      
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            ${{ env.REGISTRY_IMAGE }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-      
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      
-      - name: Create manifest list and push
-        working-directory: /tmp/digests
-        run: |
-          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)          
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
       
       - name: Inspect image
         run: |
