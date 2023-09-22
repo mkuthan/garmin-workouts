@@ -14,6 +14,7 @@ import contextlib
 import logging
 import account
 import os
+import datetime
 
 from telegram import __version__ as TG_VER
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
@@ -81,30 +82,38 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await query.edit_message_text(text=f"Selected option: {query.data}")
 
     if workout == 'Races':
-        cmd: str = str("python -m garminworkouts event-import ") + workout
+        cmd: str = str("python -m garminworkouts event-import Races")
     elif workout == 'Zones':
-        cmd: str = str("python -m garminworkouts user-zones ")
+        cmd: str = str("python -m garminworkouts user-zones")
     else:
         cmd = str("python -m garminworkouts trainingplan-import ") + workout
 
-    returned_value = subprocess.run(cmd, shell=True, capture_output=True)
-
-    output: str = f'{str(returned_value)}\n'
+    subprocess.run(cmd, shell=True, capture_output=True)
 
     with open('./debug.log', 'r') as file:
-        output: str = file.read()
-
-    if output == '':
-        output = output + '\nCompleted'
-
-    assert query.message is not None
-    await query.message.reply_text(text=output)
+        assert query.message is not None
+        await query.message.reply_text(text=file.read())
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Displays info on how to use the bot."""
     assert update.message is not None
     await update.message.reply_text("Use /start to test this bot.")
+
+
+async def recurrent(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    await update.message.reply_text(text='Daily trainingplan update')
+    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
+
+    for plan in planning:
+        if plan != 'Races':
+            await update.message.reply_text(text='Updating ' + plan)
+            cmd: str = str("python -m garminworkouts trainingplan-import " + plan)
+
+            subprocess.run(cmd, shell=True, capture_output=True)
+
+            with open('./debug.log', 'r') as file:
+                await update.message.reply_text(text=file.read())
 
 
 def main() -> None:
@@ -115,6 +124,11 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
     application.add_handler(CommandHandler("help", help_command))
+    application.add_handler(CommandHandler("recurrent", recurrent))
+
+    application.job_queue.run_daily(callback=recurrent,
+                                    time=datetime.time(hour=4, minute=00, second=00),
+                                    days=tuple(range(5)))
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling()
