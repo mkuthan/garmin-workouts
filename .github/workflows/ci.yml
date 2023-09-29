@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - run: flake8 garminworkouts tests
 
@@ -28,6 +28,7 @@ jobs:
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
 
+    needs: [lint]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
@@ -37,9 +38,3 @@ jobs:
       - uses: codecov/codecov-action@v3
         with:
           env_vars: PYTHON_VERSION
-
-  required-checks:
-    runs-on: ubuntu-latest
-    needs: [lint, test]
-    steps:
-      - run: exit 0
