@@ -3,7 +3,7 @@ import sys
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
-from typing import Any, Literal, Generator, Self, Optional
+from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.extraction import export_yaml
 import garth
 import os
@@ -64,7 +64,7 @@ class GarminClient(object):
     def delete(self, *args, **kwargs) -> Response:
         return self.garth.delete(GarminClient._GARMIN_SUBDOMAIN, *args, **kwargs)
 
-    def __enter__(self) -> Self:
+    def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
