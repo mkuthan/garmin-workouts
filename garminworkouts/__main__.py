@@ -256,12 +256,8 @@ def command_workout_delete(args) -> None:
 
 def _garmin_client(args) -> GarminClient:
     return GarminClient(
-        connect_url=args.connect_url,
-        sso_url=args.sso_url,
         username=account.USERNAME,
-        password=account.PASSWORD,
-        cookie_jar=args.cookie_jar
-    )
+        password=account.PASSWORD)
 
 
 def command_user_zones(args) -> None:
@@ -305,15 +301,6 @@ def command_update_types(args) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--cookie-jar",
-                        default=".garmin-cookies.txt",
-                        help="Filename with authentication cookies")
-    parser.add_argument("--connect-url",
-                        default="https://connect.garmin.com",
-                        help="Garmin Connect url")
-    parser.add_argument("--sso-url",
-                        default="https://sso.garmin.com",
-                        help="Garmin SSO url")
     parser.add_argument("--debug",
                         action='store_true',
                         help="Enables more detailed messages")

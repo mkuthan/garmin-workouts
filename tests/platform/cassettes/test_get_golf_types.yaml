@@ -1,0 +1,349 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/socialProfile
+  response:
+    body:
+      string: '{"id": 369946353, "profileId": 75620387, "garminGUID": "6fb98690-f511-4145-afed-1a660d8a05a3",
+        "displayName": "28b8ca52-820b-4597-9bbb-6d76e1498867", "fullName": "Oskar",
+        "userName": "oskar.salgado@gmail.com", "profileImageUuid": "0a5e9f44-4b61-4702-94f2-91363bd0d9f0",
+        "profileImageUrlLarge": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/0a5e9f44-4b61-4702-94f2-91363bd0d9f0-75620387.png",
+        "profileImageUrlMedium": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/c87431ff-0530-4002-b23f-1dd91534f23d-75620387.png",
+        "profileImageUrlSmall": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/d891cdfb-a406-40a0-a10b-1ff764a89599-75620387.png",
+        "location": "", "facebookUrl": "", "twitterUrl": "", "personalWebsite": "",
+        "motivation": 2, "bio": null, "primaryActivity": "running", "favoriteActivityTypes":
+        ["running", "cycling", "swimming", "walking", "hiking", "weight_training"],
+        "runningTrainingSpeed": 3.6363637, "cyclingTrainingSpeed": 5.555556, "favoriteCyclingActivityTypes":
+        ["road", "mountain"], "cyclingClassification": "recreation", "cyclingMaxAvgPower":
+        0.0, "swimmingTrainingSpeed": 0.0, "profileVisibility": "private", "activityStartVisibility":
+        "public", "activityMapVisibility": "public", "courseVisibility": "public",
+        "activityHeartRateVisibility": "public", "activityPowerVisibility": "public",
+        "badgeVisibility": "private", "showAge": false, "showWeight": false, "showHeight":
+        false, "showWeightClass": false, "showAgeRange": false, "showGender": false,
+        "showActivityClass": false, "showVO2Max": false, "showPersonalRecords": false,
+        "showLast12Months": true, "showLifetimeTotals": true, "showUpcomingEvents":
+        false, "showRecentFavorites": false, "showRecentDevice": false, "showRecentGear":
+        false, "showBadges": false, "otherActivity": "", "otherPrimaryActivity": null,
+        "otherMotivation": null, "userRoles": ["SCOPE_ATP_READ", "SCOPE_ATP_WRITE",
+        "SCOPE_COMMUNITY_COURSE_READ", "SCOPE_COMMUNITY_COURSE_WRITE", "SCOPE_CONNECT_READ",
+        "SCOPE_CONNECT_WRITE", "SCOPE_DT_CLIENT_ANALYTICS_WRITE", "SCOPE_GARMINPAY_READ",
+        "SCOPE_GARMINPAY_WRITE", "SCOPE_GCOFFER_READ", "SCOPE_GCOFFER_WRITE", "SCOPE_GHS_SAMD",
+        "SCOPE_GHS_UPLOAD", "SCOPE_GOLF_API_READ", "SCOPE_GOLF_API_WRITE", "SCOPE_INSIGHTS_READ",
+        "SCOPE_INSIGHTS_WRITE", "SCOPE_PRODUCT_SEARCH_READ", "ROLE_CONNECTUSER", "ROLE_FITNESS_USER",
+        "ROLE_WELLNESS_USER", "ROLE_OUTDOOR_USER", "ROLE_MARINE_USER", "ROLE_TACX_APP_USER"],
+        "nameApproved": true, "userProfileFullName": "Oskar", "makeGolfScorecardsPrivate":
+        true, "allowGolfLiveScoring": false, "allowGolfScoringByConnections": true,
+        "userLevel": 7, "userPoint": 1561, "levelUpdateDate": "2023-07-07T12:13:00.0",
+        "levelIsViewed": false, "levelPointThreshold": 2540, "userPointOffset": 0,
+        "userPro": false}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810377affe4a218c-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 07:28:18 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ytKo2dVSCHr6Rupbtx%2F6hdNZSazYH%2FVLEGwhoWA9pUlD6LkVLCjr58T76ddhiDlDsWcTXY3DCij8nJdFAGIDBiL5Z1FcaqGsfEKL165YsvARp75hr5l7E7JCLCiUVdgoBxRdqLwYaA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - _cfuvid=SANITIZED; path=SANITIZED; domain=SANITIZED; HttpOnly; Secure; SameSite=SANITIZED
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - ADRUM_BTa=SANITIZED; SameSite=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/userprofile/user-settings
+  response:
+    body:
+      string: '{"id": 75620387, "userData": {"gender": "MALE", "weight": 73800.0,
+        "height": 178.0, "timeFormat": "time_twenty_four_hr", "birthDate": "1981-02-02",
+        "measurementSystem": "metric", "activityLevel": 8, "handedness": "RIGHT",
+        "powerFormat": {"formatId": 30, "formatKey": "watt", "minFraction": 0, "maxFraction":
+        0, "groupingUsed": true, "displayFormat": null}, "heartRateFormat": {"formatId":
+        21, "formatKey": "bpm", "minFraction": 0, "maxFraction": 0, "groupingUsed":
+        false, "displayFormat": null}, "firstDayOfWeek": {"dayId": 3, "dayName": "monday",
+        "sortOrder": 3, "isPossibleFirstDay": true}, "vo2MaxRunning": 53.0, "vo2MaxCycling":
+        null, "lactateThresholdSpeed": 0.3555545600000001, "lactateThresholdHeartRate":
+        null, "diveNumber": 50, "intensityMinutesCalcMethod": "AUTO", "moderateIntensityMinutesHrZone":
+        3, "vigorousIntensityMinutesHrZone": 4, "hydrationMeasurementUnit": "milliliter",
+        "hydrationContainers": [{"name": null, "volume": 250, "unit": "milliliter"},
+        {"name": null, "volume": 500, "unit": "milliliter"}, {"name": null, "volume":
+        750, "unit": "milliliter"}], "hydrationAutoGoalEnabled": true, "firstbeatMaxStressScore":
+        26, "firstbeatCyclingLtTimestamp": null, "firstbeatRunningLtTimestamp": 1063780297,
+        "thresholdHeartRateAutoDetected": true, "ftpAutoDetected": null, "trainingStatusPausedDate":
+        null, "weatherLocation": {"useFixedLocation": false, "latitude": 42.8509107,
+        "longitude": -2.6423136, "locationName": "Gasteiz, Euskadi", "isoCountryCode":
+        "ES", "postalCode": "01192"}, "golfDistanceUnit": "statute_us", "golfElevationUnit":
+        null, "golfSpeedUnit": null, "externalBottomTime": 0}, "userSleep": {"sleepTime":
+        75600, "defaultSleepTime": false, "wakeTime": 34200, "defaultWakeTime": false},
+        "connectDate": null, "sourceType": null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810377df1a418686-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 07:28:25 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=gyz4O%2BgHjZdZOY5E63ljcZGoBwLNck%2BR7ZXV8iK8LY3OBjRnlj3%2B8Dbe%2FALyUdq9XlLKr%2F1Ky6YVZtOxoFwvUJKhFy8oN%2FPLm1WMorwZfUuWvDlbM6eYi69bQzToUOjAX0uTH0GQbQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - SameSite=SANITIZED; ADRUM_BTa=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/info-service/api/system/release-system
+  response:
+    body:
+      string: '[{"app": "release-system", "project": "system", "version": "23.19.3.0",
+        "time": "Mon Oct 02 17:52:10 UTC 2023"}]'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810378145ee12fa3-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 07:28:34 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=jXASyiLOhldLs3SRbFCQlIyAcGerszW9l%2B2tA%2BgEx6V8Ej87jQBk2HGlNnJOKcXb9SKEnw6TmlC7GaC65Y9ya1%2FTWYO1hVGcmo4ULkoKZBYge7VhZe%2FXmAPHQYKWB8XYKeBKFfR76Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      x-vcap-request-id:
+      - 8f2fe19c-a733-4fdf-4228-f77b061bcb37
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - SameSite=SANITIZED; ADRUM_BTa=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/gcs-golfcommunity/api/v2/club/types
+  response:
+    body:
+      string: '[{"value": 1, "name": "Driver", "shaftLength": 45.5, "loftAngle": 10.5,
+        "lieAngle": 58.5, "displayRange": "8\u00b0-12\u00b0", "valid": true}, {"value":
+        2, "name": "3 Wood", "shaftLength": 43.0, "loftAngle": 15.0, "lieAngle": 56.5,
+        "displayRange": "13\u00b0-17\u00b0", "valid": true}, {"value": 3, "name":
+        "5 Wood", "shaftLength": 42.5, "loftAngle": 18.5, "lieAngle": 57.0, "displayRange":
+        "18\u00b0-22\u00b0", "valid": true}, {"value": 4, "name": "1 Hybrid", "shaftLength":
+        41.0, "loftAngle": 15.0, "lieAngle": 57.5, "displayRange": "14\u00b0-16\u00b0",
+        "valid": true}, {"value": 5, "name": "2 Hybrid", "shaftLength": 40.5, "loftAngle":
+        17.0, "lieAngle": 58.0, "displayRange": "17\u00b0-18\u00b0", "valid": true},
+        {"value": 6, "name": "3 Hybrid", "shaftLength": 40.0, "loftAngle": 19.0, "lieAngle":
+        58.5, "displayRange": "19\u00b0-21\u00b0", "valid": true}, {"value": 7, "name":
+        "4 Hybrid", "shaftLength": 39.5, "loftAngle": 22.0, "lieAngle": 59.0, "displayRange":
+        "22\u00b0-23\u00b0", "valid": true}, {"value": 8, "name": "5 Hybrid", "shaftLength":
+        39.0, "loftAngle": 24.0, "lieAngle": 59.5, "displayRange": "24\u00b0-27\u00b0",
+        "valid": true}, {"value": 9, "name": "6 Hybrid", "shaftLength": 38.5, "loftAngle":
+        28.0, "lieAngle": 60.0, "displayRange": "28\u00b0-32\u00b0", "valid": true},
+        {"value": 10, "name": "1 Iron", "shaftLength": 39.5, "loftAngle": 16.0, "lieAngle":
+        58.0, "valid": true}, {"value": 11, "name": "2 Iron", "shaftLength": 39.0,
+        "loftAngle": 18.5, "lieAngle": 58.67, "valid": true}, {"value": 12, "name":
+        "3 Iron", "shaftLength": 38.5, "loftAngle": 21.0, "lieAngle": 59.32, "valid":
+        true}, {"value": 13, "name": "4 Iron", "shaftLength": 38.0, "loftAngle": 24.0,
+        "lieAngle": 60.02, "valid": true}, {"value": 14, "name": "5 Iron", "shaftLength":
+        37.5, "loftAngle": 27.0, "lieAngle": 60.75, "valid": true}, {"value": 15,
+        "name": "6 Iron", "shaftLength": 37.0, "loftAngle": 30.5, "lieAngle": 61.5,
+        "valid": true}, {"value": 16, "name": "7 Iron", "shaftLength": 36.5, "loftAngle":
+        34.0, "lieAngle": 62.28, "valid": true}, {"value": 17, "name": "8 Iron", "shaftLength":
+        36.0, "loftAngle": 38.0, "lieAngle": 63.1, "valid": true}, {"value": 18, "name":
+        "9 Iron", "shaftLength": 35.5, "loftAngle": 42.0, "lieAngle": 63.95, "valid":
+        true}, {"value": 19, "name": "Pitching Wedge", "shaftLength": 35.5, "loftAngle":
+        46.0, "lieAngle": 64.38, "displayRange": "46\u00b0-49\u00b0", "valid": true},
+        {"value": 20, "name": "Gap Wedge", "shaftLength": 35.5, "loftAngle": 50.0,
+        "lieAngle": 64.38, "displayRange": "50\u00b0-53\u00b0", "valid": true}, {"value":
+        21, "name": "Sand Wedge", "shaftLength": 35.25, "loftAngle": 54.0, "lieAngle":
+        64.7, "displayRange": "54\u00b0-57\u00b0", "valid": true}, {"value": 22, "name":
+        "Lob Wedge", "shaftLength": 35.0, "loftAngle": 58.0, "lieAngle": 65.11, "displayRange":
+        "58\u00b0-64\u00b0", "valid": true}, {"value": 23, "name": "Putter", "shaftLength":
+        35.0, "loftAngle": 5.0, "lieAngle": 70.0, "valid": true}]'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810378412ba41bb5-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 07:28:41 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2F%2FP5dRUWv9nASeP7OrCP3sZFp29ruwbfVLYT0UT3s4YR%2BgQO%2B%2BZXQ9pVW4L5YQti9MeDPYIX7lHKZ6kUFQkfEMaeW177Z2%2BMau9ZL6a2NROJrUCaTIlpixf9DwcrQHE4n3UXPrdufw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      expires:
+      - '0'
+      golf_function:
+      - GET_CLUB_TYPES
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      strict-transport-security:
+      - max-age=16000000; includeSubDomains; preload;
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-vcap-request-id:
+      - aaee9d00-3ebd-4e1f-5d33-529cb02a32b5
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
