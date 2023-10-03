@@ -1,5 +1,4 @@
-Garmin Connect Workouts Tools
-================
+# Garmin Connect Workouts Tools
 
 [![CI](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/mkuthan/garmin-workouts/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/mkuthan/garmin-workouts/branch/master/graph/badge.svg?token=ZC7VITLNHF)](https://codecov.io/gh/mkuthan/garmin-workouts)
@@ -15,7 +14,7 @@ Features:
 * Schedule saved workouts
 * The most important parameters (TSS, IF, NP) embedded in workout description field.
 
-# Installation
+## Installation
 
 Requirements:
 
@@ -46,14 +45,14 @@ Install dependencies:
 pip3 install -r requirements.txt
 ```
 
-# Usage
+## Usage
 
 First call to Garmin Connect takes some time to authenticate user.
 Once user is authenticated [cookie jar](https://docs.python.org/3/library/http.cookiejar.html) is created with session
 cookies for further calls.
 It is required due to strict request limits for Garmin [SSO](https://en.wikipedia.org/wiki/Single_sign-on) service.
 
-## Authentication
+### Authentication
 
 Define Garmin connect account credentials as `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
 
@@ -68,7 +67,7 @@ Alternatively use `-u` and `-p` command line arguments:
 python -m garminworkouts -u [USERNAME] -p [PASSWORD]
 ```
 
-## Import Workouts
+### Import Workouts
 
 Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org) files.
 If the workout already exists it will be updated:
@@ -91,10 +90,10 @@ steps:
 ```
 
 * Target power is defined as percent of FTP (provided as mandatory command line parameter).
-  If the target power is not specified "No target" will be used for the workout step.
+If the target power is not specified "No target" will be used for the workout step.
 * Target power may be defined as absolute value like: "150W", it could be useful in FTP ramp tests.
 * Duration is defined as HH:MM:SS (or MM:SS, or SS) format.
-  If the duration is not specified "Lap Button Press" will be used to move into next workout step.
+If the duration is not specified "Lap Button Press" will be used to move into next workout step.
 
 Reusing workout definitions:
 
@@ -147,7 +146,7 @@ steps:
 ```
 
 * All nested sections are mapped as repeated steps in Garmin Connect.
-  First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cooldown.
+First repeat for warmup, second repeat for main interval (repeated 3 times) and the last one for cool down.
 
 To import your workout from an `xlsx` file, construct a table in Excel that looks like this (making sure that all Excel
 cells are set to text and not to date or any other format):
@@ -178,7 +177,7 @@ python -m garminworkouts import --ftp [YOUR_FTP] my.workout.xlsx
 
 This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
 
-## Export Workouts
+### Export Workouts
 
 Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
@@ -187,12 +186,12 @@ This is the easiest way to synchronize all workouts with Garmin device:
 python -m garminworkouts export /mnt/GARMIN/NewFiles
 ```
 
-## List Workouts
+### List Workouts
 
 Print summary for all workouts (workout identifier, workout name and description):
 
 ```shell
-$ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
+$ python -m garminworkouts list
 188952654 VO2MAX 5x4           FTP 214, TSS 80, NP 205, IF 0.96
 188952362 TEMPO 3x15           FTP 214, TSS 68, NP 172, IF 0.81
 188952359 SS 3x12              FTP 214, TSS 65, NP 178, IF 0.83
@@ -206,7 +205,7 @@ $ python -m garminworkouts -u [GARMIN_USERNAME] -p [GARMIN_PASSWORD] list
 127739603 FTP RAMP             FTP 214, TSS 62, NP 230, IF 1.08
 ```
 
-## Get Workout
+### Get Workout
 
 Print full workout definition (as JSON):
 
@@ -215,7 +214,7 @@ $ python -m garminworkouts get --id [WORKOUT_ID]
 {"workoutId": 188952654, "ownerId": 2043461, "workoutName": "VO2MAX 5x4", "description": "FTP 214, TSS 80, NP 205, IF 0.96", "updatedDate": "2020-02-11T14:37:56.0", ...
 ```
 
-## Delete Workout
+### Delete Workout
 
 Permanently delete workout from Garmin Connect:
 
@@ -223,9 +222,9 @@ Permanently delete workout from Garmin Connect:
 python -m garminworkouts delete --id [WORKOUT_ID]
 ```
 
-## Schedule  Workouts
+### Schedule  Workouts
 
-Schedule preexisting workouts using the workout number (e.g. "https://connect.garmin.com/modern/workout/234567894")
+Schedule preexisting workouts using the workout number (e.g. "<https://connect.garmin.com/modern/workout/234567894>")
 The workout number is the last digits of the URL here: 234567894
 Note: the date format is as follows : 2021-12-31
 
