@@ -104,6 +104,7 @@ class GarminClient(object):
 
         with open(file, "wb") as f:
             f.write(response)
+            f.write(response)
 
     def save_workout(self, workout) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
@@ -121,6 +122,7 @@ class GarminClient(object):
         year = str(date.year)
         month = str(date.month - 1)
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
+        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
 
         response_jsons: Any = self.get(url).json()['calendarItems']
 
@@ -137,10 +139,12 @@ class GarminClient(object):
 
     def schedule_workout(self, workout_id, date) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
+        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
         self.post(url, json=json_data)
 
     def remove_workout(self, workout_id, date) -> None:
+        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
         self.delete(url, json=json_data)
@@ -193,6 +197,7 @@ class GarminClient(object):
         limit = 20
         # mimicking the behavior of the web interface that fetches 20 activities at a time
         # and automatically loads more on scroll
+        url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
         url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
         params: dict[str, str] = {
             "startDate": str(startdate),
@@ -316,6 +321,7 @@ class GarminClient(object):
         print('GOLF_CLUB = ', sec, '\n')
 
         url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
+        url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
 
         response = self.get(url).json()
 
@@ -326,6 +332,7 @@ class GarminClient(object):
 
     def get_strength_types(self) -> None:
         url: str = "/web-data/exercises/Exercises.json"
+        url: str = "/web-data/exercises/Exercises.json"
 
         sec: Any = self.garth.get("connect", url).json()
 
@@ -333,6 +340,7 @@ class GarminClient(object):
             json.dump(sec, fp)  # encode dict into JSON
 
     def get_RHR(self) -> int:
+        url: str = f"{self._WELLNESS_SERVICE_ENDPOINT}/wellness/dailyHeartRate"
         url: str = f"{self._WELLNESS_SERVICE_ENDPOINT}/wellness/dailyHeartRate"
         params: dict = {
             "date": date.today(),
