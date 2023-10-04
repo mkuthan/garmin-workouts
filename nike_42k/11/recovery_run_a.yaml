@@ -1,0 +1,4 @@
+name: "11wtg recovery run a"
+
+steps:
+  - { type: "run", duration: "35:00" }

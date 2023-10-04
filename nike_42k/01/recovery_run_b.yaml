@@ -1,0 +1,4 @@
+name: "01wtg recovery run b"
+
+steps:
+  - { type: "run", duration: "1.6km" }

@@ -1,0 +1,9 @@
+name: "01wtg speed run"
+
+steps:
+  - { type: "warmup", duration: "5:00"}
+  - { type: "run", duration: "5:00", description: "Recovery pace" }
+  - { type: "run", duration: "4:00", target: 10K_PACE, description: "10K pace" }
+  - { type: "run", duration: "3:00", target: 5K_PACE, description: "5K pace" }
+  - { type: "run", duration: "2:00", target: MILE_PACE, description: "Mile pace" }
+  - { type: "run", duration: "1:00", description: "Best pace" }

@@ -1,0 +1,5 @@
+name: "12wtg speed run"
+
+steps:
+  - { type: "warmup", duration: "7:00", target: RECOVERY_PACE}
+  - { type: "run", duration: "20:00", target: TEMPO_PACE}

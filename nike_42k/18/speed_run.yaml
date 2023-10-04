@@ -1,0 +1,14 @@
+name: "18wtg speed run"
+
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE}
+  - &INTERVAL
+    - { type: "run", duration: "1:00", target: 5K_PACE, description: "5K pace" }
+    - { type: "recovery", duration: "1:00", target: RECOVERY_PACE, description: "Recovery pace" }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

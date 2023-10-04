@@ -1,0 +1,6 @@
+name: "08wtg speed run"
+
+steps:
+  - { type: "warmup", duration: "5:00"}
+  - { type: "run", duration: "12:00", target: TEMPO_PACE, description: "Strong and Controlled" }
+  - { type: "run", duration: "11:00", target: TEMPO_PACE, description: "Progressively Faster" }

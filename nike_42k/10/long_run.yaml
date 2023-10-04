@@ -1,0 +1,4 @@
+name: "10wtg long run"
+
+steps:
+  - { type: "run", duration: "21.1km" }

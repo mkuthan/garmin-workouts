@@ -1,0 +1,6 @@
+name: "03wtg speed run"
+
+steps:
+  - { type: "run", duration: "2km", description: "warm up" }
+  - { type: "run", duration: "8km", target: TEMPO_PACE}
+  - { type: "run", duration: "2km", description: "cool down" }

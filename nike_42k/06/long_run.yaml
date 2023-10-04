@@ -1,0 +1,4 @@
+name: "06wtg long run"
+
+steps:
+  - { type: "run", duration: "1:30:00" }
