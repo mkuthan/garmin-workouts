@@ -7,11 +7,13 @@ from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.extraction import export_yaml
 import garth
 import os
+from garminworkouts.models.trainingplan_list import trainingplan_list
+from garth.exc import GarthHTTPError
 
 
 class GarminClient(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "23.19.3.0"
+    _GARMIN_VERSION = "23.20.0.98"
     _WORKOUT_SERVICE_ENDPOINT = "/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/activity-service"
@@ -81,9 +83,14 @@ class GarminClient(object):
     def list_workouts(self, batch_size=100) -> Generator[Any, Any, None]:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
         for start_index in range(0, sys.maxsize, batch_size):
-            params: dict[str, int] = {
+            params = {
                 "start": start_index,
-                "limit": batch_size
+                "limit": batch_size,
+                "myWorkoutsOnly": False,
+                "sharedWorkoutsOnly": False,
+                "orderBy": "WORKOUT_NAME",
+                "orderSeq": "ASC",
+                "includeAtp": True
             }
             response_jsons: Any = self.get(url, params=params).json()
             if not response_jsons or response_jsons == []:
@@ -228,7 +235,10 @@ class GarminClient(object):
             "limit": '1000',
             "locale": locale.split('-')[0],
         }
-        return self.post(url, params=params).json()['trainingPlanList']
+        try:
+            return self.post(url, params=params).json()['trainingPlanList']
+        except GarthHTTPError:
+            return trainingplan_list['trainingPlanList']
 
     def schedule_training_plan(self, plan_id, startDate) -> Any:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/schedule/{plan_id}"
