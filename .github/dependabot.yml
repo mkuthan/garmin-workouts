@@ -4,15 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    groups:
-      all-dependencies:
-        patterns:
-          - "*"
+    rebase-strategy: "disabled"
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "weekly"
-    groups:
-      all-dependencies:
-        patterns:
-          - "*"
