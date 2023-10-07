@@ -1,0 +1,4 @@
+name: "13wtg long run"
+sport: "running"
+steps:
+  - { type: "interval", duration: "16km", target: LONG_RUN_HEART_RATE }

@@ -1,0 +1,16 @@
+name: "03wtg speed run"
+sport: "running"
+steps:
+  - {
+      type: "interval",
+      duration: "2km",
+      target: NO_TARGET,
+      description: "warm up",
+    }
+  - { type: "interval", duration: "8km", target: HALF_MARATHON_PACE }
+  - {
+      type: "interval",
+      duration: "2km",
+      target: NO_TARGET,
+      description: "cool down",
+    }

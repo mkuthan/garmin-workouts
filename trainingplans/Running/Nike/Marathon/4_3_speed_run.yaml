@@ -1,0 +1,23 @@
+name: "05wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE }
+  - &INTERVAL
+    - {
+        type: "interval",
+        duration: "2:00",
+        target: 1KM_PACE,
+        description: "Hard pace",
+      }
+    - {
+        type: "interval",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Easy pace",
+      }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

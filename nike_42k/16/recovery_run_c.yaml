@@ -1,4 +1,0 @@
-name: "16wtg recovery run c"
-
-steps:
-  - { type: "run", duration: "5km" }

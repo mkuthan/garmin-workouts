@@ -1,0 +1,124 @@
+name: "17wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE }
+  - {
+      type: "interval",
+      duration: "1:00",
+      target: 5KM_PACE,
+      description: "5K pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "2:00",
+      target: 10KM_PACE,
+      description: "10K pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "1:00",
+      target: 5KM_PACE,
+      description: "5K pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "0:45",
+      target: 1500M_PACE,
+      description: "Mile pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "0:45",
+      target: 1500M_PACE,
+      description: "Mile pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "2:00",
+      target: 10KM_PACE,
+      description: "10K pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "1:00",
+      target: 5KM_PACE,
+      description: "5K pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "0:45",
+      target: 1500M_PACE,
+      description: "Mile pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "0:30",
+      target: 1KM_PACE,
+      description: "Best pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - {
+      type: "interval",
+      duration: "0:15",
+      target: 1KM_PACE,
+      description: "Best pace",
+    }
+  - {
+      type: "recovery",
+      duration: "1:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }

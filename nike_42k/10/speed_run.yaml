@@ -1,5 +1,0 @@
-name: "10wtg speed run"
-
-steps:
-  - { type: "warmup", duration: "7:00"}
-  - { type: "run", duration: "25:00", target: TEMPO_PACE}

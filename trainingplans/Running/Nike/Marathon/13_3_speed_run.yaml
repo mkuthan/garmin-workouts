@@ -1,0 +1,34 @@
+name: "14wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "7:00", target: RECOVERY_PACE }
+  - &INTERVAL
+    - {
+        type: "interval",
+        duration: "2:00",
+        target: 5KM_PACE,
+        description: "5k pace",
+      }
+    - {
+        type: "recovery",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+  - *INTERVAL
+  - *INTERVAL
+  - {
+      type: "interval",
+      duration: "10:00",
+      target: HALF_MARATHON_PACE,
+      description: "Tempo pace",
+    }
+  - {
+      type: "recovery",
+      duration: "2:00",
+      target: RECOVERY_PACE,
+      description: "Recovery pace",
+    }
+  - *INTERVAL
+  - *INTERVAL
+  - *INTERVAL

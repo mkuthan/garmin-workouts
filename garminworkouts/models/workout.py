@@ -133,6 +133,8 @@ class Workout(object):
                         duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
                     except ZeroDivisionError:
                         duration_secs = float(0)
+                    except KeyError:
+                        duration_secs = float(0)
 
                 sec = sec + duration_secs
                 meters: float = meters + duration_meters
@@ -230,6 +232,7 @@ class Workout(object):
         reps = 0
 
         for step in flatten_steps:
+            assert step['type'] != 'run'
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
             if not key == 'lap.button':

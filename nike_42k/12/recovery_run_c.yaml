@@ -1,4 +1,0 @@
-name: "12wtg recovery run c"
-
-steps:
-  - { type: "run", duration: "30:00" }
