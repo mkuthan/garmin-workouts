@@ -1,0 +1,16 @@
+name: "08wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE }
+  - {
+      type: "interval",
+      duration: "12:00",
+      target: HALF_MARATHON_PACE,
+      description: "Strong and Controlled",
+    }
+  - {
+      type: "interval",
+      duration: "11:00",
+      target: HALF_MARATHON_PACE,
+      description: "Progressively Faster",
+    }

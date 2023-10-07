@@ -1,0 +1,5 @@
+name: "10wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "7:00", target: RECOVERY_PACE }
+  - { type: "interval", duration: "25:00", target: HALF_MARATHON_PACE }

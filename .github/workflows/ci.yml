@@ -8,10 +8,6 @@ on:
   pull_request_target:
   workflow_dispatch:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -21,12 +17,13 @@ jobs:
       - uses: ./.github/actions/setup
       - run: flake8 garminworkouts tests
 
-  test:
+  build:
     runs-on: ubuntu-latest
+    needs: [lint]
 
     strategy:
       matrix:
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.10", "3.11", "3.12"]
 
     env:
       PYTHON_VERSION: ${{ matrix.python-version }}
@@ -62,8 +59,15 @@ jobs:
           machineName: myMachine # optional, default: GitHub workflow run ID
           timeout: '30000'       # optional, default: 30000
 
-  required-checks:
+  result:
+    if: ${{ always() }}
     runs-on: ubuntu-latest
-    needs: [lint, test]
+    needs: [build]
     steps:
-      - run: exit 0
+      - run: |
+          result="${{ needs.build.result }}"
+          if [[ $result == "success" || $result == "skipped" ]]; then
+            exit 0
+          else
+            exit 1
+          fi

@@ -1,0 +1,67 @@
+name: "13wtg speed run"
+sport: "running"
+steps:
+  - { type: "warmup", duration: "5:00", target: RECOVERY_PACE }
+  - &INTERVAL
+    - {
+        type: "interval",
+        duration: "3:00",
+        target: 5KM_PACE,
+        description: "5k pace",
+      }
+    - {
+        type: "recovery",
+        duration: "2:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+    - {
+        type: "interval",
+        duration: "0:30",
+        target: 1500M_PACE,
+        description: "Mile pace",
+      }
+    - {
+        type: "recovery",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+    - {
+        type: "interval",
+        duration: "0:30",
+        target: 1500M_PACE,
+        description: "Mile pace",
+      }
+    - {
+        type: "recovery",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+    - {
+        type: "interval",
+        duration: "0:30",
+        target: 1500M_PACE,
+        description: "Mile pace",
+      }
+    - {
+        type: "recovery",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+    - {
+        type: "interval",
+        duration: "0:30",
+        target: 1500M_PACE,
+        description: "Mile pace",
+      }
+    - {
+        type: "recovery",
+        duration: "1:00",
+        target: RECOVERY_PACE,
+        description: "Recovery pace",
+      }
+  - *INTERVAL
+  - *INTERVAL

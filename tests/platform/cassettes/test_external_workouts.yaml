@@ -1,0 +1,743 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/socialProfile
+  response:
+    body:
+      string: '{"id": 369946353, "profileId": 75620387, "garminGUID": "6fb98690-f511-4145-afed-1a660d8a05a3",
+        "displayName": "28b8ca52-820b-4597-9bbb-6d76e1498867", "fullName": "Oskar",
+        "userName": "oskar.salgado@gmail.com", "profileImageUuid": "0a5e9f44-4b61-4702-94f2-91363bd0d9f0",
+        "profileImageUrlLarge": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/0a5e9f44-4b61-4702-94f2-91363bd0d9f0-75620387.png",
+        "profileImageUrlMedium": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/c87431ff-0530-4002-b23f-1dd91534f23d-75620387.png",
+        "profileImageUrlSmall": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/d891cdfb-a406-40a0-a10b-1ff764a89599-75620387.png",
+        "location": "", "facebookUrl": "", "twitterUrl": "", "personalWebsite": "",
+        "motivation": 2, "bio": null, "primaryActivity": "running", "favoriteActivityTypes":
+        ["running", "cycling", "swimming", "walking", "hiking", "weight_training"],
+        "runningTrainingSpeed": 3.6363637, "cyclingTrainingSpeed": 5.555556, "favoriteCyclingActivityTypes":
+        ["road", "mountain"], "cyclingClassification": "recreation", "cyclingMaxAvgPower":
+        0.0, "swimmingTrainingSpeed": 0.0, "profileVisibility": "private", "activityStartVisibility":
+        "public", "activityMapVisibility": "public", "courseVisibility": "public",
+        "activityHeartRateVisibility": "public", "activityPowerVisibility": "public",
+        "badgeVisibility": "private", "showAge": false, "showWeight": false, "showHeight":
+        false, "showWeightClass": false, "showAgeRange": false, "showGender": false,
+        "showActivityClass": false, "showVO2Max": false, "showPersonalRecords": false,
+        "showLast12Months": true, "showLifetimeTotals": true, "showUpcomingEvents":
+        false, "showRecentFavorites": false, "showRecentDevice": false, "showRecentGear":
+        false, "showBadges": false, "otherActivity": "", "otherPrimaryActivity": null,
+        "otherMotivation": null, "userRoles": ["SCOPE_ATP_READ", "SCOPE_ATP_WRITE",
+        "SCOPE_COMMUNITY_COURSE_READ", "SCOPE_COMMUNITY_COURSE_WRITE", "SCOPE_CONNECT_READ",
+        "SCOPE_CONNECT_WRITE", "SCOPE_DT_CLIENT_ANALYTICS_WRITE", "SCOPE_GARMINPAY_READ",
+        "SCOPE_GARMINPAY_WRITE", "SCOPE_GCOFFER_READ", "SCOPE_GCOFFER_WRITE", "SCOPE_GHS_SAMD",
+        "SCOPE_GHS_UPLOAD", "SCOPE_GOLF_API_READ", "SCOPE_GOLF_API_WRITE", "SCOPE_INSIGHTS_READ",
+        "SCOPE_INSIGHTS_WRITE", "SCOPE_PRODUCT_SEARCH_READ", "ROLE_CONNECTUSER", "ROLE_FITNESS_USER",
+        "ROLE_WELLNESS_USER", "ROLE_OUTDOOR_USER", "ROLE_MARINE_USER", "ROLE_TACX_APP_USER"],
+        "nameApproved": true, "userProfileFullName": "Oskar", "makeGolfScorecardsPrivate":
+        true, "allowGolfLiveScoring": false, "allowGolfScoringByConnections": true,
+        "userLevel": 7, "userPoint": 1561, "levelUpdateDate": "2023-07-07T12:13:00.0",
+        "levelIsViewed": false, "levelPointThreshold": 2540, "userPointOffset": 0,
+        "userPro": false}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810344ab98153847-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 06:53:28 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=IzurojgU6yrkMmr3OCJsqbN1E%2FrfbrqG8O8GmZKqMgujend7Arxf05A9Fkip4h7z64QkVX%2BWqrM7QascpQGWm0xglh3QCLNw%2Bb9SJVzPOA9tpE%2BxbzlZgxfLJgHqkE2eomaIj%2FrglA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - _cfuvid=SANITIZED; path=SANITIZED; domain=SANITIZED; HttpOnly; Secure; SameSite=SANITIZED
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - ADRUM_BTa=SANITIZED; SameSite=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/userprofile/user-settings
+  response:
+    body:
+      string: '{"id": 75620387, "userData": {"gender": "MALE", "weight": 73800.0,
+        "height": 178.0, "timeFormat": "time_twenty_four_hr", "birthDate": "1981-02-02",
+        "measurementSystem": "metric", "activityLevel": 8, "handedness": "RIGHT",
+        "powerFormat": {"formatId": 30, "formatKey": "watt", "minFraction": 0, "maxFraction":
+        0, "groupingUsed": true, "displayFormat": null}, "heartRateFormat": {"formatId":
+        21, "formatKey": "bpm", "minFraction": 0, "maxFraction": 0, "groupingUsed":
+        false, "displayFormat": null}, "firstDayOfWeek": {"dayId": 3, "dayName": "monday",
+        "sortOrder": 3, "isPossibleFirstDay": true}, "vo2MaxRunning": 53.0, "vo2MaxCycling":
+        null, "lactateThresholdSpeed": 0.3555545600000001, "lactateThresholdHeartRate":
+        null, "diveNumber": 50, "intensityMinutesCalcMethod": "AUTO", "moderateIntensityMinutesHrZone":
+        3, "vigorousIntensityMinutesHrZone": 4, "hydrationMeasurementUnit": "milliliter",
+        "hydrationContainers": [{"name": null, "volume": 250, "unit": "milliliter"},
+        {"name": null, "volume": 500, "unit": "milliliter"}, {"name": null, "volume":
+        750, "unit": "milliliter"}], "hydrationAutoGoalEnabled": true, "firstbeatMaxStressScore":
+        26, "firstbeatCyclingLtTimestamp": null, "firstbeatRunningLtTimestamp": 1063780297,
+        "thresholdHeartRateAutoDetected": true, "ftpAutoDetected": null, "trainingStatusPausedDate":
+        null, "weatherLocation": {"useFixedLocation": false, "latitude": 42.8509107,
+        "longitude": -2.6423136, "locationName": "Gasteiz, Euskadi", "isoCountryCode":
+        "ES", "postalCode": "01192"}, "golfDistanceUnit": "statute_us", "golfElevationUnit":
+        null, "golfSpeedUnit": null, "externalBottomTime": 0}, "userSleep": {"sleepTime":
+        75600, "defaultSleepTime": false, "wakeTime": 34200, "defaultWakeTime": false},
+        "connectDate": null, "sourceType": null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810344afdb9e14fd-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 06:53:29 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=15gHz1BihcyULwiVJGVettB3Kc%2FeLaNK%2FCq4lDEM0NdYaKvAEFi%2Bz%2FZwUtGicBur6%2FCOMSbI5vXn8lQdatfY4CJhiF4rcdFHKLN0j60Iji2k1AJa4YW9z2YlrMs8mLgEDm7a22gfXg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - SameSite=SANITIZED; ADRUM_BTa=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/info-service/api/system/release-system
+  response:
+    body:
+      string: '[{"app": "release-system", "project": "system", "version": "23.19.3.0",
+        "time": "Mon Oct 02 17:52:10 UTC 2023"}]'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810344b5d8871bab-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 06:53:30 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=7OP99IC2tWenbHIo2gdZBtp1AEFVTX63yRhGhY2MnpjMlww3T%2FprrrRBBpI%2B2LhNFI80uTx5WQLICfHN9QcCV2ToZ5Gt4apY42swm9pAmo3HZTiQPB3hJIHosk4dZqHSn17FXKHXKw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      x-vcap-request-id:
+      - 3cf1b315-f700-46ac-7762-a06304b5ea83
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connect.garmin.com/web-data/workouts/en-US/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json
+  response:
+    body:
+      string: '{"workouts": [{"workoutName": "10-Minute Body Weight AMRAP", "duration":
+        600, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/GGeycJW.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGeycJW.png", "sportTypeKey":
+        "hiit", "workoutSourceId": "GGeycJW", "bodyParts": ["TOTAL_BODY"], "equipment":
+        [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["ABDUCTORS", "ABS",
+        "ADDUCTORS", "CALVES", "CHEST", "GLUTES", "HIPS", "QUADS"]}, {"workoutName":
+        "15-Minute Ab Burner", "duration": 900, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/GGpVOOe.json", "heroImage": "/web-images/workouts/images/heroImage_GGpVOOe.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "GGpVOOe", "bodyParts": [],
+        "equipment": [], "goals": ["ABS", "STRENGTH", "FLEXIBILITY", "MOBILITY", "BREATHING"],
+        "primaryMuscles": ["ABS", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS", "LOWER_BACK",
+        "OBLIQUES", "QUADS", "SHOULDERS"]}, {"workoutName": "15-Minute Full-Body Sweat",
+        "duration": 900, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/GGllYVt.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGllYVt.png", "sportTypeKey":
+        "cardio_training", "workoutSourceId": "GGllYVt", "bodyParts": [], "equipment":
+        [], "goals": ["FAT_LOSS", "CARDIO"], "primaryMuscles": ["ABDUCTORS", "ABS",
+        "CALVES", "CHEST", "GLUTES", "HIPS", "OBLIQUES", "QUADS"]}, {"workoutName":
+        "30 for 30 Full-Body EMOM", "duration": 1800, "difficulty": "ADVANCED", "filePath":
+        "/web-data/workouts/en-US/GGrGTHT.json", "heroImage": "/web-images/workouts/images/heroImage_GGrGTHT.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGrGTHT", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["JUMP_ROPE", "DUMBBELLS", "KETTLEBELLS"], "goals": ["CARDIO",
+        "FAT_LOSS", "BUILD_MUSCLE"], "primaryMuscles": ["ABS", "BICEPS", "CALVES",
+        "GLUTES", "HIPS", "LATS", "QUADS", "SHOULDERS", "TRAPS"]}, {"workoutName":
+        "30-Minute Blast", "duration": 1800, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtObXU.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObXU.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtObXU", "bodyParts":
+        ["TOTAL_BODY"], "equipment": ["BENCH", "BARBELL", "DUMBBELLS", "SQUAT_RACK",
+        "CABLE_MACHINE", "CABLE_ATTACHMENT"], "goals": ["BUILD_MUSCLE"], "primaryMuscles":
+        ["QUADS", "GLUTES", "CHEST", "BICEPS", "LATS", "TRAPS", "SHOULDERS", "TRICEPS"]},
+        {"workoutName": "40/20 Squat Thrusts", "duration": 600, "difficulty": "BEGINNER",
+        "filePath": "/web-data/workouts/en-US/GGhobBo.json", "heroImage": "/web-images/workouts/images/heroImage_GGhobBo.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGhobBo", "bodyParts": ["TOTAL_BODY"],
+        "equipment": [], "goals": ["FAT_LOSS", "CARDIO"], "primaryMuscles": ["ABS",
+        "CALVES", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS", "QUADS"]}, {"workoutName":
+        "5-minute All Out", "duration": 300, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/GGyWDEj.json", "heroImage": "/web-images/workouts/images/heroImage_GGyWDEj.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGyWDEj", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["DUMBBELLS"], "goals": ["BUILD_MUSCLE", "STRENGTH", "MUSCLE_ENDURANCE"],
+        "primaryMuscles": ["ABS", "CALVES", "CHEST", "GLUTES", "HIPS", "QUADS", "SHOULDERS"]},
+        {"workoutName": "5-Minute Plank Challenge", "duration": 300, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/GGyFrni.json", "heroImage":
+        "/web-images/workouts/images/heroImage_GGyFrni.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "GGyFrni", "bodyParts": [], "equipment": [], "goals": ["BALANCE",
+        "BUILD_STRENGTH", "MUSCLE_ENDURANCE"], "primaryMuscles": ["ABS", "OBLIQUES"]},
+        {"workoutName": "After-Work Yoga", "duration": 4200, "difficulty": "BEGINNER",
+        "filePath": "/web-data/workouts/en-US/BBtO2gW.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO2gW.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtO2gW", "bodyParts": [""], "equipment":
+        ["YOGA_BLOCK"], "goals": ["STRENGTH", "FLEXIBILITY", "MOBILITY", "BALANCE",
+        "BREATHING"], "primaryMuscles": []}, {"workoutName": "Alignment 101", "duration":
+        2700, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO2he.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO2he.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "BBtO2he", "bodyParts": [""], "equipment": ["YOGA_BLOCK"],
+        "goals": ["STRENGTH", "FLEXIBILITY", "MOBILITY", "BALANCE", "BREATHING"],
+        "primaryMuscles": []}, {"workoutName": "AMRAP Ab Burnout", "duration": 600,
+        "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/GGnVqCU.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGnVqCU.png", "sportTypeKey":
+        "hiit", "workoutSourceId": "GGnVqCU", "bodyParts": ["TOTAL_BODY"], "equipment":
+        [], "goals": ["MUSCLE_ENDURANCE", "ABS"], "primaryMuscles": ["ABS", "HIPS",
+        "OBLIQUES"]}, {"workoutName": "Articulate Your Spine", "duration": 300, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtOeuH.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtOeuH.png", "sportTypeKey": "pilates",
+        "workoutSourceId": "BBtOeuH", "bodyParts": [""], "equipment": [], "goals":
+        ["MOBILITY"], "primaryMuscles": ["ABS", "ADDUCTORS", "CHEST", "GLUTES", "HAMSTRINGS",
+        "HIPS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS"]}, {"workoutName":
+        "Back to Basics", "duration": 1800, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtO9vr.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO9vr.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "BBtO9vr", "bodyParts": [""],
+        "equipment": ["DUMBBELLS"], "goals": ["STRENGTH", "FLEXIBILITY", "MOBILITY"],
+        "primaryMuscles": ["ABDUCTORS", "ABS", "ADDUCTORS", "CALVES", "CHEST", "GLUTES",
+        "HAMSTRINGS", "HIPS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS", "TRICEPS"]},
+        {"workoutName": "Back-to-Basics Workout", "duration": 3600, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtOgCV.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtOgCV.png", "sportTypeKey": "strength_training",
+        "workoutSourceId": "BBtOgCV", "bodyParts": ["TOTAL_BODY"], "equipment": ["BARBELL",
+        "BENCH", "DUMBBELLS", "CABLE_MACHINE", "CABLE_ATTACHMENT", "MEDICINE_BALL",
+        "KETTLEBELLS"], "goals": ["BUILD_MUSCLE", "BUILD_STRENGTH", "FAT_LOSS"], "primaryMuscles":
+        ["HAMSTRINGS", "LOWER_BACK", "LATS", "TRAPS", "CHEST", "GLUTES", "QUADS",
+        "HIPS", "ABS"]}, {"workoutName": "Balance and Concentration", "duration":
+        1500, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtObZn.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtObZn.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "BBtObZn", "bodyParts": [""], "equipment": ["YOGA_BLOCK",
+        "STRAP"], "goals": ["MOBILITY", "STRENGTH", "BALANCE", "FLEXIBILITY", "BREATHING"],
+        "primaryMuscles": []}, {"workoutName": "Bikini Body Pilates", "duration":
+        1800, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtNZR0.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtNZR0.png", "sportTypeKey":
+        "pilates", "workoutSourceId": "BBtNZR0", "bodyParts": [""], "equipment": ["DUMBBELLS",
+        "PILATES_BALL"], "goals": ["STRENGTH", "FLEXIBILITY", "MOBILITY"], "primaryMuscles":
+        ["ABDUCTORS", "ABS", "ADDUCTORS", "BICEPS", "CALVES", "GLUTES", "HAMSTRINGS",
+        "HIPS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS", "TRICEPS"]}, {"workoutName":
+        "Body Awake Body Weight Circuit", "duration": 1080, "difficulty": "BEGINNER",
+        "filePath": "/web-data/workouts/en-US/GGpmXTj.json", "heroImage": "/web-images/workouts/images/heroImage_GGpmXTj.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGpmXTj", "bodyParts": ["TOTAL_BODY"],
+        "equipment": [], "goals": ["FAT_LOSS", "CARDIO"], "primaryMuscles": ["ABDUCTORS",
+        "ABS", "ADDUCTORS", "CALVES", "CHEST", "GLUTES", "QUADS"]}, {"workoutName":
+        "Dumbbell Body Makeover", "duration": 900, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/BBtObWr.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObWr.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtObWr", "bodyParts":
+        ["TOTAL_BODY"], "equipment": ["BARBELL", "DUMBBELLS"], "goals": ["BUILD_MUSCLE",
+        "FAT_LOSS"], "primaryMuscles": ["HAMSTRINGS", "LOWER_BACK", "LATS", "TRAPS",
+        "CHEST", "QUADS", "GLUTES"]}, {"workoutName": "Extend Your Body", "duration":
+        300, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO9vd.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO9vd.png", "sportTypeKey":
+        "pilates", "workoutSourceId": "BBtO9vd", "bodyParts": [""], "equipment": [],
+        "goals": ["MOBILITY"], "primaryMuscles": ["ABDUCTORS", "ABS", "CHEST", "GLUTES",
+        "LATS", "LOWER_BACK", "OBLIQUES", "SHOULDERS"]}, {"workoutName": "Fit For
+        Summer Workout", "duration": 1800, "difficulty": "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtO2fm.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO2fm.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "BBtO2fm", "bodyParts": ["LOWER_BODY"],
+        "equipment": ["BARBELL", "DUMBBELLS", "SQUAT_RACK"], "goals": ["FAT_LOSS"],
+        "primaryMuscles": ["QUADS", "GLUTES", "CALVES", "ABS", "HIPS", "HAMSTRINGS"]},
+        {"workoutName": "Flex Your Torso", "duration": 300, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtOeuN.json", "heroImage": "/web-images/workouts/images/heroImage_BBtOeuN.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "BBtOeuN", "bodyParts": [""],
+        "equipment": ["DUMBBELLS"], "goals": ["MOBILITY"], "primaryMuscles": ["ABS",
+        "OBLIQUES"]}, {"workoutName": "Full-Body Recovery Flow", "duration": 480,
+        "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/GGVyYLD.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGVyYLD.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "GGVyYLD", "bodyParts": [], "equipment": [], "goals":
+        ["ABS", "STRENGTH", "FLEXIBILITY", "MOBILITY", "BREATHING"], "primaryMuscles":
+        []}, {"workoutName": "Get-Fit Real-Quick Workout", "duration": 2700, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO4jb.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO4jb.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO4jb", "bodyParts": ["TOTAL_BODY"], "equipment": ["DUMBBELLS",
+        "BARBELL", "BOX"], "goals": ["FAT_LOSS"], "primaryMuscles": ["QUADS", "GLUTES",
+        "SHOULDERS", "LATS", "TRAPS", "HAMSTRINGS", "LOWER_BACK", "ABS", "CHEST"]},
+        {"workoutName": "Gold''s Gym : Anything \"Butt\"", "duration": 1200, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtOevG.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtOevG.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtOevG", "bodyParts": ["GLUTES"], "equipment": ["DUMBBELLS"],
+        "goals": ["BUILD_MUSCLE", "FAT_LOSS"], "primaryMuscles": ["QUADS", "CALVES",
+        "GLUTES", "HAMSTRINGS", "LOWER_BACK", "HIPS", "ABS", "CHEST"]}, {"workoutName":
+        "Gold''s Gym : The Arms Race", "duration": 1200, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtObWT.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObWT.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtObWT", "bodyParts":
+        ["ARMS"], "equipment": ["DUMBBELLS", "CABLE_MACHINE", "CABLE_ATTACHMENT"],
+        "goals": ["BUILD_MUSCLE"], "primaryMuscles": ["BICEPS", "TRICEPS"]}, {"workoutName":
+        "Hollywood Body Plan", "duration": 3600, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtO9vG.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO9vG.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtO9vG", "bodyParts":
+        ["TOTAL_BODY"], "equipment": ["DUMBBELLS", "SLIDING_DISCS", "BENCH", "KETTLEBELLS",
+        "CABLE_MACHINE", "CABLE_ATTACHMENT"], "goals": ["FAT_LOSS"], "primaryMuscles":
+        ["LATS", "TRAPS", "ABS", "CHEST", "HIPS", "TRICEPS", "QUADS", "GLUTES", "OBLIQUES",
+        "BICEPS"]}, {"workoutName": "Hone & Tone", "duration": 1080, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/GGkGYuV.json", "heroImage":
+        "/web-images/workouts/images/heroImage_GGkGYuV.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "GGkGYuV", "bodyParts": [], "equipment": ["JUMP_ROPE",
+        "DUMBBELLS"], "goals": ["FAT_LOSS", "CARDIO", "BUILD_MUSCLE", "ABS"], "primaryMuscles":
+        ["ABS", "BICEPS", "CALVES", "GLUTES", "HAMSTRINGS", "LATS", "QUADS", "SHOULDERS",
+        "TRAPS"]}, {"workoutName": "Improve Flexibility Now", "duration": 1200, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtROJK.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtROJK.png", "sportTypeKey": "yoga",
+        "workoutSourceId": "BBtROJK", "bodyParts": [""], "equipment": ["YOGA_BLOCK"],
+        "goals": ["FLEXIBILITY", "MOBILITY", "BREATHING"], "primaryMuscles": []},
+        {"workoutName": "Indoor Cardio Workout", "duration": 1620, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtO6U6.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6U6.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "BBtO6U6", "bodyParts":
+        ["LOWER_BODY"], "equipment": [], "goals": ["CARDIO"], "primaryMuscles": ["ABS",
+        "CHEST", "CALVES", "GLUTES", "HIPS", "QUADS", "ADDUCTORS", "ABDUCTORS", "HAMSTRINGS"]},
+        {"workoutName": "Leg Day", "duration": 2700, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/GGtMeLu.json", "heroImage": "/web-images/workouts/images/heroImage_GGtMeLu.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "GGtMeLu", "bodyParts":
+        [], "equipment": ["BARBELL", "DUMBBELLS"], "goals": ["BUILD_MUSCLE", "BUILD_STRENGTH",
+        "FAT_LOSS"], "primaryMuscles": ["GLUTES", "HAMSTRINGS", "LOWER_BACK", "QUADS"]},
+        {"workoutName": "Leg Day AMRAP", "duration": 1200, "difficulty": "ADVANCED",
+        "filePath": "/web-data/workouts/en-US/GGbNShO.json", "heroImage": "/web-images/workouts/images/heroImage_GGbNShO.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGbNShO", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["DUMBBELLS"], "goals": ["BUILD_MUSCLE", "STRENGTH"], "primaryMuscles":
+        ["GLUTES", "HAMSTRINGS", "LOWER_BACK", "QUADS", "SHOULDERS"]}, {"workoutName":
+        "Lower Body Power in 10", "duration": 600, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/GGmLvRR.json", "heroImage": "/web-images/workouts/images/heroImage_GGmLvRR.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "GGmLvRR", "bodyParts": ["TOTAL_BODY"],
+        "equipment": [], "goals": ["BUILD_MUSCLE", "STRENGTH"], "primaryMuscles":
+        ["CALVES", "GLUTES", "QUADS"]}, {"workoutName": "Master Core Control", "duration":
+        600, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtOgBe.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtOgBe.png", "sportTypeKey":
+        "pilates", "workoutSourceId": "BBtOgBe", "bodyParts": [""], "equipment": [],
+        "goals": ["STRENGTH", "BALANCE", "FLEXIBILITY"], "primaryMuscles": ["ABDUCTORS",
+        "ABS", "GLUTES", "HAMSTRINGS", "HIPS", "LATS", "LOWER_BACK", "OBLIQUES", "QUADS",
+        "SHOULDERS", "TRICEPS"]}, {"workoutName": "Maximize Your Upper Body", "duration":
+        3600, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtOgDB.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtOgDB.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "BBtOgDB", "bodyParts": ["CHEST",
+        "BACK", "BICEPS", "SHOULDERS", "TRICEPS", "ABS"], "equipment": ["DUMBBELLS",
+        "CABLE_ATTACHMENT", "CABLE_MACHINE", "BARBELL", "BENCH", "WEIGHT_PLATES"],
+        "goals": ["BUILD_MUSCLE"], "primaryMuscles": ["BICEPS", "HAMSTRINGS", "LOWER_BACK",
+        "ABS", "TRICEPS", "LATS", "TRAPS", "SHOULDERS", "HIPS", "OBLIQUES"]}, {"workoutName":
+        "Mid-day Energy Boost", "duration": 2400, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/BBtOgE3.json", "heroImage": "/web-images/workouts/images/heroImage_BBtOgE3.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtOgE3", "bodyParts": [""], "equipment":
+        ["YOGA_BLOCK"], "goals": ["STRENGTH", "BALANCE", "MOBILITY", "FLEXIBILITY",
+        "BREATHING"], "primaryMuscles": []}, {"workoutName": "Open Mind, Open Body",
+        "duration": 1800, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtNZTY.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtNZTY.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "BBtNZTY", "bodyParts": [""], "equipment": ["YOGA_BLOCK",
+        "STRAP"], "goals": ["FLEXIBILITY", "BREATHING", "MOBILITY"], "primaryMuscles":
+        []}, {"workoutName": "Perfect Arm Routine", "duration": 3600, "difficulty":
+        "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtObYh.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtObYh.png", "sportTypeKey": "strength_training",
+        "workoutSourceId": "BBtObYh", "bodyParts": ["BICEPS", "TRICEPS"], "equipment":
+        ["BARBELL", "CABLE_ATTACHMENT", "BENCH", "DUMBBELLS", "DIP_DEVICE", "CABLE_MACHINE",
+        "WEIGHT_PLATES"], "goals": ["BUILD_MUSCLE"], "primaryMuscles": ["BICEPS",
+        "TRICEPS", "CHEST"]}, {"workoutName": "Pilates for Men", "duration": 1800,
+        "difficulty": "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtOev2.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtOev2.png", "sportTypeKey":
+        "pilates", "workoutSourceId": "BBtOev2", "bodyParts": [""], "equipment": ["DUMBBELLS"],
+        "goals": ["STRENGTH", "FLEXIBILITY"], "primaryMuscles": ["ABDUCTORS", "ABS",
+        "ADDUCTORS", "BICEPS", "CALVES", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS",
+        "LATS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS", "TRAPS", "TRICEPS"]},
+        {"workoutName": "Pilates for Runners", "duration": 1800, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtObWk.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObWk.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "BBtObWk", "bodyParts": [""],
+        "equipment": ["DUMBBELLS"], "goals": ["FLEXIBILITY", "BALANCE", "STRENGTH"],
+        "primaryMuscles": ["ABDUCTORS", "ABS", "ADDUCTORS", "CALVES", "CHEST", "GLUTES",
+        "HAMSTRINGS", "HIPS", "LATS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS",
+        "TRICEPS"]}, {"workoutName": "Pilates On the Road", "duration": 600, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO4hu.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO4hu.png", "sportTypeKey": "pilates",
+        "workoutSourceId": "BBtO4hu", "bodyParts": [""], "equipment": [], "goals":
+        ["FLEXIBILITY", "MOBILITY"], "primaryMuscles": ["ABS", "ADDUCTORS", "CHEST",
+        "GLUTES", "HAMSTRINGS", "HIPS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS",
+        "TRICEPS"]}, {"workoutName": "Power 5 Benchmarks", "duration": 3600, "difficulty":
+        "ADVANCED", "filePath": "/web-data/workouts/en-US/GGOHysB.json", "heroImage":
+        "/web-images/workouts/images/heroImage_GGOHysB.png", "sportTypeKey": "strength_training",
+        "workoutSourceId": "GGOHysB", "bodyParts": [], "equipment": ["BARBELL"], "goals":
+        ["BUILD_MUSCLE", "BUILD_STRENGTH"], "primaryMuscles": ["CHEST", "GLUTES",
+        "HAMSTRINGS", "LATS", "LOWER_BACK", "QUADS", "SHOULDERS", "TRAPS"]}, {"workoutName":
+        "Quick Shoulder Relaxer", "duration": 600, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtNZTD.json", "heroImage": "/web-images/workouts/images/heroImage_BBtNZTD.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtNZTD", "bodyParts": [""], "equipment":
+        ["STRAP"], "goals": ["FLEXIBILITY", "MOBILITY", "BREATHING"], "primaryMuscles":
+        []}, {"workoutName": "Rapid Fat Loss", "duration": 2700, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtO4kn.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO4kn.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtO4kn", "bodyParts":
+        ["CHEST", "BACK", "SHOULDERS", "BICEPS"], "equipment": ["DUMBBELLS", "SWISS_BALL",
+        "BARBELL", "BENCH", "KETTLEBELLS"], "goals": ["FAT_LOSS"], "primaryMuscles":
+        ["LATS", "TRAPS", "SHOULDERS", "CHEST", "BICEPS", "ABS"]}, {"workoutName":
+        "Razor-Sharp Abs", "duration": 2700, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/BBtO2eH.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO2eH.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtO2eH", "bodyParts":
+        ["ABS"], "equipment": ["WEIGHT_PLATES", "SWISS_BALL", "PULL_UP_BAR"], "goals":
+        ["ABS", "FAT_LOSS"], "primaryMuscles": ["OBLIQUES", "ABS"]}, {"workoutName":
+        "Sculpt Sexy Arms", "duration": 900, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/BBtO6RI.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6RI.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "BBtO6RI", "bodyParts": [""],
+        "equipment": ["DUMBBELLS"], "goals": ["STRENGTH", "FLEXIBILITY"], "primaryMuscles":
+        ["ABS", "BICEPS", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS", "LATS", "LOWER_BACK",
+        "OBLIQUES", "QUADS", "SHOULDERS", "TRICEPS"]}, {"workoutName": "Slow Salutation",
+        "duration": 690, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/GGZKPjR.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGZKPjR.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "GGZKPjR", "bodyParts": [], "equipment": [], "goals":
+        ["ABS", "STRENGTH", "FLEXIBILITY", "MOBILITY"], "primaryMuscles": []}, {"workoutName":
+        "Sprinter Cardio Challenge", "duration": 900, "difficulty": "ADVANCED", "filePath":
+        "/web-data/workouts/en-US/GGBpNxR.json", "heroImage": "/web-images/workouts/images/heroImage_GGBpNxR.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "GGBpNxR", "bodyParts":
+        [], "equipment": ["DUMBBELLS"], "goals": ["MUSCLE_ENDURANCE", "FAT_LOSS"],
+        "primaryMuscles": ["ABS", "CALVES", "CHEST", "GLUTES", "HIPS", "QUADS"]},
+        {"workoutName": "Squat, Sprint & Sweat", "duration": 1800, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/GGzLLqm.json", "heroImage": "/web-images/workouts/images/heroImage_GGzLLqm.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "GGzLLqm", "bodyParts":
+        [], "equipment": ["KETTLEBELLS"], "goals": ["CARDIO", "MUSCLE_ENDURANCE",
+        "FAT_LOSS"], "primaryMuscles": ["CALVES", "GLUTES", "HAMSTRINGS", "HIPS",
+        "QUADS"]}, {"workoutName": "Strengthen Your Back", "duration": 900, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtOgBp.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtOgBp.png", "sportTypeKey": "pilates",
+        "workoutSourceId": "BBtOgBp", "bodyParts": [""], "equipment": [], "goals":
+        ["BALANCE", "STRENGTH", "FLEXIBILITY"], "primaryMuscles": ["ABS", "CHEST",
+        "GLUTES", "HAMSTRINGS", "HIPS", "LATS", "LOWER_BACK", "OBLIQUES", "QUADS",
+        "SHOULDERS"]}, {"workoutName": "Stretch & Flex", "duration": 840, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/GGSZHmx.json", "heroImage":
+        "/web-images/workouts/images/heroImage_GGSZHmx.png", "sportTypeKey": "pilates",
+        "workoutSourceId": "GGSZHmx", "bodyParts": [], "equipment": ["BANDS"], "goals":
+        ["FLEXIBILITY", "MOBILITY", "BREATHING", "BALANCE"], "primaryMuscles": ["ABDUCTORS",
+        "ABS", "ADDUCTORS", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS", "LOWER_BACK",
+        "OBLIQUES", "QUADS", "SHOULDERS"]}, {"workoutName": "Summer Abs Workout",
+        "duration": 3600, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO9xb.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO9xb.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "BBtO9xb", "bodyParts": ["TOTAL_BODY",
+        "ABS"], "equipment": ["JUMP_ROPE", "PULL_UP_BAR", "BARBELL", "AB_WHEEL"],
+        "goals": ["FAT_LOSS"], "primaryMuscles": ["HAMSTRINGS", "LOWER_BACK", "CALVES",
+        "ABS", "LATS", "TRAPS", "CHEST"]}, {"workoutName": "Sun Salutations", "duration":
+        900, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO6Uh.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO6Uh.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "BBtO6Uh", "bodyParts": [""], "equipment": [],
+        "goals": ["MOBILITY", "FLEXIBILITY", "BREATHING"], "primaryMuscles": []},
+        {"workoutName": "Tabata Abs: Planks & Sit-ups", "duration": 540, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO6T4.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO6T4.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO6T4", "bodyParts": ["ABS"], "equipment": [], "goals":
+        ["MUSCLE_ENDURANCE"], "primaryMuscles": ["ABS"]}, {"workoutName": "Tabata
+        Alternating Lunges, Crunches, Burpees & Planks", "duration": 1020, "difficulty":
+        "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtO4iZ.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO4iZ.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO4iZ", "bodyParts": ["TOTAL_BODY"], "equipment": [],
+        "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["ABS", "CHEST", "CALVES",
+        "GLUTES", "HIPS", "QUADS"]}, {"workoutName": "Tabata Alternating Squats, Sit-Ups,
+        Push-Ups & Squat Thrusts", "duration": 1020, "difficulty": "ADVANCED", "filePath":
+        "/web-data/workouts/en-US/BBtO6T3.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6T3.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "BBtO6T3", "bodyParts":
+        ["TOTAL_BODY"], "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles":
+        ["CHEST", "ABS", "QUADS", "GLUTES", "CALVES", "HIPS"]}, {"workoutName": "Tabata
+        Intro Lunges, Crunches, Burpees & Planks", "duration": 240, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO6T6.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO6T6.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO6T6", "bodyParts": ["TOTAL_BODY"], "equipment": [],
+        "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["ABS", "CHEST", "CALVES",
+        "GLUTES", "HIPS", "QUADS"]}, {"workoutName": "Tabata Intro Lunges, Crunches,
+        Burpees & Planks", "duration": 240, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtO6T6-hiit.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6T6-hiit.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "BBtO6T6-hiit", "bodyParts": ["TOTAL_BODY"],
+        "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["ABS",
+        "CHEST", "CALVES", "GLUTES", "HIPS", "QUADS"]}, {"workoutName": "Tabata Intro
+        Squats, Sit-Ups, Push-Ups & Squat Thrusts", "duration": 240, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO4j5.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO4j5.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO4j5", "bodyParts": ["TOTAL_BODY"], "equipment": [],
+        "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["CHEST", "ABS", "QUADS",
+        "GLUTES", "CALVES", "HIPS"]}, {"workoutName": "Tabata Intro Squats, Sit-Ups,
+        Push-Ups & Squat Thrusts", "duration": 240, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtO4j5-hiit.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO4j5-hiit.png",
+        "sportTypeKey": "hiit", "workoutSourceId": "BBtO4j5-hiit", "bodyParts": ["TOTAL_BODY"],
+        "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["CHEST",
+        "ABS", "QUADS", "GLUTES", "CALVES", "HIPS"]}, {"workoutName": "Tabata Lunges,
+        Crunches & Burpees", "duration": 840, "difficulty": "INTERMEDIATE", "filePath":
+        "/web-data/workouts/en-US/BBtO9wp.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO9wp.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "BBtO9wp", "bodyParts":
+        ["TOTAL_BODY"], "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles":
+        ["ABS", "CHEST", "CALVES", "GLUTES", "HIPS", "QUADS"]}, {"workoutName": "Tabata
+        Something Else", "duration": 960, "difficulty": "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtO6SL.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO6SL.png", "sportTypeKey":
+        "cardio_training", "workoutSourceId": "BBtO6SL", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["PULL_UP_BAR"], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles":
+        ["LATS", "TRAPS", "CHEST", "ABS", "QUADS", "GLUTES"]}, {"workoutName": "Tabata
+        Squats, Sit-Ups & Pushups", "duration": 840, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtObXE.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObXE.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "BBtObXE", "bodyParts":
+        ["TOTAL_BODY"], "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles":
+        ["CHEST", "ABS", "QUADS", "GLUTES"]}, {"workoutName": "The 10-Minute Muffin
+        Top Solution", "duration": 600, "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtNZT2.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtNZT2.png", "sportTypeKey":
+        "cardio_training", "workoutSourceId": "BBtNZT2", "bodyParts": ["ABS"], "equipment":
+        ["JUMP_ROPE", "CABLE_MACHINE", "CABLE_ATTACHMENT", "BOX"], "goals": ["FAT_LOSS",
+        "ABS"], "primaryMuscles": ["ABS", "OBLIQUES", "CALVES", "LATS"]}, {"workoutName":
+        "The Anti-Aging Workout", "duration": 2700, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtOexi.json", "heroImage": "/web-images/workouts/images/heroImage_BBtOexi.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtOexi", "bodyParts":
+        ["CHEST", "BACK", "SHOULDERS", "QUADS", "HAMSTRINGS", "GLUTES", "ABS"], "equipment":
+        ["BARBELL", "DUMBBELLS", "SWISS_BALL", "MAT"], "goals": ["FAT_LOSS"], "primaryMuscles":
+        ["QUADS", "GLUTES", "SHOULDERS", "HAMSTRINGS", "LOWER_BACK", "ABS", "CHEST",
+        "CALVES", "HIPS", "OBLIQUES"]}, {"workoutName": "The Back Burner", "duration":
+        3600, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/GGfpYnJ.json",
+        "heroImage": "/web-images/workouts/images/heroImage_GGfpYnJ.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "GGfpYnJ", "bodyParts": [], "equipment":
+        ["BARBELL", "DUMBBELLS", "CABLE_MACHINE"], "goals": ["BUILD_MUSCLE", "BUILD_STRENGTH",
+        "FAT_LOSS"], "primaryMuscles": ["HAMSTRINGS", "LATS", "LOWER_BACK", "SHOULDERS",
+        "TRAPS"]}, {"workoutName": "The Body-Changing Workout", "duration": 2700,
+        "difficulty": "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO2fA.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO2fA.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "BBtO2fA", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["DUMBBELLS", "SWISS_BALL", "WEIGHT_PLATES", "BARBELL", "JUMP_ROPE",
+        "SQUAT_RACK"], "goals": ["BUILD_MUSCLE"], "primaryMuscles": ["QUADS", "GLUTES",
+        "SHOULDERS", "TRAPS", "LATS", "CALVES", "CHEST", "OBLIQUES", "BICEPS", "LOWER_BACK"]},
+        {"workoutName": "The Fab 5", "duration": 600, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtO6RE.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6RE.png",
+        "sportTypeKey": "pilates", "workoutSourceId": "BBtO6RE", "bodyParts": [""],
+        "equipment": [], "goals": ["STRENGTH"], "primaryMuscles": ["ABS", "CHEST",
+        "GLUTES", "HAMSTRINGS", "HIPS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS",
+        "TRICEPS"]}, {"workoutName": "The Fastest Fat-Loss Ever", "duration": 2100,
+        "difficulty": "ADVANCED", "filePath": "/web-data/workouts/en-US/BBtOgDi.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtOgDi.png", "sportTypeKey":
+        "cardio_training", "workoutSourceId": "BBtOgDi", "bodyParts": [], "equipment":
+        ["DUMBBELLS", "SWISS_BALL", "MAT", "KETTLEBELLS"], "goals": ["FAT_LOSS", "CARDIO"],
+        "primaryMuscles": ["CHEST", "TRICEPS", "GLUTES", "HIPS", "ABS", "QUADS"]},
+        {"workoutName": "The Fat-Scorching Workout", "duration": 3600, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtO6Sb.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO6Sb.png", "sportTypeKey": "cardio_training",
+        "workoutSourceId": "BBtO6Sb", "bodyParts": ["TOTAL_BODY"], "equipment": ["DUMBBELLS",
+        "BENCH"], "goals": ["FAT_LOSS"], "primaryMuscles": ["QUADS", "GLUTES", "TRICEPS",
+        "LATS", "TRAPS", "ABS", "HIPS", "OBLIQUES", "HAMSTRINGS", "LOWER_BACK"]},
+        {"workoutName": "The Hotel Workout", "duration": 1800, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtObWy.json", "heroImage": "/web-images/workouts/images/heroImage_BBtObWy.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtObWy", "bodyParts":
+        ["TOTAL_BODY"], "equipment": ["BARBELL", "JUMP_ROPE", "DUMBBELLS", "KETTLEBELLS"],
+        "goals": ["FAT_LOSS"], "primaryMuscles": ["SHOULDERS", "CHEST", "ABS", "CALVES",
+        "LATS", "TRAPS", "QUADS", "HAMSTRINGS", "LOWER_BACK", "GLUTES"]}, {"workoutName":
+        "The Instant-Results Workout", "duration": 2640, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtO4kr.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO4kr.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtO4kr", "bodyParts":
+        ["CHEST", "BACK", "SHOULDERS", "QUADS", "HAMSTRINGS", "GLUTES"], "equipment":
+        ["BARBELL", "SQUAT_RACK", "DUMBBELLS", "CABLE_MACHINE", "CABLE_ATTACHMENT",
+        "SWISS_BALL"], "goals": ["BUILD_MUSCLE", "FAT_LOSS"], "primaryMuscles": ["QUADS",
+        "GLUTES", "HAMSTRINGS", "LOWER_BACK", "SHOULDERS", "TRAPS", "CHEST", "ABS"]},
+        {"workoutName": "The No-Wait Workout", "duration": 3600, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtO6TT.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO6TT.png",
+        "sportTypeKey": "strength_training", "workoutSourceId": "BBtO6TT", "bodyParts":
+        ["TOTAL_BODY"], "equipment": ["BENCH", "DUMBBELLS"], "goals": ["BUILD_MUSCLE"],
+        "primaryMuscles": ["CHEST", "HAMSTRINGS", "LOWER_BACK", "TRICEPS", "LATS",
+        "TRAPS", "QUADS", "GLUTES", "SHOULDERS", "BICEPS"]}, {"workoutName": "The
+        Post-Dumbbell Routine", "duration": 900, "difficulty": "BEGINNER", "filePath":
+        "/web-data/workouts/en-US/BBtRFq7.json", "heroImage": "/web-images/workouts/images/heroImage_BBtRFq7.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtRFq7", "bodyParts": [""], "equipment":
+        [], "goals": ["MOBILITY", "FLEXIBILITY", "BREATHING"], "primaryMuscles": []},
+        {"workoutName": "The Three-Exercise Body", "duration": 600, "difficulty":
+        "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO6U0.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtO6U0.png", "sportTypeKey": "strength_training",
+        "workoutSourceId": "BBtO6U0", "bodyParts": ["BACK", "SHOULDERS", "QUADS",
+        "HAMSTRINGS", "GLUTES"], "equipment": ["BARBELL", "SQUAT_RACK", "BOX", "DUMBBELLS"],
+        "goals": ["FAT_LOSS"], "primaryMuscles": ["QUADS", "GLUTES", "SHOULDERS",
+        "TRAPS", "LATS"]}, {"workoutName": "Total Body Muscle", "duration": 3600,
+        "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtO4hE.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtO4hE.png", "sportTypeKey":
+        "strength_training", "workoutSourceId": "BBtO4hE", "bodyParts": ["TOTAL_BODY"],
+        "equipment": ["BARBELL", "PULL_UP_BAR", "DUMBBELLS", "BENCH", "SQUAT_RACK"],
+        "goals": ["BUILD_STRENGTH", "BUILD_MUSCLE"], "primaryMuscles": ["CHEST", "QUADS",
+        "GLUTES", "HAMSTRINGS", "LOWER_BACK", "BICEPS", "LATS", "TRAPS", "OBLIQUES"]},
+        {"workoutName": "Ultimate Park Workout", "duration": 1200, "difficulty": "INTERMEDIATE",
+        "filePath": "/web-data/workouts/en-US/BBtOgCE.json", "heroImage": "/web-images/workouts/images/heroImage_BBtOgCE.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "BBtOgCE", "bodyParts":
+        [], "equipment": [], "goals": ["MUSCLE_ENDURANCE"], "primaryMuscles": ["QUADS",
+        "GLUTES", "ABS", "CHEST", "CALVES", "HIPS", "HAMSTRINGS", "BICEPS", "TRICEPS"]},
+        {"workoutName": "Vertical Ups", "duration": 1080, "difficulty": "ADVANCED",
+        "filePath": "/web-data/workouts/en-US/GGMYzBJ.json", "heroImage": "/web-images/workouts/images/heroImage_GGMYzBJ.png",
+        "sportTypeKey": "cardio_training", "workoutSourceId": "GGMYzBJ", "bodyParts":
+        [], "equipment": ["JUMP_ROPE"], "goals": ["CARDIO", "BUILD_MUSCLE", "FAT_LOSS"],
+        "primaryMuscles": ["ABDUCTORS", "ADDUCTORS", "CALVES", "GLUTES", "QUADS"]},
+        {"workoutName": "Wake Up, Energize!", "duration": 1500, "difficulty": "BEGINNER",
+        "filePath": "/web-data/workouts/en-US/BBtOexF.json", "heroImage": "/web-images/workouts/images/heroImage_BBtOexF.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtOexF", "bodyParts": [""], "equipment":
+        ["YOGA_BLOCK"], "goals": ["MOBILITY", "FLEXIBILITY", "BREATHING", "BALANCE"],
+        "primaryMuscles": []}, {"workoutName": "Yoga 101", "duration": 1500, "difficulty":
+        "BEGINNER", "filePath": "/web-data/workouts/en-US/BBtNZTM.json", "heroImage":
+        "/web-images/workouts/images/heroImage_BBtNZTM.png", "sportTypeKey": "yoga",
+        "workoutSourceId": "BBtNZTM", "bodyParts": [""], "equipment": ["YOGA_BLOCK"],
+        "goals": ["MOBILITY", "FLEXIBILITY", "BREATHING"], "primaryMuscles": []},
+        {"workoutName": "Yoga for Cyclists", "duration": 1500, "difficulty": "BEGINNER",
+        "filePath": "/web-data/workouts/en-US/BBtO4kR_yoga.json", "heroImage": "/web-images/workouts/images/heroImage_BBtO4kR_yoga.png",
+        "sportTypeKey": "yoga", "workoutSourceId": "BBtO4kR_yoga", "bodyParts": [""],
+        "equipment": ["YOGA_BLOCK"], "goals": ["MOBILITY", "FLEXIBILITY", "STRENGTH",
+        "BREATHING"], "primaryMuscles": []}, {"workoutName": "Yoga for Runners", "duration":
+        1800, "difficulty": "INTERMEDIATE", "filePath": "/web-data/workouts/en-US/BBtNZTT.json",
+        "heroImage": "/web-images/workouts/images/heroImage_BBtNZTT.png", "sportTypeKey":
+        "yoga", "workoutSourceId": "BBtNZTT", "bodyParts": [""], "equipment": ["YOGA_BLOCK"],
+        "goals": ["MOBILITY", "FLEXIBILITY", "BREATHING", "STRENGTH"], "primaryMuscles":
+        []}], "bodyParts": {"TOTAL_BODY": "Total Body", "LOWER_BODY": "Lower Body",
+        "ARMS": "Arms", "CHEST": "Chest", "BACK": "Back", "BICEPS": "Biceps", "SHOULDERS":
+        "Shoulders", "TRICEPS": "Triceps", "ABS": "Abs", "QUADS": "Quads", "HAMSTRINGS":
+        "Hamstrings", "GLUTES": "Glutes", "": ""}, "difficulty": {"BEGINNER": "Beginner",
+        "INTERMEDIATE": "Intermediate", "ADVANCED": "Advanced"}, "equipment": {"BENCH":
+        "Bench", "BARBELL": "Barbell", "DUMBBELLS": "Dumbbells", "SQUAT_RACK": "Squat
+        Rack", "CABLE_MACHINE": "Cable Machine", "CABLE_ATTACHMENT": "Cable Attachment",
+        "WEIGHT_PLATES": "Weight Plates", "SLIDING_DISCS": "Sliding Discs", "KETTLEBELLS":
+        "Kettlebells", "SWISS_BALL": "Swiss Ball", "PULL_UP_BAR": "Pull-up Bar", "DIP_DEVICE":
+        "Dip Device", "JUMP_ROPE": "Jump Rope", "AB_WHEEL": "Ab Wheel", "MAT": "Mat",
+        "BOX": "Box", "MEDICINE_BALL": "Medicine Ball", "YOGA_BLOCK": "Yoga Block",
+        "STRAP": "Strap", "PILATES_BALL": "Pilates Ball"}, "goals": {"BUILD_MUSCLE":
+        "Build Muscle", "FAT_LOSS": "Fat Loss", "ABS": "Abs", "BUILD_STRENGTH": "Build
+        Strength", "MUSCLE_ENDURANCE": "Muscle Endurance", "CARDIO": "Cardio", "STRENGTH":
+        "Strength", "FLEXIBILITY": "Flexibility", "MOBILITY": "Mobility", "BALANCE":
+        "Balance", "BREATHING": "Breathing"}, "primaryMuscles": ["ABDUCTORS", "ABS",
+        "ADDUCTORS", "BICEPS", "CALVES", "CHEST", "GLUTES", "HAMSTRINGS", "HIPS",
+        "LATS", "LOWER_BACK", "OBLIQUES", "QUADS", "SHOULDERS", "TRAPS", "TRICEPS"]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810344bb58cb3849-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 06:53:30 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=lDwHOzj%2F%2FtFIwiJaqDnZWWfA2QawsmKgrQPe7p%2FxpM922qOUw48Yhd130sVtr3J2M1tr3OXNELeYjaVi%2BjUib%2FJPmmpLdyoBiVc5B0M3g0PDe%2FStdWWyl5m2iPJpg4YSzvfEkw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cflb=SANITIZED; SameSite=SANITIZED; Secure; path=SANITIZED; expires=SANITIZED;
+        HttpOnly
+      - _cfuvid=SANITIZED; path=SANITIZED; domain=SANITIZED; HttpOnly; Secure; SameSite=SANITIZED
+      Transfer-Encoding:
+      - chunked
+      etag:
+      - W/"8c11-60542535ae50f"
+      last-modified:
+      - Wed, 13 Sep 2023 19:11:24 GMT
+      x-frame-options:
+      - deny
+    status:
+      code: 200
+      message: OK
+version: 1

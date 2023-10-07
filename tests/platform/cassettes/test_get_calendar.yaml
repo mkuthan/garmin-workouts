@@ -1,0 +1,1167 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/socialProfile
+  response:
+    body:
+      string: '{"id": 369946353, "profileId": 75620387, "garminGUID": "6fb98690-f511-4145-afed-1a660d8a05a3",
+        "displayName": "28b8ca52-820b-4597-9bbb-6d76e1498867", "fullName": "Oskar",
+        "userName": "oskar.salgado@gmail.com", "profileImageUuid": "0a5e9f44-4b61-4702-94f2-91363bd0d9f0",
+        "profileImageUrlLarge": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/0a5e9f44-4b61-4702-94f2-91363bd0d9f0-75620387.png",
+        "profileImageUrlMedium": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/c87431ff-0530-4002-b23f-1dd91534f23d-75620387.png",
+        "profileImageUrlSmall": "https://s3.amazonaws.com/garmin-connect-prod/profile_images/d891cdfb-a406-40a0-a10b-1ff764a89599-75620387.png",
+        "location": "", "facebookUrl": "", "twitterUrl": "", "personalWebsite": "",
+        "motivation": 2, "bio": null, "primaryActivity": "running", "favoriteActivityTypes":
+        ["running", "cycling", "swimming", "walking", "hiking", "weight_training"],
+        "runningTrainingSpeed": 3.6363637, "cyclingTrainingSpeed": 5.555556, "favoriteCyclingActivityTypes":
+        ["road", "mountain"], "cyclingClassification": "recreation", "cyclingMaxAvgPower":
+        0.0, "swimmingTrainingSpeed": 0.0, "profileVisibility": "private", "activityStartVisibility":
+        "public", "activityMapVisibility": "public", "courseVisibility": "public",
+        "activityHeartRateVisibility": "public", "activityPowerVisibility": "public",
+        "badgeVisibility": "private", "showAge": false, "showWeight": false, "showHeight":
+        false, "showWeightClass": false, "showAgeRange": false, "showGender": false,
+        "showActivityClass": false, "showVO2Max": false, "showPersonalRecords": false,
+        "showLast12Months": true, "showLifetimeTotals": true, "showUpcomingEvents":
+        false, "showRecentFavorites": false, "showRecentDevice": false, "showRecentGear":
+        false, "showBadges": false, "otherActivity": "", "otherPrimaryActivity": null,
+        "otherMotivation": null, "userRoles": ["SCOPE_ATP_READ", "SCOPE_ATP_WRITE",
+        "SCOPE_COMMUNITY_COURSE_READ", "SCOPE_COMMUNITY_COURSE_WRITE", "SCOPE_CONNECT_READ",
+        "SCOPE_CONNECT_WRITE", "SCOPE_DT_CLIENT_ANALYTICS_WRITE", "SCOPE_GARMINPAY_READ",
+        "SCOPE_GARMINPAY_WRITE", "SCOPE_GCOFFER_READ", "SCOPE_GCOFFER_WRITE", "SCOPE_GHS_SAMD",
+        "SCOPE_GHS_UPLOAD", "SCOPE_GOLF_API_READ", "SCOPE_GOLF_API_WRITE", "SCOPE_INSIGHTS_READ",
+        "SCOPE_INSIGHTS_WRITE", "SCOPE_PRODUCT_SEARCH_READ", "ROLE_CONNECTUSER", "ROLE_FITNESS_USER",
+        "ROLE_WELLNESS_USER", "ROLE_OUTDOOR_USER", "ROLE_MARINE_USER", "ROLE_TACX_APP_USER"],
+        "nameApproved": true, "userProfileFullName": "Oskar", "makeGolfScorecardsPrivate":
+        true, "allowGolfLiveScoring": false, "allowGolfScoringByConnections": true,
+        "userLevel": 7, "userPoint": 1561, "levelUpdateDate": "2023-07-07T12:13:00.0",
+        "levelIsViewed": false, "levelPointThreshold": 2540, "userPointOffset": 0,
+        "userPro": false}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810346361c6f69fd-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 06:54:31 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=lruELICShVYqX2qWDkJ%2BJuzRIOgwBgeC42lGGvvHi%2FQwIF77aNS9BKmj8ykau%2F8XVxxNBjII6lJyPup7MbcXpdJxiJJtfwmWFigSdL6uEKY8QXO4TNzorJ7G%2BLPnx%2FdD0l7cweEk9Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - _cfuvid=SANITIZED; path=SANITIZED; domain=SANITIZED; HttpOnly; Secure; SameSite=SANITIZED
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - ADRUM_BTa=SANITIZED; SameSite=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/userprofile-service/userprofile/user-settings
+  response:
+    body:
+      string: '{"id": 75620387, "userData": {"gender": "MALE", "weight": 73800.0,
+        "height": 178.0, "timeFormat": "time_twenty_four_hr", "birthDate": "1981-02-02",
+        "measurementSystem": "metric", "activityLevel": 8, "handedness": "RIGHT",
+        "powerFormat": {"formatId": 30, "formatKey": "watt", "minFraction": 0, "maxFraction":
+        0, "groupingUsed": true, "displayFormat": null}, "heartRateFormat": {"formatId":
+        21, "formatKey": "bpm", "minFraction": 0, "maxFraction": 0, "groupingUsed":
+        false, "displayFormat": null}, "firstDayOfWeek": {"dayId": 3, "dayName": "monday",
+        "sortOrder": 3, "isPossibleFirstDay": true}, "vo2MaxRunning": 53.0, "vo2MaxCycling":
+        null, "lactateThresholdSpeed": 0.3555545600000001, "lactateThresholdHeartRate":
+        null, "diveNumber": 50, "intensityMinutesCalcMethod": "AUTO", "moderateIntensityMinutesHrZone":
+        3, "vigorousIntensityMinutesHrZone": 4, "hydrationMeasurementUnit": "milliliter",
+        "hydrationContainers": [{"name": null, "volume": 250, "unit": "milliliter"},
+        {"name": null, "volume": 500, "unit": "milliliter"}, {"name": null, "volume":
+        750, "unit": "milliliter"}], "hydrationAutoGoalEnabled": true, "firstbeatMaxStressScore":
+        26, "firstbeatCyclingLtTimestamp": null, "firstbeatRunningLtTimestamp": 1063780297,
+        "thresholdHeartRateAutoDetected": true, "ftpAutoDetected": null, "trainingStatusPausedDate":
+        null, "weatherLocation": {"useFixedLocation": false, "latitude": 42.8509107,
+        "longitude": -2.6423136, "locationName": "Gasteiz, Euskadi", "isoCountryCode":
+        "ES", "postalCode": "01192"}, "golfDistanceUnit": "statute_us", "golfElevationUnit":
+        null, "golfSpeedUnit": null, "externalBottomTime": 0}, "userSleep": {"sleepTime":
+        75600, "defaultSleepTime": false, "wakeTime": 34200, "defaultWakeTime": false},
+        "connectDate": null, "sourceType": null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810346509957218c-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 03 Oct 2023 06:54:35 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=OUFVlfVPMqJDA22G8pp7%2BYEyCtoX6hffBSWMQFOmakkWJyUmAUBVGxbZhcrbZpi5KN2U1OuLn0ScPn1ZYct%2BXUQdx0rwn6SWBBbFKpsmRyuhL2hkjtZbzNJj3KpvXSc0VYU3bALlDQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cache-control:
+      - no-cache, no-store, private
+      pragma:
+      - no-cache
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - SameSite=SANITIZED; ADRUM_BTa=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/info-service/api/system/release-system
+  response:
+    body:
+      string: '[{"app": "release-system", "project": "system", "version": "23.19.3.0",
+        "time": "Mon Oct 02 17:52:10 UTC 2023"}]'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8103468a4a6c6660-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 06:54:44 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=YNR%2FTUv5X09a7MAaMdSZFrGLYgO8v6JHYpnqSowE4Pii1v%2FCk9lZ%2FVZxf0N8r1wbgIpCb6yjt3nNR23tGAMQEixXD38FwDW9NKdJv%2BS1sfVw%2F3raMzvzICVhInomEesP8B8kVQZ50Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      x-vcap-request-id:
+      - 6a81522b-36f2-4548-58c6-7e77552c9970
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer SANITIZED
+      Connection:
+      - keep-alive
+      Cookie:
+      - SameSite=SANITIZED; ADRUM_BTa=SANITIZED; ADRUM_BT1=SANITIZED; _cfuvid=SANITIZED
+      User-Agent:
+      - Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15
+        (KHTML, like Gecko) Mobile/15E148
+    method: GET
+    uri: https://connectapi.garmin.com/calendar-service/year/2023/month/9
+  response:
+    body:
+      string: '{"startDayOfMonth": 0, "numOfDaysInMonth": 31, "numOfDaysInPrevMonth":
+        30, "month": 9, "year": 2023, "calendarItems": [{"id": 14504640, "groupId":
+        null, "trainingPlanId": null, "itemType": "event", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Ponle Freno Vitoria-Gasteiz 2023", "date": "2023-09-24", "duration":
+        null, "distance": null, "calories": null, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": "https://www.rockthesport.com/es/evento/ponle-freno-vitoria-2023",
+        "isStart": null, "isRace": true, "recurrenceId": null, "isParent": null, "parentId":
+        null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": {"startTimeHhMm": "10:30", "timeZoneId": "Europe/Paris"},
+        "diveNumber": null, "maxDepth": null, "avgDepth": null, "surfaceInterval":
+        null, "elapsedDuration": null, "lapCount": null, "bottomTime": null, "atpPlanId":
+        null, "workoutId": null, "protectedWorkoutSchedule": false, "activeSets":
+        null, "strokes": null, "noOfSplits": null, "maxGradeValue": null, "totalAscent":
+        null, "differenceStress": null, "climbDuration": null, "maxSpeed": null, "averageHR":
+        null, "activeSplitSummaryDuration": null, "maxSplitDistance": null, "maxSplitSpeed":
+        null, "location": null, "shareableEventUuid": null, "splitSummaryMode": null,
+        "completionTarget": {"value": 5.0, "unit": "kilometer", "unitType": "distance"},
+        "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false, "primaryEvent":
+        false, "autoCalcCalories": null, "decoDive": null}, {"id": 14466937, "groupId":
+        null, "trainingPlanId": null, "itemType": "event", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Salto DSS 15K 2023", "date": "2023-10-22", "duration": null,
+        "distance": null, "calories": null, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        32006516, "courseName": null, "sportTypeKey": null, "url": "https://15ksansebastian.com/",
+        "isStart": null, "isRace": true, "recurrenceId": null, "isParent": null, "parentId":
+        null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": {"startTimeHhMm": "10:15", "timeZoneId": "Europe/Paris"},
+        "diveNumber": null, "maxDepth": null, "avgDepth": null, "surfaceInterval":
+        null, "elapsedDuration": null, "lapCount": null, "bottomTime": null, "atpPlanId":
+        null, "workoutId": null, "protectedWorkoutSchedule": false, "activeSets":
+        null, "strokes": null, "noOfSplits": null, "maxGradeValue": null, "totalAscent":
+        null, "differenceStress": null, "climbDuration": null, "maxSpeed": null, "averageHR":
+        null, "activeSplitSummaryDuration": null, "maxSplitDistance": null, "maxSplitSpeed":
+        null, "location": null, "shareableEventUuid": null, "splitSummaryMode": null,
+        "completionTarget": {"value": 20.0, "unit": "kilometer", "unitType": "distance"},
+        "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false, "primaryEvent":
+        false, "autoCalcCalories": null, "decoDive": null}, {"id": 842166120, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_2-General aerobic", "date": "2023-10-03",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041449, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166133, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_3-Lactate threshold", "date": "2023-10-04",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041460, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166143, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_4-Endurance", "date": "2023-10-05",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041473, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166153, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_6-General aerobic", "date": "2023-10-07",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041485, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166162, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_6-Speed", "date": "2023-10-07",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041494, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166175, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "10_7-Endurance", "date": "2023-10-08",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041508, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167043, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_2-General aerobic", "date": "2023-10-10",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042365, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167065, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_3-Lactate threshold", "date": "2023-10-11",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042370, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167072, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_4-Endurance", "date": "2023-10-12",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042390, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167083, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_6-General aerobic", "date": "2023-10-14",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042399, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167099, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_6-Speed", "date": "2023-10-14",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042405, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167111, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "9_7-Progression", "date": "2023-10-15",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042429, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166952, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "8_2-General aerobic", "date": "2023-10-16",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042266, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166960, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "8_3-General aerobic", "date": "2023-10-18",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042278, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166976, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "8_4-General aerobic", "date": "2023-10-19",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042286, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167028, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "8_6-General aerobic", "date": "2023-10-21",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042299, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 780798302, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "Salto DSS 15K 2023", "date": "2023-10-22",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 691368852, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842167036, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "8_7-Progression", "date": "2023-10-22",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042353, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166864, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_2-General aerobic", "date": "2023-10-24",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042183, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166883, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_3-Lactate threshold", "date": "2023-10-25",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042190, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166897, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_4-Endurance", "date": "2023-10-26",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042209, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166911, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_5-Recovery", "date": "2023-10-27",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042222, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166929, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_6-General aerobic", "date": "2023-10-28",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042235, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166932, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_6-Speed", "date": "2023-10-28",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042255, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166940, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "7_7-Progression", "date": "2023-10-29",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042262, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166620, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_2-General aerobic", "date": "2023-10-31",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041953, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166632, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_3-VO2", "date": "2023-11-01", "duration":
+        null, "distance": null, "calories": null, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": "running", "url": null, "isStart":
+        null, "isRace": null, "recurrenceId": null, "isParent": null, "parentId":
+        null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041957, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166795, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_4-Endurance", "date": "2023-11-02",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041966, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166808, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_5-Recovery", "date": "2023-11-03",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042129, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166826, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_6-General aerobic", "date": "2023-11-04",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042144, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166850, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_6-Speed", "date": "2023-11-04",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042153, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166859, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "6_7-Endurance", "date": "2023-11-05",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753042171, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 842166548, "groupId":
+        null, "trainingPlanId": 0, "itemType": "workout", "activityTypeId": null,
+        "wellnessActivityUuid": null, "title": "5_2-General aerobic", "date": "2023-11-07",
+        "duration": null, "distance": null, "calories": null, "floorsClimbed": null,
+        "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null, "difference":
+        null, "courseId": null, "courseName": null, "sportTypeKey": "running", "url":
+        null, "isStart": null, "isRace": null, "recurrenceId": null, "isParent": null,
+        "parentId": null, "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        null, "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": null, "lapCount": null,
+        "bottomTime": null, "atpPlanId": null, "workoutId": 753041876, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": null, "averageHR": null, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        false, "subscribed": null, "shareableEvent": false, "primaryEvent": null,
+        "autoCalcCalories": null, "decoDive": null}, {"id": 12092757685, "groupId":
+        null, "trainingPlanId": null, "itemType": "activity", "activityTypeId": 9,
+        "wellnessActivityUuid": null, "title": "Vitoria Caminar", "date": "2023-09-24",
+        "duration": 2037425, "distance": 381559, "calories": 423, "floorsClimbed":
+        null, "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null,
+        "difference": null, "courseId": null, "courseName": null, "sportTypeKey":
+        null, "url": null, "isStart": null, "isRace": null, "recurrenceId": null,
+        "isParent": false, "parentId": null, "userBadgeId": null, "badgeCategoryTypeId":
+        null, "badgeCategoryTypeDesc": null, "badgeAwardedDate": null, "badgeViewed":
+        null, "hideBadge": null, "startTimestampLocal": "2023-09-24T09:36:37.0", "eventTimeLocal":
+        null, "diveNumber": null, "maxDepth": null, "avgDepth": null, "surfaceInterval":
+        null, "elapsedDuration": 2037.425048828125, "lapCount": 4, "bottomTime": null,
+        "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule": false, "activeSets":
+        null, "strokes": null, "noOfSplits": null, "maxGradeValue": null, "totalAscent":
+        null, "differenceStress": null, "climbDuration": null, "maxSpeed": 7.482999801635742,
+        "averageHR": 73.0, "activeSplitSummaryDuration": null, "maxSplitDistance":
+        null, "maxSplitSpeed": null, "location": null, "shareableEventUuid": null,
+        "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        null, "subscribed": null, "shareableEvent": false, "primaryEvent": null, "autoCalcCalories":
+        false, "decoDive": false}, {"id": 12093058704, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Vitoria - Ponle Freno Vito", "date": "2023-09-24", "duration":
+        1169948, "distance": 500000, "calories": 1261, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-09-24T10:30:00.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 1172.10400390625,
+        "lapCount": 1, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 13.0, "differenceStress": null, "climbDuration": 1169.948974609375,
+        "maxSpeed": 5.784999847412109, "averageHR": 170.0, "activeSplitSummaryDuration":
+        1169.948974609375, "maxSplitDistance": 4698, "maxSplitSpeed": 5.784999847412109,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12104353870, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 11, "wellnessActivityUuid": null, "title": "Cardio", "date":
+        "2023-09-25", "duration": 2098386, "distance": 0, "calories": 335, "floorsClimbed":
+        null, "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null,
+        "difference": null, "courseId": null, "courseName": null, "sportTypeKey":
+        null, "url": null, "isStart": null, "isRace": null, "recurrenceId": null,
+        "isParent": false, "parentId": null, "userBadgeId": null, "badgeCategoryTypeId":
+        null, "badgeCategoryTypeDesc": null, "badgeAwardedDate": null, "badgeViewed":
+        null, "hideBadge": null, "startTimestampLocal": "2023-09-25T19:03:46.0", "eventTimeLocal":
+        null, "diveNumber": null, "maxDepth": null, "avgDepth": null, "surfaceInterval":
+        null, "elapsedDuration": 2098.386962890625, "lapCount": 1, "bottomTime": null,
+        "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule": false, "activeSets":
+        null, "strokes": null, "noOfSplits": null, "maxGradeValue": null, "totalAscent":
+        null, "differenceStress": null, "climbDuration": null, "maxSpeed": null, "averageHR":
+        64.0, "activeSplitSummaryDuration": null, "maxSplitDistance": null, "maxSplitSpeed":
+        null, "location": null, "shareableEventUuid": null, "splitSummaryMode": null,
+        "completionTarget": null, "phasedTrainingPlan": null, "subscribed": null,
+        "shareableEvent": false, "primaryEvent": null, "autoCalcCalories": false,
+        "decoDive": false}, {"id": 12111450685, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Brussels - 11_7-Additional", "date": "2023-09-26", "duration":
+        1810416, "distance": 458983, "calories": 1374, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-09-26T18:14:13.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 1810.416015625,
+        "lapCount": 1, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": 3.181999921798706, "averageHR": 132.0, "activeSplitSummaryDuration":
+        null, "maxSplitDistance": null, "maxSplitSpeed": null, "location": null, "shareableEventUuid":
+        null, "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        null, "subscribed": null, "shareableEvent": false, "primaryEvent": null, "autoCalcCalories":
+        false, "decoDive": false}, {"id": 12115338132, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Brussels - 11_7-Additional", "date": "2023-09-27", "duration":
+        3370023, "distance": 940762, "calories": 2602, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-09-27T07:05:57.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 3400.656982421875,
+        "lapCount": 2, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 0.0, "differenceStress": null, "climbDuration": 143.92599487304688,
+        "maxSpeed": 3.2279999256134033, "averageHR": 136.0, "activeSplitSummaryDuration":
+        143.92599487304688, "maxSplitDistance": 407, "maxSplitSpeed": 3.069999933242798,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12122777341, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 11, "wellnessActivityUuid": null, "title": "Cardio", "date":
+        "2023-09-28", "duration": 1917584, "distance": 0, "calories": 297, "floorsClimbed":
+        null, "avgRespirationRate": null, "unitOfPoolLength": null, "weight": null,
+        "difference": null, "courseId": null, "courseName": null, "sportTypeKey":
+        null, "url": null, "isStart": null, "isRace": null, "recurrenceId": null,
+        "isParent": false, "parentId": null, "userBadgeId": null, "badgeCategoryTypeId":
+        null, "badgeCategoryTypeDesc": null, "badgeAwardedDate": null, "badgeViewed":
+        null, "hideBadge": null, "startTimestampLocal": "2023-09-28T07:21:08.0", "eventTimeLocal":
+        null, "diveNumber": null, "maxDepth": null, "avgDepth": null, "surfaceInterval":
+        null, "elapsedDuration": 1917.5849609375, "lapCount": 1, "bottomTime": null,
+        "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule": false, "activeSets":
+        null, "strokes": null, "noOfSplits": null, "maxGradeValue": null, "totalAscent":
+        null, "differenceStress": null, "climbDuration": null, "maxSpeed": null, "averageHR":
+        69.0, "activeSplitSummaryDuration": null, "maxSplitDistance": null, "maxSplitSpeed":
+        null, "location": null, "shareableEventUuid": null, "splitSummaryMode": null,
+        "completionTarget": null, "phasedTrainingPlan": null, "subscribed": null,
+        "shareableEvent": false, "primaryEvent": null, "autoCalcCalories": false,
+        "decoDive": false}, {"id": 12129734979, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Vitoria - 11_1-W1-Hills", "date": "2023-09-29", "duration":
+        928989, "distance": 275936, "calories": 812, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-09-29T05:56:56.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 990.8740234375,
+        "lapCount": 1, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 2.0, "differenceStress": null, "climbDuration": 928.989990234375,
+        "maxSpeed": 3.2839999198913574, "averageHR": 141.0, "activeSplitSummaryDuration":
+        928.989990234375, "maxSplitDistance": 2759, "maxSplitSpeed": 3.2839999198913574,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12129857904, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 9, "wellnessActivityUuid": null, "title": "Vitoria Caminar",
+        "date": "2023-09-29", "duration": 2185061, "distance": 72554, "calories":
+        351, "floorsClimbed": null, "avgRespirationRate": null, "unitOfPoolLength":
+        null, "weight": null, "difference": null, "courseId": null, "courseName":
+        null, "sportTypeKey": null, "url": null, "isStart": null, "isRace": null,
+        "recurrenceId": null, "isParent": false, "parentId": null, "userBadgeId":
+        null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc": null, "badgeAwardedDate":
+        null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal": "2023-09-29T06:17:03.0",
+        "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": 2185.06103515625, "lapCount":
+        1, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": 1.7730000019073489, "averageHR": 70.0, "activeSplitSummaryDuration":
+        null, "maxSplitDistance": null, "maxSplitSpeed": null, "location": null, "shareableEventUuid":
+        null, "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        null, "subscribed": null, "shareableEvent": false, "primaryEvent": null, "autoCalcCalories":
+        false, "decoDive": false}, {"id": 12136827190, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Vitoria - 11_7-Additional", "date": "2023-09-30", "duration":
+        3223812, "distance": 967836, "calories": 2639, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-09-30T07:50:52.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 3223.81201171875,
+        "lapCount": 2, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 2.0, "differenceStress": null, "climbDuration": 224.1739959716797,
+        "maxSpeed": 3.2279999256134033, "averageHR": 142.0, "activeSplitSummaryDuration":
+        224.1739959716797, "maxSplitDistance": 678, "maxSplitSpeed": 3.069999933242798,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12144299801, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 1, "wellnessActivityUuid": null, "title": "Vitoria - 11_6-W3-Pace
+        Cha", "date": "2023-10-01", "duration": 5503598, "distance": 1800658, "calories":
+        4629, "floorsClimbed": null, "avgRespirationRate": null, "unitOfPoolLength":
+        null, "weight": null, "difference": null, "courseId": null, "courseName":
+        null, "sportTypeKey": null, "url": null, "isStart": null, "isRace": null,
+        "recurrenceId": null, "isParent": false, "parentId": null, "userBadgeId":
+        null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc": null, "badgeAwardedDate":
+        null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal": "2023-10-01T07:18:17.0",
+        "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": 6105.9189453125, "lapCount":
+        12, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 38.0, "differenceStress": null, "climbDuration": 5503.59805059433,
+        "maxSpeed": 3.871999979019165, "averageHR": 149.0, "activeSplitSummaryDuration":
+        5503.59805059433, "maxSplitDistance": 18006, "maxSplitSpeed": 3.871999979019165,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12150817271, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 1, "wellnessActivityUuid": null, "title": "Vitoria - 10_1-W1-Hills
+        +", "date": "2023-10-02", "duration": 2473699, "distance": 614500, "calories":
+        1629, "floorsClimbed": null, "avgRespirationRate": null, "unitOfPoolLength":
+        null, "weight": null, "difference": null, "courseId": null, "courseName":
+        null, "sportTypeKey": null, "url": null, "isStart": null, "isRace": null,
+        "recurrenceId": null, "isParent": false, "parentId": null, "userBadgeId":
+        null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc": null, "badgeAwardedDate":
+        null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal": "2023-10-02T05:55:09.0",
+        "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": 2473.699951171875, "lapCount":
+        11, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 15.0, "differenceStress": null, "climbDuration": 1993.7000427246094,
+        "maxSpeed": 4.880000114440918, "averageHR": 123.0, "activeSplitSummaryDuration":
+        1993.7000427246094, "maxSplitDistance": 3055, "maxSplitSpeed": 4.880000114440918,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}, {"id":
+        12158703317, "groupId": null, "trainingPlanId": null, "itemType": "activity",
+        "activityTypeId": 9, "wellnessActivityUuid": null, "title": "Vitoria Caminar",
+        "date": "2023-10-02", "duration": 4416116, "distance": 289306, "calories":
+        833, "floorsClimbed": null, "avgRespirationRate": null, "unitOfPoolLength":
+        null, "weight": null, "difference": null, "courseId": null, "courseName":
+        null, "sportTypeKey": null, "url": null, "isStart": null, "isRace": null,
+        "recurrenceId": null, "isParent": false, "parentId": null, "userBadgeId":
+        null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc": null, "badgeAwardedDate":
+        null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal": "2023-10-02T16:34:12.0",
+        "eventTimeLocal": null, "diveNumber": null, "maxDepth": null, "avgDepth":
+        null, "surfaceInterval": null, "elapsedDuration": 4416.1162109375, "lapCount":
+        3, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": null, "differenceStress": null, "climbDuration": null,
+        "maxSpeed": 7.995999813079835, "averageHR": 75.0, "activeSplitSummaryDuration":
+        null, "maxSplitDistance": null, "maxSplitSpeed": null, "location": null, "shareableEventUuid":
+        null, "splitSummaryMode": null, "completionTarget": null, "phasedTrainingPlan":
+        null, "subscribed": null, "shareableEvent": false, "primaryEvent": null, "autoCalcCalories":
+        false, "decoDive": false}, {"id": 12158913257, "groupId": null, "trainingPlanId":
+        null, "itemType": "activity", "activityTypeId": 1, "wellnessActivityUuid":
+        null, "title": "Vitoria - 10_2-General aer", "date": "2023-10-03", "duration":
+        4528534, "distance": 1419712, "calories": 3821, "floorsClimbed": null, "avgRespirationRate":
+        null, "unitOfPoolLength": null, "weight": null, "difference": null, "courseId":
+        null, "courseName": null, "sportTypeKey": null, "url": null, "isStart": null,
+        "isRace": null, "recurrenceId": null, "isParent": false, "parentId": null,
+        "userBadgeId": null, "badgeCategoryTypeId": null, "badgeCategoryTypeDesc":
+        null, "badgeAwardedDate": null, "badgeViewed": null, "hideBadge": null, "startTimestampLocal":
+        "2023-10-03T05:31:50.0", "eventTimeLocal": null, "diveNumber": null, "maxDepth":
+        null, "avgDepth": null, "surfaceInterval": null, "elapsedDuration": 4528.5341796875,
+        "lapCount": 2, "bottomTime": null, "atpPlanId": null, "workoutId": null, "protectedWorkoutSchedule":
+        false, "activeSets": null, "strokes": null, "noOfSplits": null, "maxGradeValue":
+        null, "totalAscent": 33.0, "differenceStress": null, "climbDuration": 4528.533973693848,
+        "maxSpeed": 3.815999984741211, "averageHR": 144.0, "activeSplitSummaryDuration":
+        4528.533973693848, "maxSplitDistance": 14197, "maxSplitSpeed": 3.815999984741211,
+        "location": null, "shareableEventUuid": null, "splitSummaryMode": null, "completionTarget":
+        null, "phasedTrainingPlan": null, "subscribed": null, "shareableEvent": false,
+        "primaryEvent": null, "autoCalcCalories": false, "decoDive": false}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 810346cc0ec22fa4-MAD
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Oct 2023 06:54:55 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=SI999n3pXpPMessLYA0HnUQPDkfcOm2bqFwh0vbikLiX74pjvASPdUMt%2BqjW%2B%2BvJUYCWIGJm2DlYoY%2F2e2yXERZXNgik0W8piwc3oGNxZo7eyrFxjdmvMqnk4EPU1pZVkfu3fe2dGQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      set-cookie:
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BTa=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - SameSite=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+      - ADRUM_BT1=SANITIZED; Max-Age=SANITIZED; Expires=SANITIZED; Path=SANITIZED;
+        Secure
+    status:
+      code: 200
+      message: OK
+version: 1

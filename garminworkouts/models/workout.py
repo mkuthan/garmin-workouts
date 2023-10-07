@@ -123,19 +123,20 @@ class Workout(object):
         for step in flatten_steps:
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
-            if not key == 'lap.button':
-                if key == 'time':
-                    duration_secs: float = duration
-                    duration_meters = round(duration_secs * self._equivalent_pace(step))
-                if key == 'distance':
-                    duration_meters: float = duration
-                    try:
-                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                    except ZeroDivisionError:
-                        duration_secs = float(0)
+            if key == 'time':
+                duration_secs: float = duration
+                duration_meters = round(duration_secs * self._equivalent_pace(step))
+            elif key == 'distance':
+                duration_meters: float = duration
+                try:
+                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                except ZeroDivisionError:
+                    duration_secs = float(0)
+                except KeyError:
+                    duration_secs = float(0)
 
-                sec = sec + duration_secs
-                meters: float = meters + duration_meters
+            sec = sec + duration_secs
+            meters: float = meters + duration_meters
 
         try:
             self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
@@ -163,19 +164,20 @@ class Workout(object):
 
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
-            if not key == 'lap.button':
-                if key == 'time':
-                    duration_secs: float = duration
-                    duration_meters = round(duration_secs * self._equivalent_pace(step))
-                if key == 'distance':
-                    duration_meters: float = duration
-                    try:
-                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                    except ZeroDivisionError:
-                        duration_secs = float(0)
+            if key == 'time':
+                duration_secs: float = duration
+                duration_meters = round(duration_secs * self._equivalent_pace(step))
+            elif key == 'distance':
+                duration_meters: float = duration
+                try:
+                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                except ZeroDivisionError:
+                    duration_secs = float(0)
+                except KeyError:
+                    duration_secs = float(0)
 
-                sec = sec + duration_secs
-                meters: float = meters + duration_meters
+            sec = sec + duration_secs
+            meters: float = meters + duration_meters
 
             if power_watts and duration_secs:
                 seconds = seconds + duration_secs
@@ -197,19 +199,20 @@ class Workout(object):
         for step in flatten_steps:
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
-            if not key == 'lap.button':
-                if key == 'time':
-                    duration_secs: float = duration
-                    duration_meters = round(duration_secs * self._equivalent_pace(step))
-                if key == 'distance':
-                    duration_meters: float = duration
-                    try:
-                        duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                    except ZeroDivisionError:
-                        duration_secs = float(0)
+            if key == 'time':
+                duration_secs: float = duration
+                duration_meters = round(duration_secs * self._equivalent_pace(step))
+            elif key == 'distance':
+                duration_meters: float = duration
+                try:
+                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
+                except ZeroDivisionError:
+                    duration_secs = float(0)
+                except KeyError:
+                    duration_secs = float(0)
 
-                sec = sec + duration_secs
-                meters: float = meters + duration_meters
+            sec = sec + duration_secs
+            meters: float = meters + duration_meters
 
         try:
             self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
@@ -230,18 +233,18 @@ class Workout(object):
         reps = 0
 
         for step in flatten_steps:
+            assert step['type'] != 'run'
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
-            if not key == 'lap.button':
-                if key == 'time':
-                    duration_secs: float = duration
-                    duration_reps = 0
-                if key == 'reps':
-                    duration_reps: float = duration
-                    duration_secs = float(0)
+            if key == 'time':
+                duration_secs: float = duration
+                duration_reps = 0
+            elif key == 'reps':
+                duration_reps: float = duration
+                duration_secs = float(0)
 
-                sec += duration_secs
-                reps += duration_reps
+            sec += duration_secs
+            reps += duration_reps
 
         self.ratio = float(0)
 

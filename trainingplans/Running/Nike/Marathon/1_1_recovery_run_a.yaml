@@ -1,0 +1,4 @@
+name: "02wtg recovery run a"
+sport: "running"
+steps:
+  - { type: "interval", duration: "45:00", target: RECOVERY_HEART_RATE }
