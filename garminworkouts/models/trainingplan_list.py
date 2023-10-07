@@ -1434,7 +1434,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. \
+                Start this plan 22 weeks before your event, then do the phase two and three plans.\n\n\
+                    Lay the foundation for the work to come with this plan. It has some hard workouts mixed \
+                        in to boost your aerobic fitness, while focusing on building up your ability to ride \
+                            regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1484,7 +1488,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. \
+                Start this plan 22 weeks before your event, then do the phase two and three plans.\n\n\
+                    Lay the foundation for the work to come with this plan. It has some hard workouts \
+                        mixed in to boost your aerobic fitness, while focusing on building up your ability\
+                            to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1534,7 +1542,13 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "This is the second of three plans designed to prepare you for your event. \
+                Start this plan 14 weeks before your event, then do the phase three plan. If you have \
+                    enough time, complete the phase one plan before this plan.\n\nThe focus of this plan\
+                        is developing fitness that will allow you to spend more time at race pace. Mountain \
+                            bike rides start to take center stage during this phase. If you have a road bike, \
+                                try to use it for the longer rides that aren't specifically listed as mountain \
+                                    bike rides. This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1584,7 +1598,14 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "This is the second of three plans designed to prepare you for your event. \
+                Start this plan 14 weeks before your event, then do the phase three plan. \
+                    If you have enough time, complete the phase one plan before this plan.\n\n\
+                        The focus of this plan is developing fitness that will allow you to spend \
+                            more time at race pace. Mountain bike rides start to take center stage \
+                                during this phase. If you have a road bike, try to use it for the longer rides \
+                                    that aren't specifically listed as mountain bike rides. \
+                                        This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1634,7 +1655,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. \
+                Start this plan 6 weeks before your event. If you have enough time, complete the phase \
+                    two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. \
+                        The plan features some longer mountain bike rides to build your capacity, while intense \
+                            workouts focus on event specific fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -1684,7 +1709,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. \
+                Start this plan 6 weeks before your event. If you have enough time, complete the phase \
+                    two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. \
+                        The plan features some longer mountain bike rides to build your capacity, while \
+                            intense workouts focus on event specific fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -1734,7 +1763,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. \
+                Start this plan 22 weeks before your event, then do the phase two and three plans.\n\n\
+                    This plan will help lay a strong foundation for the training to come. \
+                        Get your early season base miles in, with some hard workouts mixed in to boost \
+                            your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1784,7 +1817,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. \
+                Start this plan 22 weeks before your event, then do the phase two and three plans.\n\n\
+                    This plan will help lay a strong foundation for the training to come. \
+                        Get your early season base miles in, with some hard workouts mixed in to \
+                            boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1834,7 +1871,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "Continue to build on the work done in Phase 1, and start to focus on developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "Continue to build on the work done in Phase 1, and start to focus \
+                on developing fitness that will allow you to spend more time at race pace. \
+                    Mountain bike rides start to take center stage during this phase. \
+                        If you have a road bike, try to use it for the longer rides that aren't \
+                            specifically listed as mountain bike rides. This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -1884,7 +1925,14 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "This is the second of three plans designed to prepare you for your event. \
+                Start this plan 14 weeks before your event, then do the phase three plan. \
+                    If you have enough time, complete the phase one plan before this plan.\n\n\
+                        The focus of this plan is developing fitness that will allow you to spend \
+                            more time at race pace. Mountain bike rides start to take center stage \
+                                during this phase. If you have a road bike, try to use it for the \
+                                    longer rides that aren't specifically listed as mountain bike rides. \
+                                        This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -1934,7 +1982,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. \
+                Start this plan 6 weeks before your event. If you have enough time, complete the phase \
+                    two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. \
+                        The plan features some longer mountain bike rides to build your capacity, while \
+                            intense workouts focus on event specific fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -1984,7 +2036,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. \
+                Start this plan 6 weeks before your event. If you have enough time, complete the phase \
+                    two and one plans before this plan.\n\nUse this plan to dial in your fitness for the \
+                        event. The plan features some longer mountain bike rides to build your capacity, \
+                            while intense workouts focus on event specific fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2034,7 +2090,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2084,7 +2143,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2134,7 +2196,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the \
+                    phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow \
+                        you to spend more time at race pace. Mountain bike rides start to take center stage during \
+                            this phase. If you have a road bike, try to use it for the longer rides that aren't \
+                                specifically listed as mountain bike rides. This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2184,7 +2251,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. Mountain bike rides start to take center stage during this phase. If you have a road bike, try to use it for the longer rides that aren't specifically listed as mountain bike rides. This helps to keep the intensity down.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to \
+                        spend more time at race pace. Mountain bike rides start to take center stage during this \
+                            phase. If you have a road bike, try to use it for the longer rides that aren't specifically\
+                                listed as mountain bike rides. This helps to keep the intensity down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2234,7 +2306,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this \
+                plan 6 weeks before your event. If you have enough time, complete the phase two and one plans \
+                    before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features \
+                        some longer mountain bike rides to build your capacity, while intense workouts focus on \
+                            event specific fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2284,7 +2360,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "MTB Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer mountain bike rides to build your capacity, while intense workouts focus on event specific fitness to get you race day ready.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this plan to dial in your fitness for the event. The plan features some longer \
+                        mountain bike rides to build your capacity, while intense workouts focus on event specific \
+                            fitness to get you race day ready.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2334,7 +2414,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2384,7 +2467,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2434,7 +2520,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will \
+                        allow you to spend more time at race pace. This plan includes longer workouts to build your \
+                            capacity, as well as plenty of high intensity workouts that will maximize your fitness \
+                                gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2484,7 +2575,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will \
+                        allow you to spend more time at race pace. This plan includes longer workouts to build your \
+                            capacity, as well as plenty of high intensity workouts that will maximize your fitness \
+                                gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2534,7 +2630,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and it should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at \
+                        your threshold, and it should give you some chances to practice your race prep routine along \
+                            the way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2584,7 +2684,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and it should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at \
+                        your threshold, and it should give you some chances to practice your race prep routine along \
+                            the way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2634,7 +2738,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2684,7 +2791,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2734,7 +2844,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to \
+                        spend more time at race pace. This plan includes longer workouts to build your capacity, as \
+                            well as plenty of high intensity workouts that will maximize your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -2784,7 +2898,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will \
+                        allow you to spend more time at race pace. This plan includes longer workouts to build your \
+                            capacity, as well as plenty of high intensity workouts that will maximize your fitness \
+                                gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -2834,7 +2953,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and it should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this \
+                plan 6 weeks before your event. If you have enough time, complete the phase two and one plans \
+                    before this plan. Use this phase to dial in your fitness for the event. This plan focuses on \
+                        time spent at your threshold, and it should give you some chances to practice your race \
+                            prep routine along the way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2884,7 +3007,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan. Use this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and it should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this \
+                plan 6 weeks before your event. If you have enough time, complete the phase two and one plans \
+                    before this plan. Use this phase to dial in your fitness for the event. This plan focuses on \
+                        time spent at your threshold, and it should give you some chances to practice your race \
+                            prep routine along the way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -2934,7 +3061,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this \
+                plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for \
+                    the work to come with this plan. It has some hard workouts mixed in to boost your aerobic \
+                        fitness, while focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -2984,7 +3114,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3034,7 +3167,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to \
+                        spend more time at race pace. This plan includes longer workouts to build your capacity, as \
+                            well as plenty of high intensity workouts that will maximize your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3084,7 +3221,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to spend more time at race pace. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that will allow you to \
+                        spend more time at race pace. This plan includes longer workouts to build your capacity, as \
+                            well as plenty of high intensity workouts that will maximize your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3134,7 +3275,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan focuses on time spent at \
+                        your threshold, and should give you some chances to practice your race prep routine along the \
+                            way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3184,7 +3329,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Time Trial Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan focuses on time spent at your threshold, and should give you some chances to practice your race prep routine along the way.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan focuses on time spent at \
+                        your threshold, and should give you some chances to practice your race prep routine along the \
+                            way.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3234,7 +3383,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3284,7 +3436,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22\
+                weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to \
+                    come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3334,7 +3489,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to \
+                        complete the full distance. This plan includes longer workouts to build your confidence, as \
+                            well as plenty of high intensity workouts that will maximize your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -3384,7 +3543,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to \
+                        complete the full distance. This plan includes longer workouts to build your confidence, as \
+                            well as plenty of high intensity workouts that will maximize your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -3434,7 +3597,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some longer rides, as well as focusing on some sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day of your event.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some longer rides, as well as focusing on some sustained high intensity efforts that \
+                            will get you over the hills or through the headwinds you might encounter on the day of \
+                                your event.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -3484,7 +3652,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Metric Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some longer rides, as well as focusing on some sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day of your event.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some longer rides, as well as focusing on some sustained high intensity efforts that \
+                            will get you over the hills or through the headwinds you might encounter on the day of \
+                                your event.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 3,
             "parentPlanId": 0,
@@ -3534,7 +3707,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3584,7 +3760,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3634,7 +3813,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to \
+                        complete the full distance. This plan includes longer workouts to build your confidence in \
+                            finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -3684,7 +3867,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to \
+                        complete the full distance. This plan includes longer workouts to build your confidence in \
+                            finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -3734,7 +3921,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some rides approaching 4 hours, as well as focusing on some climbing or sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some rides approaching 4 hours, as well as focusing on some climbing or sustained \
+                            high intensity efforts that will get you over the hills or through the headwinds you might \
+                                encounter on the day.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3784,7 +3976,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some rides approaching 4 hours, as well as focusing on some climbing or sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some rides approaching 4 hours, as well as focusing on some climbing or sustained \
+                            high intensity efforts that will get you over the hills or through the headwinds you might \
+                                encounter on the day.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -3834,7 +4031,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3884,7 +4084,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+            22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to \
+                come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing \
+                    on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3934,7 +4137,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this plan \
+                14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase \
+                    one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to \
+                        complete the full distance. This plan includes longer workouts to build your confidence in \
+                            finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -3984,7 +4191,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll \
+                        need to complete the full distance. This plan includes longer workouts to build your \
+                            confidence in finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4034,7 +4245,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some rides approaching 4 hours, as well as focusing on some climbing or sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some rides approaching 4 hours, as well as focusing on some climbing or sustained \
+                            high intensity efforts that will get you over the hills or through the headwinds you might \
+                                encounter on the day.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4084,7 +4300,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Century Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan includes some rides approaching 4 hours, as well as focusing on some climbing or sustained high intensity efforts that will get you over the hills or through the headwinds you might encounter on the day.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nThe final phase of your preparation is meant to put the icing on the cake. The plan \
+                        includes some rides approaching 4 hours, as well as focusing on some climbing or sustained \
+                            high intensity efforts that will get you over the hills or through the headwinds you \
+                                might encounter on the day.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4134,7 +4355,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4184,7 +4408,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4234,7 +4461,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll \
+                        need to complete the full distance. This plan includes longer workouts to build your \
+                            confidence in finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -4284,7 +4515,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the \
+                    phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need \
+                        to complete the full distance. This plan includes longer workouts to build your confidence in \
+                            finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 5,
             "parentPlanId": 0,
@@ -4334,7 +4569,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, some sustained high intensity efforts, and a few sprints to really develop your ability to respond to surges and dish out a few of your own.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides  to continue to build your capacity, some sustained high intensity efforts, and a few \
+                            sprints to  really develop your ability to respond to surges and dish out a few of your \
+                                own.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4384,7 +4624,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, some sustained high intensity efforts, and a few sprints to really develop your ability to respond to surges and dish out a few of your own.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 \
+                weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides to continue to build your capacity, some sustained high intensity efforts, and a few \
+                            sprints to really develop your ability to respond to surges and dish out a few of your \
+                                own.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4434,7 +4679,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4484,7 +4732,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4534,7 +4785,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. \
+                Start this plan 14 weeks before your event, then do the phase three plan. If you have \
+                    enough time, complete the phase one plan before this plan.\n\nThe focus of this plan \
+                        is developing fitness that you'll need to complete the full distance. This plan includes \
+                            longer workouts to build your confidence in finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4584,7 +4839,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to complete the full distance. This plan includes longer workouts to build your confidence in finishing longer rides.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll \
+                        need to complete the full distance. This plan includes longer workouts to build your \
+                            confidence in finishing longer rides.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4634,7 +4893,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, some sustained high intensity efforts, and a few sprints to really develop your ability to respond to surges and dish out a few of your own.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides to continue to build your capacity, some sustained high intensity efforts, and a few \
+                            sprints to  really develop your ability to respond to surges and dish out a few of your \
+                                own.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4684,7 +4948,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Gran Fondo Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, some sustained high intensity efforts, and a few sprints to really develop your ability to respond to surges and dish out a few of your own.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides to continue to build your capacity, some sustained high intensity efforts, and a few \
+                            sprints to really develop your ability to respond to surges and dish out a few of your \
+                                own.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4734,7 +5003,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong \
+                    foundation for the training to come. Get your early season base miles in, with some hard workouts \
+                        mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4784,7 +5056,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a strong foundation for the training to come. Get your early season base miles in, with some hard workouts mixed in to boost your aerobic fitness at the same time.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nThis plan will help lay a \
+                    strong foundation for the training to come. Get your early season base miles in, with some hard \
+                        workouts mixed in to boost your aerobic fitness at the same time.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 4,
             "parentPlanId": 0,
@@ -4834,7 +5109,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to stay with the group when the attacks start. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that \
+                        you'll need to stay with the group when the attacks start. This plan includes longer workouts \
+                            to build your capacity, as well as plenty of high intensity workouts that will maximize \
+                                your fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4884,7 +5164,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to stay with the group when the attacks start. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the \
+                    phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need \
+                        to stay with the group when the attacks start. This plan includes longer workouts to build \
+                            your capacity, as well as plenty of high intensity workouts that will maximize your \
+                                fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4934,7 +5219,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, and plenty of high intensity efforts that will get you ready for racing.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides to continue to build your capacity, and plenty of high intensity efforts that will get \
+                            you ready for racing.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -4984,7 +5273,11 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 3: Peak",
-            "description": "This is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, and plenty of high intensity efforts that will get you ready for racing.",
+            "description": "This is the third of three plans designed to prepare you for your event. Start this plan \
+                6 weeks before your event. If you have enough time, complete the phase two and one plans before this \
+                    plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer \
+                        rides to continue to build your capacity, and plenty of high intensity efforts that will get \
+                            you ready for racing.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5034,7 +5327,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22  weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5084,7 +5380,10 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 1: Base",
-            "description": "This is the first of three plans designed to prepare you for your event. Start this plan 22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while focusing on building up your ability to ride regularly without breaking down.",
+            "description": "This is the first of three plans designed to prepare you for your event. Start this plan \
+                22 weeks before your event, then do the phase two and three plans.\n\nLay the foundation for the work \
+                    to come with this plan. It has some hard workouts mixed in to boost your aerobic fitness, while \
+                        focusing on building up your ability to ride regularly without breaking down.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5134,7 +5433,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to stay with the group when the attacks start. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll \
+                        need to stay with the group when the attacks start. This plan includes longer workouts to \
+                            build your capacity, as well as plenty of high intensity workouts that will maximize your \
+                                fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5184,7 +5488,12 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 2: Build",
-            "description": "This is the second of three plans designed to prepare you for your event. Start this plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll need to stay with the group when the attacks start. This plan includes longer workouts to build your capacity, as well as plenty of high intensity workouts that will maximize your fitness gains.",
+            "description": "This is the second of three plans designed to prepare you for your event. Start this \
+                plan 14 weeks before your event, then do the phase three plan. If you have enough time, complete \
+                    the phase one plan before this plan.\n\nThe focus of this plan is developing fitness that you'll \
+                        need to stay with the group when the attacks start. This plan includes longer workouts to \
+                            build your capacity, as well as plenty of high intensity workouts that will maximize your \
+                                fitness gains.",
             "durationInWeeks": 8,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5234,7 +5543,13 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 3: Peak",
-            "description": "This is the third of three plans of three designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThis is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, and plenty of high intensity efforts that will get you ready for racing.",
+            "description": "This is the third of three plans of three designed to prepare you for your event. Start \
+                this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans \
+                    before this plan.\n\nThis is the third of three plans designed to prepare you for your event. \
+                        Start this plan 6 weeks before your event. If you have enough time, complete the phase two and \
+                            one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This \
+                                plan includes some longer rides to continue to build your capacity, and plenty of high \
+                                    intensity efforts that will get you ready for racing.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
@@ -5284,7 +5599,13 @@ trainingplan_list = {
                 "typeKey": "public"
             },
             "name": "Race Phase 3: Peak",
-            "description": "This is the third of three plans of three designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nThis is the third of three plans designed to prepare you for your event. Start this plan 6 weeks before your event. If you have enough time, complete the phase two and one plans before this plan.\n\nUse this phase to dial in your fitness for the event. This plan includes some longer rides to continue to build your capacity, and plenty of high intensity efforts that will get you ready for racing.",
+            "description": "This is the third of three plans of three designed to prepare you for your event. \
+                Start this plan 6 weeks before your event. If you have enough time, complete the phase two and \
+                    one plans before this plan.\n\nThis is the third of three plans designed to prepare you for your \
+                        event. Start this plan 6 weeks before your event. If you have enough time, complete the phase \
+                            two and one plans before this plan.\n\nUse this phase to dial in your fitness for the \
+                                event. This plan includes some longer rides to continue to build your capacity, and \
+                                    plenty of high intensity efforts that will get you ready for racing.",
             "durationInWeeks": 6,
             "avgWeeklyWorkouts": 6,
             "parentPlanId": 0,
