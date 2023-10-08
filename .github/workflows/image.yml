@@ -79,7 +79,7 @@ jobs:
 
       - name: Docker Scout
         id: docker-scout
-        uses: docker/scout-action@v0.23.4
+        uses: docker/scout-action@v1.0.8
         with:
           command: cves,recommendations
           to-latest: true
