@@ -6,5 +6,5 @@ steps:
   - !include ../../inc/warmup.yaml
   - !include ../../inc/aerobic_2.yaml
   - !include ../../inc/lt_22min.yaml
-  - !include ../../inc/recovery_4min.yaml
+  - !include ../../inc/precovery_4min.yaml
   - !include ../../inc/lt_18min.yaml

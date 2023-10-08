@@ -135,7 +135,7 @@ def command_trainingplan_metrics(args) -> None:
 
         print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
-    logging.info('From ', str(day_min), ' to ', str(day_max))
+    logging.info('From ' + str(day_min) + ' to ' + str(day_max))
     for i in range(24, -11, -1):
         if mileage[i] > float(0):
             logging.info('Week ' + str(i) + ': '

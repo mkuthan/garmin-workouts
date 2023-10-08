@@ -4,14 +4,3 @@ sport: "running"
 
 steps:
   - !include ../../inc/aerobic_9.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/recovery_6min.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml
-  - !include ../../inc/stride_150.yaml

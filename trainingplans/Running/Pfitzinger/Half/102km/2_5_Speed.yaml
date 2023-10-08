@@ -1,0 +1,9 @@
+name: "2_5"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
+  - !include ../../inc/stride.yaml
