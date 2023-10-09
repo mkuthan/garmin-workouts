@@ -101,19 +101,56 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text("Use /start to test this bot.")
 
 
-async def recurrent(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(text='Daily trainingplan update')
+async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
+    job = context.job
+    await context.bot.send_message(job.chat_id, text='Daily trainingplan update')
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
     for plan in planning:
         if plan != 'Races':
-            await update.message.reply_text(text='Updating ' + plan)
+            await context.bot.send_message(job.chat_id, text='Updating ' + plan)
             cmd: str = str("python -m garminworkouts trainingplan-import " + plan)
 
             subprocess.run(cmd, shell=True, capture_output=True)
 
             with open('./debug.log', 'r') as file:
-                await update.message.reply_text(text=file.read())
+                await context.bot.send_message(job.chat_id, text=file.read())
+
+
+def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
+    """Remove job with given name. Returns whether job was removed."""
+    current_jobs = context.job_queue.get_jobs_by_name(name)
+    if not current_jobs:
+        return False
+    for job in current_jobs:
+        job.schedule_removal()
+    return True
+
+
+async def set_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Add a job to the queue."""
+    chat_id = update.effective_message.chat_id
+    try:
+        job_removed = remove_job_if_exists(str(chat_id), context)
+        context.job_queue.run_daily(callback=recurrent,
+                                    time=datetime.time(hour=3, minute=00, second=00),
+                                    days=tuple(range(6)))
+
+        text = "Recurrent workout update successfully set!"
+        if job_removed:
+            text += " Old one was removed."
+        await update.effective_message.reply_text(text)
+
+    except (IndexError, ValueError):
+        await update.effective_message.reply_text("Usage: Recurrent workout update")
+
+
+async def unset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Remove the job if the user changed their mind."""
+    chat_id = update.message.chat_id
+    job_removed = remove_job_if_exists(str(chat_id), context)
+    text = "Recurrent task successfully cancelled!" if job_removed else "You have no active timer."
+    await update.message.reply_text(text)
 
 
 def main() -> None:
@@ -124,14 +161,11 @@ def main() -> None:
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(button))
     application.add_handler(CommandHandler("help", help_command))
-    application.add_handler(CommandHandler("recurrent", recurrent))
-
-    application.job_queue.run_daily(callback=recurrent,
-                                    time=datetime.time(hour=4, minute=00, second=00),
-                                    days=tuple(range(5)))
+    application.add_handler(CommandHandler("set", set_timer))
+    application.add_handler(CommandHandler("unset", unset))
 
     # Run the bot until the user presses Ctrl-C
-    application.run_polling()
+    application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
 if __name__ == "__main__":
