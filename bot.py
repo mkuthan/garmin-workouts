@@ -15,6 +15,7 @@ import logging
 import account
 import os
 import datetime
+from dateutil import tz
 
 from telegram import __version__ as TG_VER
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
@@ -102,19 +103,19 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 
 async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
-    job = context.job
-    await context.bot.send_message(job.chat_id, text='Daily trainingplan update')
+    chat_id = next(iter(context.application._chat_ids_to_be_updated_in_persistence))
+    await context.bot.send_message(chat_id, text='Daily trainingplan update')
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
     for plan in planning:
         if plan != 'Races':
-            await context.bot.send_message(job.chat_id, text='Updating ' + plan)
+            await context.bot.send_message(chat_id, text='Updating ' + plan)
             cmd: str = str("python -m garminworkouts trainingplan-import " + plan)
 
             subprocess.run(cmd, shell=True, capture_output=True)
 
             with open('./debug.log', 'r') as file:
-                await context.bot.send_message(job.chat_id, text=file.read())
+                await context.bot.send_message(chat_id, text=file.read())
 
 
 def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
@@ -133,8 +134,8 @@ async def set_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     try:
         job_removed = remove_job_if_exists(str(chat_id), context)
         context.job_queue.run_daily(callback=recurrent,
-                                    time=datetime.time(hour=3, minute=00, second=00),
-                                    days=tuple(range(6)))
+                                    time=datetime.time(hour=3, minute=00, second=00,
+                                                       tzinfo=tz.gettz('Europe/Madrid')))
 
         text = "Recurrent workout update successfully set!"
         if job_removed:
