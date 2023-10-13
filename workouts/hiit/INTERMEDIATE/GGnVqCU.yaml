@@ -39,3 +39,4 @@ steps:
   repeatDuration: 0:10:00
   target: {type: no.target}
   type: interval
+subsport: AMRAP

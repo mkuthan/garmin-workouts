@@ -46,3 +46,4 @@ steps:
     type: rest
 - *id001
 - *id001
+subsport: EMOM

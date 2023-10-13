@@ -56,3 +56,4 @@ steps:
     target: {type: no.target}
     type: rest
 - *id001
+subsport: TABATA

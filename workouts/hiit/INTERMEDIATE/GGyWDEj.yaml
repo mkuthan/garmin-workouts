@@ -34,3 +34,4 @@ steps:
   exerciseName: SINGLE_ARM_DUMBBELL_SWING
   target: {type: no.target}
   type: interval
+subsport: EMOM
