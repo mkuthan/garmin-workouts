@@ -1,3 +1,14 @@
+STEP_TYPES: dict[str, int] = {
+    'warmup': 1,
+    'cooldown': 2,
+    'interval': 3,
+    'recovery': 4,
+    'repeat': 6,
+    'rest': 5,
+    'other': 7,
+    'main': 8,
+}
+
 SPORT_TYPES: dict[str, int] = {
     'running': 1,
     'trail_running': 1,
@@ -85,6 +96,34 @@ STROKE_TYPES: dict[str, int] = {
     'free': 6,
     'individual_medley': 7,
     'mixed': 8
+}
+
+SWIM_INSTRUCTION_TYPES: dict[str, int] = {
+    'recovery': 1,
+    'very_easy': 2,
+    'easy': 3,
+    'moderate': 4,
+    'hard': 5,
+    'very_hard': 6,
+    'all_out': 7,
+    'fast': 8,
+    'ascend': 9,
+    'descend': 10
+}
+
+DRILL_TYPES: dict[str, int] = {
+    'kick': 1,
+    'pull': 2,
+    'drill': 3,
+}
+
+UNIT_TYPE = {
+    'meter': [1, 100.0],
+    'kilometer': [2, 100000.0],
+    'mile': [4, 160934.4],
+    'kilogram': [8, 1000],
+    'pound': [9, 453.59237],
+    'yard': [230, 91.44],
 }
 
 ACTIVITY_TYPES: dict[str, int] = {

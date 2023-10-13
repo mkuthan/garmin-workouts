@@ -120,6 +120,8 @@ def export_yaml(workout, filename) -> None:
     workout_dict: dict = {}
     workout_dict['name'] = workout['workoutName']
     workout_dict['sport'] = workout['sportType']['sportTypeKey']
+    if 'subSportType' in workout and workout['subSportType']:
+        workout_dict['subsport'] = workout['subSportType']
     workout_dict['description'] = workout['description'] if 'description' in workout else ''
     workout_dict['steps'] = []
 

@@ -177,5 +177,5 @@ class WorkoutStep:
             **self.secondary_target.create_target(),
             **get_stroke_type(self.stroke),
             **get_equipment_type(self.equipment),
-            **get_weight(self.weight[0])
+            **get_weight(self.weight[0], 'kilogram')
         }

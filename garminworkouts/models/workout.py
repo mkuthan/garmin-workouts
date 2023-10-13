@@ -13,7 +13,7 @@ from garminworkouts.models.fields import _WORKOUT_SPORT_TYPE, _WORKOUT_SEGMENTS,
 from garminworkouts.models.fields import _STEP_TYPE, _TYPE, _SPORT, _DATE, _TARGET, _NAME, _SECONDARY, _REPEAT_GROUP
 from garminworkouts.models.fields import _DURATION, _WEIGHT, _CONDITION_TYPE_KEY, _CATEGORY, _STEP_ORDER, _EXERCISE_NAME
 from garminworkouts.models.fields import _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS, _CHILD_STEP_ID
-from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE
+from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE, get_estimate, get_pool
 from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, get_end_condition
 import logging
 
@@ -35,6 +35,7 @@ class Workout(object):
 
         try:
             self.sport_type: tuple = config[_SPORT].lower() if _SPORT in config else None,
+            self.subsport: tuple = config['subsport'] if 'subsport' in config else None,
             self.config: dict = config
             self.date: dict | None = config[_DATE] if _DATE in config else None
             self.target: dict = target
@@ -455,6 +456,10 @@ class Workout(object):
         return workout[_WORKOUT_NAME]
 
     @staticmethod
+    def extract_workout_author(workout) -> dict:
+        return workout["author"]
+
+    @staticmethod
     def extract_workout_description(workout) -> str:
         return workout[_DESCRIPTION]
 
@@ -514,13 +519,17 @@ class Workout(object):
 
         return steps, step_order, child_step_id, repeatDuration
 
-    def create_workout(self, workout_id=None, workout_owner_id=None) -> dict:
+    def create_workout(self, workout_id=None, workout_owner_id=None, workout_author=None) -> dict:
         return {
             _WORKOUT_ID: workout_id,
             _WORKOUT_OWNER_ID: workout_owner_id,
             _WORKOUT_NAME: self.get_workout_name(),
             _DESCRIPTION: self._generate_description(),
             _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
+            "subSportType": self.subsport[0],
+            "author": workout_author,
+            "estimatedDurationInSecs": self.sec if self.sec > 0 else None,
+            "estimatedDistanceInMeters": self.mileage * 1000 if self.mileage > 0 else None,
             _WORKOUT_SEGMENTS: [
                 {
                     _WORKOUT_ORDER: 1,
@@ -528,8 +537,9 @@ class Workout(object):
                     _WORKOUT_STEPS: self._steps(self.config[_STEPS])
                 }
             ],
-            "estimatedDurationInSecs": self.sec if self.sec > 0 else None,
-            "estimatedDistanceInMeters": self.mileage * 1000 if self.mileage > 0 else None,
+            **get_pool('25m' if self.sport_type[0] == 'swimming' else None),
+            "avgTrainingSpeed": self.mileage * 1000/self.sec if self.sec*self.mileage > 0 else None,
+            **get_estimate('DISTANCE_ESTIMATED'),
         }
 
     def _repeat_step(self, step_order, child_step_id, repeats, nested_steps, repeatDuration) -> dict:
@@ -547,40 +557,29 @@ class Workout(object):
         }
 
     def _interval_step(self, step_config, child_step_id, step_order) -> dict:
-        return WorkoutStep(order=step_order,
-                           child_step_id=child_step_id,
-                           description=step_config[_DESCRIPTION] if _DESCRIPTION in step_config else None,
-                           step_type=step_config[_TYPE] if _TYPE in step_config else None,
-                           end_condition=WorkoutStep._end_condition(step_config)[_CONDITION_TYPE_KEY],
-                           end_condition_value=step_config[_DURATION] if _DURATION in step_config else None,
-                           category=step_config[_CATEGORY] if _CATEGORY in step_config else None,
-                           exerciseName=step_config[_EXERCISE_NAME] if _EXERCISE_NAME in step_config else None,
-                           target=Target(target=self._target_type(step_config)[_WORKOUT_TARGET_KEY],
-                                         value_one=self._target_value(
-                                             step_config, 'min'),
-                                         value_two=self._target_value(
-                                             step_config, 'max'),
-                                         zone=self._target_value(
-                                             step_config, 'zone') if 'zone' in step_config else None,
-                                         secondary=False
-                                         ),
-                           secondary_target=Target(
-                                            target=self._target_type(
-                                                                step_config,
-                                                                _SECONDARY in step_config)[_WORKOUT_TARGET_KEY],
-                                            value_one=self._target_value(step_config,
-                                                                         'min',
-                                                                         _SECONDARY in step_config
-                                                                         ),
-                                            value_two=self._target_value(step_config,
-                                                                         'max',
-                                                                         _SECONDARY in step_config
-                                                                         ),
-                                            zone=self._target_value(step_config,
-                                                                    'zone',
-                                                                    _SECONDARY in step_config
-                                                                    ) if 'zone' in step_config else None,
-                                            secondary=True
-                                            ) if _SECONDARY in step_config else None,
-                           weight=step_config[_WEIGHT] if _WEIGHT in step_config else None
-                           ).create_workout_step()
+        return WorkoutStep(
+            order=step_order,
+            child_step_id=child_step_id,
+            description=step_config[_DESCRIPTION] if _DESCRIPTION in step_config else None,
+            step_type=step_config[_TYPE] if _TYPE in step_config else None,
+            end_condition=WorkoutStep._end_condition(step_config)[_CONDITION_TYPE_KEY],
+            end_condition_value=step_config[_DURATION] if _DURATION in step_config else None,
+            category=step_config[_CATEGORY] if _CATEGORY in step_config else None,
+            exerciseName=step_config[_EXERCISE_NAME] if _EXERCISE_NAME in step_config else None,
+            target=Target(
+                target=self._target_type(step_config)[_WORKOUT_TARGET_KEY],
+                value_one=self._target_value(step_config, 'min'),
+                value_two=self._target_value(step_config, 'max'),
+                zone=self._target_value(step_config, 'zone') if 'zone' in step_config else None,
+                secondary=False
+                ),
+            secondary_target=Target(
+                target=self._target_type(step_config, _SECONDARY in step_config)[_WORKOUT_TARGET_KEY],
+                value_one=self._target_value(step_config, 'min', _SECONDARY in step_config),
+                value_two=self._target_value(step_config, 'max', _SECONDARY in step_config),
+                zone=self._target_value(
+                    step_config, 'zone', _SECONDARY in step_config) if 'zone' in step_config else None,
+                secondary=True
+                ) if _SECONDARY in step_config else None,
+            weight=step_config[_WEIGHT] if _WEIGHT in step_config else None
+            ).create_workout_step()
