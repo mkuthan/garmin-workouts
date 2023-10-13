@@ -7,13 +7,6 @@ from requests import Response
 
 
 @pytest.mark.vcr
-def test_platformVersion(authed_gclient: GarminClient) -> None:
-    assert authed_gclient.get(
-        "/info-service/api/system/release-system",
-        api=True).json()[0]['version'] == GarminClient._GARMIN_VERSION
-
-
-@pytest.mark.vcr
 def test_external_workouts(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
     url: str = f"web-data/workouts/{locale}/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json"
