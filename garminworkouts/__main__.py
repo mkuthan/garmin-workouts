@@ -43,7 +43,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        ue: list = connection.get_calendar(date=date.today(), days=7)
+        ue, ce = connection.get_calendar(date=date.today(), days=7)
 
         for wname in ue:
             existing_workout: dict | None = existing_workouts_by_name.get(
@@ -51,8 +51,9 @@ def command_trainingplan_import(args, event=False) -> None:
             if existing_workout:
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
+                workout_author: dict = Workout.extract_workout_author(existing_workout)
                 workout: Workout = workouts_by_name[wname]
-                payload: dict = workout.create_workout(workout_id, workout_owner_id)
+                payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
                 logging.info("Updating workout '%s'", wname)
                 connection.update_workout(workout_id, payload)
 

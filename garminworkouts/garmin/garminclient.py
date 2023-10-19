@@ -128,15 +128,15 @@ class GarminClient(object):
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.delete(url)
 
-    def get_calendar(self, date, days) -> list[Any]:
+    def get_calendar(self, date, days) -> tuple[list[Any], list[Any]]:
         year = str(date.year)
         month = str(date.month - 1)
-        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
 
         response_jsons: Any = self.get(url).json()['calendarItems']
 
         updateable_elements: list[Any] = []
+        checkable_elements: list[Any] = []
         for item in response_jsons:
             if item['itemType'] == 'workout':
                 if datetime.strptime(item['date'], '%Y-%m-%d').date() < date:
@@ -144,8 +144,12 @@ class GarminClient(object):
                     self.delete_workout(item['workoutId'])
                 elif datetime.strptime(item['date'], '%Y-%m-%d').date() < date + timedelta(days=days):
                     updateable_elements.append(item['title'])
+            elif item['itemType'] == 'activity':
+                payload = self.get_activity_workout(item['id'])
+                if 'workoutName' in payload:
+                    checkable_elements.append(payload['workoutName'])
 
-        return updateable_elements
+        return updateable_elements, checkable_elements
 
     def schedule_workout(self, workout_id, date) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
