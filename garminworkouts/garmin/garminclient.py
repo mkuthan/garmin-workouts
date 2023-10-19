@@ -106,7 +106,7 @@ class GarminClient(object):
         return self.get(url).json()
 
     def download_workout_yaml(self, workout_id, filename) -> None:
-        export_yaml(self.get_workout(workout_id), filename)
+        workout_export_yaml(self.get_workout(workout_id), filename)
 
     def download_workout(self, workout_id, file) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
@@ -149,12 +149,10 @@ class GarminClient(object):
 
     def schedule_workout(self, workout_id, date) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
-        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
         self.post(url, json=json_data)
 
     def remove_workout(self, workout_id, date) -> None:
-        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
         self.delete(url, json=json_data)
@@ -208,7 +206,7 @@ class GarminClient(object):
         # mimicking the behavior of the web interface that fetches 20 activities at a time
         # and automatically loads more on scroll
         url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
-        url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
+
         params: dict[str, str] = {
             "startDate": str(startdate),
             "endDate": str(enddate),
@@ -222,7 +220,7 @@ class GarminClient(object):
         while True:
             params["start"] = str(start)
             print(f"Requesting activities {start} to {start+limit}")
-            act: Response = self.get(url, params=params)
+            act: Response = self.get(url, params=params).json()
             if act:
                 activities.extend(act)
                 start: int = start + limit
@@ -239,8 +237,9 @@ class GarminClient(object):
             "locale": locale.split('-')[0],
         }
         try:
-            return self.post(url, params=params).json()['trainingPlanList']
+            return self.post(url, params=params, api=True).json()['trainingPlanList']
         except GarthHTTPError:
+            print('Harcoded version used')
             return trainingplan_list['trainingPlanList']
 
     def schedule_training_plan(self, plan_id, startDate) -> Any:
