@@ -14,7 +14,7 @@ from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
 from garminworkouts.models.power import Power
 from garminworkouts.models.trainingplan import TrainingPlan
-from garminworkouts.models.extraction import export_yaml
+from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
 
@@ -170,7 +170,7 @@ def command_workout_export_yaml(args):
                 os.makedirs(newpath)
             file: str = os.path.join(newpath, str(workout_id) + '.yaml')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            export_yaml(workout, file)
+            workout_export_yaml(workout, file)
 
         for tp in connection.list_trainingplans(account.locale):
             tp: dict = TrainingPlan.export_trainingplan(tp)
@@ -203,7 +203,7 @@ def command_workout_export_yaml(args):
 
                     file: str = os.path.join(newpath, workout_name + ".yaml")
                     logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-                    export_yaml(workout, file)
+                    workout_export_yaml(workout, file)
 
             connection.delete_training_plan(tp['trainingPlanId'])
 

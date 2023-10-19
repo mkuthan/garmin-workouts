@@ -4,7 +4,7 @@ import logging
 from datetime import datetime, date, timedelta
 from requests import Response
 from typing import Any, Literal, Generator, Optional
-from garminworkouts.models.extraction import export_yaml
+from garminworkouts.models.extraction import workout_export_yaml
 import garth
 import os
 from garminworkouts.models.trainingplan_list import trainingplan_list

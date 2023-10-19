@@ -116,7 +116,7 @@ def step_extraction(step_json) -> dict | None:
 
 
 @staticmethod
-def export_yaml(workout, filename) -> None:
+def workout_export_yaml(workout, filename) -> None:
     workout_dict: dict = {}
     workout_dict['name'] = workout['workoutName']
     workout_dict['sport'] = workout['sportType']['sportTypeKey']
@@ -147,3 +147,16 @@ def export_yaml(workout, filename) -> None:
         print(filename)
     with open(filename, 'w') as file:
         yaml.dump(workout_dict, file, default_flow_style=None)
+
+
+@staticmethod
+def event_export_yaml(event, filename) -> None:
+    try:
+        with open(filename, 'w') as file:
+            yaml.dump(event, file, default_flow_style=None)
+    except FileNotFoundError:
+        with open(filename.replace('/', ' '), 'w') as file:
+            yaml.dump(event, file, default_flow_style=None)
+    except OSError:
+        with open(filename.replace('"', ''), 'w') as file:
+            yaml.dump(event, file, default_flow_style=None)
