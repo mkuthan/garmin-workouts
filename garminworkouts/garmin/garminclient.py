@@ -193,7 +193,10 @@ class GarminClient(object):
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
         self.delete(url)
 
-    def get_activities_by_date(self, startdate, enddate, activitytype=None) -> list[Any]:
+    def get_activity_workout(self, activity_id) -> Any:
+        url = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}/workouts"
+        return self.get(url).json()
+
         """
         Fetch available activities between specific dates
         :param startdate: String in the format YYYY-MM-DD
