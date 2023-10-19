@@ -13,7 +13,7 @@ from garth.exc import GarthHTTPError
 
 class GarminClient(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "23.20.1.1"
+    _GARMIN_VERSION = "23.21.0.94"
     _WORKOUT_SERVICE_ENDPOINT = "/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/activity-service"
@@ -50,7 +50,10 @@ class GarminClient(object):
         self.unit_system: Any = settings["userData"]["measurementSystem"] if settings is not None else None
 
         self.version: Any = self.get("/info-service/api/system/release-system").json()[0]['version']
-        assert self.version == GarminClient._GARMIN_VERSION
+        try:
+            assert self.version == GarminClient._GARMIN_VERSION
+        except AssertionError:
+            logging.error('Updated version: ' + self.version + ' from ' + GarminClient._GARMIN_VERSION)
 
         return True
 
