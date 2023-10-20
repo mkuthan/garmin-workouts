@@ -383,3 +383,35 @@ class GarminClient(object):
     def save_power_zones(self, zones) -> None:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
         self.put(url, json=zones)
+
+    def find_events(self):
+        url = "race-search/events"
+
+        d1 = datetime.today()
+        d2 = d1 + timedelta(days=7)
+
+        params = {
+            "eventType": "running",
+            "fromDate": d1.strftime('%Y-%m-%d'),
+            "toDate": d2.strftime('%Y-%m-%d'),
+            "includeInPerson": True,
+            "includeVirtual": False,
+            "verifiedStatuses": "OFFICIAL,VERIFIED",  # ,NONE
+            "includeNst": True,
+            "limit": 200,
+            "eventsProviders": "garmin-events,gc-discoverable-events,garmin-official-events,ahotu",
+            "completionTargetMinValue": 41000,
+            "completionTargetMaxValue": 43000,
+            "completionTargetDurationType": "distance"
+        }
+
+        while True:
+            params["fromDate"] = d1.strftime('%Y-%m-%d')
+            params["toDate"] = d2.strftime('%Y-%m-%d')
+            ev: Response = self.get(url, params=params).json()
+            if ev:
+                yield ev
+                d1 = d2
+                d2 = d1 + timedelta(days=7)
+            else:
+                break

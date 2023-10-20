@@ -6,7 +6,7 @@ import logging
 import os
 import sys
 from datetime import date, timedelta
-
+import json
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
@@ -17,7 +17,7 @@ from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
-
+from garth.exc import GarthHTTPError
 import account
 
 
@@ -107,6 +107,24 @@ def command_event_import(args) -> None:
                     connection.save_event(payload)
 
         command_trainingplan_import(args, event=True)
+
+
+def command_find_events(args):
+    with _garmin_client(args) as connection:
+        events = connection.find_events()
+        for subev in events:
+            for ev in subev:
+                ev_a = json.loads(ev.decode('utf-8'))
+                if ("administrativeArea" in ev_a) and (ev_a["administrativeArea"] is not None) and (
+                     ev_a["administrativeArea"]['countryCode'] is not None):
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a['eventType'],
+                                                ev_a["administrativeArea"]['countryCode'])
+                else:
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a['eventType'])
+                if not os.path.exists(newpath):
+                    os.makedirs(newpath)
+                file: str = os.path.join(newpath, ev_a['eventRef'] + '.yaml')
+                event_export_yaml(connection.get(ev_a['detailsEndpoints'][0]['url']).json(), file)
 
 
 def command_trainingplan_metrics(args) -> None:
@@ -401,6 +419,10 @@ def main() -> None:
     parser_delete = subparsers.add_parser("update-types",
                                           description="Update types")
     parser_delete.set_defaults(func=command_update_types)
+
+    parser_delete = subparsers.add_parser("find-events",
+                                          description="Find events")
+    parser_delete.set_defaults(func=command_find_events)
 
     args = parser.parse_args()
 
