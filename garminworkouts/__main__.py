@@ -21,6 +21,16 @@ from garth.exc import GarthHTTPError
 import account
 
 
+def command_activity_list(args):
+    with _garmin_client(args) as connection:
+        activities = connection.get_activities_by_date(
+            startdate=date.today()+datetime.timedelta(days=-7),
+            enddate=date.today(),
+            activitytype='running'
+            )
+        print(activities)
+
+
 def command_trainingplan_reset(args) -> None:
     workouts, plan = settings(args)
 
@@ -419,6 +429,10 @@ def main() -> None:
     parser_delete = subparsers.add_parser("update-types",
                                           description="Update types")
     parser_delete.set_defaults(func=command_update_types)
+
+    parser_delete = subparsers.add_parser("activity-list",
+                                          description="Activity list")
+    parser_delete.set_defaults(func=command_activity_list)
 
     parser_delete = subparsers.add_parser("find-events",
                                           description="Find events")

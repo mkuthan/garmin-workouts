@@ -197,6 +197,13 @@ class GarminClient(object):
         url = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}/workouts"
         return self.get(url).json()
 
+    def get_activities_by_date(self,
+                               startdate=None, enddate=None,
+                               activitytype=None,
+                               minDistance=None, maxDistance=None,  # meters
+                               minDuration=None, maxDuration=None,  # seconds
+                               minElevation=None, maxElevation=None,  # meters
+                               ) -> list[Any]:
         """
         Fetch available activities between specific dates
         :param startdate: String in the format YYYY-MM-DD
@@ -214,14 +221,19 @@ class GarminClient(object):
         # and automatically loads more on scroll
         url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
 
-        params: dict[str, str] = {
-            "startDate": str(startdate),
-            "endDate": str(enddate),
+        params = {
+            "startDate": str(startdate) if startdate else None,
+            "endDate": str(enddate) if enddate else None,
             "start": str(start),
             "limit": str(limit),
+            "activityType": str(activitytype) if activitytype else None,
+            "minDistance": int(minDistance) if minDistance else None,
+            "maxDistance": int(maxDistance) if maxDistance else None,
+            "minDuration": int(minDuration) if minDuration else None,
+            "maxDuration": int(maxDuration) if maxDuration else None,
+            "minElevation": int(minElevation) if minElevation else None,
+            "maxElevation": int(maxElevation) if maxElevation else None,
         }
-        if activitytype:
-            params["activityType"] = str(activitytype)
 
         print(f"Requesting activities by date from {startdate} to {enddate}")
         while True:

@@ -8,5 +8,7 @@ coverage.xml
 planning.yaml
 exported/*.yaml
 events/*.yaml
+events/old/*/*/*.yaml
+events/*/*/*.yaml
 .env
 debug.log
