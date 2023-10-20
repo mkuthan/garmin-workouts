@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import datetime
 import glob
 import logging
 import os
@@ -17,7 +18,6 @@ from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
-from garth.exc import GarthHTTPError
 import account
 
 
