@@ -1,144 +1,145 @@
-description: See if you can get a swim coach to look at your stroke and give you some
+description:
+  See if you can get a swim coach to look at your stroke and give you some
   tips on your technique.
-name: Olympic Triathlon Level 2 W06D2 - Tech Swim
+name: W06D2-Tech Swim
 sport: swimming
 steps:
-- description: ''
-  duration: 0.3km
-  target: {type: no.target}
-  type: warmup
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.025km
-  equipment: kickboard
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.05km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.075km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.025km
-  equipment: kickboard
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.05km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.075km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.025km
-  equipment: kickboard
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.05km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.075km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.025km
-  equipment: kickboard
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.05km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.075km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.025km
-  equipment: kickboard
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.05km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  duration: 0:00:20
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.075km
-  target: {type: no.target}
-  type: interval
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.15km
-  equipment: pull_buoy
-  target: {type: no.target}
-  type: cooldown
-- description: ''
-  target: {type: no.target}
-  type: rest
+  - description: ""
+    duration: 0.3km
+    target: { type: no.target }
+    type: warmup
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.025km
+    equipment: kickboard
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.05km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.075km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.025km
+    equipment: kickboard
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.05km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.075km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.025km
+    equipment: kickboard
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.05km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.075km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.025km
+    equipment: kickboard
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.05km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.075km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.025km
+    equipment: kickboard
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.05km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    duration: 0:00:20
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.075km
+    target: { type: no.target }
+    type: interval
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.15km
+    equipment: pull_buoy
+    target: { type: no.target }
+    type: cooldown
+  - description: ""
+    target: { type: no.target }
+    type: rest

@@ -1,63 +1,63 @@
 description: Aim for your target race speed on the 300s.
-name: Olympic Triathlon Level 2 W05D1 - Tempo Swim
+name: W05D1-Tempo Swim
 sport: swimming
 steps:
-- description: ''
-  duration: 0.2km
-  target: {type: no.target}
-  type: warmup
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id001
-  - description: ''
-    duration: 0.05km
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:10
-    target: {type: no.target}
+  - description: ""
+    duration: 0.2km
+    target: { type: no.target }
+    type: warmup
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id001
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id002
-  - description: ''
-    duration: 0.05km
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:15
-    target: {type: no.target}
+  - &id001
+    - description: ""
+      duration: 0.05km
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:10
+      target: { type: no.target }
+      type: rest
+  - *id001
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id002
-- *id002
-- *id002
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id003
-  - description: ''
-    duration: 0.3km
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:30
-    target: {type: no.target}
+  - &id002
+    - description: ""
+      duration: 0.05km
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:15
+      target: { type: no.target }
+      type: rest
+  - *id002
+  - *id002
+  - *id002
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id003
-- *id003
-- *id003
-- *id003
-- *id003
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.2km
-  target: {type: no.target}
-  type: cooldown
-- description: ''
-  target: {type: no.target}
-  type: rest
+  - &id003
+    - description: ""
+      duration: 0.3km
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:30
+      target: { type: no.target }
+      type: rest
+  - *id003
+  - *id003
+  - *id003
+  - *id003
+  - *id003
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.2km
+    target: { type: no.target }
+    type: cooldown
+  - description: ""
+    target: { type: no.target }
+    type: rest

@@ -1,49 +1,50 @@
-description: Aim to hold the same speeds relative to the Steady Swim session last
+description:
+  Aim to hold the same speeds relative to the Steady Swim session last
   week where you were doing 100m reps.
-name: Sprint Triathlon Level 2 W05D3 - Steady Swim
+name: W05D3-Steady Swim
 sport: swimming
 steps:
-- &id001
-  - description: ''
-    duration: 0.1km
-    target: {type: no.target}
-    type: warmup
-  - description: ''
-    target: {type: no.target}
+  - &id001
+    - description: ""
+      duration: 0.1km
+      target: { type: no.target }
+      type: warmup
+    - description: ""
+      target: { type: no.target }
+      type: rest
+  - *id001
+  - *id001
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id001
-- *id001
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id002
-  - description: ''
+  - &id002
+    - description: ""
+      duration: 0.3km
+      equipment: pull_buoy
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:30
+      target: { type: no.target }
+      type: rest
+  - *id002
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - &id003
+    - description: ""
+      duration: 0.3km
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:30
+      target: { type: no.target }
+      type: rest
+  - *id003
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - description: ""
     duration: 0.3km
-    equipment: pull_buoy
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:30
-    target: {type: no.target}
-    type: rest
-- *id002
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id003
-  - description: ''
-    duration: 0.3km
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:30
-    target: {type: no.target}
-    type: rest
-- *id003
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.3km
-  target: {type: no.target}
-  type: cooldown
+    target: { type: no.target }
+    type: cooldown

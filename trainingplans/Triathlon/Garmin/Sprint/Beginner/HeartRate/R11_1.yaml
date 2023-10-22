@@ -1,32 +1,33 @@
-description: The longer reps prepare you for your race. If you're going to be racing
+description:
+  The longer reps prepare you for your race. If you're going to be racing
   in a wetsuit, use it for part or all of this session.
-name: Sprint Triathlon Level 1 W11D1 - Easy Swim
+name: W11D1-Easy Swim
 sport: swimming
 steps:
-- description: ''
-  duration: 0.2km
-  target: {type: no.target}
-  type: warmup
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id001
-  - description: ''
-    duration: 0.4km
-    equipment: pull_buoy
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:20
-    target: {type: no.target}
+  - description: ""
+    duration: 0.2km
+    target: { type: no.target }
+    type: warmup
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id001
-- *id001
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.2km
-  equipment: kickboard
-  target: {type: no.target}
-  type: cooldown
+  - &id001
+    - description: ""
+      duration: 0.4km
+      equipment: pull_buoy
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:20
+      target: { type: no.target }
+      type: rest
+  - *id001
+  - *id001
+  - description: ""
+    target: { type: no.target }
+    type: rest
+  - description: ""
+    duration: 0.2km
+    equipment: kickboard
+    target: { type: no.target }
+    type: cooldown

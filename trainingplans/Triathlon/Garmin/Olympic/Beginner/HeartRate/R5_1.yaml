@@ -1,40 +1,40 @@
 description: Pushing your totals up a little. Focus on your form as you get tired.
-name: Olympic Triathlon Level 1 W05D1 - Steady Swim
+name: W05D1-Steady Swim
 sport: swimming
 steps:
-- &id001
-  - description: ''
-    duration: 0.1km
-    target: {type: no.target}
-    type: warmup
-  - description: ''
-    duration: 0:00:10
-    target: {type: no.target}
+  - &id001
+    - description: ""
+      duration: 0.1km
+      target: { type: no.target }
+      type: warmup
+    - description: ""
+      duration: 0:00:10
+      target: { type: no.target }
+      type: rest
+  - *id001
+  - *id001
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id001
-- *id001
-- description: ''
-  target: {type: no.target}
-  type: rest
-- &id002
-  - description: ''
-    duration: 0.4km
-    target: {type: no.target}
-    type: interval
-  - description: ''
-    duration: 0:00:30
-    target: {type: no.target}
+  - &id002
+    - description: ""
+      duration: 0.4km
+      target: { type: no.target }
+      type: interval
+    - description: ""
+      duration: 0:00:30
+      target: { type: no.target }
+      type: rest
+  - *id002
+  - *id002
+  - *id002
+  - description: ""
+    target: { type: no.target }
     type: rest
-- *id002
-- *id002
-- *id002
-- description: ''
-  target: {type: no.target}
-  type: rest
-- description: ''
-  duration: 0.2km
-  target: {type: no.target}
-  type: cooldown
-- description: ''
-  target: {type: no.target}
-  type: rest
+  - description: ""
+    duration: 0.2km
+    target: { type: no.target }
+    type: cooldown
+  - description: ""
+    target: { type: no.target }
+    type: rest
