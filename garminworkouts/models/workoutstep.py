@@ -82,18 +82,7 @@ class WorkoutStep:
     @staticmethod
     def _end_condition_value(step_config):
         duration = step_config.get(_DURATION)
-        if duration:
-            if WorkoutStep._str_is_time(duration):
-                return WorkoutStep._str_to_seconds(duration)
-            elif WorkoutStep._str_is_distance(duration):
-                return WorkoutStep._str_to_meters(duration)
-            elif WorkoutStep._str_is_calories(duration):
-                return WorkoutStep._str_to_calories(duration)
-            elif WorkoutStep._str_is_ppm(duration):
-                return WorkoutStep._str_to_ppm(duration)
-            elif WorkoutStep._str_is_reps(duration):
-                return WorkoutStep._str_to_reps(duration)
-        return int(0)
+        return WorkoutStep.parsed_end_condition_value(duration)
 
     @staticmethod
     def _str_is_time(string) -> bool:
@@ -138,25 +127,22 @@ class WorkoutStep:
         return int(string.lower().split('reps')[0])
 
     @staticmethod
-    def parsed_end_condition_value(end_condition_value) -> int | None:
-        if end_condition_value:
-            if 'm' in end_condition_value:
-                # Heart zones
-                if 'ppm' in end_condition_value:
-                    return int(end_condition_value.split('ppm')[0])
-                # distance
-                elif end_condition_value.endswith('km'):
-                    return int(float(end_condition_value.replace('km', '')) * 1000)
-                else:
-                    return int(end_condition_value.replace('m', ''))
-            # time
-            elif ':' in end_condition_value:
-                return Duration(end_condition_value).to_seconds()
-            # calories
-            elif end_condition_value and 'cals' in end_condition_value:
-                return int(end_condition_value.replace('cals', ''))
+    def parsed_end_condition_value(duration) -> int:
+        if duration:
+            if WorkoutStep._str_is_time(duration):
+                return WorkoutStep._str_to_seconds(duration)
+            elif WorkoutStep._str_is_distance(duration):
+                return WorkoutStep._str_to_meters(duration)
+            elif WorkoutStep._str_is_calories(duration):
+                return WorkoutStep._str_to_calories(duration)
+            elif WorkoutStep._str_is_ppm(duration):
+                return WorkoutStep._str_to_ppm(duration)
+            elif WorkoutStep._str_is_reps(duration):
+                return WorkoutStep._str_to_reps(duration)
+            else:
+                return int(0)
         else:
-            return None
+            return int(0)
 
     def create_workout_step(self) -> dict:
         return {
