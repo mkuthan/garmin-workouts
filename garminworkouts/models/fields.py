@@ -3,6 +3,7 @@ from garminworkouts.models.types import END_CONDITIONS, TARGET_TYPES, STROKE_TYP
 
 _WORKOUT = 'workout'
 _SPORT = 'sport'
+_SUBSPORT = 'subsport'
 _DESCRIPTION = 'description'
 _TARGET = 'target'
 _TYPE = 'type'
@@ -35,12 +36,14 @@ _SECONDARY = 'secondary'
 _TIME = 'time'
 _LOCAL = 'local'
 _EXERCISE = 'exercise'
+_AUTHOR = 'author'
 
 
 _WORKOUT_ID: str = f'{_WORKOUT}{_ID.capitalize()}'
 _WORKOUT_NAME: str = f'{_WORKOUT}{_NAME.capitalize()}'
 _WORKOUT_OWNER_ID: str = f'{_OWNER}{_ID.capitalize()}'
 _WORKOUT_SPORT_TYPE: str = f'{_SPORT}{_TYPE.capitalize()}'
+_WORKOUT_SUBSPORT_TYPE: str = f'sub{_SPORT.capitalize()}{_TYPE.capitalize()}'
 _WORKOUT_SEGMENTS: str = f'{_WORKOUT}{_SEGMENT.capitalize()}s'
 _WORKOUT_STEPS: str = f'{_WORKOUT}{_STEP.capitalize()}s'
 _WORKOUT_ORDER: str = f'{_SEGMENT}{_ORDER.capitalize()}'
@@ -83,6 +86,7 @@ _STEPS: str = f'{_STEP}s'
 _CHILD_STEP_ID: str = f'child{_STEP.capitalize()}{_ID.capitalize()}'
 _ITERATIONS = 'numberOfIterations'
 _REPEAT = 'smartRepeat'
+_REPEAT_DURATION = 'repeatDuration'
 _COMPARE = 'compare'
 _STEP_ID: str = f'{_STEP}{_ID.capitalize()}'
 _END_CONDITION_VALUE: str = f'{_END_CONDITION}{_VALUE.capitalize()}'
@@ -91,6 +95,10 @@ _END_CONDITION_ZONE: str = f'{_END_CONDITION}{_ZONE.capitalize()}'
 _REPEAT_GROUP = 'RepeatGroupDTO'
 _EXECUTABLE_STEP = 'ExecutableStepDTO'
 _PREFERRED_END_CONDITION_UNIT: str = f'preferredEnd{_CONDITION.capitalize()}{_UNIT.capitalize()}'
+
+_ESTIMATED_DURATION = 'estimatedDurationInSecs'
+_ESTIMATED_DISTANCE = 'estimatedDistanceInMeters'
+_AVG_SPEED = 'avgTrainingSpeed'
 
 
 @staticmethod
@@ -179,19 +187,19 @@ def get_estimate(type) -> dict[str, dict]:
     return {
         "estimateType": type,
         "estimatedDistanceUnit": get_unit_type(unit)
-        }
+        } if type else {}
 
 
 @staticmethod
 def get_pool(pool):
     if pool == '25m':
-        length = 25,
+        length = 25
         unit = 'meter'
     elif pool == '50m':
-        length = 50,
+        length = 50
         unit = 'meter'
     else:
-        length = 25,
+        length = 25
         unit = 'meter'
 
     return {

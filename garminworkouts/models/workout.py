@@ -12,9 +12,10 @@ from garminworkouts.models.fields import _WORKOUT_ID, _WORKOUT_NAME, _DESCRIPTIO
 from garminworkouts.models.fields import _WORKOUT_SPORT_TYPE, _WORKOUT_SEGMENTS, _WORKOUT_ORDER, _WORKOUT_STEPS
 from garminworkouts.models.fields import _STEP_TYPE, _TYPE, _SPORT, _DATE, _TARGET, _NAME, _SECONDARY, _REPEAT_GROUP
 from garminworkouts.models.fields import _DURATION, _WEIGHT, _CONDITION_TYPE_KEY, _CATEGORY, _STEP_ORDER, _EXERCISE_NAME
-from garminworkouts.models.fields import _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS, _CHILD_STEP_ID
-from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE, get_estimate, get_pool
-from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, get_end_condition
+from garminworkouts.models.fields import _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS, _CHILD_STEP_ID, _SUBSPORT
+from garminworkouts.models.fields import _END_CONDITION, _END_CONDITION_VALUE, _AUTHOR, get_estimate, get_pool
+from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, _WORKOUT_SUBSPORT_TYPE, get_end_condition
+from garminworkouts.models.fields import _ESTIMATED_DURATION, _ESTIMATED_DISTANCE, _AVG_SPEED, _REPEAT_DURATION
 import logging
 
 
@@ -35,7 +36,7 @@ class Workout(object):
 
         try:
             self.sport_type: tuple = config[_SPORT].lower() if _SPORT in config else None,
-            self.subsport: tuple = config['subsport'] if 'subsport' in config else None,
+            self.subsport: tuple = config[_SUBSPORT] if _SUBSPORT in config else None,
             self.config: dict = config
             self.date: dict | None = config[_DATE] if _DATE in config else None
             self.target: dict = target
@@ -91,7 +92,9 @@ class Workout(object):
             logging.info(" Zone %s: %s - %s w", i, cpower_zones[i], cpower_zones[i + 1])
 
     def get_workout_name(self) -> str:
-        if self.plan != '' and _DESCRIPTION in self.config:
+        if (self.plan != '') and (_DESCRIPTION in self.config) and (
+             self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 10
+                                                         ) and ('\n' not in self.config[_DESCRIPTION]):
             return str(self.config[_NAME] + '-' + self.config[_DESCRIPTION])
         else:
             return str(self.config[_NAME])
@@ -116,25 +119,25 @@ class Workout(object):
                 return date.today(), int(0), int(0)
 
     def running_values(self, flatten_steps) -> None:
-        sec: float = 0
+        sec: int = 0
         meters = 0
         duration_secs = 0
         duration_meters = 0
 
         for step in flatten_steps:
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
-            duration: float = WorkoutStep._end_condition_value(step)
+            duration: int | None = WorkoutStep._end_condition_value(step)
             if key == 'time':
-                duration_secs: float = duration
+                duration_secs: int | None = duration
                 duration_meters = round(duration_secs * self._equivalent_pace(step))
             elif key == 'distance':
-                duration_meters: float = duration
+                duration_meters: int | None = duration
                 try:
                     duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
                 except ZeroDivisionError:
-                    duration_secs = float(0)
+                    duration_secs = int(0)
                 except KeyError:
-                    duration_secs = float(0)
+                    duration_secs = int(0)
 
             sec = sec + duration_secs
             meters: float = meters + duration_meters
@@ -257,7 +260,20 @@ class Workout(object):
     def zone_extractor(self, target, key):
         if isinstance(target, dict):
             target_type = target[_TYPE]
-            target_value: str = target[key] if key in _TARGET else str('')
+            if key in _TARGET:
+                target_value: str = target[key]
+            else:
+                target_value = ''
+                if 'zone' in target:
+                    z = int(target['zone'])
+                    if target_type == 'heart.rate.zone':
+                        zones, hr_zones, data = self.hr_zones()
+                        t = {'min': zones[z], 'max': zones[z + 1]}
+                        target_value = str(t[key])
+                    elif target_type == 'power.zone':
+                        zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
+                        t = {'min': zones[z - 1], 'max': zones[z]}
+                        target_value = str(t[key])
         else:
             target_type: str = self.target[target][_TYPE]
             target_value: str = self.target[target][key] if key in self.target[target] else '0'
@@ -441,7 +457,8 @@ class Workout(object):
                             + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
                             + 'rTSS: ' + str(self.tss).format('2:2f'))
         elif self.sport_type[0] == 'cycling':
-            description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (self.cFTP, self.tss, self.norm_pwr, self.int_fct)
+            description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (
+                float(self.cFTP.power[:-1]), self.tss, self.norm_pwr, self.int_fct)
         else:
             description = self.config[_DESCRIPTION]
         if description:
@@ -478,6 +495,29 @@ class Workout(object):
         workout_description: str = Workout.extract_workout_description(workout)
         print('{0} {1:20} {2}'.format(workout_id, workout_name, workout_description))
 
+    def get_estimated_duration(self):
+        if self.sec > 0:
+            if self.sport_type[0] == 'running':
+                estimatedSec = self.sec
+            else:
+                estimatedSec = None
+        else:
+            estimatedSec = None
+
+        if self.mileage > 0:
+            if self.sport_type[0] == 'running':
+                estimatedMet = self.mileage * 1000
+            else:
+                estimatedMet = None
+        else:
+            estimatedMet = None
+
+        return {
+            _ESTIMATED_DURATION: estimatedSec,
+            _ESTIMATED_DISTANCE: estimatedMet,
+            _AVG_SPEED: self.mileage * 1000/self.sec if self.sec*self.mileage > 0 and estimatedMet else None,
+        }
+
     def _steps(self, steps_config) -> list:
         steps, step_order, child_step_id, repeatDuration = self._steps_recursive(steps_config, 0, None)
         return steps
@@ -507,7 +547,7 @@ class Workout(object):
                 repeat_step_order = step_order
                 repeat_child_step_id = child_step_id
 
-                repeatDuration = step_config[0]['repeatDuration'] if 'repeatDuration' in step_config[0] else None,
+                repeatDuration = step_config[0][_REPEAT_DURATION] if _REPEAT_DURATION in step_config[0] else None,
                 repeatDuration = repeatDuration[0]
 
                 nested_steps, step_order, child_step_id, amrat = self._steps_recursive(
@@ -526,10 +566,9 @@ class Workout(object):
             _WORKOUT_NAME: self.get_workout_name(),
             _DESCRIPTION: self._generate_description(),
             _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
-            "subSportType": self.subsport[0],
-            "author": workout_author,
-            "estimatedDurationInSecs": self.sec if self.sec > 0 else None,
-            "estimatedDistanceInMeters": self.mileage * 1000 if self.mileage > 0 else None,
+            _WORKOUT_SUBSPORT_TYPE: self.subsport[0],
+            _AUTHOR: workout_author,
+            **self.get_estimated_duration(),
             _WORKOUT_SEGMENTS: [
                 {
                     _WORKOUT_ORDER: 1,
@@ -538,8 +577,7 @@ class Workout(object):
                 }
             ],
             **get_pool('25m' if self.sport_type[0] == 'swimming' else None),
-            "avgTrainingSpeed": self.mileage * 1000/self.sec if self.sec*self.mileage > 0 else None,
-            **get_estimate('DISTANCE_ESTIMATED'),
+            **get_estimate('TIME_ESTIMATED' if self.sport_type[0] == 'running' else None),
         }
 
     def _repeat_step(self, step_order, child_step_id, repeats, nested_steps, repeatDuration) -> dict:
