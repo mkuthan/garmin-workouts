@@ -1,0 +1,6 @@
+name: "R4_2"
+description: "Recovery"
+sport: "running"
+
+steps:
+  - !include ../../../inc/recovery_8.yaml

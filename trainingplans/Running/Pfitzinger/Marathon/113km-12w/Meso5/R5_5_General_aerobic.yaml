@@ -1,0 +1,6 @@
+name: "R5_5"
+description: "Gen-Aerobic"
+sport: "running"
+
+steps:
+  - !include ../../../inc/aerobic_14.yaml

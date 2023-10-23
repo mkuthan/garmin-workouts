@@ -22,6 +22,7 @@ class TrainingPlanTestCase(unittest.TestCase):
             os.path.join('trainingplans', '*', '*', 'Half', '102km', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '88km', '*', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '113km', '*', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Marathon', '113km-12w', '*', '*.yaml'),
         ]
 
         for tp in tp_list:

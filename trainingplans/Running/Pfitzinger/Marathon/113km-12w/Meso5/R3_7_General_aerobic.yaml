@@ -1,0 +1,6 @@
+name: "R3_7"
+description: "Gen-Aerobic"
+sport: "running"
+
+steps:
+  - !include ../../../inc/aerobic_14.yaml

@@ -1,0 +1,6 @@
+name: "7_7"
+description: "Long Run"
+sport: "running"
+
+steps:
+  - !include ../../../inc/lr_27.yaml

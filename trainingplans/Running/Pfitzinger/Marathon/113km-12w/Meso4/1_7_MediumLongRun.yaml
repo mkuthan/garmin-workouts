@@ -1,6 +1,6 @@
-name: "12_3"
+name: "1_7"
 description: "Medium Long Run"
 sport: "running"
 
 steps:
-  - !include ../../../inc/lr_19.yaml
+  - !include ../../../inc/lr_21.yaml
