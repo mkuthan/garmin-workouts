@@ -82,7 +82,7 @@ def authed_gclient() -> GarminClient:
 @pytest.fixture
 def vcr(vcr):
     if "GARTH_HOME" not in os.environ:
-        vcr.record_mode = "none"
+        vcr.record_mode = "once"
     return vcr
 
 

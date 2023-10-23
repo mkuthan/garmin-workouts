@@ -1,9 +1,20 @@
 import pytest
 from garminworkouts.garmin.garminclient import GarminClient
+from garminworkouts.models.workout import Workout
 from datetime import date, timedelta
 import sys
 from typing import Any
 from requests import Response
+import os
+from garminworkouts.models.settings import settings
+
+
+class Arg(object):
+    def __init__(
+        self,
+        trainingplan
+    ) -> None:
+        self.trainingplan = trainingplan
 
 
 @pytest.mark.vcr
@@ -187,3 +198,54 @@ def test_save_power_zones(authed_gclient: GarminClient) -> None:
         }
     ]
     assert authed_gclient.put(url, json=zones)
+
+
+@pytest.mark.vcr
+def test_workout_list(authed_gclient: GarminClient) -> None:
+    url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
+    params = {
+        "start": 0,
+        "limit": 20,
+        "myWorkoutsOnly": False,
+        "sharedWorkoutsOnly": False,
+        "orderBy": "WORKOUT_NAME",
+        "orderSeq": "ASC",
+        "includeAtp": True
+        }
+    assert authed_gclient.get(url, params=params)
+
+
+@pytest.mark.vcr
+def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
+    tp_list: list[str] = [
+        os.path.join('workouts', 'strength_training', 'ADVANCED', '*.yaml'),
+        os.path.join('workouts', 'strength_training', 'INTERMEDIATE', '*.yaml'),
+        os.path.join('workouts', 'strength_training', 'BEGINNER', '*.yaml'),
+        os.path.join('workouts', 'cardio_training', 'ADVANCED', '*.yaml'),
+        os.path.join('workouts', 'cardio_training', 'INTERMEDIATE', '*.yaml'),
+        os.path.join('workouts', 'cardio_training', 'BEGINNER', '*.yaml'),
+        os.path.join('workouts', 'hiit', 'ADVANCED', '*.yaml'),
+        os.path.join('workouts', 'hiit', 'INTERMEDIATE', '*.yaml'),
+        os.path.join('workouts', 'hiit', 'BEGINNER', '*.yaml'),
+        os.path.join('workouts', 'pilates', 'ADVANCED', '*.yaml'),
+        os.path.join('workouts', 'pilates', 'INTERMEDIATE', '*.yaml'),
+        os.path.join('workouts', 'pilates', 'BEGINNER', '*.yaml'),
+        os.path.join('workouts', 'yoga', 'INTERMEDIATE', '*.yaml'),
+        os.path.join('workouts', 'yoga', 'BEGINNER', '*.yaml'),
+        ]
+
+    for tp in tp_list:
+        args = Arg(trainingplan=tp)
+        workouts, plan = settings(args)
+
+        for workout in workouts:
+            url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
+            payload = workout.create_workout()
+            assert authed_gclient.post(url, json=payload)
+            workout_id = Workout.extract_workout_id(authed_gclient.post(url, json=payload).json())
+
+            url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
+            payload = workout.create_workout(workout_id=workout_id)
+            assert authed_gclient.get(url)
+            assert authed_gclient.put(url, json=payload)
+            assert authed_gclient.delete(url)
