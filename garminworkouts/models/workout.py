@@ -93,7 +93,7 @@ class Workout(object):
 
     def get_workout_name(self) -> str:
         if (self.plan != '') and (_DESCRIPTION in self.config) and (
-             self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 10
+             self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 20
                                                          ) and ('\n' not in self.config[_DESCRIPTION]):
             return str(self.config[_NAME] + '-' + self.config[_DESCRIPTION])
         else:
