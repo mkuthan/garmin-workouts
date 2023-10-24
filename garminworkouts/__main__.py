@@ -160,7 +160,7 @@ def command_trainingplan_metrics(args) -> None:
             day_max = day_d
         mileage[week] = mileage[week] + workout.mileage
         duration[week] = duration[week] + workout.duration
-        tss[week] = tss[week] + workout.tss
+        tss[week] = tss[week] + workout.tss * workout.duration.seconds
 
         print(workout_name, round(workout.mileage, 2), round(workout.tss, 2))
 
@@ -170,7 +170,7 @@ def command_trainingplan_metrics(args) -> None:
             logging.info('Week ' + str(i) + ': '
                          + str(round(mileage[i], 2)) + ' km - '
                          + 'Duration: ' + str(duration[i]) + ' - '
-                         + 'rTSS: ' + str(tss[i]))
+                         + 'rTSS: ' + str(round(tss[i]/duration[i].seconds, 2)))
 
 
 def command_workout_export(args) -> None:

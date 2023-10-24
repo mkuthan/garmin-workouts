@@ -126,12 +126,12 @@ class Workout(object):
 
         for step in flatten_steps:
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
-            duration: int | None = WorkoutStep._end_condition_value(step)
+            duration: int = WorkoutStep._end_condition_value(step)
             if key == 'time':
-                duration_secs: int | None = duration
+                duration_secs: int = duration
                 duration_meters = round(duration_secs * self._equivalent_pace(step))
             elif key == 'distance':
-                duration_meters: int | None = duration
+                duration_meters: int = duration
                 try:
                     duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
                 except ZeroDivisionError:
@@ -140,7 +140,7 @@ class Workout(object):
                     duration_secs = int(0)
 
             sec = sec + duration_secs
-            meters: float = meters + duration_meters
+            meters: int = meters + duration_meters
 
         try:
             self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
@@ -152,7 +152,7 @@ class Workout(object):
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
-        self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
+        self.tss: float = round(sec/3600 * (self.ratio) ** 2 / 100, 0)
 
     def cycling_values(self, flatten_steps) -> None:
         sec: float = 0
