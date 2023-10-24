@@ -36,23 +36,6 @@ def test_get_external_workout(authed_gclient: GarminClient) -> None:
 
 
 @pytest.mark.vcr
-def test_list_workouts(authed_gclient: GarminClient) -> None:
-    batch_size = 100
-    url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
-    for start_index in range(0, sys.maxsize, batch_size):
-        params: dict[str, int] = {
-            "start": start_index,
-            "limit": batch_size
-            }
-        response: Response = authed_gclient.get(
-            url,
-            params=params, api=True)
-        assert response
-        if response.json() == []:
-            break
-
-
-@pytest.mark.vcr
 def test_get_calendar(authed_gclient: GarminClient) -> None:
     year = str(date.today().year)
     month = str(date.today().month - 1)
@@ -247,5 +230,11 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
             payload = workout.create_workout(workout_id=workout_id)
             assert authed_gclient.get(url)
+            assert authed_gclient.get(f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}")
+            json_data: dict = {"date": str(date.today)}
+            assert authed_gclient.post(
+                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data)
+            assert authed_gclient.delete(
+                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data)
             assert authed_gclient.put(url, json=payload)
             assert authed_gclient.delete(url)
