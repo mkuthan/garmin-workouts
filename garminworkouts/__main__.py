@@ -70,18 +70,13 @@ def command_trainingplan_import(args, event=False) -> None:
         for workout in workouts:
             day_d, week, day = workout.get_workout_date()
 
-            if day_d >= date.today():
+            if day_d >= date.today() and day_d < date.today() + timedelta(weeks=2):
                 workout_name: str = workout.get_workout_name()
                 existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
                 if not existing_workout:
                     payload = workout.create_workout()
                     logging.info("Creating workout '%s'", workout_name)
-                    connection.save_workout(payload)
-
-                    existing_workouts_by_name = {Workout.extract_workout_name(w):
-                                                 w for w in connection.list_workouts()}
-                    existing_workout = existing_workouts_by_name.get(workout_name)
-                    workout_id = Workout.extract_workout_id(existing_workout)
+                    workout_id = Workout.extract_workout_id(connection.save_workout(payload))
                     connection.schedule_workout(workout_id, day_d.isoformat())
 
 

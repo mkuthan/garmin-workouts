@@ -115,9 +115,9 @@ class GarminClient(object):
         with open(file, "wb") as f:
             f.write(response)
 
-    def save_workout(self, workout) -> None:
+    def save_workout(self, workout) -> Any:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
-        self.post(url, json=workout)
+        return self.post(url, json=workout).json()
 
     def update_workout(self, workout_id, workout) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
@@ -180,9 +180,9 @@ class GarminClient(object):
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
         return self.get(url).json()
 
-    def save_event(self, event) -> None:
+    def save_event(self, event) -> Any:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event"
-        self.post(url, json=event)
+        return self.post(url, json=event).json()
 
     def update_event(self, event_id, event) -> None:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
