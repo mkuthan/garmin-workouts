@@ -231,7 +231,7 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
             payload = workout.create_workout(workout_id=workout_id)
             assert authed_gclient.get(url)
             assert authed_gclient.get(f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}")
-            json_data: dict = {"date": str(date.today)}
+            json_data: dict = {"date": date.today().isoformat()}
             assert authed_gclient.post(
                 f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data)
             assert authed_gclient.delete(

@@ -141,22 +141,14 @@ class TrainingPlanTestCase(unittest.TestCase):
 
     def test_trainingplan_garmin_runningother(self) -> None:
         tp_list: list[str] = [
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Beginner', 'Time', 'GettingStarted',
-                         '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Beginner', 'HeartRate', 'GettingStarted',
-                         '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Intermediate', 'Time', 'GettingStarted',
-                         '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Intermediate', 'HeartRate', 'GettingStarted',
-                         '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Beginner', 'Time', 'ImproveYourFitness',
-                         '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Beginner', 'HeartRate',
-                         'ImproveYourFitness', '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Intermediate', 'Time',
-                         'ImproveYourFitness', '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'RunningOther', 'Intermediate', 'HeartRate',
-                         'ImproveYourFitness', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Beginner', 'Time', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Beginner', 'HeartRate', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Intermediate', 'Time', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Intermediate', 'HeartRate', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Beginner', 'Time', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Beginner', 'HeartRate', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Intermediate', 'Time', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Intermediate', 'HeartRate', '*.yaml'),
         ]
 
         for tp in tp_list:
