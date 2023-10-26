@@ -242,13 +242,6 @@ def command_workout_export_yaml(args):
 
             connection.delete_training_plan(tp['trainingPlanId'])
 
-        for workout in connection.list_workouts():
-            workout_id = Workout.extract_workout_id(workout)
-            workout_name = Workout.extract_workout_name(workout)
-            file = os.path.join('.', 'exported', str(workout_id) + '.yaml')
-            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            connection.download_workout_yaml(workout_id, file)
-
 
 def command_workout_list(args) -> None:
     with _garmin_client(args) as connection:
