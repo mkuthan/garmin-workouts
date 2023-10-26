@@ -232,9 +232,21 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
             assert authed_gclient.get(url)
             assert authed_gclient.get(f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}")
             json_data: dict = {"date": date.today().isoformat()}
-            assert authed_gclient.post(
-                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data)
+            p = authed_gclient.post(
+                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data).json()
+            assert p['workoutScheduleId']
             assert authed_gclient.delete(
-                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data)
+                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{p['workoutScheduleId']}")
             assert authed_gclient.put(url, json=payload)
             assert authed_gclient.delete(url)
+
+
+'''@pytest.mark.vcr
+def test_events(authed_gclient: GarminClient) -> None:
+    url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event"
+    assert authed_gclient.post(url, json=event)
+
+    url: str = f"{url}/{event_id}"
+    assert authed_gclient.get(url)
+    assert authed_gclient.put(url, json=event)
+    assert authed_gclient.delete(url)'''

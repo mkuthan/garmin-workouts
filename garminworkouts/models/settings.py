@@ -44,7 +44,7 @@ def settings(args):
                                               account.rFTP,
                                               account.cFTP,
                                               plan,
-                                              race) if 'content' in workout_config else Note(workout_config)
+                                              race) if 'content' not in workout_config else Note(workout_config)
                                       for workout_config in workout_configs]
 
     notes = [w for w in combined if isinstance(w, Note)]
