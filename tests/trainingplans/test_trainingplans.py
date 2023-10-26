@@ -28,7 +28,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -46,7 +46,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -66,7 +66,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -86,7 +86,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -108,7 +108,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -130,7 +130,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -154,7 +154,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -174,7 +174,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -194,7 +194,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -234,7 +234,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -274,7 +274,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -314,7 +314,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -342,7 +342,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -382,7 +382,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -412,7 +412,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:
@@ -429,7 +429,7 @@ class TrainingPlanTestCase(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = Arg(trainingplan=tp)
-                workouts, plan = settings(args)
+                workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
                 for workout in workouts:

@@ -13,9 +13,10 @@ from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
+from garminworkouts.models.note import Note
 from garminworkouts.models.power import Power
 from garminworkouts.models.trainingplan import TrainingPlan
-from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml
+from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml, note_export_yaml
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
 import account
@@ -32,7 +33,7 @@ def command_activity_list(args):
 
 
 def command_trainingplan_reset(args) -> None:
-    workouts, plan = settings(args)
+    workouts, notes,  plan = settings(args)
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
@@ -48,7 +49,7 @@ def command_trainingplan_reset(args) -> None:
 
 
 def command_trainingplan_import(args, event=False) -> None:
-    workouts, plan = settings(args)
+    workouts, notes, plan = settings(args)
     workouts_by_name: dict = {w.get_workout_name(): w for w in workouts}
 
     with _garmin_client(args) as connection:
@@ -133,7 +134,7 @@ def command_find_events(args):
 
 
 def command_trainingplan_metrics(args) -> None:
-    workouts, plan = settings(args)
+    workouts, notes, plan = settings(args)
 
     mileage: list[float] = [float(0) for i in range(24, -11, -1)]
     duration: list[timedelta] = [timedelta(seconds=0) for i in range(24, -11, -1)]
@@ -206,28 +207,38 @@ def command_workout_export_yaml(args):
 
             tp = connection.schedule_training_plan(tp[_ID], str(date.today()))
 
+            if tp_subtype == 'RunningOther':
+                tp_subtype = tp_name
+                tp_name = ''
+
+            if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower() == tp_name.lower()):
+                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version)
+            else:
+                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version,
+                                            tp_name)
+
             for w in connection.get_training_plan(TrainingPlan.export_trainingplan(tp)[_ID], account.locale):
+                week: str = w['weekId']
+                day: str = w['dayOfWeekId']
+                name: str = f'R{week}_{day}'
+
+                if not os.path.exists(newpath):
+                    os.makedirs(newpath)
+
+                file: str = os.path.join(newpath, name + ".yaml")
+
                 if w['taskWorkout']:
-                    week: str = w['weekId']
-                    day: str = w['dayOfWeekId']
                     workout_id: str = w['taskWorkout']['workoutId']
-                    workout_name: str = f'R{week}_{day}'
                     workout: dict = connection.get_workout(workout_id)
-
-                    if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower()
-                                                                   == tp_name.lower()):
-                        newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin',
-                                                    tp_subtype, tp_level, tp_version)
-                    else:
-                        newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin',
-                                                    tp_subtype, tp_level, tp_version,
-                                                    tp_name)
-                    if not os.path.exists(newpath):
-                        os.makedirs(newpath)
-
-                    file: str = os.path.join(newpath, workout_name + ".yaml")
-                    logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+                    logging.info("Exporting workout '%s' into '%s'", name, file)
                     workout_export_yaml(workout, file)
+                if w['taskNote']:
+                    config = {}
+                    config['name'] = w['taskNote']['note']
+                    config['content'] = w['taskNote']['noteDescription']
+                    note = Note(config)
+                    logging.info("Exporting note '%s' into '%s'", name, file)
+                    note_export_yaml(note, file)
 
             connection.delete_training_plan(tp['trainingPlanId'])
 

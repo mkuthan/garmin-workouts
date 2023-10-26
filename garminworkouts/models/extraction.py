@@ -160,3 +160,13 @@ def event_export_yaml(event, filename) -> None:
     except OSError:
         with open(filename.replace('"', ''), 'w') as file:
             yaml.dump(event, file, default_flow_style=None)
+
+
+@staticmethod
+def note_export_yaml(note, filename) -> None:
+    note_dict: dict = {}
+    note_dict['name'] = note['noteName']
+    note_dict['content'] = note['content']
+
+    with open(filename, 'w') as file:
+        yaml.dump(note_dict, file, default_flow_style=None)

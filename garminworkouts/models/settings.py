@@ -4,9 +4,10 @@ import os
 from garminworkouts.config import configreader
 from datetime import date
 from garminworkouts.models.workout import Workout
+from garminworkouts.models.note import Note
 
 
-def settings(args) -> tuple[list[Workout], str]:
+def settings(args):
     if isinstance(args.trainingplan, tuple):
         args.trainingplan = ''.join(args.trainingplan)
 
@@ -34,16 +35,19 @@ def settings(args) -> tuple[list[Workout], str]:
 
     workout_configs: list = [configreader.read_config(workout_file) for workout_file in workout_files]
     target: dict = configreader.read_config(r'target.yaml')
-    workouts: list[Workout] = [Workout(workout_config,
-                                       target,
-                                       account.vV02,
-                                       account.fmin,
-                                       account.fmax,
-                                       account.flt,
-                                       account.rFTP,
-                                       account.cFTP,
-                                       plan,
-                                       race)
-                               for workout_config in workout_configs]
+    combined: list[Workout | Note] = [Workout(workout_config,
+                                              target,
+                                              account.vV02,
+                                              account.fmin,
+                                              account.fmax,
+                                              account.flt,
+                                              account.rFTP,
+                                              account.cFTP,
+                                              plan,
+                                              race) if 'content' in workout_config else Note(workout_config)
+                                      for workout_config in workout_configs]
 
-    return workouts, plan
+    notes = [w for w in combined if isinstance(w, Note)]
+    workouts = [w for w in combined if isinstance(w, Workout)]
+
+    return workouts, notes, plan

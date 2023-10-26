@@ -426,3 +426,19 @@ class GarminClient(object):
                 d2 = d1 + timedelta(days=7)
             else:
                 break
+
+    def get_note(self, note_id) -> Any:
+        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+        return self.get(url).json()
+
+    def save_note(self, note) -> None:
+        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note"
+        return self.post(url, json=note).json()
+
+    def update_note(self, note_id, note) -> None:
+        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+        self.put(url, json=note)
+
+    def delete_note(self, note_id) -> None:
+        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+        self.delete(url)

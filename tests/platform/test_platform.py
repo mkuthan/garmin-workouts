@@ -219,7 +219,7 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
 
     for tp in tp_list:
         args = Arg(trainingplan=tp)
-        workouts, plan = settings(args)
+        workouts, notes, plan = settings(args)
 
         for workout in workouts:
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
