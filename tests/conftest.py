@@ -66,7 +66,7 @@ def authed_client(
 ) -> Client:
     client = Client()
     try:
-        client.load("./garminconnect")
+        client.load("./garminconnect-dev")
     except KeyError:
         client.configure(oauth1_token=oauth1_token, oauth2_token=oauth2_token)
     assert client.oauth2_token
@@ -82,7 +82,7 @@ def authed_gclient() -> GarminClient:
 @pytest.fixture
 def vcr(vcr):
     if "GARTH_HOME" not in os.environ:
-        vcr.record_mode = "once"
+        vcr.record_mode = "all"
     return vcr
 
 
