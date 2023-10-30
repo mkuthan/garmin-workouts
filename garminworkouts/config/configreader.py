@@ -10,4 +10,6 @@ def read_config(filename) -> dict:
 
     with open(filename, 'r') as f:
         data: dict = yaml.load(f, IncludeLoader)
+        if 'steps' in data and isinstance(data['steps'][0], list):
+            data['steps'] = data['steps'][0]
     return data
