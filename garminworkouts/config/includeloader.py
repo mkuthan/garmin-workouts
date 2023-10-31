@@ -23,8 +23,8 @@ def extract_duration(s) -> str:
 
 
 @staticmethod
-def step_generator(s, duration) -> dict:
-    d: dict = {}
+def step_generator(s, duration):
+    d = {}
 
     if 'recovery' in s:
         d = generator.recovery_step_generator(duration, 'p' in s)
@@ -44,6 +44,10 @@ def step_generator(s, duration) -> dict:
         d = generator.cooldown_step_generator(duration, 'p' in s)
     elif 'walk' in s:
         d = generator.walk_step_generator(duration)
+    elif 'stride' in s:
+        if duration == '':
+            duration = '0.1km'
+        d = generator.stride_generator(duration)
 
     return d
 
@@ -65,7 +69,7 @@ class IncludeLoader(yaml.SafeLoader):
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
 
-            d: dict = step_generator(s[0], extract_duration(s[1]) if len(s) >= 2 else '')
+            d = step_generator(s[0], extract_duration(s[1]) if len(s) >= 2 else '')
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]

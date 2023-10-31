@@ -3,14 +3,4 @@ description: "Gen-Aerobic"
 sport: "running"
 
 steps:
-  - &SERIES !include ../../inc/stride_150.yaml
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - !include recovery_4min.yaml
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - *SERIES
+  - !include aerobic_13.yaml

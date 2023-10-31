@@ -3,14 +3,14 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - &HILL !include ../../inc/hill.yaml
+  - !include &HILL ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
   - *HILL
   - *HILL
   - !include recovery_4min.yaml
-  - &SERIES !include ../../inc/stride.yaml
+  - !include &SERIES stride_100m.yaml
   - *SERIES
   - *SERIES
   - *SERIES

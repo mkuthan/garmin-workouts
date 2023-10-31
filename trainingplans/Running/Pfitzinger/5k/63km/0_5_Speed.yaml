@@ -1,13 +1,9 @@
-name: "11_6"
-description: "Gen-Aerobic and speed"
+name: "0_5"
+description: "Speed"
 sport: "running"
 
 steps:
   - !include &SERIES stride_100m.yaml
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES

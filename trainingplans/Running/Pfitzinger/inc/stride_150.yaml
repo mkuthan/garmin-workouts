@@ -1,2 +1,0 @@
-- { type: interval, duration: 0.15km, target: VO2MAX_PACE, description: Strides pace }
-- { type: recovery, duration: 0.25km, target: RECOVERY_PACE, description: Recovery pace }

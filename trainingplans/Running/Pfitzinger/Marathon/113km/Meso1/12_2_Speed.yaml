@@ -3,8 +3,8 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - &STRIDE !include ../../../inc/stride.yaml
-  - *STRIDE 
+  - !include &STRIDE stride_100m.yaml
+  - *STRIDE
   - *STRIDE
   - *STRIDE
   - *STRIDE

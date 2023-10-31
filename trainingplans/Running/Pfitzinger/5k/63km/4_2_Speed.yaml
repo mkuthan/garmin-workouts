@@ -1,10 +1,9 @@
 name: "4_2"
-description: "Gen-Aerobic and speed"
+description: "Speed"
 sport: "running"
 
 steps:
-  - !include aerobic_13.yaml
-  - &SERIES !include ../../inc/stride_150.yaml
+  - !include &SERIES stride_100m.yaml
   - *SERIES
   - *SERIES
   - *SERIES

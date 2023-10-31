@@ -4,12 +4,3 @@ sport: "running"
 
 steps:
   - !include aerobic_11.yaml
-  - &SERIES !include ../../inc/stride_150.yaml
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - !include recovery_4min.yaml
-  - *SERIES
-  - *SERIES
-  - *SERIES
-  - *SERIES

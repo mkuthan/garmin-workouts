@@ -131,3 +131,22 @@ def walk_step_generator(duration) -> dict:
     step['description'] = 'Walk'
 
     return step
+
+
+def stride_generator(duration):
+    steps = []
+    step: dict = {}
+    step['type'] = 'interval'
+    step['duration'] = duration
+    step['target'] = '1KM_PACE'
+    step['description'] = 'Strides pace'
+    steps.append(step)
+
+    step: dict = {}
+    step['type'] = 'recovery'
+    step['duration'] = '0.2km'
+    step['target'] = 'RECOVERY_PACE'
+    step['description'] = 'Recovery pace'
+    steps.append(step)
+
+    return steps
