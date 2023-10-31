@@ -3,9 +3,14 @@ description: "Race pace"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_10.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - { type: "run", duration: "0.8km", target: 5KM_PACE, description: Series @5k pace }
+  - !include aerobic_10.yaml
+  - &SERIES !include ../../inc/stride.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - {
+      type: "run",
+      duration: "0.8km",
+      target: 5KM_PACE,
+      description: Series @5k pace,
+    }

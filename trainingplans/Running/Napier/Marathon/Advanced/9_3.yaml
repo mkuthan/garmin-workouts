@@ -5,8 +5,8 @@ sport: "running"
 steps:
   - !include ../../inc/warmup.yaml
   - &SERIES
-    - !include ../../inc/20>lt_90s.yaml
-    - !include ../../inc/paerobic_90s.yaml
+    - !include 20>lt_90s.yaml
+    - !include paerobic_90s.yaml
   - *SERIES
   - *SERIES
   - *SERIES

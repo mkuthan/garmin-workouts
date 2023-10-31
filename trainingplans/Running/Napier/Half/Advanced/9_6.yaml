@@ -4,7 +4,7 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - !include ../../inc/45<hm_5.yaml
-  - !include ../../inc/30<hm_5.yaml
-  - !include ../../inc/15<hm_5.yaml
-  - !include ../../inc/hm_5.yaml
+  - !include 45<hm_5.yaml
+  - !include 30<hm_5.yaml
+  - !include 15<hm_5.yaml
+  - !include hm_5.yaml

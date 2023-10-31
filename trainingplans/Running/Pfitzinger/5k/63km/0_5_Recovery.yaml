@@ -3,8 +3,8 @@ description: "Recovery"
 sport: "running"
 
 steps:
-  - !include ../../inc/recovery_5.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
+  - !include recovery_5.yaml
+  - &SERIES !include ../../inc/stride.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES

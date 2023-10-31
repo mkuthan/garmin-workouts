@@ -4,7 +4,7 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - !include ../../inc/aerobic_3.yaml
-  - !include ../../inc/lt_20min.yaml
-  - !include ../../inc/precovery_4min.yaml
-  - !include ../../inc/lt_16min.yaml
+  - !include aerobic_3.yaml
+  - !include lt_20min.yaml
+  - !include precovery_4min.yaml
+  - !include lt_16min.yaml

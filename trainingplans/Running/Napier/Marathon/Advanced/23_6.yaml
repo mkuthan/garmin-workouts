@@ -3,4 +3,4 @@ description: "W3-Medium Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_12.yaml
+  - !include aerobic_12.yaml

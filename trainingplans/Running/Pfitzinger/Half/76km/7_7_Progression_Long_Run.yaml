@@ -3,5 +3,5 @@ description: "Progression Long Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/lr_18.yaml
-  - !include ../../inc/lt_3.yaml
+  - !include lr_18.yaml
+  - !include lt_3.yaml

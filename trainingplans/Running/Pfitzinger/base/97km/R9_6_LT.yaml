@@ -3,5 +3,5 @@ description: "Lactate Threshold"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_12.yaml
-  - !include ../../inc/lt_24min.yaml
+  - !include aerobic_12.yaml
+  - !include lt_24min.yaml

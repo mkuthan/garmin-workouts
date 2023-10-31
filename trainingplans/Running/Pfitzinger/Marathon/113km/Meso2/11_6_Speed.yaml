@@ -3,11 +3,11 @@ description: "Gen-Aerobic and speed"
 sport: "running"
 
 steps:
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
-  - !include ../../../inc/stride.yaml
+  - &SERIES !include ../../../inc/stride.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

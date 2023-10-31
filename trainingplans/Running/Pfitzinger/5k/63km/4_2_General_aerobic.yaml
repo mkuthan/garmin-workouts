@@ -3,15 +3,15 @@ description: "Gen-Aerobic and speed"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_13.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/recovery_4min.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
+  - !include aerobic_13.yaml
+  - &SERIES !include ../../inc/stride.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - !include recovery_4min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

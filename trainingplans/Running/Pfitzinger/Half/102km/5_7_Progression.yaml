@@ -3,5 +3,5 @@ description: "Progression"
 sport: "running"
 
 steps:
-  - !include ../../inc/lr_21.yaml
-  - !include ../../inc/lt_5min.yaml
+  - !include lr_21.yaml
+  - !include lt_5min.yaml

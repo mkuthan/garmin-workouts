@@ -4,14 +4,14 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - !include ../../inc/lt_3min.yaml
-  - !include ../../inc/recovery_2min.yaml
-  - !include ../../inc/lt_3min.yaml
-  - !include ../../inc/recovery_2min.yaml
-  - !include ../../inc/lt_3min.yaml
-  - !include ../../inc/recovery_2min.yaml
-  - !include ../../inc/lt_3min.yaml
-  - !include ../../inc/recovery_2min.yaml
-  - !include ../../inc/lt_3min.yaml
-  - !include ../../inc/recovery_2min.yaml
-  - !include ../../inc/cooldown_3.yaml
+  - !include lt_3min.yaml
+  - !include recovery_2min.yaml
+  - !include lt_3min.yaml
+  - !include recovery_2min.yaml
+  - !include lt_3min.yaml
+  - !include recovery_2min.yaml
+  - !include lt_3min.yaml
+  - !include recovery_2min.yaml
+  - !include lt_3min.yaml
+  - !include recovery_2min.yaml
+  - !include cooldown_3.yaml

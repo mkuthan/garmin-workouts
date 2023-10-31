@@ -9,4 +9,4 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - !include ../../inc/lt_40min.yaml
+  - !include lt_40min.yaml

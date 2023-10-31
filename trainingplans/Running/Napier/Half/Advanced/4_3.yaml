@@ -10,8 +10,8 @@ steps:
   - *HILL
   - *HILL
   - &SERIES
-    - !include ../../inc/lt_4min.yaml
-    - !include ../../inc/paerobic_2min.yaml
+    - !include lt_4min.yaml
+    - !include paerobic_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

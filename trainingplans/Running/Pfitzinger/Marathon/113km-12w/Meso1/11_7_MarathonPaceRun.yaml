@@ -3,5 +3,5 @@ description: "Marathon Pace Run"
 sport: "running"
 
 steps:
-  - !include ../../../inc/lr_11.yaml
-  - !include ../../../inc/marathon_13.yaml
+  - !include lr_11.yaml
+  - !include marathon_13.yaml

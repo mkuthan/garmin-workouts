@@ -4,5 +4,5 @@ sport: "running"
 
 steps:
   - !include ../../../inc/warmup.yaml
-  - !include ../../../inc/lt_14.yaml
-  - !include ../../../inc/cooldown_3.yaml
+  - !include lt_14.yaml
+  - !include cooldown_3.yaml

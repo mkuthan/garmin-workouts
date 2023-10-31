@@ -3,11 +3,11 @@ description: "W3-Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/recovery_3.yaml
-  - !include ../../inc/marathon_3.yaml
-  - !include ../../inc/recovery_3.yaml
-  - !include ../../inc/marathon_4.yaml
-  - !include ../../inc/recovery_3.yaml
-  - !include ../../inc/marathon_5.yaml
-  - !include ../../inc/recovery_3.yaml
-  - !include ../../inc/marathon_6.yaml
+  - !include recovery_3.yaml
+  - !include marathon_3.yaml
+  - !include recovery_3.yaml
+  - !include marathon_4.yaml
+  - !include recovery_3.yaml
+  - !include marathon_5.yaml
+  - !include recovery_3.yaml
+  - !include marathon_6.yaml

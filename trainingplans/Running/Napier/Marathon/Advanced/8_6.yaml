@@ -4,8 +4,8 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - !include ../../inc/40<marathon_5.yaml
-  - !include ../../inc/30<marathon_5.yaml
-  - !include ../../inc/20<marathon_5.yaml
-  - !include ../../inc/10<marathon_5.yaml
-  - !include ../../inc/marathon_5.yaml
+  - !include 40<marathon_5.yaml
+  - !include 30<marathon_5.yaml
+  - !include 20<marathon_5.yaml
+  - !include 10<marathon_5.yaml
+  - !include marathon_5.yaml

@@ -3,4 +3,4 @@ description: "Half Marathon Race"
 sport: "running"
 
 steps:
-  - !include ../../inc/hm_21.yaml
+  - !include hm_21.yaml

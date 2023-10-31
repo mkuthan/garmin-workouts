@@ -3,4 +3,4 @@ description: "Additional"
 sport: "running"
 
 steps:
-  - !include ../../inc/recovery_12.yaml
+  - !include recovery_12.yaml

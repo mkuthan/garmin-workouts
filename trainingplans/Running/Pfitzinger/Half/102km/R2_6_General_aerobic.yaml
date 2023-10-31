@@ -3,4 +3,4 @@ description: "Gen-Aerobic"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_9.yaml
+  - !include aerobic_9.yaml

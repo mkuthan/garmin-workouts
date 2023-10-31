@@ -4,8 +4,8 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - !include ../../inc/40<lt_6min.yaml
-  - !include ../../inc/30<lt_6min.yaml
-  - !include ../../inc/20<lt_6min.yaml
-  - !include ../../inc/10<lt_6min.yaml
-  - !include ../../inc/lt_6min.yaml
+  - !include 40<lt_6min.yaml
+  - !include 30<lt_6min.yaml
+  - !include 20<lt_6min.yaml
+  - !include 10<lt_6min.yaml
+  - !include lt_6min.yaml

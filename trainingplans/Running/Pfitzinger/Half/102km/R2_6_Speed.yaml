@@ -3,16 +3,16 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/recovery_3min.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
-  - !include ../../inc/stride.yaml
+  - &SERIES !include ../../inc/stride.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - !include recovery_3min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

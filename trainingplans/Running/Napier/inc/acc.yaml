@@ -1,2 +1,7 @@
-- { type: interval, duration: "0:30", target: 1KM_PACE, description: Acceleration }
-- !include ../../inc/walk_1min.yaml
+- {
+    type: interval,
+    duration: "0:30",
+    target: 1KM_PACE,
+    description: Acceleration,
+  }
+- !include walk_1min.yaml

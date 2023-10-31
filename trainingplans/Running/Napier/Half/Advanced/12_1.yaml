@@ -10,10 +10,10 @@ steps:
   - *HILL
   - *HILL
   - &SERIES
-    - !include ../../inc/10>lt_1min.yam
-    - !include ../../inc/walk_2min.yam
+    - !include 10>lt_1min.yam
+    - !include walk_2min.yam
   - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include ../../inc/walk_5min.yam
+  - !include walk_5min.yam

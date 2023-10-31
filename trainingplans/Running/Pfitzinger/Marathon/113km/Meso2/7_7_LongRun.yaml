@@ -3,4 +3,4 @@ description: "Long Run"
 sport: "running"
 
 steps:
-  - !include ../../../inc/lr_35.yaml
+  - !include lr_35.yaml

@@ -10,8 +10,13 @@ steps:
   - *HILL
   - *HILL
   - &SERIES
-    - { type: interval, duration: "2:00", target: VO2MAX_PACE, description: Hill Series }
-    - !include ../../inc/recovery_4min.yaml
+    - {
+        type: interval,
+        duration: "2:00",
+        target: VO2MAX_PACE,
+        description: Hill Series,
+      }
+    - !include recovery_4min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

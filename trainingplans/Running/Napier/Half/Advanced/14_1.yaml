@@ -5,15 +5,20 @@ sport: "running"
 steps:
   - !include ../../inc/warmup.yaml
   - &INTERVAL
-    - !include ../../inc/lt_4min.yaml
-    - !include ../../inc/precovery_2min.yaml
+    - !include lt_4min.yaml
+    - !include precovery_2min.yaml
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL
   - &SERIES
-    - { type: interval, duration: "0:30", target: 5KM_PACE, description: Series @5k pace }
-    - !include ../../inc/walk_1min.yaml
+    - {
+        type: interval,
+        duration: "0:30",
+        target: 5KM_PACE,
+        description: Series @5k pace,
+      }
+    - !include walk_1min.yaml
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include ../../inc/recovery_5min.yaml
+  - !include recovery_5min.yaml

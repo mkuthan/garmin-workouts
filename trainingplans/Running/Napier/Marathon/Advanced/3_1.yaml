@@ -3,8 +3,8 @@ description: "W1-Steady Run and Hills"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_45min.yaml
-  - &HILL !include ../../inc/hill.yaml
+  - !include aerobic_45min.yaml
+  - !include &HILL ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL

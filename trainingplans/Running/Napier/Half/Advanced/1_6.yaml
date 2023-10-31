@@ -4,8 +4,8 @@ sport: "running"
 
 steps:
   - &SERIES
-    - !include ../../inc/recovery_3.yaml
-    - !include ../../inc/hm_1.yaml
+    - !include recovery_3.yaml
+    - !include hm_1.yaml
   - *SERIES
   - *SERIES
   - *SERIES

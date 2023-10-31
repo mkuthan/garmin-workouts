@@ -4,4 +4,4 @@ sport: "running"
 
 steps:
   - !include ../../../inc/warmup.yaml
-  - !include ../../../inc/lt_14.yaml
+  - !include lt_14.yaml

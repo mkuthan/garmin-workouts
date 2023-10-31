@@ -3,10 +3,10 @@ description: "VO2"
 sport: "running"
 
 steps:
-  - !include ../../inc/aerobic_8.yaml
-  - !include ../../inc/1200.yaml
-  - !include ../../inc/1200.yaml
-  - !include ../../inc/800.yaml
-  - !include ../../inc/800.yaml
-  - !include ../../inc/800.yaml
-  - !include ../../inc/800.yaml
+  - !include aerobic_8.yaml
+  - &SERIES2 !include ../../inc/1200.yaml
+  - *SERIES2
+  - &SERIES !include ../../inc/800.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES

@@ -4,7 +4,7 @@ sport: "running"
 
 steps:
   - &SERIES
-    - !include ../../inc/recovery_5.yaml
-    - !include ../../inc/marathon_1.yaml
+    - !include recovery_5.yaml
+    - !include marathon_1.yaml
   - *SERIES
   - *SERIES

@@ -3,4 +3,4 @@ description: "Medium Long Run"
 sport: "running"
 
 steps:
-  - !include ../../../inc/lr_19.yaml
+  - !include lr_19.yaml

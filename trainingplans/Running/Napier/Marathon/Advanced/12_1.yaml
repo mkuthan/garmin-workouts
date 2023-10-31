@@ -4,13 +4,13 @@ sport: "running"
 
 steps:
   - !include ../../inc/warmup.yaml
-  - &HILL !include ../../inc/hill.yaml
+  - !include &HILL ../../inc/hill.yaml
   - *HILL
   - *HILL
   - *HILL
   - &SERIES
     - { type: interval, duration: "2:00", target: 5KM_PACE, description: Hill }
-    - !include ../../inc/walk_1min.yaml
+    - !include walk_1min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

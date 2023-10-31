@@ -5,15 +5,25 @@ sport: "running"
 steps:
   - !include ../../inc/warmup.yaml
   - &SERIES
-    - { type: interval, duration: "2km", target: 10KM_PACE, description: Series @10k pace }
-    - !include ../../inc/paerobic_1.yaml
+    - {
+        type: interval,
+        duration: "2km",
+        target: 10KM_PACE,
+        description: Series @10k pace,
+      }
+    - !include paerobic_1.yaml
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include ../../inc/walk_5min.yaml
+  - !include walk_5min.yaml
   - &ANAER
-    - { type: interval, duration: "0:30", target: 1500M_PACE, description: Series @1500 pace }
-    - !include ../../inc/walk_1min.yaml
+    - {
+        type: interval,
+        duration: "0:30",
+        target: 1500M_PACE,
+        description: Series @1500 pace,
+      }
+    - !include walk_1min.yaml
   - *ANAER
   - *ANAER
   - *ANAER

@@ -3,4 +3,4 @@ description: "Race pace"
 sport: "running"
 
 steps:
-  - !include ../../inc/hm_11.yaml
+  - !include hm_11.yaml

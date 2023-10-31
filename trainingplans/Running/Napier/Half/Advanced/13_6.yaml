@@ -3,6 +3,6 @@ description: "W3-Tempo Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/recovery_3.yaml
-  - !include ../../inc/20<hm_14.yaml
-  - !include ../../inc/recovery_3.yaml
+  - !include recovery_3.yaml
+  - !include 20<hm_14.yaml
+  - !include recovery_3.yaml
