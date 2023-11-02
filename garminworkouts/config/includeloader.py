@@ -24,31 +24,44 @@ def extract_duration(s) -> str:
 
 @staticmethod
 def step_generator(s, duration):
-    d = {}
-
     if 'recovery' in s:
-        d = generator.recovery_step_generator(duration, 'p' in s)
+        step = 'recovery'
     elif 'aerobic' in s:
-        d = generator.aerobic_step_generator(duration, 'p' in s)
+        step = 'aerobic'
     elif 'lt' in s:
-        d = generator.lt_step_generator(s, duration, 'p' in s)
+        step = 'lt'
     elif 'lr' in s:
-        d = generator.lr_step_generator(duration, 'p' in s)
+        step = 'lr'
     elif 'marathon' in s:
-        d = generator.marathon_step_generator(s, duration, 'p' in s)
+        step = 'marathon'
     elif 'hm' in s:
-        d = generator.hm_step_generator(s, duration, 'p' in s)
-    elif 'tuneup' in s:
-        d = generator.tuneup_step_generator(duration)
+        step = 'hm'
     elif 'cooldown' in s:
-        d = generator.cooldown_step_generator(duration, 'p' in s)
+        step = 'cooldown'
     elif 'walk' in s:
-        d = generator.walk_step_generator(duration)
+        step = 'walk'
     elif 'stride' in s:
-        if duration == '':
-            duration = '0.1km'
-        d = generator.stride_generator(duration)
+        step = 'stride'
+    else:
+        step = ''
 
+    return generator_struct(s, duration)[step]
+
+
+@staticmethod
+def generator_struct(s, duration):
+    d = {
+        'recovery': generator.recovery_step_generator(duration, 'p' in s),
+        'aerobic': generator.aerobic_step_generator(duration, 'p' in s),
+        'lt': generator.lt_step_generator(s, duration, 'p' in s),
+        'lr': generator.lr_step_generator(duration, 'p' in s),
+        'marathon': generator.marathon_step_generator(s, duration, 'p' in s),
+        'hm': generator.hm_step_generator(s, duration, 'p' in s),
+        'tuneup': generator.tuneup_step_generator(duration),
+        'cooldown': generator.cooldown_step_generator(duration, 'p' in s),
+        'walk': generator.walk_step_generator(duration),
+        'stride': generator.stride_generator(duration),
+    }
     return d
 
 
