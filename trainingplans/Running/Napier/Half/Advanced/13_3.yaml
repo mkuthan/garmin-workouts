@@ -3,28 +3,28 @@ description: "W2-VO2max + Anaerobic Training"
 sport: "running"
 
 steps:
-    - !include ../../inc/warmup.yaml
-    - &SERIES
-      - {
-            type: interval,
-            duration: "1km",
-            target: 5KM_PACE,
-            description: Series @5k pace,
-        }
-      - !include walk_2min.yaml
-    - *SERIES
-    - *SERIES
-    - *SERIES
-    - *SERIES
-    - *SERIES
-    - &ANAER
-      - {
-            type: interval,
-            duration: "0.2km",
-            target: 1500M_PACE,
-            description: Series @1500 pace,
-        }
-      - !include walk_1min.yaml
-    - *ANAER
-    - *ANAER
-    - *ANAER
+  - !include warmup_3.yaml
+  - &SERIES
+    - {
+        type: interval,
+        duration: "1km",
+        target: 5KM_PACE,
+        description: Series @5k pace,
+      }
+    - !include walk_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - &ANAER
+    - {
+        type: interval,
+        duration: "0.2km",
+        target: 1500M_PACE,
+        description: Series @1500 pace,
+      }
+    - !include walk_1min.yaml
+  - *ANAER
+  - *ANAER
+  - *ANAER

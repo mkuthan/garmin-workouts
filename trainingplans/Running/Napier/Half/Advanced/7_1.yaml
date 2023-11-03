@@ -3,7 +3,7 @@ description: "W1-Pace Change Run + Anaerobic Training"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
+  - !include warmup_3.yaml
   - &SERIES
     - !include 10>lt_2min.yaml
     - !include paerobic_3min.yaml

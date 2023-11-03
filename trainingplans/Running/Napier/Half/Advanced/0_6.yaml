@@ -5,7 +5,7 @@ sport: "running"
 steps:
   - !include aerobic_30min.yaml
   - &HILL
-    - !include ../../inc/hill.yaml
+    - !include hill.yaml
   - *HILL
   - *HILL
   - *HILL

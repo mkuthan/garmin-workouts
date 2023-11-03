@@ -3,7 +3,7 @@ description: "W2-Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
+  - !include warmup_3.yaml
   - &SERIES
     - !include 10>lt_1min.yaml
     - !include precovery_2min.yaml

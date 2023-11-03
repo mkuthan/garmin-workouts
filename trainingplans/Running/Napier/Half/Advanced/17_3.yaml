@@ -3,10 +3,20 @@ description: "W2-Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
+  - !include warmup_3.yaml
   - &INTERVAL
-    - { type: interval, duration: "1:30", target: 10>THRESHOLD_PACE, description: Tempo Run }
-    - { type: recovery, duration: "1:30", target: RECOVERY_PACE, description: Recovery }
+    - {
+        type: interval,
+        duration: "1:30",
+        target: 10>THRESHOLD_PACE,
+        description: Tempo Run,
+      }
+    - {
+        type: recovery,
+        duration: "1:30",
+        target: RECOVERY_PACE,
+        description: Recovery,
+      }
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL

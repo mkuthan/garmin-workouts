@@ -110,6 +110,16 @@ def tuneup_step_generator(duration) -> dict:
     return step
 
 
+def warmup_step_generator(duration) -> dict:
+    step: dict = {}
+    step['type'] = 'warmup'
+    step['duration'] = duration
+    step['target'] = 'AEROBIC_HEART_RATE'
+    step['description'] = 'Warm-up'
+
+    return step
+
+
 def cooldown_step_generator(duration, pace=False) -> dict:
     step: dict = {}
     step['type'] = 'cooldown'
@@ -145,6 +155,25 @@ def stride_generator(duration):
     step: dict = {}
     step['type'] = 'recovery'
     step['duration'] = '0.2km'
+    step['target'] = 'RECOVERY_PACE'
+    step['description'] = 'Recovery pace'
+    steps.append(step)
+
+    return steps
+
+
+def hill_generator(duration):
+    steps = []
+    step: dict = {}
+    step['type'] = 'interval'
+    step['duration'] = '0:10'
+    step['target'] = '1KM_PACE'
+    step['description'] = 'Hill climbing'
+    steps.append(step)
+
+    step: dict = {}
+    step['type'] = 'recovery'
+    step['duration'] = '0:20'
     step['target'] = 'RECOVERY_PACE'
     step['description'] = 'Recovery pace'
     steps.append(step)

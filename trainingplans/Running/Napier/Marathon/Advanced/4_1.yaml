@@ -3,7 +3,7 @@ description: "W1-Hills + Pace Change Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
+  - !include warmup_3.yaml
   - &SERIES
     - !include 10>lt_2min.yaml
     - !include paerobic_2min.yaml

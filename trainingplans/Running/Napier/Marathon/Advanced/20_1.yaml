@@ -3,8 +3,8 @@ description: "W1-Sprints"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
-  - &SPRINT !include ../../inc/sprint.yaml
+  - !include warmup_3.yaml
+  - !include &SPRINT ../../inc/sprint.yaml
   - *SPRINT
   - *SPRINT
   - *SPRINT

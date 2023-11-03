@@ -3,7 +3,7 @@ description: "W2-Progression Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
+  - !include warmup_3.yaml
   - !include 30<lt_6min.yaml
   - !include 20<lt_6min.yaml
   - !include 10<lt_6min.yaml

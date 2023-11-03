@@ -3,7 +3,7 @@ description: "Speed"
 sport: "running"
 
 steps:
-  - !include &HILL ../../../inc/hill.yaml
+  - !include &HILL ../hill.yaml
   - *HILL
   - *HILL
   - *HILL

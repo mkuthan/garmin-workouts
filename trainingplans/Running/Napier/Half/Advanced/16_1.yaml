@@ -3,8 +3,8 @@ description: "W1-Hills + Accelerations"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
-  - &HILL !include ../../inc/hill.yaml
+  - !include warmup_3.yaml
+  - !include &HILL hill.yaml
   - *HILL
   - *HILL
   - *HILL
@@ -14,7 +14,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - &ACC !include ../../inc/acc.yaml
+  - !include &ACC ../../inc/acc.yaml
   - *ACC
   - *ACC
   - *ACC

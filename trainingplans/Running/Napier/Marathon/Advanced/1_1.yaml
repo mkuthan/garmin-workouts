@@ -3,8 +3,8 @@ description: "W1-Hills and Progression Run"
 sport: "running"
 
 steps:
-  - !include ../../inc/warmup.yaml
-  - !include &HILL ../../inc/hill.yaml
+  - !include warmup_3.yaml
+  - !include &HILL hill.yaml
   - *HILL
   - *HILL
   - *HILL
