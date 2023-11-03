@@ -9,7 +9,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - !include 15<lt_9min.yaml
-  - !include 10<lt_9min.yaml
-  - !include 5<lt_9min.yaml
-  - !include lt_9min.yaml
+  - !include 15<plt_9min.yaml
+  - !include 10<plt_9min.yaml
+  - !include 5<plt_9min.yaml
+  - !include plt_9min.yaml

@@ -39,7 +39,10 @@ def lt_step_generator(target: str, duration, pace=False) -> dict:
     step: dict = {}
     step['type'] = 'interval'
     step['duration'] = duration
-    step['target'] = d + 'THRESHOLD_PACE'
+    if pace:
+        step['target'] = d + 'THRESHOLD_PACE'
+    else:
+        step['target'] = d + 'THRESHOLD_HEART_RATE'
     step['description'] = s + 'Threshold pace'
 
     return step

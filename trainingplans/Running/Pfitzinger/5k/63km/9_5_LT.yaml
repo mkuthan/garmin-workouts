@@ -4,11 +4,9 @@ sport: "running"
 
 steps:
   - !include warmup_4.yaml
-  - !include lt_8min.yaml
-  - !include recovery_3min.yaml
-  - !include lt_8min.yaml
-  - !include recovery_3min.yaml
-  - !include lt_8min.yaml
-  - !include recovery_3min.yaml
-  - !include lt_8min.yaml
-  - !include recovery_3min.yaml
+  - &SERIES
+    - !include lt_8min.yaml
+    - !include recovery_3min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES

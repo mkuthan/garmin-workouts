@@ -5,7 +5,7 @@ sport: "running"
 steps:
   - !include aerobic_3.yaml
   - &INTERVAL
-    - !include lt_1.yaml
+    - !include plt_1.yaml
     - !include precovery_1.yaml
   - *INTERVAL
   - *INTERVAL

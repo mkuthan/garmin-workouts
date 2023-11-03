@@ -5,7 +5,7 @@ sport: "running"
 steps:
   - !include warmup_3.yaml
   - &INTERVAL
-    - !include 10>lt_1min.yaml
+    - !include 10>plt_1min.yaml
     - !include precovery_2min.yaml
   - *INTERVAL
   - *INTERVAL

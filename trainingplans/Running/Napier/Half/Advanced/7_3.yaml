@@ -10,7 +10,7 @@ steps:
   - *HILL
   - *HILL
   - &SERIES
-    - !include lt_3min.yaml
+    - !include plt_3min.yaml
     - !include paerobic_3min.yaml
   - *SERIES
   - *SERIES
