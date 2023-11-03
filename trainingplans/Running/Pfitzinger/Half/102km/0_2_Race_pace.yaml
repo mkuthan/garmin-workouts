@@ -3,5 +3,5 @@ description: "Race pace"
 sport: "running"
 
 steps:
-  - !include aerobic_8.yaml
+  - !include aerobic_10.yaml
   - !include hm_3.yaml
