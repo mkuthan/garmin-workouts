@@ -47,7 +47,7 @@ def generator_struct(s, duration):
         'marathon': generator.marathon_step_generator(s, duration, 'p' in s),
         'hm': generator.hm_step_generator(s, duration, 'p' in s),
         'tuneup': generator.tuneup_step_generator(duration),
-        'warmup': generator.cooldown_step_generator(duration),
+        'warmup': generator.warmup_step_generator(duration),
         'cooldown': generator.cooldown_step_generator(duration, 'p' in s),
         'walk': generator.walk_step_generator(duration),
         'stride': generator.stride_generator(duration),
