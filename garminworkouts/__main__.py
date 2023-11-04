@@ -42,7 +42,7 @@ def command_trainingplan_reset(args) -> None:
             workout_name: str = workout.get_workout_name()
             existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
 
-            if existing_workout:
+            if existing_workout and plan in existing_workout['description']:
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 logging.info("Deleting workout '%s'", workout_name)
                 connection.delete_workout(workout_id)
