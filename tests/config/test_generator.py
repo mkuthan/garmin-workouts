@@ -69,6 +69,12 @@ class MyTestCase(unittest.TestCase):
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
+                            'target': 'THRESHOLD_HEART_RATE',
+                            'description': 'Threshold pace'
+                        },
+                        {
+                            'type': 'interval',
+                            'duration': '0:20:00',
                             'target': 'THRESHOLD_PACE',
                             'description': 'Threshold pace'
                         },

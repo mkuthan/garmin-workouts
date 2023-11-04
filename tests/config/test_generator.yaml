@@ -11,8 +11,9 @@ steps:
   - !include paerobic_1.yaml
   - !include aerobic_5.yaml
   - !include lt_20min.yaml
-  - !include 10<lt_20min.yaml
-  - !include 10>lt_20min.yaml
+  - !include plt_20min.yaml
+  - !include 10<plt_20min.yaml
+  - !include 10>plt_20min.yaml
   - !include plr_1.yaml
   - !include lr_5.yaml
   - !include marathon_20min.yaml
