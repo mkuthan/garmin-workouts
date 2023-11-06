@@ -9,7 +9,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - !include &SPRINT ../../inc/sprint.yaml
+  - !include &SPRINT ../../stride_30s.yaml
   - *SPRINT
   - *SPRINT
   - *SPRINT

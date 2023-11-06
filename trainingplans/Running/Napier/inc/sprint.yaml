@@ -1,2 +1,0 @@
-- { type: interval, duration: "0:30", target: 1KM_PACE, description: Sprint }
-- !include walk_1min.yaml

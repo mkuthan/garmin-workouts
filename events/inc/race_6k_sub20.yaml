@@ -1,1 +1,0 @@
-- { type: "interval", duration: "6km", target: HEART_RATE_ZONE_4, description: "6k run" }
