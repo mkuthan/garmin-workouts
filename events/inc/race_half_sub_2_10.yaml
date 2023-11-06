@@ -1,3 +1,0 @@
-- { type: "interval", duration: "13km", target: HEART_RATE_ZONE_2, description: "Half marathon run" }
-- { type: "interval", duration: "6km", target: HEART_RATE_ZONE_3, description: "Half marathon run" }
-- { type: "interval", duration: "2.2km", target: HEART_RATE_ZONE_4, description: "Half marathon run" }

@@ -454,6 +454,8 @@ class Workout(object):
                 description += 'Plan: ' + self.plan + '. '
             description += ('Estimated Duration: ' + str(self.duration) + '; '
                             + str(self.mileage).format('2:2f') + ' km. '
+                            + str(timedelta(seconds=self.sec/self.mileage))[3:7]
+                            + ' min/km - '
                             + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
                             + 'rTSS: ' + str(self.tss).format('2:2f'))
         elif self.sport_type[0] == 'cycling':

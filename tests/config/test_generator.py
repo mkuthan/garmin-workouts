@@ -105,7 +105,7 @@ class MyTestCase(unittest.TestCase):
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
-                            'target': 'MARATHON_PACE',
+                            'target': 'MARATHON_HEART_RATE',
                             'description': 'Marathon pace'
                         },
                         {

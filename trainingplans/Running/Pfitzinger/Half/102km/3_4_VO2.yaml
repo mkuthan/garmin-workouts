@@ -4,9 +4,9 @@ sport: "running"
 
 steps:
   - !include aerobic_9.yaml
-  - &SERIES !include ../../inc/1200.yaml
+  - !include &SERIES series_1200m.yaml
   - *SERIES
   - *SERIES
-  - &SERIES2 !include ../../inc/1000.yaml
+  - !include &SERIES2 series_1000m.yaml
   - *SERIES2
   - *SERIES2

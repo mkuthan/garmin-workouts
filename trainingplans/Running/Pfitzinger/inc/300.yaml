@@ -1,2 +1,0 @@
-- { type: interval, duration: 0.3km, target: 1KM_PACE, description: Series @1k pace }
-- { type: recovery, duration: 0.3km, target: RECOVERY_PACE, description: Recovery }

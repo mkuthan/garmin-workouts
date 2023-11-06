@@ -17,13 +17,17 @@ def extract_duration(s) -> str:
         duration = s
     elif 'm' in s:
         duration = s
+    elif 'k' in s:
+        duration = s.split('k')[0] + 'km'
+    elif 'half' in s:
+        duration = '21.1km'
     else:
         duration = s.replace(',', '.') + 'km'
     return duration
 
 
 @staticmethod
-def step_generator(s, duration):
+def step_generator(s, duration, objective):
     step = s
     if '>' in step:
         step = step.split('>')[1]
@@ -34,11 +38,11 @@ def step_generator(s, duration):
     if 'p' in step[0]:
         step = step.split('p')[1]
 
-    return generator_struct(s, duration)[step]
+    return generator_struct(s, duration, objective)[step]
 
 
 @staticmethod
-def generator_struct(s, duration):
+def generator_struct(s, duration, objective):
     d = {
         'recovery': generator.recovery_step_generator(duration, 'p' in s),
         'aerobic': generator.aerobic_step_generator(duration, 'p' in s),
@@ -52,6 +56,9 @@ def generator_struct(s, duration):
         'walk': generator.walk_step_generator(duration),
         'stride': generator.stride_generator(duration),
         'hill': generator.hill_generator(duration),
+        'acceleration': generator.acceleration_generator(duration),
+        'series': generator.series_generator(duration),
+        'race': generator.race_generator(duration, objective),
     }
     return d
 
@@ -73,7 +80,10 @@ class IncludeLoader(yaml.SafeLoader):
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
 
-            d = step_generator(s[0], extract_duration(s[1]) if len(s) >= 2 else '')
+            d = step_generator(
+                s[0],
+                extract_duration(s[1]) if len(s) >= 2 else '',
+                int(s[2].split('sub')[1]) if len(s) >= 3 else 0)
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]

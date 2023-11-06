@@ -4,7 +4,7 @@ sport: "running"
 
 steps:
   - !include warmup_3.yaml
-  - !include &SPRINT ../../inc/sprint.yaml
+  - !include &SPRINT ../../stride_30s.yaml
   - *SPRINT
   - *SPRINT
   - *SPRINT

@@ -1,3 +1,0 @@
-- { type: "interval", duration: "12km", target: HEART_RATE_ZONE_1, description: "Marathon run" }
-- { type: "interval", duration: "25km", target: HEART_RATE_ZONE_2, description: "Marathon run" }
-- { type: "interval", duration: "5.2km", target: HEART_RATE_ZONE_3, description: "Marathon run" }

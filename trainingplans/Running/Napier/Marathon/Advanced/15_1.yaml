@@ -14,7 +14,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - !include &ACC ../../inc/acc.yaml
+  - !include &ACC acceleration.yaml
   - *ACC
   - *ACC
   - *ACC
