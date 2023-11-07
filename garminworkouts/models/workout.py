@@ -425,8 +425,8 @@ class Workout(object):
                 t2 = self._target_value(step, 'max')
                 t1 = self._target_value(step, 'min')
 
-            t2 = (round((t2 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
-            t1 = (round((t1 - self.fmin) / (self.fmax - self.fmin), 2) + 0.06) * self.vVO2.to_pace()
+            t2 = self.convert_HR_to_vVO2(round((t2 - self.fmin) / (self.fmax - self.fmin), 2)) * self.vVO2.to_pace()
+            t1 = self.convert_HR_to_vVO2(round((t1 - self.fmin) / (self.fmax - self.fmin), 2)) * self.vVO2.to_pace()
         elif target_type == 'power.zone':
             if 'zone' in step['target']:
                 zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
@@ -443,7 +443,11 @@ class Workout(object):
         else:
             t2 = 0.0
             t1 = 0.0
-        return min(t1, t2)  # + 0.5 * (max(t1, t2) - min(t1, t2))
+        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
+
+    @staticmethod
+    def convert_HR_to_vVO2(HR):
+        return 0.9607 * HR + 0.0846  # HR + 0.06
 
     def _generate_description(self):
         description: str = ''
