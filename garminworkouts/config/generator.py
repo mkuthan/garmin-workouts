@@ -1,3 +1,6 @@
+from garminworkouts.models.duration import Duration
+
+
 def recovery_step_generator(duration, pace=False) -> dict:
     return step_generator('recovery', duration, 'RECOVERY_PACE', 'Recovery pace') if pace else step_generator(
         'recovery', duration, 'RECOVERY_HEART_RATE', 'Recovery pace')
@@ -92,6 +95,16 @@ def series_generator(duration) -> list[dict]:
         case '1600m':
             steps.append(step_generator('interval', '1.6km', '5KM_PACE', 'Series @5k pace'))
             steps.append(step_generator('rest', '4:00', 'RECOVERY_PACE', 'Recovery'))
+    return steps
+
+
+def longhill_generator(duration) -> list[dict]:
+    steps: list[dict] = []
+    type_dur: str = Duration(duration).get_type()
+    dur: int | None = Duration.get_value(duration)
+    duration_rest: int = 2 * dur if dur is not None else 0
+    steps.append(step_generator('interval', duration, '5KM_PACE', 'Long hill climbing'))
+    steps.append(step_generator('rest', Duration.get_string(duration_rest, type_dur), 'RECOVERY_PACE', 'Recovery pace'))
     return steps
 
 

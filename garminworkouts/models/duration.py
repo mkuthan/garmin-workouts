@@ -23,6 +23,30 @@ class Duration:
         return 'lap.button'
 
     @staticmethod
+    def get_string(value: int, type: str) -> str:
+        match type:
+            case 'heart.rate':
+                s: str = str.join(str(value), 'ppm')
+            case 'distance':
+                if value >= 1000:
+                    s = str.join(str(value), 'm')
+                else:
+                    s = str.join(str(value), 'km')
+            case 'calories':
+                s = str.join(str(value), 'cals')
+            case 'reps':
+                s = str.join(str(value), 'reps')
+            case 'power':
+                s = str.join(str(value), 'w')
+            case 'time':
+                s = Time.to_str(value)
+            case 'lap.button':
+                s = ''
+            case _:
+                s = ''
+        return s
+
+    @staticmethod
     def get_value(duration: str) -> int | None:
         if 'ppm' in duration:
             return int(duration.split('ppm')[0])

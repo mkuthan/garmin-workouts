@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import timedelta
 
 
 @dataclass(frozen=True)
@@ -17,6 +18,10 @@ class Time:
             return Time._to_seconds(int(seconds))
         else:
             raise ValueError('Unknown duration %s, expected format HH:MM:SS' % self.duration)
+
+    @staticmethod
+    def to_str(seconds: int) -> str:
+        return str(timedelta(seconds=seconds))
 
     @staticmethod
     def time_tokenize(duration: str) -> list[str]:

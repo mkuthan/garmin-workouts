@@ -8,14 +8,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - &SERIES
-    - {
-        type: interval,
-        duration: "1:00",
-        target: VO2MAX_PACE,
-        description: Hill,
-      }
-    - !include walk_2min.yaml
+  - &SERIES !include longhill_1min.yaml
   - *SERIES
   - *SERIES
   - *SERIES
