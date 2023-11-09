@@ -47,29 +47,29 @@ def walk_step_generator(duration) -> dict:
     return step_generator('rest', duration, 'WALK', 'Walk')
 
 
-def stride_generator(duration):
-    steps = []
+def stride_generator(duration) -> list[dict]:
+    steps: list[dict] = []
     steps.append(step_generator('interval', duration, '1KM_PACE', 'Strides pace'))
     steps.append(step_generator('rest', duration, 'RECOVERY_PACE', 'Recovery pace'))
     return steps
 
 
-def hill_generator(duration):
-    steps = []
+def hill_generator(duration) -> list[dict]:
+    steps: list[dict] = []
     steps.append(step_generator('interval', '0:10', '1KM_PACE', 'Hill climbing'))
     steps.append(step_generator('rest', '0:20', 'RECOVERY_PACE', 'Recovery pace'))
     return steps
 
 
-def acceleration_generator(duration):
-    steps = []
+def acceleration_generator(duration) -> list[dict]:
+    steps: list[dict] = []
     steps.append(step_generator('interval', '0:30', '1KM_PACE', 'Accelerations'))
     steps.append(step_generator('rest', '0:30', 'RECOVERY_PACE', 'Recovery pace'))
     return steps
 
 
-def series_generator(duration):
-    steps = []
+def series_generator(duration) -> list[dict]:
+    steps: list[dict] = []
     match duration:
         case '200m':
             steps.append(step_generator('interval', '0.2km', '1KM_PACE', 'Series @1k pace'))
@@ -191,7 +191,7 @@ def step_generator(type: str, duration: str, target: str, description: str) -> d
     return {'type': type, 'duration': duration, 'target': target, 'description': description}
 
 
-def margin_generator(target: str):
+def margin_generator(target: str) -> tuple[str, str]:
     if '>' in target:
         d, target = target.split('>')
         s: str = d + 's quicker than '
@@ -206,8 +206,8 @@ def margin_generator(target: str):
     return d, s
 
 
-def race_steps_generator(z1=None, z2=None, z3=None, z4=None, description=''):
-    steps = []
+def race_steps_generator(z1=None, z2=None, z3=None, z4=None, description='') -> list[dict]:
+    steps: list[dict] = []
     if z1 is not None:
         steps.append(step_generator('interval', z1, 'HEART_RATE_ZONE_1', description))
     if z2 is not None:

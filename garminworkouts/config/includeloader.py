@@ -38,28 +38,47 @@ def step_generator(s, duration, objective):
     if 'p' in step[0]:
         step = step.split('p')[1]
 
-    return generator_struct(s, duration, objective)[step]
+    return generator_struct(s, duration, objective, step)
 
 
 @staticmethod
-def generator_struct(s, duration, objective):
-    d = {
-        'recovery': generator.recovery_step_generator(duration, 'p' in s),
-        'aerobic': generator.aerobic_step_generator(duration, 'p' in s),
-        'lt': generator.lt_step_generator(s, duration, 'p' in s),
-        'lr': generator.lr_step_generator(duration, 'p' in s),
-        'marathon': generator.marathon_step_generator(s, duration, 'p' in s),
-        'hm': generator.hm_step_generator(s, duration, 'p' in s),
-        'tuneup': generator.tuneup_step_generator(duration),
-        'warmup': generator.warmup_step_generator(duration),
-        'cooldown': generator.cooldown_step_generator(duration, 'p' in s),
-        'walk': generator.walk_step_generator(duration),
-        'stride': generator.stride_generator(duration),
-        'hill': generator.hill_generator(duration),
-        'acceleration': generator.acceleration_generator(duration),
-        'series': generator.series_generator(duration),
-        'race': generator.race_generator(duration, objective),
-    }
+def generator_struct(s, duration, objective, step) -> dict | list[dict]:
+    match step:
+        case 'recovery':
+            d = generator.recovery_step_generator(duration, 'p' in s)
+        case 'aerobic':
+            d = generator.aerobic_step_generator(duration, 'p' in s)
+        case 'lt':
+            d = generator.lt_step_generator(s, duration, 'p' in s)
+        case 'lr':
+            d = generator.lr_step_generator(duration, 'p' in s)
+        case 'marathon':
+            d = generator.marathon_step_generator(s, duration, 'p' in s)
+        case 'hm':
+            d = generator.hm_step_generator(s, duration, 'p' in s)
+        case 'tuneup':
+            d = generator.tuneup_step_generator(duration)
+        case 'warmup':
+            d = generator.warmup_step_generator(duration)
+        case 'cooldown':
+            d = generator.cooldown_step_generator(duration, 'p' in s)
+        case 'walk':
+            d = generator.walk_step_generator(duration)
+        case 'stride':
+            d = generator.stride_generator(duration)
+        case 'longhill':
+            d = generator.longhill_generator(duration)
+        case 'hill':
+            d = generator.hill_generator(duration)
+        case 'acceleration':
+            d = generator.acceleration_generator(duration)
+        case 'series':
+            d = generator.series_generator(duration)
+        case 'race':
+            d = generator.race_generator(duration, objective)
+        case _:
+            d = {}
+
     return d
 
 
