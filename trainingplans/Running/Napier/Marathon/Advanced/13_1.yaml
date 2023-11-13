@@ -14,9 +14,7 @@ steps:
   - *SERIES
   - *SERIES
   - *SERIES
-  - &SERIES2
-    - { type: interval, duration: "1:00", target: 3KM_PACE, description: Hill }
-    - !include walk_1min.yaml
+  - &SERIES2 !include anaerobic_60s.yaml
   - *SERIES2
   - *SERIES2
   - *SERIES2

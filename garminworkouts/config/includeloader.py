@@ -74,6 +74,8 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             d = generator.acceleration_generator(duration)
         case 'series':
             d = generator.series_generator(duration)
+        case 'anaerobic':
+            d = generator.anaerobic_generator(duration)
         case 'race':
             d = generator.race_generator(duration, objective)
         case _:

@@ -95,6 +95,9 @@ def series_generator(duration) -> list[dict]:
         case '1600m':
             steps.append(step_generator('interval', '1.6km', '5KM_PACE', 'Series @5k pace'))
             steps.append(step_generator('rest', '4:00', 'RECOVERY_PACE', 'Recovery'))
+        case '3:00':
+            steps.append(step_generator('interval', '3:00', '5KM_PACE', 'Series @5k pace'))
+            steps.append(step_generator('rest', '1:30', 'RECOVERY_PACE', 'Recovery'))
     return steps
 
 
@@ -105,6 +108,13 @@ def longhill_generator(duration) -> list[dict]:
     duration_rest: int = 2 * dur if dur is not None else 0
     steps.append(step_generator('interval', duration, '5KM_PACE', 'Long hill climbing'))
     steps.append(step_generator('rest', Duration.get_string(duration_rest, type_dur), 'RECOVERY_PACE', 'Recovery pace'))
+    return steps
+
+
+def anaerobic_generator(duration) -> list[dict]:
+    steps: list[dict] = []
+    steps.append(step_generator('interval', duration, '1500M_PACE', 'Series @1500 pace'))
+    steps.append(step_generator('rest', '1:00', 'WALK', 'Recovery pace'))
     return steps
 
 

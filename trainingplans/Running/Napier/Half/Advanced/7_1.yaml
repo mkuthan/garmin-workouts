@@ -12,14 +12,7 @@ steps:
   - *SERIES
   - *SERIES
   - !include walk_5min.yaml
-  - &ANAER
-    - {
-        type: interval,
-        duration: "0:30",
-        target: 1500M_PACE,
-        description: Series,
-      }
-    - !include walk_1min.yaml
+  - &ANAER !include anaerobic_30s.yaml
   - *ANAER
   - *ANAER
   - *ANAER

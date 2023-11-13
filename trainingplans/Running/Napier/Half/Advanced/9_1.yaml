@@ -9,14 +9,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - &SERIES
-    - {
-        type: interval,
-        duration: "2:00",
-        target: VO2MAX_PACE,
-        description: Hill Series,
-      }
-    - !include recovery_4min.yaml
+  - &SERIES !include longhill_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

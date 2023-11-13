@@ -5,18 +5,8 @@ sport: "running"
 steps:
   - !include warmup_3.yaml
   - &INTERVAL
-    - {
-        type: interval,
-        duration: "1:30",
-        target: 10>THRESHOLD_PACE,
-        description: Tempo Run,
-      }
-    - {
-        type: recovery,
-        duration: "1:30",
-        target: RECOVERY_PACE,
-        description: Recovery,
-      }
+    - !include plt_90s.yaml
+    - !include precovery_90s.yaml
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL
