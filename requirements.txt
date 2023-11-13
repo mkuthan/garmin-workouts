@@ -3,7 +3,7 @@ setuptools==68.2.2
 wheel == 0.41.3
 requests==2.31.0
 pyyaml==6.0.1
-numpy==1.26.1
+numpy==1.26.2
 xlrd==2.0.1
 pandas==2.1.3
 cloudscraper==1.2.71
