@@ -95,7 +95,7 @@ def series_generator(duration) -> list[dict]:
         case '1600m':
             steps.append(step_generator('interval', '1.6km', '5KM_PACE', 'Series @5k pace'))
             steps.append(step_generator('rest', '4:00', 'RECOVERY_PACE', 'Recovery'))
-        case '3:00':
+        case '0:03:00':
             steps.append(step_generator('interval', '3:00', '5KM_PACE', 'Series @5k pace'))
             steps.append(step_generator('rest', '1:30', 'RECOVERY_PACE', 'Recovery'))
     return steps
