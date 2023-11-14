@@ -339,16 +339,16 @@ class Workout(object):
             return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))
         elif '>' in target and target_type == 'heart.rate.zone':
             d, target = target.split('>')
-            s: float = ((self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin) + 0.06
-                        ) * self.vVO2.to_pace()
+            s: float = self.convert_HR_to_vVO2(
+                (self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin)) * self.vVO2.to_pace()
             s = 1000.0/(1000.0/s - float(d))
-            return round((s/self.vVO2.to_pace()-0.06)*(self.fmax - self.fmin) + self.fmin)
+            return round(self.convert_vVO2_to_HR(s/self.vVO2.to_pace())*(self.fmax - self.fmin) + self.fmin)
         elif '<' in target and target_type == 'heart.rate.zone':
             d, target = target.split('<')
-            s: float = ((self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin) + 0.06
-                        ) * self.vVO2.to_pace()
+            s: float = self.convert_HR_to_vVO2(
+                (self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin)) * self.vVO2.to_pace()
             s = 1000.0/(1000.0/s + float(d))
-            return round((s/self.vVO2.to_pace()-0.06)*(self.fmax - self.fmin) + self.fmin)
+            return round(self.convert_vVO2_to_HR(s/self.vVO2.to_pace())*(self.fmax - self.fmin) + self.fmin)
         else:
             return float(0)
 
@@ -448,6 +448,10 @@ class Workout(object):
     @staticmethod
     def convert_HR_to_vVO2(HR):
         return 0.9607 * HR + 0.0846  # HR + 0.06
+
+    @staticmethod
+    def convert_vVO2_to_HR(vVO2):
+        return (vVO2 - 0.0846) / 0.9607  # vVO2 - 0.06
 
     def _generate_description(self):
         description: str = ''

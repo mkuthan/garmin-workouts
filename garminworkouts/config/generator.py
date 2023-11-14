@@ -14,7 +14,7 @@ def aerobic_step_generator(duration, pace=False) -> dict:
 def lt_step_generator(target: str, duration, pace=False) -> dict:
     d, s = margin_generator(target)
     return step_generator('interval', duration, d + 'THRESHOLD_PACE', s + 'Threshold pace') if pace else step_generator(
-        'interval', duration, 'THRESHOLD_HEART_RATE', 'Threshold pace')
+        'interval', duration, d + 'THRESHOLD_HEART_RATE', s + 'Threshold pace')
 
 
 def lr_step_generator(duration, pace=False) -> dict:
@@ -25,7 +25,7 @@ def lr_step_generator(duration, pace=False) -> dict:
 def marathon_step_generator(target: str, duration, pace=False) -> dict:
     d, s = margin_generator(target)
     return step_generator('interval', duration, d + 'MARATHON_PACE', s + 'Marathon pace') if pace else step_generator(
-        'interval', duration, 'MARATHON_HEART_RATE', 'Marathon pace')
+        'interval', duration, d + 'MARATHON_HEART_RATE', s + 'Marathon pace')
 
 
 def hm_step_generator(target: str, duration, pace=False) -> dict:
