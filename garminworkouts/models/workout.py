@@ -302,7 +302,7 @@ class Workout(object):
         elif target_type == 'cadence.zone':
             return float(target_value)
         elif target_type == 'heart.rate.zone':
-            return float(int(self.fmin + float(target_value) * (self.fmax-self.fmin)))
+            return float(self.convert_targetHR_to_HR(float(target_value)))
         elif target_type == 'speed.zone':
             return float(target_value)
         elif target_type == 'pace.zone':
@@ -333,22 +333,22 @@ class Workout(object):
         d: str = ''
         if '>' in target and target_type == 'pace.zone':
             d, target = target.split('>')
-            return 1000.0/(1000.0/self._get_target_value(target, key=val) - float(d))
+            return self.time_difference_pace(self._get_target_value(target, key=val), -float(d))
         elif '<' in target and target_type == 'pace.zone':
             d, target = target.split('<')
-            return 1000.0/(1000.0/self._get_target_value(target, key=val) + float(d))
+            return self.time_difference_pace(self._get_target_value(target, key=val), float(d))
         elif '>' in target and target_type == 'heart.rate.zone':
             d, target = target.split('>')
-            s: float = self.convert_HR_to_vVO2(
-                (self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin)) * self.vVO2.to_pace()
-            s = 1000.0/(1000.0/s - float(d))
-            return round(self.convert_vVO2_to_HR(s/self.vVO2.to_pace())*(self.fmax - self.fmin) + self.fmin)
+            s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
+                self._get_target_value(target, key=val))) * self.vVO2.to_pace()
+            s = self.time_difference_pace(s, -float(d))
+            return round(self.convert_targetHR_to_HR(self.convert_targetvVO2_to_targetHR(s/self.vVO2.to_pace())))
         elif '<' in target and target_type == 'heart.rate.zone':
             d, target = target.split('<')
-            s: float = self.convert_HR_to_vVO2(
-                (self._get_target_value(target, key=val) - self.fmin) / (self.fmax - self.fmin)) * self.vVO2.to_pace()
-            s = 1000.0/(1000.0/s + float(d))
-            return round(self.convert_vVO2_to_HR(s/self.vVO2.to_pace())*(self.fmax - self.fmin) + self.fmin)
+            s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
+                self._get_target_value(target, key=val))) * self.vVO2.to_pace()
+            s = self.time_difference_pace(s, float(d))
+            return round(self.convert_targetHR_to_HR(self.convert_targetvVO2_to_targetHR(s/self.vVO2.to_pace())))
         else:
             return float(0)
 
@@ -379,8 +379,8 @@ class Workout(object):
         return self._get_target_value(target, key=val)
 
     def hr_zones(self) -> tuple[list[float], list[int], list[dict]]:
-        zones: list[float] = [0.46, 0.6, 0.7, 0.8, (self.flt - self.fmin)/(self.fmax - self.fmin), 1.0, 1.1]
-        hr_zones: list[int] = [round(self.fmin + (self.fmax - self.fmin) * zone) for zone in zones]
+        zones: list[float] = [0.46, 0.6, 0.7, 0.8, self.convert_HR_to_targetHR(self.flt), 1.0, 1.1]
+        hr_zones: list[int] = [self.convert_targetHR_to_HR(zone) for zone in zones]
 
         data: list[dict] = [{
             "changeState": "CHANGED",
@@ -425,8 +425,8 @@ class Workout(object):
                 t2 = self._target_value(step, 'max')
                 t1 = self._target_value(step, 'min')
 
-            t2 = self.convert_HR_to_vVO2(round((t2 - self.fmin) / (self.fmax - self.fmin), 2)) * self.vVO2.to_pace()
-            t1 = self.convert_HR_to_vVO2(round((t1 - self.fmin) / (self.fmax - self.fmin), 2)) * self.vVO2.to_pace()
+            t2 = self.convert_HR_to_pace(t2)
+            t1 = self.convert_HR_to_pace(t1)
         elif target_type == 'power.zone':
             if 'zone' in step['target']:
                 zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
@@ -446,12 +446,25 @@ class Workout(object):
         return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
 
     @staticmethod
-    def convert_HR_to_vVO2(HR):
+    def convert_targetHR_to_targetvVO2(HR: float) -> float:
         return 0.9607 * HR + 0.0846  # HR + 0.06
 
     @staticmethod
-    def convert_vVO2_to_HR(vVO2):
+    def convert_targetvVO2_to_targetHR(vVO2: float) -> float:
         return (vVO2 - 0.0846) / 0.9607  # vVO2 - 0.06
+
+    @staticmethod
+    def time_difference_pace(s: float, d: float) -> float:
+        return 1000.0/(1000.0/s + d)
+
+    def convert_targetHR_to_HR(self, target_value: float) -> int:
+        return int(self.fmin + target_value * (self.fmax-self.fmin))
+
+    def convert_HR_to_targetHR(self, HR: float) -> float:
+        return (HR - self.fmin) / (self.fmax-self.fmin)
+
+    def convert_HR_to_pace(self, HR) -> float:
+        return self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(HR)) * self.vVO2.to_pace()
 
     def _generate_description(self):
         description: str = ''
