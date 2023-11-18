@@ -228,7 +228,7 @@ class Workout(object):
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
-        self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
+        self.tss: float = round(sec/3600 * self.ratio ** 2 / 100)
 
     def cardio_values(self, flatten_steps) -> None:
         sec: float = 0
@@ -255,7 +255,7 @@ class Workout(object):
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
-        self.tss: float = round(sec/3600 * (self.ratio * 0.89) ** 2 / 100)
+        self.tss: float = round(sec/3600 * self.ratio ** 2 / 100)
 
     def zone_extractor(self, target, key):
         if isinstance(target, dict):
