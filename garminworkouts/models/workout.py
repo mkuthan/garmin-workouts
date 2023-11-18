@@ -59,14 +59,15 @@ class Workout(object):
 
             flatten_steps: list = functional.flatten(self.config[_STEPS]) if _STEPS in self.config else []
 
-            if self.sport_type[0] == 'running':
-                self.running_values(flatten_steps)
-            elif self.sport_type[0] == 'cycling':
-                self.cycling_values(flatten_steps)
-            elif self.sport_type[0] == 'swimming':
-                self.swimming_values(flatten_steps)
-            else:
-                self.cardio_values(flatten_steps)
+            match self.sport_type[0]:
+                case 'running':
+                    self.running_values(flatten_steps)
+                case 'cycling':
+                    self.cycling_values(flatten_steps)
+                case 'swimming':
+                    self.swimming_values(flatten_steps)
+                case _:
+                    self.cardio_values(flatten_steps)
             if self.mileage == 0 and self.sec == 0:
                 raise ValueError('Null workout')
         except KeyError:
@@ -121,24 +122,8 @@ class Workout(object):
     def running_values(self, flatten_steps) -> None:
         sec: int = 0
         meters = 0
-        duration_secs = 0
-        duration_meters = 0
-
         for step in flatten_steps:
-            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
-            duration: int = WorkoutStep._end_condition_value(step)
-            if key == 'time':
-                duration_secs: int = duration
-                duration_meters = round(duration_secs * self._equivalent_pace(step))
-            elif key == 'distance':
-                duration_meters: int = duration
-                try:
-                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                except ZeroDivisionError:
-                    duration_secs = int(0)
-                except KeyError:
-                    duration_secs = int(0)
-
+            duration_secs, duration_meters = self.extract_step_duration(step)
             sec = sec + duration_secs
             meters: int = meters + duration_meters
 
@@ -165,21 +150,7 @@ class Workout(object):
         for step in flatten_steps:
             power: Power | None = Power(str(step.get('power'))) if step.get('power') else None
             power_watts: float = power.to_watts(self.cFTP.power[:-1]) if power else float(0)
-
-            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
-            duration: float = WorkoutStep._end_condition_value(step)
-            if key == 'time':
-                duration_secs: float = duration
-                duration_meters = round(duration_secs * self._equivalent_pace(step))
-            elif key == 'distance':
-                duration_meters: float = duration
-                try:
-                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                except ZeroDivisionError:
-                    duration_secs = float(0)
-                except KeyError:
-                    duration_secs = float(0)
-
+            duration_secs, duration_meters = self.extract_step_duration(step)
             sec = sec + duration_secs
             meters: float = meters + duration_meters
 
@@ -201,22 +172,9 @@ class Workout(object):
         duration_meters = 0
 
         for step in flatten_steps:
-            key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
-            duration: float = WorkoutStep._end_condition_value(step)
-            if key == 'time':
-                duration_secs: float = duration
-                duration_meters = round(duration_secs * self._equivalent_pace(step))
-            elif key == 'distance':
-                duration_meters: float = duration
-                try:
-                    duration_secs = min(round(duration_meters / self._equivalent_pace(step)), 24 * 60 * 60)
-                except ZeroDivisionError:
-                    duration_secs = float(0)
-                except KeyError:
-                    duration_secs = float(0)
-
-            sec = sec + duration_secs
-            meters: float = meters + duration_meters
+            duration_secs, duration_meters = self.extract_step_duration(step)
+            sec += duration_secs
+            meters += duration_meters
 
         try:
             self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
@@ -240,143 +198,186 @@ class Workout(object):
             assert step['type'] != 'run'
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
-            if key == 'time':
-                duration_secs: float = duration
-                duration_reps = 0
-            elif key == 'reps':
-                duration_reps: float = duration
-                duration_secs = float(0)
-
+            match key:
+                case 'time':
+                    duration_secs: float = duration
+                    duration_reps = float(0)
+                case 'reps':
+                    duration_reps: float = duration
+                    duration_secs = float(0)
+                case _:
+                    duration_reps = float(0)
+                    duration_secs = float(0)
             sec += duration_secs
             reps += duration_reps
 
         self.ratio = float(0)
-
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
         self.tss: float = round(sec/3600 * self.ratio ** 2 / 100)
 
-    def zone_extractor(self, target, key):
-        if isinstance(target, dict):
-            target_type = target[_TYPE]
-            if key in _TARGET:
-                target_value: str = target[key]
-            else:
-                target_value = ''
-                if 'zone' in target:
-                    z = int(target['zone'])
-                    if target_type == 'heart.rate.zone':
-                        zones, hr_zones, data = self.hr_zones()
-                        t = {'min': zones[z], 'max': zones[z + 1]}
-                        target_value = str(t[key])
-                    elif target_type == 'power.zone':
-                        zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
-                        t = {'min': zones[z - 1], 'max': zones[z]}
-                        target_value = str(t[key])
-        else:
-            target_type: str = self.target[target][_TYPE]
-            target_value: str = self.target[target][key] if key in self.target[target] else '0'
+    def extract_step_duration(self, step) -> tuple[int, int]:
+        key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
+        duration: int = WorkoutStep._end_condition_value(step)
+        match key:
+            case'time':
+                duration_secs: int = duration
+                duration_meters = round(duration_secs * self.equivalent_pace(step))
+            case 'distance':
+                duration_meters: int = duration
+                try:
+                    duration_secs = min(round(duration_meters / self.equivalent_pace(step)), 24 * 60 * 60)
+                except ZeroDivisionError:
+                    duration_secs = int(0)
+                except KeyError:
+                    duration_secs = int(0)
+            case _:
+                duration_secs = 0
+                duration_meters = 0
+        return duration_secs, duration_meters
 
-            if target_value == '0' and 'zone' in self.target[target]:
-                z = int(self.target[target]['zone'])
-                if target_type == 'heart.rate.zone':
+    def equivalent_pace(self, step) -> float:
+        target_type = self.extract_target_type(step[_TARGET])
+        match target_type:
+            case 'cadence.zone':
+                t2: float = self._target_value(step, 'max')
+                t1: float = self._target_value(step, 'min')
+            case 'speed.zone':
+                t2: float = self._target_value(step, 'max')
+                t1: float = self._target_value(step, 'min')
+            case 'pace.zone':
+                t2: float = self._target_value(step, 'max')
+                t1: float = self._target_value(step, 'min')
+            case 'heart.rate.zone':
+                if 'zone' in step[_TARGET]:
+                    zones, hr_zones, data = self.hr_zones()
+                    z = int(step[_TARGET]['zone'])
+                    t2 = self.convert_HR_to_pace(hr_zones[z + 1])
+                    t1 = self.convert_HR_to_pace(hr_zones[z])
+                else:
+                    t2 = self.convert_HR_to_pace(self._target_value(step, 'max'))
+                    t1 = self.convert_HR_to_pace(self._target_value(step, 'min'))
+            case 'power.zone':
+                if 'zone' in step['target']:
+                    zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
+                    z = int(step['target']['zone'])
+                    t2 = rpower_zones[z]
+                    t1 = rpower_zones[z - 1]
+                else:
+                    t2 = self._target_value(step, 'max')
+                    t1 = self._target_value(step, 'min')
+                t2 = 0.0
+                t1 = 0.0
+            case _:
+                t2 = 0.0
+                t1 = 0.0
+        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
+
+    def extract_target_type(self, step) -> str:
+        if isinstance(step, dict):
+            target_type = step[_TYPE]
+        else:
+            target: str = step
+            target, d = self.extract_target_diff(target)
+            target_type: str = self.target[target][_TYPE]
+        return target_type
+
+    def extract_target_value(self, step, key):
+        target_type = self.extract_target_type(step)
+        if isinstance(step, dict):
+            target = step
+            d = 0
+        else:
+            target, d = self.extract_target_diff(step)
+            target = self.target[target]
+        if key in target:
+            target_value = target[key]
+        elif 'zone' in target:
+            z = int(target['zone'])
+            match target_type:
+                case 'heart.rate.zone':
                     zones, hr_zones, data = self.hr_zones()
                     t = {'min': zones[z], 'max': zones[z + 1]}
                     target_value = str(t[key])
-                elif target_type == 'power.zone':
+                case 'power.zone':
                     zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
                     t = {'min': zones[z - 1], 'max': zones[z]}
                     target_value = str(t[key])
+                case _:
+                    target_value = str(0)
+        else:
+            target_value = str(0)
+        if d != 0:
+            target_value = str(self.target_variations(step, target_type, key))  # type: ignore
         return target_type, target_value
 
-    def _get_target_value(self, target, key) -> float:
-        target_type, target_value = self.zone_extractor(target, key)
-        if target_type == 'power.zone':
-            if self.sport_type[0] == 'running':
-                return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
-            elif self.sport_type[0] == 'cycling':
-                return Power(target_value).to_watts(ftp=self.cFTP.power[:-1])
-            else:
-                return float(0)
-        elif target_type == 'cadence.zone':
-            return float(target_value)
-        elif target_type == 'heart.rate.zone':
-            return float(self.convert_targetHR_to_HR(float(target_value)))
-        elif target_type == 'speed.zone':
-            return float(target_value)
-        elif target_type == 'pace.zone':
-            if self.sport_type[0] == 'running':
-                return Pace(target_value).to_pace(vVO2=self.vVO2.pace)
-            else:
-                return float(target_value)
+    @staticmethod
+    def extract_target_diff(target: str) -> tuple[str, int]:
+        if '>' in target:
+            d, target_i = target.split('>')
+            d = -int(d)
+        elif '<' in target:
+            d, target_i = target.split('<')
+            d = int(d)
         else:
-            return float(0)
+            target_i: str = target
+            d = 0
+        return target_i, d
+
+    def _target_value(self, step_config, val, secondary=False) -> float:
+        target_i: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
+        return self._get_target_value(target_i, val)
+
+    def target_variations(self, target: str, target_type: str, val: str) -> float:
+        target, d = self.extract_target_diff(target)
+        match target_type:
+            case 'pace.zone':
+                return round(
+                    self.time_difference_pace(self._get_target_value(target, key=val), d) / self.vVO2.to_pace(), 2)
+            case 'heart.rate.zone':
+                s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
+                    self._get_target_value(target, key=val))) * self.vVO2.to_pace()
+                s = self.time_difference_pace(s, d)
+                return round(self.convert_targetvVO2_to_targetHR(s/self.vVO2.to_pace()), 2)
+            case _:
+                return float(0)
+
+    def _get_target_value(self, target, key) -> float:
+        target_type, target_value = self.extract_target_value(target, key)
+        match target_type:
+            case 'power.zone':
+                match self.sport_type[0]:
+                    case 'running':
+                        return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
+                    case 'cycling':
+                        return Power(target_value).to_watts(ftp=self.cFTP.power[:-1])
+                    case _:
+                        return float(0)
+            case 'cadence.zone':
+                return float(target_value)
+            case 'heart.rate.zone':
+                return float(self.convert_targetHR_to_HR(float(target_value)))
+            case 'speed.zone':
+                return float(target_value)
+            case 'pace.zone':
+                match self.sport_type[0]:
+                    case 'running':
+                        return Pace(target_value).to_pace(vVO2=self.vVO2.pace)
+                    case _:
+                        return float(target_value)
+            case _:
+                return float(0)
 
     def _target_type(self, step_config, secondary=False) -> dict:
         target: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
-        d: str = ''
-        if '>' in target:
-            d, target = target.split('>')
-        elif '<' in target:
-            d, target = target.split('<')
-
         if isinstance(target, dict):
             return get_target_type(target[_TYPE])
-
+        target, d = self.extract_target_diff(target)
         if not target or (target not in self.target):
             return get_target_type('no.target')
         else:
             return get_target_type(self.target[target][_TYPE])
-
-    def _target_variations(self, target: str, target_type: str, val: str) -> float:
-        d: str = ''
-        if '>' in target and target_type == 'pace.zone':
-            d, target = target.split('>')
-            return self.time_difference_pace(self._get_target_value(target, key=val), -float(d))
-        elif '<' in target and target_type == 'pace.zone':
-            d, target = target.split('<')
-            return self.time_difference_pace(self._get_target_value(target, key=val), float(d))
-        elif '>' in target and target_type == 'heart.rate.zone':
-            d, target = target.split('>')
-            s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
-                self._get_target_value(target, key=val))) * self.vVO2.to_pace()
-            s = self.time_difference_pace(s, -float(d))
-            return round(self.convert_targetHR_to_HR(self.convert_targetvVO2_to_targetHR(s/self.vVO2.to_pace())))
-        elif '<' in target and target_type == 'heart.rate.zone':
-            d, target = target.split('<')
-            s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
-                self._get_target_value(target, key=val))) * self.vVO2.to_pace()
-            s = self.time_difference_pace(s, float(d))
-            return round(self.convert_targetHR_to_HR(self.convert_targetvVO2_to_targetHR(s/self.vVO2.to_pace())))
-        else:
-            return float(0)
-
-    def _target_value(self, step_config, val, secondary=False) -> float:
-        target: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
-        d: str = ''
-        if isinstance(target, dict):
-            target_type: str = target[_TYPE]
-        else:
-            target_i: str = ''
-            if '>' in target:
-                d, target_i = target.split('>')
-                target_type = self.target[target_i][_TYPE]
-            elif '<' in target:
-                d, target_i = target.split('<')
-                target_type = self.target[target_i][_TYPE]
-            else:
-                target_type = self.target[target][_TYPE]
-
-        if not target:
-            return float(0)
-
-        if isinstance(target, dict):
-            return self._get_target_value(target, key=val)
-        else:
-            if target not in self.target:
-                return self._target_variations(target, target_type, val)
-        return self._get_target_value(target, key=val)
 
     def hr_zones(self) -> tuple[list[float], list[int], list[dict]]:
         zones: list[float] = [0.46, 0.6, 0.7, 0.8, self.convert_HR_to_targetHR(self.flt), 1.0, 1.1]
@@ -398,53 +399,6 @@ class Workout(object):
 
         return zones, hr_zones, data
 
-    def _equivalent_pace(self, step) -> float:
-        if isinstance(step[_TARGET], dict):
-            target_type = step[_TARGET][_TYPE]
-        else:
-            target: str = step[_TARGET]
-            d: str = ''
-            if '>' in target:
-                d, target = target.split('>')
-            elif '<' in target:
-                d, target = target.split('<')
-            target_type: str = self.target[target][_TYPE]
-
-        if (target_type == 'cadence.zone') or \
-           (target_type == 'speed.zone') or (target_type == 'pace.zone'):
-            t2: float = self._target_value(step, 'max')
-            t1: float = self._target_value(step, 'min')
-        elif target_type == 'heart.rate.zone':
-            if 'zone' in step['target']:
-                zones, hr_zones, data = self.hr_zones()
-
-                z = int(step['target']['zone'])
-                t2 = hr_zones[z + 1]
-                t1 = hr_zones[z]
-            else:
-                t2 = self._target_value(step, 'max')
-                t1 = self._target_value(step, 'min')
-
-            t2 = self.convert_HR_to_pace(t2)
-            t1 = self.convert_HR_to_pace(t1)
-        elif target_type == 'power.zone':
-            if 'zone' in step['target']:
-                zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
-
-                z = int(step['target']['zone'])
-                t2 = rpower_zones[z]
-                t1 = rpower_zones[z - 1]
-            else:
-                t2 = self._target_value(step, 'max')
-                t1 = self._target_value(step, 'min')
-
-            t2 = 0.0
-            t1 = 0.0
-        else:
-            t2 = 0.0
-            t1 = 0.0
-        return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
-
     @staticmethod
     def convert_targetHR_to_targetvVO2(HR: float) -> float:
         return 0.9607 * HR + 0.0846  # HR + 0.06
@@ -454,7 +408,7 @@ class Workout(object):
         return (vVO2 - 0.0846) / 0.9607  # vVO2 - 0.06
 
     @staticmethod
-    def time_difference_pace(s: float, d: float) -> float:
+    def time_difference_pace(s: float, d: int) -> float:
         return 1000.0/(1000.0/s + d)
 
     def convert_targetHR_to_HR(self, target_value: float) -> int:
