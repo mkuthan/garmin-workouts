@@ -224,8 +224,9 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
         for workout in workouts:
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
             payload = workout.create_workout()
-            assert authed_gclient.post(url, json=payload)
-            workout_id = Workout.extract_workout_id(authed_gclient.post(url, json=payload).json())
+            w = authed_gclient.post(url, json=payload).json()
+            assert w
+            workout_id = Workout.extract_workout_id(w)
 
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
             payload = workout.create_workout(workout_id=workout_id)
