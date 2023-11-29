@@ -108,14 +108,16 @@ async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
     for plan in planning:
+        await context.bot.send_message(chat_id, text='Updating ' + plan)
         if plan != 'Races':
-            await context.bot.send_message(chat_id, text='Updating ' + plan)
             cmd: str = str("python -m garminworkouts trainingplan-import " + plan)
+        else:
+            cmd: str = str("python -m garminworkouts event-import Races")
 
-            subprocess.run(cmd, shell=True, capture_output=True)
+        subprocess.run(cmd, shell=True, capture_output=True)
 
-            with open('./debug.log', 'r') as file:
-                await context.bot.send_message(chat_id, text=file.read())
+        with open('./debug.log', 'r') as file:
+            await context.bot.send_message(chat_id, text=file.read())
 
 
 def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
