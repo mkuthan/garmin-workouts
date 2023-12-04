@@ -93,7 +93,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     with open('./debug.log', 'r') as file:
         assert query.message is not None
-        await query.message.reply_text(text=file.read())
+        try:
+            await query.message.reply_text(text=file.read())
+        except Exception:
+            await query.message.reply_text(text='File is empty')
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -117,7 +120,10 @@ async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
         subprocess.run(cmd, shell=True, capture_output=True)
 
         with open('./debug.log', 'r') as file:
-            await context.bot.send_message(chat_id, text=file.read())
+            try:
+                await context.bot.send_message(chat_id, text=file.read())
+            except Exception:
+                await context.bot.send_message(chat_id, text='File is empty')
 
 
 def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
