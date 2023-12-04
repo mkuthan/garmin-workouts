@@ -1,5 +1,5 @@
 name: "12_1"
-description: "W1-Hills + Anaerobic Training"
+description: "W1-Hills+Anaerobic"
 sport: "running"
 
 steps:
@@ -8,7 +8,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - &SERIES !include anaerobic_2min.yaml
+  - !include &SERIES anaerobic_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

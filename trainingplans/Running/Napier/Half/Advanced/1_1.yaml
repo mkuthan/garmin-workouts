@@ -1,5 +1,5 @@
 name: "1_1"
-description: "W1-Pace Change Run + Anaerobic Training"
+description: "W1-Pace Change+Anaerobic"
 sport: "running"
 
 steps:
@@ -12,7 +12,7 @@ steps:
   - *SERIES
   - *SERIES
   - !include walk_5min.yaml
-  - &ANAER !include anaerobic_30s.yaml
+  - !include &ANAER anaerobic_30s.yaml
   - *ANAER
   - *ANAER
   - *ANAER

@@ -1,16 +1,16 @@
 name: "13_3"
-description: "W2-VO2max + Anaerobic Training"
+description: "W2-VO2max+Anaerobic"
 sport: "running"
 
 steps:
   - !include warmup_3.yaml
-  - &SERIES !include series_1000m.yaml
+  - !include &SERIES series_1000m.yaml
   - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
-  - &ANAER !include anaerobic_200m.yaml
+  - !include &ANAER anaerobic_200m.yaml
   - *ANAER
   - *ANAER
   - *ANAER
