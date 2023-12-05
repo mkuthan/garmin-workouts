@@ -101,10 +101,17 @@ class IncludeLoader(yaml.SafeLoader):
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
 
-            d = step_generator(
-                s[0],
-                extract_duration(s[1]) if len(s) >= 2 else '',
-                int(s[2].split('sub')[1]) if len(s) >= 3 else 0)
+            try:
+                d = step_generator(
+                    s[0],
+                    extract_duration(s[1]) if len(s) >= 2 else '',
+                    int(s[2].split('sub')[1]) if len(s) >= 3 else 0)
+            except ValueError:
+                print(filename)
+                d = step_generator(
+                    s[0],
+                    extract_duration(s[1]) if len(s) >= 2 else '',
+                    0)
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
