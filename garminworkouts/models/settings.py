@@ -28,7 +28,7 @@ def settings(args):
         else:
             race: date = date.today()
         plan: str = args.trainingplan
-    elif os.path.isfile(args.trainingplan):
+    elif '.yaml' in args.trainingplan:
         workout_files: list[str] = glob.glob(args.trainingplan)
         plan = str('')
         race: date = date.today()
