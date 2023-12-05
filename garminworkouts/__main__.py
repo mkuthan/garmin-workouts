@@ -88,12 +88,17 @@ def command_trainingplan_import(args, event=False) -> None:
 
 def command_event_import(args) -> None:
     c: int = 0
-    planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     try:
-        event_files: list = glob.glob(planning[args.trainingplan]['workouts'])
-    except KeyError:
-        logging.error(args.trainingplan + ' not found in planning, please check "planning.yaml"')
-        event_files = glob.glob(args.trainingplan)
+        planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
+    except FileExistsError:
+        planning = {}
+    if args.trainingplan in planning:
+        event_files = glob.glob(planning[args.trainingplan]['workouts'])
+    elif '.yaml' in args.trainingplan:
+        event_files: list[str] = glob.glob(args.trainingplan)
+    else:
+        print(args.trainingplan + ' not found in planning, please check "planning.yaml"')
+        event_files = []
 
     event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
     events: list = [Event(event_config) for event_config in event_configs]
