@@ -49,6 +49,7 @@ def command_trainingplan_reset(args) -> None:
 
 
 def command_trainingplan_import(args, event=False) -> None:
+    c: int = 0
     workouts, notes, plan = settings(args)
     workouts_by_name: dict = {w.get_workout_name(): w for w in workouts}
 
@@ -67,6 +68,7 @@ def command_trainingplan_import(args, event=False) -> None:
                 payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
                 logging.info("Updating workout '%s'", wname)
                 connection.update_workout(workout_id, payload)
+                c += 1
 
         for workout in workouts:
             day_d, week, day = workout.get_workout_date()
@@ -79,9 +81,13 @@ def command_trainingplan_import(args, event=False) -> None:
                     logging.info("Creating workout '%s'", workout_name)
                     workout_id = Workout.extract_workout_id(connection.save_workout(payload))
                     connection.schedule_workout(workout_id, day_d.isoformat())
+                    c += 1
+        if c == 0:
+            logging.info('No workouts to update')
 
 
 def command_event_import(args) -> None:
+    c: int = 0
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     try:
         event_files: list = glob.glob(planning[args.trainingplan]['workouts'])
@@ -103,15 +109,19 @@ def command_event_import(args) -> None:
                 workout_id: str | None = Workout.extract_workout_id(existing_workout) if existing_workout else None
 
                 if existing_event:
-                    event_id: str = Event.extract_event_id(existing_event)
-                    payload: dict = event.create_event(event_id, workout_id)
-                    logging.info("Updating event '%s'", event.name)
-                    connection.update_event(event_id, payload)
+                    if event.date < date.today() + timedelta(weeks=1):
+                        event_id: str = Event.extract_event_id(existing_event)
+                        payload: dict = event.create_event(event_id, workout_id)
+                        logging.info("Updating event '%s'", event.name)
+                        connection.update_event(event_id, payload)
+                        c += 1
                 else:
                     payload = event.create_event(workout_id=workout_id)
                     logging.info("Creating event '%s'", event.name)
                     connection.save_event(payload)
-
+                    c += 1
+        if c == 0:
+            logging.info('No events to update')
         command_trainingplan_import(args, event=True)
 
 
