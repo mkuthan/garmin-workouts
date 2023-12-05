@@ -96,7 +96,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         try:
             await query.message.reply_text(text=file.read())
         except Exception:
-            await query.message.reply_text(text='File is empty')
+            await query.message.reply_text(text='debug.log is empty')
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -123,7 +123,7 @@ async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
             try:
                 await context.bot.send_message(chat_id, text=file.read())
             except Exception:
-                await context.bot.send_message(chat_id, text='File is empty')
+                await context.bot.send_message(chat_id, text='debug.log is empty')
 
 
 def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
