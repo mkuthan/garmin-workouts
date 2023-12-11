@@ -133,7 +133,10 @@ def main():
     logging_level = logging.DEBUG if args.debug else logging.INFO
     logging.basicConfig(level=logging_level)
 
-    args.func(args)
+    if hasattr(args, "func"):
+        args.func(args)
+    else:
+        parser.print_usage()
 
 
 if __name__ == "__main__":
