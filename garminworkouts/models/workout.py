@@ -554,7 +554,7 @@ class Workout(object):
                 }
             ],
             **get_pool('25m' if self.sport_type[0] == 'swimming' else None),
-            **get_estimate('TIME_ESTIMATED' if self.sport_type[0] == 'running' else None),
+            **get_estimate('DISTANCE_ESTIMATED' if self.sport_type[0] == 'running' else None),
         }
 
     def _repeat_step(self, step_order, child_step_id, repeats, nested_steps, repeatDuration) -> dict:
