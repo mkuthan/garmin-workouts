@@ -141,9 +141,11 @@ async def set_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_message.chat_id
     try:
         job_removed = remove_job_if_exists(str(chat_id), context)
-        context.job_queue.run_daily(callback=recurrent,
-                                    time=datetime.time(hour=3, minute=00, second=00,
-                                                       tzinfo=tz.gettz('Europe/Madrid')))
+        context.job_queue.run_repeating(callback=recurrent,
+                                        first=datetime.time(
+                                            hour=3, minute=00, second=00,
+                                            tzinfo=tz.gettz('Europe/Madrid')),
+                                        interval=datetime.timedelta(hours=24))
 
         text = "Recurrent workout update successfully set!"
         if job_removed:
