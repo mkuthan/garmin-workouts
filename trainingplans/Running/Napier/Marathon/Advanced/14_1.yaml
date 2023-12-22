@@ -5,7 +5,7 @@ sport: "running"
 steps:
   - !include warmup_3.yaml
   - &SERIES
-    - !include lt_4min.yaml
+    - !include plt_4min.yaml
     - !include precovery_2min.yaml
   - *SERIES
   - *SERIES
