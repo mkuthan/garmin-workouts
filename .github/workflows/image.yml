@@ -81,11 +81,12 @@ jobs:
         id: docker-scout
         uses: docker/scout-action@v1.2.2
         with:
-          command: cves,recommendations
+          command: cves,recommendations,compare
+          image: ${{ env.REGISTRY_IMAGE }}
           to-latest: true
           ignore-base: true
           ignore-unchanged: true
-          only-fixed: true      
+          only-fixed: true   
       
       - name: Inspect image
         run: |
