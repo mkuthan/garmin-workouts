@@ -175,6 +175,12 @@ def main() -> None:
     application.add_handler(CommandHandler("set", set_timer))
     application.add_handler(CommandHandler("unset", unset))
 
+    application.job_queue.run_repeating(callback=recurrent,
+                                        first=datetime.time(
+                                            hour=3, minute=00, second=00,
+                                            tzinfo=tz.gettz('Europe/Madrid')),
+                                        interval=datetime.timedelta(hours=24))
+
     # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
