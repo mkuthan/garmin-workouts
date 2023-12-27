@@ -6,7 +6,9 @@ steps:
   - !include warmup_3.yaml
   - &SERIES
     - !include 5>lt_10min.yaml
-    - !include paerobic_2min.yaml
+    - !include aerobic_2min.yaml
+  - *SERIES
+  - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
