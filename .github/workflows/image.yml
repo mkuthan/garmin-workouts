@@ -82,7 +82,7 @@ jobs:
         uses: docker/scout-action@v1.2.2
         with:
           command: cves,recommendations,compare
-          image: ${{ env.REGISTRY_IMAGE }}
+          image: ${{ steps.meta.outputs.tags }}
           to-latest: true
           ignore-base: true
           ignore-unchanged: true
@@ -90,4 +90,4 @@ jobs:
       
       - name: Inspect image
         run: |
-          docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}          
+          docker buildx imagetools inspect ${{ steps.meta.outputs.tags }}
