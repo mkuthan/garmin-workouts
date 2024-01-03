@@ -67,7 +67,6 @@ jobs:
           context: .
           platforms: ${{ matrix.platform }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             GARMIN_USERNAME: ${{ env.GARMIN_USERNAME }}
@@ -80,6 +79,7 @@ jobs:
             cFTP: ${{ env.cFTP }}
             BOT_TOKEN: ${{ env.BOT_TOKEN }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+      
       - name: Export digest
         run: |
           mkdir -p /tmp/digests
