@@ -133,12 +133,22 @@ jobs:
         run: |
           docker buildx imagetools inspect ${{ steps.meta.outputs.tags }}
         
-      - name: Docker Scout
-        id: docker-scout
+      - name: Docker Scout amd64
+        id: docker-scoutamd
         uses: docker/scout-action@v1.2.2
         with:
           command: cves,recommendations
           image: ${{ env.REGISTRY_IMAGE }}:main
-          platform: linux/amd64, linux/arm64
+          platform: linux/amd64
+          only-severities: critical,high
+          only-fixed: true
+      
+      - name: Docker Scout arm64
+        id: docker-scoutarm
+        uses: docker/scout-action@v1.2.2
+        with:
+          command: cves,recommendations
+          image: ${{ env.REGISTRY_IMAGE }}:main
+          platform: linux/arm64
           only-severities: critical,high
           only-fixed: true
