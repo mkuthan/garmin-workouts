@@ -70,6 +70,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
           build-args: |
             PLATFORM: ${{ matrix.platform }}
             GARMIN_USERNAME: ${{ env.GARMIN_USERNAME }}
@@ -138,7 +139,7 @@ jobs:
         uses: docker/scout-action@v1.2.2
         with:
           command: cves,recommendations
-          image: ${{ env.REGISTRY_IMAGE }}
+          image: ${{ steps.meta.outputs.tags }}
           platform: linux/amd64, linux/arm64
           only-severities: critical,high
           only-fixed: true
