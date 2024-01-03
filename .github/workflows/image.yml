@@ -46,7 +46,6 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
-            type=sha   
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -87,10 +86,9 @@ jobs:
         with:
           command: cves,recommendations
           image: ${{ env.REGISTRY_IMAGE }}
-          to-latest: true
-          ignore-unchanged: true
-          only-fixed: true
+          platform: ${{ matrix.platform }}
           only-severities: critical,high
+          only-fixed: true
       
       - name: Inspect image
         run: |
