@@ -31,7 +31,7 @@ ENV BOT_TOKEN=$BOT_TOKEN
 
 WORKDIR /usr/src/app
 
-RUN if [ "$PLATFORM" = "linux/arm64" ]; then apt-get -y update && apt-get install -y gcc g++; fi
+RUN apt-get -y update && apt-get install -y gcc
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt && rm requirements.txt
 
