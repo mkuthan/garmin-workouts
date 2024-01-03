@@ -85,8 +85,7 @@ jobs:
         id: docker-scout
         uses: docker/scout-action@v1.2.2
         with:
-          command: cves,recommendations,compare
-          image: ${{ steps.meta.outputs.tags }}
+          command: cves,recommendations
           to-latest: true
           ignore-unchanged: true
           only-fixed: true
