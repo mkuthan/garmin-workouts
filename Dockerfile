@@ -1,5 +1,7 @@
 FROM python:3.12.1-slim-bookworm
 
+ARG PLATFORM
+
 ARG GARMIN_USERNAME
 ENV GARMIN_USERNAME=$GARMIN_USERNAME
 
@@ -29,7 +31,7 @@ ENV BOT_TOKEN=$BOT_TOKEN
 
 WORKDIR /usr/src/app
 
-RUN apt-get -y update && apt-get install -y gcc g++
+RUN if [ "$PLATFORM" = "linux/arm64 " ] apt-get -y update && apt-get install -y gcc g++
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt && rm requirements.txt
 

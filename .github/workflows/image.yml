@@ -41,11 +41,13 @@ jobs:
           images: |
             ${{ env.REGISTRY_IMAGE }}
           tags: |
+            type=ref,event=tag
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
+            type=sha
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -69,6 +71,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
+            PLATFORM: ${{ matrix.platform }}
             GARMIN_USERNAME: ${{ env.GARMIN_USERNAME }}
             GARMIN_PASSWORD: ${{ env.GARMIN_PASSWORD }}
             vV02: ${{ env.vV02 }}
