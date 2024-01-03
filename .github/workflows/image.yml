@@ -86,7 +86,7 @@ jobs:
         uses: docker/scout-action@v1.2.2
         with:
           command: cves,recommendations
-          image: ${{ env.REGISTRY_IMAGE }}:latest
+          image: ${{ env.REGISTRY_IMAGE }}
           to-latest: true
           ignore-unchanged: true
           only-fixed: true
