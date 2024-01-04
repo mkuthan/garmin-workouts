@@ -81,14 +81,15 @@ jobs:
       
       - name: Export digest
         run: |
+          platform="${{ matrix.platform }} | tr / _"
           mkdir -p /tmp/digests
-          digest="${{ steps.build.outputs.digest }}-${{ matrix.platform }}"
+          digest="${{ steps.build.outputs.digest }}-${platform }"
           touch "/tmp/digests/${digest#sha256:}"   
 
       - name: Upload digest
         uses: actions/upload-artifact@v4
         with:
-          name: digests-${{ matrix.platform }}
+          name: digests*
           path: /tmp/digests/*
           if-no-files-found: error
           retention-days: 1
@@ -100,8 +101,8 @@ jobs:
     strategy:
       matrix:
         platform: 
-          - linux/amd64
-          - linux/arm64
+          - linux_amd64
+          - linux_arm64
     steps:
       - name: Download digests
         uses: actions/download-artifact@v4
