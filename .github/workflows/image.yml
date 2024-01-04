@@ -81,7 +81,7 @@ jobs:
       
       - name: Export digest
         run: |
-          platform="${{ matrix.platform }} | tr / _"
+          platform="echo ${{ matrix.platform }} | tr / _"
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}-${platform }"
           touch "/tmp/digests/${digest#sha256:}"   
