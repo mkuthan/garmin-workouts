@@ -2,6 +2,7 @@ import os
 import unittest
 
 from garminworkouts.config import configreader
+from garminworkouts.config import generator
 
 
 class MyTestCase(unittest.TestCase):
@@ -142,6 +143,16 @@ class MyTestCase(unittest.TestCase):
         }
 
         self.assertDictEqual(config, expected_config)
+
+    def test_race_generator(self) -> None:
+        self.assertEqual(generator.race_steps_generator(z1='5km', description=''),
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_1', 'description': ''}])
+        self.assertEqual(generator.race_steps_generator(z2='5km', description=''),
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_2', 'description': ''}])
+        self.assertEqual(generator.race_steps_generator(z3='5km', description=''),
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_3', 'description': ''}])
+        self.assertEqual(generator.race_steps_generator(z4='5km', description=''),
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_4', 'description': ''}])
 
 
 if __name__ == '__main__':
