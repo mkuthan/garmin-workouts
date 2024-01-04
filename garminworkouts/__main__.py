@@ -461,7 +461,10 @@ def main() -> None:
                             logging.StreamHandler(sys.stdout)
                         ])
 
-    args.func(args)
+    if hasattr(args, "func"):
+        args.func(args)
+    else:
+        parser.print_usage()
 
 
 debug_file = './debug.log'
