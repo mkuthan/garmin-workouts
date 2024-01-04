@@ -3,6 +3,7 @@
 [![CI](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/github-code-scanning/codeql)
 [![Dependency Review](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/OscarSalgado/garmin-workouts/actions/workflows/dependency-review.yml)
+[![codecov](https://codecov.io/gh/OscarSalgado/garmin-workouts/graph/badge.svg?token=P2LEVXVKN7)](https://codecov.io/gh/OscarSalgado/garmin-workouts)
 
 Command line tools for managing Garmin Connect workouts.
 
