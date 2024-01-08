@@ -33,8 +33,6 @@ def step_generator(s, duration, objective):
         step = step.split('>')[1]
     if '<' in step:
         step = step.split('<')[1]
-    if '_' in step:
-        step = step.split('_')[0]
     if 'p' in step[0]:
         step = step.split('p')[1]
 
