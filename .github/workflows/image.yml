@@ -109,8 +109,8 @@ jobs:
       - name: Download digests
         uses: actions/download-artifact@v4
         with:
-          name: digests-*
           path: /tmp/digests
+          pattern: digests-*          
           merge-multiple: true
       
       - name: Set up Docker Buildx
