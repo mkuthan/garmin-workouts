@@ -100,11 +100,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - build
-    strategy:
-      matrix:
-        platform: 
-          - linux_amd64
-          - linux_arm64
     steps:
       - name: Download digests
         uses: actions/download-artifact@v4
@@ -144,6 +139,6 @@ jobs:
         with:
           command: cves,recommendations
           image: ${{ env.REGISTRY_IMAGE }}:main
-          platform: ${{ matrix.platform }}
+          platform: ${{ env.PLATFORM_PAIR }}
           only-severities: critical,high
           only-fixed: true
