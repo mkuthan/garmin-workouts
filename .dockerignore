@@ -19,6 +19,7 @@ coverage.xml
 debug.log
 Dockerfile
 docker-compose.yaml
+requirements_dev.txt
 LICENSE
 README.md
 session.json
