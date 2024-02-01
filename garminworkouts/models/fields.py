@@ -104,7 +104,7 @@ _AVG_SPEED = 'avgTrainingSpeed'
 @staticmethod
 def get_sport_type(sport_type) -> dict:
     return {
-            _SPORT_TYPE_ID: SPORT_TYPES[sport_type],
+            _SPORT_TYPE_ID: SPORT_TYPES.get(sport_type),
             _SPORT_TYPE_KEY: sport_type,
         } if sport_type and sport_type in SPORT_TYPES else {}
 
@@ -112,7 +112,7 @@ def get_sport_type(sport_type) -> dict:
 @staticmethod
 def get_intensity_type(target_type) -> dict:
     return {
-            _INTENSITY_TYPE_ID: INTENSITY_TYPES[target_type],
+            _INTENSITY_TYPE_ID: INTENSITY_TYPES.get(target_type),
             _INTENSITY_TYPE_KEY: target_type,
         } if target_type and target_type in INTENSITY_TYPES else {}
 
@@ -127,7 +127,7 @@ def get_target_fields(secondary) -> tuple[str, str]:
 @staticmethod
 def get_step_type(step_type) -> dict:
     return {
-        _STEP_TYPE_ID: STEP_TYPES[step_type],
+        _STEP_TYPE_ID: STEP_TYPES.get(step_type),
         _STEP_TYPE_KEY: step_type,
     } if step_type and step_type in STEP_TYPES else {}
 
@@ -135,7 +135,7 @@ def get_step_type(step_type) -> dict:
 @staticmethod
 def get_end_condition(end_condition) -> dict:
     return {
-        _CONDITION_TYPE_ID: END_CONDITIONS[end_condition],
+        _CONDITION_TYPE_ID: END_CONDITIONS.get(end_condition),
         _CONDITION_TYPE_KEY: end_condition,
     } if end_condition and end_condition in END_CONDITIONS else {}
 
@@ -143,7 +143,7 @@ def get_end_condition(end_condition) -> dict:
 @staticmethod
 def get_target_type(target_type) -> dict:
     return {
-        _WORKOUT_TARGET_ID: TARGET_TYPES[target_type],
+        _WORKOUT_TARGET_ID: TARGET_TYPES.get(target_type),
         _WORKOUT_TARGET_KEY: target_type,
     } if target_type and target_type in TARGET_TYPES else {}
 
@@ -151,7 +151,7 @@ def get_target_type(target_type) -> dict:
 @staticmethod
 def get_stroke_type(stroke_type) -> dict:
     return {
-        _STROKE_TYPE_ID: STROKE_TYPES[stroke_type],
+        _STROKE_TYPE_ID: STROKE_TYPES.get(stroke_type),
         _STROKE_TYPE_KEY: stroke_type,
     } if stroke_type and stroke_type in STROKE_TYPES else {}
 
@@ -159,7 +159,7 @@ def get_stroke_type(stroke_type) -> dict:
 @staticmethod
 def get_equipment_type(equipment_type) -> dict:
     return {
-        _EQUIPMENT_TYPE_ID: EQUIPMENT_TYPES[equipment_type],
+        _EQUIPMENT_TYPE_ID: EQUIPMENT_TYPES.get(equipment_type),
         _EQUIPMENT_TYPE_KEY: equipment_type,
     } if equipment_type and equipment_type in EQUIPMENT_TYPES else {}
 

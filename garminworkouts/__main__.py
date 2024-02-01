@@ -42,7 +42,7 @@ def command_trainingplan_reset(args) -> None:
             workout_name: str = workout.get_workout_name()
             existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
 
-            if existing_workout and plan in existing_workout['description']:
+            if existing_workout and plan in existing_workout.get('description'):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 logging.info("Deleting workout '%s'", workout_name)
                 connection.delete_workout(workout_id)
@@ -58,13 +58,12 @@ def command_trainingplan_import(args, event=False) -> None:
         ue, ce = connection.get_calendar(date=date.today(), days=7)
 
         for wname in ue:
-            existing_workout: dict | None = existing_workouts_by_name.get(
-                wname) if wname in workouts_by_name else None
-            if existing_workout and plan in existing_workout['description']:
+            existing_workout: dict | None = existing_workouts_by_name.get(wname)
+            if existing_workout and plan in existing_workout.get('description'):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                 workout_author: dict = Workout.extract_workout_author(existing_workout)
-                workout: Workout = workouts_by_name[wname]
+                workout: Workout = workouts_by_name.get(wname, Workout)
                 payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
                 logging.info("Updating workout '%s'", wname)
                 connection.update_workout(workout_id, payload)
@@ -93,7 +92,7 @@ def command_event_import(args) -> None:
     except FileExistsError:
         planning = {}
     if args.trainingplan in planning:
-        event_files = glob.glob(planning[args.trainingplan]['workouts'])
+        event_files = glob.glob(planning.get(args.trainingplan, {}).get('workouts'))
     elif '.yaml' in args.trainingplan:
         event_files: list[str] = glob.glob(args.trainingplan)
     else:
@@ -136,16 +135,16 @@ def command_find_events(args):
         for subev in events:
             for ev in subev:
                 ev_a = json.loads(ev.decode('utf-8'))
-                if ("administrativeArea" in ev_a) and (ev_a["administrativeArea"] is not None) and (
-                     ev_a["administrativeArea"]['countryCode'] is not None):
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a['eventType'],
-                                                ev_a["administrativeArea"]['countryCode'])
+                if ('administrativeArea' in ev_a) and (ev_a.get('administrativeArea') is not None) and (
+                     ev_a.get('administrativeArea', {}).get('countryCode') is not None):
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'),
+                                                ev_a.get('administrativeArea', {}).get('countryCode'))
                 else:
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a['eventType'])
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'))
                 if not os.path.exists(newpath):
                     os.makedirs(newpath)
-                file: str = os.path.join(newpath, ev_a['eventRef'] + '.yaml')
-                event_export_yaml(connection.get(ev_a['detailsEndpoints'][0]['url']).json(), file)
+                file: str = os.path.join(newpath, ev_a.get('eventRef') + '.yaml')
+                event_export_yaml(connection.get(ev_a.get('detailsEndpoints')[0].get('url')).json(), file)
 
 
 def command_trainingplan_metrics(args) -> None:
@@ -214,13 +213,13 @@ def command_workout_export_yaml(args):
 
         for tp in connection.list_trainingplans(account.locale):
             tp: dict = TrainingPlan.export_trainingplan(tp)
-            tp_type: str = tp['type']
-            tp_subtype: str = tp['subtype']
-            tp_level: str = tp['level']
-            tp_version: str = tp['version']
-            tp_name: str = ''.join(letter for letter in tp['name'] if letter.isalnum())
+            tp_type: str = tp.get('type', '')
+            tp_subtype: str = tp.get('subtype', '')
+            tp_level: str = tp.get('level', '')
+            tp_version: str = tp.get('version', '')
+            tp_name: str = ''.join(letter for letter in tp.get('name', '') if letter.isalnum())
 
-            tp = connection.schedule_training_plan(tp[_ID], str(date.today()))
+            tp = connection.schedule_training_plan(tp.get(_ID), str(date.today()))
 
             if tp_subtype == 'RunningOther':
                 tp_subtype = tp_name
@@ -232,30 +231,30 @@ def command_workout_export_yaml(args):
                 newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version,
                                             tp_name)
 
-            for w in connection.get_training_plan(TrainingPlan.export_trainingplan(tp)[_ID], account.locale):
-                week: str = w['weekId']
-                day: str = w['dayOfWeekId']
+            for w in connection.get_training_plan(TrainingPlan.export_trainingplan(tp).get(_ID), account.locale):
+                week: str = w.get('weekId')
+                day: str = w.get('dayOfWeekId')
                 name: str = f'R{week}_{day}'
 
                 if not os.path.exists(newpath):
                     os.makedirs(newpath)
 
-                file: str = os.path.join(newpath, name + ".yaml")
+                file: str = os.path.join(newpath, name + '.yaml')
 
-                if w['taskWorkout']:
-                    workout_id: str = w['taskWorkout']['workoutId']
+                if w.get('taskWorkout'):
+                    workout_id: str = w.get('taskWorkout', {}).get('workoutId')
                     workout: dict = connection.get_workout(workout_id)
                     logging.info("Exporting workout '%s' into '%s'", name, file)
                     workout_export_yaml(workout, file)
-                if w['taskNote']:
+                if w.get('taskNote'):
                     config = {}
-                    config['name'] = w['taskNote']['note']
-                    config['content'] = w['taskNote']['noteDescription']
+                    config['name'] = w.get('taskNote', {}).get('note')
+                    config['content'] = w.get('taskNote', {}).get('noteDescription')
                     note = Note(config)
                     logging.info("Exporting note '%s' into '%s'", name, file)
                     note_export_yaml(note, file)
 
-            connection.delete_training_plan(tp['trainingPlanId'])
+            connection.delete_training_plan(tp.get('trainingPlanId'))
 
 
 def command_workout_list(args) -> None:
@@ -343,113 +342,113 @@ def command_update_types(args) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-                                     description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--debug",
+                                     description='Manage Garmin Connect workout(s)')
+    parser.add_argument('--debug',
                         action='store_true',
-                        help="Enables more detailed messages")
+                        help='Enables more detailed messages')
 
-    subparsers = parser.add_subparsers(title="Commands")
+    subparsers = parser.add_subparsers(title='Commands')
 
-    parser_import = subparsers.add_parser("trainingplan-import",
-                                          description="Import workout(s) from file(s) into Garmin Connect ")
-    parser_import.add_argument("trainingplan",
-                               help="File(s) with workout(s) to import, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml "
-                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import = subparsers.add_parser('trainingplan-import',
+                                          description='Import workout(s) from file(s) into Garmin Connect ')
+    parser_import.add_argument('trainingplan',
+                               help='File(s) with workout(s) to import, '
+                                    'wildcards are supported e.g: sample_workouts/*.yaml '
+                                    'Additionally internal trainingplan IDs (defined in planning.yaml) may be used')
     parser_import.set_defaults(func=command_trainingplan_import)
 
-    parser_import = subparsers.add_parser("trainingplan-reset",
-                                          description="Reset workout(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("trainingplan",
-                               help="File(s) with workout(s) to reset, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml "
-                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import = subparsers.add_parser('trainingplan-reset',
+                                          description='Reset workout(s) from file(s) into Garmin Connect')
+    parser_import.add_argument('trainingplan',
+                               help='File(s) with workout(s) to reset, '
+                                    'wildcards are supported e.g: sample_workouts/*.yaml '
+                                    'Additionally internal trainingplan IDs (defined in planning.yaml) may be used')
     parser_import.set_defaults(func=command_trainingplan_reset)
 
-    parser_import = subparsers.add_parser("trainingplan-metrics",
-                                          description="Get workout(s) metrics from file(s)")
-    parser_import.add_argument("trainingplan",
-                               help="File(s) with workout(s) to import, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml "
-                                    "Additionally internal trainingplan IDs (defined in planning.yaml) may be used")
+    parser_import = subparsers.add_parser('trainingplan-metrics',
+                                          description='Get workout(s) metrics from file(s)')
+    parser_import.add_argument('trainingplan',
+                               help='File(s) with workout(s) to import, '
+                                    'wildcards are supported e.g: sample_workouts/*.yaml '
+                                    'Additionally internal trainingplan IDs (defined in planning.yaml) may be used')
     parser_import.set_defaults(func=command_trainingplan_metrics)
 
-    parser_list = subparsers.add_parser("trainingplan-list", description="List all Garmin trainingplans")
+    parser_list = subparsers.add_parser('trainingplan-list', description='List all Garmin trainingplans')
     parser_list.set_defaults(func=command_trainingplan_list)
 
-    parser_import = subparsers.add_parser("event-import",
-                                          description="Import event(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("trainingplan",
-                               help="File(s) with event(s) to import, "
-                                    "wildcards are supported e.g: events/*.yaml")
+    parser_import = subparsers.add_parser('event-import',
+                                          description='Import event(s) from file(s) into Garmin Connect')
+    parser_import.add_argument('trainingplan',
+                               help='File(s) with event(s) to import, '
+                                    'wildcards are supported e.g: events/*.yaml')
     parser_import.set_defaults(func=command_event_import)
 
-    parser_get = subparsers.add_parser("event-get",
-                                       description="Get event")
-    parser_get.add_argument("--id",
+    parser_get = subparsers.add_parser('event-get',
+                                       description='Get event')
+    parser_get.add_argument('--id',
                             required=True,
-                            help="Event id, use list command to get event identifiers")
+                            help='Event id, use list command to get event identifiers')
     parser_get.set_defaults(func=command_event_get)
 
-    parser_list = subparsers.add_parser("event-list", description="List all events")
+    parser_list = subparsers.add_parser('event-list', description='List all events')
     parser_list.set_defaults(func=command_event_list)
 
-    parser_get = subparsers.add_parser("workout-get",
-                                       description="Get workout")
-    parser_get.add_argument("--id",
+    parser_get = subparsers.add_parser('workout-get',
+                                       description='Get workout')
+    parser_get.add_argument('--id',
                             required=True,
                             help="Workout id, use list command to get workouts' identifiers")
     parser_get.set_defaults(func=command_workout_get)
 
-    parser_delete = subparsers.add_parser("workout-delete",
-                                          description="Delete workout")
-    parser_delete.add_argument("--id",
+    parser_delete = subparsers.add_parser('workout-delete',
+                                          description='Delete workout')
+    parser_delete.add_argument('--id',
                                required=True,
-                               help="Workout id, use list command to get workouts identifiers")
+                               help='Workout id, use list command to get workouts identifiers')
     parser_delete.set_defaults(func=command_workout_delete)
 
-    parser_schedule = subparsers.add_parser("workout-schedule",
-                                            description="Schedule a workout")
-    parser_schedule.add_argument("--workout_id",
-                                 "-w",
+    parser_schedule = subparsers.add_parser('workout-schedule',
+                                            description='Schedule a workout')
+    parser_schedule.add_argument('--workout_id',
+                                 '-w',
                                  required=True,
-                                 help="Workout id to schedule")
-    parser_schedule.add_argument("--date",
-                                 "-d",
+                                 help='Workout id to schedule')
+    parser_schedule.add_argument('--date',
+                                 '-d',
                                  required=True,
-                                 help="Date to which schedule the workout")
+                                 help='Date to which schedule the workout')
     parser_schedule.set_defaults(func=command_workout_schedule)
 
-    parser_export = subparsers.add_parser("workout-export",
-                                          description="Export all workouts from Garmin Connect\
-                                              and save them into a directory")
-    parser_export.add_argument("directory",
+    parser_export = subparsers.add_parser('workout-export',
+                                          description='Export all workouts from Garmin Connect\
+                                              and save them into a directory')
+    parser_export.add_argument('directory',
                                type=writeable_dir,
-                               help="Destination directory where workout(s) will be exported")
+                               help='Destination directory where workout(s) will be exported')
     parser_export.set_defaults(func=command_workout_export)
 
-    parser_export = subparsers.add_parser("workout-export-yaml",
-                                          description="Export all workouts from Garmin Connect\
-                                              and save them into a directory")
+    parser_export = subparsers.add_parser('workout-export-yaml',
+                                          description='Export all workouts from Garmin Connect\
+                                              and save them into a directory')
     parser_export.set_defaults(func=command_workout_export_yaml)
 
-    parser_list = subparsers.add_parser("workout-list", description="List all workouts")
+    parser_list = subparsers.add_parser('workout-list', description='List all workouts')
     parser_list.set_defaults(func=command_workout_list)
 
-    parser_import = subparsers.add_parser("user-zones",
-                                          description="Get training zones")
+    parser_import = subparsers.add_parser('user-zones',
+                                          description='Get training zones')
     parser_import.set_defaults(func=command_user_zones)
 
-    parser_delete = subparsers.add_parser("update-types",
-                                          description="Update types")
+    parser_delete = subparsers.add_parser('update-types',
+                                          description='Update types')
     parser_delete.set_defaults(func=command_update_types)
 
-    parser_delete = subparsers.add_parser("activity-list",
-                                          description="Activity list")
+    parser_delete = subparsers.add_parser('activity-list',
+                                          description='Activity list')
     parser_delete.set_defaults(func=command_activity_list)
 
-    parser_delete = subparsers.add_parser("find-events",
-                                          description="Find events")
+    parser_delete = subparsers.add_parser('find-events',
+                                          description='Find events')
     parser_delete.set_defaults(func=command_find_events)
 
     args = parser.parse_args()
@@ -461,7 +460,7 @@ def main() -> None:
                             logging.StreamHandler(sys.stdout)
                         ])
 
-    if hasattr(args, "func"):
+    if hasattr(args, 'func'):
         args.func(args)
     else:
         parser.print_usage()
@@ -469,7 +468,7 @@ def main() -> None:
 
 debug_file = './debug.log'
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     if os.path.exists(debug_file):
         os.remove(debug_file)
     main()

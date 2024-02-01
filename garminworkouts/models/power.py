@@ -39,28 +39,28 @@ class Power:
 
         data = [
             {
-                "sport": "CYCLING",
-                "functionalThresholdPower": cftp.power[:-1],
-                "zone1Floor": str(cpower_zones[0]),
-                "zone2Floor": str(cpower_zones[1]),
-                "zone3Floor": str(cpower_zones[2]),
-                "zone4Floor": str(cpower_zones[3]),
-                "zone5Floor": str(cpower_zones[4]),
-                "zone6Floor": str(cpower_zones[5]),
-                "zone7Floor": str(cpower_zones[6]),
-                "userLocalTime": None
+                'sport': 'CYCLING',
+                'functionalThresholdPower': cftp.power[:-1],
+                'zone1Floor': str(cpower_zones[0]),
+                'zone2Floor': str(cpower_zones[1]),
+                'zone3Floor': str(cpower_zones[2]),
+                'zone4Floor': str(cpower_zones[3]),
+                'zone5Floor': str(cpower_zones[4]),
+                'zone6Floor': str(cpower_zones[5]),
+                'zone7Floor': str(cpower_zones[6]),
+                'userLocalTime': None
             },
             {
-                "sport": "RUNNING",
-                "functionalThresholdPower": rftp.power[:-1],
-                "zone1Floor": str(rpower_zones[1]),
-                "zone2Floor": str(rpower_zones[2]),
-                "zone3Floor": str(rpower_zones[3]),
-                "zone4Floor": str(rpower_zones[4]),
-                "zone5Floor": str(rpower_zones[5]),
-                "zone6Floor": str(0.0),
-                "zone7Floor": str(0.0),
-                "userLocalTime": None
+                'sport': 'RUNNING',
+                'functionalThresholdPower': rftp.power[:-1],
+                'zone1Floor': str(rpower_zones[1]),
+                'zone2Floor': str(rpower_zones[2]),
+                'zone3Floor': str(rpower_zones[3]),
+                'zone4Floor': str(rpower_zones[4]),
+                'zone5Floor': str(rpower_zones[5]),
+                'zone6Floor': str(0.0),
+                'zone7Floor': str(0.0),
+                'userLocalTime': None
             }
         ]
 

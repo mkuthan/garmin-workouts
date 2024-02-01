@@ -32,7 +32,7 @@ class Workout(object):
             cFTP=Power('200w'),
             plan=str(''),
             race=date.today()
-            ) -> None:
+    ) -> None:
 
         try:
             self.sport_type: tuple = config[_SPORT].lower() if _SPORT in config else None,
@@ -94,17 +94,17 @@ class Workout(object):
 
     def get_workout_name(self) -> str:
         if (self.plan != '') and (_DESCRIPTION in self.config) and (
-             self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 20
-                                                         ) and ('\n' not in self.config[_DESCRIPTION]):
-            return str(self.config[_NAME] + '-' + self.config[_DESCRIPTION])
+            self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 20
+                                                        ) and ('\n' not in self.config[_DESCRIPTION]):
+            return str(self.config.get(_NAME) + '-' + self.config[_DESCRIPTION])
         else:
-            return str(self.config[_NAME])
+            return str(self.config.get(_NAME))
 
     def get_workout_date(self) -> tuple[date, int, int]:
         if self.date:
             return date(self.date['year'], self.date['month'], self.date['day']), int(0), int(0)
         else:
-            workout_name: str = self.config[_NAME]
+            workout_name: str = self.config.get(_NAME)
             if '_' in workout_name:
                 if workout_name.startswith('R'):
                     ind = 1
@@ -587,7 +587,7 @@ class Workout(object):
                 value_two=self._target_value(step_config, 'max'),
                 zone=self._target_value(step_config, 'zone') if 'zone' in step_config else None,
                 secondary=False
-                ),
+            ),
             secondary_target=Target(
                 target=self._target_type(step_config, _SECONDARY in step_config)[_WORKOUT_TARGET_KEY],
                 value_one=self._target_value(step_config, 'min', _SECONDARY in step_config),
@@ -595,6 +595,6 @@ class Workout(object):
                 zone=self._target_value(
                     step_config, 'zone', _SECONDARY in step_config) if 'zone' in step_config else None,
                 secondary=True
-                ) if _SECONDARY in step_config else None,
+            ) if _SECONDARY in step_config else None,
             weight=step_config[_WEIGHT] if _WEIGHT in step_config else None
-            ).create_workout_step()
+        ).create_workout_step()

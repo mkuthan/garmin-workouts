@@ -4,21 +4,21 @@ class Note(object):
             config
             ) -> None:
 
-        self.name = config['name'] if 'content' in config else None
-        self.content = config['content'] if 'content' in config else None
+        self.name = config.get('name')
+        self.content = config.get('content')
 
     @staticmethod
     def extract_note_name(note) -> str:
-        return note["noteName"]
+        return note.get('noteName')
 
     @staticmethod
     def extract_note_date(note) -> str:
-        return note["date"]
+        return note.get('date')
 
     def create_note(self, id=None, date=None) -> dict:
         return {
-            "id": id,
-            "noteName": self.name,
-            "content": self.content,
-            "date": date
+            'id': id,
+            'noteName': self.name,
+            'content': self.content,
+            'date': date
         }
