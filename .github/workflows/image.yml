@@ -4,7 +4,12 @@ on:
   workflow_run:
     workflows: ["CI", "Dependabot auto-merge"]
     types: [completed]
-  workflow_dispatch:
+  push:
+      branches:
+        - 'main'
+      tags:
+        - 'v*'
+
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot
