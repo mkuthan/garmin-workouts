@@ -51,11 +51,20 @@ def command_trainingplan_reset(args) -> None:
 def command_trainingplan_import(args, event=False) -> None:
     c: int = 0
     workouts, notes, plan = settings(args)
-    workouts_by_name: dict = {w.get_workout_name(): w for w in workouts}
+    workouts_by_name: dict[str, Workout] = {w.get_workout_name(): w for w in workouts}
 
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        ue, ce = connection.get_calendar(date=date.today(), days=7)
+        ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
+
+        for cname in ce:
+            existing_workout: dict | None = existing_workouts_by_name.get(cname)
+            if existing_workout and plan in existing_workout.get('description'):
+                workout_id: str = Workout.extract_workout_id(existing_workout)
+                workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
+                workout_author: dict = Workout.extract_workout_author(existing_workout)
+                workout = workouts_by_name[cname]
+                # print(cname)
 
         for wname in ue:
             existing_workout: dict | None = existing_workouts_by_name.get(wname)
@@ -63,7 +72,7 @@ def command_trainingplan_import(args, event=False) -> None:
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                 workout_author: dict = Workout.extract_workout_author(existing_workout)
-                workout: Workout = workouts_by_name.get(wname, Workout)
+                workout: Workout = workouts_by_name[wname]
                 payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
                 logging.info("Updating workout '%s'", wname)
                 connection.update_workout(workout_id, payload)
@@ -83,6 +92,23 @@ def command_trainingplan_import(args, event=False) -> None:
                     c += 1
         if c == 0:
             logging.info('No workouts to update')
+
+        for note in notes:
+            day_d, week, day = note.get_note_date()
+
+            if day_d >= date.today() and day_d < date.today() + timedelta(weeks=2):
+                note_name: str = note.get_note_name()
+                existing_note: dict | None = ne.get(note_name)
+                if not existing_note:
+                    payload = note.create_note(date=day_d.isoformat())
+                    logging.info("Creating note '%s'", note_name)
+                    connection.save_note(payload)
+                else:
+                    note_id: str = Note.extract_note_id(existing_note)
+                    note: Note = ne[note_name]
+                    payload: dict = note.create_note(note_id)
+                    logging.info("Updating note '%s'", note_name)
+                    connection.update_note(note_id, payload)
 
 
 def command_event_import(args) -> None:
@@ -196,9 +222,9 @@ def command_workout_export(args) -> None:
 def command_workout_export_yaml(args):
     with _garmin_client(args) as connection:
         for workout in connection.external_workouts(account.locale):
-            code: str = workout['workoutSourceId']
-            sport: str = workout['sportTypeKey']
-            difficulty: str = workout['difficulty']
+            code: str = workout.get('workoutSourceId', '')
+            sport: str = workout.get('sportTypeKey', '')
+            difficulty: str = workout.get('difficulty', '')
             workout: dict = connection.get_external_workout(code, account.locale)
             workout[_WORKOUT_ID] = code
 

@@ -7,7 +7,7 @@ from garminworkouts.models.workout import Workout
 from garminworkouts.models.note import Note
 
 
-def settings(args):
+def settings(args) -> tuple[list[Workout], list[Note], str]:
     try:
         planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
@@ -52,8 +52,8 @@ def settings(args):
                 plan, race
                 ) if 'content' not in workout_config else Note(workout_config) for workout_config in workout_configs]
 
-        notes = [w for w in combined if isinstance(w, Note)]
-        workouts = [w for w in combined if isinstance(w, Workout)]
+        notes: list[Note] = [w for w in combined if isinstance(w, Note)]
+        workouts: list[Workout] = [w for w in combined if isinstance(w, Workout)]
 
         return workouts, notes, plan
     except Exception:

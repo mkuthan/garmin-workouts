@@ -127,7 +127,7 @@ class GarminClient(object):
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         self.delete(url)
 
-    def get_calendar(self, date, days) -> tuple[list[Any], list[Any]]:
+    def get_calendar(self, date, days) -> tuple[list[str], list[str], dict]:
         year = str(date.year)
         month = str(date.month - 1)
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
@@ -136,17 +136,28 @@ class GarminClient(object):
 
         updateable_elements: list[Any] = []
         checkable_elements: list[Any] = []
+        note_elements: dict = {}
         for item in response_jsons:
             if item.get('itemType') == 'workout':
                 if datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date:
                     logging.info("Deleting workout '%s'", item.get('title'))
+                    # self.delete_workout(item.get('workoutId'))
+                elif datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date + timedelta(days=days):
+                    updateable_elements.append(item.get('title'))
+            elif item.get('itemType') == 'activity':
+                activity = self.get_activity(item.get('id'))
+                '''if 'splitSummaries' in activity:
+                    for summary in activity.get('splitSummaries'):
+                        print(summary.get('distance'))
+                        print(summary.get('duration'))'''
                 payload = self.get_activity_workout(item.get('id'))
                 if 'workoutName' in payload:
+                    checkable_elements.append(payload.get('workoutName'))
             elif item.get('itemType') == 'note':
                 payload = self.get_note(item.get('id'))
                 note_elements[payload.get('noteName')] = payload
 
-        return updateable_elements, checkable_elements
+        return updateable_elements, checkable_elements, note_elements
 
     def schedule_workout(self, workout_id, date) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
@@ -190,9 +201,14 @@ class GarminClient(object):
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
         self.delete(url)
 
+    def get_activity(self, activity_id) -> Any:
+        url = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}"
+        return self.get(url).json()
+
     def get_activity_workout(self, activity_id) -> Any:
         url = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}/workouts"
-        return self.get(url).json()
+        a = self.get(url).json()
+        return [] if len(a) == 0 else a[0]
 
     def get_activities_by_date(self,
                                startdate=None, enddate=None,
