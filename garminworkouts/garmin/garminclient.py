@@ -141,12 +141,12 @@ class GarminClient(object):
             if item.get('itemType') == 'workout':
                 if datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date:
                     logging.info("Deleting workout '%s'", item.get('title'))
-                    # self.delete_workout(item.get('workoutId'))
+                    self.delete_workout(item.get('workoutId'))
                 elif datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date + timedelta(days=days):
                     updateable_elements.append(item.get('title'))
             elif item.get('itemType') == 'activity':
-                activity = self.get_activity(item.get('id'))
-                '''if 'splitSummaries' in activity:
+                '''activity = self.get_activity(item.get('id'))
+                if 'splitSummaries' in activity:
                     for summary in activity.get('splitSummaries'):
                         print(summary.get('distance'))
                         print(summary.get('duration'))'''
