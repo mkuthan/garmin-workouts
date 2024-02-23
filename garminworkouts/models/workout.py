@@ -71,9 +71,9 @@ class Workout(object):
             if self.mileage == 0 and self.sec == 0:
                 raise ValueError('Null workout')
         except KeyError:
-            print(config['name'])
+            print(config.get('name'))
         except ValueError:
-            print(config['name'] if 'name' in config else '')
+            print(config.get('name') if 'name' in config else '')
 
     def zones(self) -> None:
         zones, hr_zones, data = self.hr_zones()
@@ -94,17 +94,17 @@ class Workout(object):
 
     def get_workout_name(self) -> str:
         if (self.plan != '') and (_DESCRIPTION in self.config) and (
-            self.config[_DESCRIPTION] is not None) and (len(self.config[_DESCRIPTION]) < 20
-                                                        ) and ('\n' not in self.config[_DESCRIPTION]):
-            return str(self.config.get(_NAME) + '-' + self.config[_DESCRIPTION])
+            self.config.get(_DESCRIPTION) is not None) and (len(
+                self.config.get(_DESCRIPTION, '')) < 20) and ('\n' not in self.config.get(_DESCRIPTION, '')):
+            return str(self.config.get(_NAME, '') + '-' + self.config.get(_DESCRIPTION, ''))
         else:
             return str(self.config.get(_NAME))
 
     def get_workout_date(self) -> tuple[date, int, int]:
         if self.date:
-            return date(self.date['year'], self.date['month'], self.date['day']), int(0), int(0)
+            return date(self.date.get('year', 0), self.date.get('month', 0), self.date.get('day', 0)), int(0), int(0)
         else:
-            workout_name: str = self.config.get(_NAME)
+            workout_name: str = self.config.get(_NAME, '')
             if '_' in workout_name:
                 if workout_name.startswith('R'):
                     ind = 1
@@ -195,7 +195,7 @@ class Workout(object):
         reps = 0
 
         for step in flatten_steps:
-            assert step['type'] != 'run'
+            assert step.get('type') != 'run'
             key: str = WorkoutStep._end_condition_key(WorkoutStep._end_condition(step))
             duration: float = WorkoutStep._end_condition_value(step)
             match key:
@@ -252,16 +252,16 @@ class Workout(object):
             case 'heart.rate.zone':
                 if 'zone' in step[_TARGET]:
                     zones, hr_zones, data = self.hr_zones()
-                    z = int(step[_TARGET]['zone'])
+                    z = int(step[_TARGET].get('zone'))
                     t2 = self.convert_HR_to_pace(hr_zones[z + 1])
                     t1 = self.convert_HR_to_pace(hr_zones[z])
                 else:
                     t2 = self.convert_HR_to_pace(self._target_value(step, 'max'))
                     t1 = self.convert_HR_to_pace(self._target_value(step, 'min'))
             case 'power.zone':
-                if 'zone' in step['target']:
+                if 'zone' in step.get('target'):
                     zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
-                    z = int(step['target']['zone'])
+                    z = int(step.get('target').get('zone'))
                     t2 = rpower_zones[z]
                     t1 = rpower_zones[z - 1]
                 else:
@@ -424,7 +424,7 @@ class Workout(object):
         description: str = ''
         if self.sport_type[0] == 'running':
             if self.plan == '' and _DESCRIPTION in self.config:
-                description += self.config[_DESCRIPTION] + '. '
+                description += self.config.get(_DESCRIPTION, '') + '. '
             if self.plan != '':
                 description += 'Plan: ' + self.plan + '. '
             description += ('Estimated Duration: ' + str(self.duration) + '; '
@@ -437,29 +437,29 @@ class Workout(object):
             description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (
                 float(self.cFTP.power[:-1]), self.tss, self.norm_pwr, self.int_fct)
         else:
-            description = self.config[_DESCRIPTION]
+            description = self.config.get(_DESCRIPTION, '')
         if description:
             return description
 
     @staticmethod
     def extract_workout_id(workout) -> str:
-        return workout[_WORKOUT_ID]
+        return workout.get(_WORKOUT_ID)
 
     @staticmethod
     def extract_workout_name(workout) -> str:
-        return workout[_WORKOUT_NAME]
+        return workout.get(_WORKOUT_NAME)
 
     @staticmethod
     def extract_workout_author(workout) -> dict:
-        return workout["author"]
+        return workout.get('author')
 
     @staticmethod
     def extract_workout_description(workout) -> str:
-        return workout[_DESCRIPTION]
+        return workout.get(_DESCRIPTION)
 
     @staticmethod
     def extract_workout_owner_id(workout) -> str:
-        return workout[_WORKOUT_OWNER_ID]
+        return workout.get(_WORKOUT_OWNER_ID)
 
     @staticmethod
     def print_workout_json(workout) -> None:
@@ -550,7 +550,7 @@ class Workout(object):
                 {
                     _WORKOUT_ORDER: 1,
                     _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
-                    _WORKOUT_STEPS: self._steps(self.config[_STEPS])
+                    _WORKOUT_STEPS: self._steps(self.config.get(_STEPS))
                 }
             ],
             **get_pool('25m' if self.sport_type[0] == 'swimming' else None),
@@ -575,7 +575,7 @@ class Workout(object):
         return WorkoutStep(
             order=step_order,
             child_step_id=child_step_id,
-            description=step_config[_DESCRIPTION] if _DESCRIPTION in step_config else None,
+            description=step_config.get(_DESCRIPTION) if _DESCRIPTION in step_config else None,
             step_type=step_config[_TYPE] if _TYPE in step_config else None,
             end_condition=WorkoutStep._end_condition(step_config)[_CONDITION_TYPE_KEY],
             end_condition_value=step_config[_DURATION] if _DURATION in step_config else None,

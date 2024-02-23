@@ -18,12 +18,12 @@ def settings(args):
         args.trainingplan = ''.join(args.trainingplan)
 
     if args.trainingplan in planning:
-        workout_files = glob.glob(planning[args.trainingplan]['workouts'])
+        workout_files = glob.glob(planning[args.trainingplan].get('workouts'))
         if 'year' in planning[args.trainingplan]:
             race = date(
-                planning[args.trainingplan]['year'],
-                planning[args.trainingplan]['month'],
-                planning[args.trainingplan]['day']
+                planning[args.trainingplan].get('year'),
+                planning[args.trainingplan].get('month'),
+                planning[args.trainingplan].get('day')
                 )
         else:
             race: date = date.today()

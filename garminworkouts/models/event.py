@@ -13,7 +13,7 @@ class Event(object):
     ) -> None:
 
         self.name: str = config.get(_NAME)
-        self.date = date(config.get(_DATE)['year'], config.get(_DATE)['month'], config.get(_DATE)['day'])
+        self.date = date(config.get(_DATE).get('year'), config.get(_DATE).get('month'), config.get(_DATE).get('day'))
         self.url: str | None = config.get('url')
         self.location: str | None = config.get(_LOCATION)
         self.time: str | None = config.get('time')

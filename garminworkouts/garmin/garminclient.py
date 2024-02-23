@@ -49,7 +49,7 @@ class GarminClient(object):
         settings: Any = self.get("/userprofile-service/userprofile/user-settings").json()
         self.unit_system: Any = settings["userData"]["measurementSystem"] if settings is not None else None
 
-        self.version: Any = self.get("/info-service/api/system/release-system").json()[0]['version']
+        self.version: Any = self.get("/info-service/api/system/release-system").json()[0].get('version')
         try:
             assert self.version == GarminClient._GARMIN_VERSION
         except AssertionError:
@@ -77,7 +77,7 @@ class GarminClient(object):
 
     def external_workouts(self, locale) -> Any:
         url: str = f"web-data/workouts/{locale}/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json"
-        return self.garth.get("connect", url).json()['workouts']
+        return self.garth.get("connect", url).json().get('workouts')
 
     def get_external_workout(self, code, locale) -> Any:
         url: str = f"web-data/workouts/{locale}/{code}.json"
@@ -132,21 +132,19 @@ class GarminClient(object):
         month = str(date.month - 1)
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
 
-        response_jsons: Any = self.get(url).json()['calendarItems']
+        response_jsons: Any = self.get(url).json().get('calendarItems')
 
         updateable_elements: list[Any] = []
         checkable_elements: list[Any] = []
         for item in response_jsons:
-            if item['itemType'] == 'workout':
-                if datetime.strptime(item['date'], '%Y-%m-%d').date() < date:
-                    logging.info("Deleting workout '%s'", item['title'])
-                    self.delete_workout(item['workoutId'])
-                elif datetime.strptime(item['date'], '%Y-%m-%d').date() < date + timedelta(days=days):
-                    updateable_elements.append(item['title'])
-            elif item['itemType'] == 'activity':
-                payload = self.get_activity_workout(item['id'])
+            if item.get('itemType') == 'workout':
+                if datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date:
+                    logging.info("Deleting workout '%s'", item.get('title'))
+                payload = self.get_activity_workout(item.get('id'))
                 if 'workoutName' in payload:
-                    checkable_elements.append(payload['workoutName'])
+            elif item.get('itemType') == 'note':
+                payload = self.get_note(item.get('id'))
+                note_elements[payload.get('noteName')] = payload
 
         return updateable_elements, checkable_elements
 
@@ -255,10 +253,10 @@ class GarminClient(object):
             "locale": locale.split('-')[0],
         }
         try:
-            return self.post(url, params=params, api=True).json()['trainingPlanList']
+            return self.post(url, params=params, api=True).json().get('trainingPlanList')
         except GarthHTTPError:
             print('Harcoded version used')
-            return trainingplan_list['trainingPlanList']
+            return trainingplan_list.get('trainingPlanList')
 
     def schedule_training_plan(self, plan_id, startDate) -> Any:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/schedule/{plan_id}"
@@ -283,38 +281,38 @@ class GarminClient(object):
         response: Any = self.get(url).json()
 
         sec = {}
-        for type in response['workoutSportTypes']:
-            sec.update({type['sportTypeKey']: type['sportTypeId']})
+        for type in response.get('workoutSportTypes'):
+            sec.update({type.get('sportTypeKey'): type.get('sportTypeId')})
         print('SPORT_TYPES =', sec, '\n')
 
         sec = {}
-        for type in response['workoutIntensityTypes']:
-            sec.update({type['intensityTypeKey']: type['intensityTypeId']})
+        for type in response.get('workoutIntensityTypes'):
+            sec.update({type.get('intensityTypeKey'): type.get('intensityTypeId')})
         print('INTENSITY_TYPES =', sec, '\n')
 
         sec = {}
-        for type in response['workoutStepTypes']:
-            sec.update({type['stepTypeKey']: type['stepTypeId']})
+        for type in response.get('workoutStepTypes'):
+            sec.update({type.get('stepTypeKey'): type.get('stepTypeId')})
         print('STEP_TYPES =', sec, '\n')
 
         sec = {}
-        for type in response['workoutConditionTypes']:
-            sec.update({type['conditionTypeKey']: type['conditionTypeId']})
+        for type in response.get('workoutConditionTypes'):
+            sec.update({type.get('conditionTypeKey'): type.get('conditionTypeId')})
         print('END_CONDITIONS = ', sec, '\n')
 
         sec = {}
-        for type in response['workoutTargetTypes']:
-            sec.update({type['workoutTargetTypeKey']: type['workoutTargetTypeId']})
+        for type in response.get('workoutTargetTypes'):
+            sec.update({type.get('workoutTargetTypeKey'): type.get('workoutTargetTypeId')})
         print('TARGET_TYPES = ', sec, '\n')
 
         sec = {}
-        for type in response['workoutEquipmentTypes']:
-            sec.update({type['equipmentTypeKey']: type['equipmentTypeId']})
+        for type in response.get('workoutEquipmentTypes'):
+            sec.update({type.get('equipmentTypeKey'): type.get('equipmentTypeId')})
         print('EQUIPMENT_TYPES = ', sec, '\n')
 
         sec: dict = {}
-        for type in response['workoutStrokeTypes']:
-            sec.update({type['strokeTypeKey']: type['strokeTypeId']})
+        for type in response.get('workoutStrokeTypes'):
+            sec.update({type.get('strokeTypeKey'): type.get('strokeTypeId')})
         print('STROKE_TYPES = ', sec, '\n')
 
         self.get_activity_types()
@@ -328,7 +326,7 @@ class GarminClient(object):
 
         sec: dict = {}
         for type in response:
-            sec.update({type['typeKey']: type['typeId']})
+            sec.update({type.get('typeKey'): type.get('typeId')})
         print('ACTIVITY_TYPES = ', sec, '\n')
 
     def get_event_types(self) -> None:
@@ -338,7 +336,7 @@ class GarminClient(object):
         sec: dict = {}
 
         for type in response:
-            sec.update({type['typeKey']: type['typeId']})
+            sec.update({type.get('typeKey'): type.get('typeId')})
         print('EVENT_TYPES = ', sec, '\n')
 
     def get_golf_types(self) -> None:
@@ -347,7 +345,7 @@ class GarminClient(object):
 
         sec = {}
         for type in json.loads(response.text):
-            sec.update({type['name']: type['value']})
+            sec.update({type.get('name'): type.get('value')})
         print('GOLF_CLUB = ', sec, '\n')
 
         url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
@@ -357,7 +355,7 @@ class GarminClient(object):
 
         sec: dict = {}
         for type in response:
-            sec.update({type['name']: type['id']})
+            sec.update({type.get('name'): type.get('id')})
         print('GOLF_FLEX = ', sec, '\n')
 
     def get_strength_types(self) -> None:
@@ -375,7 +373,7 @@ class GarminClient(object):
         params: dict = {
             "date": date.today(),
         }
-        response: Any = self.get(url, params=params).json()['restingHeartRate']
+        response: Any = self.get(url, params=params).json().get('restingHeartRate')
 
         return int(response)
 
@@ -417,8 +415,8 @@ class GarminClient(object):
         }
 
         while True:
-            params["fromDate"] = d1.strftime('%Y-%m-%d')
-            params["toDate"] = d2.strftime('%Y-%m-%d')
+            params['fromDate'] = d1.strftime('%Y-%m-%d')
+            params['toDate'] = d2.strftime('%Y-%m-%d')
             ev: Response = self.get(url, params=params).json()
             if ev:
                 yield ev
