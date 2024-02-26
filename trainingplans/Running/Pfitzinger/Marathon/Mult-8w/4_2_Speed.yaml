@@ -1,0 +1,19 @@
+name: "4_2"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include &HILL hill_10s.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - !include &SPRINT stride_100m.yaml
+  - *SPRINT
+  - *SPRINT
+  - *SPRINT
+  - *SPRINT
+  - *SPRINT
+  - *SPRINT
+  - *SPRINT

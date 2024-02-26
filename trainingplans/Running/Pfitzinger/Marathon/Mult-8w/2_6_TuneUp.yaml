@@ -1,0 +1,7 @@
+name: "2_6"
+description: "Tune-up race"
+sport: "running"
+
+steps:
+  - !include warmup_8.yaml
+  - !include lt_10.yaml

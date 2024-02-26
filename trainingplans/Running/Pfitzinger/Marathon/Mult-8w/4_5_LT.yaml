@@ -1,0 +1,7 @@
+name: "4_5"
+description: "Lactate threshold"
+sport: "running"
+
+steps:
+  - !include warmup_6.yaml
+  - !include lt_8.yaml

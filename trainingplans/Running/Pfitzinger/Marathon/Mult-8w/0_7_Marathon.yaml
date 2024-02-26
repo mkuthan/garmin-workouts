@@ -1,0 +1,6 @@
+name: "0_7"
+description: "Marathon"
+sport: "running"
+
+steps:
+  - !include marathon_42.yaml

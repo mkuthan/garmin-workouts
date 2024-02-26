@@ -1,0 +1,7 @@
+name: "0_3"
+description: "Dress Rehearsal"
+sport: "running"
+
+steps:
+  - !include warmup_8.yaml
+  - !include marathon_3.yaml

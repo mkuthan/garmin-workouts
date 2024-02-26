@@ -1,0 +1,6 @@
+name: "3_7"
+description: "Long Run"
+sport: "running"
+
+steps:
+  - !include lr_32.yaml
