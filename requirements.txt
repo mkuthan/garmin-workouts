@@ -4,4 +4,4 @@ numpy==1.26.4
 xlrd==2.0.1
 pandas==2.2.0
 cloudscraper==1.2.71
-pytest-httpserver==1.0.9
+pytest-httpserver==1.0.10
