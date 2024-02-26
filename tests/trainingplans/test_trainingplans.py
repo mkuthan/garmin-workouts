@@ -23,6 +23,7 @@ class TrainingPlanTestCase(unittest.TestCase):
             os.path.join('trainingplans', '*', '*', 'Marathon', '88km', '*', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '113km', '*', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '113km-12w', '*', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-4w', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-8w', '*.yaml'),
         ]
 

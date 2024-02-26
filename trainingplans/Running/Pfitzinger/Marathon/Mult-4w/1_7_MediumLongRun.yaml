@@ -1,0 +1,6 @@
+name: "1_7"
+description: "Medium Long Run"
+sport: "running"
+
+steps:
+  - !include lr_18.yaml
