@@ -6,7 +6,7 @@ steps:
   - !include warmup_3.yaml
   - &SERIES
     - !include hm_1.yaml
-    - !include precovery_1.yaml
+    - !include recovery_1.yaml
   - *SERIES
   - *SERIES
   - *SERIES

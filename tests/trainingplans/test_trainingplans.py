@@ -23,8 +23,8 @@ class TrainingPlanTestCase(unittest.TestCase):
             os.path.join('trainingplans', '*', '*', 'Marathon', '88km', '*', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '113km', '*', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Marathon', '113km-12w', '*', '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-4w', '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-8w', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-4w', '*', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-8w', '*', '*.yaml'),
         ]
 
         for tp in tp_list:
@@ -41,8 +41,8 @@ class TrainingPlanTestCase(unittest.TestCase):
 
     def test_trainingplan_napier(self) -> None:
         tp_list: list[str] = [
-            os.path.join('trainingplans', '*', '*', 'Marathon', 'Advanced', '*.yaml'),
-            os.path.join('trainingplans', '*', '*', 'Half', 'Advanced', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Marathon', 'Advanced', '*', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', 'Half', 'Advanced', '*', '*.yaml'),
         ]
 
         for tp in tp_list:
