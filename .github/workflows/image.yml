@@ -141,7 +141,7 @@ jobs:
         
       - name: Docker Scout
         id: docker-scout
-        uses: docker/scout-action@v1.6.3
+        uses: docker/scout-action@v1.6.4
         with:
           command: cves,recommendations
           image: ${{ env.REGISTRY_IMAGE }}:main
