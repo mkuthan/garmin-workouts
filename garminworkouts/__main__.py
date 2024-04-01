@@ -68,7 +68,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
         for wname in ue:
             existing_workout: dict | None = existing_workouts_by_name.get(wname)
-            if existing_workout and plan in existing_workout.get('description'):
+            if existing_workout and existing_workout.get('description') and plan in existing_workout.get('description'):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                 workout_author: dict = Workout.extract_workout_author(existing_workout)
