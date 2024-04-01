@@ -20,14 +20,14 @@ class Arg(object):
 @pytest.mark.vcr
 def test_external_workouts(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
-    url: str = f"web-data/workouts/{locale}/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json"
+    url: str = f"web-data/workouts/{locale}/index.json"
     assert authed_gclient.garth.get("connect", url)
 
 
 @pytest.mark.vcr
 def test_get_external_workout(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
-    url: str = f"web-data/workouts/{locale}/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json"
+    url: str = f"web-data/workouts/{locale}/index.json"
     workouts: Any = authed_gclient.garth.get("connect", url).json()['workouts']
 
     for workout in workouts:
