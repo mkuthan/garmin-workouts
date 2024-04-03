@@ -1,9 +1,9 @@
 name: "3_5"
-description: "Speed"
+description: "Hill-Speed"
 sport: "running"
 
 steps:
-  - !include &HILL ../hill.yaml
+  - !include &HILL hill.yaml
   - *HILL
   - *HILL
   - *HILL

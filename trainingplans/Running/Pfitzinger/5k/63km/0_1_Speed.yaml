@@ -7,9 +7,4 @@ steps:
   - *SERIES
   - *SERIES
   - *SERIES
-  - {
-      type: "run",
-      duration: "0.8km",
-      target: 5KM_PACE,
-      description: Series @5k pace,
-    }
+  - { type: interval, duration: 0.8km, target: 5KM_PACE, description: Series @5k pace }
