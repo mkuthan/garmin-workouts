@@ -1,0 +1,7 @@
+name: "6_3"
+description: "Lactate threshold"
+sport: "running"
+
+steps:
+  - !include aerobic_12.yaml
+  - !include lt_22min.yaml

@@ -1,0 +1,19 @@
+name: "11_6"
+description: "Hill-Speed"
+sport: "running"
+
+steps:
+  - !include &HILL hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - *HILL
+  - !include &STRIDE stride_100m.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE

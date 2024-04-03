@@ -1,0 +1,16 @@
+name: "4_2"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include &STRIDE stride_150m.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - !include recovery_4min.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE

@@ -1,0 +1,11 @@
+name: "9_3"
+description: "Lactate threshold"
+sport: "running"
+
+steps:
+  - !include aerobic_9.yaml
+  - !include lt_10min.yaml
+  - !include precovery_3min.yaml
+  - !include lt_10min.yaml
+  - !include precovery_3min.yaml
+  - !include lt_10min.yaml  

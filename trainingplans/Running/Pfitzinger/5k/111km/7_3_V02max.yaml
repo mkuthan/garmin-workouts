@@ -1,0 +1,12 @@
+name: "7_3"
+description: "VO2max"
+sport: "running"
+
+steps:
+  - !include warmup_9.yaml
+  - !include &SERIES series_1000m.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

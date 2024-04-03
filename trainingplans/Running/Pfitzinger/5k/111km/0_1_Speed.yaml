@@ -1,0 +1,10 @@
+name: "0_1"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include &SERIES stride_100m.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - { type: interval, duration: 0.8km, target: 5KM_PACE, description: Series @5k pace }

@@ -1,0 +1,6 @@
+name: "8_6"
+description: "Gen-Aerobic"
+sport: "running"
+
+steps:
+  - !include aerobic_7.yaml

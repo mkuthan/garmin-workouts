@@ -1,0 +1,6 @@
+name: "11_1"
+description: "Recovery"
+sport: "running"
+
+steps:
+  - !include recovery_6.yaml

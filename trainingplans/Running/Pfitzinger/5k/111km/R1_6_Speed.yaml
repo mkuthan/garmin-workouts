@@ -1,0 +1,13 @@
+name: "R1_6"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include &STRIDE stride_100m.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE

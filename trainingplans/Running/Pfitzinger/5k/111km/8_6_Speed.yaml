@@ -1,0 +1,17 @@
+name: "8_6"
+description: "Speed"
+sport: "running"
+
+steps:
+
+  - !include &STRIDE series_300m.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - !include recovery_4min.yaml
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE
+  - *STRIDE

@@ -1,0 +1,13 @@
+name: "1_6"
+description: "Speed"
+sport: "running"
+
+steps:
+  - !include &SERIES stride_100m.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

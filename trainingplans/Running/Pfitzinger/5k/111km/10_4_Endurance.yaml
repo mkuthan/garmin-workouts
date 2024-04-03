@@ -1,0 +1,6 @@
+name: "10_4"
+description: "Endurance"
+sport: "running"
+
+steps:
+  - !include lr_16.yaml

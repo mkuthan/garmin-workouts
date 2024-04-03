@@ -1,0 +1,6 @@
+name: "3_4"
+description: "Endurance"
+sport: "running"
+
+steps:
+  - !include lr_18.yaml

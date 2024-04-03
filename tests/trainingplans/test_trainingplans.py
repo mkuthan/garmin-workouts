@@ -16,6 +16,7 @@ class TrainingPlanTestCase(unittest.TestCase):
     def test_trainingplan_pfitzinger(self) -> None:
         tp_list: list[str] = [
             os.path.join('trainingplans', '*', '*', '5k', '63km', '*.yaml'),
+            os.path.join('trainingplans', '*', '*', '5k', '111km', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'base', '72km', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'base', '97km', '*.yaml'),
             os.path.join('trainingplans', '*', '*', 'Half', '76km', '*.yaml'),
