@@ -13,7 +13,7 @@ from garth.exc import GarthHTTPError
 
 class GarminClient(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "24.7.0.186"
+    _GARMIN_VERSION = "24.7.1.0"
     _WORKOUT_SERVICE_ENDPOINT = "/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/activity-service"
