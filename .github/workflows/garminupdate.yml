@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: "*/5 * * * *"
 
+env:
+  GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
+  GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+  
 jobs:
   garmin-update:
     runs-on: ubuntu-latest
