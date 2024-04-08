@@ -20,6 +20,7 @@ from garminworkouts.models.extraction import workout_export_yaml, event_export_y
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
 import account
+import re
 
 
 def command_activity_list(args):
@@ -366,6 +367,22 @@ def command_update_types(args) -> None:
         connection.get_types()
 
 
+def updateGarminVersion(args):
+    file_path = "./garminworkouts/garmin/garminclient.py"
+    flags = 0
+    with _garmin_client(args) as connection:
+        subs = connection.version
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text = re.findall('_GARMIN_VERSION = "(.*)\"', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(subs, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
                                      description='Manage Garmin Connect workout(s)')
@@ -476,6 +493,10 @@ def main() -> None:
     parser_delete = subparsers.add_parser('find-events',
                                           description='Find events')
     parser_delete.set_defaults(func=command_find_events)
+
+    parser_delete = subparsers.add_parser('garmin-update',
+                                          description='Garmin version update')
+    parser_delete.set_defaults(func=updateGarminVersion)
 
     args = parser.parse_args()
 
