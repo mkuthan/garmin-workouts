@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: py -m garminworkouts garmin-update
+      - run: python -m garminworkouts garmin-update
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
