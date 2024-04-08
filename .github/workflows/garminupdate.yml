@@ -13,6 +13,7 @@ env:
   flt: ${{ secrets.flt }}
   rFTP: ${{ secrets.rFTP }}
   cFTP: ${{ secrets.cFTP }}
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   
 jobs:
   garmin-update:
