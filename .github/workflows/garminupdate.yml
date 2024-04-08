@@ -7,6 +7,12 @@ on:
 env:
   GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
   GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+  vV02: ${{ secrets.vV02 }}
+  fmin: ${{ secrets.fmin }}
+  fmax: ${{ secrets.fmax }}
+  flt: ${{ secrets.flt }}
+  rFTP: ${{ secrets.rFTP }}
+  cFTP: ${{ secrets.cFTP }}
   
 jobs:
   garmin-update:
