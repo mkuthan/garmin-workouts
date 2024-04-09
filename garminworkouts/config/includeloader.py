@@ -110,6 +110,8 @@ class IncludeLoader(yaml.SafeLoader):
                     s[0],
                     extract_duration(s[1]) if len(s) >= 2 else '',
                     0)
+            except IndexError:
+                print(filename)
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
