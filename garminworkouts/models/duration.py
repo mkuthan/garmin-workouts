@@ -26,18 +26,18 @@ class Duration:
     def get_string(value: int, type: str) -> str:
         match type:
             case 'heart.rate':
-                s: str = str.join(str(value), 'ppm')
+                s: str = "".join([str(value), 'ppm'])
             case 'distance':
-                if value >= 1000:
-                    s = str.join(str(value), 'm')
+                if value >= 100:
+                    s = "".join([str(value), 'm'])
                 else:
-                    s = str.join(str(value), 'km')
+                    s = "".join([str(value), 'km'])
             case 'calories':
-                s = str.join(str(value), 'cals')
+                s = "".join([str(value), 'cals'])
             case 'reps':
-                s = str.join(str(value), 'reps')
+                s = "".join([str(value), 'reps'])
             case 'power':
-                s = str.join(str(value), 'w')
+                s = "".join([str(value), 'w'])
             case 'time':
                 s = Time.to_str(value)
             case 'lap.button':

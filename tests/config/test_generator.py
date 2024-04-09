@@ -160,16 +160,63 @@ class MyTestCase(unittest.TestCase):
                         },
                         [{
                             'type': 'interval',
-                            'duration': '1km',
+                            'duration': '100m',
                             'target': '1KM_PACE',
                             'description': 'Strides pace'
                         },
                          {
                             'type': 'rest',
-                            'duration': '1km',
+                            'duration': '100m',
                             'target': 'RECOVERY_PACE',
                             'description': 'Recovery pace'
                         }],
+                        [{
+                            'type': 'interval', 'duration': '100m', 'target': '5KM_PACE',
+                            'description': 'Long hill climbing'
+                            },
+                         {
+                            'type': 'rest',
+                            'duration': '200m',
+                            'target': 'RECOVERY_PACE',
+                            'description': 'Recovery pace'
+                            }],
+                        [{
+                            'type': 'interval', 'duration': '0:10', 'target': '1KM_PACE', 'description': 'Hill climbing'
+                         },
+                         {
+                            'type': 'rest',
+                            'duration': '0:20',
+                            'target': 'RECOVERY_PACE',
+                            'description': 'Recovery pace'
+                        }],
+                        [{
+                            'type': 'interval',
+                            'duration': '0:30',
+                            'target': '1KM_PACE',
+                            'description': 'Accelerations'
+                         },
+                         {
+                            'type': 'rest', 'duration': '0:30', 'target': 'RECOVERY_PACE',
+                            'description': 'Recovery pace'
+                        }],
+                        [{
+                            'type': 'interval', 'duration': '1km', 'target': '5KM_PACE',
+                            'description': 'Series @5k pace'
+                         },
+                         {
+                            'type': 'rest', 'duration': '2:30', 'target': 'RECOVERY_PACE', 'description': 'Recovery'
+                            }],
+                        [{
+                            'type': 'interval', 'duration': '1000m', 'target': '1500M_PACE',
+                            'description': 'Series @1500 pace'
+                        },
+                         {
+                            'type': 'rest', 'duration': '1:00', 'target': 'WALK', 'description': 'Recovery pace'
+                        }],
+                        {
+                            'type': 'interval', 'duration': '5km',
+                            'target': 'HEART_RATE_ZONE_4', 'description': '5k race'
+                        },
             ]
         }
 
