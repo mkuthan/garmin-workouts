@@ -1,0 +1,4 @@
+name: "Test"
+
+steps:
+  - [ power: 90, duration: "12:00" ]

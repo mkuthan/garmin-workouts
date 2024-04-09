@@ -22,3 +22,13 @@ steps:
   - !include hm_20min.yaml
   - !include 10<hm_20min.yaml
   - !include 10>hm_20min.yaml
+  - !include warmup_1.yaml
+  - !include cooldown_1.yaml
+  - !include walk_1.yaml
+  - !include stride_100m.yaml
+  - !include longhill_100m.yaml
+  - !include hill_100m.yaml
+  - !include acceleration_100m.yaml
+  - !include series_1000m.yaml
+  - !include anaerobic_1000m.yaml
+  - !include race_5k_sub20.yaml

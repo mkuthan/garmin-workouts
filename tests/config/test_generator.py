@@ -3,6 +3,7 @@ import unittest
 
 from garminworkouts.config import configreader
 from garminworkouts.config import generator
+from garminworkouts.config import includeloader
 
 
 class MyTestCase(unittest.TestCase):
@@ -139,6 +140,36 @@ class MyTestCase(unittest.TestCase):
                             'target': '10>HALF_MARATHON_PACE',
                             'description': '10s quicker than Half Marathon pace'
                         },
+                        {
+                            'type': 'warmup',
+                            'duration': '1km',
+                            'target': 'AEROBIC_HEART_RATE',
+                            'description': 'Warm up'
+                        },
+                        {
+                            'type': 'cooldown',
+                            'duration': '1km',
+                            'target': 'AEROBIC_HEART_RATE',
+                            'description': 'Cool down'
+                        },
+                        {
+                            'type': 'rest',
+                            'duration': '1km',
+                            'target': 'WALK',
+                            'description': 'Walk'
+                        },
+                        [{
+                            'type': 'interval',
+                            'duration': '1km',
+                            'target': '1KM_PACE',
+                            'description': 'Strides pace'
+                        },
+                         {
+                            'type': 'rest',
+                            'duration': '1km',
+                            'target': 'RECOVERY_PACE',
+                            'description': 'Recovery pace'
+                        }],
             ]
         }
 
@@ -236,6 +267,16 @@ class MyTestCase(unittest.TestCase):
                          generator.race_steps_generator(z1='12km', z2='25km', z3='5.2km', description='Marathon race'))
         self.assertEqual(generator.race_generator('marathon', 250),
                          generator.race_steps_generator(z1='15km', z2='25km', z3='2.2km', description='Marathon race'))
+
+    def test_extract_duration(self) -> None:
+        self.assertEqual(includeloader.extract_duration('1min'), '0:01:00')
+        self.assertEqual(includeloader.extract_duration('30s'), '0:00:30')
+        self.assertEqual(includeloader.extract_duration('1:00'), '1:00')
+        self.assertEqual(includeloader.extract_duration('1km'), '1km')
+        self.assertEqual(includeloader.extract_duration('1000m'), '1000m')
+        self.assertEqual(includeloader.extract_duration('1k'), '1km')
+        self.assertEqual(includeloader.extract_duration('half'), '21.1km')
+        self.assertEqual(includeloader.extract_duration('1,5'), '1.5km')
 
 
 if __name__ == '__main__':

@@ -24,6 +24,17 @@ class MyTestCase(unittest.TestCase):
 
         self.assertDictEqual(config, expected_config)
 
+        config_file = os.path.join(os.path.dirname(__file__), 'test_configreader2.yaml')
+        config: dict = configreader.read_config(config_file)
+
+        expected_config: dict = {
+            'name': 'Test',
+            'steps':
+                [{'power': 90}, {'duration': '12:00'}],
+        }
+
+        self.assertDictEqual(config, expected_config)
+
 
 if __name__ == '__main__':
     unittest.main()

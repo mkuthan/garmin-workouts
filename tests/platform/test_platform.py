@@ -7,6 +7,8 @@ from typing import Any
 from requests import Response
 import os
 from garminworkouts.models.settings import settings
+from garminworkouts.models.yoga import YOGA_POSES
+from garminworkouts.models.strength import STRENGTH_EXERCISES
 
 
 class Arg(object):
@@ -120,7 +122,21 @@ def test_get_golf_types(authed_gclient: GarminClient) -> None:
 @pytest.mark.vcr
 def test_get_strength_types(authed_gclient: GarminClient) -> None:
     url: str = "/web-data/exercises/Exercises.json"
-    assert authed_gclient.garth.get("connect", url)
+    strength: dict = authed_gclient.garth.get("connect", url).json()['categories']
+    assert strength
+
+    assert STRENGTH_EXERCISES == strength
+
+
+@pytest.mark.vcr
+def test_get_yoga_types(authed_gclient: GarminClient) -> None:
+    url: str = "/web-data/exercises/Yoga.json"
+    yoga: dict = authed_gclient.garth.get("connect", url).json()['categories']
+    assert yoga
+
+    keysList = list(yoga.keys())
+    for key in keysList:
+        assert YOGA_POSES[key] == yoga[key]['exercises']
 
 
 @pytest.mark.vcr
