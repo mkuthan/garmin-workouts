@@ -21,7 +21,7 @@ SPORT_TYPES: dict[str, int] = {
     'yoga': 7,
     'pilates': 8,
     'hiit': 9,
-    'other': 3
+    'other': 3,
 }
 
 INTENSITY_TYPES: dict[str, int] = {
@@ -38,7 +38,8 @@ STEP_TYPES: dict[str, int] = {
     'recovery': 4,
     'repeat': 6,
     'rest': 5,
-    'other': 7
+    'other': 7,
+    'main': 8,
 }
 
 END_CONDITIONS: dict[str, int] = {
@@ -56,7 +57,8 @@ END_CONDITIONS: dict[str, int] = {
     'repetition.time': 12,
     'time.at.valid.cda': 13,
     'power.last.lap': 14,
-    'max.power.last.lap': 15
+    'max.power.last.lap': 15,
+    'repetition.swim.css.offset': 16,
 }
 
 TARGET_TYPES: dict[str, int] = {
@@ -76,7 +78,8 @@ TARGET_TYPES: dict[str, int] = {
     'swim.stroke': 14,
     'resistance': 15,
     'power.curve': 16,
-    'swim.instruction': 18
+    'swim.instruction': 18,
+    'swim.css.offset': 17,
 }
 
 EQUIPMENT_TYPES: dict[str, int] = {
@@ -95,7 +98,9 @@ STROKE_TYPES: dict[str, int] = {
     'fly': 5,
     'free': 6,
     'individual_medley': 7,
-    'mixed': 8
+    'mixed': 8,
+    'individual_medley_by_round': 9,
+    'reverse_individual_medley_by_round': 10,
 }
 
 SWIM_INSTRUCTION_TYPES: dict[str, int] = {
@@ -108,7 +113,7 @@ SWIM_INSTRUCTION_TYPES: dict[str, int] = {
     'all_out': 7,
     'fast': 8,
     'ascend': 9,
-    'descend': 10
+    'descend': 10,
 }
 
 DRILL_TYPES: dict[str, int] = {
@@ -216,6 +221,12 @@ ACTIVITY_TYPES: dict[str, int] = {
     'bikeToRunTransition_v2': 191,
     'runToBikeTransition_v2': 192,
     'hunting': 193,
+    'hand_cycling': 197,
+    'indoor_hand_cycling': 198,
+    'para_sports': 199,
+    'wheelchair_push_run': 200,
+    'wheelchair_push_walk': 201,
+    'meditation': 202,
     'backcountry_skiing': 203,
     'backcountry_snowboarding': 204,
     'disc_golf': 205,
@@ -263,7 +274,11 @@ ACTIVITY_TYPES: dict[str, int] = {
     'archery': 247,
     'mixed_martial_arts': 248,
     'overland': 249,
-    'snorkeling': 250
+    'snorkeling': 250,
+    'resort_skiing': 251,
+    'resort_snowboarding': 252,
+    'dance': 253,
+    'jump_rope': 254,
 }
 
 EVENT_TYPES: dict[str, int] = {
@@ -275,7 +290,7 @@ EVENT_TYPES: dict[str, int] = {
     'touring': 6,
     'geocaching': 7,
     'fitness': 8,
-    'uncategorized': 9
+    'uncategorized': 9,
 }
 
 GOLF_CLUB: dict[str, int] = {
@@ -301,7 +316,7 @@ GOLF_CLUB: dict[str, int] = {
     'Gap Wedge': 20,
     'Sand Wedge': 21,
     'Lob Wedge': 22,
-    'Putter': 23
+    'Putter': 23,
 }
 
 GOLF_FLEX: dict[str, int] = {
@@ -310,5 +325,5 @@ GOLF_FLEX: dict[str, int] = {
     'Extra Stiff': 2,
     'Senior': 3,
     'Ladies': 4,
-    'Stiff/Regular': 5
+    'Stiff/Regular': 5,
 }

@@ -80,7 +80,7 @@ class WorkoutStep:
         return step_config[_CONDITION_TYPE_KEY]
 
     @staticmethod
-    def _end_condition_value(step_config):
+    def _end_condition_value(step_config) -> int:
         duration = step_config.get(_DURATION)
         return WorkoutStep.parsed_end_condition_value(duration)
 

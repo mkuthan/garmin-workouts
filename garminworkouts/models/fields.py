@@ -1,5 +1,6 @@
-from garminworkouts.models.types import SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPE
+from garminworkouts.models.types import EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPE
 from garminworkouts.models.types import END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES
+from garminworkouts.models.types import SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES
 
 _WORKOUT = 'workout'
 _SPORT = 'sport'
@@ -23,6 +24,9 @@ _INTENSITY = 'intensity'
 _EQUIPMENT = 'equipment'
 _CONDITION = 'condition'
 _STROKE = 'stroke'
+_SWIM_INSTRUCTION = 'swimInstruction'
+_DRILL = 'drill'
+_ACTIVITY = 'activity'
 _COURSE = 'course'
 _EVENT = 'event'
 _DATE = 'date'
@@ -53,6 +57,10 @@ _STEP_TYPE: str = f'{_STEP}{_TYPE.capitalize()}'
 _CONDITION_TYPE: str = f'{_CONDITION}{_TYPE.capitalize()}'
 _STROKE_TYPE: str = f'{_STROKE}{_TYPE.capitalize()}'
 _EQUIPMENT_TYPE: str = f'{_EQUIPMENT}{_TYPE.capitalize()}'
+_SWIM_INSTRUCTION_TYPE: str = f'{_SWIM_INSTRUCTION}{_TYPE.capitalize()}'
+_DRILL_TYPE: str = f'{_DRILL}{_TYPE.capitalize()}'
+_ACTIVITY_TYPE: str = _TYPE
+_EVENT_TYPE: str = _TYPE
 _END_CONDITION: str = f'end{_CONDITION.capitalize()}'
 _WORKOUT_TARGET: str = f'{_WORKOUT}{_TARGET.capitalize()}{_TYPE.capitalize()}'
 
@@ -80,6 +88,14 @@ _WEIGHT_VALUE: str = f'{_WEIGHT}{_VALUE.capitalize()}'
 _WEIGHT_UNIT: str = f'{_WEIGHT}{_UNIT.capitalize()}'
 _UNIT_ID: str = f'{_UNIT}{_ID.capitalize()}'
 _UNIT_KEY: str = f'{_UNIT}{_KEY.capitalize()}'
+_SWIM_INSTRUCTION_TYPE_ID: str = f'{_SWIM_INSTRUCTION_TYPE}{_ID.capitalize()}'
+_SWIM_INSTRUCTION_TYPE_KEY: str = f'{_SWIM_INSTRUCTION_TYPE}{_KEY.capitalize()}'
+_DRILL_TYPE_ID: str = f'{_DRILL_TYPE}{_ID.capitalize()}'
+_DRILL_TYPE_KEY: str = f'{_DRILL_TYPE}{_KEY.capitalize()}'
+_ACTIVITY_TYPE_ID: str = f'{_ACTIVITY_TYPE}{_ID.capitalize()}'
+_ACTIVITY_TYPE_KEY: str = f'{_ACTIVITY_TYPE}{_KEY.capitalize()}'
+_EVENT_TYPE_ID: str = f'{_EVENT_TYPE}{_ID.capitalize()}'
+_EVENT_TYPE_KEY: str = f'{_EVENT_TYPE}{_KEY.capitalize()}'
 _STEP_ORDER: str = f'{_STEP}{_ORDER.capitalize()}'
 _EXERCISE_NAME: str = f'{_EXERCISE}{_NAME.capitalize()}'
 _STEPS: str = f'{_STEP}s'
@@ -206,3 +222,31 @@ def get_pool(pool):
         "poolLength": length,
         "poolLengthUnit": get_unit_type(unit)
         } if pool else {}
+
+
+def get_swim_instruction_type(instruction) -> dict:
+    return {
+        _SWIM_INSTRUCTION_TYPE_ID: SWIM_INSTRUCTION_TYPES.get(instruction),
+        _SWIM_INSTRUCTION_TYPE_KEY: instruction,
+    } if instruction and instruction in SWIM_INSTRUCTION_TYPES else {}
+
+
+def get_drill_type(drill) -> dict:
+    return {
+        _DRILL_TYPE_ID: DRILL_TYPES.get(drill),
+        _DRILL_TYPE_KEY: drill,
+    } if drill and drill in DRILL_TYPES else {}
+
+
+def get_activity_type(activity) -> dict:
+    return {
+        _ACTIVITY_TYPE_ID: ACTIVITY_TYPES.get(activity),
+        _ACTIVITY_TYPE_KEY: activity,
+    } if activity and activity in ACTIVITY_TYPES else {}
+
+
+def get_event_type(event) -> dict:
+    return {
+        _EVENT_TYPE_ID: EVENT_TYPES.get(event),
+        _EVENT_TYPE_KEY: event,
+    } if event and event in EVENT_TYPES else {}

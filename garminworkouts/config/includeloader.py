@@ -112,6 +112,10 @@ class IncludeLoader(yaml.SafeLoader):
                     0)
             except IndexError:
                 print(filename)
+                d = step_generator(
+                    s[0],
+                    extract_duration(s[1]) if len(s) >= 2 else '',
+                    0)
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
