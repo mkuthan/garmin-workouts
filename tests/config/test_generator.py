@@ -222,6 +222,12 @@ class MyTestCase(unittest.TestCase):
                             'type': 'interval', 'duration': '5km',
                             'target': 'HEART_RATE_ZONE_4', 'description': '5k race'
                         },
+                        {
+                            'type': 'rest',
+                            'duration': '1km',
+                            'target': 'WALK',
+                            'description': 'Walk'
+                        },
             ]
         }
 

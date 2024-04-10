@@ -9,6 +9,9 @@ import os
 from garminworkouts.models.settings import settings
 from garminworkouts.models.yoga import YOGA_POSES
 from garminworkouts.models.strength import STRENGTH_EXERCISES
+from garminworkouts.models.fields import get_step_type, get_sport_type, get_end_condition, get_intensity_type
+from garminworkouts.models.fields import get_target_type, get_equipment_type, get_stroke_type, get_swim_instruction_type
+from garminworkouts.models.fields import get_drill_type, get_activity_type, get_event_type
 
 
 class Arg(object):
@@ -98,25 +101,86 @@ def test_get_activities_by_date(authed_gclient: GarminClient) -> None:
 @pytest.mark.vcr
 def test_list_workout_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/types"
-    assert authed_gclient.get(url)
+    types: dict = authed_gclient.get(url).json()
+    assert types
+
+    for i in range(len(types['workoutStepTypes'])):
+        types['workoutStepTypes'][i].pop('displayOrder')
+        assert types['workoutStepTypes'][i] == get_step_type(types['workoutStepTypes'][i]['stepTypeKey'])
+
+    for i in range(len(types['workoutSportTypes'])):
+        types['workoutSportTypes'][i].pop('displayOrder')
+        assert types['workoutSportTypes'][i] == get_sport_type(types['workoutSportTypes'][i]['sportTypeKey'])
+
+    for i in range(len(types['workoutConditionTypes'])):
+        types['workoutConditionTypes'][i].pop('displayOrder')
+        types['workoutConditionTypes'][i].pop('displayable')
+        assert types['workoutConditionTypes'][i] == get_end_condition(
+            types['workoutConditionTypes'][i]['conditionTypeKey'])
+
+    for i in range(len(types['workoutIntensityTypes'])):
+        types['workoutIntensityTypes'][i].pop('displayOrder')
+        assert types['workoutIntensityTypes'][i] == get_intensity_type(
+            types['workoutIntensityTypes'][i]['intensityTypeKey'])
+
+    for i in range(len(types['workoutTargetTypes'])):
+        types['workoutTargetTypes'][i].pop('displayOrder')
+        assert types['workoutTargetTypes'][i] == get_target_type(
+            types['workoutTargetTypes'][i]['workoutTargetTypeKey'])
+
+    for i in range(len(types['workoutEquipmentTypes'])):
+        types['workoutEquipmentTypes'][i].pop('displayOrder')
+        assert types['workoutEquipmentTypes'][i] == get_equipment_type(
+            types['workoutEquipmentTypes'][i]['equipmentTypeKey'])
+
+    for i in range(len(types['workoutStrokeTypes'])):
+        types['workoutStrokeTypes'][i].pop('displayOrder')
+        assert types['workoutStrokeTypes'][i] == get_stroke_type(
+            types['workoutStrokeTypes'][i]['strokeTypeKey'])
+
+    for i in range(len(types['workoutSwimInstructionTypes'])):
+        types['workoutSwimInstructionTypes'][i].pop('displayOrder')
+        assert types['workoutSwimInstructionTypes'][i] == get_swim_instruction_type(
+            types['workoutSwimInstructionTypes'][i]['swimInstructionTypeKey'])
+
+    for i in range(len(types['workoutDrillTypes'])):
+        types['workoutDrillTypes'][i].pop('displayOrder')
+        assert types['workoutDrillTypes'][i] == get_drill_type(
+            types['workoutDrillTypes'][i]['drillTypeKey'])
 
 
 @pytest.mark.vcr
 def test_get_activity_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
-    assert authed_gclient.get(url)
+    activities: dict = authed_gclient.get(url).json()
+    assert activities
+
+    for i in range(len(activities)):
+        activities[i].pop('parentTypeId')
+        activities[i].pop('isHidden')
+        activities[i].pop('restricted')
+        activities[i].pop('trimmable')
+        assert activities[i] == get_activity_type(
+            activities[i]['typeKey'])
 
 
 @pytest.mark.vcr
 def test_get_event_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
-    assert authed_gclient.get(url)
+    events: dict = authed_gclient.get(url).json()
+    assert events
+
+    for i in range(len(events)):
+        events[i].pop('sortOrder')
+        assert events[i] == get_event_type(
+            events[i]['typeKey'])
 
 
 @pytest.mark.vcr
 def test_get_golf_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._GOLF_COMMUNITY_ENDPOINT}/types"
-    assert authed_gclient.get(url)
+    golf: dict = authed_gclient.get(url).json()
+    assert golf
 
 
 @pytest.mark.vcr

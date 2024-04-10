@@ -34,3 +34,4 @@ steps:
   - !include race_5k_sub20.yaml
   - !include rr_5k_sub20.yaml
   - !include race_5k_subk.yaml
+  - !include walk_1_1.yaml
