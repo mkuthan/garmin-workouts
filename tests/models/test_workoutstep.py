@@ -1,6 +1,6 @@
 import unittest
 
-from garminworkouts.models.fields import _UNIT_KEY, _DURATION, get_end_condition
+from garminworkouts.models.fields import _UNIT_KEY
 from garminworkouts.models.workoutstep import WorkoutStep
 
 
@@ -10,7 +10,3 @@ class TestWorkoutStep(unittest.TestCase):
         assert WorkoutStep.end_condition_unit('1cals') == {_UNIT_KEY: 'calories'}
         assert WorkoutStep.end_condition_unit('1') == {_UNIT_KEY: None}
         assert WorkoutStep.end_condition_unit(None) is None
-
-    def test_end_condition(self) -> None:
-        step_config[_DURATION] == 
-        assert WorkoutStep.end_condition_unit(step_config) == get_end_condition('calories')
