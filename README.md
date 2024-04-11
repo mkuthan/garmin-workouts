@@ -19,7 +19,7 @@ Features:
 
 Requirements:
 
-* Python 3.10/11 ([doc](https://www.python.org/downloads/))
+* Python 3.10/11/12 ([doc](https://www.python.org/downloads/))
 
 Clone this repo:
 
@@ -63,8 +63,20 @@ export GARMIN_PASSWORD=password
 ```
 or  alternatively you can store them in a .env file.
 
-Similarly, you need to define additional user characteristics such as vVO2 (time per km), fmin and fmax (bpm), and running and cycling FTP (rFTP and cFTP respectively in watts)
+Similarly, you need to define additional user characteristics such as vVO2 (time per km), fmin, fmax, and flt (lactate theshold) (bpm), and running and cycling FTP (rFTP and cFTP respectively in watts).
+```shell
+export vV02 
+export fmin
+export fmax
+export flt
+export rFTP
+export cFTP
+```
 
+In order to run it remotely, the basic functionalities of the module can be operated via a Telegram bot.
+```shell
+export BOT_TOKEN = 6458910859:AAEDCvUwSOKis3d4w0rvudh4LTlWyLT5Pcs
+```
 ### Import Workouts
 
 Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org) files.
