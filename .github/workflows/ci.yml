@@ -6,6 +6,9 @@ on:
       - 'garminworkouts/**'
       - 'tests/**'
   pull_request_target:
+    paths:
+      - 'garminworkouts/**'
+      - 'tests/**'
   workflow_dispatch:
 
 jobs:
