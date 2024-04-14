@@ -12,8 +12,8 @@ MILE_PACE: {type: "pace.zone", min: "1.05", max: "1.0" }
 5KM_PACE: {type: "pace.zone", min: "0.96", max: "0.92" }
 10KM_PACE: {type: "pace.zone", min: "0.93", max: "0.89" }
 HALF_MARATHON_PACE: {type: "pace.zone", min: "0.88", max: "0.82" }
-RECOVERY_HEART_RATE: {type: "heart.rate.zone", min: "0.50", max: "0.62" }
-AEROBIC_HEART_RATE:  {type: "heart.rate.zone", min: "0.62", max: "0.75" }
+RECOVERY_HEART_RATE: {type: "heart.rate.zone", min: "0.50", max: "0.60" }
+AEROBIC_HEART_RATE:  {type: "heart.rate.zone", min: "0.60", max: "0.75" }
 LONG_RUN_HEART_RATE: {type: "heart.rate.zone", min: "0.66", max: "0.78" }
 MARATHON_HEART_RATE: {type: "heart.rate.zone", min: "0.76", max: "0.84" }
 THRESHOLD_HEART_RATE: {type: "heart.rate.zone", min: "0.76", max: "0.88" }
