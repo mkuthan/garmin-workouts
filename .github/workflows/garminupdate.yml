@@ -2,7 +2,7 @@ name: Garmin update
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
 
 env:
   GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
