@@ -26,6 +26,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT }}
       - uses: ./.github/actions/setup
       - run: python -m garminworkouts garmin-update
 
