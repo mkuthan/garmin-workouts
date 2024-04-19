@@ -102,7 +102,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Displays info on how to use the bot."""
     assert update.message is not None
-    await update.message.reply_text("Use /start to test this bot.")
+    await update.message.reply_text("Use /start to use this bot.")
 
 
 async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:

@@ -33,7 +33,7 @@ def test_external_workouts(authed_gclient: GarminClient) -> None:
 def test_get_external_workout(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
     url: str = f"web-data/workouts/{locale}/index.json"
-    workouts: Any = authed_gclient.garth.get("connect", url).json()['workouts']
+    workouts: dict = authed_gclient.garth.get("connect", url).json()['workouts']
 
     for workout in workouts:
         url: str = workout['filePath']
@@ -221,7 +221,7 @@ def test_get_hr_zones(authed_gclient: GarminClient) -> None:
 @pytest.mark.vcr
 def test_save_hr_zones(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
-    zones: Any = authed_gclient.get(url).json()
+    zones: dict = authed_gclient.get(url).json()
     assert authed_gclient.put(url, json=zones)
 
 
@@ -266,7 +266,7 @@ def test_save_power_zones(authed_gclient: GarminClient) -> None:
 @pytest.mark.vcr
 def test_workout_list(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
-    params = {
+    params: dict[str, Any] = {
         "start": 0,
         "limit": 20,
         "myWorkoutsOnly": False,
@@ -303,17 +303,17 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
 
         for workout in workouts:
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
-            payload = workout.create_workout()
-            w = authed_gclient.post(url, json=payload).json()
+            payload: dict = workout.create_workout()
+            w: dict = authed_gclient.post(url, json=payload).json()
             assert w
-            workout_id = Workout.extract_workout_id(w)
+            workout_id: str = Workout.extract_workout_id(w)
 
             url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
             payload = workout.create_workout(workout_id=workout_id)
             assert authed_gclient.get(url)
             assert authed_gclient.get(f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}")
             json_data: dict = {"date": date.today().isoformat()}
-            p = authed_gclient.post(
+            p: dict = authed_gclient.post(
                 f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data).json()
             assert p['workoutScheduleId']
             assert authed_gclient.delete(

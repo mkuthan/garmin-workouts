@@ -23,9 +23,9 @@ import account
 import re
 
 
-def command_activity_list(args):
+def command_activity_list(args) -> None:
     with _garmin_client(args) as connection:
-        activities = connection.get_activities_by_date(
+        activities: list[dict] = connection.get_activities_by_date(
             startdate=date.today()+datetime.timedelta(days=-7),
             enddate=date.today(),
             activitytype='running'
@@ -390,7 +390,7 @@ def main() -> None:
                         action='store_true',
                         help='Enables more detailed messages')
 
-    subparsers = parser.add_subparsers(title='Commands')
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser] = parser.add_subparsers(title='Commands')
 
     parser_import = subparsers.add_parser('trainingplan-import',
                                           description='Import workout(s) from file(s) into Garmin Connect ')
@@ -419,8 +419,8 @@ def main() -> None:
     parser_list = subparsers.add_parser('trainingplan-list', description='List all Garmin trainingplans')
     parser_list.set_defaults(func=command_trainingplan_list)
 
-    parser_import = subparsers.add_parser('event-import',
-                                          description='Import event(s) from file(s) into Garmin Connect')
+    parser_import: argparse.ArgumentParser = subparsers.add_parser('event-import', description='Import event(s) from \
+        file(s) into Garmin Connect')
     parser_import.add_argument('trainingplan',
                                help='File(s) with event(s) to import, '
                                     'wildcards are supported e.g: events/*.yaml')
@@ -433,11 +433,10 @@ def main() -> None:
                             help='Event id, use list command to get event identifiers')
     parser_get.set_defaults(func=command_event_get)
 
-    parser_list = subparsers.add_parser('event-list', description='List all events')
+    parser_list: argparse.ArgumentParser = subparsers.add_parser('event-list', description='List all events')
     parser_list.set_defaults(func=command_event_list)
 
-    parser_get = subparsers.add_parser('workout-get',
-                                       description='Get workout')
+    parser_get: argparse.ArgumentParser = subparsers.add_parser('workout-get', description='Get workout')
     parser_get.add_argument('--id',
                             required=True,
                             help="Workout id, use list command to get workouts' identifiers")
@@ -450,8 +449,8 @@ def main() -> None:
                                help='Workout id, use list command to get workouts identifiers')
     parser_delete.set_defaults(func=command_workout_delete)
 
-    parser_schedule = subparsers.add_parser('workout-schedule',
-                                            description='Schedule a workout')
+    parser_schedule: argparse.ArgumentParser = subparsers.add_parser('workout-schedule', description='Schedule a \
+        workout')
     parser_schedule.add_argument('--workout_id',
                                  '-w',
                                  required=True,
@@ -462,9 +461,8 @@ def main() -> None:
                                  help='Date to which schedule the workout')
     parser_schedule.set_defaults(func=command_workout_schedule)
 
-    parser_export = subparsers.add_parser('workout-export',
-                                          description='Export all workouts from Garmin Connect\
-                                              and save them into a directory')
+    parser_export: argparse.ArgumentParser = subparsers.add_parser('workout-export', description='Export all workouts \
+        from Garmin Connect and save them into a directory')
     parser_export.add_argument('directory',
                                type=writeable_dir,
                                help='Destination directory where workout(s) will be exported')
@@ -494,11 +492,10 @@ def main() -> None:
                                           description='Find events')
     parser_delete.set_defaults(func=command_find_events)
 
-    parser_delete = subparsers.add_parser('garmin-update',
-                                          description='Garmin version update')
+    parser_delete = subparsers.add_parser('garmin-update', description='Garmin version update')
     parser_delete.set_defaults(func=updateGarminVersion)
 
-    args = parser.parse_args()
+    args: argparse.Namespace = parser.parse_args()
 
     logging_level: int = logging.DEBUG if args.debug else logging.INFO
     logging.basicConfig(level=logging_level,
