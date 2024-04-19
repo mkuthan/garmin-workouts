@@ -22,6 +22,7 @@ class GarminClient(object):
     _ACTIVITY_LIST_SERVICE_ENDPOINT = "/activitylist-service"
     _TRAINING_PLAN_SERVICE_ENDPOINT = "/trainingplan-service/trainingplan"
     _GOLF_COMMUNITY_ENDPOINT = "/gcs-golfcommunity/api/v2/club"
+    _BADGE_CHALLENGE_ENDPOINT = "/badgechallenge-service"
 
     def __init__(self, username, password) -> None:
         self.username: str = username
@@ -452,3 +453,11 @@ class GarminClient(object):
     def delete_note(self, note_id) -> None:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
         self.delete(url)
+
+    def list_challenge(self) -> None:
+        url: str = f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/available"
+        challenges: dict = self.get(url).json()
+        for challenge in challenges:
+            url: str = f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/{challenge.get('uuid')}/optIn/{
+                datetime.today().strftime('%Y-%m-%d')}"
+            self.post(url)

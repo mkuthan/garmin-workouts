@@ -302,6 +302,11 @@ def command_trainingplan_list(args) -> None:
             TrainingPlan.print_trainingplan_summary(tp)
 
 
+def command_challenge_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.list_challenge()
+
+
 def command_workout_schedule(args) -> None:
     with _garmin_client(args) as connection:
         connection.schedule_workout(args.workout_id, args.date)
@@ -491,6 +496,9 @@ def main() -> None:
     parser_delete = subparsers.add_parser('find-events',
                                           description='Find events')
     parser_delete.set_defaults(func=command_find_events)
+
+    parser_delete: argparse.ArgumentParser = subparsers.add_parser('challenge-signup', description='Challenge sign up')
+    parser_delete.set_defaults(func=command_challenge_list)
 
     parser_delete = subparsers.add_parser('garmin-update', description='Garmin version update')
     parser_delete.set_defaults(func=updateGarminVersion)
