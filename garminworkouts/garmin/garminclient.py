@@ -458,6 +458,10 @@ class GarminClient(object):
         url: str = f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/available"
         challenges: dict = self.get(url).json()
         for challenge in challenges:
-            url: str = f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/{challenge.get('uuid')}/optIn/{
-                datetime.today().strftime('%Y-%m-%d')}"
+            url: str = (
+                f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/"
+                f"{challenge.get('uuid')}/optIn/"
+                f"{datetime.today().strftime('%Y-%m-%d')}"
+                )
+
             self.post(url)
