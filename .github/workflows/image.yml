@@ -3,7 +3,8 @@ name: Build docker images
 on:  
   workflow_run:
     workflows: ["CI", "Dependabot auto-merge"]
-    types: [completed]
+    types:
+      - completed
 
 
 env:
