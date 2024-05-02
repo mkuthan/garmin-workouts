@@ -24,8 +24,8 @@ class GarminClient(object):
     _GOLF_COMMUNITY_ENDPOINT = "/gcs-golfcommunity/api/v2/club"
     _BADGE_CHALLENGE_ENDPOINT = "/badgechallenge-service"
 
-    def __init__(self, username, password) -> None:
-        self.username: str = username
+    def __init__(self, email, password) -> None:
+        self.email: str = email
         self.password: str = password
 
         tokenstore: Literal['./garminconnect'] | None = "./garminconnect" if os.path.isdir("./garminconnect") else None
@@ -40,7 +40,7 @@ class GarminClient(object):
         if tokenstore:
             self.garth.load(tokenstore)
         else:
-            self.garth.login(self.username, self.password)
+            self.garth.login(self.email, self.password, prompt_mfa=self.get_mfa)
             # Save tokens for next login
             self.garth.dump("./garminconnect")
 
@@ -57,6 +57,11 @@ class GarminClient(object):
             logging.error('Updated version: ' + self.version + ' from ' + GarminClient._GARMIN_VERSION)
 
         return True
+
+    def get_mfa(self) -> str:
+        """Get MFA."""
+
+        return input("MFA one-time code: ")
 
     def get(self, *args, **kwargs) -> Response:
         return self.garth.get(GarminClient._GARMIN_SUBDOMAIN, *args, **kwargs)

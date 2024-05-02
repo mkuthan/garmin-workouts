@@ -330,7 +330,7 @@ def command_workout_delete(args) -> None:
 
 def _garmin_client(args) -> GarminClient:
     return GarminClient(
-        username=account.USERNAME,
+        email=account.EMAIL,
         password=account.PASSWORD)
 
 
