@@ -2,7 +2,7 @@ from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
 from decouple import config
 
-USERNAME: str | bool = config('GARMIN_USERNAME')
+EMAIL: str | bool = config('GARMIN_USERNAME')
 PASSWORD: str | bool = config('GARMIN_PASSWORD')
 locale = 'en-US'
 vV02 = Pace(config('vV02'))  # type: ignore
