@@ -23,6 +23,7 @@ class GarminClient(object):
     _TRAINING_PLAN_SERVICE_ENDPOINT = "/trainingplan-service/trainingplan"
     _GOLF_COMMUNITY_ENDPOINT = "/gcs-golfcommunity/api/v2/club"
     _BADGE_CHALLENGE_ENDPOINT = "/badgechallenge-service"
+    _DOWNLOAD_SERVICE = "/download-service/files"
 
     def __init__(self, email, password) -> None:
         self.email: str = email
@@ -74,6 +75,9 @@ class GarminClient(object):
 
     def delete(self, *args, **kwargs) -> Response:
         return self.garth.delete(GarminClient._GARMIN_SUBDOMAIN, *args, **kwargs)
+
+    def download(self, path, **kwargs) -> bytes:
+        return self.garth.download(path, **kwargs)
 
     def __enter__(self):
         return self
@@ -266,6 +270,18 @@ class GarminClient(object):
                 break
 
         return activities
+
+    def download_activity(self, activity_id) -> None:
+        url: str = f"{self._DOWNLOAD_SERVICE}/activity/{activity_id}"
+        data: bytes = self.download(url)
+
+        newpath: str = os.path.join('.', 'activities')
+        if not os.path.exists(newpath):
+            os.makedirs(newpath)
+
+        output_file: str = f"./activities/{str(activity_id)}.zip"
+        with open(output_file, "wb") as fb:
+            fb.write(data)
 
     def list_trainingplans(self, locale) -> dict:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/search"

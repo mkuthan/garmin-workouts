@@ -30,7 +30,10 @@ def command_activity_list(args) -> None:
             enddate=date.today(),
             activitytype='running'
             )
-        print(activities)
+        for activity in activities:
+            id: str = activity.get('activityId', '')
+            logging.info("Downloading activity '%s'", id)
+            connection.download_activity(id)
 
 
 def command_trainingplan_reset(args) -> None:
