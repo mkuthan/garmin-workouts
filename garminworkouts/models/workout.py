@@ -117,6 +117,12 @@ class Workout(object):
 
                 return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
             else:
+                if workout_name.startswith('D'):
+                    ind = 0
+                    week = 0
+                    day: int = int(workout_name.split('D')[1]) - 1
+
+                    return self.race - timedelta(weeks=week) + timedelta(days=day), week, day
                 return date.today(), int(0), int(0)
 
     def running_values(self, flatten_steps) -> None:
