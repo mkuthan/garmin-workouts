@@ -97,6 +97,8 @@ class Workout(object):
             self.config.get(_DESCRIPTION) is not None) and (len(
                 self.config.get(_DESCRIPTION, '')) < 20) and ('\n' not in self.config.get(_DESCRIPTION, '')):
             return str(self.config.get(_NAME, '') + '-' + self.config.get(_DESCRIPTION, ''))
+        elif len(self.config.get(_DESCRIPTION, '')) >= 20:
+            return str(self.config.get(_NAME)) + '-' + str(self.config.get(_DESCRIPTION, '')).split(' ')[0]
         else:
             return str(self.config.get(_NAME))
 
@@ -443,7 +445,8 @@ class Workout(object):
             description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (
                 float(self.cFTP.power[:-1]), self.tss, self.norm_pwr, self.int_fct)
         else:
-            description = self.config.get(_DESCRIPTION, '')
+            description = self.config.get(_DESCRIPTION, '') + '. '
+            description += 'Plan: ' + self.plan + '. '
         if description:
             return description
 
