@@ -14,7 +14,7 @@ def end_condition_extraction(step_json, step) -> dict:
     elif end_condition == 'heart.rate':
         step['duration'] = str(int(step_json['endConditionValue'])) + 'ppm' + step_json['endConditionCompare']
     elif end_condition != 'lap.button':
-        print(end_condition, step_json['endConditionValue'])
+        step['duration'] = 'lap.button'
     return step
 
 
