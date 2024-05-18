@@ -441,6 +441,26 @@ class TrainingPlanTestCase(unittest.TestCase):
                         True,
                         msg=tp + ' ' + workout.config['name'] + ' drops an exception')
 
+    def test_trainingplan_darebee(self) -> None:
+        tp_list: list[str] = [
+            os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', '1-minute plank', '*.yaml'),
+            os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', 'first thing plank hold',
+                         '*.yaml'),
+            os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', 'the miner', '*.yaml'),
+        ]
+
+        for tp in tp_list:
+            with self.subTest():
+                args = Arg(trainingplan=tp)
+                workouts, notes, plan = settings(args)
+                self.assertGreater(len(workouts), 0, tp + ' has not files')
+
+                for workout in workouts:
+                    self.assertNotEqual(
+                        workout.duration == datetime.timedelta(seconds=0) and workout.mileage == 0,
+                        True,
+                        msg=tp + ' ' + workout.config['name'] + ' drops an exception')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,10 @@
+description: Hold a plank for 60 seconds for 30 days
+name: D3
+sport: strength_training
+steps:
+  - category: PLANK
+    description: ''
+    duration: 0:01:00
+    exerciseName: PLANK
+    target: {type: no.target}
+    type: interval

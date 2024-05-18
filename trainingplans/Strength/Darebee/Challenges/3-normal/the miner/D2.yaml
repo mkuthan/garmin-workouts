@@ -1,0 +1,23 @@
+description: The Miner
+name: D2
+sport: strength_training
+steps:
+- &id001
+  - category: PLANK
+    description: 'Shoulder taps'
+    duration: 20reps
+    exerciseName: STRAIGHT_ARM_PLANK_WITH_SHOULDER_TOUCH
+    target: {type: no.target}
+    type: interval
+  - category: PLANK
+    description: '10-count plank hold'
+    duration: lap.button
+    exerciseName: PLANK
+    target: {type: no.target}
+    type: interval
+  - type: rest
+    description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+- *id001   
+- *id001   

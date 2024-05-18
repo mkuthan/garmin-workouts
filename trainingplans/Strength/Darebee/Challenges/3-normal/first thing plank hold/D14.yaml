@@ -1,0 +1,16 @@
+description: First thing plank hold
+name: D14
+sport: strength_training
+steps:
+- &id001
+  - category: PLANK
+    description: 'Max plank hold'
+    duration: lap.button
+    exerciseName: PLANK
+    target: {type: no.target}
+    type: interval
+  - type: rest
+    description: ''
+    duration: 0:00:30
+    target: {type: no.target}
+- *id001    
