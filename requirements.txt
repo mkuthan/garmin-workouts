@@ -9,7 +9,7 @@ pandas==2.2.2
 cloudscraper==1.2.71
 pytest-httpserver==1.0.10
 python-decouple==3.8
-python-telegram-bot[job-queue]==21.1.1
+python-telegram-bot[job-queue]==21.2
 bpython == 0.24
 certifi==2024.2.2
 garth==0.4.46
