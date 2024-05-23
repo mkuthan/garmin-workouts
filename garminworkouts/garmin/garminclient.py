@@ -51,7 +51,10 @@ class GarminClient(object):
         settings: dict = self.get("/userprofile-service/userprofile/user-settings").json()
         self.unit_system: dict | None = settings["userData"]["measurementSystem"] if settings is not None else None
 
-        self.version: str = self.get("/info-service/api/system/release-system").json()[0].get('version', '')
+        try:
+            self.version: str = self.get("/info-service/api/system/release-system").json()[0].get('version', '')
+        except IndexError:
+            self.version = GarminClient._GARMIN_VERSION
         try:
             assert self.version == GarminClient._GARMIN_VERSION
         except AssertionError:
