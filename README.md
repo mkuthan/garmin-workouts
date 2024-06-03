@@ -231,3 +231,27 @@ Note: the date format is as follows : 2021-12-31
 ```shell
 python -m garminworkouts schedule -d [DATE] -w [WORKOUT_ID]
 ```
+
+# Usage with Docker
+
+```shell
+# store your credentials in a .env file
+cat <<EOT >> .env
+GARMIN_USERNAME=user@domain.com
+GARMIN_PASSWORD=mypassword
+EOT
+# name the image
+IMAGE=garminworkouts
+# build the image
+docker build --load -t ${IMAGE} .
+# run the image (the "-v /tmp/garmin:/data" part is optional
+# and will be used to persist the cookies file)
+docker run --env-file=./.env -v /tmp/garmin:/data -ti ${IMAGE} [your command and arguments: list, export, etc.]
+# alternatively you can use this wrapper
+./dockerwrap.sh [your command and arguments: list, export, etc.]
+# in case you want to export to a directory, you need to use /data
+# inside the container and point DATADIR to the local dir where to
+# write the data (./ by default).
+export DATADIR=/path/where/to/store/data/locally
+./dockerwrap.sh export /data
+```
