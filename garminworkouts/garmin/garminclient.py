@@ -3,7 +3,7 @@ import sys
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
-from typing import Any, Literal, Generator, LiteralString, Optional
+from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.extraction import workout_export_yaml
 import garth
 import os
@@ -97,7 +97,7 @@ class GarminClient(object):
         return self.garth.get("connect", url).json()
 
     def list_workouts(self, batch_size=100) -> Generator[bytes, Any, None]:
-        url: LiteralString = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
+        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
         start_index = 0
 
         while True:
