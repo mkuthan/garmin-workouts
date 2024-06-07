@@ -36,6 +36,34 @@ class TestTarget(unittest.TestCase):
                            zone=target_def['zone'],
                            secondary=target_def['secondary'])
 
+    def test_init_positive(self) -> None:
+        target = Target(target='power.zone', value_one=100, value_two=200, zone=None, secondary=False)
+        self.assertEqual(target.target, 'power.zone')
+        self.assertEqual(target.value_one, 100)
+        self.assertEqual(target.value_two, 200)
+        self.assertIsNone(target.zone)
+        self.assertFalse(target.secondary)
+
+    def test_init_negative(self) -> None:
+        with self.assertRaises(TypeError):
+            Target(target='invalid_target_type', value_one=100, value_two=200, zone=None, secondary=False)
+
+    def test_create_target_no_target(self) -> None:
+        target = Target(target='no.target')
+        self.assertEqual(target.create_target(), {})
+
+    def test_create_target_with_target(self) -> None:
+        target = Target(target='power.zone', value_one=100, value_two=200, zone=None, secondary=False)
+        expected_output: dict = {
+            'targetType': {
+                'workoutTargetTypeId': 2,
+                'workoutTargetTypeKey': 'power.zone'
+                },
+            'targetValueOne': 100,
+            'targetValueTwo': 200,
+            'zoneNumber': None}
+        self.assertEqual(target.create_target(), expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()
