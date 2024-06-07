@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from garminworkouts.models.time import Time
+from garminworkouts.models.types import TYPE_MAPPING
 
 
 @dataclass(frozen=True)
@@ -7,83 +8,64 @@ class Duration:
     duration: str
 
     def get_type(self) -> str:
-        if self.duration:
-            if Duration.is_heart_rate(self.duration):
-                return 'heart.rate'
-            elif Duration.is_distance(self.duration):
-                return 'distance'
-            elif Duration.is_energy(self.duration):
-                return 'calories'
-            elif Duration.is_reps(self.duration):
-                return 'reps'
-            elif Duration.is_power(self.duration):
-                return 'power'
-            elif Duration.is_time(self.duration):
-                return 'time'
+        for key, value in TYPE_MAPPING.items():
+            if key in self.duration:
+                return value
+        if Duration.is_time(self.duration):
+            return 'time'
         return 'lap.button'
 
     @staticmethod
     def get_string(value: int, type: str) -> str:
-        match type:
-            case 'heart.rate':
-                s: str = "".join([str(value), 'ppm'])
-            case 'distance':
-                if value >= 100:
-                    s = "".join([str(value), 'm'])
-                else:
-                    s = "".join([str(value), 'km'])
-            case 'calories':
-                s = "".join([str(value), 'cals'])
-            case 'reps':
-                s = "".join([str(value), 'reps'])
-            case 'power':
-                s = "".join([str(value), 'w'])
-            case 'time':
-                s = Time.to_str(value)
-            case 'lap.button':
-                s = ''
-            case _:
-                s = ''
-        return s
+        if type == 'heart.rate':
+            return f"{value}ppm"
+        elif type == 'distance':
+            if value >= 100:
+                return f"{value}m"
+            else:
+                return f"{value}km"
+        elif type == 'calories':
+            return f"{value}cals"
+        elif type == 'reps':
+            return f"{value}reps"
+        elif type == 'power':
+            return f"{value}w"
+        elif type == 'time':
+            return Time.to_str(value)
+        else:
+            return ''
 
     @staticmethod
     def get_value(duration: str) -> int | None:
-        if 'ppm' in duration:
-            return int(duration.split('ppm')[0])
-        elif 'km' in duration:
-            return int(float(duration.split('km')[0]) * 1000)
-        elif 'm' in duration:
-            return int(float(duration.split('m')[0]))
-        elif 'cals' in duration:
-            return int(float(duration.split('cals')[0]))
-        elif 'reps' in duration:
-            return int(duration.split('reps')[0])
-        elif ':' in duration:
+        for key in TYPE_MAPPING.keys():
+            if key in duration:
+                return int(float(duration.split(key)[0]) if key != 'reps' else duration.split(key)[0])
+        if ':' in duration:
             return Time(duration).to_seconds()
 
     @staticmethod
     def is_time(string: str) -> bool:
-        return True if ':' in string else False
+        return ':' in string
 
     @staticmethod
     def is_distance(string: str) -> bool:
-        return True if 'm' in string.lower() else False
+        return 'm' in string or 'km' in string
 
     @staticmethod
     def is_reps(string: str) -> bool:
-        return True if 'reps' in string.lower() else False
+        return 'reps' in string
 
     @staticmethod
     def is_heart_rate(string: str) -> bool:
-        return True if 'ppm' in string.lower() else False
+        return 'ppm' in string
 
     @staticmethod
     def is_power(string: str) -> bool:
-        return True if 'w' in string.lower() else False
+        return 'w' in string
 
     @staticmethod
     def is_energy(string: str) -> bool:
-        return True if 'cals' in string.lower() else False
+        return 'cals' in string
 
     def to_seconds(self) -> int:
         return Time(self.duration).to_seconds()

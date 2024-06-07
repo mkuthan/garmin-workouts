@@ -2,6 +2,7 @@ import glob
 import account
 import os
 from garminworkouts.config import configreader
+from typing import List
 from datetime import date
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.note import Note
@@ -11,35 +12,35 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
     try:
         planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
-        print('Planning is not defined')
-        planning = {}
+        print('Planning config not found')
+        return [], [], ''
 
-    if isinstance(args.trainingplan, tuple):
-        args.trainingplan = ''.join(args.trainingplan)
+    args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
 
     if args.trainingplan in planning:
-        workout_files = glob.glob(planning[args.trainingplan].get('workouts'))
+        workout_files: list = glob.glob(planning[args.trainingplan].get('workouts'))
+        race: date = date.today()
+        plan = args.trainingplan
+
         if 'year' in planning[args.trainingplan]:
             race = date(
                 planning[args.trainingplan].get('year'),
                 planning[args.trainingplan].get('month'),
                 planning[args.trainingplan].get('day')
                 )
-        else:
-            race: date = date.today()
-        plan: str = args.trainingplan
+
     elif '.yaml' in args.trainingplan:
-        workout_files: list[str] = glob.glob(args.trainingplan)
-        plan = str('')
-        race: date = date.today()
+        workout_files = glob.glob(args.trainingplan)
+        plan: str = ''
+        race = date.today()
     else:
-        print(args.trainingplan + ' not found in planning, please check "planning.yaml"')
+        print(f'{args.trainingplan} not found in planning')
         return [], [], ''
 
     try:
-        workout_configs: list = [configreader.read_config(workout_file) for workout_file in workout_files]
         target: dict = configreader.read_config(r'target.yaml')
-        combined: list[Workout | Note] = [
+        workout_configs: list[dict] = [configreader.read_config(workout_file) for workout_file in workout_files]
+        combined: List[Workout | Note] = [
             Workout(
                 workout_config,
                 target,
@@ -49,12 +50,17 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
                 account.flt,
                 account.rFTP,
                 account.cFTP,
-                plan, race
-                ) if 'content' not in workout_config else Note(workout_config) for workout_config in workout_configs]
+                plan,
+                race)
+            if 'content' not in workout_config else Note(workout_config) for workout_config in workout_configs]
 
-        notes: list[Note] = [w for w in combined if isinstance(w, Note)]
-        workouts: list[Workout] = [w for w in combined if isinstance(w, Workout)]
-
+        notes: List[Note] = [w for w in combined if isinstance(w, Note)]
+        workouts: List[Workout] = [w for w in combined if isinstance(w, Workout)]
         return workouts, notes, plan
-    except Exception:
+
+    except FileNotFoundError as e:
+        print(f"Error reading config file: {e}")
+        return [], [], ''
+    except Exception as e:
+        print(f"An error occurred: {e}")
         return [], [], ''

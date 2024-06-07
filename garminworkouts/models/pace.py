@@ -15,24 +15,25 @@ class Pace:
 
     def to_pace(self, vVO2=str('3:00'), diff=float(0)) -> float:
         vVO2s: int = Time(vVO2).to_seconds()
-        if not 0 <= Time(vVO2).to_seconds() < 1000:
+        if not 0 <= vVO2s < 1000:
             raise ValueError('vVO2 must be between 0 [s] and 500 [s] but was %s' % vVO2s)
 
+        pace_speed: float = Pace(vVO2).to_speed()
         if self._has_time():
             absolute_pace: float = Pace(self.pace).to_speed()
         elif self._has_percent():
-            absolute_pace = self._to_absolute(Pace(vVO2).to_speed(), float(self.pace[:-1]))
+            absolute_pace = self._to_absolute(pace_speed, float(self.pace[:-1]))
         else:
-            absolute_pace = self._to_absolute(Pace(vVO2).to_speed(), float(self.pace)*100)
+            absolute_pace = self._to_absolute(pace_speed, float(self.pace) * 100)
 
-        return 1.0/(1.0/absolute_pace + diff/1000)
+        return 1.0 / (1.0 / absolute_pace + diff / 1000)
 
     def _has_time(self) -> bool:
         return ':' in self.pace
 
     def _has_percent(self) -> bool:
-        return (self.pace.lower()).endswith('%')
+        return self.pace.endswith('%')
 
     @staticmethod
     def _to_absolute(pace, vVO2) -> float:
-        return float(pace) * float(vVO2)/100
+        return pace * vVO2 / 100

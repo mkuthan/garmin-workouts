@@ -11,7 +11,6 @@ class Event(object):
             self,
             config
     ) -> None:
-
         self.name: str = config.get(_NAME)
         self.date = date(config.get(_DATE).get('year'), config.get(_DATE).get('month'), config.get(_DATE).get('day'))
         self.url: str | None = config.get('url')
@@ -31,8 +30,8 @@ class Event(object):
         return event.get(_EVENT_NAME)
 
     @staticmethod
-    def extract_event_date(event) -> str:
-        return event.get(_DATE)
+    def extract_event_date(event) -> date:
+        return date(event.get(_DATE).get('year'), event.get(_DATE).get('month'), event.get(_DATE).get('day'))
 
     @staticmethod
     def extract_event_location(event) -> str:
@@ -50,9 +49,9 @@ class Event(object):
     def print_event_summary(event) -> None:
         event_id: str = Event.extract_event_id(event)
         event_name: str = Event.extract_event_name(event)
-        event_date: str = Event.extract_event_date(event)
+        event_date: date = Event.extract_event_date(event)
         event_location: str = Event.extract_event_location(event)
-        print("{0} {1:20} {2:10} {3}".format(event_id, event_name, event_location, event_date))
+        print(f"{event_id} {event_name:20} {event_location:10} {event_date}")
 
     @staticmethod
     def print_event_json(event) -> None:
@@ -89,9 +88,11 @@ class Event(object):
                 'customGoal': {
                     'value': self.goal,
                     'unit': 'second',
-                    'unitType': 'time'},
+                    'unitType': 'time'
+                },
                 'isPrimaryEvent': None,
-                'isTrainingEvent': True},
+                'isTrainingEvent': True
+            },
             'race': True,
             'eventOrganizer': True,
             'subscribed': True

@@ -58,6 +58,37 @@ class PowerTestCase(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp)
 
+    def test_to_watts_with_watt_power(self):
+        p = Power("200W")
+        self.assertEqual(p.to_watts(250), 200)
+
+    def test_to_watts_with_percent_power(self):
+        p = Power("80%")
+        self.assertEqual(p.to_watts(250), 200)
+
+    def test_to_watts_with_absolute_power(self):
+        p = Power("200")
+        self.assertEqual(p.to_watts(250), 500)
+
+    def test_to_watts_invalid_ftp(self):
+        p = Power("200W")
+        with self.assertRaises(ValueError):
+            p.to_watts(1000)
+
+    def test_to_watts_invalid_power(self):
+        p = Power("5000W")
+        with self.assertRaises(ValueError):
+            p.to_watts(250)
+
+    def test_power_zones(self):
+        rftp = Power("200W")
+        cftp = Power("250W")
+        zones, rpower_zones, cpower_zones, data = Power.power_zones(rftp, cftp)
+        self.assertEqual(zones, [0.65, 0.8, 0.9, 1.0, 1.15, 1.3, 1.5, 1.7])
+        self.assertEqual(rpower_zones, [130, 160, 180, 200, 229, 260, 300, 340])
+        self.assertEqual(cpower_zones, [162, 200, 225, 250, 287, 325, 375, 425])
+        self.assertEqual(len(data), 2)
+
 
 if __name__ == '__main__':
     unittest.main()

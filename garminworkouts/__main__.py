@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import datetime
 import glob
 import logging
 import os
@@ -25,31 +24,33 @@ import re
 
 def command_activity_list(args) -> None:
     with _garmin_client(args) as connection:
-        activities: list[dict] = connection.get_activities_by_date(
-            startdate=date.today()+datetime.timedelta(days=-7),
-            enddate=date.today(),
-            activitytype='running'
-            )
-        for activity in activities:
-            id: str = activity.get('activityId', '')
-            logging.info("Downloading activity '%s'", id)
-            connection.download_activity(id)
+        try:
+            start_date: date = date.today() - timedelta(days=7)
+            end_date: date = date.today()
+            activities: list[dict] = connection.get_activities_by_date(
+                startdate=start_date, enddate=end_date, activitytype='running')
+            for activity in activities:
+                id: str = activity.get('activityId', '')
+                logging.info("Downloading activity '%s'", id)
+                connection.download_activity(id)
+        except Exception as e:
+            logging.error("An error occurred: %s", str(e))
 
 
 def command_trainingplan_reset(args) -> None:
-    workouts, notes,  plan = settings(args)
-
+    workouts, notes, plan = settings(args)
     with _garmin_client(args) as connection:
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-
         for workout in workouts:
             workout_name: str = workout.get_workout_name()
             existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
-
             if existing_workout and plan in existing_workout.get('description'):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
-                logging.info("Deleting workout '%s'", workout_name)
-                connection.delete_workout(workout_id)
+                try:
+                    logging.info("Deleting workout '%s'", workout_name)
+                    connection.delete_workout(workout_id)
+                except Exception as e:
+                    logging.error("Error deleting workout '%s': %s", workout_name, str(e))
 
 
 def command_trainingplan_import(args, event=False) -> None:
@@ -72,7 +73,8 @@ def command_trainingplan_import(args, event=False) -> None:
 
         for wname in ue:
             existing_workout: dict | None = existing_workouts_by_name.get(wname)
-            if existing_workout and existing_workout.get('description') and plan in existing_workout.get('description'):
+            description: dict | None = existing_workout.get('description') if existing_workout else None
+            if description and plan in description:
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                 workout_author: dict = Workout.extract_workout_author(existing_workout)
@@ -84,10 +86,9 @@ def command_trainingplan_import(args, event=False) -> None:
 
         for workout in workouts:
             day_d, week, day = workout.get_workout_date()
-
-            if day_d >= date.today() and day_d < date.today() + timedelta(weeks=2):
+            if date.today() <= day_d < date.today() + timedelta(weeks=2):
                 workout_name: str = workout.get_workout_name()
-                existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
+                existing_workout = existing_workouts_by_name.get(workout_name)
                 if not existing_workout:
                     payload = workout.create_workout()
                     logging.info("Creating workout '%s'", workout_name)
@@ -99,8 +100,7 @@ def command_trainingplan_import(args, event=False) -> None:
 
         for note in notes:
             day_d, week, day = note.get_note_date()
-
-            if day_d >= date.today() and day_d < date.today() + timedelta(weeks=2):
+            if date.today() <= day_d < date.today() + timedelta(weeks=2):
                 note_name: str = note.get_note_name()
                 existing_note: dict | None = ne.get(note_name)
                 if not existing_note:
@@ -109,8 +109,8 @@ def command_trainingplan_import(args, event=False) -> None:
                     connection.save_note(payload)
                 else:
                     note_id: str = Note.extract_note_id(existing_note)
-                    note: Note = ne[note_name]
-                    payload: dict = note.create_note(note_id)
+                    note_obj = ne[note_name]
+                    payload = note_obj.create_note(note_id)
                     logging.info("Updating note '%s'", note_name)
                     connection.update_note(note_id, payload)
 
@@ -273,7 +273,8 @@ def command_workout_export_yaml(args):
 
                 if w.get('taskWorkout'):
                     workout_id: str = w.get('taskWorkout', {}).get('workoutId')
-                    workout: dict = connection.get_workout(workout_id)
+                    workout_data = connection.get_workout(workout_id)
+                    workout = workout_data.json()
                     logging.info("Exporting workout '%s' into '%s'", name, file)
                     workout_export_yaml(workout, file)
                 if w.get('taskNote'):

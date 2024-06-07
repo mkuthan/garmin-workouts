@@ -8,7 +8,7 @@ def end_condition_extraction(step_json, step) -> dict:
     if end_condition == 'time' or end_condition == 'fixed.rest':
         step['duration'] = str(timedelta(seconds=int(step_json['endConditionValue'])))
     elif end_condition == 'distance':
-        step['duration'] = str(round(float(step_json['endConditionValue'])/1000, 3)) + 'km'
+        step['duration'] = str(round(float(step_json['endConditionValue']) / 1000, 3)) + 'km'
     elif end_condition == 'reps':
         step['duration'] = str(int(step_json['endConditionValue'])) + 'reps'
     elif end_condition == 'heart.rate':
@@ -22,24 +22,25 @@ def end_condition_extraction(step_json, step) -> dict:
 def target_extraction(step_json, step) -> dict:
     step['target'] = {}
     step['target']['type'] = 'no.target'
-    if ('targetType' in step_json) and (step_json['targetType'] is not None):
-        step['target']['type'] = step_json['targetType']['workoutTargetTypeKey']
-        if step['target']['type'] == 'pace.zone':
+
+    if 'targetType' in step_json and step_json['targetType']:
+        target_type_key: dict = step_json['targetType']['workoutTargetTypeKey']
+        step['target']['type'] = target_type_key
+
+        if target_type_key == 'pace.zone':
             step['target']['min'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueOne']))))[2:]
             step['target']['max'] = str(timedelta(seconds=int(1000 / float(step_json['targetValueTwo']))))[2:]
-        elif step['target']['type'] == 'cadence':
+        elif target_type_key == 'cadence':
             step['target']['min'] = str(int(step_json['targetValueOne'])) if step_json['targetValueOne'] else None
             step['target']['max'] = str(int(step_json['targetValueTwo'])) if step_json['targetValueTwo'] else None
-        elif step['target']['type'] == 'heart.rate.zone' or step['target']['type'] == 'power.zone':
-            if step_json['zoneNumber']:
+        elif target_type_key in ['heart.rate.zone', 'power.zone']:
+            if step_json.get('zoneNumber'):
                 step['target']['zone'] = str(step_json['zoneNumber'])
             else:
-                step['target']['min'] = str(
-                    int(step_json['targetValueOne'])) if step_json['targetValueOne'] else None
-                step['target']['max'] = str(
-                    int(step_json['targetValueTwo'])) if step_json['targetValueTwo'] else None
-        elif step['target']['type'] != 'lap.button' and step['target']['type'] != 'no.target':
-            print(step['target']['type'])
+                step['target']['min'] = str(int(step_json['targetValueOne'])) if step_json['targetValueOne'] else None
+                step['target']['max'] = str(int(step_json['targetValueTwo'])) if step_json['targetValueTwo'] else None
+        elif target_type_key not in ['lap.button', 'no.target']:
+            print(target_type_key)
             print(step)
 
     return step
@@ -47,29 +48,33 @@ def target_extraction(step_json, step) -> dict:
 
 def secondary_target_extraction(step_json, step) -> dict:
     if ('secondaryTargetType' in step_json) and (step_json['secondaryTargetType'] is not None):
-        step['secondaryTarget'] = {}
-        step['secondaryTarget']['type'] = step_json['secondaryTargetType']['workoutTargetTypeKey']
-        if step['secondaryTarget']['type'] == 'pace.zone':
-            step['secondaryTarget']['min'] = str(timedelta(seconds=int(1000 / float(
-                step_json['secondaryTargetValueOne']))))[2:]
-            step['secondaryTarget']['max'] = str(timedelta(seconds=int(1000 / float(
-                step_json['secondaryTargetValueTwo']))))[2:]
-            step['secondaryTarget']['zone'] = step_json['secondaryZoneNumber']
-        elif step['secondaryTarget']['type'] == 'cadence':
-            step['secondaryTarget']['min'] = str(int(step_json['secondaryTargetValueOne']))
-            step['secondaryTarget']['max'] = str(int(step_json['secondaryTargetValueTwo'])) if step_json[
-                'secondaryTargetValueTwo'] else None
-        elif (step['secondaryTarget']['type'] == 'heart.rate.zone' or
-              step['secondaryTarget']['type'] == 'power.zone'):
-            if step_json['secondaryZoneNumber']:
-                step['secondaryTarget']['zone'] = str(step_json['secondaryZoneNumber'])
+        secondary_target = step['secondaryTarget'] = {}
+        secondary_target_type = step_json['secondaryTargetType']['workoutTargetTypeKey']
+
+        if secondary_target_type == 'pace.zone':
+            secondary_target['min'] = timedelta(seconds=int(1000 / float(step_json['secondaryTargetValueOne']))
+                                                ).total_seconds()
+            secondary_target['max'] = timedelta(seconds=int(1000 / float(step_json['secondaryTargetValueTwo']))
+                                                ).total_seconds()
+            secondary_target['zone'] = step_json['secondaryZoneNumber']
+
+        elif secondary_target_type == 'cadence':
+            secondary_target['min'] = int(step_json['secondaryTargetValueOne'])
+            secondary_target['max'] = int(step_json['secondaryTargetValueTwo']) if step_json.get(
+
+                'secondaryTargetValueTwo') else None
+
+        elif secondary_target_type in ['heart.rate.zone', 'power.zone']:
+            if step_json.get('secondaryZoneNumber'):
+                secondary_target['zone'] = str(step_json['secondaryZoneNumber'])
             else:
-                step['secondaryTarget']['min'] = str(int(step_json['secondaryTargetValueOne'])) if step_json[
-                    'secondaryTargetValueOne'] else None
-                step['secondaryTarget']['max'] = str(int(step_json['secondaryTargetValueTwo'])) if step_json[
-                    'secondaryTargetValueTwo'] else None
-        elif step['secondaryTarget']['type'] != 'lap.button' and step['secondaryTarget']['type'] != 'no.target':
-            print(step['secondaryTarget']['type'])
+                secondary_target['min'] = int(step_json['secondaryTargetValueOne']) if step_json.get(
+                    'secondaryTargetValueOne') else None
+                secondary_target['max'] = int(step_json['secondaryTargetValueTwo']) if step_json.get(
+                    'secondaryTargetValueTwo') else None
+
+        elif secondary_target_type not in ['lap.button', 'no.target']:
+            print(secondary_target_type)
             print(step)
 
     return step
@@ -77,13 +82,16 @@ def secondary_target_extraction(step_json, step) -> dict:
 
 @staticmethod
 def weight_extraction(step_json, step) -> dict:
-    if ('weightValue' in step_json) and (step_json['weightValue'] is not None):
-        if step_json['weightUnit']['unitKey'] == 'kilogram':
-            step['weight'] = str(step_json['weightValue']) + 'kg'
-        elif step_json['weightUnit']['unitKey'] == 'pound':
-            step['weight'] = str(step_json['weightValue']) + 'pound'
+    weight_value: str = step_json.get('weightValue')
+    weight_unit: str = step_json.get('weightUnit', {}).get('unitKey')
+
+    if weight_value is not None:
+        if weight_unit == 'kilogram':
+            step['weight'] = str(weight_value) + 'kg'
+        elif weight_unit == 'pound':
+            step['weight'] = str(weight_value) + 'pound'
         else:
-            print(step_json['weightUnit']['unitKey'])
+            print(weight_unit)
     return step
 
 

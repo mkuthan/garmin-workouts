@@ -3,7 +3,7 @@ import sys
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
-from typing import Any, Literal, Generator, Optional
+from typing import Any, Literal, Generator, LiteralString, Optional
 from garminworkouts.models.extraction import workout_export_yaml
 import garth
 import os
@@ -96,10 +96,12 @@ class GarminClient(object):
         url: str = f"web-data/workouts/{locale}/{code}.json"
         return self.garth.get("connect", url).json()
 
-    def list_workouts(self, batch_size=100) -> Generator[dict, dict, None]:
-        url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
-        for start_index in range(0, sys.maxsize, batch_size):
-            params = {
+    def list_workouts(self, batch_size=100) -> Generator[bytes, Any, None]:
+        url: LiteralString = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
+        start_index = 0
+
+        while True:
+            params: dict = {
                 "start": start_index,
                 "limit": batch_size,
                 "myWorkoutsOnly": False,
@@ -108,18 +110,25 @@ class GarminClient(object):
                 "orderSeq": "ASC",
                 "includeAtp": True
             }
-            response_jsons: dict = self.get(url, params=params).json()
-            if not response_jsons or response_jsons == []:
+            response_jsons: Response = self._fetch_workouts(url, params)
+            if not response_jsons:
                 break
             for response_json in response_jsons:
                 yield response_json
 
-    def get_workout(self, workout_id) -> dict:
+            start_index += batch_size
+
+    def _fetch_workouts(self, url: str, params: dict) -> Response:
+        response: Response = self.get(url, params=params)
+        return response
+
+    def get_workout(self, workout_id) -> Response:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
-        return self.get(url).json()
+        return self.get(url)
 
     def download_workout_yaml(self, workout_id, filename) -> None:
-        workout_export_yaml(self.get_workout(workout_id), filename)
+        workout_data: Response = self.get_workout(workout_id)
+        workout_export_yaml(workout_data.json(), filename)
 
     def download_workout(self, workout_id, file) -> None:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"

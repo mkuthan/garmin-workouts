@@ -1,3 +1,12 @@
+TYPE_MAPPING: dict[str, str] = {
+    'ppm': 'heart.rate',
+    'km': 'distance',
+    'm': 'distance',
+    'cals': 'calories',
+    'reps': 'reps',
+    'w': 'power'
+}
+
 STEP_TYPES: dict[str, int] = {
     'warmup': 1,
     'cooldown': 2,
