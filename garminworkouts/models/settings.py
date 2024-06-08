@@ -2,7 +2,6 @@ import glob
 import account
 import os
 from garminworkouts.config import configreader
-from typing import List
 from datetime import date
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.note import Note
@@ -13,6 +12,7 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
         planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
         print('Planning config not found')
+        planning = {}
         return [], [], ''
 
     args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
@@ -28,19 +28,18 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
                 planning[args.trainingplan].get('month'),
                 planning[args.trainingplan].get('day')
                 )
-
     elif '.yaml' in args.trainingplan:
         workout_files = glob.glob(args.trainingplan)
         plan: str = ''
         race = date.today()
     else:
-        print(f'{args.trainingplan} not found in planning')
+        print(f'{args.trainingplan} not found in planning, please check "planning.yaml"')
         return [], [], ''
 
     try:
         target: dict = configreader.read_config(r'target.yaml')
         workout_configs: list[dict] = [configreader.read_config(workout_file) for workout_file in workout_files]
-        combined: List[Workout | Note] = [
+        combined: list[Workout | Note] = [
             Workout(
                 workout_config,
                 target,
@@ -54,8 +53,8 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
                 race)
             if 'content' not in workout_config else Note(workout_config) for workout_config in workout_configs]
 
-        notes: List[Note] = [w for w in combined if isinstance(w, Note)]
-        workouts: List[Workout] = [w for w in combined if isinstance(w, Workout)]
+        notes: list[Note] = [w for w in combined if isinstance(w, Note)]
+        workouts: list[Workout] = [w for w in combined if isinstance(w, Workout)]
         return workouts, notes, plan
 
     except FileNotFoundError as e:
