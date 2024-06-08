@@ -8,7 +8,7 @@ class TestEvent(unittest.TestCase):
     def setUp(self) -> None:
         self.event_config: dict = {
             'id': '123',
-            'eventName': 'Test Event',
+            'name': 'Test Event',
             'date': {'year': 2022, 'month': 1, 'day': 1},
             'url': 'http://test.com',
             'location': 'Test Location',
@@ -45,6 +45,7 @@ class TestEvent(unittest.TestCase):
         self.assertEqual(Event.print_event_json(self.event_config), None)
 
     def test_create_event(self) -> None:
+        self.setUp()
         event_data: dict = self.event.create_event(event_id='123', workout_id='456')
         self.assertEqual(event_data['id'], '123')
         self.assertEqual(event_data['eventName'], 'Test Event')

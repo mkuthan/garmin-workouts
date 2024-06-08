@@ -1,4 +1,4 @@
-trainingplan_list = {
+trainingplan_list: dict = {
     "trainingPlanList": [
         {
             "trainingPlanId": 4,

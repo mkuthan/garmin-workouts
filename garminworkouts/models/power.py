@@ -6,7 +6,7 @@ from typing import List, Dict
 class Power:
     power: str
 
-    def to_watts(self, ftp: int) -> float:
+    def to_watts(self, ftp) -> float:
         ftp = int(ftp)
         if not 0 <= ftp < 1000:
             raise ValueError('FTP must be between 0 [W] and 999 [W] but was %s' % ftp)

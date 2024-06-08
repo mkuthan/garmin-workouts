@@ -28,25 +28,25 @@ class TrainingPlan(object):
     @staticmethod
     def print_trainingplan_summary(tp) -> None:
         tp_: dict = TrainingPlan.export_trainingplan(tp)
-        tp_id: str = TrainingPlan.extract_trainingplan_id(tp_)
-        tp_name: str = TrainingPlan.extract_trainingplan_name(tp_)
-        tp_type: str = TrainingPlan.extract_trainingplan_type(tp_)
-        tp_level: str = TrainingPlan.extract_trainingplan_level(tp_)
-        tp_version: str = TrainingPlan.extract_trainingplan_version(tp_)
+        tp_id, tp_name, tp_type, tp_level, tp_version = (tp_[field] for field in [
+            'id',
+            'name',
+            'type',
+            'level',
+            'version'])
         print("{0} {1:15} {2} {3} {4}".format(tp_id, tp_name, tp_type, tp_level, tp_version))
 
     @staticmethod
     def export_trainingplan(tp) -> dict:
-        trainingplan: dict = {}
-
-        trainingplan['id'] = tp['trainingPlanId']
-        trainingplan['type'] = tp['trainingType']['typeKey']
-        trainingplan['subtype'] = tp['trainingSubType']['subTypeKey']
-        trainingplan['level'] = tp['trainingLevel']['levelKey']
-        trainingplan['version'] = tp['trainingVersion']['versionName']
-        trainingplan['name'] = tp['name']
-        trainingplan['description'] = tp['description']
-        trainingplan['durationInWeeks'] = tp['durationInWeeks']
-        trainingplan['avgWeeklyWorkouts'] = tp['avgWeeklyWorkouts']
-
+        trainingplan: dict = {
+            'id': tp['trainingPlanId'],
+            'type': tp['trainingType']['typeKey'],
+            'subtype': tp['trainingSubType']['subTypeKey'],
+            'level': tp['trainingLevel']['levelKey'],
+            'version': tp['trainingVersion']['versionName'],
+            'name': tp['name'],
+            'description': tp['description'],
+            'durationInWeeks': tp['durationInWeeks'],
+            'avgWeeklyWorkouts': tp['avgWeeklyWorkouts']
+        }
         return trainingplan

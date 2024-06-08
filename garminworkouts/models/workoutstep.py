@@ -81,7 +81,7 @@ class WorkoutStep:
 
     @staticmethod
     def _end_condition_value(step_config) -> int:
-        duration = step_config.get(_DURATION)
+        duration: str = step_config.get(_DURATION)
         return WorkoutStep.parsed_end_condition_value(duration)
 
     @staticmethod

@@ -246,7 +246,7 @@ class Workout(object):
         return duration_secs, duration_meters
 
     def equivalent_pace(self, step) -> float:
-        target_type = self.extract_target_type(step[_TARGET])
+        target_type: str = self.extract_target_type(step[_TARGET])
         match target_type:
             case 'cadence.zone':
                 t2: float = self._target_value(step, 'max')
@@ -371,7 +371,7 @@ class Workout(object):
             case 'pace.zone':
                 match self.sport_type[0]:
                     case 'running':
-                        return Pace(target_value).to_pace(vVO2=self.vVO2.pace)
+                        return float(self.convert_targetPace_to_pace(float(target_value)))
                     case _:
                         return float(target_value)
             case _:
@@ -427,6 +427,9 @@ class Workout(object):
 
     def convert_HR_to_pace(self, HR) -> float:
         return self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(HR)) * self.vVO2.to_pace()
+
+    def convert_targetPace_to_pace(self, target_value: float) -> float:
+        return target_value * self.vVO2.to_pace()
 
     def _generate_description(self):
         description: str = ''

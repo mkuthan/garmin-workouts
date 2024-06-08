@@ -110,7 +110,7 @@ class GarminClient(object):
                 "orderSeq": "ASC",
                 "includeAtp": True
             }
-            response_jsons: Response = self._fetch_workouts(url, params)
+            response_jsons: dict = self._fetch_workouts(url, params).json()
             if not response_jsons:
                 break
             for response_json in response_jsons:

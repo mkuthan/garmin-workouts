@@ -13,12 +13,12 @@ class Pace:
     def to_speed(self) -> float:
         return 1000.0 / self.to_seconds()
 
-    def to_pace(self, vVO2=str('3:00'), diff=float(0)) -> float:
-        vVO2s: int = Time(vVO2).to_seconds()
+    def to_pace(self, vVO2=None, diff=float(0)) -> float:
+        vVO2s: int = Time(vVO2).to_seconds() if vVO2 else Time(self.pace).to_seconds()
         if not 0 <= vVO2s < 1000:
-            raise ValueError('vVO2 must be between 0 [s] and 500 [s] but was %s' % vVO2s)
+            raise ValueError('vVO2 must be between 0 [s] and 1000 [s] but was %s' % vVO2s)
 
-        pace_speed: float = Pace(vVO2).to_speed()
+        pace_speed: float = Pace(self.pace).to_speed()
         if self._has_time():
             absolute_pace: float = Pace(self.pace).to_speed()
         elif self._has_percent():
