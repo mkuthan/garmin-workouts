@@ -13,7 +13,6 @@ def settings(args) -> tuple[list[Workout], list[Note], str]:
     except FileNotFoundError:
         print('Planning config not found')
         planning = {}
-        return [], [], ''
 
     args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
 
