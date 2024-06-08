@@ -522,25 +522,25 @@ class Workout(object):
         return steps, step_order, child_step_id, repeatDuration
 
     def create_workout(self, workout_id=None, workout_owner_id=None, workout_author=None) -> dict:
-        return {
-            _WORKOUT_ID: workout_id,
-            _WORKOUT_OWNER_ID: workout_owner_id,
-            _WORKOUT_NAME: self.get_workout_name(),
-            _DESCRIPTION: self._generate_description(),
-            _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
-            _WORKOUT_SUBSPORT_TYPE: self.subsport[0],
-            _AUTHOR: workout_author,
-            **self.get_estimated_duration(),
-            _WORKOUT_SEGMENTS: [
-                {
-                    _WORKOUT_ORDER: 1,
-                    _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type[0]),
-                    _WORKOUT_STEPS: self._steps(self.config.get(_STEPS))
-                }
-            ],
-            **get_pool('25m' if self.sport_type[0] == 'swimming' else None),
-            **get_estimate('DISTANCE_ESTIMATED' if self.sport_type[0] == 'running' else None),
-        }
+            return {
+                _WORKOUT_ID: workout_id,
+                _WORKOUT_OWNER_ID: workout_owner_id,
+                _WORKOUT_NAME: self.get_workout_name(),
+                _DESCRIPTION: self._generate_description(),
+                _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type),
+                _WORKOUT_SUBSPORT_TYPE: self.subsport,
+                _AUTHOR: workout_author,
+                **self.get_estimated_duration(),
+                _WORKOUT_SEGMENTS: [
+                    {
+                        _WORKOUT_ORDER: 1,
+                        _WORKOUT_SPORT_TYPE: get_sport_type(self.sport_type),
+                        _WORKOUT_STEPS: self._steps(self.config.get(_STEPS))
+                    }
+                ],
+                **get_pool('25m' if self.sport_type == 'swimming' else None),
+                **get_estimate('DISTANCE_ESTIMATED' if self.sport_type == 'running' else None),
+            }
 
     def _repeat_step(self, step_order, child_step_id, repeats, nested_steps, repeatDuration) -> dict:
         return {

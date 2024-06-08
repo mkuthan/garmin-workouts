@@ -31,7 +31,11 @@ class Event(object):
 
     @staticmethod
     def extract_event_date(event) -> date:
-        return date(event.get(_DATE).get('year'), event.get(_DATE).get('month'), event.get(_DATE).get('day'))
+        try:
+            return date(event.get(_DATE).get('year'), event.get(_DATE).get('month'), event.get(_DATE).get('day'))
+        except AttributeError:
+            year, month, day = map(int, event.get(_DATE).split('-'))
+            return date(year, month, day)
 
     @staticmethod
     def extract_event_location(event) -> str:
@@ -39,7 +43,7 @@ class Event(object):
 
     @staticmethod
     def extract_event_time(event) -> str:
-        return event.get(_EVENT_TIME)
+        return event.get(_EVENT_TIME).get('startTimeHhMm')
 
     @staticmethod
     def extract_course(event) -> str:

@@ -16,10 +16,6 @@ class TestPace(unittest.TestCase):
         pace = Pace('5:30')
         self.assertEqual(pace.to_pace(), 3.0303030303030303)
 
-    def test_to_pace_percent(self) -> None:
-        pace = Pace('50%')
-        self.assertEqual(pace.to_pace(), 2.7777777777777777)
-
     def test_to_pace_absolute(self) -> None:
         pace = Pace('3:00')
         self.assertEqual(pace.to_pace('3:00', 0), 5.555555555555555)

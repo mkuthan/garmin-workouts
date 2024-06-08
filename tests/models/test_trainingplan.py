@@ -31,15 +31,20 @@ def test_extract_trainingplan_name() -> None:
 
 
 def test_print_trainingplan_summary(capsys: pytest.CaptureFixture[str]) -> None:
-    tp: dict[str, str] = {
-        'id': '12345',
+    tp: dict = {
+        'trainingPlanId': '12345',
+        'trainingType': {'typeKey': 'Strength'},
+        'trainingSubType': {'subTypeKey': 'Weightlifting'},
+        'trainingLevel': {'levelKey': 'Beginner'},
+        'trainingVersion': {'versionName': '1.0'},
         'name': 'Weightlifting Plan',
-        'type': 'Strength',
-        'level': 'Beginner',
-        'version': '1.0'}
+        'description': 'This plan focuses on strength training',
+        'durationInWeeks': 12,
+        'avgWeeklyWorkouts': 4
+        }
     TrainingPlan.print_trainingplan_summary(tp)
     captured: CaptureResult[str] = capsys.readouterr()
-    assert captured.out == "12345 Weightlifting Plan  Strength Beginner 1.0\n"
+    assert captured.out == "12345 Weightlifting Plan Strength Beginner 1.0\n"
 
 
 def test_export_trainingplan() -> None:
