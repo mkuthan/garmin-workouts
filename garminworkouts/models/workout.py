@@ -479,7 +479,7 @@ class Workout(object):
         return {
             _ESTIMATED_DURATION: estimatedSec,
             _ESTIMATED_DISTANCE: estimatedMet,
-            _AVG_SPEED: self.mileage * 1000/self.sec if self.sec*self.mileage > 0 and estimatedMet else None,
+            _AVG_SPEED: estimatedMet / estimatedSec if estimatedSec and estimatedMet else None,
         }
 
     def _steps(self, steps_config) -> list:
