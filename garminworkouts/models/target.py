@@ -20,9 +20,6 @@ class Target:
         if target not in TARGET_TYPES.keys():
             raise TypeError('%s Undefined target type' % target)
 
-        if not isinstance(target, str):
-            raise TypeError('Target %s needs to be in str format' % target)
-
         if target != 'no.target' and not isinstance(self.value_one, numbers.Number):
             raise TypeError('Value One %s needs to be in numeric format' % self.value_one)
 
@@ -38,9 +35,6 @@ class Target:
            self.value_two > self.value_one and target == 'pace.zone'):  # type: ignore
             raise TypeError('Value Two %s needs to be smaller or equal than Value One %s'
                             % (self.value_one, self.value_two))
-
-        if not isinstance(self.secondary, bool):
-            raise TypeError('Secondary %s needs to be in bool format' % self.secondary)
 
         if target == 'heart.rate.zone':
             if (self.value_one and self.value_two and self.zone and

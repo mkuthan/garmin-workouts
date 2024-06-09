@@ -5,6 +5,23 @@ import argparse
 
 
 class TestSettingsFunction(unittest.TestCase):
+    def test_settings(self) -> None:
+        args = argparse.Namespace(trainingplan='tp')
+
+        defaultPlanning: dict = {
+            'tp': {
+                'workouts': 'trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml',
+                'year': 2024,
+                'month': 1,
+                'day': 1
+            }
+        }
+
+        workouts, notes, plan = settings(args, defaultPlanning)
+        self.assertEqual(len(workouts), 37)
+        self.assertEqual(len(notes), 0)
+        self.assertEqual(plan, 'tp')
+
     def test_settings_positive(self) -> None:
         args = argparse.Namespace(trainingplan='trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml')
 

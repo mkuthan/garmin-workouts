@@ -65,29 +65,31 @@ class Workout(object):
             raise ValueError('Null workout')
 
     def zones(self) -> None:
-        zones, hr_zones, data = self.hr_zones()
+        zones, hr_zones, _ = self.hr_zones()
         logging.info('::Heart Rate Zones::')
-        logging.info("fmin: %s flt: %s fmax: %s", str(self.fmin), str(self.flt), str(self.fmax))
-        for i in range(len(zones) - 1):
-            logging.info(" Zone %s: %s - %s", i, hr_zones[i], hr_zones[i + 1])
+        logging.info(f"fmin: {self.fmin} flt: {self.flt} fmax: {self.fmax}")
+        for i in range(len(zones)):
+            logging.info(f" Zone {i}: {hr_zones[i]} - {hr_zones[i + 1] if i + 1 < len(hr_zones) else 'max'}")
 
-        zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
+        zones, rpower_zones, cpower_zones, _ = Power.power_zones(self.rFTP, self.cFTP)
         logging.info('::Running Power Zones::')
-        for i in range(len(rpower_zones) - 1):
-            logging.info(" Zone %s: %s - %s w", i, rpower_zones[i], rpower_zones[i + 1])
+        for i in range(len(rpower_zones)):
+            logging.info(
+                f" Zone {i}: {rpower_zones[i]} - {rpower_zones[i + 1] if i + 1 < len(rpower_zones) else 'max'} w")
 
         logging.info('::Cycling Power Zones::')
-        for i in range(len(cpower_zones) - 1):
-            logging.info(" Zone %s: %s - %s w", i, cpower_zones[i], cpower_zones[i + 1])
+        for i in range(len(cpower_zones)):
+            logging.info(
+                f" Zone {i}: {cpower_zones[i]} - {cpower_zones[i + 1] if i + 1 < len(cpower_zones) else 'max'} w")
 
     def get_workout_name(self) -> str:
         description: str = self.config.get(_DESCRIPTION, '')
 
         if (self.plan != '') and (_DESCRIPTION in self.config) and (
            description is not None) and (len(description) < 20) and ('\n' not in description):
-            return str(self.config.get(_NAME, '') + '-' + description)
+            return f"{self.config.get(_NAME, '')}-{description}"
         elif len(description) >= 20:
-            return str(self.config.get(_NAME)) + '-' + str(description).split(' ')[0]
+            return f"{self.config.get(_NAME)}-{description.split(' ')[0]}"
         else:
             return str(self.config.get(_NAME))
 
@@ -99,10 +101,10 @@ class Workout(object):
             if '_' in workout_name:
                 if workout_name.startswith('R'):
                     week: int = -int(workout_name[1:workout_name.index('_')])
-                    day = int(workout_name[workout_name.index('_') + 1])
+                    day = int(workout_name.split('_')[1])
                 else:
-                    week = int(workout_name[0:workout_name.index('_')])
-                    day = int(workout_name[workout_name.index('_') + 1])
+                    week = int(workout_name.split('_')[0])
+                    day = int(workout_name.split('_')[1])
                 return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
             else:
                 if workout_name.startswith('D'):
@@ -330,9 +332,9 @@ class Workout(object):
     def _get_target_value(self, target, key) -> float:
         target_type, target_value = self.extract_target_value(target, key)
         if target_type == 'power.zone':
-            if self.sport_type[0] == 'running':
+            if self.sport_type == 'running':
                 return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
-            elif self.sport_type[0] == 'cycling':
+            elif self.sport_type == 'cycling':
                 return Power(target_value).to_watts(ftp=self.cFTP.power[:-1])
             else:
                 return float(0)
@@ -343,7 +345,7 @@ class Workout(object):
         elif target_type == 'speed.zone':
             return float(target_value)
         elif target_type == 'pace.zone':
-            if self.sport_type[0] == 'running':
+            if self.sport_type == 'running':
                 return float(self.convert_targetPace_to_pace(float(target_value)))
             else:
                 return float(target_value)
@@ -406,7 +408,7 @@ class Workout(object):
 
     def _generate_description(self):
         description: str = ''
-        if self.sport_type[0] == 'running':
+        if self.sport_type == 'running':
             if self.plan == '' and _DESCRIPTION in self.config:
                 description += self.config.get(_DESCRIPTION, '') + '. '
             if self.plan != '':
@@ -417,7 +419,7 @@ class Workout(object):
                             + ' min/km - '
                             + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
                             + 'rTSS: ' + str(self.tss).format('2:2f'))
-        elif self.sport_type[0] == 'cycling':
+        elif self.sport_type == 'cycling':
             description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (
                 float(self.cFTP.power[:-1]), self.tss, self.norm_pwr, self.int_fct)
         else:
@@ -457,9 +459,9 @@ class Workout(object):
         workout_description: str = Workout.extract_workout_description(workout)
         print('{0} {1:20} {2}'.format(workout_id, workout_name, workout_description))
 
-    def get_estimated_duration(self):
+    def get_estimated_duration(self) -> dict[str, float | None]:
         if self.sec > 0:
-            if self.sport_type[0] == 'running':
+            if self.sport_type == 'running':
                 estimatedSec = self.sec
             else:
                 estimatedSec = None
@@ -467,7 +469,7 @@ class Workout(object):
             estimatedSec = None
 
         if self.mileage > 0:
-            if self.sport_type[0] == 'running':
+            if self.sport_type == 'running':
                 estimatedMet = self.mileage * 1000
             else:
                 estimatedMet = None
