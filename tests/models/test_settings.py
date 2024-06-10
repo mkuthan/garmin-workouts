@@ -39,6 +39,40 @@ class TestSettingsFunction(unittest.TestCase):
             self.assertEqual(len(notes), 0)
             self.assertEqual(plan, '')
 
+    def test_settings_file_not_found(self) -> None:
+        defaultPlanning: dict = {
+            'tp': {
+                'workouts': 'trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml',
+                'year': 2024,
+                'month': 1,
+                'day': 1
+            }
+        }
+        args = argparse.Namespace(trainingplan='tp')
+        with patch('garminworkouts.config.configreader.read_config') as mock_read_config:
+            mock_read_config.side_effect = FileNotFoundError
+            workouts, notes, plan = settings(args, defaultPlanning)
+            self.assertEqual(len(workouts), 0)
+            self.assertEqual(len(notes), 0)
+            self.assertEqual(plan, '')
+
+    def test_settings_config_error(self) -> None:
+        defaultPlanning: dict = {
+            'tp': {
+                'workouts': 'trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml',
+                'year': 2024,
+                'month': 1,
+                'day': 1
+            }
+        }
+        args = argparse.Namespace(trainingplan='tp')
+        with patch('garminworkouts.config.configreader.read_config') as mock_read_config:
+            mock_read_config.side_effect = Exception('Config error')
+            workouts, notes, plan = settings(args, defaultPlanning)
+            self.assertEqual(len(workouts), 0)
+            self.assertEqual(len(notes), 0)
+            self.assertEqual(plan, '')
+
 
 if __name__ == '__main__':
     unittest.main()
