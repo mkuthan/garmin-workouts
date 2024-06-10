@@ -1,8 +1,8 @@
 import pytest
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
+from garminworkouts.models.event import Event
 from datetime import date, timedelta
-import sys
 from typing import Any
 from requests import Response
 import os
@@ -25,19 +25,21 @@ class Arg(object):
 @pytest.mark.vcr
 def test_external_workouts(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
-    url: str = f"web-data/workouts/{locale}/index.json"
-    assert authed_gclient.garth.get("connect", url)
+    authed_gclient.external_workouts(locale)
 
 
 @pytest.mark.vcr
 def test_get_external_workout(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
-    url: str = f"web-data/workouts/{locale}/index.json"
-    workouts: dict = authed_gclient.garth.get("connect", url).json()['workouts']
+    workouts: dict = authed_gclient.external_workouts(locale)
 
     for workout in workouts:
-        url: str = workout['filePath']
-        assert authed_gclient.garth.get("connect", url)
+        assert authed_gclient.get_external_workout(workout['workoutSourceId'], locale)
+
+
+@pytest.mark.vcr
+def test_list_workouts(authed_gclient: GarminClient) -> None:
+    assert authed_gclient.list_workouts()
 
 
 @pytest.mark.vcr
@@ -48,21 +50,42 @@ def test_get_calendar(authed_gclient: GarminClient) -> None:
 
     assert authed_gclient.get(url)
 
+    updateable_elements, checkable_elements, note_elements = authed_gclient.get_calendar(date.today())
+    assert len(updateable_elements) >= 0
+    assert len(checkable_elements) >= 0
+    assert len(note_elements) >= 0
+
 
 @pytest.mark.vcr
 def test_list_events(authed_gclient: GarminClient) -> None:
-    batch_size = 20
-    url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/events"
-    for start_index in range(1, sys.maxsize, batch_size):
-        params: dict = {
-            "startDate": date.today(),
-            "pageIndex": start_index,
-            "limit": batch_size
-            }
-        response: Response = authed_gclient.get(url, params=params)
-        assert response
-        if not response.json() or response.json() == []:
-            break
+    assert authed_gclient.list_events()
+
+
+@pytest.mark.vcr
+def test_events_methods(authed_gclient: GarminClient) -> None:
+    event_config: dict = {
+        'name': 'Name',
+        'date': {
+            'day': int(1),
+            'month': int(date.today().month),
+            'year': int(date.today().year + 1),
+        },
+        'url': 'https://www.123.com/',
+        'location': 'London, UK',
+        'time': '19:00',
+        'distance': 5,
+        'goal': '20:00',
+        'sport': 'running'}
+
+    event = Event(event_config)
+    e: dict = event.create_event()
+    assert e
+    e = authed_gclient.save_event(e)
+    assert e
+    event_id = Event.extract_event_id(e)
+    assert authed_gclient.get_event(event_id)
+    assert authed_gclient.update_event(event_id, e)
+    assert authed_gclient.delete_event(event_id)
 
 
 @pytest.mark.vcr
@@ -299,24 +322,24 @@ def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
 
     for tp in tp_list:
         args = Arg(trainingplan=tp)
-        workouts, notes, plan = settings(args)
+        workouts, *_ = settings(args)
 
         for workout in workouts:
-            url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
             payload: dict = workout.create_workout()
-            w: dict = authed_gclient.post(url, json=payload).json()
+            assert payload
+            w: dict = authed_gclient.save_workout(payload)
             assert w
             workout_id: str = Workout.extract_workout_id(w)
-
-            url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
+            assert workout_id
             payload = workout.create_workout(workout_id=workout_id)
-            assert authed_gclient.get(url)
-            assert authed_gclient.get(f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}")
-            json_data: dict = {"date": date.today().isoformat()}
-            p: dict = authed_gclient.post(
-                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}", json=json_data).json()
+            assert payload
+            assert authed_gclient.update_workout(workout_id, payload)
+            assert authed_gclient.get_workout(workout_id)
+            assert authed_gclient.download_workout(workout_id, f"{workout_id}.fit")
+            os.remove(f"{workout_id}.fit")
+            assert authed_gclient.download_workout_yaml(workout_id, f"{workout_id}.yaml")
+            os.remove(f"{workout_id}.yaml")
+            p: dict = authed_gclient.schedule_workout(workout_id, date.today().isoformat())
             assert p['workoutScheduleId']
-            assert authed_gclient.delete(
-                f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{p['workoutScheduleId']}")
-            assert authed_gclient.put(url, json=payload)
-            assert authed_gclient.delete(url)
+            assert authed_gclient.remove_workout(p['workoutScheduleId'], date.today().isoformat())
+            assert authed_gclient.delete_workout(workout_id)

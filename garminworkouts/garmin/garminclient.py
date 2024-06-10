@@ -1,5 +1,4 @@
 import json
-import sys
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
@@ -89,7 +88,7 @@ class GarminClient(object):
         return None
 
     def external_workouts(self, locale) -> dict:
-        url: str = f"web-data/workouts/{locale}/index_04_2022_d6f4482b-f983-4e55-9d8d-0061e160abe7.json"
+        url: str = f"web-data/workouts/{locale}/index.json"
         return self.garth.get("connect", url).json().get('workouts')
 
     def get_external_workout(self, code, locale) -> dict:
@@ -126,86 +125,93 @@ class GarminClient(object):
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         return self.get(url)
 
-    def download_workout_yaml(self, workout_id, filename) -> None:
-        workout_data: Response = self.get_workout(workout_id)
-        workout_export_yaml(workout_data.json(), filename)
+    def download_workout_yaml(self, workout_id, filename) -> dict:
+        workout_data: dict = self.get_workout(workout_id).json()
+        workout_export_yaml(workout_data, filename)
+        return workout_data
 
-    def download_workout(self, workout_id, file) -> None:
+    def download_workout(self, workout_id, file) -> bytes:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/FIT/{workout_id}"
-        response: Any = self.get(url).json()
+        response: bytes = self.download(url)
 
         with open(file, "wb") as f:
             f.write(response)
+
+        return response
 
     def save_workout(self, workout) -> dict:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout"
         return self.post(url, json=workout).json()
 
-    def update_workout(self, workout_id, workout) -> None:
+    def update_workout(self, workout_id, workout) -> Response:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
-        self.put(url, json=workout)
+        return self.put(url, json=workout)
 
-    def delete_workout(self, workout_id) -> None:
+    def delete_workout(self, workout_id) -> Response:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
-        self.delete(url)
+        return self.delete(url)
 
-    def get_calendar(self, date, days) -> tuple[list[str], list[str], dict]:
+    from datetime import datetime, timedelta
+
+    def get_calendar(self, date, days=7) -> tuple[list[str], list[str], dict]:
         year = str(date.year)
         month = str(date.month - 1)
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}"
-
         response_jsons: dict = self.get(url).json().get('calendarItems')
-
         updateable_elements: list[str] = []
         checkable_elements: list[str] = []
         note_elements: dict = {}
+        date_plus_days = date + timedelta(days=days)
+
         for item in response_jsons:
-            if item.get('itemType') == 'workout':
-                if datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date:
+            item_date = datetime.strptime(item.get('date'), '%Y-%m-%d').date()
+            item_type = item.get('itemType')
+
+            if item_type == 'workout':
+                if item_date < date:
                     logging.info("Deleting workout '%s'", item.get('title'))
                     self.delete_workout(item.get('workoutId'))
-                elif datetime.strptime(item.get('date'), '%Y-%m-%d').date() < date + timedelta(days=days):
+                elif item_date < date_plus_days:
                     updateable_elements.append(item.get('title'))
-            elif item.get('itemType') == 'activity':
-                '''activity = self.get_activity(item.get('id'))
-                if 'splitSummaries' in activity:
-                    for summary in activity.get('splitSummaries'):
-                        print(summary.get('distance'))
-                        print(summary.get('duration'))'''
+
+            elif item_type == 'activity':
                 payload: dict = self.get_activity_workout(item.get('id'))
                 if 'workoutName' in payload:
                     checkable_elements.append(payload.get('workoutName', str))
-            elif item.get('itemType') == 'note':
+
+            elif item_type == 'note':
                 payload = self.get_note(item.get('id'))
                 note_elements[payload.get('noteName')] = payload
 
         return updateable_elements, checkable_elements, note_elements
 
-    def schedule_workout(self, workout_id, date) -> None:
+    def schedule_workout(self, workout_id, date) -> dict:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
-        self.post(url, json=json_data)
+        return self.post(url, json=json_data).json()
 
-    def remove_workout(self, workout_id, date) -> None:
+    def remove_workout(self, workout_id, date) -> Response:
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/schedule/{workout_id}"
         json_data: dict = {"date": date}
-        self.delete(url, json=json_data)
+        return self.delete(url, json=json_data)
 
     def list_events(self, batch_size=20) -> Generator[dict, dict, None]:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/events"
-        for start_index in range(1, sys.maxsize, batch_size):
+        start_index = 1
+        all_events_fetched = False
+        while not all_events_fetched:
             params: dict = {
                 "startDate": datetime.today(),
                 "pageIndex": start_index,
                 "limit": batch_size
             }
             response: dict = self.get(url, params=params).json()
-
             if not response or response == []:
-                break
-
-            for response_json in response:
-                yield response_json
+                all_events_fetched = True
+            else:
+                for response_json in response:
+                    yield response_json
+            start_index += batch_size
 
     def get_event(self, event_id) -> dict:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
@@ -215,13 +221,13 @@ class GarminClient(object):
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event"
         return self.post(url, json=event).json()
 
-    def update_event(self, event_id, event) -> None:
+    def update_event(self, event_id, event) -> Response:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
-        self.put(url, json=event)
+        return self.put(url, json=event)
 
-    def delete_event(self, event_id) -> None:
+    def delete_event(self, event_id) -> Response:
         url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/event/{event_id}"
-        self.delete(url)
+        return self.delete(url)
 
     def get_activity(self, activity_id) -> dict:
         url: str = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}"
@@ -427,25 +433,25 @@ class GarminClient(object):
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
         return self.get(url).json()
 
-    def save_hr_zones(self, zones) -> None:
+    def save_hr_zones(self, zones) -> dict:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
-        self.put(url, json=zones)
+        return self.put(url, json=zones).json()
 
     def get_power_zones(self) -> dict:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/sports/all"
         return self.get(url).json()
 
-    def save_power_zones(self, zones) -> None:
+    def save_power_zones(self, zones) -> dict:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
-        self.put(url, json=zones)
+        return self.put(url, json=zones).json()
 
-    def find_events(self):
+    def find_events(self) -> Generator[Response, Any, None]:
         url = "race-search/events"
 
         d1 = datetime.today()
         d2 = d1 + timedelta(days=7)
 
-        params = {
+        params: dict = {
             "eventType": "running",
             "fromDate": d1.strftime('%Y-%m-%d'),
             "toDate": d2.strftime('%Y-%m-%d'),
