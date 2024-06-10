@@ -9,12 +9,14 @@ from garminworkouts.models.note import Note
 
 def settings(args, defaultPlanning=None) -> tuple[list[Workout], list[Note], str]:
     try:
-        planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
+        if defaultPlanning:
+            planning = defaultPlanning
+        else:
+            planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
         print('Planning config not found')
 
     args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
-    planning = defaultPlanning if defaultPlanning else planning
 
     if args.trainingplan in planning:
         workout_files: list = glob.glob(planning[args.trainingplan].get('workouts'))
