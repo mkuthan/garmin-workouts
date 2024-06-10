@@ -15,6 +15,7 @@ def settings(args, defaultPlanning=None) -> tuple[list[Workout], list[Note], str
             planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
     except FileNotFoundError:
         print('Planning config not found')
+        planning = {}
 
     args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
 
