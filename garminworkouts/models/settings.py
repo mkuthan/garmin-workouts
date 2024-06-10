@@ -14,7 +14,8 @@ def settings(args, defaultPlanning=None) -> tuple[list[Workout], list[Note], str
         print('Planning config not found')
 
     args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
-    planning = defaultPlanning if defaultPlanning else planning
+    if defaultPlanning:
+        planning = defaultPlanning
 
     if args.trainingplan in planning:
         workout_files: list = glob.glob(planning[args.trainingplan].get('workouts'))
