@@ -2,7 +2,7 @@ from datetime import date, timedelta
 
 
 class Note:
-    def __init__(self, config, race=date.today()):
+    def __init__(self, config, race=date.today()) -> None:
         self.config = config
         self.name = config.get('name', '')
         self.content = config.get('content', '')

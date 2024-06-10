@@ -30,6 +30,15 @@ class TestNote(unittest.TestCase):
         expected_output: tuple = (date.today() - timedelta(weeks=0) + timedelta(days=3), -1, 3)
         self.assertEqual(note.get_note_date(), expected_output)
 
+    def test_extract_note_id(self) -> None:
+        self.assertEqual(self.note.extract_note_id(), '123')
+
+    def test_get_note_date_default(self) -> None:
+        config: dict[str, str] = {'name': 'SampleNote', 'content': 'Sample content'}
+        note = Note(config)
+        expected_output: tuple = (date.today(), 0, 0)
+        self.assertEqual(note.get_note_date(), expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -34,7 +34,7 @@ class WorkoutStep:
         self.order: str = order
         self.child_step_id: str = child_step_id
         self.description: str = description
-        self.step_type = step_type
+        self.step_type: str = step_type
         self.end_condition: str = end_condition
         self.end_condition_value: str | None = end_condition_value
         self.target: Target = target or Target()
@@ -63,14 +63,14 @@ class WorkoutStep:
         if duration:
             if WorkoutStep._str_is_time(duration):
                 return get_end_condition('time')
-            elif WorkoutStep._str_is_distance(duration):
-                return get_end_condition('distance')
             elif WorkoutStep._str_is_calories(duration):
                 return get_end_condition('calories')
             elif WorkoutStep._str_is_ppm(duration):
                 return get_end_condition('heart.rate')
             elif WorkoutStep._str_is_reps(duration):
                 return get_end_condition('reps')
+            elif WorkoutStep._str_is_distance(duration):
+                return get_end_condition('distance')
             else:
                 return get_end_condition('lap.button')
         return get_end_condition('lap.button')
@@ -131,14 +131,14 @@ class WorkoutStep:
         if duration:
             if WorkoutStep._str_is_time(duration):
                 return WorkoutStep._str_to_seconds(duration)
-            elif WorkoutStep._str_is_distance(duration):
-                return WorkoutStep._str_to_meters(duration)
             elif WorkoutStep._str_is_calories(duration):
                 return WorkoutStep._str_to_calories(duration)
             elif WorkoutStep._str_is_ppm(duration):
                 return WorkoutStep._str_to_ppm(duration)
             elif WorkoutStep._str_is_reps(duration):
                 return WorkoutStep._str_to_reps(duration)
+            elif WorkoutStep._str_is_distance(duration):
+                return WorkoutStep._str_to_meters(duration)
             else:
                 return int(0)
         else:
