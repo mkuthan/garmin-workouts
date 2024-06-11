@@ -39,6 +39,24 @@ class TestPace(unittest.TestCase):
     def test_to_absolute(self) -> None:
         self.assertEqual(Pace._to_absolute(3, 50), 1.5)
 
+    def test_to_pace(self) -> None:
+        pace = Pace('5:30')
+        self.assertEqual(pace.to_pace(), 3.0303030303030303)
+
+    def test_to_pace_with_vVO2(self) -> None:
+        pace = Pace('5:30')
+        self.assertEqual(pace.to_pace('3:00'), 3.0303030303030303)
+        with self.assertRaises(ValueError):
+            pace.to_pace('59:00')
+
+    def test_to_pace_with_diff(self) -> None:
+        pace = Pace('5:30')
+        self.assertEqual(pace.to_pace(diff=500), 1.2048192771084336)
+
+    def test_to_pace_with_vVO2_and_diff(self) -> None:
+        pace = Pace('5:30')
+        self.assertEqual(pace.to_pace('3:00', 500), 1.2048192771084336)
+
 
 if __name__ == '__main__':
     unittest.main()
