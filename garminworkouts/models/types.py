@@ -45,20 +45,20 @@ STEP_TYPES: dict[str, int] = {
     'cooldown': 2,
     'interval': 3,
     'recovery': 4,
-    'repeat': 6,
     'rest': 5,
+    'repeat': 6,
     'other': 7,
     'main': 8,
 }
 
 END_CONDITIONS: dict[str, int] = {
-    'calories': 4,
-    'distance': 3,
-    'heart.rate': 6,
     'lap.button': 1,
-    'iterations': 7,
-    'power': 5,
     'time': 2,
+    'distance': 3,
+    'calories': 4,
+    'power': 5,
+    'heart.rate': 6,
+    'iterations': 7,
     'fixed.rest': 8,
     'fixed.repetition': 9,
     'reps': 10,
@@ -72,11 +72,11 @@ END_CONDITIONS: dict[str, int] = {
 
 TARGET_TYPES: dict[str, int] = {
     'no.target': 1,
+    'power.zone': 2,
     'cadence': 3,
     'heart.rate.zone': 4,
-    'pace.zone': 6,
-    'power.zone': 2,
     'speed.zone': 5,
+    'pace.zone': 6,
     'grade': 7,
     'heart.rate.lap': 8,
     'power.lap': 9,
@@ -87,8 +87,8 @@ TARGET_TYPES: dict[str, int] = {
     'swim.stroke': 14,
     'resistance': 15,
     'power.curve': 16,
-    'swim.instruction': 18,
     'swim.css.offset': 17,
+    'swim.instruction': 18,
 }
 
 EQUIPMENT_TYPES: dict[str, int] = {
@@ -131,7 +131,7 @@ DRILL_TYPES: dict[str, int] = {
     'drill': 3,
 }
 
-UNIT_TYPE = {
+UNIT_TYPES: dict = {
     'meter': [1, 100.0],
     'kilometer': [2, 100000.0],
     'mile': [4, 160934.4],

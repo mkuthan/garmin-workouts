@@ -1,4 +1,4 @@
-from garminworkouts.models.types import EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPE
+from garminworkouts.models.types import EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPES
 from garminworkouts.models.types import END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES
 from garminworkouts.models.types import SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES
 
@@ -191,23 +191,23 @@ def get_weight(weight, unit) -> dict:
 @staticmethod
 def get_unit_type(unit) -> dict:
     return {
-        _UNIT_ID: UNIT_TYPE[unit][0],
+        _UNIT_ID: UNIT_TYPES[unit][0],
         _UNIT_KEY: unit,
-        _FACTOR: UNIT_TYPE[unit][1],
-    } if unit else {}
+        _FACTOR: UNIT_TYPES[unit][1],
+    } if unit in UNIT_TYPES else {}
 
 
 @staticmethod
 def get_estimate(type) -> dict[str, dict]:
     unit = 'kilometer'
     return {
-        "estimateType": type,
-        "estimatedDistanceUnit": get_unit_type(unit)
+        'estimateType': type,
+        'estimatedDistanceUnit': get_unit_type(unit)
         } if type else {}
 
 
 @staticmethod
-def get_pool(pool):
+def get_pool(pool) -> dict:
     if pool == '25m':
         length = 25
         unit = 'meter'
@@ -219,8 +219,8 @@ def get_pool(pool):
         unit = 'meter'
 
     return {
-        "poolLength": length,
-        "poolLengthUnit": get_unit_type(unit)
+        'poolLength': length,
+        'poolLengthUnit': get_unit_type(unit)
         } if pool else {}
 
 

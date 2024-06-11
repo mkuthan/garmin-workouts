@@ -56,6 +56,7 @@ class DurationTestCase(unittest.TestCase):
         self.assertEqual(Duration.get_string(100, 'distance'), '100m')
         self.assertEqual(Duration.get_string(150, 'distance'), '150m')
         self.assertEqual(Duration.get_string(200, 'distance'), '200m')
+        self.assertEqual(Duration.get_string(2, 'distance'), '200m')
         self.assertEqual(Duration.get_string(50, 'heart.rate'), '50ppm')
         self.assertEqual(Duration.get_string(30, 'time'), '0:00:30')
         self.assertEqual(Duration.get_string(10, 'reps'), '10reps')
