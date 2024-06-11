@@ -1,15 +1,12 @@
-import pytest
 from datetime import date
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.event import Event
 
 
-@pytest.mark.vcr
 def test_list_events(authed_gclient: GarminClient) -> None:
     assert authed_gclient.list_events()
 
 
-@pytest.mark.vcr
 def test_events_methods(authed_gclient: GarminClient) -> None:
     event_config: dict = {
         'name': 'Name',

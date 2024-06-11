@@ -1,4 +1,3 @@
-import pytest
 import os
 from datetime import date
 from typing import Any
@@ -15,13 +14,11 @@ class Arg(object):
         self.trainingplan: Any = trainingplan
 
 
-@pytest.mark.vcr
 def test_external_workouts(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
     authed_gclient.external_workouts(locale)
 
 
-@pytest.mark.vcr
 def test_get_external_workout(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
     workouts: dict = authed_gclient.external_workouts(locale)
@@ -30,12 +27,10 @@ def test_get_external_workout(authed_gclient: GarminClient) -> None:
         assert authed_gclient.get_external_workout(workout['workoutSourceId'], locale)
 
 
-@pytest.mark.vcr
 def test_list_workouts(authed_gclient: GarminClient) -> None:
     assert authed_gclient.list_workouts()
 
 
-@pytest.mark.vcr
 def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
     tp_list: list[str] = [
         os.path.join('workouts', 'strength_training', 'ADVANCED', '*.yaml'),

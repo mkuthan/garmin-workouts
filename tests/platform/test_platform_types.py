@@ -1,4 +1,3 @@
-import pytest
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.yoga import YOGA_POSES
 from garminworkouts.models.strength import STRENGTH_EXERCISES
@@ -7,7 +6,6 @@ from garminworkouts.models.fields import get_target_type, get_equipment_type, ge
 from garminworkouts.models.fields import get_drill_type, get_activity_type, get_event_type
 
 
-@pytest.mark.vcr
 def test_list_workout_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/types"
     types: dict = authed_gclient.get(url).json()
@@ -58,7 +56,6 @@ def test_list_workout_types(authed_gclient: GarminClient) -> None:
             types['workoutDrillTypes'][i]['drillTypeKey'])
 
 
-@pytest.mark.vcr
 def test_get_activity_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
     activities: dict = authed_gclient.get(url).json()
@@ -73,7 +70,6 @@ def test_get_activity_types(authed_gclient: GarminClient) -> None:
             activities[i]['typeKey'])
 
 
-@pytest.mark.vcr
 def test_get_event_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
     events: dict = authed_gclient.get(url).json()
@@ -85,14 +81,12 @@ def test_get_event_types(authed_gclient: GarminClient) -> None:
             events[i]['typeKey'])
 
 
-@pytest.mark.vcr
 def test_get_golf_types(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._GOLF_COMMUNITY_ENDPOINT}/types"
     golf: dict = authed_gclient.get(url).json()
     assert golf
 
 
-@pytest.mark.vcr
 def test_get_strength_types(authed_gclient: GarminClient) -> None:
     url: str = "/web-data/exercises/Exercises.json"
     strength: dict = authed_gclient.garth.get("connect", url).json()['categories']
@@ -101,7 +95,6 @@ def test_get_strength_types(authed_gclient: GarminClient) -> None:
     assert STRENGTH_EXERCISES == strength
 
 
-@pytest.mark.vcr
 def test_get_yoga_types(authed_gclient: GarminClient) -> None:
     url: str = "/web-data/exercises/Yoga.json"
     yoga: dict = authed_gclient.garth.get("connect", url).json()['categories']

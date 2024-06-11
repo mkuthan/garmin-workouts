@@ -1,9 +1,7 @@
-import pytest
 from datetime import date
 from garminworkouts.garmin.garminclient import GarminClient
 
 
-@pytest.mark.vcr
 def test_get_calendar(authed_gclient: GarminClient) -> None:
     year = str(date.today().year)
     month = str(date.today().month - 1)

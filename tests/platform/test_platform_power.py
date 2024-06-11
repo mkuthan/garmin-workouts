@@ -1,15 +1,12 @@
-import pytest
 from typing import Any
 from garminworkouts.garmin.garminclient import GarminClient
 
 
-@pytest.mark.vcr
 def test_get_power_zones(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/sports/all"
     assert authed_gclient.get(url)
 
 
-@pytest.mark.vcr
 def test_save_power_zones(authed_gclient: GarminClient) -> None:
     url: str = f"{GarminClient._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
     zones: list[dict[str, Any]] = [

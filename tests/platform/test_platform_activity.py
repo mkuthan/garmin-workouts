@@ -1,10 +1,8 @@
-import pytest
 from datetime import date, timedelta
 from requests import Response
 from garminworkouts.garmin.garminclient import GarminClient
 
 
-@pytest.mark.vcr
 def test_get_activities_by_date(authed_gclient: GarminClient) -> None:
     startdate: date = date.today() + timedelta(weeks=-4)
     enddate: str = date.today().isoformat()
