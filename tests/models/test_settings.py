@@ -17,7 +17,7 @@ class TestSettingsFunction(unittest.TestCase):
             }
         }
 
-        workouts, notes, plan = settings(args, defaultPlanning)
+        workouts, notes, plan = settings(args, defaultPlanning=defaultPlanning)
         self.assertEqual(len(workouts), 37)
         self.assertEqual(len(notes), 0)
         self.assertEqual(plan, 'tp')

@@ -151,8 +151,6 @@ class GarminClient(object):
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         return self.delete(url)
 
-    from datetime import datetime, timedelta
-
     def get_calendar(self, date, days=7) -> tuple[list[str], list[str], dict]:
         year = str(date.year)
         month = str(date.month - 1)
