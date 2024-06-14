@@ -40,8 +40,6 @@ def target_extraction(step_json, step) -> dict:
                     if step_json.get(step_json['zoneNumber'], None) is None else {}),
                 **({'max': str(timedelta(seconds=1000 / float(step_json.get('targetValueTwo'))))}
                    if step_json.get(step_json['zoneNumber'], None) is None else {}),
-                # **({'zone': str(step_json.get(step_json['zoneNumber'], None))}
-                #   if step_json.get(step_json['zoneNumber'], None) else {})
             }
 
         elif target_type_key == 'cadence':
@@ -81,29 +79,30 @@ def secondary_target_extraction(step_json, step) -> dict:
                     if step_json.get('secondaryZoneNumber', None) is None else {}),
                 **({'max': str(timedelta(seconds=1000 / float(step_json.get('secondaryTargetValueTwo'))))}
                    if step_json.get('secondaryZoneNumber', None) is None else {}),
-                # **({'zone': str(step_json.get(step_json['secondaryZoneNumber'], None))}
-                #   if step_json.get(step_json['secondaryZoneNumber'], None) else {})
             }
 
         elif secondary_target_key == 'cadence':
-            step['target'] = {
+            step['secondaryTarget'] = {
                 'type': secondary_target_key,
                 'min': str(int(step_json.get('secondaryTargetValueOne', None))),
                 'max': str(int(step_json.get('secondaryTargetValueTwo', None)))
             }
 
         elif secondary_target_key in ['heart.rate.zone', 'power.zone']:
-            step['target'] = {
+            step['secondaryTarget'] = {
                 'type': secondary_target_key,
-                **({'min': str(int(step_json.get('secondaryTargetValueOne', None)))}
-                    if not step_json.get('secondaryZoneNumber', None) is None else {}),
+                ** ({'min': str(int(step_json.get('secondaryTargetValueOne', None)))}
+                    if step_json.get('secondaryZoneNumber', None) is None else {}),
                 **({'max': str(int(step_json.get('secondaryTargetValueTwo', None)))}
-                    if not step_json.get('secondaryZoneNumber', None) is None else {}),
+                    if step_json.get('secondaryZoneNumber', None) is None else {}),
                 ** ({'zone': str(step_json.get('secondaryZoneNumber', None))}
-                    if step_json.get('secondaryZoneNumber', None) else {})
+                    if step_json.get('secondaryZoneNumber', None) is not None else {})
             }
 
-        elif secondary_target_key not in ['lap.button', 'no.target']:
+        elif secondary_target_key == 'no.target':
+            step['secondaryTarget']['type'] = 'no.target'
+
+        else:
             raise ValueError(f"Unsupported secondary target: {secondary_target_key}")
     return step
 
@@ -192,23 +191,11 @@ def workout_export_yaml(workout, filename) -> None:
 
 @staticmethod
 def event_export_yaml(event, filename) -> None:
-    try:
-        with open(filename, 'w') as file:
-            yaml.dump(event, file, default_flow_style=None)
-    except Exception as e:
-        # Handle any exception that may occur during file operation
-        print(f"An error occurred: {e}")
+    with open(filename, 'w') as file:
+        yaml.dump(event, file, default_flow_style=None)
 
 
 @staticmethod
 def note_export_yaml(note, filename) -> None:
-    note_dict: dict = {
-        'name': note.get_note_name(),
-        'content': note.get_note_content()
-    }
-    try:
-        with open(filename, 'w') as file:
-            yaml.dump(note_dict, file, default_flow_style=False)
-    except Exception as e:
-        # Handle any exception that may occur during file operation
-        print(f"An error occurred: {e}")
+    with open(filename, 'w') as file:
+        yaml.dump(note, file, default_flow_style=False)
