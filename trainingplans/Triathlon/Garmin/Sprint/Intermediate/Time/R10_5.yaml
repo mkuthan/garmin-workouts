@@ -1,79 +1,72 @@
-description:
-  Use the 800m rep to practice your pacing for your race. Visualize yourself
+description: Use the 800m rep to practice your pacing for your race. Visualize yourself
   swimming in the event.
-name: W10D5-Tempo Swim
+name: Sprint Triathlon Level 2 W10D5 - Tempo Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
+- description: Free and back, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Easy effort.
     duration: 0.05km
-    target: { type: no.target }
+    target: {type: no.target}
     type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.8km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:30
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: Moderate effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: High effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort.
+  duration: 0.8km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:30
+  target: {type: no.target}
+  type: rest
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Free and back, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

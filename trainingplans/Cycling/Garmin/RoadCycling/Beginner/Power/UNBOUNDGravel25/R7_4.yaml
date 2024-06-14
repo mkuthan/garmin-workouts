@@ -1,0 +1,51 @@
+description: '8x30 sec Zone 5
+
+  - 30 min Warm Up
+
+  - 8x30 sec Zone 5, 30 sec easy between
+
+  - 10 min easy riding
+
+  - 8x30 sec Zone 5, 30 sec easy between
+
+  - Cool Down Zone 2'
+name: W07-D4
+sport: cycling
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:00:30
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - duration: 0:00:30
+    target: {type: power.zone, zone: '1'}
+    type: interval
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- duration: 0:10:00
+  target: {type: power.zone, zone: '1'}
+  type: interval
+- &id002
+  - duration: 0:00:30
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - duration: 0:00:30
+    target: {type: power.zone, zone: '1'}
+    type: interval
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
+- *id002
+- duration: 0:20:00
+  target: {type: power.zone, zone: '2'}
+  type: cooldown

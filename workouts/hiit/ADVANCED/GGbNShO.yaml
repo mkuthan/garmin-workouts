@@ -5,35 +5,30 @@ name: Leg Day AMRAP
 sport: hiit
 steps:
 - category: SQUAT
-  description: ''
   duration: 10reps
   exerciseName: DUMBBELL_STEP_UP
   repeatDuration: 0:20:00
   target: {type: no.target}
   type: interval
 - category: SQUAT
-  description: ''
   duration: 10reps
   exerciseName: WIDE_STANCE_GOBLET_SQUAT
   repeatDuration: 0:20:00
   target: {type: no.target}
   type: interval
 - category: HIP_SWING
-  description: ''
   duration: 10reps
   exerciseName: SINGLE_ARM_DUMBBELL_SWING
   repeatDuration: 0:20:00
   target: {type: no.target}
   type: interval
 - category: LUNGE
-  description: ''
   duration: 10reps
   exerciseName: OVERHEAD_DUMBBELL_LUNGE
   repeatDuration: 0:20:00
   target: {type: no.target}
   type: interval
 - category: DEADLIFT
-  description: ''
   duration: 10reps
   exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
   repeatDuration: 0:20:00

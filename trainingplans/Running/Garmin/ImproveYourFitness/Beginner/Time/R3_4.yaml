@@ -1,12 +1,2 @@
-description: " \u2022 Run, easy pace, 45 minutes.\r\n \u2022 Cool down, 5 to 10 minutes.\r\
-  \n \u2022 Stretch."
-name: W03D4a-Easy Run
-sport: running
-steps:
-- description: ''
-  duration: 0:45:00
-  target: {type: no.target}
-  type: interval
-- description: ''
-  target: {type: no.target}
-  type: cooldown
+content: Body conditioning, 15 minutes.
+name: W03D4b-Body Conditioning

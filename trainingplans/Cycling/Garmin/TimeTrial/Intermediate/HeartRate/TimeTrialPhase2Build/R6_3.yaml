@@ -14,29 +14,23 @@ description: '60 Minute Workout
 name: 10 Min. Threshold Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:10:00
+  - duration: 0:10:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001

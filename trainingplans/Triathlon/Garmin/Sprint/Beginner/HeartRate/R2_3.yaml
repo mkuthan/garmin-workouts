@@ -6,29 +6,24 @@ description: "\u2022 Bike, Z1, 95 RPM, 5 minutes.\n \u2022 Bike, Z1, single leg 
 name: W02D3-Steady Bike
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
-  - description: ''
-    duration: 0:08:00
+  - duration: 0:08:00
     target: {type: heart.rate.zone, zone: '2'}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
 - *id001
 - *id001
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

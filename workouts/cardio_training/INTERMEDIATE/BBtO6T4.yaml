@@ -12,13 +12,11 @@ sport: cardio_training
 steps:
 - &id001
   - category: PLANK
-    description: ''
     duration: 0:00:20
     exerciseName: PLANK
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
 - *id001
@@ -28,19 +26,16 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:01:00
+- duration: 0:01:00
   target: {type: no.target}
   type: rest
 - &id002
   - category: SIT_UP
-    description: ''
     duration: 0:00:20
     exerciseName: SIT_UP
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
 - *id002

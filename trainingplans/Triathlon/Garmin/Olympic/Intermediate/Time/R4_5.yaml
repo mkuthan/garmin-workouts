@@ -1,64 +1,61 @@
-description:
-  Work on your stroke during the pull set, then maintain the form when
+description: Work on your stroke during the pull set, then maintain the form when
   you introduce your kick.
-name: W04D5-Steady Swim
+name: Olympic Triathlon Level 2 W04D5 - Steady Swim
 sport: swimming
 steps:
-  - &id001
-    - description: ""
-      duration: 0.1km
-      target: { type: no.target }
-      type: warmup
-    - description: ""
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
+- &id001
+  - description: Mix of kick, pull and swim. Easy effort.
+    duration: 0.1km
+    target: {type: no.target}
+    type: warmup
+  - duration: lap.button
+    target: {type: no.target}
     type: rest
-  - &id002
-    - description: ""
-      duration: 0.1km
-      equipment: pull_buoy
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id002
-  - *id002
-  - *id002
-  - *id002
-  - description: ""
-    target: { type: no.target }
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id002
+  - description: Moderate effort.
+    duration: 0.1km
+    equipment: pull_buoy
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - &id003
-    - description: ""
-      duration: 0.1km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - *id003
-  - description: ""
-    target: { type: no.target }
+- *id002
+- *id002
+- *id002
+- *id002
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id003
+  - description: Moderate effort.
+    duration: 0.1km
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.3km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- *id003
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Mix of free and back, easy effort.
+  duration: 0.3km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

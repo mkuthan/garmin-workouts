@@ -6,49 +6,41 @@ sport: yoga
 steps:
 - &id001
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: CHILDS
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: EXTENDED_PUPPY
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: DOLPHIN
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: UP_DOG
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: DOWNWARD_FACING_DOG
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: LIZARD
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: SEATED_EASY_SIDE_BEND
     target: {type: no.target}
     type: interval
   - category: POSE
-    description: ''
     duration: 0:00:30
     exerciseName: SEATED_EASY_TWIST
     target: {type: no.target}

@@ -1,0 +1,9 @@
+description: 'Easy Ride
+
+  - Easy Zone 1 Ride, 1 hr'
+name: W04-D2
+sport: cycling
+steps:
+- duration: '1:00:00'
+  target: {type: power.zone, zone: '1'}
+  type: interval

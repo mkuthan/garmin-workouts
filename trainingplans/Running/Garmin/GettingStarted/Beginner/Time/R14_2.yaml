@@ -3,14 +3,12 @@ description: "\u2022 Warm up, 10 minutes.\n \u2022 Run, steady pace, 20 minutes.
 name: W14D2-Steady Run
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -2,10 +2,9 @@ description: Run a 5K race.
 name: W10D6-5K Run
 sport: running
 steps:
-- description: ''
-  duration: 4.989km
+- duration: 4.989km
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

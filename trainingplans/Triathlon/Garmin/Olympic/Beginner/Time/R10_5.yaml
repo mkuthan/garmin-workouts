@@ -1,42 +1,39 @@
-description:
-  During the long swim, build confidence in the water. Count strokes every
+description: During the long swim, build confidence in the water. Count strokes every
   third 50m to make sure you're holding your form together.
-name: W10D5-Steady Swim
+name: Olympic Triathlon Level 1 W10D5 - Steady Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      equipment: kickboard
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 1.8km
-    target: { type: no.target }
+- description: Swim with a little backstroke, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Easy effort.
+    duration: 0.05km
+    equipment: kickboard
+    target: {type: no.target}
     type: interval
-  - description: ""
-    duration: 0:01:20
-    target: { type: no.target }
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Moderate effort,
+  duration: 1.8km
+  target: {type: no.target}
+  type: interval
+- duration: 0:01:20
+  target: {type: no.target}
+  type: rest
+- description: Easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

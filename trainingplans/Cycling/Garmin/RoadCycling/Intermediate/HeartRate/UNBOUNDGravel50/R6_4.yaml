@@ -1,0 +1,9 @@
+description: 'Base Ride, 1 hr
+
+  - Steady Zone 2'
+name: W06-D4
+sport: cycling
+steps:
+- duration: '1:00:00'
+  target: {type: heart.rate.zone, zone: '2'}
+  type: interval

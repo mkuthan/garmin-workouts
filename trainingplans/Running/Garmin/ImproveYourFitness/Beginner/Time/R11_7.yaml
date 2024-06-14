@@ -3,14 +3,12 @@ description: " \u2022 Run, easy pace, 40 minutes.\r\n \u2022 Run, steady pace, 4
 name: W11D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

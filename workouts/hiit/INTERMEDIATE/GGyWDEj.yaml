@@ -5,31 +5,26 @@ name: 5-minute All Out
 sport: hiit
 steps:
 - category: TOTAL_BODY
-  description: ''
   duration: 0:01:00
   exerciseName: BURPEE
   target: {type: no.target}
   type: interval
 - category: SIT_UP
-  description: ''
   duration: 0:01:00
   exerciseName: SIT_UP
   target: {type: no.target}
   type: interval
 - category: SQUAT
-  description: ''
   duration: 0:01:00
   exerciseName: DUMBBELL_STEP_UP
   target: {type: no.target}
   type: interval
 - category: PUSH_UP
-  description: ''
   duration: 0:01:00
   exerciseName: PUSH_UP
   target: {type: no.target}
   type: interval
 - category: HIP_SWING
-  description: ''
   duration: 0:01:00
   exerciseName: SINGLE_ARM_DUMBBELL_SWING
   target: {type: no.target}

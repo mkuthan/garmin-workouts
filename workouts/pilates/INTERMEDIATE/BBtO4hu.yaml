@@ -5,85 +5,71 @@ name: Pilates On the Road
 sport: pilates
 steps:
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: FOOT_ROLLING
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: BACK_MASSAGE
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: ARCH_AND_CURL
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: TWIST
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: HAMSTRING_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: THE_HUNDRED
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: CRISS_CROSS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: SCISSORS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: LOWER_LIFT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:45
   exerciseName: BRIDGE
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: SPINAL_TWIST_STRETCH
   target: {type: no.target}

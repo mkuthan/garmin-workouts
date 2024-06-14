@@ -7,15 +7,13 @@ name: W03D7-Long Bike
 sport: cycling
 steps:
 - &id001
-  - description: ''
-    duration: 0:45:00
+  - duration: 0:45:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:15:00
+  - duration: 0:15:00
     target: {type: no.target}
     type: interval
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

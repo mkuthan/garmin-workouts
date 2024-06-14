@@ -7,319 +7,266 @@ name: Sun Salutations
 sport: yoga
 steps:
 - category: POSE
-  description: ''
   duration: 0:00:45
   exerciseName: MOUNTAIN
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:10
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:10
   exerciseName: PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: FOUR_LIMBED_STAFF
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: UP_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:10
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:15
   exerciseName: PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: FOUR_LIMBED_STAFF
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: UP_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:10
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: MOUNTAIN
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:15
   exerciseName: PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: FOUR_LIMBED_STAFF
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: UP_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:10
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:15
   exerciseName: PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: FOUR_LIMBED_STAFF
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: UP_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:10
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}

@@ -3,18 +3,15 @@ description: "\u2022 Warm up, 5 minutes.\n \u2022 Run, easy pace, 20 minutes.\n 
 name: W07D7-Easy Run
 sport: running
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: recovery
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

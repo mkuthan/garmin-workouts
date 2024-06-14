@@ -1,36 +1,34 @@
-description:
-  Longer reps prepare you for your race. If you're going to be racing in
+description: Longer reps prepare you for your race. If you're going to be racing in
   a wetsuit, use it for part or all of this session.
-name: W11D2-Easy Swim
+name: Olympic Triathlon Level 2 W11D2 - Easy Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
+- description: Free and back mix, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Working on an early catch, moderate effort.
+    duration: 0.4km
+    equipment: pull_buoy
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:20
+    target: {type: no.target}
     type: rest
-  - &id001
-    - description: ""
-      duration: 0.4km
-      equipment: pull_buoy
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:20
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id001
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Mix of free and kick, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

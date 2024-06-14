@@ -6,39 +6,32 @@ description: "\u2022 Bike, easy effort, 85 RPM, 5 minutes.\n\u2022 Bike, moderat
 name: W04D2-Hard Bike
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:04:00
+  - duration: 0:04:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:04:00
+  - duration: 0:04:00
     target: {type: no.target}
     type: interval
 - *id001
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

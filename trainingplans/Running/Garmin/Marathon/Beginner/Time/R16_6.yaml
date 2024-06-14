@@ -3,14 +3,12 @@ description: "\u2022 Run, easy pace, 15 minutes \n \u2022 Run, marathon pace, 5 
 name: W16D6-Easy Run
 sport: running
 steps:
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

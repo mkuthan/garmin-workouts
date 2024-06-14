@@ -5,13 +5,12 @@ description: "\u2022 Light mobility work, 5-10 minutes.\n\u2022 Run, easy effort
 name: W09D7-Easy Run
 sport: running
 steps:
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:30:00
+- duration: 0:30:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

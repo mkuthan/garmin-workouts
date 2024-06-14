@@ -1,0 +1,47 @@
+description: '5x90 sec Zone 5
+
+  - 30 min Warm Up
+
+  - 5x90 sec Zone 5, 2 min easy between
+
+  - 10 min Easy Riding
+
+  - 5x90 sec Zone 5, 2 min easy between
+
+  - Cool Down Zone 2
+
+  '
+name: W09-D2
+sport: cycling
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:01:30
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- *id001
+- *id001
+- *id001
+- duration: 0:10:00
+  target: {type: power.zone, zone: '1'}
+  type: interval
+- &id002
+  - duration: 0:01:30
+    target: {type: power.zone, zone: '5'}
+    type: interval
+  - duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id002
+- *id002
+- *id002
+- *id002
+- duration: 0:15:00
+  target: {type: power.zone, zone: '2'}
+  type: cooldown

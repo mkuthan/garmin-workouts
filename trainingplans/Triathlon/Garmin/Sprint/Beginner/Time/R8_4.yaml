@@ -1,61 +1,60 @@
 description: null
-name: "W08D4-Test Swim"
+name: "Sprint Triathlon Level 1 W08D4 -\_Test Swim"
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.3km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:15
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
+- description: Swim with a bit of backstroke, easy effort
+  duration: 0.3km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Increasing effort easy effort, moderate effort, med-high effort and
+      high effort
     duration: 0.05km
-    target: { type: no.target }
+    target: {type: no.target}
     type: interval
-  - description: ""
-    target: { type: no.target }
+  - duration: 0:00:15
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.4km
-    target: { type: no.target }
+- *id001
+- *id001
+- *id001
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: Easy effort
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Aim for the best time you can do. Don't go out too hard. Record your
+    time and heart rate at the end of the swim.
+  duration: 0.4km
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id002
+  - description: Moderate effort
+    duration: 0.025km
+    equipment: kickboard
+    target: {type: no.target}
     type: interval
-  - description: ""
-    target: { type: no.target }
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - &id002
-    - description: ""
-      duration: 0.025km
-      equipment: kickboard
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id002
-  - *id002
-  - *id002
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.15km
-    target: { type: no.target }
-    type: interval
+- *id002
+- *id002
+- *id002
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort
+  duration: 0.15km
+  target: {type: no.target}
+  type: interval

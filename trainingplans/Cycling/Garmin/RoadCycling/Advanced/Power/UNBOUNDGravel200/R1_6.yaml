@@ -1,0 +1,20 @@
+description: "3x20 min Zone 3\n- 30 min Warm Up\n- 3x20 min Zone 3, 10 min easy between\
+  \ \n- Cool Down Zone 2"
+name: W01-D6
+sport: cycling
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:20:00
+    target: {type: power.zone, zone: '3'}
+    type: interval
+  - duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- *id001
+- duration: 0:30:00
+  target: {type: power.zone, zone: '2'}
+  type: cooldown

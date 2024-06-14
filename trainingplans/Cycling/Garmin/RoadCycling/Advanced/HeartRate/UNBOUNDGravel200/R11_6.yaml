@@ -1,0 +1,12 @@
+description: "Race Simulation\n- Find a route or loop with rolling hills that simulates\
+  \ UNBOUND. Set up your \"\"checkpoint\"\" with extra hydration and nutrition to\
+  \ resupply after each loop. \n- Ride for approximately 40-50 miles before stopping\
+  \ at your checkpoint to resupply your food and drink. \n- Repeat the loop or choose\
+  \ another 40-50 mile route before stopping to resupply again. \n- Ride your goal\
+  \ race pace or effort to practice. Recover well after this race simulation!\n"
+name: W11-D6
+sport: cycling
+steps:
+- duration: 225.308km
+  target: {type: no.target}
+  type: interval

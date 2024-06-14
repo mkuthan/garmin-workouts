@@ -8,12 +8,11 @@ sport: strength_training
 steps:
 - &id001
   - category: PLANK
-    description: ''
     duration: 0:00:10
     exerciseName: WEIGHTED_PLANK
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id001
@@ -22,48 +21,44 @@ steps:
 - *id001
 - &id002
   - category: CORE
-    description: ''
     duration: 10reps
     exerciseName: SWISS_BALL_JACKKNIFE
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
 - &id003
   - category: PLANK
-    description: ''
     duration: 12reps
     exerciseName: PLANK_WITH_OBLIQUE_CRUNCH
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id003
 - *id003
 - &id004
   - category: SIT_UP
-    description: ''
     duration: 10reps
     exerciseName: V_UP
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id004
 - *id004
 - &id005
   - category: CRUNCH
-    description: ''
     duration: 12reps
     exerciseName: HANGING_KNEE_RAISE_OBLIQUE_CRUNCH
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id005

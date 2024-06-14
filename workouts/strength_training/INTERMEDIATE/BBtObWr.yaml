@@ -8,13 +8,11 @@ sport: strength_training
 steps:
 - &id001
   - category: SQUAT
-    description: ''
     duration: 20reps
     exerciseName: SQUAT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id001
@@ -22,13 +20,11 @@ steps:
 - *id001
 - &id002
   - category: DEADLIFT
-    description: ''
     duration: 12reps
     exerciseName: BARBELL_DEADLIFT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id002
@@ -36,13 +32,11 @@ steps:
 - *id002
 - &id003
   - category: ROW
-    description: ''
     duration: 8reps
     exerciseName: DUMBBELL_ROW
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id003
@@ -50,12 +44,11 @@ steps:
 - *id003
 - &id004
   - category: PUSH_UP
-    description: ''
+    duration: lap.button
     exerciseName: PUSH_UP
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id004

@@ -3,10 +3,9 @@ description: "\u2022 Bike, 35 minutes.\n \u2022 Cool down, 5-10 minutes.\n \u202
 name: W01D7-Bike Ride
 sport: cycling
 steps:
-- description: ''
-  duration: 0:35:00
+- duration: 0:35:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -3,7 +3,6 @@ description: "60 Minute Workout \nThis should be a fairly easy ride. Focus on te
 name: Mountain Bike
 sport: cycling
 steps:
-- description: ''
-  duration: '1:00:00'
+- duration: '1:00:00'
   target: {type: no.target}
   type: interval

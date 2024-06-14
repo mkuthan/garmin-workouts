@@ -5,25 +5,21 @@ description: "\u2022 Warm up, core strength exercises, 10 to 15 minutes.\n \u202
 name: W02D5-Build Run
 sport: running
 steps:
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:04:00
+- duration: 0:04:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

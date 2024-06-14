@@ -16,55 +16,42 @@ description: '- Warm up.
 name: Fitness Test Prep. (2 Min. + 8 Min.)
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:00:30
+- duration: 0:00:30
   target: {type: power.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:00:05
+- duration: 0:00:05
   target: {type: power.zone, zone: '7'}
   type: warmup
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: power.zone, zone: '5'}
   type: interval
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: power.zone, zone: '2'}
   type: recovery
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: power.zone, zone: '4'}
   type: interval
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: power.zone, zone: '1'}
   type: recovery
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '2'}
   type: interval

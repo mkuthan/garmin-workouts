@@ -4,18 +4,15 @@ description: "\u2022 Run, easy pace, 10 minutes\r\n \u2022 Run, threshold pace, 
 name: W14D4b-Threshold Run
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

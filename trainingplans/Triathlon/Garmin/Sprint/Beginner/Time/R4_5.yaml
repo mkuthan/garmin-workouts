@@ -6,22 +6,18 @@ description: "\u2022 Bike, easy effort, 90 RPM, 5 minutes.\n\u2022 Bike, easy ef
 name: W04D5-Easy Bike
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:35:00
+- duration: 0:35:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

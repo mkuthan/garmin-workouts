@@ -4,16 +4,14 @@ name: W02D7-Intervals
 sport: running
 steps:
 - &id001
-  - description: ''
-    duration: 0:07:00
+  - duration: 0:07:00
     target: {type: heart.rate.zone, zone: '2'}
     type: interval
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: heart.rate.zone, zone: '2'}
     type: rest
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

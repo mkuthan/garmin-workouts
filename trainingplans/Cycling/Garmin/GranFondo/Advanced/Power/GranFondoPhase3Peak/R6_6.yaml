@@ -2,7 +2,6 @@ description: null
 name: Gran Fondo
 sport: cycling
 steps:
-- description: ''
-  duration: '5:00:00'
+- duration: '5:00:00'
   target: {type: no.target}
   type: interval

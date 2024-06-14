@@ -5,55 +5,46 @@ name: Strengthen Your Back
 sport: pilates
 steps:
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: CAT_COW
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: KNEE_CIRCLES
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: PELVIC_CLOCKS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: THE_HUNDRED
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: CRISS_CROSS
   target: {type: no.target}
@@ -63,37 +54,31 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:00:50
   exerciseName: SWIMMING
   target: {type: no.target}
   type: interval
 - category: HYPEREXTENSION
-  description: ''
   duration: 0:00:30
   exerciseName: COBRA
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ARM_AND_LEG_EXTENSION_ON_KNEES
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:45
   exerciseName: PLANK_WITH_ARM_VARIATIONS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
@@ -111,13 +96,11 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: HIP_STRETCH
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: MERMAID_STRETCH
   target: {type: no.target}

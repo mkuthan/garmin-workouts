@@ -4,18 +4,15 @@ description: "\u2022 Run, easy pace, 6 minutes. \n \u2022 Run, steady pace, 6 mi
 name: W01D2-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:06:00
+- duration: 0:06:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:06:00
+- duration: 0:06:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:06:00
+- duration: 0:06:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

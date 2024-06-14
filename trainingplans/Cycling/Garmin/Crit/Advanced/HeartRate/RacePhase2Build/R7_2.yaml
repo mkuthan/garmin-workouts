@@ -9,45 +9,41 @@ description: "- Warm up.\n- Ride 30 seconds hard, 15 seconds easy. Repeat 10 tim
 name: 30 Sec. Intervals (30 Times)
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+    \ catches up."
   duration: 0:00:30
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: All-out sprint\n Interval starts when effort does, not when\
+    \ HR catches up."
   duration: 0:00:05
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
 - &id001
-  - description: ''
+  - description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+      \ catches up."
     duration: 0:00:30
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:00:15
+  - duration: 0:00:15
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001
@@ -59,17 +55,16 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - &id002
-  - description: ''
+  - description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+      \ catches up."
     duration: 0:00:30
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:00:15
+  - duration: 0:00:15
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id002
@@ -81,17 +76,16 @@ steps:
 - *id002
 - *id002
 - *id002
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - &id003
-  - description: ''
+  - description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+      \ catches up."
     duration: 0:00:30
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:00:15
+  - duration: 0:00:15
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id003
@@ -103,7 +97,6 @@ steps:
 - *id003
 - *id003
 - *id003
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval

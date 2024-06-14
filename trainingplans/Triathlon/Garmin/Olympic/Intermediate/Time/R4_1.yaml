@@ -1,37 +1,35 @@
-description:
-  Use this session to loosen the legs from the past couple of days. Relax
+description: Use this session to loosen the legs from the past couple of days. Relax
   in the water and work on your technique.
-name: W04D1-Easy Swim
+name: Olympic Triathlon Level 2 W04D1 - Easy Swim
 sport: swimming
 steps:
-  - description: ""
+- description: Free and back mix, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Working on an early catch, moderate effort.
     duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
+    equipment: pull_buoy
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:20
+    target: {type: no.target}
     type: rest
-  - &id001
-    - description: ""
-      duration: 0.2km
-      equipment: pull_buoy
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:20
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Mix of free and kick, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

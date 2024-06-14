@@ -7,7 +7,6 @@ description: "60 Minute Workout\n- Quick warm up.\n- Choose one of \n   - Ride 2
 name: 'Your Choice: Zone 3 or 5 Intervals '
 sport: cycling
 steps:
-- description: ''
-  duration: '1:00:00'
+- duration: '1:00:00'
   target: {type: no.target}
   type: interval

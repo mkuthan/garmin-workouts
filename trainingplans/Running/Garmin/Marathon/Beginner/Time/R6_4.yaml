@@ -3,10 +3,9 @@ description: "\u2022 Steady run, vary your intensity throughout the workout, 40 
 name: W06D4-Fartlek
 sport: running
 steps:
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

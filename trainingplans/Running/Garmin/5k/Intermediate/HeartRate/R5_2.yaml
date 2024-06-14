@@ -5,25 +5,20 @@ description: "\u2022 Warm up, 10 minutes. \n \u2022 Run in Z4, threshold, 2 minu
 name: W05D2-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '2'}
     type: rest
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:01:30
+  - duration: 0:01:30
     target: {type: heart.rate.zone, zone: '2'}
     type: rest
 - *id001
@@ -31,6 +26,6 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

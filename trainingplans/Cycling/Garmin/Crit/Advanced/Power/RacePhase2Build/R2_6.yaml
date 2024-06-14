@@ -8,7 +8,6 @@ description: '3 Hour Workout
 name: Zone 2 Aerobic
 sport: cycling
 steps:
-- description: ''
-  duration: '3:00:00'
+- duration: '3:00:00'
   target: {type: no.target}
   type: interval

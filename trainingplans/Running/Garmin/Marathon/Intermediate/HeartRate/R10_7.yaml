@@ -2,7 +2,6 @@ description: "RACE DAY! GOOD LUCK! \n"
 name: W10D7-Half Marathon
 sport: running
 steps:
-- description: ''
-  duration: 21.082km
+- duration: 21.082km
   target: {type: heart.rate.zone, zone: '3'}
   type: interval

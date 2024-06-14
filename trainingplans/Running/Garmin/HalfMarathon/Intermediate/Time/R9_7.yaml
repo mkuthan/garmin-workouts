@@ -3,14 +3,12 @@ description: "\u2022 Run, easy pace, 70 minutes. \n \u2022 Run, half marathon pa
 name: W09D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '1:10:00'
+- duration: '1:10:00'
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

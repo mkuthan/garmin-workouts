@@ -6,12 +6,11 @@ sport: strength_training
 steps:
 - &id001
   - category: DEADLIFT
-    description: ''
     duration: 10reps
     exerciseName: BARBELL_DEADLIFT
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id001
@@ -19,23 +18,19 @@ steps:
 - *id001
 - &id002
   - category: PULL_UP
-    description: ''
     duration: 10reps
     exerciseName: PULL_UP
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: ROW
-    description: ''
     duration: 10reps
     exerciseName: DUMBBELL_ROW
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id002
@@ -43,23 +38,19 @@ steps:
 - *id002
 - &id003
   - category: PULL_UP
-    description: ''
     duration: 10reps
     exerciseName: LAT_PULLDOWN
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: SHRUG
-    description: ''
     duration: 10reps
     exerciseName: BARBELL_UPRIGHT_ROW
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id003
@@ -67,12 +58,11 @@ steps:
 - *id003
 - &id004
   - category: ROW
-    description: ''
     duration: 10reps
     exerciseName: INVERTED_ROW
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id004
@@ -80,12 +70,11 @@ steps:
 - *id004
 - &id005
   - category: ROW
-    description: ''
     duration: 10reps
     exerciseName: FACE_PULL
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id005

@@ -306,11 +306,10 @@ class GarminClient(object):
             "limit": '1000',
             "locale": locale.split('-')[0],
         }
-        try:
-            return self.post(url, params=params, api=True).json().get('trainingPlanList')
-        except GarthHTTPError:
-            print('Harcoded version used')
-            return trainingplan_list.get('trainingPlanList', dict)
+        headers: dict = {
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+        return self.post(url, params=params, api=True, headers=headers).json().get('trainingPlanList')
 
     def schedule_training_plan(self, plan_id, startDate) -> dict:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/schedule/{plan_id}"

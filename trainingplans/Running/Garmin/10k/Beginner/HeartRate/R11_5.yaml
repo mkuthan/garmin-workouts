@@ -3,23 +3,20 @@ description: "\u2022 Warm up, 15 minutes.\n \u2022 Run, Z4, 2 minutes. Recovery 
 name: W11D5-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: no.target}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

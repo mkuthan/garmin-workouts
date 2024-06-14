@@ -6,17 +6,14 @@ description: "\u2022 Run, easy effort, 10 minutes.\n\u2022 Run, med-high effort,
 name: W03D2-Tech Run
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: interval
 - *id001
@@ -24,10 +21,9 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

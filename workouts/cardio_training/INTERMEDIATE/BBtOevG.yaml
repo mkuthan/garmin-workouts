@@ -9,70 +9,64 @@ name: 'Gold''s Gym : Anything "Butt"'
 sport: cardio_training
 steps:
 - category: RUN
-  description: ''
   duration: 0:10:00
   exerciseName: JOG
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: rest
 - &id001
   - category: HIP_RAISE
-    description: ''
     duration: 15reps
     exerciseName: HIP_RAISE
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
 - &id002
   - category: DEADLIFT
-    description: ''
     duration: 15reps
     exerciseName: DUMBBELL_DEADLIFT
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
 - &id003
   - category: LEG_CURL
-    description: ''
     duration: 15reps
     exerciseName: GOOD_MORNING
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id003
 - *id003
 - &id004
   - category: PLYO
-    description: ''
     duration: 15reps
     exerciseName: BODY_WEIGHT_JUMP_SQUAT
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id004
 - *id004
 - &id005
   - category: TOTAL_BODY
-    description: ''
     duration: 10reps
     exerciseName: SQUAT_THRUSTS
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id005

@@ -3,10 +3,9 @@ description: "  \u2022 Race a Half Marathon or time trial. \n \u2022 Cool down, 
 name: W10D7-Half Marathon
 sport: running
 steps:
-- description: ''
-  duration: 21.082km
+- duration: 21.082km
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

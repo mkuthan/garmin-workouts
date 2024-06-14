@@ -3,7 +3,6 @@ description: "2 Hour Workout \nRide steady for 2 hours, and let the terrain dict
 name: Mountain Bike
 sport: cycling
 steps:
-- description: ''
-  duration: '2:00:00'
+- duration: '2:00:00'
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

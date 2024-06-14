@@ -13,13 +13,11 @@ sport: cardio_training
 steps:
 - &id001
   - category: LUNGE
-    description: ''
     duration: 0:00:20
     exerciseName: LUNGE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
 - *id001
@@ -29,19 +27,16 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:01:00
+- duration: 0:01:00
   target: {type: no.target}
   type: rest
 - &id002
   - category: CRUNCH
-    description: ''
     duration: 0:00:20
     exerciseName: CRUNCH
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
 - *id002
@@ -51,19 +46,16 @@ steps:
 - *id002
 - *id002
 - *id002
-- description: ''
-  duration: 0:01:00
+- duration: 0:01:00
   target: {type: no.target}
   type: rest
 - &id003
   - category: TOTAL_BODY
-    description: ''
     duration: 0:00:20
     exerciseName: BURPEE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
 - *id003

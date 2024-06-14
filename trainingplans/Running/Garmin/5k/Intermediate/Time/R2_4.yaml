@@ -4,20 +4,17 @@ description: "\u2022 Warm up, 5 minutes. \n \u2022 Run, threshold pace, 6 minute
 name: W02D4-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:06:00
+  - duration: 0:06:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: no.target}
     type: rest
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -8,129 +8,112 @@ sport: strength_training
 steps:
 - &id001
   - category: CURL
-    description: ''
     duration: 10reps
     exerciseName: BARBELL_BICEPS_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
   - category: CURL
-    description: ''
     duration: 10reps
     exerciseName: FORWARD_BEND_BICEPS_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
 - &id002
   - category: CURL
-    description: ''
     duration: 10reps
     exerciseName: DEAD_HANG_BICEPS_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
 - &id003
   - category: CURL
-    description: ''
     duration: 10reps
     exerciseName: SEATED_ALTERNATING_DUMBBELL_BICEPS_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id003
 - *id003
 - &id004
   - category: CURL
-    description: ''
     duration: 10reps
     exerciseName: ONE_ARM_CONCENTRATION_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id004
 - *id004
 - &id005
   - category: BENCH_PRESS
-    description: ''
     duration: 10reps
     exerciseName: CLOSE_GRIP_BARBELL_BENCH_PRESS
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: INCLINE_DIP
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id005
 - *id005
 - &id006
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: SEATED_SINGLE_ARM_OVERHEAD_DUMBBELL_EXTENSION
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id006
 - *id006
 - &id007
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: ROPE_PRESSDOWN
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: TRICEPS_EXTENSION_ON_FLOOR
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: no.target}
     type: rest
 - *id007
 - *id007
 - &id008
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: DUMBBELL_KICKBACK
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id008

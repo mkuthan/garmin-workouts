@@ -4,17 +4,14 @@ description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Stride, 20 seconds. Run, ea
 name: W16D4-Strides
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:00:20
+  - duration: 0:00:20
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:02:40
+  - duration: 0:02:40
     target: {type: no.target}
     type: rest
 - *id001
@@ -22,6 +19,6 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

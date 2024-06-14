@@ -6,73 +6,61 @@ name: Pilates for Runners
 sport: pilates
 steps:
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: LEG_STRETCH_WITH_BAND
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: LEG_STRETCH_WITH_LEG_CIRCLES
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: FROG_WITH_BAND
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: THE_HUNDRED
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: ROLLING
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: CRISS_CROSS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SCISSORS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: LOWER_LIFT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:01:00
   exerciseName: BRIDGE
   target: {type: no.target}
@@ -98,25 +86,21 @@ steps:
   target: {type: no.target}
   type: rest
 - category: HYPEREXTENSION
-  description: ''
   duration: 0:00:30
   exerciseName: COBRA
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: SWAN
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: SWIMMING
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
@@ -218,7 +202,6 @@ steps:
   target: {type: no.target}
   type: rest
 - category: SQUAT
-  description: ''
   duration: 0:00:45
   exerciseName: SQUAT
   target: {type: no.target}
@@ -242,37 +225,31 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:20
   exerciseName: HAMSTRING_CURL
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: LUNGES_WITH_KNEE_LIFT
   target: {type: no.target}
   type: interval
 - category: SQUAT
-  description: ''
   duration: 0:01:00
   exerciseName: RELEVE_STRAIGHT_LEG_AND_KNEE_BENT_WITH_ONE_LEG_VARIATION
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: HIP_STRETCH
   target: {type: no.target}
   type: interval
 - category: PUSH_UP
-  description: ''
   duration: 0:01:00
   exerciseName: PILATES_PUSHUP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: STANDING_SIDE_STRETCH
   target: {type: no.target}

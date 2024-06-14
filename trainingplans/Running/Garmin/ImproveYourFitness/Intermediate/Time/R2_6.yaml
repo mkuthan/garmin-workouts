@@ -3,10 +3,9 @@ description: "\u2022 Run, vary your intensity throughout the workout, 30 minutes
 name: W02D6-Fartlek
 sport: running
 steps:
-- description: ''
-  duration: 0:30:00
+- duration: 0:30:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

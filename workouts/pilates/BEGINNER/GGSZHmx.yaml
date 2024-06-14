@@ -5,85 +5,71 @@ name: Stretch & Flex
 sport: pilates
 steps:
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: CAT_COW
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ARM_AND_LEG_EXTENSION_ON_KNEES
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:01:00
   exerciseName: BRIDGE_WITH_GLUTE_LOWER_LIFT
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: FROG_WITH_BAND
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: PIRIFORMIS_STRETCH
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: TICK_TOCK_SIDE_ROLL
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: ARM_STRETCH
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: TWIST
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: SAW
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLLING
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_DOWN
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: CAT_COW
   target: {type: no.target}

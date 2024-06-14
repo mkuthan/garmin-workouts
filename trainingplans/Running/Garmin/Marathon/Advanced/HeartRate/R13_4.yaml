@@ -1,12 +1,2 @@
-description: "\u2022 Run in Z2, easy, 45 minutes.\n \u2022 Cool down, 5-10 minutes.\n\
-  \ \u2022 Stretch."
-name: W13D4a-Recovery Run
-sport: running
-steps:
-- description: ''
-  duration: 0:45:00
-  target: {type: heart.rate.zone, zone: '2'}
-  type: interval
-- description: ''
-  target: {type: no.target}
-  type: cooldown
+content: Body weight exercises, 15 minutes. Leg exercises, 15 minutes.
+name: W13D4b-Body Weight Exercises

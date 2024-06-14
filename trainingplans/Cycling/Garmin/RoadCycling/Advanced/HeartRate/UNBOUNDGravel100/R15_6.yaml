@@ -1,0 +1,14 @@
+description: 'Race Day
+
+  - 100 miles
+
+  - Good Luck! Pace your effort throughout the race and focus on your nutrition and
+  hydration plan! Have fun!
+
+  '
+name: W15-D6
+sport: cycling
+steps:
+- duration: 160.934km
+  target: {type: no.target}
+  type: interval

@@ -3,7 +3,6 @@ description: " \u2022 Run 10k race in Z4. \n \u2022 Cool down, 5 to 10 minutes. 
 name: W08D6-10k Race
 sport: running
 steps:
-- description: ''
-  duration: 10.01km
+- duration: 10.01km
   target: {type: heart.rate.zone, zone: '4'}
   type: interval

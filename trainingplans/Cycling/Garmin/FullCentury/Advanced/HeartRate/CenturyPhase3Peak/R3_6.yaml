@@ -10,35 +10,32 @@ description: '90 Minute Workout
 name: 15 Min. Threshold Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- duration: lap.button
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:15:00
+  - duration: 0:15:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
+  - description: You'll probably need at least 5:30 of recovery between these intervals
+      but take what you need.
+    duration: lap.button
     target: {type: heart.rate.zone, zone: '2'}
     type: recovery
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

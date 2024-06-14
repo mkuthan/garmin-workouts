@@ -1,46 +1,45 @@
 description: null
-name: W10D5-Tempo Swim
+name: Sprint Triathlon Level 1 W10D5 - Tempo Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
+- description: Free and back mix, easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:10
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Increasing effort easy effort, moderate effort, med-high effort and
+      high effort
     duration: 0.05km
-    target: { type: no.target }
+    target: {type: no.target}
     type: interval
-  - description: ""
-    duration: 0:00:10
-    target: { type: no.target }
+  - duration: 0:00:15
+    target: {type: no.target}
     type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:15
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.8km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:30
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
+- *id001
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort. Practice your pacing for your race. Visualize yourself
+    swimming in the event.
+  duration: 0.8km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:30
+  target: {type: no.target}
+  type: rest
+- description: Free and back mix, easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown

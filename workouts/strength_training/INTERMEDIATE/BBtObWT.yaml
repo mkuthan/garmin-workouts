@@ -9,13 +9,11 @@ sport: strength_training
 steps:
 - &id001
   - category: CURL
-    description: ''
     duration: 12reps
     exerciseName: ALTERNATING_DUMBBELL_BICEPS_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id001
@@ -23,13 +21,11 @@ steps:
 - *id001
 - &id002
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 12reps
     exerciseName: TRICEPS_PRESSDOWN
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id002
@@ -37,13 +33,11 @@ steps:
 - *id002
 - &id003
   - category: CURL
-    description: ''
     duration: 12reps
     exerciseName: DUMBBELL_HAMMER_CURL
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id003

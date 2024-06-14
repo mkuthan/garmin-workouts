@@ -3,10 +3,9 @@ description: "\u2022 Run, easy pace, 90 minutes.  \r\n \u2022 Run off road if po
 name: W01D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '1:30:00'
+- duration: '1:30:00'
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

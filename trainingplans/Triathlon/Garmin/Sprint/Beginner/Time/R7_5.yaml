@@ -1,57 +1,55 @@
 description: null
-name: W07D5-Tempo Swim
+name: Sprint Triathlon Level 1 W07D5 - Tempo Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id002
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:15
-      target: { type: no.target }
-      type: rest
-  - *id002
-  - *id002
-  - *id002
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id003
-    - description: ""
-      duration: 0.3km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:30
-      target: { type: no.target }
-      type: rest
-  - *id003
-  - *id003
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
+- description: Free and back mix, easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Easy effort
+    duration: 0.05km
+    target: {type: no.target}
     type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id002
+  - description: Increasing effort easy effort, moderate effort, med-high effort and
+      high effort
+    duration: 0.05km
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:15
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- *id002
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id003
+  - description: Med-high effort. Aim for your target race speed.
+    duration: 0.3km
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:30
+    target: {type: no.target}
+    type: rest
+- *id003
+- *id003
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Free and back mix, med-high effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: interval

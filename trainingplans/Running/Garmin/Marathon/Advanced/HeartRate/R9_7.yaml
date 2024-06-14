@@ -3,11 +3,9 @@ description: "\u2022 Run in Z2, easy, 110 minutes.\n \u2022 Run in Z3, steady ma
 name: W09D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '1:50:00'
+- duration: '1:50:00'
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval

@@ -5,13 +5,11 @@ name: Flex Your Torso
 sport: pilates
 steps:
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: NECK_PULL
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: KNEE_FOLDS
   target: {type: no.target}
@@ -33,19 +31,16 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: TAILBONE_CURL
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLLING
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: NECK_PULL
   target: {type: no.target}

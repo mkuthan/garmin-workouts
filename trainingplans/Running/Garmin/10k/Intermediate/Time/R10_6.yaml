@@ -4,22 +4,18 @@ description: "\u2022 Warm up, 10 minutes.\n \u2022 Run, 10K pace, 2 miles.\n \u2
 name: W10D6-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 3.219km
+- duration: 3.219km
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: rest
-- description: ''
-  duration: 3.219km
+- duration: 3.219km
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

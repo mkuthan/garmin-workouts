@@ -4,18 +4,15 @@ description: " \u2022 Warm up in Z2, 10 minutes.\r\n \u2022 Run in Z4, threshold
 name: W07D4-Threshold
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '4'}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

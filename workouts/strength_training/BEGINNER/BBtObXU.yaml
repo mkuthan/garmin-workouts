@@ -8,89 +8,74 @@ sport: strength_training
 steps:
 - &id001
   - category: BENCH_PRESS
-    description: ''
     duration: 8reps
     exerciseName: BARBELL_BENCH_PRESS
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:20
+  - duration: 0:00:20
     target: {type: no.target}
     type: rest
   - category: FLYE
-    description: ''
     duration: 8reps
     exerciseName: DUMBBELL_FLYE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:20
+  - duration: 0:00:20
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
 - &id002
   - category: BENCH_PRESS
-    description: ''
+    duration: lap.button
     exerciseName: PARTIAL_LOCKOUT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:30
+  - duration: 0:01:30
     target: {type: no.target}
     type: rest
   - category: ROW
-    description: ''
     duration: 8reps
     exerciseName: REVERSE_GRIP_BARBELL_ROW
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
 - &id003
   - category: SQUAT
-    description: ''
     duration: 8reps
     exerciseName: BARBELL_BACK_SQUAT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: SHOULDER_PRESS
-    description: ''
     duration: 8reps
     exerciseName: SMITH_MACHINE_OVERHEAD_PRESS
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id003
 - *id003
 - category: CURL
-  description: ''
   duration: 8reps
   exerciseName: BARBELL_BICEPS_CURL
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:01:00
+- duration: 0:01:00
   target: {type: no.target}
   type: rest
 - category: TRICEPS_EXTENSION
-  description: ''
   duration: 8reps
   exerciseName: TRICEPS_PRESSDOWN
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:01:00
+- duration: 0:01:00
   target: {type: no.target}
   type: rest

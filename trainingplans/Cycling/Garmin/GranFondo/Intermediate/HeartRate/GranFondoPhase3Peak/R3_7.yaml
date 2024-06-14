@@ -12,52 +12,48 @@ description: '70 Minute Workout
 name: 6 Sec. Sprints (8 Times)
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+    \ catches up."
   duration: 0:00:30
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: All-out sprint\n Interval starts when effort does, not when\
+    \ HR catches up."
   duration: 0:00:05
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
 - &id001
-  - description: ''
+  - description: Press the lap key for a 10 sec. countdown.
+    duration: lap.button
     target: {type: heart.rate.zone, zone: '2'}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
-  - description: ''
+  - description: "Effort: All-out sprint\n Interval starts when effort does, not when\
+      \ HR catches up."
     duration: 0:00:06
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001
@@ -67,7 +63,6 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

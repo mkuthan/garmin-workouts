@@ -4,15 +4,13 @@ name: W03D4-Intervals
 sport: running
 steps:
 - &id001
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: no.target}
     type: recovery
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

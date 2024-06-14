@@ -1,12 +1,2 @@
-description: "\u2022 Morning run.\n \u2022 Run in Z2, recovery pace, 40 minutes.\n\
-  \ \u2022 Cool down, 5 to 10 minutes.\n \u2022 Stretch."
-name: W04D4a-Recovery Run
-sport: running
-steps:
-- description: ''
-  duration: 0:40:00
-  target: {type: heart.rate.zone, zone: '2'}
-  type: interval
-- description: ''
-  target: {type: no.target}
-  type: cooldown
+content: Body weight exercises, 15 minutes.
+name: W04D4b-Body Weight Exercises

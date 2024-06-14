@@ -1,61 +1,59 @@
 description: null
-name: W12D1-Max Swim
+name: Olympic Triathlon Level 2 W12D1 - Max Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      equipment: kickboard
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id002
-    - description: ""
-      duration: 0.05km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:30
-      target: { type: no.target }
-      type: rest
-  - *id002
-  - *id002
-  - *id002
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.1km
-    target: { type: no.target }
+- description: Free and back mix, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Kick, easy effort
+    duration: 0.05km
+    equipment: kickboard
+    target: {type: no.target}
     type: interval
-  - description: ""
-    target: { type: no.target }
+  - duration: 0:00:10
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.4km
-    target: { type: no.target }
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id002
+  - description: 25 max effort, 25 easy effort
+    duration: 0.05km
+    target: {type: no.target}
     type: interval
-  - description: ""
-    target: { type: no.target }
+  - duration: 0:00:30
+    target: {type: no.target}
     type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id002
+- *id002
+- *id002
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort
+  duration: 0.1km
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort
+  duration: 0.4km
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

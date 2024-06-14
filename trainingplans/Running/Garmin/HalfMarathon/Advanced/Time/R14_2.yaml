@@ -5,40 +5,33 @@ description: "\u2022 Evening run.\r\n \u2022 Warm up, 15 minutes.\r\n \u2022 Run
 name: W14D2b-Intervals
 sport: running
 steps:
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: no.target}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0.998km
+  - duration: 0.998km
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:30
+  - duration: 0:01:30
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: no.target}
   type: recovery
 - &id002
-  - description: ''
-    duration: 0.998km
+  - duration: 0.998km
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:30
+  - duration: 0:01:30
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: no.target}
   type: recovery
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

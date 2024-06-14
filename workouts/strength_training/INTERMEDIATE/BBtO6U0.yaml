@@ -7,17 +7,17 @@ sport: strength_training
 steps:
 - &id001
   - category: SHOULDER_PRESS
-    description: ''
+    duration: lap.button
     exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
     target: {type: no.target}
     type: interval
   - category: ROW
-    description: ''
+    duration: lap.button
     exerciseName: INVERTED_ROW
     target: {type: no.target}
     type: interval
   - category: SHOULDER_PRESS
-    description: ''
+    duration: lap.button
     exerciseName: SINGLE_ARM_STEP_UP_AND_PRESS
     target: {type: no.target}
     type: interval

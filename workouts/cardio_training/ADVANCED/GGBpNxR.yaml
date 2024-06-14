@@ -5,31 +5,26 @@ sport: cardio_training
 steps:
 - &id001
   - category: SQUAT
-    description: ''
     duration: 0:01:00
     exerciseName: DUMBBELL_STEP_UP
     target: {type: no.target}
     type: interval
   - category: PLYO
-    description: ''
     duration: 0:01:00
     exerciseName: BODY_WEIGHT_JUMP_SQUAT
     target: {type: no.target}
     type: interval
   - category: PLYO
-    description: ''
     duration: 0:01:00
     exerciseName: ALTERNATING_JUMP_LUNGE
     target: {type: no.target}
     type: interval
   - category: PLYO
-    description: ''
     duration: 0:01:00
     exerciseName: SIDE_TO_SIDE_SHUFFLE_JUMP
     target: {type: no.target}
     type: interval
   - category: TOTAL_BODY
-    description: ''
     duration: 0:01:00
     exerciseName: SQUAT_THRUSTS
     target: {type: no.target}

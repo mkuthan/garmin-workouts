@@ -4,13 +4,12 @@ description: "\u2022 Light mobility work, 5-10 minutes.\r\n\u2022 Run, easy effo
 name: W08D3-Easy Run
 sport: running
 steps:
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -21,83 +21,78 @@ description: '90 Minute Workout
 name: Max. Effort Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+    \ catches up."
   duration: 0:00:30
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: All-out sprint\n Interval starts when effort does, not when\
+    \ HR catches up."
   duration: 0:00:05
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Try to have evenly paced intervals.\nEffort: Extremely hard\n Interval\
+    \ starts when effort does, not when HR catches up."
   duration: 0:01:00
   target: {type: heart.rate.zone, zone: '5'}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery
-- description: ''
+- description: "Try to have evenly paced intervals.\nEffort: Very hard\n Interval\
+    \ starts when effort does, not when HR catches up."
   duration: 0:04:00
   target: {type: heart.rate.zone, zone: '5'}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery
-- description: ''
+- description: "Try to have evenly paced intervals.\nEffort: Very hard\n Interval\
+    \ starts when effort does, not when HR catches up."
   duration: 0:10:00
   target: {type: heart.rate.zone, zone: '5'}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery
 - &id001
-  - description: ''
+  - description: "Aim for your best set possible.\nEffort: Very hard\n Interval starts\
+      \ when effort does, not when HR catches up."
     duration: 0:01:00
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001
 - *id001
 - *id001
-- description: ''
+- description: "Aim for your best set possible.\nEffort: Very hard\n Interval starts\
+    \ when effort does, not when HR catches up."
   duration: 0:04:00
   target: {type: heart.rate.zone, zone: '5'}
   type: interval
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery
-- description: ''
-  duration: 0:07:00
+- duration: 0:07:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery

@@ -3,14 +3,12 @@ description: "\u2022 Run, easy pace, 90 minutes. \n \u2022 Run, marathon pace, 6
 name: W13D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '1:30:00'
+- duration: '1:30:00'
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: '1:00:00'
+- duration: '1:00:00'
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

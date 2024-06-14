@@ -3,14 +3,12 @@ description: "\u2022 Warm up, 15 minutes.\r\n \u2022 Run, threshold pace, 20 min
 name: W04D6-Threshold Run
 sport: running
 steps:
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: no.target}
   type: warmup
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

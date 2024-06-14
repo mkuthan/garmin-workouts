@@ -3,14 +3,12 @@ description: "\u2022 Run, Z3, 7km.\n \u2022 Run, Z1, 10 minutes.\n \u2022 Cool d
 name: W09D6b-Tempo Run
 sport: running
 steps:
-- description: ''
-  duration: 7.0km
+- duration: 7.0km
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

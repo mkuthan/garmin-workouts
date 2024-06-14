@@ -5,22 +5,18 @@ description: "\u2022 Core strength exercises, 15 minutes.\n \u2022 Run, Z1, 20 m
 name: W02D5-Build Run
 sport: running
 steps:
-- description: ''
-  duration: 0:20:00
+- duration: 0:20:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

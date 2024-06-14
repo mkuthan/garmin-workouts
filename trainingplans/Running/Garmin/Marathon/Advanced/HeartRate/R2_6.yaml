@@ -5,24 +5,20 @@ description: "\u2022 Warm up, 10 minutes.\r\n \u2022 Run in Z4, moderate to hard
 name: W02D6b-Hills
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: no.target}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:10:00
+  - duration: 0:10:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '2'}
     type: interval
 - *id001
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -3,10 +3,9 @@ description: "\u2022 Run, easy pace, 120 minutes. \r\n \u2022 Cool down, 5 to 10
 name: W05D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '2:00:00'
+- duration: '2:00:00'
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -6,30 +6,25 @@ description: "\u2022 Bike, easy effort, 5 minutes, 95 RPM.\n\u2022 Bike single l
 name: W03D3-Steady Bike
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:08:00
+  - duration: 0:08:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: no.target}
     type: interval
 - *id001
 - *id001
 - *id001
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

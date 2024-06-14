@@ -6,10 +6,9 @@ description: "\u2022 Run, Z1, 45 minutes.\r\n \u2022 Cool down, 5-10 minutes.\r\
 name: W02D2-Long Run
 sport: running
 steps:
-- description: ''
-  duration: 0:45:00
+- duration: 0:45:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

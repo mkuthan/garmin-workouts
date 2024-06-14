@@ -2,7 +2,6 @@ description: Run a 5K race.
 name: W07D6-5K Race
 sport: running
 steps:
-- description: ''
-  duration: 5.005km
+- duration: 5.005km
   target: {type: heart.rate.zone, zone: '3'}
   type: interval

@@ -1,0 +1,7 @@
+description: "Base Ride \n- Steady Zone 2, 1 hr"
+name: W04-D6
+sport: cycling
+steps:
+- duration: '1:00:00'
+  target: {type: power.zone, zone: '2'}
+  type: interval

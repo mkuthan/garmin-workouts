@@ -6,16 +6,14 @@ name: W07D4-Hilly Bike
 sport: cycling
 steps:
 - &id001
-  - description: ''
-    duration: 0:20:00
+  - duration: 0:20:00
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:10:00
+  - duration: 0:10:00
     target: {type: no.target}
     type: interval
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

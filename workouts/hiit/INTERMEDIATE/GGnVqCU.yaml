@@ -12,7 +12,6 @@ steps:
   target: {type: no.target}
   type: interval
 - category: SIT_UP
-  description: ''
   duration: 20reps
   exerciseName: SIT_UP
   repeatDuration: 0:10:00
@@ -26,14 +25,12 @@ steps:
   target: {type: no.target}
   type: interval
 - category: CRUNCH
-  description: ''
   duration: 20reps
   exerciseName: REVERSE_CRUNCH
   repeatDuration: 0:10:00
   target: {type: no.target}
   type: interval
 - category: CRUNCH
-  description: ''
   duration: 20reps
   exerciseName: BICYCLE_CRUNCH
   repeatDuration: 0:10:00

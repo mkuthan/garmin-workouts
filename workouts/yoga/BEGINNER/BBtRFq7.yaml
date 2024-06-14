@@ -5,13 +5,11 @@ name: The Post-Dumbbell Routine
 sport: yoga
 steps:
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: MOUNTAIN
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: STANDING_ARMS_UP
   target: {type: no.target}
@@ -29,85 +27,71 @@ steps:
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: STANDING_FORWARD_BEND
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: STANDING_FORWARD_BEND_HALFWAY_UP
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:15
   exerciseName: PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: FOUR_LIMBED_STAFF
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: UP_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: ALL_FOURS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: COW
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: CAT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: COW
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: CAT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: COW
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: ALL_FOURS
   target: {type: no.target}
@@ -125,127 +109,106 @@ steps:
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: COW
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: CAT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: LIZARD
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: DOLPHIN_PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:25
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: ALL_FOURS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: DOWN_DOG_SPLIT_OPEN_HIP_BENT_KNEE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: LOW_LUNGE
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: LIZARD
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: DOLPHIN_PLANK
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: SPHINX
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: BOW
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:30
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:15
   exerciseName: THUNDERBOLT
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: PRAYER_MUDRA
   target: {type: no.target}

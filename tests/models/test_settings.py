@@ -19,7 +19,7 @@ class TestSettingsFunction(unittest.TestCase):
 
         workouts, notes, plan = settings(args, defaultPlanning=defaultPlanning)
         self.assertEqual(len(workouts), 37)
-        self.assertEqual(len(notes), 0)
+        self.assertEqual(len(notes), 47)
         self.assertEqual(plan, 'tp')
 
     def test_settings_positive(self) -> None:
@@ -27,7 +27,7 @@ class TestSettingsFunction(unittest.TestCase):
 
         workouts, notes, plan = settings(args)
         self.assertEqual(len(workouts), 37)
-        self.assertEqual(len(notes), 0)
+        self.assertEqual(len(notes), 47)
         self.assertEqual(plan, '')
 
     def test_settings_negative(self) -> None:

@@ -1,0 +1,19 @@
+description: "2x15 min Zone 3\n - 30 min warm up\n - 2x15 min Zone 3  \n     - 10\
+  \ min easy between\n - Cool down Zone 2\n"
+name: W14-D4
+sport: cycling
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:15:00
+    target: {type: heart.rate.zone, zone: '3'}
+    type: interval
+  - duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- duration: 0:10:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: cooldown

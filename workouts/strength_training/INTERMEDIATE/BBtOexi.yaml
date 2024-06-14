@@ -7,69 +7,57 @@ sport: strength_training
 steps:
 - &id001
   - category: SHOULDER_PRESS
-    description: ''
     duration: 20reps
     exerciseName: BARBELL_FRONT_SQUAT_TO_PUSH_PRESS
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: DEADLIFT
-    description: ''
     duration: 10reps
     exerciseName: BARBELL_STRAIGHT_LEG_DEADLIFT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id001
 - *id001
 - &id002
   - category: TOTAL_BODY
-    description: ''
     duration: 15reps
     exerciseName: SQUAT_THRUSTS
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: PLANK
-    description: ''
     duration: 8reps
     exerciseName: PLANK_WITH_ARM_RAISE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id002
 - *id002
 - &id003
   - category: LUNGE
-    description: ''
     duration: 8reps
     exerciseName: OVERHEAD_DUMBBELL_SPLIT_SQUAT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: PUSH_UP
-    description: ''
     duration: 12reps
     exerciseName: T_PUSH_UP
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id003
@@ -77,23 +65,19 @@ steps:
 - *id003
 - &id004
   - category: LUNGE
-    description: ''
     duration: 15reps
     exerciseName: DUMBBELL_REVERSE_LUNGE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
   - category: CORE
-    description: ''
     duration: 20reps
     exerciseName: SWISS_BALL_ROLLOUT
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: no.target}
     type: rest
 - *id004

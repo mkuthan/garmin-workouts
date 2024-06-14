@@ -1,0 +1,9 @@
+description: 'Base Ride
+
+  - Steady Zone 2, 1 hr 30 min'
+name: W08-D6
+sport: cycling
+steps:
+- duration: '1:30:00'
+  target: {type: power.zone, zone: '2'}
+  type: interval

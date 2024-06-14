@@ -7,49 +7,40 @@ description: "90 Minute Workout \n- Warm up.\n- Ride 30 seconds hard, 10 minutes
 name: Attack Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: power.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
-  duration: 0:00:30
+- duration: 0:00:30
   target: {type: power.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: power.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: Press the lap key when you are ready to start.
+  duration: lap.button
   target: {type: power.zone, zone: '2'}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: power.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:10:00
+  - duration: 0:10:00
     target: {type: power.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:08:00
+  - duration: 0:08:00
     target: {type: power.zone, zone: '1'}
     type: recovery
 - *id001
 - *id001
-- description: ''
-  duration: 0:12:00
+- duration: 0:12:00
   target: {type: power.zone, zone: '2'}
   type: interval

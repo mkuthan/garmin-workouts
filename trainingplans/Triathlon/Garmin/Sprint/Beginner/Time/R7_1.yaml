@@ -1,48 +1,42 @@
-description:
-  Use this session to loosen the legs from the past couple of days. Relax
+description: Use this session to loosen the legs from the past couple of days. Relax
   in the water and work on your technique.
-name: W07D1-Easy Swim
+name: Sprint Triathlon Level 1 W07D1 - Easy Swim
 sport: swimming
 steps:
-  - description: ""
+- description: Free and back mix, easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Working on early catch, easy effort
     duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
+    equipment: pull_buoy
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:20
+    target: {type: no.target}
     type: rest
-  - &id001
-    - description: ""
-      duration: 0.2km
-      equipment: pull_buoy
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:20
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    duration: 0.05km
-    equipment: kickboard
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    duration: 0.05km
-    equipment: kickboard
-    target: { type: no.target }
-    type: cooldown
+- *id001
+- *id001
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- duration: 0.05km
+  target: {type: no.target}
+  type: cooldown
+- duration: 0.05km
+  equipment: kickboard
+  target: {type: no.target}
+  type: cooldown
+- duration: 0.05km
+  target: {type: no.target}
+  type: cooldown
+- duration: 0.05km
+  equipment: kickboard
+  target: {type: no.target}
+  type: cooldown

@@ -5,21 +5,17 @@ description: "\u2022 Run, Z1, 10 minutes.\n \u2022 Run, Z3, 1 minute. Recover, Z
 name: W03D1-Tech Run
 sport: running
 steps:
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '3'}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '1'}
     type: rest
-  - description: ''
-    duration: 0:08:00
+  - duration: 0:08:00
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
 - *id001
@@ -27,6 +23,6 @@ steps:
 - *id001
 - *id001
 - *id001
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

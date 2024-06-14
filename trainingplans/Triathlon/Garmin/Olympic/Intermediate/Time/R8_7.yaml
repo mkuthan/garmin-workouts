@@ -5,10 +5,9 @@ description: "\u2022 Run, moderate effort, 70 minutes.\n\u2022 Cool down, 5-10 m
 name: W08D7-Steady Run
 sport: running
 steps:
-- description: ''
-  duration: '1:10:00'
+- duration: '1:10:00'
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

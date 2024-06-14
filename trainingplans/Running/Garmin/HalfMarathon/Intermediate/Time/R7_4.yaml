@@ -1,12 +1,2 @@
-description: "\u2022 Run, easy pace, 40 minutes. \n \u2022 Cool down, 5 to 10 minutes.\
-  \ \n \u2022 Stretch. \n"
-name: W07D4a-Easy Run
-sport: running
-steps:
-- description: ''
-  duration: 0:40:00
-  target: {type: no.target}
-  type: interval
-- description: ''
-  target: {type: no.target}
-  type: cooldown
+content: 'Pilates. Optional: Cross train, 30 minutes.'
+name: W07D4b-Pilates

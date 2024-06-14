@@ -3,7 +3,6 @@ description: "30 Minute Workout \nGoal is 30 minutes of aerobic activity. Can be
 name: Aerobic
 sport: cycling
 steps:
-- description: ''
-  duration: 0:30:00
+- duration: 0:30:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

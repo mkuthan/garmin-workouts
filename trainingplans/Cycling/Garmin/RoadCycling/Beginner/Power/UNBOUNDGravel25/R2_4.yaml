@@ -1,0 +1,25 @@
+description: '3x4 min Sweet Spot
+
+  - 20 min Warm Up
+
+  - 3x4 min High Zone 3, 3 min easy between
+
+  - Cool Down Zone 2'
+name: W02-D4
+sport: cycling
+steps:
+- duration: 0:20:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:04:00
+    target: {type: power.zone, zone: '3'}
+    type: interval
+  - duration: 0:03:00
+    target: {type: power.zone, zone: '1'}
+    type: interval
+- *id001
+- *id001
+- duration: 0:20:00
+  target: {type: power.zone, zone: '2'}
+  type: cooldown

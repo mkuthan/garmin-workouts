@@ -3,10 +3,9 @@ description: " \u2022 Walk at brisk pace, 60 minutes.\n \u2022 Cool down, 5-10 m
 name: W02D7-Walk
 sport: running
 steps:
-- description: ''
-  duration: '1:00:00'
+- duration: '1:00:00'
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

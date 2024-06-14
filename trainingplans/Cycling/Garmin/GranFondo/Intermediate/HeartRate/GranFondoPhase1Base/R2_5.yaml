@@ -15,37 +15,33 @@ description: '60 Minute Workout
 name: Long Zone 4 Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: Press the lap key when you are ready to start.
+  duration: lap.button
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: heart.rate.zone, zone: '4'}
   type: interval
-- description: ''
+- description: Keep riding at this pace, or hit the lap key to start the recovery
+    ride.
+  duration: lap.button
   target: {type: heart.rate.zone, zone: '4'}
   type: interval
-- description: ''
-  duration: 0:10:00
+- duration: 0:10:00
   target: {type: heart.rate.zone, zone: '1'}
   type: recovery
-- description: ''
-  duration: 0:18:00
+- duration: 0:18:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

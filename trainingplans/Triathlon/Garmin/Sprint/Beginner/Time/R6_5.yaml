@@ -1,44 +1,41 @@
-description:
-  Slightly longer reps to improve endurance. Keep counting strokes every
+description: Slightly longer reps to improve endurance. Keep counting strokes every
   third 50m to check you are holding your form together.
-name: W06D5-Steady Swim
+name: Sprint Triathlon Level 1 W06D5 - Steady Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id001
-    - description: ""
-      duration: 0.05km
-      equipment: kickboard
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:10
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - &id002
-    - description: ""
-      duration: 0.5km
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:50
-      target: { type: no.target }
-      type: rest
-  - *id002
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
+- description: Swim with a little bit of backstroke, easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Easy effort
+    duration: 0.05km
+    equipment: kickboard
+    target: {type: no.target}
     type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id002
+  - description: Moderate effort
+    duration: 0.5km
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:50
+    target: {type: no.target}
+    type: rest
+- *id002
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort
+  duration: 0.2km
+  target: {type: no.target}
+  type: interval

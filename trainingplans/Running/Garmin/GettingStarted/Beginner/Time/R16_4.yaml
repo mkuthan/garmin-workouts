@@ -3,10 +3,9 @@ description: " \u2022 Run, recovery pace, 25 minutes.\n \u2022 Cool down, 5-10 m
 name: W16D4-Recovery Run
 sport: running
 steps:
-- description: ''
-  duration: 0:25:00
+- duration: 0:25:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

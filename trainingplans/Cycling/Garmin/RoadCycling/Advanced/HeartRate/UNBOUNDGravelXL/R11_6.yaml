@@ -1,0 +1,13 @@
+description: "Race Simulation\n- 160 miles\n- Find a route or loop with rolling hills\
+  \ that simulates UNBOUND. Plan the route around convenience stores where you can\
+  \ stop and purchase food and drinks approximately every 50-60 miles. \n- Use all\
+  \ of the equipment you plan on running at UNBOUND XL. Bring spare batteries or other\
+  \ charging options to keep your lights and navigation powered throughout the ride.\
+  \ \n- Ride your goal race pace or effort to practice. Recover well after this race\
+  \ simulation! "
+name: W11-D6
+sport: cycling
+steps:
+- duration: 257.495km
+  target: {type: no.target}
+  type: interval

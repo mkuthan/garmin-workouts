@@ -7,48 +7,45 @@ description: "90 Minute Workout\n- Warm up.\n- Repeat these steps 4 times:\n   -
 name: Burn-out Intervals
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '4'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
-- description: ''
+- description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+    \ catches up."
   duration: 0:00:30
   target: {type: heart.rate.zone, zone: '5'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
 - &id001
-  - description: ''
+  - description: Press the lap key when you are ready to start.
+    duration: lap.button
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:06:30
+  - duration: 0:06:30
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
+  - description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+      \ catches up."
     duration: 0:01:00
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
+  - description: "Effort: Extremely hard\n Interval starts when effort does, not when\
+      \ HR catches up."
     duration: 0:00:30
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001

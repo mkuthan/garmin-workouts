@@ -4,10 +4,9 @@ description: "\u2022 Run 40 minutes. Vary your intensity throughout the workout.
 name: W14D6-Fartlek
 sport: running
 steps:
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -9,7 +9,6 @@ description: '3.5 Hour Workout
 name: Aerobic
 sport: cycling
 steps:
-- description: ''
-  duration: '3:30:00'
+- duration: '3:30:00'
   target: {type: no.target}
   type: interval

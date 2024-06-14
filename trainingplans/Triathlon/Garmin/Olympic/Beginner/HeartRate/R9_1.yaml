@@ -1,65 +1,61 @@
 description: null
-name: W09D1-Tempo Swim
+name: Olympic Triathlon Level 1 W09D1 - Tempo Swim
 sport: swimming
 steps:
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:10
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:15
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.05km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 1.5km
-    target: { type: no.target }
-    type: interval
-  - description: ""
-    duration: 0:00:30
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- description: Free and back, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Easy effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:10
+  target: {type: no.target}
+  type: rest
+- description: Easy effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: Moderate effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:15
+  target: {type: no.target}
+  type: rest
+- description: High effort.
+  duration: 0.05km
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Med-high effort. Practice your pacing for your race. Visualize yourself
+    swimming in the event.
+  duration: 1.5km
+  target: {type: no.target}
+  type: interval
+- duration: 0:00:30
+  target: {type: no.target}
+  type: rest
+- description: Free and back, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

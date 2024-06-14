@@ -1,0 +1,9 @@
+description: "Race Day\n- 350 miles\n- Good Luck! Pace your effort throughout the\
+  \ race and focus on your nutrition and hydration plan!\n- Finish strong! Enjoy the\
+  \ UNBOUND finish line and celebrate with your friends and family. \n"
+name: W15-D5
+sport: cycling
+steps:
+- duration: 563.27km
+  target: {type: no.target}
+  type: interval

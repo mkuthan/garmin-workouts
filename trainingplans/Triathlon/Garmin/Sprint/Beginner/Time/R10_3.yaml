@@ -6,22 +6,18 @@ description: "\u2022 Run, easy effort, 15 minutes.\r\n\u2022 Run, moderate effor
 name: W10D3-Build Run
 sport: running
 steps:
-- description: ''
-  duration: 0:15:00
+- duration: 0:15:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:12:00
+- duration: 0:12:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: no.target}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

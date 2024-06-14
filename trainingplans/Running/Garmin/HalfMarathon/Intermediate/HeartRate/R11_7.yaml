@@ -3,10 +3,9 @@ description: " \u2022 Run in Z2, easy, conversational pace, 120 minutes. \n \u20
 name: W11D7-Long Run
 sport: running
 steps:
-- description: ''
-  duration: '2:00:00'
+- duration: '2:00:00'
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

@@ -1,0 +1,26 @@
+description: '4x5 Min Zone 4
+
+  - 20 min Warm Up
+
+  - 4x5 min Zone 4, 4 min easy between
+
+  - Cool Down Zone 2'
+name: W03-D2
+sport: cycling
+steps:
+- duration: 0:20:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:05:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - duration: 0:04:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- *id001
+- *id001
+- duration: 0:14:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: cooldown

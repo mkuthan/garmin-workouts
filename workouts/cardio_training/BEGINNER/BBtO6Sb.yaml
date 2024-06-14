@@ -7,66 +7,56 @@ sport: cardio_training
 steps:
 - &id001
   - category: DEADLIFT
-    description: ''
     duration: 10reps
     exerciseName: DUMBBELL_STRAIGHT_LEG_DEADLIFT
     target: {type: no.target}
     type: interval
   - category: ROW
-    description: ''
     duration: 10reps
     exerciseName: SINGLE_ARM_NEUTRAL_GRIP_DUMBBELL_ROW_AND_ROTATION
     target: {type: no.target}
     type: interval
   - category: LUNGE
-    description: ''
     duration: 10reps
     exerciseName: ALTERNATING_DUMBBELL_LUNGE_WITH_REACH
     target: {type: no.target}
     type: interval
   - category: TRICEPS_EXTENSION
-    description: ''
     duration: 10reps
     exerciseName: ALTERNATING_DUMBBELL_LYING_TRICEPS_EXTENSION
     target: {type: no.target}
     type: interval
   - category: PLANK
-    description: ''
     duration: 10reps
     exerciseName: CROSS_BODY_MOUNTAIN_CLIMBER
     target: {type: no.target}
     type: interval
   - category: SQUAT
-    description: ''
     duration: 10reps
     exerciseName: DUMBBELL_FRONT_SQUAT
     target: {type: no.target}
     type: interval
   - category: ROW
-    description: ''
     duration: 10reps
     exerciseName: ALTERNATING_DUMBBELL_ROW
     target: {type: no.target}
     type: interval
   - category: LUNGE
-    description: ''
     duration: 10reps
     exerciseName: SIDE_TO_SIDE_LUNGE_CHOPS
     target: {type: no.target}
     type: interval
   - category: CARDIO
-    description: ''
     duration: 10reps
     exerciseName: CARDIO_CORE_CRAWL
     target: {type: no.target}
     type: interval
   - category: PLANK
-    description: ''
     duration: 10reps
     exerciseName: CROSS_BODY_MOUNTAIN_CLIMBER
     target: {type: no.target}
     type: interval
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id001

@@ -4,43 +4,36 @@ name: Sculpt Sexy Arms
 sport: pilates
 steps:
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP_WITH_WEIGHT_AND_BAND
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: WEIGHTED_THE_HUNDRED
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH_WITH_WEIGHTS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: WEIGHTED_DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: WEIGHTED_CRISS_CROSS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: SCISSORS_WITH_WEIGHTS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: LOWER_LIFT_WITH_WEIGHTS
   target: {type: no.target}
@@ -50,37 +43,31 @@ steps:
   target: {type: no.target}
   type: rest
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: ARM_STRETCH
   target: {type: no.target}
   type: interval
 - category: FLYE
-  description: ''
   duration: 0:00:30
   exerciseName: HUG_A_TREE
   target: {type: no.target}
   type: interval
 - category: LATERAL_RAISE
-  description: ''
   duration: 0:00:30
   exerciseName: SHAVING_THE_HEAD
   target: {type: no.target}
   type: interval
 - category: LATERAL_RAISE
-  description: ''
   duration: 0:00:20
   exerciseName: ARM_CIRCLES
   target: {type: no.target}
   type: interval
 - category: FLYE
-  description: ''
   duration: 0:00:30
   exerciseName: ARM_ROTATIONS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:40
   exerciseName: ROWING_1
   target: {type: no.target}
@@ -90,13 +77,11 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROWING_2
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: HAMSTRING_STRETCH
   target: {type: no.target}
@@ -106,7 +91,6 @@ steps:
   target: {type: no.target}
   type: rest
 - category: PLANK
-  description: ''
   duration: 0:01:00
   exerciseName: PLANK_WITH_ARM_VARIATIONS
   target: {type: no.target}
@@ -124,13 +108,11 @@ steps:
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: MERMAID_STRETCH
   target: {type: no.target}

@@ -3,10 +3,9 @@ description: "\u2022 Run, Z3, 25 minutes on hilly terrain. Push on the hills.\n 
 name: W05D6-Hill Run
 sport: running
 steps:
-- description: ''
-  duration: 0:25:00
+- duration: 0:25:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

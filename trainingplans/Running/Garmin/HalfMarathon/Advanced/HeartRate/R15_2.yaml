@@ -3,10 +3,9 @@ description: "\u2022 Evening run.\n \u2022 Run in Z3, steady pace, 40 minutes.\n
 name: W15D2b-Steady Run
 sport: running
 steps:
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

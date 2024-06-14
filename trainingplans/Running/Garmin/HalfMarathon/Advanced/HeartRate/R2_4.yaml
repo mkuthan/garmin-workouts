@@ -3,10 +3,9 @@ description: "\u2022 Evening run.\n \u2022 Run, 40 minutes. Vary intensity throu
 name: W02D4b-Fartlek Run
 sport: running
 steps:
-- description: ''
-  duration: 0:40:00
+- duration: 0:40:00
   target: {type: no.target}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

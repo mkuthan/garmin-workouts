@@ -2,7 +2,6 @@ description: null
 name: Metric Century
 sport: cycling
 steps:
-- description: ''
-  duration: '3:00:00'
+- duration: '3:00:00'
   target: {type: no.target}
   type: interval

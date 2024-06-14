@@ -7,46 +7,38 @@ description: "90 Minute Workout\n- Quick warm up.\n- 3 pyramids of effort.\n   -
 name: Pyramids
 sport: cycling
 steps:
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '2'}
   type: warmup
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: warmup
-- description: ''
-  duration: 0:02:00
+- duration: 0:02:00
   target: {type: heart.rate.zone, zone: '1'}
   type: warmup
 - &id001
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: heart.rate.zone, zone: '3'}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
+  - description: "Effort: Very hard\n Interval starts when effort does, not when HR\
+      \ catches up."
     duration: 0:01:00
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:03:00
+  - duration: 0:03:00
     target: {type: heart.rate.zone, zone: '3'}
     type: interval
-  - description: ''
-    duration: 0:05:00
+  - duration: 0:05:00
     target: {type: heart.rate.zone, zone: '1'}
     type: recovery
 - *id001
 - *id001
-- description: ''
-  duration: 0:30:00
+- duration: 0:30:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval

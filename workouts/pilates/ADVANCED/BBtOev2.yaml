@@ -6,85 +6,71 @@ name: Pilates for Men
 sport: pilates
 steps:
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: STANDING_SIDE_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: ROLL_UP
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:01:00
   exerciseName: BRIDGE
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: THE_HUNDRED
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: ROLLING
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: DOUBLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: CRISS_CROSS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SCISSORS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: LOWER_LIFT
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:20
   exerciseName: SPINE_STRETCH_FORWARD
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:20
   exerciseName: SEATED_TWIST
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: TICK_TOCK_SIDE_ROLL
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: CORKSCREW
   target: {type: no.target}
@@ -94,19 +80,16 @@ steps:
   target: {type: no.target}
   type: rest
 - category: HYPEREXTENSION
-  description: ''
   duration: 0:00:30
   exerciseName: COBRA
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: SWAN
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
@@ -116,25 +99,21 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:00:40
   exerciseName: ROWING_1_WITH_WEIGHTS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:40
   exerciseName: ROWING_2_WITH_WEIGHTS
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:15
   exerciseName: SPINE_STRETCH_FORWARD
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: BICEP_CURL_WITH_LEG_EXTENSION_WITH_WEIGHTS
   target: {type: no.target}
@@ -144,19 +123,16 @@ steps:
   target: {type: no.target}
   type: rest
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: HUG_A_TREE_WITH_BALL_BAND_AND_WEIGHT
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: SHAVING_THE_HEAD_WITH_BALL_BAND_AND_WEIGHT
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: ARM_CIRCLES_WITH_BALL_BAND_AND_WEIGHT
   target: {type: no.target}
@@ -166,37 +142,31 @@ steps:
   target: {type: no.target}
   type: rest
 - category: TRICEPS_EXTENSION
-  description: ''
   duration: 0:00:30
   exerciseName: TRICEPS_PRESS
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:15
   exerciseName: SPINE_STRETCH_FORWARD
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: NECK_PULL
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: TEASER
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: V_SIT
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: HIP_STRETCH
   target: {type: no.target}
@@ -206,7 +176,6 @@ steps:
   target: {type: no.target}
   type: rest
 - category: PLANK
-  description: ''
   duration: 0:01:00
   exerciseName: PLANK_WITH_ARM_VARIATIONS
   target: {type: no.target}
@@ -224,49 +193,41 @@ steps:
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:20
   exerciseName: PSOAS_LUNGE_STRETCH
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:20
   exerciseName: PSOAS_LUNGE_STRETCH
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: STAND_AND_HANG
   target: {type: no.target}
   type: interval
 - category: PUSH_UP
-  description: ''
   duration: 0:01:00
   exerciseName: PILATES_PUSHUP
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: STANDING_SIDE_STRETCH
   target: {type: no.target}

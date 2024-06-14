@@ -4,22 +4,18 @@ description: " \u2022 Run in Z2, easy pace, 8 minutes.\n \u2022 Run in Z3, stead
 name: W10D4-Threshold Run
 sport: running
 steps:
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '4'}
   type: interval
-- description: ''
-  duration: 0:08:00
+- duration: 0:08:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown

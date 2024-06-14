@@ -1,38 +1,36 @@
-description:
-  Slight increase in distance. Continue to focus on technique rather than
+description: Slight increase in distance. Continue to focus on technique rather than
   speed. This session will help to build your aerobic base without taxing your system
   too much.
-name: W03D2-Easy Swim
+name: Olympic Triathlon Level 1 W03D2 - Easy Swim
 sport: swimming
 steps:
-  - description: ""
+- description: Free and back mix, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: warmup
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- &id001
+  - description: Working on early catch, easy effort.
     duration: 0.2km
-    target: { type: no.target }
-    type: warmup
-  - description: ""
-    target: { type: no.target }
+    equipment: pull_buoy
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:20
+    target: {type: no.target}
     type: rest
-  - &id001
-    - description: ""
-      duration: 0.2km
-      equipment: pull_buoy
-      target: { type: no.target }
-      type: interval
-    - description: ""
-      duration: 0:00:20
-      target: { type: no.target }
-      type: rest
-  - *id001
-  - *id001
-  - *id001
-  - *id001
-  - description: ""
-    target: { type: no.target }
-    type: rest
-  - description: ""
-    duration: 0.2km
-    target: { type: no.target }
-    type: cooldown
-  - description: ""
-    target: { type: no.target }
-    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: rest
+- description: Free and kick, easy effort.
+  duration: 0.2km
+  target: {type: no.target}
+  type: cooldown
+- duration: lap.button
+  target: {type: no.target}
+  type: rest

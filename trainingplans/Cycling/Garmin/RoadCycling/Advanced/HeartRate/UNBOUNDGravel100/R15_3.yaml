@@ -1,0 +1,45 @@
+description: 'Pre Race Bump
+
+  - 20 min Warm Up
+
+  - 2x2 min Zone 3, 2 min easy between
+
+  - 3x1 min Zone 4, 2 min easy between
+
+  - 2x30 sec Zone 5, 2 min easy between
+
+  - Cool Down Zone 2'
+name: W15-D3
+sport: cycling
+steps:
+- duration: 0:20:00
+  target: {type: no.target}
+  type: warmup
+- &id001
+  - duration: 0:02:00
+    target: {type: heart.rate.zone, zone: '3'}
+    type: interval
+  - duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- &id002
+  - duration: 0:01:00
+    target: {type: heart.rate.zone, zone: '4'}
+    type: interval
+  - duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id002
+- *id002
+- &id003
+  - duration: 0:00:30
+    target: {type: heart.rate.zone, zone: '5'}
+    type: interval
+  - duration: 0:02:00
+    target: {type: no.target}
+    type: interval
+- *id003
+- duration: 0:20:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: cooldown

@@ -1,0 +1,42 @@
+description: 'Zone 3 Long Efforts
+
+  - 30 min Warm Up
+
+  - 1x30 min Zone 3, 15 min easy between
+
+  - 2x20 min Zone 3, 10 min easy between
+
+  - 2x10 min Zone 3, 5 min easy between
+
+  - Cool Down Zone 2'
+name: W03-D6
+sport: cycling
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: warmup
+- duration: 0:30:00
+  target: {type: power.zone, zone: '3'}
+  type: interval
+- duration: 0:15:00
+  target: {type: no.target}
+  type: interval
+- &id001
+  - duration: 0:20:00
+    target: {type: power.zone, zone: '3'}
+    type: interval
+  - duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- &id002
+  - duration: 0:10:00
+    target: {type: power.zone, zone: '3'}
+    type: interval
+  - duration: 0:05:00
+    target: {type: no.target}
+    type: interval
+- *id002
+- duration: 0:15:00
+  target: {type: power.zone, zone: '2'}
+  type: cooldown

@@ -5,67 +5,56 @@ name: Back to Basics
 sport: pilates
 steps:
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: BELLY_BREATHING
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: RIBCAGE_BREATHING
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: SCAPULAR_STABILIZATION
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: NEUTRAL_PELVIC_POSITION
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: KNEE_FOLDS
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: FOOTWORK
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: PELVIC_CLOCKS_ON_DISC
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: KNEE_FOLDS_ON_DISC
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: FOOTWORK_ON_DISC
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: SCISSORS_ON_DISC
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: LOWER_LIFT_ON_DISC
   target: {type: no.target}
@@ -75,13 +64,11 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:00:40
   exerciseName: KNEE_FOLDS
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: THE_HUNDRED
   target: {type: no.target}
@@ -99,19 +86,16 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:30
   exerciseName: HALF_ROLL_UP
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: ROLL_UP
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: ROLLING
   target: {type: no.target}
@@ -121,37 +105,31 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:00:30
   exerciseName: SINGLE_LEG_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: CRISS_CROSS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:45
   exerciseName: BRIDGE
   target: {type: no.target}
   type: interval
 - category: HYPEREXTENSION
-  description: ''
   duration: 0:01:00
   exerciseName: COBRA
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: SWAN
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
@@ -217,7 +195,6 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: SPINAL_TWIST
   target: {type: no.target}
@@ -227,49 +204,41 @@ steps:
   target: {type: no.target}
   type: rest
 - category: CORE
-  description: ''
   duration: 0:01:00
   exerciseName: CAT_COW
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: ARM_AND_LEG_EXTENSION_ON_KNEES
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: CHILDS
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:30
   exerciseName: PLANK_WITH_ARM_VARIATIONS
   target: {type: no.target}
   type: interval
 - category: POSE
-  description: ''
   duration: 0:00:20
   exerciseName: DOWNWARD_FACING_DOG
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:45
   exerciseName: REVERSE_PLANK_WITH_LEG_PULL
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:40
   exerciseName: SPINE_STRETCH_FORWARD
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:40
   exerciseName: SAW
   target: {type: no.target}
@@ -287,31 +256,26 @@ steps:
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:00:45
   exerciseName: HIP_STRETCH
   target: {type: no.target}
   type: interval
 - category: MOVE
-  description: ''
   duration: 0:01:00
   exerciseName: MERMAID_STRETCH
   target: {type: no.target}
   type: interval
 - category: CORE
-  description: ''
   duration: 0:00:45
   exerciseName: LOWER_LIFT
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:45
   exerciseName: PLANK_WITH_ARM_VARIATIONS
   target: {type: no.target}
   type: interval
 - category: PLANK
-  description: ''
   duration: 0:00:45
   exerciseName: REVERSE_PLANK_WITH_LEG_PULL
   target: {type: no.target}

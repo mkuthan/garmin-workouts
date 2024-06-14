@@ -6,44 +6,35 @@ description: "\u2022 Bike, Z1, 3 minutes, 85 RPM.\n \u2022 Bike, Z2, 3 minutes, 
 name: W12D3-Hard Bike
 sport: cycling
 steps:
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '2'}
   type: interval
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '3'}
   type: interval
-- description: ''
-  duration: 0:03:00
+- duration: 0:03:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
 - &id001
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '4'}
     type: interval
-  - description: ''
-    duration: 0:01:00
+  - duration: 0:01:00
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
-  - description: ''
-    duration: 0:00:30
+  - duration: 0:00:30
     target: {type: heart.rate.zone, zone: '5'}
     type: interval
-  - description: ''
-    duration: 0:02:00
+  - duration: 0:02:00
     target: {type: heart.rate.zone, zone: '1'}
     type: interval
 - *id001
-- description: ''
-  duration: 0:05:00
+- duration: 0:05:00
   target: {type: heart.rate.zone, zone: '1'}
   type: interval
-- description: ''
+- duration: lap.button
   target: {type: no.target}
   type: cooldown
