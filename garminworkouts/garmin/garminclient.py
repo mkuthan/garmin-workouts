@@ -6,8 +6,6 @@ from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.extraction import workout_export_yaml
 import garth
 import os
-from garminworkouts.models.trainingplan_list import trainingplan_list
-from garth.exc import GarthHTTPError
 
 
 class GarminClient(object):
@@ -163,7 +161,7 @@ class GarminClient(object):
 
         for item in response_jsons:
             item_date = datetime.strptime(item.get('date'), '%Y-%m-%d').date()
-            item_type = item.get('itemType')
+            item_type: Any = item.get('itemType')
 
             if item_type == 'workout':
                 if item_date < date:
@@ -178,7 +176,10 @@ class GarminClient(object):
                     checkable_elements.append(payload.get('workoutName', str))
 
             elif item_type == 'note':
-                payload = self.get_note(item.get('id'))
+                if item.get('trainingPlanId'):
+                    payload = self.get_note(trainingplan=True, note_id=item.get('id'))
+                else:
+                    payload = self.get_note(trainingplan=False, note_id=item.get('id'))
                 note_elements[payload.get('noteName')] = payload
 
         return updateable_elements, checkable_elements, note_elements
@@ -474,20 +475,32 @@ class GarminClient(object):
             else:
                 break
 
-    def get_note(self, note_id) -> dict:
-        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+    def get_note(self, trainingplan, note_id) -> dict:
+        if trainingplan:
+            url: str = f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}"
+        else:
+            url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
         return self.get(url).json()
 
-    def save_note(self, note) -> None:
-        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note"
+    def save_note(self, trainingplan, note) -> None:
+        if trainingplan:
+            url: str = f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes"
+        else:
+            url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note"
         return self.post(url, json=note).json()
 
-    def update_note(self, note_id, note) -> None:
-        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+    def update_note(self, trainingplan, note_id, note) -> None:
+        if trainingplan:
+            url: str = f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}"
+        else:
+            url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
         self.put(url, json=note)
 
-    def delete_note(self, note_id) -> None:
-        url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+    def delete_note(self, trainingplan, note_id) -> None:
+        if trainingplan:
+            url: str = f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}"
+        else:
+            url: str = f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
         self.delete(url)
 
     def list_challenge(self) -> None:

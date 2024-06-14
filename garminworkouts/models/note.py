@@ -9,7 +9,10 @@ class Note:
         self.race: date = race
 
     def get_note_name(self) -> str:
-        return str(self.config.get('name'))
+        return str(self.config.get('name', ''))
+
+    def get_note_content(self) -> str:
+        return str(self.config.get('content', ''))
 
     def create_note(self, id=None, date=None) -> dict:
         return {

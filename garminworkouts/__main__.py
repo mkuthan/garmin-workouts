@@ -106,13 +106,18 @@ def command_trainingplan_import(args, event=False) -> None:
                 if not existing_note:
                     payload = note.create_note(date=day_d.isoformat())
                     logging.info("Creating note '%s'", note_name)
-                    connection.save_note(payload)
+                    connection.save_note(trainingplan=True, note=payload)
                 else:
                     note_id: str = Note.extract_note_id(existing_note)
                     note_obj = ne[note_name]
                     payload = note_obj.create_note(note_id)
                     logging.info("Updating note '%s'", note_name)
-                    connection.update_note(note_id, payload)
+                    if existing_note.get('trainingPlanId'):
+                        connection.update_note(trainingplan=True, note_id=note_id, note=payload)
+                        connection.save_note(trainingplan=True, note=payload)
+                    else:
+                        connection.update_note(trainingplan=False, note_id=note_id, note=payload)
+                        connection.save_note(trainingplan=False, note=payload)
 
 
 def command_event_import(args) -> None:
@@ -223,7 +228,7 @@ def command_workout_export(args) -> None:
             connection.download_workout(workout_id, file)
 
 
-def command_workout_export_yaml(args):
+def command_workout_export_yaml(args) -> None:
     with _garmin_client(args) as connection:
         for workout in connection.external_workouts(account.locale):
             code: str = workout.get('workoutSourceId', '')
