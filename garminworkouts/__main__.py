@@ -53,71 +53,73 @@ def command_trainingplan_reset(args) -> None:
                     logging.error("Error deleting workout '%s': %s", workout_name, str(e))
 
 
-def command_trainingplan_import(args, event=False) -> None:
-    c: int = 0
-    workouts, notes, plan = settings(args)
+@staticmethod
+def update_workouts(ue, workouts, plan, connection) -> None:
     workouts_by_name: dict[str, Workout] = {w.get_workout_name(): w for w in workouts}
 
-    with _garmin_client(args) as connection:
-        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
+    existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
+    c: int = 0
 
-        '''for cname in ce:
-            existing_workout: dict | None = existing_workouts_by_name.get(cname)
-            if existing_workout and plan in existing_workout.get('description'):
-                workout_id: str = Workout.extract_workout_id(existing_workout)
-                workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
-                workout_author: dict = Workout.extract_workout_author(existing_workout)
-                workout = workouts_by_name[cname]
-                # print(cname)'''
+    for wname in ue:
+        existing_workout: dict | None = existing_workouts_by_name.get(wname)
+        description: dict | None = existing_workout.get('description') if existing_workout else None
+        if description and plan in description:
+            workout_id: str = Workout.extract_workout_id(existing_workout)
+            workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
+            workout_author: dict = Workout.extract_workout_author(existing_workout)
+            workout: Workout = workouts_by_name[wname]
+            payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
+            logging.info("Updating workout '%s'", wname)
+            connection.update_workout(workout_id, payload)
+            c += 1
 
-        for wname in ue:
-            existing_workout: dict | None = existing_workouts_by_name.get(wname)
-            description: dict | None = existing_workout.get('description') if existing_workout else None
-            if description and plan in description:
-                workout_id: str = Workout.extract_workout_id(existing_workout)
-                workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
-                workout_author: dict = Workout.extract_workout_author(existing_workout)
-                workout: Workout = workouts_by_name[wname]
-                payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
-                logging.info("Updating workout '%s'", wname)
-                connection.update_workout(workout_id, payload)
+    for workout in workouts:
+        day_d, week, day = workout.get_workout_date()
+        if date.today() <= day_d < date.today() + timedelta(weeks=2):
+            workout_name: str = workout.get_workout_name()
+            existing_workout = existing_workouts_by_name.get(workout_name)
+            if not existing_workout:
+                payload = workout.create_workout()
+                logging.info("Creating workout '%s'", workout_name)
+                workout_id = Workout.extract_workout_id(connection.save_workout(payload))
+                connection.schedule_workout(workout_id, day_d.isoformat())
                 c += 1
+    if c == 0:
+        logging.info('No workouts to update')
 
-        for workout in workouts:
-            day_d, week, day = workout.get_workout_date()
-            if date.today() <= day_d < date.today() + timedelta(weeks=2):
-                workout_name: str = workout.get_workout_name()
-                existing_workout = existing_workouts_by_name.get(workout_name)
-                if not existing_workout:
-                    payload = workout.create_workout()
-                    logging.info("Creating workout '%s'", workout_name)
-                    workout_id = Workout.extract_workout_id(connection.save_workout(payload))
-                    connection.schedule_workout(workout_id, day_d.isoformat())
-                    c += 1
-        if c == 0:
-            logging.info('No workouts to update')
 
-        for note in notes:
-            day_d, week, day = note.get_note_date()
-            if date.today() <= day_d < date.today() + timedelta(weeks=2):
-                note_name: str = note.get_note_name()
-                existing_note: dict | None = ne.get(note_name)
-                if not existing_note:
-                    payload = note.create_note(date=day_d.isoformat())
-                    logging.info("Creating note '%s'", note_name)
+@staticmethod
+def update_notes(ne, notes, connection) -> None:
+    for note in notes:
+        day_d, _, _ = note.get_note_date()
+        if date.today() <= day_d < date.today() + timedelta(weeks=2):
+            note_name: str = note.get_note_name()
+            existing_note: dict | None = ne.get(note_name)
+            if not existing_note:
+                payload = note.create_note(date=day_d.isoformat())
+                logging.info("Creating note '%s'", note_name)
+                connection.save_note(trainingplan=True, note=payload)
+            else:
+                note_id = existing_note.get('noteId')
+                note_obj = ne[note_name]
+                payload = note_obj.create_note(note_id)
+                logging.info("Updating note '%s'", note_name)
+                if existing_note.get('trainingPlanId'):
+                    connection.update_note(trainingplan=True, note_id=note_id, note=payload)
                     connection.save_note(trainingplan=True, note=payload)
                 else:
-                    note_id: str = Note.extract_note_id(existing_note)
-                    note_obj = ne[note_name]
-                    payload = note_obj.create_note(note_id)
-                    logging.info("Updating note '%s'", note_name)
-                    if existing_note.get('trainingPlanId'):
-                        connection.update_note(trainingplan=True, note_id=note_id, note=payload)
-                        connection.save_note(trainingplan=True, note=payload)
-                    else:
-                        connection.update_note(trainingplan=False, note_id=note_id, note=payload)
-                        connection.save_note(trainingplan=False, note=payload)
+                    connection.update_note(trainingplan=False, note_id=note_id, note=payload)
+                    connection.save_note(trainingplan=False, note=payload)
+
+
+def command_trainingplan_import(args, event=False) -> None:
+    workouts, notes, plan = settings(args)
+
+    with _garmin_client(args) as connection:
+        ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
+
+        update_workouts(ue, workouts, plan, connection)
+        update_notes(ne, notes, connection)
 
 
 def command_event_import(args) -> None:
