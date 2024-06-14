@@ -1,5 +1,5 @@
 import unittest
-from garminworkouts.models.extraction import (end_condition_extraction, target_extraction, secondary_target_extraction)
+from garminworkouts.models.extraction import (end_condition_extraction, target_extraction)
 
 
 class ExtractionTestCase(unittest.TestCase):
