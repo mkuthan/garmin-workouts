@@ -1,17 +1,10 @@
 import os
 from datetime import date
-from typing import Any
+import argparse
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.settings import settings
-
-
-class Arg(object):
-    def __init__(
-        self,
-        trainingplan
-    ) -> None:
-        self.trainingplan: Any = trainingplan
+from trainingplans.lists import WorkoutsList
 
 
 def test_external_workouts(authed_gclient: GarminClient) -> None:
@@ -32,25 +25,8 @@ def test_list_workouts(authed_gclient: GarminClient) -> None:
 
 
 def test_trainingplan_garmin_workouts(authed_gclient: GarminClient) -> None:
-    tp_list: list[str] = [
-        os.path.join('workouts', 'strength_training', 'ADVANCED', '*.yaml'),
-        os.path.join('workouts', 'strength_training', 'INTERMEDIATE', '*.yaml'),
-        os.path.join('workouts', 'strength_training', 'BEGINNER', '*.yaml'),
-        os.path.join('workouts', 'cardio_training', 'ADVANCED', '*.yaml'),
-        os.path.join('workouts', 'cardio_training', 'INTERMEDIATE', '*.yaml'),
-        os.path.join('workouts', 'cardio_training', 'BEGINNER', '*.yaml'),
-        os.path.join('workouts', 'hiit', 'ADVANCED', '*.yaml'),
-        os.path.join('workouts', 'hiit', 'INTERMEDIATE', '*.yaml'),
-        os.path.join('workouts', 'hiit', 'BEGINNER', '*.yaml'),
-        os.path.join('workouts', 'pilates', 'ADVANCED', '*.yaml'),
-        os.path.join('workouts', 'pilates', 'INTERMEDIATE', '*.yaml'),
-        os.path.join('workouts', 'pilates', 'BEGINNER', '*.yaml'),
-        os.path.join('workouts', 'yoga', 'INTERMEDIATE', '*.yaml'),
-        os.path.join('workouts', 'yoga', 'BEGINNER', '*.yaml'),
-    ]
-
-    for tp in tp_list:
-        args = Arg(trainingplan=tp)
+    for tp in WorkoutsList:
+        args = argparse.Namespace(trainingplan=tp)
         workouts, *_ = settings(args)
 
         for workout in workouts:
