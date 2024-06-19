@@ -1,22 +1,22 @@
 import os
 
 PfitzingerLists: list[str] = [
-    os.path.join('trainingplans', '*', '*', '5k', '63km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '5k', '111km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'base', '72km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'base', '97km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Half', '76km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Half', '102km', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', '88km', '*', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', '113km', '*', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', '113km-12w', '*', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-4w', '*', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Mult-8w', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', '5k', '63km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', '5k', '111km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'base', '72km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'base', '97km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Half', '76km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Half', '102km', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Marathon', '88km', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Marathon', '113km', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Marathon', '113km-12w', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Marathon', 'Mult-4w', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Pfitzinger', 'Marathon', 'Mult-8w', '*', '*.yaml'),
 ]
 
 NapierLists: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Advanced', '*', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Half', 'Advanced', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Napier', 'Marathon', 'Advanced', '*', '*.yaml'),
+    os.path.join('trainingplans', 'Running', 'Napier', 'Half', 'Advanced', '*', '*.yaml'),
 ]
 
 NikeLists: list[str] = [
@@ -25,60 +25,60 @@ NikeLists: list[str] = [
 
 
 Garmin5k: list[str] = [
-    os.path.join('trainingplans', '*', '*', '5k', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '5k', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '5k', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '5k', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '5k', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '5k', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '5k', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '5k', 'Intermediate', 'HeartRate', '*.yaml'),
 ]
 
 Garmin10k: list[str] = [
-    os.path.join('trainingplans', '*', '*', '10k', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '10k', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '10k', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', '10k', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '10k', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '10k', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '10k', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', '10k', 'Intermediate', 'HeartRate', '*.yaml'),
 ]
 
 GarminHalf: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Intermediate', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Advanced', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'HalfMarathon', 'Advanced', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Advanced', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'HalfMarathon', 'Advanced', 'HeartRate', '*.yaml'),
 ]
 
 GarminMarathon: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Intermediate', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Advanced', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Marathon', 'Advanced', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Advanced', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'Marathon', 'Advanced', 'HeartRate', '*.yaml'),
 ]
 
 GarminRunningOther: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'GettingStarted', 'Intermediate', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'ImproveYourFitness', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'GettingStarted', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'GettingStarted', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'GettingStarted', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'GettingStarted', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'ImproveYourFitness', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'ImproveYourFitness', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'ImproveYourFitness', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Running', '*', 'ImproveYourFitness', 'Intermediate', 'HeartRate', '*.yaml'),
 ]
 
 TriathlonOlympic: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'Olympic', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Olympic', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Olympic', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Olympic', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Olympic', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Olympic', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Olympic', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Olympic', 'Intermediate', 'HeartRate', '*.yaml'),
 ]
 
 TriathlonSprint: list[str] = [
-    os.path.join('trainingplans', '*', '*', 'Sprint', 'Beginner', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Sprint', 'Beginner', 'HeartRate', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Sprint', 'Intermediate', 'Time', '*.yaml'),
-    os.path.join('trainingplans', '*', '*', 'Sprint', 'Intermediate', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Sprint', 'Beginner', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Sprint', 'Beginner', 'HeartRate', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Sprint', 'Intermediate', 'Time', '*.yaml'),
+    os.path.join('trainingplans', 'Triathlon', 'Garmin', 'Sprint', 'Intermediate', 'HeartRate', '*.yaml'),
 ]
 
 CyclingRace: list[str] = [
