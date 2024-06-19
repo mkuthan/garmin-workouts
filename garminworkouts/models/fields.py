@@ -1,6 +1,6 @@
-from garminworkouts.models.types import EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPES
-from garminworkouts.models.types import END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES
-from garminworkouts.models.types import SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES
+from garminworkouts.models.types import (EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPES,
+                                         END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES,
+                                         SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES)
 
 _WORKOUT = 'workout'
 _SPORT = 'sport'

@@ -1,8 +1,8 @@
 import glob
 import account
 import os
-from garminworkouts.config import configreader
 from datetime import date
+from garminworkouts.config import configreader
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.note import Note
 

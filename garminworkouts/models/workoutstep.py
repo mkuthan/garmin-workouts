@@ -1,12 +1,12 @@
 
 from garminworkouts.models.duration import Duration
 from garminworkouts.models.target import Target
-
-from garminworkouts.models.fields import get_end_condition, _STEP_TYPE, get_step_type, get_stroke_type
-from garminworkouts.models.fields import get_equipment_type, _END_CONDITION, get_weight, _TYPE, _CATEGORY
-from garminworkouts.models.fields import _STEP_ID, _STEP_ORDER, _CHILD_STEP_ID, _DESCRIPTION, _END_CONDITION_VALUE
-from garminworkouts.models.fields import _END_CONDITION_COMPARE, _END_CONDITION_ZONE, _EXERCISE_NAME, _EXECUTABLE_STEP
-from garminworkouts.models.fields import _PREFERRED_END_CONDITION_UNIT, _CONDITION_TYPE_KEY, _UNIT_KEY, _DURATION
+from garminworkouts.models.fields import (_STEP_TYPE, _END_CONDITION, _TYPE, _CATEGORY, _STEP_ID, _STEP_ORDER,
+                                          _CHILD_STEP_ID, _DESCRIPTION, _END_CONDITION_VALUE, _END_CONDITION_COMPARE,
+                                          _END_CONDITION_ZONE, _EXERCISE_NAME, _EXECUTABLE_STEP,
+                                          _PREFERRED_END_CONDITION_UNIT, _CONDITION_TYPE_KEY, _UNIT_KEY, _DURATION,
+                                          get_end_condition, get_step_type, get_stroke_type, get_equipment_type,
+                                          get_weight)
 
 
 class WorkoutStep:
