@@ -58,7 +58,7 @@ class WorkoutStep:
             return None
 
     @staticmethod
-    def _end_condition(step_config):
+    def _end_condition(step_config) -> dict:
         duration = step_config.get(_DURATION)
         if duration:
             if WorkoutStep._str_is_time(duration):

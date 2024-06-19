@@ -37,8 +37,7 @@ class Target:
                             % (self.value_one, self.value_two))
 
         if target == 'heart.rate.zone':
-            if (self.value_one and self.value_two and self.zone and
-               (self.zone < 1 or self.zone > 5)):  # type: ignore
+            if self.zone and isinstance(self.zone, int) and (self.zone < 1 or self.zone > 5):  # type: ignore
                 raise TypeError('Zone %s needs to be in bool format is undefined' % self.zone)
 
     def create_target(self) -> dict:
