@@ -1,4 +1,5 @@
-from datetime import date, timedelta
+from datetime import date
+from garminworkouts.models.date import get_date
 
 
 class Note:
@@ -32,16 +33,4 @@ class Note:
         print(f'{note_id} {note_name:20} {note_content}')
 
     def get_note_date(self) -> tuple[date, int, int]:
-        note_name: str = self.config.get('name', '')
-        if '_' in note_name:
-            if note_name.startswith('R'):
-                ind = 1
-                week: int = -int(note_name[ind:note_name.index('_')])
-                day = int(note_name[note_name.index('_') + 1:note_name.index('_') + 2])
-            else:
-                ind = 0
-                week = int(note_name[ind:note_name.index('_')])
-                day = int(note_name[note_name.index('_') + 1:note_name.index('_') + 2])
-            return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
-        else:
-            return date.today(), 0, 0
+        return get_date(self.config.get('name', ''), self.race)

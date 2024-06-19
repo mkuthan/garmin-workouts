@@ -7,6 +7,7 @@ from garminworkouts.models.duration import Duration
 from garminworkouts.models.target import Target
 from datetime import date, timedelta
 from garminworkouts.utils import functional, math
+from garminworkouts.models.date import get_date
 from garminworkouts.models.fields import (get_sport_type, get_target_type, get_step_type,
                                           _WORKOUT_ID, _WORKOUT_NAME, _DESCRIPTION, _WORKOUT_OWNER_ID,
                                           _WORKOUT_SPORT_TYPE, _WORKOUT_SEGMENTS, _WORKOUT_ORDER, _WORKOUT_STEPS,
@@ -99,19 +100,7 @@ class Workout(object):
             return date(self.date.get('year', 0), self.date.get('month', 0), self.date.get('day', 0)), 0, 0
         else:
             workout_name: str = self.config.get(_NAME, '')
-            if '_' in workout_name:
-                if workout_name.startswith('R'):
-                    week: int = -int(workout_name[1:workout_name.index('_')])
-                    day = int(workout_name.split('_')[1])
-                else:
-                    week = int(workout_name.split('_')[0])
-                    day = int(workout_name.split('_')[1])
-                return self.race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
-            else:
-                if workout_name.startswith('D'):
-                    day: int = int(workout_name.split('D')[1]) - 1
-                    return self.race - timedelta(days=day), 0, day
-                return date.today(), 0, 0
+            return get_date(workout_name, self.race)
 
     def running_values(self, flatten_steps) -> None:
         sec = 0
