@@ -1,6 +1,5 @@
 import unittest
-
-from garminworkouts.models.fields import _UNIT_KEY
+from garminworkouts.models.fields import _UNIT_KEY, get_end_condition
 from garminworkouts.models.workoutstep import WorkoutStep
 
 
@@ -33,3 +32,33 @@ class TestWorkoutStep(unittest.TestCase):
         assert WorkoutStep._str_to_meters('2km') == 2000
         assert WorkoutStep._str_to_meters('1.5km') == 1500
         assert WorkoutStep._str_to_meters('0.5km') == 500
+
+    def test_end_condition(self) -> None:
+        step_config: dict = {
+            'condition_type_key': 'lap.button'
+        }
+        assert WorkoutStep._end_condition(step_config) == get_end_condition('lap.button')
+
+        step_config = {
+            'duration': '2.0km',
+            'condition_type_key': 'distance'
+        }
+        assert WorkoutStep._end_condition(step_config) == get_end_condition('distance')
+
+        step_config = {
+            'duration': '1cals',
+            'condition_type_key': 'calories'
+        }
+        assert WorkoutStep._end_condition(step_config) == get_end_condition('calories')
+
+        step_config = {
+            'duration': '0ppm',
+            'condition_type_key': 'heart.rate'
+        }
+        assert WorkoutStep._end_condition(step_config) == get_end_condition('heart.rate')
+
+        step_config = {
+            'duration': '10reps',
+            'condition_type_key': 'reps'
+        }
+        assert WorkoutStep._end_condition(step_config) == get_end_condition('reps')
