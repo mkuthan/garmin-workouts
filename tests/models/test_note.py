@@ -39,6 +39,19 @@ class TestNote(unittest.TestCase):
         expected_output: tuple = (date.today(), 0, 0)
         self.assertEqual(note.get_note_date(), expected_output)
 
+    def test_get_note_content(self) -> None:
+        self.assertEqual(self.note.get_note_content(), 'Sample content')
+
+    def test_get_note_content_empty(self) -> None:
+        config: dict[str, str] = {'name': 'Race_2_5'}
+        note = Note(config)
+        self.assertEqual(note.get_note_content(), '')
+
+    def test_get_note_content_custom(self) -> None:
+        config: dict[str, str] = {'name': 'Race_2_5', 'content': 'Custom content'}
+        note = Note(config)
+        self.assertEqual(note.get_note_content(), 'Custom content')
+
 
 if __name__ == '__main__':
     unittest.main()
