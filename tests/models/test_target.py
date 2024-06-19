@@ -17,9 +17,10 @@ class TestTarget(unittest.TestCase):
     def test_create_target_assertions(self) -> None:
         targets: list[dict] = [
             {'target': 'no.targe', 'value_one': None, 'value_two': None, 'zone': None, 'secondary': False},
-            {'target': 'heart.rate', 'value_one': 120, 'value_two': None, 'zone': None, 'secondary': False},
-            {'target': 'heart.rate', 'value_one': None, 'value_two': 120, 'zone': None, 'secondary': False},
-            {'target': 'heart.rate', 'value_one': '120', 'value_two': None, 'zone': None, 'secondary': False},
+            {'target': 'heart.rate.zone', 'value_one': 120, 'value_two': None, 'zone': None, 'secondary': False},
+            {'target': 'heart.rate.zone', 'value_one': None, 'value_two': 120, 'zone': None, 'secondary': False},
+            {'target': 'heart.rate.zone', 'value_one': None, 'value_two': 120, 'zone': None, 'secondary': False},
+            {'target': 'heart.rate', 'value_one': 'None', 'value_two': None, 'zone': 4.5, 'secondary': False},
             {'target': 'heart.rate', 'value_one': '120', 'value_two': '125', 'zone': None, 'secondary': False},
             {'target': 'heart.rate', 'value_one': 125, 'value_two': 121, 'zone': 1, 'secondary': False},
             {'target': 'heart.rate.zone', 'value_one': 125, 'value_two': 121, 'zone': 6, 'secondary': False},
