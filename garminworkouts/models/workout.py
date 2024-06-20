@@ -237,18 +237,19 @@ class Workout(object):
         t2: float = 0.0
         t1: float = 0.0
 
-        target = step[_TARGET] if isinstance(step[_TARGET], dict) else self.target.get(step[_TARGET], '')
+        target = self.extract_target(step)
+        target_type = self.extract_target_type(target)
 
-        if self.extract_target_type(target) == 'cadence.zone':
+        if target_type == 'cadence.zone':
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
-        elif self.extract_target_type(target) == 'speed.zone':
+        elif target_type == 'speed.zone':
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
-        elif self.extract_target_type(target) == 'pace.zone':
+        elif target_type == 'pace.zone':
             t2 = self._target_value(step, 'max')
             t1 = self._target_value(step, 'min')
-        elif self.extract_target_type(target) == 'heart.rate.zone':
+        elif target_type == 'heart.rate.zone':
             if 'zone' in target:
                 zones, hr_zones, data = self.hr_zones()
                 z = int(target.get('zone'))
@@ -257,7 +258,7 @@ class Workout(object):
             else:
                 t2 = self.convert_HR_to_pace(self._target_value(step, 'max'))
                 t1 = self.convert_HR_to_pace(self._target_value(step, 'min'))
-        elif self.extract_target_type(target) == 'power.zone':
+        elif target_type == 'power.zone':
             if 'zone' in step.get('target'):
                 zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
                 z = int(step.get('target').get('zone'))
@@ -266,7 +267,7 @@ class Workout(object):
             else:
                 t2 = self._target_value(step, 'max')
                 t1 = self._target_value(step, 'min')
-        elif self.extract_target_type(target) == 'no.target':
+        elif target_type == 'no.target':
             t2 = 0.0
             t1 = 0.0
         else:
@@ -274,12 +275,26 @@ class Workout(object):
 
         return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
 
-    def extract_target_type(self, step) -> str:
-        if isinstance(step, dict):
-            return step.get(_TYPE, '')
+    def extract_target(self, step):
+        if isinstance(step[_TARGET], dict):
+            target = step[_TARGET]
         else:
-            target, d = self.extract_target_diff(step)
-            return self.target[target].get(_TYPE, '')
+            target = self.target.get(step[_TARGET])
+        if not target:
+            target_i, d = self.extract_target_diff(step[_TARGET])
+            target = self.target.get(target_i)
+        return target
+
+    def extract_target_type(self, step) -> str:
+        try:
+            if isinstance(step, dict):
+                return step.get(_TYPE, '')
+            else:
+                target, d = self.extract_target_diff(step)
+                return self.target[target].get(_TYPE, '')
+        except KeyError:
+            print(target)
+            return ''
 
     def extract_target_value(self, step, key):
         target_type = self.extract_target_type(step)
