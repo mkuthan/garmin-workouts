@@ -25,7 +25,8 @@ class ZonesTestCase(unittest.TestCase):
         expected_zones: list[float] = [0.46, 0.6, 0.7, 0.8,
                                        (account.flt - account.fmin) / (account.fmax-account.fmin),
                                        1.0, 1.1]
-        expected_hr_zones: list[int] = [107, 127, 141, 155, 167, 183, 196]
+        expected_hr_zones: list[int] = [int(account.fmin + zone * (account.fmax-account.fmin))
+                                        for zone in expected_zones]
         expected_data: list = [{
             "changeState": "CHANGED",
             "trainingMethod": "HR_RESERVE",
