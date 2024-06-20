@@ -3,7 +3,7 @@ import logging
 from datetime import datetime, date, timedelta
 from requests import Response
 from typing import Any, Literal, Generator, Optional
-from garminworkouts.models.extraction import workout_export_yaml
+from garminworkouts.models.extraction import Extraction
 import garth
 import os
 
@@ -125,7 +125,7 @@ class GarminClient(object):
 
     def download_workout_yaml(self, workout_id, filename) -> dict:
         workout_data: dict = self.get_workout(workout_id).json()
-        workout_export_yaml(workout_data, filename)
+        Extraction.workout_export_yaml(workout_data, filename)
         return workout_data
 
     def download_workout(self, workout_id, file) -> bytes:

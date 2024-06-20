@@ -1,8 +1,6 @@
 import unittest
 import os
-from garminworkouts.models.extraction import (
-    end_condition_extraction, target_extraction, secondary_target_extraction, weight_extraction, workout_export_yaml,
-    event_export_yaml, note_export_yaml)
+from garminworkouts.models.extraction import Extraction
 from garminworkouts.config import configreader
 
 
@@ -18,7 +16,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result: dict = {
             'duration': '0:01:00'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json: dict = {
             'endCondition': {
@@ -30,7 +28,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result: dict = {
             'duration': '0:01:00'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json = {
             'endCondition': {
@@ -42,7 +40,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'duration': '5.0km'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json = {
             'endCondition': {
@@ -54,7 +52,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'duration': '10reps'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json = {
             'endCondition': {
@@ -66,7 +64,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'duration': '10cal'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json = {
             'endCondition': {
@@ -79,7 +77,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'duration': '150ppm>'
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         step_json = {
             'endCondition': {
@@ -91,7 +89,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'duration': 'lap.button',
         }
-        self.assertEqual(end_condition_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.end_condition_extraction(step_json, step), expected_result)
 
         for condition in ('power', 'iterations', 'fixed.repetition', 'power', 'iterations',
                           'training.peaks.tss', 'repetition.time', 'time.at.valid.cda', 'power.last.lap',
@@ -104,7 +102,7 @@ class ExtractionTestCase(unittest.TestCase):
             }
             step = {}
             with self.assertRaises(ValueError):
-                end_condition_extraction(step_json, step)
+                Extraction.end_condition_extraction(step_json, step)
 
     def test_target_extraction(self) -> None:
         step_json: dict = {
@@ -123,7 +121,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'max': '0:00:05'
             }
         }
-        self.assertEqual(target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.target_extraction(step_json, step), expected_result)
 
         step_json = {
             'targetType': {
@@ -140,7 +138,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'max': '100'
             }
         }
-        self.assertEqual(target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.target_extraction(step_json, step), expected_result)
 
         step_json = {
             'targetType': {
@@ -157,7 +155,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'zone': '2',
             }
         }
-        self.assertEqual(target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.target_extraction(step_json, step), expected_result)
 
         step_json = {
             'targetType': {
@@ -174,7 +172,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'zone': '3'
             }
         }
-        self.assertEqual(target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.target_extraction(step_json, step), expected_result)
 
         step_json: dict = {
             'targetType': {
@@ -187,7 +185,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'type': 'no.target'
             }
         }
-        self.assertEqual(target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.target_extraction(step_json, step), expected_result)
 
         for target in ('speed.zone', 'grade', 'heart.rate.lap', 'power.lap', 'power.3s', 'power.10s', 'power.30s',
                        'speed.lap', 'swim.stroke', 'resistance', 'power.curve', 'swim.css.offset', 'swim.instruction'):
@@ -199,7 +197,7 @@ class ExtractionTestCase(unittest.TestCase):
             step = {}
 
             with self.assertRaises(ValueError):
-                target_extraction(step_json, step)
+                Extraction.target_extraction(step_json, step)
 
     def test_secondary_target_extraction(self) -> None:
         step_json: dict = {
@@ -218,7 +216,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'max': '0:00:05'
             }
         }
-        self.assertEqual(secondary_target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
 
         step_json = {
             'secondaryTargetType': {
@@ -235,7 +233,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'max': '100'
             }
         }
-        self.assertEqual(secondary_target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
 
         step_json = {
             'secondaryTargetType': {
@@ -252,7 +250,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'zone': '2',
             }
         }
-        self.assertEqual(secondary_target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
 
         step_json = {
             'secondaryTargetType': {
@@ -269,7 +267,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'zone': '3'
             }
         }
-        self.assertEqual(secondary_target_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
 
         for target in ('speed.zone', 'grade', 'heart.rate.lap', 'power.lap', 'power.3s', 'power.10s', 'power.30s',
                        'speed.lap', 'swim.stroke', 'resistance', 'power.curve', 'swim.css.offset', 'swim.instruction'):
@@ -280,7 +278,7 @@ class ExtractionTestCase(unittest.TestCase):
             }
             step = {}
             with self.assertRaises(ValueError):
-                secondary_target_extraction(step_json, step)
+                Extraction.secondary_target_extraction(step_json, step)
 
     def test_weight_extraction(self) -> None:
         step_json: dict = {
@@ -293,7 +291,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result: dict = {
             'weight': '75kg'
         }
-        self.assertEqual(weight_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.weight_extraction(step_json, step), expected_result)
 
         step_json = {
             'weightValue': '150',
@@ -305,7 +303,7 @@ class ExtractionTestCase(unittest.TestCase):
         expected_result = {
             'weight': '150pound'
         }
-        self.assertEqual(weight_extraction(step_json, step), expected_result)
+        self.assertEqual(Extraction.weight_extraction(step_json, step), expected_result)
 
         step_json = {
             'weightValue': '100',
@@ -315,7 +313,7 @@ class ExtractionTestCase(unittest.TestCase):
         }
         step = {}
         with self.assertRaises(ValueError):
-            weight_extraction(step_json, step)
+            Extraction.weight_extraction(step_json, step)
 
     def test_workout_export_yaml(self) -> None:
         # Test case 1
@@ -375,7 +373,7 @@ class ExtractionTestCase(unittest.TestCase):
         }
 
         # Call the function
-        workout_export_yaml(workout, filename)
+        Extraction.workout_export_yaml(workout, filename)
 
         # Read the generated YAML file
         generated_yaml: dict = configreader.read_config(filename)
@@ -400,7 +398,7 @@ class ExtractionTestCase(unittest.TestCase):
         }
 
         # Call the function here
-        event_export_yaml(event, filename)
+        Extraction.event_export_yaml(event, filename)
 
         # Read the generated YAML file
         generated_yaml: dict = configreader.read_config(filename)
@@ -422,7 +420,7 @@ class ExtractionTestCase(unittest.TestCase):
             'note_content': 'Test Content'
         }
         # Call the function here
-        note_export_yaml(note, filename)
+        Extraction.note_export_yaml(note, filename)
 
         # Read the generated YAML file
         generated_yaml: dict = configreader.read_config(filename)
