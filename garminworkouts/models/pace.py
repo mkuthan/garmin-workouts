@@ -19,7 +19,7 @@ class Pace:
             raise ValueError('vVO2 must be between 0 [s] and 1000 [s] but was %s' % vVO2s)
 
         if self._has_time():
-            absolute_pace: float = Pace(self.pace).to_speed()
+            absolute_pace: float = self.to_speed()
         else:
             raise ValueError('Pace must have time')
 

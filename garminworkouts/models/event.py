@@ -62,6 +62,25 @@ class Event(object):
         print(json.dumps(functional.filter_empty(event)))
 
     def create_event(self, event_id=None, workout_id=None) -> dict:
+        completion_target: dict = {
+            'value': self.distance,
+            'unit': 'kilometer',
+            'unitType': 'distance'
+        }
+        event_time: dict = {
+            'startTimeHhMm': self.time,
+            'timeZoneId': 'Europe/Paris'
+        }
+        custom_goal: dict = {
+            'value': self.goal,
+            'unit': 'second',
+            'unitType': 'time'
+        }
+        event_privacy: dict = {
+            'label': 'PRIVATE',
+            'isShareable': False,
+            'isDiscoverable': False
+        }
         return {
             _ID: event_id,
             _EVENT_NAME: self.name,
@@ -69,31 +88,16 @@ class Event(object):
             'url': self.url,
             'registrationUrl': None,
             _COURSE_ID: self.course,
-            'completionTarget': {
-                'value': self.distance,
-                'unit': 'kilometer',
-                'unitType': 'distance'
-            },
-            _EVENT_TIME: {
-                'startTimeHhMm': self.time,
-                'timeZoneId': 'Europe/Paris'
-            },
+            'completionTarget': completion_target,
+            _EVENT_TIME: event_time,
             'note': None,
             _WORKOUT_ID: workout_id,
             _LOCATION: self.location,
             'eventType': self.sport,
-            'eventPrivacy': {
-                'label': 'PRIVATE',
-                'isShareable': False,
-                'isDiscoverable': False
-            },
+            'eventPrivacy': event_privacy,
             'shareableEventUuid': None,
             'eventCustomization': {
-                'customGoal': {
-                    'value': self.goal,
-                    'unit': 'second',
-                    'unitType': 'time'
-                },
+                'customGoal': custom_goal,
                 'isPrimaryEvent': None,
                 'isTrainingEvent': True
             },

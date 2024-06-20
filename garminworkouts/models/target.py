@@ -1,5 +1,6 @@
 from garminworkouts.models.fields import get_target_type, get_target_fields, TARGET_TYPES
 import numbers
+from typing import Any, Union
 
 
 class Target:
@@ -12,19 +13,19 @@ class Target:
             secondary=False,
     ) -> None:
         self.target: str = target
-        self.value_one: str | None = value_one if target != 'no.target' else None
-        self.value_two: str | None = value_two if target != 'no.target' else None
-        self.zone: str | None = zone if target == 'heart.rate.zone' or target == 'power.zone' else None
+        self.value_one: Union[Any, None] = value_one if target != 'no.target' else None
+        self.value_two: Union[Any, None] = value_two if target != 'no.target' else None
+        self.zone: Union[Any, None] = zone if target in ['heart.rate.zone', 'power.zone'] else None
         self.secondary: bool = secondary
 
-        if target not in TARGET_TYPES.keys():
-            raise TypeError('%s Undefined target type' % target)
+        if target not in TARGET_TYPES:
+            raise TypeError(f'{target} Undefined target type')
 
         if target != 'no.target' and not isinstance(self.value_one, numbers.Number):
-            raise TypeError('Value One %s needs to be in numeric format' % self.value_one)
+            raise TypeError(f'Value One {self.value_one} needs to be in numeric format')
 
         if target != 'no.target' and not isinstance(self.value_two, numbers.Number):
-            raise TypeError('Value Two %s needs to be in numeric format' % self.value_two)
+            raise TypeError(f'Value Two {self.value_two} needs to be in numeric format')
 
         if (target != 'no.target' and self.value_one and self.value_two and
            self.value_two <= self.value_one and target != 'pace.zone'):  # type: ignore
@@ -37,10 +38,10 @@ class Target:
                             % (self.value_one, self.value_two))
 
         if target == 'heart.rate.zone':
-            if self.zone and isinstance(self.zone, int) and (self.zone < 1 or self.zone > 5):  # type: ignore
-                raise TypeError('Zone %s needs to be in bool format is undefined' % self.zone)
+            if self.zone and isinstance(self.zone, int) and (self.zone < 1 or self.zone > 5):
+                raise TypeError(f'Zone {self.zone} needs to be in bool format is undefined')
 
-    def create_target(self) -> dict:
+    def create_target(self) -> Union[dict[Any, Any], dict[str, Any]]:
         if self.target == 'no.target':
             return {}
         else:

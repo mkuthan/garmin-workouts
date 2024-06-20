@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Union
 from garminworkouts.models.time import Time
 from garminworkouts.models.types import TYPE_MAPPING
 
@@ -17,26 +18,18 @@ class Duration:
 
     @staticmethod
     def get_string(value: int, type: str) -> str:
-        if type == 'heart.rate':
-            return f"{value}ppm"
-        elif type == 'distance':
-            if value >= 100:
-                return f"{value}m"
-            else:
-                return f"{value}km"
-        elif type == 'calories':
-            return f"{value}cals"
-        elif type == 'reps':
-            return f"{value}reps"
-        elif type == 'power':
-            return f"{value}w"
-        elif type == 'time':
-            return Time.to_str(value)
-        else:
-            return ''
+        type_mapping: dict = {
+            'heart.rate': f"{value}ppm",
+            'distance': f"{value}m" if value >= 100 else f"{value}km",
+            'calories': f"{value}cals",
+            'reps': f"{value}reps",
+            'power': f"{value}w",
+            'time': Time.to_str(value)
+        }
+        return type_mapping.get(type, '')
 
     @staticmethod
-    def get_value(duration: str) -> int | None:
+    def get_value(duration: str) -> Union[int, None]:
         for key in TYPE_MAPPING.keys():
             if key in duration:
                 return int(float(duration.split(key)[0]) if key != 'reps' else duration.split(key)[0])
