@@ -1,5 +1,5 @@
 from datetime import date
-from typing import List, LiteralString, Tuple, Union, Any
+from typing import List, Tuple, Union, Any
 import glob
 import os
 from garminworkouts.config import configreader
@@ -23,7 +23,7 @@ def settings(args, defaultPlanning=None) -> Tuple[List[Workout], List[Note], str
     if args.trainingplan in planning:
         workout_files: List[Any] = glob.glob(planning[args.trainingplan].get('workouts'))
         race: date = date.today()
-        plan: Union[LiteralString, Any] = args.trainingplan
+        plan: Union[str, Any] = args.trainingplan
 
         if 'year' in planning[args.trainingplan]:
             race = date(
