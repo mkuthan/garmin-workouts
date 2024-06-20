@@ -15,7 +15,7 @@ from garminworkouts.models.event import Event
 from garminworkouts.models.note import Note
 from garminworkouts.models.power import Power
 from garminworkouts.models.trainingplan import TrainingPlan
-from garminworkouts.models.extraction import workout_export_yaml, event_export_yaml, note_export_yaml
+from garminworkouts.models.extraction import Extraction
 from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.models.fields import _WORKOUT_ID, _ID
 import account
@@ -181,7 +181,8 @@ def command_find_events(args):
                 if not os.path.exists(newpath):
                     os.makedirs(newpath)
                 file: str = os.path.join(newpath, ev_a.get('eventRef') + '.yaml')
-                event_export_yaml(connection.get(ev_a.get('detailsEndpoints')[0].get('url')).json(), file)
+                Extraction.event_export_yaml(event=connection.get(ev_a.get('detailsEndpoints')[0].get('url')
+                                                                  ).json(), filename=file)
 
 
 def command_trainingplan_metrics(args) -> None:
@@ -246,7 +247,7 @@ def command_workout_export_yaml(args) -> None:
                 os.makedirs(newpath)
             file: str = os.path.join(newpath, str(workout_id) + '.yaml')
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            workout_export_yaml(workout, file)
+            Extraction.workout_export_yaml(workout, file)
 
         for tp in connection.list_trainingplans(account.locale):
             tp: dict = TrainingPlan.export_trainingplan(tp)
@@ -283,14 +284,14 @@ def command_workout_export_yaml(args) -> None:
                     workout_data = connection.get_workout(workout_id)
                     workout = workout_data.json()
                     logging.info("Exporting workout '%s' into '%s'", name, file)
-                    workout_export_yaml(workout, file)
+                    Extraction.workout_export_yaml(workout, file)
                 if w.get('taskNote'):
                     config = {}
                     config['name'] = w.get('taskNote', {}).get('note')
                     config['content'] = w.get('taskNote', {}).get('noteDescription')
                     note = Note(config)
                     logging.info("Exporting note '%s' into '%s'", name, file)
-                    note_export_yaml(note, file)
+                    Extraction.note_export_yaml(note, file)
 
             connection.delete_training_plan(tp.get('trainingPlanId'))
 
