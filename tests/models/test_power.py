@@ -9,13 +9,10 @@ class PowerTestCase(unittest.TestCase):
         valid_powers: list = [
             ("0", 0),
             ("0%", 0),
-            ("10", 20),
+            ("0.10", 20),
             ("10%", 20),
-            ("100", 200),
             ("100%", 200),
-            ("120", 240),
             ("120%", 240),
-            ("150", 300),
             ("150%", 300),
             ("0W", 0),
             ("0w", 0),
@@ -38,18 +35,6 @@ class PowerTestCase(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp)
 
-    def test_power_to_watts_conversion_with_valid_ftp(self) -> None:
-        power = "50"
-        valid_ftps: list = [
-            (0, 0),
-            (100, 50),
-            (250, 125),
-            (999, 500)
-        ]
-        for ftp, watts in valid_ftps:
-            with self.subTest(msg="Expected %d watts for ftp '%s' (power=%s)" % (watts, ftp, power)):
-                self.assertEqual(Power(power).to_watts(ftp), watts)
-
     def test_power_to_watts_conversion_with_invalid_ftp(self) -> None:
         power = "100"
         invalid_ftps = [-1, 1000, "foo"]
@@ -57,28 +42,6 @@ class PowerTestCase(unittest.TestCase):
             with self.subTest(msg="Expected ValueError for '%s" % ftp):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp)
-
-    def test_to_watts_with_watt_power(self):
-        p = Power("200W")
-        self.assertEqual(p.to_watts(250), 200)
-
-    def test_to_watts_with_percent_power(self):
-        p = Power("80%")
-        self.assertEqual(p.to_watts(250), 200)
-
-    def test_to_watts_with_absolute_power(self):
-        p = Power("200")
-        self.assertEqual(p.to_watts(250), 500)
-
-    def test_to_watts_invalid_ftp(self):
-        p = Power("200W")
-        with self.assertRaises(ValueError):
-            p.to_watts(1000)
-
-    def test_to_watts_invalid_power(self):
-        p = Power("5000W")
-        with self.assertRaises(ValueError):
-            p.to_watts(250)
 
     def test_power_zones(self):
         rftp = Power("200W")

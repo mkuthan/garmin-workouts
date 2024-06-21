@@ -64,7 +64,3 @@ def settings(args, defaultPlanning=None) -> Tuple[List[Workout], List[Note], str
     except FileNotFoundError as e:
         print(f"Error reading config file: {e}")
         return [], [], ''
-    '''except Exception as e:
-        print(f"An error occurred: {e}")
-        return [], [], ''
-'''
