@@ -104,11 +104,8 @@ class Workout(object):
             return str(self.config.get(_NAME))
 
     def get_workout_date(self) -> tuple[date, int, int]:
-        if self.date:
-            return date(self.date.get('year', 0), self.date.get('month', 0), self.date.get('day', 0)), 0, 0
-        else:
-            workout_name: str = self.config.get(_NAME, '')
-            return get_date(workout_name, self.race)
+        workout_name: str = self.config.get(_NAME, '')
+        return get_date(workout_name, self.race)
 
     def running_values(self, flatten_steps) -> None:
         sec = 0
