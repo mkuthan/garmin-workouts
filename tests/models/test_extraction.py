@@ -353,6 +353,20 @@ class ExtractionTestCase(unittest.TestCase):
                             'targetType': {'workoutTargetTypeKey': 'cadence'},
                             'targetValueOne': 80,
                             'targetValueTwo': 100
+                        },
+                        {
+                            'stepType': {'stepTypeKey': 'repeat'},
+                            'workoutSteps': [
+                                {
+                                    'stepType': {'stepTypeKey': 'step'},
+                                    'endCondition': {'conditionTypeKey': 'time'},
+                                    'endConditionValue': 60,
+                                    'targetType': {'workoutTargetTypeKey': 'pace.zone'},
+                                    'targetValueOne': 100,
+                                    'targetValueTwo': 200,
+                                    'zoneNumber': None
+                                }
+                            ],
                         }
                     ]
                 }
@@ -360,29 +374,30 @@ class ExtractionTestCase(unittest.TestCase):
         }
         filename = 'test_workout.yaml'
         expected_output: dict = {
+            'description': 'This is a test workout',
             'name': 'Test Workout',
             'sport': 'running',
-            'description': 'This is a test workout',
             'steps': [
                 {
-                    'type': 'step',
                     'duration': '0:01:00',
                     'target': {
-                        'type': 'pace.zone',
+                        'max': '0:00:05',
                         'min': '0:00:10',
-                        'max': '0:00:05'
-                    }
+                        'type': 'pace.zone'
+                        },
+                    'type': 'step'},
+                {
+                    'duration': '5.0km',
+                    'target': {'max': '100', 'min': '80', 'type': 'cadence'},
+                    'type': 'step'
                 },
                 {
-                    'type': 'step',
-                    'duration': '5.0km',
-                    'target': {
-                        'type': 'cadence',
-                        'min': '80',
-                        'max': '100'
-                    }
+                    'duration': '0:01:00',
+                    'repeatDuration': '0:00:00',
+                    'target': {'max': '0:00:05', 'min': '0:00:10', 'type': 'pace.zone'},
+                    'type': 'step'
                 }
-            ]
+                ]
         }
 
         # Call the function
@@ -444,5 +459,49 @@ class ExtractionTestCase(unittest.TestCase):
         os.remove(filename)
 
 
-if __name__ == '__main__':
-    unittest.main()
+'''    def test_workout_export_yaml(self) -> None:
+        workout = {
+            'workoutName': 'My Workout',
+            'sportType': {'sportTypeKey': 'running'},
+            'description': 'This is a test workout',
+            'workoutSegments': [
+                {
+                    'workoutSteps': [
+                        {
+                            'stepType': {'stepTypeKey': 'step'},
+                            'endCondition': {'conditionTypeKey': 'time'},
+                            'endConditionValue': 60
+                        },
+                        {
+                            'stepType': {'stepTypeKey': 'step'},
+                            'endCondition': {'conditionTypeKey': 'distance'},
+                            'endConditionValue': 5000
+                        }
+                    ]
+                }
+            ]
+        }
+        filename = 'test_workout.yaml'
+        Extraction.workout_export_yaml(workout, filename)
+
+        with open(filename, 'r') as file:
+            exported_workout = yaml.safe_load(file)
+
+        expected_workout = {
+            'name': 'My Workout',
+            'sport': 'running',
+            'description': 'This is a test workout',
+            'steps': [
+                {
+                    'type': 'step',
+                    'duration': '0:01:00'
+                },
+                {
+                    'type': 'step',
+                    'duration': '5.0km'
+                }
+            ]
+        }
+
+        self.assertEqual(exported_workout, expected_workout)
+'''

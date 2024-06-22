@@ -179,15 +179,8 @@ class Extraction(object):
                             rep_step_json['repeatDuration'] = str(timedelta(seconds=int(
                                 step_json.get('endConditionValue', 0))))
                             workout_dict['steps'].append(Extraction.step_extraction(rep_step_json))
-
-        else:
-            print(filename)
-
         with open(filename, 'w') as file:
-            try:
-                yaml.dump(workout_dict, file, default_flow_style=None)
-            except Exception as e:
-                print(f"Error occurred while writing to file: {e}")
+            yaml.dump(workout_dict, file, default_flow_style=None)
 
     @staticmethod
     def event_export_yaml(event, filename) -> None:
