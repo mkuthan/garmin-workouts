@@ -367,6 +367,21 @@ class ExtractionTestCase(unittest.TestCase):
                                     'zoneNumber': None
                                 }
                             ],
+                        },
+                        {
+                            'stepType': {'stepTypeKey': 'repeat'},
+                            'numberOfIterations': 1,
+                            'workoutSteps': [
+                                {
+                                    'stepType': {'stepTypeKey': 'step'},
+                                    'endCondition': {'conditionTypeKey': 'time'},
+                                    'endConditionValue': 60,
+                                    'targetType': {'workoutTargetTypeKey': 'pace.zone'},
+                                    'targetValueOne': 100,
+                                    'targetValueTwo': 200,
+                                    'zoneNumber': None
+                                }
+                            ],
                         }
                     ]
                 }
@@ -396,7 +411,10 @@ class ExtractionTestCase(unittest.TestCase):
                     'repeatDuration': '0:00:00',
                     'target': {'max': '0:00:05', 'min': '0:00:10', 'type': 'pace.zone'},
                     'type': 'step'
-                }
+                },
+                [{
+                    'duration': '0:01:00',
+                    'target': {'max': '0:00:05', 'min': '0:00:10', 'type': 'pace.zone'}, 'type': 'step'}]
                 ]
         }
 
