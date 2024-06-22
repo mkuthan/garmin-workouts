@@ -24,6 +24,21 @@ class ZonesTestCase(unittest.TestCase):
             race=date.today()
         )
 
+    def test_null_workout(self) -> None:
+        with self.assertRaises(ValueError):
+            Workout(
+                config={'name': 'name'},
+                target=[],
+                vVO2=Pace('3:30'),
+                fmin=account.fmin,
+                fmax=account.fmax,
+                flt=account.flt,
+                rFTP=Power('200'),
+                cFTP=Power('200'),
+                plan='',
+                race=date.today()
+            ).create_workout()
+
     def test_zones(self) -> None:
         expected_zones: list[float] = [0.46, 0.6, 0.7, 0.8,
                                        (account.flt - account.fmin) / (account.fmax-account.fmin),
@@ -86,9 +101,9 @@ class ZonesTestCase(unittest.TestCase):
     def test_get_workout_name(self) -> None:
         # Create a Workout instance with a specific configuration
         workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        config: dict = configreader.read_config(workout_file)
         workout = Workout(
-            config=configreader.read_config(
-                workout_file),
+            config=config,
             target=[],
             vVO2=Pace('3:30'),
             fmin=account.fmin,
@@ -105,6 +120,75 @@ class ZonesTestCase(unittest.TestCase):
 
         # Assert that the returned workout name is correct
         self.assertEqual(workout_name, "Tabata Alternating Lunges, Crunches, Burpees & Planks")
+
+    def test_get_workout_name_short(self) -> None:
+        # Create a Workout instance with a specific configuration
+        workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        config: dict = configreader.read_config(workout_file)
+        config['name'] = '0_1'
+        config['description'] = ''
+        workout = Workout(
+            config=config,
+            target=[],
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='',
+            race=date.today()
+        )
+
+        # Call the get_workout_name method
+        workout_name: str = workout.get_workout_name()
+        self.assertEqual(workout_name, '0_1')
+
+    def test_get_workout_name_med(self) -> None:
+        # Create a Workout instance with a specific configuration
+        workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        config: dict = configreader.read_config(workout_file)
+        config['name'] = '0_1'
+        config['description'] = 'Description'
+        workout = Workout(
+            config=config,
+            target=[],
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='plan',
+            race=date.today()
+        )
+
+        # Call the get_workout_name method
+        workout_name: str = workout.get_workout_name()
+        self.assertEqual(workout_name, '0_1-Description')
+
+    def test_get_workout_name_long(self) -> None:
+        # Create a Workout instance with a specific configuration
+        workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        config: dict = configreader.read_config(workout_file)
+        config['name'] = '0_1'
+        config['description'] = 'Long description for a long workout name'
+        workout = Workout(
+            config=config,
+            target=[],
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='',
+            race=date.today()
+        )
+
+        # Call the get_workout_name method
+        workout_name: str = workout.get_workout_name()
+        self.assertEqual(workout_name, '0_1-Long')
 
     def test_get_workout_date(self) -> None:
         # Create a Workout instance with a specific configuration
