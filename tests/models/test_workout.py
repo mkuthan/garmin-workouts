@@ -2,9 +2,11 @@ import unittest
 from datetime import date
 import account
 import logging
+import os
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
+from garminworkouts.config import configreader
 
 
 class ZonesTestCase(unittest.TestCase):
@@ -80,6 +82,52 @@ class ZonesTestCase(unittest.TestCase):
         for i in range(len(cpower_zones)):
             self.assertIn(f"INFO:root: Zone {i}: {cpower_zones[i]} - "
                           f"{cpower_zones[i + 1] if i + 1 < len(cpower_zones) else 'max'} w", log_messages)
+
+    def test_get_workout_name(self) -> None:
+        # Create a Workout instance with a specific configuration
+        workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        workout = Workout(
+            config=configreader.read_config(
+                workout_file),
+            target=[],
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='',
+            race=date.today()
+        )
+
+        # Call the get_workout_name method
+        workout_name: str = workout.get_workout_name()
+
+        # Assert that the returned workout name is correct
+        self.assertEqual(workout_name, "Tabata Alternating Lunges, Crunches, Burpees & Planks")
+
+    def test_get_workout_date(self) -> None:
+        # Create a Workout instance with a specific configuration
+        workout = Workout(
+            config={},
+            target=[],
+            vVO2=Pace('5:00'),
+            fmin=60,
+            fmax=200,
+            flt=185,
+            rFTP=Power('400w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+
+        # Call the get_workout_date method
+        workout_date, week, day = workout.get_workout_date()
+
+        # Assert that the returned workout date, fmin, and fmax are correct
+        self.assertEqual(workout_date, date.today())
+        self.assertEqual(week, 0)
+        self.assertEqual(day, 0)
 
 
 if __name__ == '__main__':

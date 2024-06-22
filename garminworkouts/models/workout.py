@@ -92,17 +92,20 @@ class Workout(object):
                 f" Zone {i}: {cpower_zones[i]} - {cpower_zones[i + 1] if i + 1 < len(cpower_zones) else 'max'} w")
 
     def get_workout_name(self) -> str:
-        description: str = self.config.get(_DESCRIPTION, '')
-        if not description:
-            description = ''
-
-        if (self.plan != '') and (_DESCRIPTION in self.config) and (
-           description is not None) and (len(description) < 20) and ('\n' not in description):
-            return f"{self.config.get(_NAME, '')}-{description}"
-        elif len(description) >= 20:
-            return f"{self.config.get(_NAME)}-{description.split(' ')[0]}"
-        else:
+        if '_' not in self.config.get(_NAME, ''):
             return str(self.config.get(_NAME))
+        else:
+            description: str = self.config.get(_DESCRIPTION, '')
+            if not description:
+                description = ''
+
+            if (self.plan != '') and (_DESCRIPTION in self.config) and (description is not None) and \
+               (len(description) < 20) and ('\n' not in description):
+                return f"{self.config.get(_NAME, '')}-{description}"
+            elif len(description) >= 20:
+                return f"{self.config.get(_NAME)}-{description.split(' ')[0]}"
+            else:
+                return str(self.config.get(_NAME))
 
     def get_workout_date(self) -> tuple[date, int, int]:
         workout_name: str = self.config.get(_NAME, '')
@@ -171,17 +174,9 @@ class Workout(object):
             sec += duration_secs
             meters += duration_meters
 
-        try:
-            self.ratio = float(round(meters / sec / self.vVO2.to_pace() * 100))
-        except ZeroDivisionError:
-            self.ratio = float(0)
-        except ValueError:
-            self.ratio = float(0)
-
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
-        self.tss: float = round(sec/3600 * self.ratio ** 2 / 100)
 
     def cardio_values(self, flatten_steps) -> None:
         sec: float = 0
@@ -268,8 +263,6 @@ class Workout(object):
         elif target_type == 'no.target':
             t2 = 0.0
             t1 = 0.0
-        else:
-            raise ValueError('Unknown target type')
 
         return min(t1, t2) + 0.5 * (max(t1, t2) - min(t1, t2))
 
@@ -284,17 +277,13 @@ class Workout(object):
         return target
 
     def extract_target_type(self, step) -> str:
-        try:
-            if isinstance(step, dict):
-                return step.get(_TYPE, '')
-            else:
-                target, d = self.extract_target_diff(step)
-                return self.target[target].get(_TYPE, '')
-        except KeyError:
-            print(target)
-            return ''
+        if isinstance(step, dict):
+            return step.get(_TYPE, '')
+        else:
+            target, _ = self.extract_target_diff(step)
+            return self.target[target].get(_TYPE, '')
 
-    def extract_target_value(self, step, key):
+    def extract_target_value(self, step, key) -> tuple[str, str | Any]:
         target_type = self.extract_target_type(step)
         if isinstance(step, dict):
             target = step
@@ -315,8 +304,6 @@ class Workout(object):
                 zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
                 t = {'min': zones[z - 1], 'max': zones[z]}
                 target_value = str(t[key])
-            else:
-                target_value = str(0)
         else:
             target_value = str(0)
 
@@ -347,7 +334,7 @@ class Workout(object):
             return round(
                 self.time_difference_pace(self._get_target_value(target, key=val), d) / self.vVO2.to_pace(), 2)
         elif target_type == 'heart.rate.zone':
-            s = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
+            s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
                 self._get_target_value(target, key=val))) * self.vVO2.to_pace()
             s = self.time_difference_pace(s, d)
             return round(self.convert_targetvVO2_to_targetHR(s / self.vVO2.to_pace()), 2)
