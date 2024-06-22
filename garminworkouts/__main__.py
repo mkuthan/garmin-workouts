@@ -74,7 +74,7 @@ def update_workouts(ue, workouts, plan, connection) -> None:
             c += 1
 
     for workout in workouts:
-        day_d, week, day = workout.get_workout_date()
+        day_d, *_ = workout.get_workout_date()
         if date.today() <= day_d < date.today() + timedelta(weeks=2):
             workout_name: str = workout.get_workout_name()
             existing_workout = existing_workouts_by_name.get(workout_name)
@@ -112,7 +112,7 @@ def update_notes(ne, notes, connection) -> None:
                     connection.save_note(trainingplan=False, note=payload)
 
 
-def command_trainingplan_import(args, event=False) -> None:
+def command_trainingplan_import(args) -> None:
     workouts, notes, plan = settings(args)
 
     with _garmin_client(args) as connection:
@@ -163,10 +163,10 @@ def command_event_import(args) -> None:
                     c += 1
         if c == 0:
             logging.info('No events to update')
-        command_trainingplan_import(args, event=True)
+        command_trainingplan_import(args)
 
 
-def command_find_events(args):
+def command_find_events(args) -> None:
     with _garmin_client(args) as connection:
         events = connection.find_events()
         for subev in events:
@@ -186,7 +186,7 @@ def command_find_events(args):
 
 
 def command_trainingplan_metrics(args) -> None:
-    workouts, notes, plan = settings(args)
+    workouts, *_ = settings(args)
 
     mileage: list[float] = [float(0) for i in range(24, -11, -1)]
     duration: list[timedelta] = [timedelta(seconds=0) for i in range(24, -11, -1)]
@@ -197,7 +197,7 @@ def command_trainingplan_metrics(args) -> None:
 
     for workout in workouts:
         workout_name: str = workout.get_workout_name()
-        day_d, week, day = workout.get_workout_date()
+        day_d, week, _ = workout.get_workout_date()
         if day_min is None:
             day_min = day_d
         if day_max is None:

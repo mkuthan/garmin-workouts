@@ -1,4 +1,5 @@
 import json
+from typing import Any
 from garminworkouts.models.workoutstep import WorkoutStep
 from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
@@ -32,22 +33,22 @@ class Workout(object):
             rFTP=Power('400w'),
             cFTP=Power('200w'),
             plan=str(''),
-            race=date.today()
+            race=None
     ) -> None:
 
-        self.config = config
+        self.config: Any = config
         if bool(config):
             self.sport_type = config.get(_SPORT, '').lower()
-            self.subsport = config.get(_SUBSPORT, None)
-            self.date = config.get(_DATE, None)
+            self.subsport: Any = config.get(_SUBSPORT, None)
+            self.date: Any = config.get(_DATE, None)
             flatten_steps = functional.flatten(config.get(_STEPS, []))
         else:
-            self.sport_type = ''
+            self.sport_type: str = ''
             self.subsport = None
             self.date = None
-            flatten_steps = []
+            flatten_steps: list[Any] = []
 
-        self.target = target
+        self.target: Any = target
         self.vVO2: Pace = vVO2
         self.fmin: int = fmin
         self.fmax: int = fmax
@@ -55,7 +56,7 @@ class Workout(object):
         self.rFTP: Power = rFTP
         self.cFTP: Power = cFTP
         self.plan: str = plan
-        self.race: date = race
+        self.race: date | None = race
         self.duration = timedelta(seconds=0)
         self.sec = 0
         self.mileage = 0
@@ -105,7 +106,7 @@ class Workout(object):
 
     def get_workout_date(self) -> tuple[date, int, int]:
         workout_name: str = self.config.get(_NAME, '')
-        return get_date(workout_name, self.race)
+        return get_date(workout_name, self.race, self.date)
 
     def running_values(self, flatten_steps) -> None:
         sec = 0

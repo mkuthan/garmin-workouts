@@ -57,8 +57,8 @@ def settings(args, defaultPlanning=None) -> Tuple[List[Workout], List[Note], str
                 race)
             if 'content' not in workout_config else Note(workout_config) for workout_config in workout_configs]
 
-        notes = [w for w in combined if isinstance(w, Note)]
-        workouts = [w for w in combined if isinstance(w, Workout)]
+        notes: List[Note] = [w for w in combined if isinstance(w, Note)]
+        workouts: List[Workout] = [w for w in combined if isinstance(w, Workout)]
         return workouts, notes, plan
 
     except FileNotFoundError as e:
