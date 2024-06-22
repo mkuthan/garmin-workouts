@@ -35,6 +35,11 @@ class TestPace(unittest.TestCase):
         pace = Pace('5:30')
         self.assertEqual(pace.to_pace(), 3.0303030303030303)
 
+    def test_to_pace_error(self) -> None:
+        pace = Pace('0')
+        with self.assertRaises(ValueError):
+            pace.to_pace('5:00')
+
     def test_to_pace_with_vVO2(self) -> None:
         pace = Pace('5:30')
         self.assertEqual(pace.to_pace('3:00'), 3.0303030303030303)
