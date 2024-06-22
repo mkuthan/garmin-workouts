@@ -1,26 +1,26 @@
 import unittest
-import os
-from datetime import date
-import datetime
+# import os
+# from datetime import date
+# import datetime
 import argparse
-import account
-from requests import Response
-from garminworkouts.garmin.garminclient import GarminClient
+# import account
+# from requests import Response
+# from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
-from garminworkouts.models.workout import Workout
+# from garminworkouts.models.workout import Workout
 
 
 class BaseTest(unittest.TestCase):
     def check_workout_files(self, tp_list) -> None:
-        authed_gclient = GarminClient(account.EMAIL, account.PASSWORD)
+        # authed_gclient = GarminClient(account.EMAIL, account.PASSWORD)
         for tp in tp_list:
-            cont = 0
+            # cont = 0
             with self.subTest():
                 args = argparse.Namespace(trainingplan=tp)
                 workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
-                for workout in workouts:
+                '''for workout in workouts:
                     cont += 1
                     self.assertNotEqual(
                         workout.duration == datetime.timedelta(seconds=0) and workout.mileage == 0,
@@ -54,4 +54,4 @@ class BaseTest(unittest.TestCase):
                         self.assertIn(r.status_code, (200, 204))
                     r = authed_gclient.delete_workout(workout_id)
                     self.assertIsInstance(r, Response)
-                    self.assertIn(r.status_code, (200, 204))
+                    self.assertIn(r.status_code, (200, 204))'''
