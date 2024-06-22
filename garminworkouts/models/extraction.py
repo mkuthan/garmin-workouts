@@ -100,7 +100,9 @@ class Extraction(object):
                 }
 
             elif secondary_target_key == 'no.target':
-                step['secondaryTarget']['type'] = 'no.target'
+                step['secondaryTarget'] = {
+                    'type': 'no.target'
+                }
 
             else:
                 raise ValueError(f"Unsupported secondary target: {secondary_target_key}")
