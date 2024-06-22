@@ -1,8 +1,10 @@
 import unittest
 from datetime import date
+from unittest.mock import patch
 import account
 import logging
 import os
+from garminworkouts.models.fields import _STEPS
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
@@ -212,6 +214,163 @@ class ZonesTestCase(unittest.TestCase):
         self.assertEqual(workout_date, date.today())
         self.assertEqual(week, 0)
         self.assertEqual(day, 0)
+
+    def test_print_workout_summary(self) -> None:
+        workout: dict = {
+            'workoutId': '123',
+            'workoutName': 'Test Workout',
+            'description': 'This is a test workout'
+        }
+
+        expected_output = '123 Test Workout         This is a test workout'
+
+        with patch('builtins.print') as mock_print:
+            Workout.print_workout_summary(workout)
+            mock_print.assert_called_once_with(expected_output)
+
+    def test_extract_workout_author(self) -> None:
+        workout: dict = {
+            'author': {
+                'name': 'John Doe',
+                'email': 'johndoe@example.com'
+            }
+        }
+
+        expected_author: dict = {
+            'name': 'John Doe',
+            'email': 'johndoe@example.com'
+        }
+
+        author: dict = Workout.extract_workout_author(workout)
+
+        self.assertEqual(author, expected_author)
+
+    def test_extract_workout_author_no_author(self) -> None:
+        workout: dict = {}
+
+        author: dict = Workout.extract_workout_author(workout)
+
+        self.assertIsNone(author)
+
+    def test_extract_workout_author_missing_name(self) -> None:
+        workout: dict = {
+            'author': {
+                'email': 'johndoe@example.com'
+            }
+        }
+
+        expected_author: dict = {
+            'email': 'johndoe@example.com'
+        }
+
+        author: dict = Workout.extract_workout_author(workout)
+
+        self.assertEqual(author, expected_author)
+
+    def test_extract_workout_author_missing_email(self) -> None:
+        workout: dict = {
+            'author': {
+                'name': 'John Doe'
+            }
+        }
+
+        expected_author: dict = {
+            'name': 'John Doe'
+        }
+
+        author: dict = Workout.extract_workout_author(workout)
+
+        self.assertEqual(author, expected_author)
+
+    def test_create_workout(self) -> None:
+        workout_file: str = os.path.join('.', 'workouts', 'cardio_training', 'ADVANCED', 'BBtO4iZ.yaml')
+        config: dict = configreader.read_config(workout_file)
+        config['description'] = ''
+        workout = Workout(
+            config=config,
+            target=[],
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='',
+            race=date.today()
+        )
+
+        workout_id = '123'
+        workout_owner_id = '456'
+        workout_author: dict = {
+            'name': 'John Doe',
+            'email': 'johndoe@example.com'
+        }
+
+        expected_workout: dict = {
+            'workoutId': '123',
+            'ownerId': '456',
+            'workoutName': 'Tabata Alternating Lunges, Crunches, Burpees & Planks',
+            'description': '. Plan: . ',
+            'sportType': {'sportTypeId': 6, 'sportTypeKey': 'cardio_training'},
+            'subSportType': None,
+            'author': {'name': 'John Doe', 'email': 'johndoe@example.com'},
+            'estimatedDurationInSecs': None,
+            'estimatedDistanceInMeters': None,
+            'avgTrainingSpeed': None,
+            'workoutSegments': [
+                {
+                    'segmentOrder': 1,
+                    'sportType': {'sportTypeId': 6, 'sportTypeKey': 'cardio_training'},
+                    'workoutSteps': workout._steps(workout.config.get(_STEPS))
+                    }
+                ],
+        }
+
+        created_workout: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
+
+        self.assertEqual(created_workout, expected_workout)
+
+    def test_equivalent_pace_cadence_zone(self) -> None:
+        step: dict = {
+            "target": {
+                "type": "cadence.zone",
+                "min": 80,
+                "max": 90
+            }
+        }
+        expected_pace = 85.0
+
+        pace: float = self.workout.equivalent_pace(step)
+
+        self.assertEqual(pace, expected_pace)
+
+    def test_equivalent_pace_speed_zone(self) -> None:
+        step: dict = {
+            "target": {
+                "type": "speed.zone",
+                "min": 10,
+                "max": 12
+            }
+        }
+        expected_pace = 11.0
+
+        pace: float = self.workout.equivalent_pace(step)
+
+        self.assertEqual(pace, expected_pace)
+
+    def test_equivalent_pace_pace_zone(self) -> None:
+        step: dict = {
+            "target": {
+                "type": "pace.zone",
+                "min": 5.0,
+                "max": 5.0
+            }
+        }
+        expected_pace = 5.0
+
+        pace: float = self.workout.equivalent_pace(step)
+
+        self.assertEqual(pace, expected_pace)
 
 
 if __name__ == '__main__':

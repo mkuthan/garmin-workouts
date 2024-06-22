@@ -252,14 +252,10 @@ class Workout(object):
                 t2 = self.convert_HR_to_pace(self._target_value(step, 'max'))
                 t1 = self.convert_HR_to_pace(self._target_value(step, 'min'))
         elif target_type == 'power.zone':
-            if 'zone' in step.get('target'):
-                zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
-                z = int(step.get('target').get('zone'))
-                t2 = rpower_zones[z]
-                t1 = rpower_zones[z - 1]
-            else:
-                t2 = self._target_value(step, 'max')
-                t1 = self._target_value(step, 'min')
+            zones, rpower_zones, cpower_zones, data = Power.power_zones(self.rFTP, self.cFTP)
+            z = int(step.get('target').get('zone'))
+            t2 = rpower_zones[z]
+            t1 = rpower_zones[z - 1]
         elif target_type == 'no.target':
             t2 = 0.0
             t1 = 0.0
