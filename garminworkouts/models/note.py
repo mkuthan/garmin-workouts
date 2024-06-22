@@ -33,4 +33,4 @@ class Note:
         print(f'{note_id} {note_name:20} {note_content}')
 
     def get_note_date(self) -> tuple[date, int, int]:
-        return get_date(self.config.get('name', ''), self.race)
+        return get_date(self.config.get('name', ''), self.race, None)
