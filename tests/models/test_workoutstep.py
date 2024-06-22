@@ -1,6 +1,8 @@
 import unittest
-from garminworkouts.models.fields import _UNIT_KEY, get_end_condition
 from garminworkouts.models.workoutstep import WorkoutStep
+from garminworkouts.models.target import Target
+from garminworkouts.models.fields import (_UNIT_KEY,
+                                          get_end_condition)
 
 
 class TestWorkoutStep(unittest.TestCase):
@@ -62,3 +64,44 @@ class TestWorkoutStep(unittest.TestCase):
             'condition_type_key': 'reps'
         }
         assert WorkoutStep._end_condition(step_config) == get_end_condition('reps')
+
+    def test_create_workout_step(self) -> None:
+        step = WorkoutStep(
+            order='1',
+            child_step_id='child_step_1',
+            description='Sample workout step',
+            step_type='warmup',
+            end_condition='distance',
+            end_condition_value='2.0km',
+            target=Target(target='no.target'),
+            secondary_target=Target(target='no.target'),
+            category='running',
+            exerciseName='running',
+            weight='10',
+            equipment='treadmill',
+            stroke=None
+        )
+        expected_result: dict = {
+            'type': 'ExecutableStepDTO',
+            'stepId': None,
+            'stepOrder': '1',
+            'childStepId': 'child_step_1',
+            'description': 'Sample workout step',
+            'stepType': {
+                'stepTypeId': 1,
+                'stepTypeKey': 'warmup'
+            },
+            'endCondition': {
+                'conditionTypeId': 3,
+                'conditionTypeKey': 'distance'
+            },
+            'preferredEndConditionUnit': {'unitKey': None},
+            'endConditionValue': 2000,
+            'endConditionCompare': None,
+            'endConditionZone': None,
+            'category': 'running',
+            'exerciseName': 'running',
+            'weightValue': '10',
+            'weightUnit': {'unitId': 8, 'unitKey': 'kilogram', 'factor': 1000}
+        }
+        assert step.create_workout_step() == expected_result
