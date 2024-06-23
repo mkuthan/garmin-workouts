@@ -42,8 +42,8 @@ class Power:
     @staticmethod
     def power_zones(rftp, cftp) -> tuple[List[float], List[int], List[int], List[Dict]]:
         zones: List[float] = [0.65, 0.8, 0.9, 1.0, 1.15, 1.3, 1.5, 1.7]
-        rpower_zones: List[int] = [int(rftp.to_watts(float(rftp.power[:-1])) * zone) for zone in zones]
-        cpower_zones: List[int] = [int(cftp.to_watts(float(cftp.power[:-1])) * zone) for zone in zones]
+        rpower_zones: List[int] = [int(float(rftp.power[:-1]) * zone) for zone in zones]
+        cpower_zones: List[int] = [int(float(cftp.power[:-1]) * zone) for zone in zones]
 
         data: list[dict] = [
             {

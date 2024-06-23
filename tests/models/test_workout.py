@@ -330,20 +330,6 @@ class ZonesTestCase(unittest.TestCase):
 
         self.assertEqual(created_workout, expected_workout)
 
-    def test_equivalent_pace_cadence_zone(self) -> None:
-        step: dict = {
-            "target": {
-                "type": "cadence.zone",
-                "min": 80,
-                "max": 90
-            }
-        }
-        expected_pace = 85.0
-
-        pace: float = self.workout.equivalent_pace(step)
-
-        self.assertEqual(pace, expected_pace)
-
     def test_equivalent_pace_speed_zone(self) -> None:
         step: dict = {
             "target": {
@@ -371,6 +357,178 @@ class ZonesTestCase(unittest.TestCase):
         pace: float = self.workout.equivalent_pace(step)
 
         self.assertEqual(pace, expected_pace)
+
+    def test_print_workout_json(self) -> None:
+        workout = {
+            'workoutId': '123',
+            'workoutName': 'Test Workout',
+            'description': 'This is a test workout'
+        }
+
+        expected_output = '{"workoutId": "123", "workoutName": "Test Workout", "description": "This is a test workout"}'
+
+        with patch('builtins.print') as mock_print:
+            Workout.print_workout_json(workout)
+            mock_print.assert_called_once_with(expected_output)
+
+    def test_extract_workout_owner_id(self) -> None:
+        workout: dict = {
+            'ownerId': '12345'
+        }
+
+        owner_id: str = Workout.extract_workout_owner_id(workout)
+
+        self.assertEqual(owner_id, '12345')
+
+    def test_running_workout_with_plan(self) -> None:
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1',
+                                         '21_1.yaml')
+        config: dict = configreader.read_config(workout_file)
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200'),
+            cFTP=Power('200'),
+            plan='5K Training Plan',
+            race=date.today()
+        )
+        expected_description = "Plan: 5K Training Plan. "
+        expected_description += "Estimated Duration: 0:50:00; 10.44 km. 4:47 min/km - 73.08% vVO2. rTSS: 45.0"
+
+        description: str | None = workout._generate_description()
+
+        self.assertEqual(description, expected_description)
+
+    def test_running_workout_without_plan(self) -> None:
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1',
+                                         '21_1.yaml')
+        config: dict = configreader.read_config(workout_file)
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        expected_description = 'W1-Short Run. Estimated Duration: 0:50:00; 10.44 km. 4:47 min/km - 73.08% vVO2. '
+        expected_description += 'rTSS: 45.0'
+
+        description: str | None = workout._generate_description()
+
+        self.assertEqual(description, expected_description)
+
+    def test_cycling_workout(self) -> None:
+        workout_file: str = os.path.join('.', 'trainingplans', 'Cycling', 'Garmin', 'Crit', 'Advanced', 'Power',
+                                         'RacePhase1Base', 'R1_3.yaml')
+        config: dict = configreader.read_config(workout_file)
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=account.fmin,
+            fmax=account.fmax,
+            flt=account.flt,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        expected_description = 'FTP 200, TSS 96, NP 195, IF 0.98'
+
+        description: str | None = workout._generate_description()
+
+        self.assertEqual(description, expected_description)
+
+    def test_swimming_workout(self) -> None:
+        workout = Workout(
+            config={},
+            target=[],
+            vVO2=Pace('5:00'),
+            fmin=60,
+            fmax=200,
+            flt=185,
+            rFTP=Power('400w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        workout.mileage = 1.5
+        expected_description = '. Plan: . '
+
+        description: str | None = workout._generate_description()
+
+        self.assertEqual(description, expected_description)
+
+    def test_cardio_workout(self) -> None:
+        workout = Workout(
+            config={},
+            target=[],
+            vVO2=Pace('5:00'),
+            fmin=60,
+            fmax=200,
+            flt=185,
+            rFTP=Power('400w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        workout.ratio = 0.75
+        workout.tss = 50
+        expected_description = '. Plan: . '
+
+        description: str | None = workout._generate_description()
+
+        self.assertEqual(description, expected_description)
+
+    def test_target_type(self) -> None:
+        workout = Workout()
+        step_config: dict = {
+            "type": "interval",
+            "target": {
+                "type": "power.zone",
+                "min": 100,
+                "max": 200
+            }
+        }
+        expected_target_type: dict = {'workoutTargetTypeId': 2, 'workoutTargetTypeKey': 'power.zone'}
+
+        target_type: dict = workout._target_type(step_config)
+
+        self.assertEqual(target_type, expected_target_type)
+
+    def test_extract_target_value_heart_rate_zone(self) -> None:
+        step = {
+            "type": "heart.rate.zone",
+            "zone": 2
+        }
+
+        target_type, target_value = self.workout.extract_target_value(step, "max")
+
+        self.assertEqual(target_type, "heart.rate.zone")
+        self.assertEqual(target_value, "0.8")
+
+    def test_extract_target_value_power_zone(self) -> None:
+        step: dict = {
+            "type": "power.zone",
+            "zone": 3
+        }
+
+        target_type, target_value = self.workout.extract_target_value(step, "min")
+
+        self.assertEqual(target_type, "power.zone")
+        self.assertEqual(target_value, "0.9")
 
 
 if __name__ == '__main__':
