@@ -18,7 +18,7 @@ class BaseTest(unittest.TestCase):
                 workouts, notes, plan = settings(args)
                 self.assertGreater(len(workouts), 0, tp + ' has not files')
 
-    def plaftform_workout_files(self, tp_list) -> None:
+    def platform_workout_files(self, tp_list) -> None:
         authed_gclient = GarminClient(account.EMAIL, account.PASSWORD)
         for tp in tp_list:
             with self.subTest():

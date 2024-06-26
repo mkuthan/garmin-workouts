@@ -3,7 +3,7 @@ from garminworkouts.garmin.garminclient import GarminClient
 
 def test_external_workouts(authed_gclient: GarminClient) -> None:
     locale = 'en-US'
-    authed_gclient.external_workouts(locale)
+    assert authed_gclient.external_workouts(locale)
 
 
 def test_get_external_workout(authed_gclient: GarminClient) -> None:
