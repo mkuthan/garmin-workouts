@@ -389,9 +389,9 @@ class ZonesTestCase(unittest.TestCase):
             config=config,
             target=target,
             vVO2=Pace('3:30'),
-            fmin=account.fmin,
-            fmax=account.fmax,
-            flt=account.flt,
+            fmin=44,
+            fmax=183,
+            flt=167,
             rFTP=Power('200'),
             cFTP=Power('200'),
             plan='5K Training Plan',
@@ -413,9 +413,9 @@ class ZonesTestCase(unittest.TestCase):
             config=config,
             target=target,
             vVO2=Pace('3:30'),
-            fmin=account.fmin,
-            fmax=account.fmax,
-            flt=account.flt,
+            fmin=44,
+            fmax=183,
+            flt=167,
             rFTP=Power('200w'),
             cFTP=Power('200w'),
             plan='',
@@ -437,9 +437,9 @@ class ZonesTestCase(unittest.TestCase):
             config=config,
             target=target,
             vVO2=Pace('3:30'),
-            fmin=account.fmin,
-            fmax=account.fmax,
-            flt=account.flt,
+            fmin=44,
+            fmax=183,
+            flt=167,
             rFTP=Power('200w'),
             cFTP=Power('200w'),
             plan='',
@@ -508,8 +508,56 @@ class ZonesTestCase(unittest.TestCase):
 
         self.assertEqual(target_type, expected_target_type)
 
+    def test_target_type_nodict(self) -> None:
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=[],
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        step_config: dict = {
+            "type": "interval",
+            "target": '40<AEROBIC_PACE'
+        }
+        expected_target_type: dict = {'workoutTargetTypeId': 6, 'workoutTargetTypeKey': 'pace.zone'}
+
+        target_type: dict = workout._target_type(step_config)
+
+        self.assertEqual(target_type, expected_target_type)
+
+    def test_target_type_nointarget(self) -> None:
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=[],
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+        step_config: dict = {
+            "type": "interval",
+            "target": '40<AEROBI_PACE'
+        }
+        expected_target_type: dict = {'workoutTargetTypeId': 1, 'workoutTargetTypeKey': 'no.target'}
+
+        target_type: dict = workout._target_type(step_config)
+
+        self.assertEqual(target_type, expected_target_type)
+
     def test_extract_target_value_heart_rate_zone(self) -> None:
-        step = {
+        step: dict = {
             "type": "heart.rate.zone",
             "zone": 2
         }
@@ -529,6 +577,32 @@ class ZonesTestCase(unittest.TestCase):
 
         self.assertEqual(target_type, "power.zone")
         self.assertEqual(target_value, "0.9")
+
+    def test_sec_greater_than_zero_running(self):
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1',
+                                         '21_1.yaml')
+        config: dict = configreader.read_config(workout_file)
+        target: dict = configreader.read_config(r'target.yaml')
+        workout = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+        )
+
+        expected_duration: dict = {
+            'estimatedDurationInSecs': 3000,
+            'estimatedDistanceInMeters': 10440.0,
+            'avgTrainingSpeed': 3.48
+            }
+
+        self.assertEqual(workout.get_estimated_duration(), expected_duration)
 
 
 if __name__ == '__main__':

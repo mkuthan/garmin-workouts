@@ -329,30 +329,21 @@ class Workout(object):
         return self._get_target_value(target_i, val)
 
     def target_variations(self, target: str, target_type: str, val: str) -> float:
+        tv: float = 0.0
         target, d = self.extract_target_diff(target)
         if target_type == 'pace.zone':
-            return round(
+            tv = round(
                 self.time_difference_pace(self._get_target_value(target, key=val), d) / self.vVO2.to_pace(), 2)
         elif target_type == 'heart.rate.zone':
             s: float = self.convert_targetHR_to_targetvVO2(self.convert_HR_to_targetHR(
                 self._get_target_value(target, key=val))) * self.vVO2.to_pace()
             s = self.time_difference_pace(s, d)
-            return round(self.convert_targetvVO2_to_targetHR(s / self.vVO2.to_pace()), 2)
-        else:
-            return float(0)
+            tv = round(self.convert_targetvVO2_to_targetHR(s / self.vVO2.to_pace()), 2)
+        return tv
 
     def _get_target_value(self, target, key) -> float:
         target_type, target_value = self.extract_target_value(target, key)
-        if target_type == 'power.zone':
-            if self.sport_type == 'running':
-                return Power(target_value).to_watts(ftp=self.rFTP.power[:-1])
-            elif self.sport_type == 'cycling':
-                return Power(target_value).to_watts(ftp=self.cFTP.power[:-1])
-            else:
-                return float(0)
-        elif target_type == 'cadence.zone':
-            return float(target_value)
-        elif target_type == 'heart.rate.zone':
+        if target_type == 'heart.rate.zone':
             return float(self.convert_targetHR_to_HR(float(target_value)))
         elif target_type == 'speed.zone':
             return float(target_value)
@@ -368,7 +359,7 @@ class Workout(object):
         target: str = step_config.get(_SECONDARY) if secondary else step_config.get(_TARGET)
         if isinstance(target, dict):
             return get_target_type(target[_TYPE])
-        target, d = self.extract_target_diff(target)
+        target, _ = self.extract_target_diff(target)
         if not target or (target not in self.target):
             return get_target_type('no.target')
         else:
@@ -472,21 +463,14 @@ class Workout(object):
         print('{0} {1:20} {2}'.format(workout_id, workout_name, workout_description))
 
     def get_estimated_duration(self) -> dict[str, float | None]:
-        if self.sec > 0:
-            if self.sport_type == 'running':
-                estimatedSec = self.sec
-            else:
-                estimatedSec = None
-        else:
-            estimatedSec = None
+        estimatedSec = None
+        estimatedMet = None
 
-        if self.mileage > 0:
-            if self.sport_type == 'running':
-                estimatedMet = self.mileage * 1000
-            else:
-                estimatedMet = None
-        else:
-            estimatedMet = None
+        if self.sec > 0 and self.sport_type == 'running':
+            estimatedSec: float | None = self.sec
+
+        if self.mileage > 0 and self.sport_type == 'running':
+            estimatedMet: float | None = self.mileage * 1000
 
         return {
             _ESTIMATED_DURATION: estimatedSec,
