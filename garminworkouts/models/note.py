@@ -23,8 +23,9 @@ class Note:
             'date': date
         }
 
-    def extract_note_id(self) -> str:
-        return self.config.get('id', '')
+    @staticmethod
+    def extract_note_id(note) -> str:
+        return note.get('id', '')
 
     def print_note_summary(self) -> None:
         note_id: str = self.config.get('id')
