@@ -31,7 +31,7 @@ class TestNote(unittest.TestCase):
         self.assertEqual(note.get_note_date(), expected_output)
 
     def test_extract_note_id(self) -> None:
-        self.assertEqual(self.note.extract_note_id(), '123')
+        self.assertEqual(Note.extract_note_id(self.config), '123')
 
     def test_get_note_date_default(self) -> None:
         config: dict[str, str] = {'name': 'SampleNote', 'content': 'Sample content'}
