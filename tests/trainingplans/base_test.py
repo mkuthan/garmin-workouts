@@ -8,6 +8,7 @@ from requests import Response
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
+from garminworkouts.models.note import Note
 
 
 class BaseTest(unittest.TestCase):
@@ -15,8 +16,8 @@ class BaseTest(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = argparse.Namespace(trainingplan=tp)
-                workouts, notes, plan = settings(args)
-                self.assertGreater(len(workouts), 0, tp + ' has not files')
+                workouts, notes, _ = settings(args)
+                self.assertGreater(len(workouts) + len(notes), 0, tp + ' has not files')
 
     def platform_workout_files(self, tp_list) -> None:
         authed_gclient = GarminClient(account.EMAIL, account.PASSWORD)
@@ -55,5 +56,28 @@ class BaseTest(unittest.TestCase):
                     self.assertIsInstance(r, Response)
                     self.assertIn(r.status_code, (200, 204))
                     r = authed_gclient.delete_workout(workout_id)
+                    self.assertIsInstance(r, Response)
+                    self.assertIn(r.status_code, (200, 204))
+                for note in notes:
+                    npayload: dict = note.create_note(date=date.today().isoformat())
+                    self.assertIsInstance(npayload, dict, tp + ' ' + note.config['name'] + ' drops an exception')
+                    n: dict = authed_gclient.save_note(note=npayload)
+                    self.assertIsInstance(n, dict,  tp + ' ' + note.config['name'] + ' drops an exception')
+                    note_id: str = Note.extract_note_id(n)
+                    self.assertIsInstance(note_id, (int, float), tp + ' ' + note.config['name']
+                                          + ' drops an exception')
+                    self.assertNotIsInstance(note_id, bool)
+                    npayload = note.create_note(id=note_id, date=date.today().isoformat())
+                    self.assertIsInstance(npayload, dict)
+                    r: Response = authed_gclient.update_note(note_id, npayload)
+                    self.assertIsInstance(r, Response)
+                    self.assertIn(r.status_code, (200, 204))
+                    r = authed_gclient.get_note(trainingplan=False, note_id=note_id)
+                    self.assertIsInstance(r, Response)
+                    self.assertIn(r.status_code, (200, 204))
+                    self.assertIsInstance(authed_gclient.download_note_yaml(False, note_id, f"{note_id}.yaml"),
+                                          dict)
+                    os.remove(f"{note_id}.yaml")
+                    r = authed_gclient.delete_note(note_id)
                     self.assertIsInstance(r, Response)
                     self.assertIn(r.status_code, (200, 204))

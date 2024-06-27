@@ -4,6 +4,8 @@ import os
 
 class WorkoutestCase(BaseTest):
     def test_workout(self) -> None:
-        workout_file: list = [os.path.join('.', 'trainingplans', 'Running', '*',
-                                           'Half', 'Advanced', 'Meso1', '21_1.yaml')]
-        self.platform_workout_files(workout_file)
+        workout_files: list = [
+            os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1', '21_1.yaml'),
+            os.path.join('.', 'trainingplans', 'Running', '*', '5k', 'Beginner', 'Time', 'R1_1.yaml')
+        ]
+        self.platform_workout_files(workout_files)
