@@ -32,3 +32,8 @@ def test_events_methods(authed_gclient: GarminClient) -> None:
     assert authed_gclient.get_event(event_id)
     assert authed_gclient.update_event(event_id, e)
     assert authed_gclient.delete_event(event_id)
+
+
+def test_find_events(authed_gclient: GarminClient) -> None:
+    event_list = authed_gclient.find_events()
+    assert event_list
