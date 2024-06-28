@@ -10,7 +10,7 @@ import re
 
 class GarminClient(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "24.13.0.126"
+    _GARMIN_VERSION = "24.13.1.0"
     _WORKOUT_SERVICE_ENDPOINT = "/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/activity-service"
