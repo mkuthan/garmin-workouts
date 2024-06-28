@@ -19,8 +19,17 @@ def test_get_external_workout(authed_gclient: GarminClient) -> None:
 
 
 def test_list_workouts(authed_gclient: GarminClient) -> None:
-    workout_list = authed_gclient.list_workouts()
-    assert workout_list
+    # Call the method under test
+    workouts = list(authed_gclient.list_workouts())
+
+    # Assert that the returned value is a list
+    assert isinstance(workouts, list)
+
+    # Assert that the list is not empty
+    assert len(workouts) > 0
+
+    # Assert that each item in the list is a dictionary
+    assert all(isinstance(workout, dict) for workout in workouts)
 
 
 class WorkoutestCase(BaseTest):

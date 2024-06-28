@@ -4,8 +4,25 @@ from garminworkouts.models.event import Event
 
 
 def test_list_events(authed_gclient: GarminClient) -> None:
-    event_list = authed_gclient.list_events()
-    assert event_list
+    # Call the method under test
+    events = list(authed_gclient.list_events())
+
+    # Assert that the returned value is a list
+    assert isinstance(events, list)
+
+    # Assert that the list is not empty
+    assert len(events) > 0
+
+
+def test_find_events(authed_gclient: GarminClient) -> None:
+    # Call the method under test
+    events = list(authed_gclient.find_events())
+
+    # Assert that the returned value is a list
+    assert isinstance(events, list)
+
+    # Assert that the list is not empty
+    assert len(events) > 0
 
 
 def test_events_methods(authed_gclient: GarminClient) -> None:
@@ -32,8 +49,3 @@ def test_events_methods(authed_gclient: GarminClient) -> None:
     assert authed_gclient.get_event(event_id)
     assert authed_gclient.update_event(event_id, e)
     assert authed_gclient.delete_event(event_id)
-
-
-def test_find_events(authed_gclient: GarminClient) -> None:
-    event_list = authed_gclient.find_events()
-    assert event_list
