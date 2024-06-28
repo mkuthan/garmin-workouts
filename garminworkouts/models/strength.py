@@ -5687,7 +5687,7 @@ TOTAL_BODY = {
         'primaryMuscles': [
             'ABS', 'CHEST', 'CALVES', 'GLUTES', 'HIPS', 'QUADS', 'TRAPS', 'LATS', 'SHOULDERS', 'TRICEPS'
         ],
-    'secondaryMuscles': ['HAMSTRINGS'],
+        'secondaryMuscles': ['HAMSTRINGS'],
     },
     'ONE_ARM_BURPEE': {
         'primaryMuscles': ['ABS', 'CHEST', 'CALVES', 'GLUTES', 'HIPS', 'QUADS'],

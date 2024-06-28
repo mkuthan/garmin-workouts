@@ -10,7 +10,7 @@ import re
 
 class GarminClient(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "24.13.0.126"
+    _GARMIN_VERSION = "24.13.1.0"
     _WORKOUT_SERVICE_ENDPOINT = "/workout-service"
     _CALENDAR_SERVICE_ENDPOINT = "/calendar-service"
     _ACTIVITY_SERVICE_ENDPOINT = "/activity-service"
@@ -566,7 +566,7 @@ class GarminClient(object):
                         dict_str += '\'primaryMuscles\': [\n            '
                         comb = '\', \''.join(q.get(ex).get('primaryMuscles')) + ',\n'
                         dict_str += "\'" + comb[:-2] + "\'\n"
-                        dict_str += '        ],\n    '
+                        dict_str += '        ],\n        '
                     if len('\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    ') <= 112:
                         dict_str += '\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    '
                     else:
