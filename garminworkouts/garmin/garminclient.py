@@ -560,8 +560,20 @@ class GarminClient(object):
 
                 for ex in q:
                     dict_str += '\'' + ex + '\': {\n        '
-                    dict_str += '\'primaryMuscles\': ' + repr(q.get(ex).get('primaryMuscles')) + ',\n        '
-                    dict_str += '\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    '
+                    if len('\'primaryMuscles\': ' + repr(q.get(ex).get('primaryMuscles')) + ',') <= 112:
+                        dict_str += '\'primaryMuscles\': ' + repr(q.get(ex).get('primaryMuscles')) + ',\n        '
+                    else:
+                        dict_str += '\'primaryMuscles\': [\n            '
+                        comb = '\', \''.join(q.get(ex).get('primaryMuscles')) + ',\n'
+                        dict_str += "\'" + comb[:-2] + "\'\n"
+                        dict_str += '        ],\n    '
+                    if len('\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    ') <= 112:
+                        dict_str += '\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    '
+                    else:
+                        dict_str += '\'secondaryMuscles\': [\n            '
+                        comb = '\', \''.join(q.get(ex).get('secondaryMuscles')) + ',\n'
+                        dict_str += "\'" + comb[:-2] + "\'\n"
+                        dict_str += '        ],\n    '
                     dict_str += '},\n    '
 
                 fp.write(dict_str + "}\n")

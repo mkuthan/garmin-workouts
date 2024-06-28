@@ -2868,7 +2868,9 @@ OLYMPIC_LIFT = {
     },
     'BARBELL_HANG_POWER_SNATCH': {
         'primaryMuscles': ['GLUTES', 'SHOULDERS', 'QUADS', 'TRAPS'],
-        'secondaryMuscles': ['ABS', 'BICEPS', 'FOREARM', 'HAMSTRINGS', 'LOWER_BACK', 'TRICEPS', 'CALVES', 'ADDUCTORS'],
+        'secondaryMuscles': [
+            'ABS', 'BICEPS', 'FOREARM', 'HAMSTRINGS', 'LOWER_BACK', 'TRICEPS', 'CALVES', 'ADDUCTORS'
+        ],
     },
     'BARBELL_HANG_PULL': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS'],
@@ -2888,11 +2890,15 @@ OLYMPIC_LIFT = {
     },
     'BARBELL_POWER_SNATCH': {
         'primaryMuscles': ['GLUTES', 'SHOULDERS', 'QUADS', 'TRAPS'],
-        'secondaryMuscles': ['ABS', 'BICEPS', 'FOREARM', 'HAMSTRINGS', 'LOWER_BACK', 'TRICEPS', 'CALVES', 'ADDUCTORS'],
+        'secondaryMuscles': [
+            'ABS', 'BICEPS', 'FOREARM', 'HAMSTRINGS', 'LOWER_BACK', 'TRICEPS', 'CALVES', 'ADDUCTORS'
+        ],
     },
     'BARBELL_SNATCH': {
         'primaryMuscles': ['GLUTES', 'SHOULDERS', 'QUADS', 'TRAPS'],
-        'secondaryMuscles': ['ABS', 'BICEPS', 'HAMSTRINGS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'CALVES', 'ADDUCTORS'],
+        'secondaryMuscles': [
+            'ABS', 'BICEPS', 'HAMSTRINGS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'CALVES', 'ADDUCTORS'
+        ],
     },
     'BARBELL_SPLIT_JERK': {
         'primaryMuscles': ['SHOULDERS'],
@@ -2908,11 +2914,15 @@ OLYMPIC_LIFT = {
     },
     'CLEAN_AND_JERK': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS', 'SHOULDERS'],
-        'secondaryMuscles': ['CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'],
+        'secondaryMuscles': [
+            'CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'
+        ],
     },
     'CLEAN_AND_PRESS': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS', 'SHOULDERS'],
-        'secondaryMuscles': ['CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'],
+        'secondaryMuscles': [
+            'CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'
+        ],
     },
     'DUMBBELL_CLEAN': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS'],
@@ -2944,7 +2954,9 @@ OLYMPIC_LIFT = {
     },
     'MEDICINE_BALL_CLEAN': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS'],
-        'secondaryMuscles': ['CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'],
+        'secondaryMuscles': [
+            'CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'
+        ],
     },
     'ONE_HAND_DUMBBELL_SPLIT_SNATCH': {
         'primaryMuscles': ['GLUTES', 'SHOULDERS', 'QUADS'],
@@ -2972,7 +2984,9 @@ OLYMPIC_LIFT = {
     },
     'SQUAT_CLEAN_AND_JERK': {
         'primaryMuscles': ['QUADS', 'HAMSTRINGS', 'GLUTES', 'TRAPS', 'SHOULDERS'],
-        'secondaryMuscles': ['CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'],
+        'secondaryMuscles': [
+            'CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'
+        ],
     },
     }
 
@@ -5078,7 +5092,9 @@ SLEDGE_HAMMER = {
     },
     'HAMMER_SLAM': {
         'primaryMuscles': ['ABS', 'LATS', 'FOREARM'],
-        'secondaryMuscles': ['BICEPS', 'OBLIQUES', 'TRICEPS', 'TRAPS', 'SHOULDERS', 'GLUTES', 'QUADS', 'HAMSTRINGS'],
+        'secondaryMuscles': [
+            'BICEPS', 'OBLIQUES', 'TRICEPS', 'TRAPS', 'SHOULDERS', 'GLUTES', 'QUADS', 'HAMSTRINGS'
+        ],
     },
     'SLEDGE_HAMMER': {
         'primaryMuscles': ['ABS', 'LATS', 'FOREARM'],
@@ -5213,7 +5229,9 @@ SQUAT = {
     },
     'DUMBBELL_THRUSTERS': {
         'primaryMuscles': ['QUADS', 'GLUTES', 'SHOULDERS'],
-        'secondaryMuscles': ['ABS', 'CALVES', 'CHEST', 'HAMSTRINGS', 'HIPS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'FOREARM'],
+        'secondaryMuscles': [
+            'ABS', 'CALVES', 'CHEST', 'HAMSTRINGS', 'HIPS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'FOREARM'
+        ],
     },
     'ELEVATED_SINGLE_LEG_SQUAT': {
         'primaryMuscles': ['GLUTES', 'QUADS'],
@@ -5357,7 +5375,9 @@ SQUAT = {
     },
     'THRUSTERS': {
         'primaryMuscles': ['QUADS', 'GLUTES', 'SHOULDERS'],
-        'secondaryMuscles': ['ABS', 'CALVES', 'CHEST', 'HAMSTRINGS', 'HIPS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'FOREARM'],
+        'secondaryMuscles': [
+            'ABS', 'CALVES', 'CHEST', 'HAMSTRINGS', 'HIPS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'FOREARM'
+        ],
     },
     'UNEVEN_SQUAT': {
         'primaryMuscles': ['QUADS', 'GLUTES'],
@@ -5664,8 +5684,10 @@ TOTAL_BODY = {
         'secondaryMuscles': ['SHOULDERS', 'TRICEPS', 'HAMSTRINGS'],
     },
     'MAN_MAKERS': {
-        'primaryMuscles': ['ABS', 'CHEST', 'CALVES', 'GLUTES', 'HIPS', 'QUADS', 'TRAPS', 'LATS', 'SHOULDERS', 'TRICEPS'],
-        'secondaryMuscles': ['HAMSTRINGS'],
+        'primaryMuscles': [
+            'ABS', 'CHEST', 'CALVES', 'GLUTES', 'HIPS', 'QUADS', 'TRAPS', 'LATS', 'SHOULDERS', 'TRICEPS'
+        ],
+    'secondaryMuscles': ['HAMSTRINGS'],
     },
     'ONE_ARM_BURPEE': {
         'primaryMuscles': ['ABS', 'CHEST', 'CALVES', 'GLUTES', 'HIPS', 'QUADS'],
