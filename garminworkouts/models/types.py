@@ -16,14 +16,11 @@ STEP_TYPES: dict[str, int] = {
     'rest': 5,
     'other': 7,
     'main': 8,
-}
+    }
 
 SPORT_TYPES: dict[str, int] = {
     'running': 1,
-    'trail_running': 1,
     'cycling': 2,
-    'gravel_cycling': 2,
-    'mountain_biking': 2,
     'swimming': 4,
     'strength_training': 5,
     'cardio_training': 6,
@@ -31,14 +28,14 @@ SPORT_TYPES: dict[str, int] = {
     'pilates': 8,
     'hiit': 9,
     'other': 3,
-}
+    }
 
 INTENSITY_TYPES: dict[str, int] = {
     'active': 1,
     'rest': 2,
     'warmup': 3,
-    'cooldown': 4
-}
+    'cooldown': 4,
+    }
 
 STEP_TYPES: dict[str, int] = {
     'warmup': 1,
@@ -52,13 +49,13 @@ STEP_TYPES: dict[str, int] = {
 }
 
 END_CONDITIONS: dict[str, int] = {
-    'lap.button': 1,
-    'time': 2,
-    'distance': 3,
     'calories': 4,
-    'power': 5,
+    'distance': 3,
     'heart.rate': 6,
+    'lap.button': 1,
     'iterations': 7,
+    'power': 5,
+    'time': 2,
     'fixed.rest': 8,
     'fixed.repetition': 9,
     'reps': 10,
@@ -68,15 +65,15 @@ END_CONDITIONS: dict[str, int] = {
     'power.last.lap': 14,
     'max.power.last.lap': 15,
     'repetition.swim.css.offset': 16,
-}
+    }
 
 TARGET_TYPES: dict[str, int] = {
     'no.target': 1,
-    'power.zone': 2,
     'cadence': 3,
     'heart.rate.zone': 4,
-    'speed.zone': 5,
     'pace.zone': 6,
+    'power.zone': 2,
+    'speed.zone': 5,
     'grade': 7,
     'heart.rate.lap': 8,
     'power.lap': 9,
@@ -87,17 +84,17 @@ TARGET_TYPES: dict[str, int] = {
     'swim.stroke': 14,
     'resistance': 15,
     'power.curve': 16,
-    'swim.css.offset': 17,
     'swim.instruction': 18,
-}
+    'swim.css.offset': 17,
+    }
 
 EQUIPMENT_TYPES: dict[str, int] = {
     'fins': 1,
     'kickboard': 2,
     'paddles': 3,
     'pull_buoy': 4,
-    'snorkel': 5
-}
+    'snorkel': 5,
+    }
 
 STROKE_TYPES: dict[str, int] = {
     'any_stroke': 1,
@@ -110,7 +107,7 @@ STROKE_TYPES: dict[str, int] = {
     'mixed': 8,
     'individual_medley_by_round': 9,
     'reverse_individual_medley_by_round': 10,
-}
+    }
 
 SWIM_INSTRUCTION_TYPES: dict[str, int] = {
     'recovery': 1,
@@ -123,13 +120,13 @@ SWIM_INSTRUCTION_TYPES: dict[str, int] = {
     'fast': 8,
     'ascend': 9,
     'descend': 10,
-}
+    }
 
 DRILL_TYPES: dict[str, int] = {
     'kick': 1,
     'pull': 2,
     'drill': 3,
-}
+    }
 
 UNIT_TYPES: dict = {
     'meter': [1, 100.0],
@@ -288,7 +285,7 @@ ACTIVITY_TYPES: dict[str, int] = {
     'resort_snowboarding': 252,
     'dance': 253,
     'jump_rope': 254,
-}
+    }
 
 EVENT_TYPES: dict[str, int] = {
     'race': 1,
@@ -300,7 +297,7 @@ EVENT_TYPES: dict[str, int] = {
     'geocaching': 7,
     'fitness': 8,
     'uncategorized': 9,
-}
+    }
 
 GOLF_CLUB: dict[str, int] = {
     'Driver': 1,
@@ -326,7 +323,7 @@ GOLF_CLUB: dict[str, int] = {
     'Sand Wedge': 21,
     'Lob Wedge': 22,
     'Putter': 23,
-}
+    }
 
 GOLF_FLEX: dict[str, int] = {
     'Regular': 0,
@@ -335,4 +332,4 @@ GOLF_FLEX: dict[str, int] = {
     'Senior': 3,
     'Ladies': 4,
     'Stiff/Regular': 5,
-}
+    }

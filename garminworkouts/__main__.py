@@ -384,11 +384,11 @@ def command_update_types(args) -> None:
         connection.get_types()
 
 
-def updateGarminVersion(args):
+def updateGarmin(args):
     file_path = "./garminworkouts/garmin/garminclient.py"
     flags = 0
     with _garmin_client(args) as connection:
-        subs = connection.version
+        subs: str = connection.version
 
         with open(file_path, "r+") as file:
             file_contents = file.read()
@@ -398,6 +398,8 @@ def updateGarminVersion(args):
             file.seek(0)
             file.truncate()
             file.write(file_contents)
+
+        connection.get_types()
 
 
 def main() -> None:
@@ -513,7 +515,7 @@ def main() -> None:
     parser_delete.set_defaults(func=command_challenge_list)
 
     parser_delete = subparsers.add_parser('garmin-update', description='Garmin version update')
-    parser_delete.set_defaults(func=updateGarminVersion)
+    parser_delete.set_defaults(func=updateGarmin)
 
     args: argparse.Namespace = parser.parse_args()
 

@@ -1,4 +1,3 @@
-import json
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
@@ -6,6 +5,7 @@ from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.extraction import Extraction
 import garth
 import os
+import re
 
 
 class GarminClient(object):
@@ -331,97 +331,241 @@ class GarminClient(object):
         }
         return self.get(url, params=params).json()
 
-    def delete_training_plan(self, plan_id) -> None:
+    def delete_training_plan(self, plan_id) -> Response:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/trainingplan/{plan_id}"
-        self.delete(url)
+        return self.delete(url)
 
     def get_types(self) -> None:
+        file_path = os.path.join(".", "garminworkouts", "models", "types.py")
+
         url: str = f"{self._WORKOUT_SERVICE_ENDPOINT}/workout/types"
         response: dict = self.get(url).json()
 
-        sec = {}
-        for type in response.get('workoutSportTypes', dict):
-            sec.update({type.get('sportTypeKey'): type.get('sportTypeId')})
-        print('SPORT_TYPES =', sec, '\n')
+        flags = 0
 
-        sec = {}
-        for type in response.get('workoutIntensityTypes', dict):
-            sec.update({type.get('intensityTypeKey'): type.get('intensityTypeId')})
-        print('INTENSITY_TYPES =', sec, '\n')
-
-        sec = {}
+        dict_str = "\n    "
         for type in response.get('workoutStepTypes', dict):
-            sec.update({type.get('stepTypeKey'): type.get('stepTypeId')})
-        print('STEP_TYPES =', sec, '\n')
+            dict_str += f"'{str(type.get('stepTypeKey'))}': {type.get('stepTypeId')},\n    "
 
-        sec = {}
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'STEP_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
+        for type in response.get('workoutSportTypes', dict):
+            dict_str += f"'{str(type.get('sportTypeKey'))}': {type.get('sportTypeId')},\n    "
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'SPORT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
         for type in response.get('workoutConditionTypes', dict):
-            sec.update({type.get('conditionTypeKey'): type.get('conditionTypeId')})
-        print('END_CONDITIONS = ', sec, '\n')
+            dict_str += f"'{str(type.get('conditionTypeKey'))}': {type.get('conditionTypeId')},\n    "
 
-        sec = {}
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'END_CONDITIONS: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
+        for type in response.get('workoutIntensityTypes', dict):
+            dict_str += f"'{str(type.get('intensityTypeKey'))}': {type.get('intensityTypeId')},\n    "
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'INTENSITY_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
         for type in response.get('workoutTargetTypes', dict):
-            sec.update({type.get('workoutTargetTypeKey'): type.get('workoutTargetTypeId')})
-        print('TARGET_TYPES = ', sec, '\n')
+            dict_str += f"'{str(type.get('workoutTargetTypeKey'))}': {type.get('workoutTargetTypeId')},\n    "
 
-        sec = {}
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'TARGET_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
         for type in response.get('workoutEquipmentTypes', dict):
-            sec.update({type.get('equipmentTypeKey'): type.get('equipmentTypeId')})
-        print('EQUIPMENT_TYPES = ', sec, '\n')
+            dict_str += f"'{str(type.get('equipmentTypeKey'))}': {type.get('equipmentTypeId')},\n    "
 
-        sec: dict = {}
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'EQUIPMENT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
         for type in response.get('workoutStrokeTypes', dict):
-            sec.update({type.get('strokeTypeKey'): type.get('strokeTypeId')})
-        print('STROKE_TYPES = ', sec, '\n')
+            dict_str += f"'{str(type.get('strokeTypeKey'))}': {type.get('strokeTypeId')},\n    "
 
-        self.get_activity_types()
-        self.get_event_types()
-        self.get_golf_types()
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'STROKE_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
+        for type in response.get('workoutSwimInstructionTypes', dict):
+            dict_str += f"'{str(type.get('swimInstructionTypeKey'))}': {type.get('swimInstructionTypeId')},\n    "
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'SWIM_INSTRUCTION_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        dict_str = "\n    "
+        for type in response.get('workoutDrillTypes', dict):
+            dict_str += f"'{str(type.get('drillTypeKey'))}': {type.get('drillTypeId')},\n    "
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'DRILL_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        self.get_activity_types(file_path)
+        self.get_event_types(file_path)
+        self.get_golf_types(file_path)
         self.get_strength_types()
 
-    def get_activity_types(self) -> None:
+    def get_activity_types(self, file_path) -> None:
         url: str = f"{self._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
         response: dict = self.get(url).json()
 
-        sec: dict = {}
+        dict_str = "\n    "
         for type in response:
-            sec.update({type.get('typeKey'): type.get('typeId')})
-        print('ACTIVITY_TYPES = ', sec, '\n')
+            dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
 
-    def get_event_types(self) -> None:
+        flags = 0
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'ACTIVITY_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+    def get_event_types(self, file_path) -> None:
         url: str = f"{self._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
         response: dict = self.get(url).json()
 
-        sec: dict = {}
-
+        dict_str = "\n    "
         for type in response:
-            sec.update({type.get('typeKey'): type.get('typeId')})
-        print('EVENT_TYPES = ', sec, '\n')
+            dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
 
-    def get_golf_types(self) -> None:
+        flags = 0
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'EVENT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+    def get_golf_types(self, file_path) -> None:
         url = f"{self._GOLF_COMMUNITY_ENDPOINT}/types"
         response: dict = self.get(url).json()
 
-        sec = {}
+        dict_str = "\n    "
         for type in response:
-            sec.update({type.get('name'): type.get('value')})
-        print('GOLF_CLUB = ', sec, '\n')
+            dict_str += f"'{str(type.get('name'))}': {str(type.get('value'))},\n    "
+
+        flags = 0
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'GOLF_CLUB: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
 
         url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
-
         response = self.get(url).json()
 
-        sec: dict = {}
+        dict_str = "\n    "
         for type in response:
-            sec.update({type.get('name'): type.get('id')})
-        print('GOLF_FLEX = ', sec, '\n')
+            dict_str += f"'{str(type.get('name'))}': {str(type.get('id'))},\n    "
+
+        with open(file_path, "r+") as file:
+            file_contents = file.read()
+            text: str = re.findall(r'GOLF_FLEX: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
+            text_pattern = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
 
     def get_strength_types(self) -> None:
         url: str = "/web-data/exercises/Exercises.json"
-        sec: dict = self.garth.get("connect", url).json()
+        sec: dict = self.garth.get("connect", url).json().get('categories')
+
+        new_dicts = []  # List to store the new dictionaries
+
+        for key, value in sec.items():
+            # Step 3: For each key-value pair, create a new dictionary
+            new_dict = {key: value}
+
+            # Step 5: Store the new dictionary
+            new_dicts.append(new_dict)
 
         with open(os.path.join(".", "garminworkouts", "models", "strength.py"), "w") as fp:
-            json.dump(sec, fp)  # encode dict into JSON
+            ind = 0
+            for d in new_dicts:
+                dict_str = ''
+                if ind > 0:
+                    fp.write("\n")
+                s = str(list(d.keys())[0])
+                dict_str += s + ' = {\n    '
+                q = d.get(s).get('exercises')
+
+                for ex in q:
+                    dict_str += '\'' + ex + '\': {\n        '
+                    dict_str += '\'primaryMuscles\': ' + repr(q.get(ex).get('primaryMuscles')) + ',\n        '
+                    dict_str += '\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    '
+                    dict_str += '},\n    '
+
+                fp.write(dict_str + "}\n")
+                ind += 1
 
     def get_RHR(self) -> int:
         url: str = f"{self._WELLNESS_SERVICE_ENDPOINT}/wellness/dailyHeartRate"
@@ -436,17 +580,17 @@ class GarminClient(object):
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
         return self.get(url).json()
 
-    def save_hr_zones(self, zones) -> dict:
+    def save_hr_zones(self, zones) -> Response:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/heartRateZones"
-        return self.put(url, json=zones).json()
+        return self.put(url, json=zones)
 
     def get_power_zones(self) -> dict:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/sports/all"
         return self.get(url).json()
 
-    def save_power_zones(self, zones) -> dict:
+    def save_power_zones(self, zones) -> Response:
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
-        return self.put(url, json=zones).json()
+        return self.put(url, json=zones)
 
     def find_events(self) -> Generator[Response, Any, None]:
         url = "race-search/events"
