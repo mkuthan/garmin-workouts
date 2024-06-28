@@ -4,7 +4,8 @@ from garminworkouts.models.event import Event
 
 
 def test_list_events(authed_gclient: GarminClient) -> None:
-    assert authed_gclient.list_events()
+    event_list = authed_gclient.list_events()
+    assert event_list
 
 
 def test_events_methods(authed_gclient: GarminClient) -> None:

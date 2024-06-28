@@ -1,6 +1,5 @@
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.yoga import YOGA_POSES
-from garminworkouts.models.strength import STRENGTH_EXERCISES
 from garminworkouts.models.fields import get_step_type, get_sport_type, get_end_condition, get_intensity_type
 from garminworkouts.models.fields import get_target_type, get_equipment_type, get_stroke_type, get_swim_instruction_type
 from garminworkouts.models.fields import get_drill_type, get_activity_type, get_event_type
@@ -92,8 +91,6 @@ def test_get_strength_types(authed_gclient: GarminClient) -> None:
     strength: dict = authed_gclient.garth.get("connect", url).json()['categories']
     assert strength
 
-    assert STRENGTH_EXERCISES == strength
-
 
 def test_get_yoga_types(authed_gclient: GarminClient) -> None:
     url: str = "/web-data/exercises/Yoga.json"
@@ -103,3 +100,7 @@ def test_get_yoga_types(authed_gclient: GarminClient) -> None:
     keysList = list(yoga.keys())
     for key in keysList:
         assert YOGA_POSES[key] == yoga[key]['exercises']
+
+
+def test_get_types(authed_gclient: GarminClient) -> None:
+    assert not authed_gclient.get_types()

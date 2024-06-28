@@ -403,7 +403,7 @@ class GarminClient(object):
         response: dict = self.get(url).json()
 
         sec = {}
-        for type in json.loads(response.get('text', dict)):
+        for type in response:
             sec.update({type.get('name'): type.get('value')})
         print('GOLF_CLUB = ', sec, '\n')
 
