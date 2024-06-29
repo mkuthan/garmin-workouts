@@ -1,11 +1,23 @@
 from garminworkouts.garmin.garminclient import GarminClient
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 import os
 
 
+def custom_get_side_effect(url, params) -> MagicMock:
+    # Custom logic to return different values based on args or kwargs
+    if url == "/activitylist-service/activities/search/activities" and params.get('start') == '0':
+        return MagicMock(json=lambda: {'uuid': '123'})
+    elif url == "/activitylist-service/activities/search/activities":
+        return MagicMock(json=lambda: None)
+    else:
+        return MagicMock(status_code=404)
+
+
 def test_get_activities_by_date(authed_gclient: GarminClient) -> None:
-    act_list: list[dict] = authed_gclient.get_activities_by_date()
-    assert len(act_list) >= 0
+    with patch.object(authed_gclient, 'get') as mock_get:
+        mock_get.side_effect = custom_get_side_effect
+        act_list: list[dict] = authed_gclient.get_activities_by_date()
+        assert len(act_list) >= 0
 
 
 def test_get_activity(authed_gclient: GarminClient) -> None:
