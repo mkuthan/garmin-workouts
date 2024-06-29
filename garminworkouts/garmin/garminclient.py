@@ -293,7 +293,7 @@ class GarminClient(object):
 
         return activities
 
-    def download_activity(self, activity_id) -> None:
+    def download_activity(self, activity_id) -> bytes:
         url: str = f"{self._DOWNLOAD_SERVICE}/activity/{activity_id}"
         data: bytes = self.download(url)
 
@@ -304,6 +304,7 @@ class GarminClient(object):
         output_file: str = f"./activities/{str(activity_id)}.zip"
         with open(output_file, "wb") as fb:
             fb.write(data)
+        return data
 
     def list_trainingplans(self, locale) -> dict:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/search"
