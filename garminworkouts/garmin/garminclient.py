@@ -42,8 +42,9 @@ class GarminClient(object):
             # Save tokens for next login
             self.garth.dump("./garminconnect")
 
-        self.display_name: str = self.garth.profile["displayName"]
+        self.display_name: str = self.garth.profile["userName"]
         self.full_name: str = self.garth.profile["fullName"]
+        logging.info("Logged in as %s (%s)", self.full_name, self.display_name)
 
         settings: dict = self.get("/userprofile-service/userprofile/user-settings").json()
         self.unit_system: dict | None = settings["userData"]["measurementSystem"] if settings is not None else None

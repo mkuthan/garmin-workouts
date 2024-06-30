@@ -89,7 +89,7 @@ def update_workouts(ue, workouts, plan, connection) -> None:
 
 
 @staticmethod
-def update_notes(ne, notes, connection) -> None:
+def update_notes(ne, notes, plan, connection) -> None:
     for note in notes:
         day_d, _, _ = note.get_note_date()
         if date.today() <= day_d < date.today() + timedelta(weeks=2):
@@ -119,7 +119,7 @@ def command_trainingplan_import(args) -> None:
         ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
 
         update_workouts(ue, workouts, plan, connection)
-        update_notes(ne, notes, connection)
+        update_notes(ne, notes, plan, connection)
 
 
 def command_event_import(args) -> None:
