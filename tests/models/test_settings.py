@@ -10,7 +10,7 @@ class TestSettingsFunction(unittest.TestCase):
 
         defaultPlanning: dict = {
             'tp': {
-                'workouts': 'trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml',
+                'workouts': ['trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml'],
                 'year': 2024,
                 'month': 1,
                 'day': 1

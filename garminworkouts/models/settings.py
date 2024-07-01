@@ -6,38 +6,11 @@ from garminworkouts.config import configreader
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.note import Note
 import account
+import logging
 
 
 def settings(args, defaultPlanning=None) -> Tuple[List[Workout], List[Note], str]:
-    try:
-        if defaultPlanning:
-            planning: Any = defaultPlanning
-        else:
-            planning = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
-    except FileNotFoundError:
-        print('Planning config not found')
-        planning = {}
-
-    args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
-
-    if args.trainingplan in planning:
-        workout_files: List[Any] = glob.glob(planning[args.trainingplan].get('workouts'))
-        race: date = date.today()
-        plan: Union[str, Any] = args.trainingplan
-
-        if 'year' in planning[args.trainingplan]:
-            race = date(
-                planning[args.trainingplan].get('year'),
-                planning[args.trainingplan].get('month'),
-                planning[args.trainingplan].get('day')
-                )
-    elif '.yaml' in args.trainingplan:
-        workout_files = glob.glob(args.trainingplan)
-        plan = ''
-        race = date.today()
-    else:
-        print(f'{args.trainingplan} not found in planning, please check "planning.yaml"')
-        return [], [], ''
+    workout_files, race, plan = planning_workout_files(args, defaultPlanning)
 
     try:
         target: dict[Any, Any] = configreader.read_config(r'target.yaml')
@@ -64,3 +37,44 @@ def settings(args, defaultPlanning=None) -> Tuple[List[Workout], List[Note], str
     except FileNotFoundError as e:
         print(f"Error reading config file: {e}")
         return [], [], ''
+
+
+def planning_workout_files(args, defaultPlanning):
+    try:
+        if defaultPlanning:
+            planning: Any = defaultPlanning
+        else:
+            planning = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
+    except FileNotFoundError:
+        print('Planning config not found')
+        planning = {}
+
+    args.trainingplan = ''.join(args.trainingplan) if isinstance(args.trainingplan, tuple) else args.trainingplan
+
+    if args.trainingplan in planning:
+        if isinstance(planning[args.trainingplan].get('workouts'), list):
+            workout_files: list[dict | str] = []
+            for files in planning[args.trainingplan].get('workouts'):
+                workout_files.extend(glob.glob(files))
+        else:
+            workout_files = glob.glob(planning[args.trainingplan].get('workouts'))
+        race: date = date.today()
+        plan: Union[str, Any] = args.trainingplan
+
+        if 'year' in planning[args.trainingplan]:
+            race = date(
+                planning[args.trainingplan].get('year'),
+                planning[args.trainingplan].get('month'),
+                planning[args.trainingplan].get('day')
+            )
+    elif '.yaml' in args.trainingplan:
+        workout_files = glob.glob(args.trainingplan)
+        plan = ''
+        race = date.today()
+    else:
+        logging.error(f'{args.trainingplan} not found in planning, please check "planning.yaml"')
+        workout_files = []
+        plan = ''
+        race = date.today()
+
+    return workout_files, race, plan
