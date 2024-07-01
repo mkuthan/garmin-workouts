@@ -18,215 +18,294 @@ class MyTestCase(unittest.TestCase):
                             'type': 'recovery',
                             'duration': '1km',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '1.5km',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '0:01:00',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '1:20:00',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '0:00:50',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '0:01:30',
                             'target': 'RECOVERY_HEART_RATE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'recovery',
                             'duration': '1km',
                             'target': 'RECOVERY_PACE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '1km',
                             'target': 'AEROBIC_PACE',
-                            'description': 'Aerobic pace'
+                            'description': 'Aerobic pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '5km',
                             'target': 'AEROBIC_HEART_RATE',
-                            'description': 'Aerobic pace'
+                            'description': 'Aerobic pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': 'THRESHOLD_HEART_RATE',
-                            'description': 'Threshold pace'
+                            'description': 'Threshold pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': 'THRESHOLD_PACE',
-                            'description': 'Threshold pace'
+                            'description': 'Threshold pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10<THRESHOLD_PACE',
-                            'description': '10s slower than Threshold pace'
+                            'description': '10s slower than Threshold pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10>THRESHOLD_PACE',
-                            'description': '10s quicker than Threshold pace'
+                            'description': '10s quicker than Threshold pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '1km',
                             'target': 'LONG_RUN_PACE',
-                            'description': 'Long run pace'
+                            'description': 'Long run pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '5km',
                             'target': 'LONG_RUN_HEART_RATE',
-                            'description': 'Long run pace'
+                            'description': 'Long run pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': 'MARATHON_HEART_RATE',
-                            'description': 'Marathon pace'
+                            'description': 'Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10<MARATHON_PACE',
-                            'description': '10s slower than Marathon pace'
+                            'description': '10s slower than Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10>MARATHON_PACE',
-                            'description': '10s quicker than Marathon pace'
+                            'description': '10s quicker than Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': 'HALF_MARATHON_PACE',
-                            'description': 'Half Marathon pace'
+                            'description': 'Half Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10<HALF_MARATHON_PACE',
-                            'description': '10s slower than Half Marathon pace'
+                            'description': '10s slower than Half Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'interval',
                             'duration': '0:20:00',
                             'target': '10>HALF_MARATHON_PACE',
-                            'description': '10s quicker than Half Marathon pace'
+                            'description': '10s quicker than Half Marathon pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'warmup',
                             'duration': '1km',
                             'target': 'AEROBIC_HEART_RATE',
-                            'description': 'Warm up'
+                            'description': 'Warm up',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'cooldown',
                             'duration': '1km',
                             'target': 'AEROBIC_HEART_RATE',
-                            'description': 'Cool down'
+                            'description': 'Cool down',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'rest',
                             'duration': '1km',
                             'target': 'WALK',
-                            'description': 'Walk'
+                            'description': 'Walk',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         [{
                             'type': 'interval',
                             'duration': '100m',
                             'target': '1KM_PACE',
-                            'description': 'Strides pace'
+                            'description': 'Strides pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                          {
                             'type': 'rest',
                             'duration': '100m',
                             'target': 'RECOVERY_PACE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         }],
                         [{
                             'type': 'interval', 'duration': '100m', 'target': '5KM_PACE',
-                            'description': 'Long hill climbing'
+                            'description': 'Long hill climbing',
+                            'category': None,
+                            'exerciseName': None,
                             },
                          {
                             'type': 'rest',
                             'duration': '200m',
                             'target': 'RECOVERY_PACE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                             }],
                         [{
-                            'type': 'interval', 'duration': '0:10', 'target': '1KM_PACE', 'description': 'Hill climbing'
+                            'type': 'interval', 'duration': '0:10', 'target': '1KM_PACE',
+                            'description': 'Hill climbing',
+                            'category': None,
+                            'exerciseName': None,
                          },
                          {
                             'type': 'rest',
                             'duration': '0:20',
                             'target': 'RECOVERY_PACE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         }],
                         [{
                             'type': 'interval',
                             'duration': '0:30',
                             'target': '1KM_PACE',
-                            'description': 'Accelerations'
+                            'description': 'Accelerations',
+                            'category': None,
+                            'exerciseName': None,
                          },
                          {
                             'type': 'rest', 'duration': '0:30', 'target': 'RECOVERY_PACE',
-                            'description': 'Recovery pace'
+                            'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         }],
                         [{
                             'type': 'interval', 'duration': '1km', 'target': '5KM_PACE',
-                            'description': 'Series @5k pace'
+                            'description': 'Series @5k pace',
+                            'category': None,
+                            'exerciseName': None,
                          },
                          {
-                            'type': 'rest', 'duration': '2:30', 'target': 'RECOVERY_PACE', 'description': 'Recovery'
+                            'type': 'rest', 'duration': '2:30', 'target': 'RECOVERY_PACE', 'description': 'Recovery',
+                            'category': None,
+                            'exerciseName': None,
                             }],
                         [{
                             'type': 'interval', 'duration': '1000m', 'target': '1500M_PACE',
-                            'description': 'Series @1500 pace'
+                            'description': 'Series @1500 pace',
+                            'category': None,
+                            'exerciseName': None,
                         },
                          {
-                            'type': 'rest', 'duration': '1:00', 'target': 'WALK', 'description': 'Recovery pace'
+                            'type': 'rest', 'duration': '1:00', 'target': 'WALK', 'description': 'Recovery pace',
+                            'category': None,
+                            'exerciseName': None,
                         }],
                         {
                             'type': 'interval', 'duration': '5km',
-                            'target': 'HEART_RATE_ZONE_4', 'description': '5k race'
+                            'target': 'HEART_RATE_ZONE_4', 'description': '5k race',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {},
                         {
                             'type': 'interval', 'duration': '5km',
-                            'target': 'HEART_RATE_ZONE_4', 'description': '5k race'
+                            'target': 'HEART_RATE_ZONE_4', 'description': '5k race',
+                            'category': None,
+                            'exerciseName': None,
                         },
                         {
                             'type': 'rest',
                             'duration': '1km',
                             'target': 'WALK',
-                            'description': 'Walk'
+                            'description': 'Walk',
+                            'category': None,
+                            'exerciseName': None,
                         },
             ]
         }
@@ -235,13 +314,17 @@ class MyTestCase(unittest.TestCase):
 
     def test_race_steps_generator(self) -> None:
         self.assertEqual(generator.race_steps_generator(z1='5km', description=''),
-                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_1', 'description': ''}])
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_1', 'description': '',
+                          'category': None, 'exerciseName': None}])
         self.assertEqual(generator.race_steps_generator(z2='5km', description=''),
-                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_2', 'description': ''}])
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_2', 'description': '',
+                          'category': None, 'exerciseName': None}])
         self.assertEqual(generator.race_steps_generator(z3='5km', description=''),
-                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_3', 'description': ''}])
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_3', 'description': '',
+                          'category': None, 'exerciseName': None}])
         self.assertEqual(generator.race_steps_generator(z4='5km', description=''),
-                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_4', 'description': ''}])
+                         [{'type': 'interval', 'duration': '5km', 'target': 'HEART_RATE_ZONE_4', 'description': '',
+                          'category': None, 'exerciseName': None}])
 
     def test_race_generator(self) -> None:
         self.assertEqual(generator.race_generator('5km', 20),

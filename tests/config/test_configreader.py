@@ -30,7 +30,7 @@ class MyTestCase(unittest.TestCase):
         expected_config: dict = {
             'name': 'Test',
             'steps':
-                [{'power': 90}, {'duration': '12:00'}],
+                [[{'power': 90}, {'duration': '12:00'}]],
         }
 
         self.assertDictEqual(config, expected_config)

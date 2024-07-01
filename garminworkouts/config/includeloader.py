@@ -9,10 +9,12 @@ import datetime
 def extract_duration(s) -> str:
     if 'min' in s:
         duration = str(datetime.timedelta(minutes=float(s.split('min')[0])))
+    elif 'reps' in s:
+        duration = s.split('reps')[0]
     elif 's' in s:
         duration = str(datetime.timedelta(seconds=float(s.split('s')[0])))
     elif ':' in s:
-        duration = s
+        duration: str = s
     elif 'km' in s:
         duration = s
     elif 'm' in s:
@@ -21,14 +23,15 @@ def extract_duration(s) -> str:
         duration = s.split('k')[0] + 'km'
     elif 'half' in s:
         duration = '21.1km'
+
     else:
         duration = s.replace(',', '.') + 'km'
     return duration
 
 
 @staticmethod
-def step_generator(s, duration, objective):
-    step = s
+def step_generator(s, duration, objective) -> dict | list[dict]:
+    step: str = s
     if '>' in step:
         step = step.split('>')[1]
     if '<' in step:
@@ -43,7 +46,7 @@ def step_generator(s, duration, objective):
 def generator_struct(s, duration, objective, step) -> dict | list[dict]:
     match step:
         case 'recovery':
-            d = generator.recovery_step_generator(duration, 'p' in s)
+            d: dict | list[dict] = generator.recovery_step_generator(duration, 'p' in s)
         case 'aerobic':
             d = generator.aerobic_step_generator(duration, 'p' in s)
         case 'lt':
@@ -76,6 +79,14 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             d = generator.anaerobic_generator(duration)
         case 'race':
             d = generator.race_generator(duration, objective)
+        case 'PlankPushHold':
+            d = generator.plankpushhold_generator(duration)
+        case 'CalfHoldLunge':
+            d = generator.calfholdlunge_generator(duration)
+        case 'CalfLunge':
+            d = generator.calflunge_generator(duration)
+        case 'CalfSquatHold':
+            d = generator.calfsquathold_generator(duration)
         case _:
             d = {}
 
