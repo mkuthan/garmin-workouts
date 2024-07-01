@@ -378,8 +378,8 @@ def plankpushangel_generator(duration) -> list[dict]:
         exerciseName='PUSH_UP'))
     steps.append(step_generator(
         category='SHOULDER_STABILITY',
-        description='8 reverse angels',
-        duration='lap.button',
+        description=duration + ' reverse angels',
+        duration=duration + 'reps',
         exerciseName='LYING_EXTERNAL_ROTATION'))
     steps.append(step_generator(
         type='rest',

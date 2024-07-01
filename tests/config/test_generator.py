@@ -419,6 +419,29 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(includeloader.extract_duration('half'), '21.1km')
         self.assertEqual(includeloader.extract_duration('1,5'), '1.5km')
 
+    def test_strength(self) -> None:
+        duration = str(4)
+        steps: list[dict] = []
+        med = str(int(int(duration) / 2))
+        steps.append(generator.step_generator(
+            category='PLANK',
+            description='Shoulder taps',
+            duration=duration + 'reps',
+            exerciseName='STRAIGHT_ARM_PLANK_WITH_SHOULDER_TOUCH'))
+        steps.append(generator.step_generator(
+            category='PUSH_UP',
+            duration=med + 'reps',
+            exerciseName='PUSH_UP'))
+        steps.append(generator.step_generator(
+            category='SHOULDER_STABILITY',
+            description=duration + ' reverse angels',
+            duration=duration + 'reps',
+            exerciseName='LYING_EXTERNAL_ROTATION'))
+        steps.append(generator.step_generator(
+            type='rest',
+            duration='2:00'))
+        self.assertEqual(generator.plankpushangel_generator(duration), steps)
+
 
 if __name__ == '__main__':
     unittest.main()
