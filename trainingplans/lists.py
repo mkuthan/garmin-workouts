@@ -225,4 +225,5 @@ DarebeeLists: list[str] = [
     os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', '1-minute plank', '*.yaml'),
     os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', 'first thing plank hold', '*.yaml'),
     os.path.join('trainingplans', 'Strength', 'Darebee', 'Challenges', '3-normal', 'the miner', '*.yaml'),
+    os.path.join('trainingplans', 'Strength', 'Darebee', 'Programs', '12 weeks to 5k', '*.yaml'),
 ]

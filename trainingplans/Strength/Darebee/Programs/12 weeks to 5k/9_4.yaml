@@ -1,0 +1,10 @@
+name: '9_4'
+description: Strength
+sport: strength_training
+steps:
+- &id001
+  - !include PlankPushHold_8reps.yaml
+- *id001   
+- *id001   
+- *id001   
+- *id001   
