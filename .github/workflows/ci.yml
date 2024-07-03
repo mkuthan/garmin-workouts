@@ -50,7 +50,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: pytest --cov=garminworkouts --cov-report=xml --ignore=garminworkouts/__main__.py tests
-      - uses: codecov/codecov-action@v4.0.1
+      - uses: codecov/codecov-action@v4.5.0
         env:
             CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:          
