@@ -1,11 +1,20 @@
+import json
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
 from typing import Any, Literal, Generator, Optional
+from garminworkouts.models.event import Event
+from garminworkouts.models.fields import _ID, _WORKOUT_ID
+from garminworkouts.models.note import Note
+from garminworkouts.models.trainingplan import TrainingPlan
+from garminworkouts.models.workout import Workout
+from garminworkouts.models.power import Power
 from garminworkouts.models.extraction import Extraction
+from garminworkouts.models.settings import settings
 import garth
 import os
 import re
+import account
 
 
 class GarminClient(object):
@@ -152,6 +161,7 @@ class GarminClient(object):
         return self.put(url, json=workout)
 
     def delete_workout(self, workout_id) -> Response:
+        logging.info("Deleting workout '%s'", workout_id)
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         return self.delete(url)
 
@@ -163,7 +173,7 @@ class GarminClient(object):
         updateable_elements: list[str] = []
         checkable_elements: list[str] = []
         note_elements: dict = {}
-        date_plus_days = date + timedelta(days=days)
+        date_plus_days: datetime = date + timedelta(days=days)
 
         for item in response_jsons:
             item_date = datetime.strptime(item.get('date'), '%Y-%m-%d').date()
@@ -267,7 +277,7 @@ class GarminClient(object):
         # and automatically loads more on scroll
         url: str = f"{GarminClient._ACTIVITY_LIST_SERVICE_ENDPOINT}/activities/search/activities"
 
-        params = {
+        params: dict = {
             "startDate": str(startdate) if startdate else None,
             "endDate": str(enddate) if enddate else None,
             "start": str(start),
@@ -281,7 +291,7 @@ class GarminClient(object):
             "maxElevation": int(maxElevation) if maxElevation else None,
         }
 
-        print(f"Requesting activities by date from {startdate} to {enddate}")
+        logging.info(f"Requesting activities by date from {startdate} to {enddate}")
         while True:
             params["start"] = str(start)
             print(f"Requesting activities {start} to {start+limit}")
@@ -338,7 +348,7 @@ class GarminClient(object):
         return self.delete(url)
 
     def get_types(self) -> None:
-        file_path = os.path.join(".", "garminworkouts", "models", "types.py")
+        file_path: str = os.path.join(".", "garminworkouts", "models", "types.py")
 
         url: str = f"{self._WORKOUT_SERVICE_ENDPOINT}/workout/types"
         response: dict = self.get(url).json()
@@ -350,9 +360,9 @@ class GarminClient(object):
             dict_str += f"'{str(type.get('stepTypeKey'))}': {type.get('stepTypeId')},\n    "
 
         with open(file_path, "r+") as file:
-            file_contents = file.read()
+            file_contents: str = file.read()
             text: str = re.findall(r'STEP_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
             file_contents = text_pattern.sub(dict_str, file_contents)
             file.seek(0)
             file.truncate()
@@ -477,9 +487,9 @@ class GarminClient(object):
 
         flags = 0
         with open(file_path, "r+") as file:
-            file_contents = file.read()
+            file_contents: str = file.read()
             text: str = re.findall(r'ACTIVITY_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
             file_contents = text_pattern.sub(dict_str, file_contents)
             file.seek(0)
             file.truncate()
@@ -495,9 +505,9 @@ class GarminClient(object):
 
         flags = 0
         with open(file_path, "r+") as file:
-            file_contents = file.read()
+            file_contents: str = file.read()
             text: str = re.findall(r'EVENT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
             file_contents = text_pattern.sub(dict_str, file_contents)
             file.seek(0)
             file.truncate()
@@ -515,7 +525,7 @@ class GarminClient(object):
         with open(file_path, "r+") as file:
             file_contents = file.read()
             text: str = re.findall(r'GOLF_CLUB: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
             file_contents = text_pattern.sub(dict_str, file_contents)
             file.seek(0)
             file.truncate()
@@ -529,7 +539,7 @@ class GarminClient(object):
             dict_str += f"'{str(type.get('name'))}': {str(type.get('id'))},\n    "
 
         with open(file_path, "r+") as file:
-            file_contents = file.read()
+            file_contents: str = file.read()
             text: str = re.findall(r'GOLF_FLEX: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
             text_pattern = re.compile(re.escape(text), flags)
             file_contents = text_pattern.sub(dict_str, file_contents)
@@ -541,11 +551,11 @@ class GarminClient(object):
         url: str = "/web-data/exercises/Exercises.json"
         sec: dict = self.garth.get("connect", url).json().get('categories')
 
-        new_dicts = []  # List to store the new dictionaries
+        new_dicts: list = []  # List to store the new dictionaries
 
         for key, value in sec.items():
             # Step 3: For each key-value pair, create a new dictionary
-            new_dict = {key: value}
+            new_dict: dict = {key: value}
 
             # Step 5: Store the new dictionary
             new_dicts.append(new_dict)
@@ -553,12 +563,12 @@ class GarminClient(object):
         with open(os.path.join(".", "garminworkouts", "models", "strength.py"), "w") as fp:
             ind = 0
             for d in new_dicts:
-                dict_str = ''
+                dict_str: str = ''
                 if ind > 0:
                     fp.write("\n")
                 s = str(list(d.keys())[0])
                 dict_str += s + ' = {\n    '
-                q = d.get(s).get('exercises')
+                q: Any = d.get(s).get('exercises')
 
                 for ex in q:
                     dict_str += '\'' + ex + '\': {\n        '
@@ -566,7 +576,7 @@ class GarminClient(object):
                         dict_str += '\'primaryMuscles\': ' + repr(q.get(ex).get('primaryMuscles')) + ',\n        '
                     else:
                         dict_str += '\'primaryMuscles\': [\n            '
-                        comb = '\', \''.join(q.get(ex).get('primaryMuscles')) + ',\n'
+                        comb: str = '\', \''.join(q.get(ex).get('primaryMuscles')) + ',\n'
                         dict_str += "\'" + comb[:-2] + "\'\n"
                         dict_str += '        ],\n        '
                     if len('\'secondaryMuscles\': ' + repr(q.get(ex).get('secondaryMuscles')) + ',\n    ') <= 112:
@@ -606,7 +616,7 @@ class GarminClient(object):
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
         return self.put(url, json=zones)
 
-    def find_events(self) -> Generator[Response, Any, None]:
+    def find_events(self) -> Generator[Response, dict, None]:
         url = "race-search/events"
 
         d1 = datetime.today()
@@ -668,3 +678,257 @@ class GarminClient(object):
                 )
 
             self.post(url)
+
+    def activity_list(self) -> None:
+        try:
+            start_date: date = date.today() - timedelta(days=7)
+            end_date: date = date.today()
+            activities: list[dict] = self.get_activities_by_date(
+                startdate=start_date, enddate=end_date, activitytype='running')
+            for activity in activities:
+                id: str = activity.get('activityId', '')
+                logging.info("Downloading activity '%s'", id)
+                self.download_activity(id)
+        except Exception as e:
+            logging.error("An error occurred: %s", str(e))
+
+    def trainingplan_reset(self, args) -> None:
+        workouts, notes, plan = settings(args)
+        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in self.list_workouts()}
+        for workout in workouts:
+            workout_name: str = workout.get_workout_name()
+            existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
+            if existing_workout and plan in existing_workout.get('description'):
+                workout_id: str = Workout.extract_workout_id(existing_workout)
+                try:
+                    logging.info("Deleting workout '%s'", workout_name)
+                    self.delete_workout(workout_id)
+                except Exception as e:
+                    logging.error("Error deleting workout '%s': %s", workout_name, str(e))
+
+    def updateGarmin(self) -> None:
+        file_path = "./garminworkouts/garmin/garminclient.py"
+        flags = 0
+        subs: str = self.version
+
+        with open(file_path, "r+") as file:
+            file_contents: str = file.read()
+            text: str = re.findall('_GARMIN_VERSION = "(.*)\"', file_contents)[0]
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(subs, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
+
+        self.get_types()
+
+    def _find_events(self) -> None:
+        events = self.find_events()
+        for subev in events:
+            for ev in subev:
+                ev_a = json.loads(ev.decode('utf-8'))
+                if ('administrativeArea' in ev_a) and (ev_a.get('administrativeArea') is not None) and (
+                     ev_a.get('administrativeArea', {}).get('countryCode') is not None):
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'),
+                                                ev_a.get('administrativeArea', {}).get('countryCode'))
+                else:
+                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'))
+                if not os.path.exists(newpath):
+                    os.makedirs(newpath)
+                file: str = os.path.join(newpath, ev_a.get('eventRef') + '.yaml')
+                Extraction.event_export_yaml(event=self.get(ev_a.get('detailsEndpoints')[0].get('url')
+                                                            ).json(), filename=file)
+
+    def workout_export(self, args) -> None:
+        for workout in self.list_workouts():
+            workout_id: str = Workout.extract_workout_id(workout)
+            workout_name: str = Workout.extract_workout_name(workout)
+            file: str = os.path.join(args.directory, str(workout_id) + '.fit')
+            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+            self.download_workout(workout_id, file)
+
+    def user_zones(self) -> None:
+        _, _, data = Workout(
+            [],
+            [],
+            account.vV02,
+            account.fmin,
+            account.fmax,
+            account.flt,
+            account.rFTP,
+            account.cFTP,
+            str(''),
+            date.today()).hr_zones()
+
+        _, _, _, pdata = Power.power_zones(account.rFTP, account.cFTP)
+
+        self.save_hr_zones(data)
+        self.save_power_zones(pdata)
+
+        Workout([],
+                [],
+                account.vV02,
+                account.fmin,
+                account.fmax,
+                account.flt,
+                account.rFTP,
+                account.cFTP,
+                str(''),
+                date.today()
+                ).zones()
+
+    def workout_export_yaml(self) -> None:
+        for workout in self.external_workouts(account.locale):
+            code: str = workout.get('workoutSourceId', '')
+            sport: str = workout.get('sportTypeKey', '')
+            difficulty: str = workout.get('difficulty', '')
+            workout: dict = self.get_external_workout(code, account.locale)
+            workout[_WORKOUT_ID] = code
+
+            workout_id: str = Workout.extract_workout_id(workout)
+            workout_name: str = Workout.extract_workout_name(workout)
+            newpath: str = os.path.join('.', 'workouts', sport, difficulty)
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            file: str = os.path.join(newpath, str(workout_id) + '.yaml')
+            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
+            Extraction.workout_export_yaml(workout, file)
+
+        for tp in self.list_trainingplans(account.locale):
+            tp: dict = TrainingPlan.export_trainingplan(tp)
+            tp_type: str = tp.get('type', '')
+            tp_subtype: str = tp.get('subtype', '')
+            tp_level: str = tp.get('level', '')
+            tp_version: str = tp.get('version', '')
+            tp_name: str = ''.join(letter for letter in tp.get('name', '') if letter.isalnum())
+
+            tp = self.schedule_training_plan(tp.get(_ID), str(date.today()))
+
+            if tp_subtype == 'RunningOther':
+                tp_subtype = tp_name
+                tp_name = ''
+
+            if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower() == tp_name.lower()):
+                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version)
+            else:
+                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version,
+                                            tp_name)
+
+            for w in self.get_training_plan(TrainingPlan.export_trainingplan(tp).get(_ID), account.locale):
+                week: str = w.get('weekId')
+                day: str = w.get('dayOfWeekId')
+                name: str = f'R{week}_{day}'
+
+                if not os.path.exists(newpath):
+                    os.makedirs(newpath)
+
+                file: str = os.path.join(newpath, name + '.yaml')
+
+                if w.get('taskWorkout'):
+                    workout_id: str = w.get('taskWorkout', {}).get('workoutId')
+                    workout_data: Response = self.get_workout(workout_id)
+                    workout = workout_data.json()
+                    logging.info("Exporting workout '%s' into '%s'", name, file)
+                    Extraction.workout_export_yaml(workout, file)
+                if w.get('taskNote'):
+                    config: dict = {}
+                    config['name'] = w.get('taskNote', {}).get('note')
+                    config['content'] = w.get('taskNote', {}).get('noteDescription')
+                    note = Note(config)
+                    logging.info("Exporting note '%s' into '%s'", name, file)
+                    Extraction.note_export_yaml(note, file)
+
+            self.delete_training_plan(tp.get('trainingPlanId'))
+
+    def workout_list(self) -> None:
+        for workout in self.list_workouts():
+            Workout.print_workout_summary(workout)
+
+    def event_list(self) -> None:
+        for event in self.list_events():
+            Event.print_event_summary(event)
+
+    def trainingplan_list(self) -> None:
+        for tp in self.list_trainingplans(account.locale):
+            TrainingPlan.print_trainingplan_summary(tp)
+
+    def update_workouts(self, ue, workouts: list[Workout], plan: str) -> None:
+        workouts_by_name: dict[str, Workout] = {w.get_workout_name(): w for w in workouts}
+
+        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in self.list_workouts()}
+        c: int = 0
+
+        for wname in ue:
+            existing_workout: dict | None = existing_workouts_by_name.get(wname)
+            description: dict | None = existing_workout.get('description') if existing_workout else None
+            if description and plan in description:
+                workout_id: str = Workout.extract_workout_id(existing_workout)
+                workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
+                workout_author: dict = Workout.extract_workout_author(existing_workout)
+                workout: Workout = workouts_by_name[wname]
+                payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
+                logging.info("Updating workout '%s'", wname)
+                self.update_workout(workout_id, payload)
+                c += 1
+
+        for workout in workouts:
+            day_d, *_ = workout.get_workout_date()
+            if date.today() <= day_d < date.today() + timedelta(weeks=2):
+                workout_name: str = workout.get_workout_name()
+                existing_workout = existing_workouts_by_name.get(workout_name)
+                if not existing_workout:
+                    payload = workout.create_workout()
+                    logging.info("Creating workout '%s'", workout_name)
+                    workout_id = Workout.extract_workout_id(self.save_workout(payload))
+                    self.schedule_workout(workout_id, day_d.isoformat())
+                    c += 1
+        if c == 0:
+            logging.info('No workouts to update')
+
+    def update_notes(self, ne, notes: list[Note], plan: str) -> None:
+        for note in notes:
+            day_d, _, _ = note.get_note_date()
+            if date.today() <= day_d < date.today() + timedelta(weeks=2):
+                note_name: str = note.get_note_name()
+                existing_note: dict | None = ne.get(note_name)
+                if not existing_note:
+                    payload: dict = note.create_note(date=day_d.isoformat())
+                    logging.info("Creating note '%s'", note_name)
+                    self.save_note(note=payload)
+                else:
+                    note_id: str | None = existing_note.get('noteId')
+                    note_obj: Note = ne.get(note_name)
+                    payload = note_obj.create_note(note_id)
+                    logging.info("Updating note '%s'", note_name)
+                    if existing_note.get('trainingPlanId'):
+                        self.update_note(note_id=note_id, note=payload)
+                        self.save_note(note=payload)
+                    else:
+                        self.update_note(note_id=note_id, note=payload)
+                        self.save_note(note=payload)
+
+    def update_events(self, events) -> None:
+        c: int = 0
+        existing_events_by_name: dict = {Event.extract_event_name(w): w for w in self.list_events()}
+        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in self.list_workouts()}
+
+        for event in events:
+            if event.date >= date.today():
+                existing_event: dict | None = existing_events_by_name.get(event.name)
+                existing_workout: dict | None = existing_workouts_by_name.get(event.name)
+                workout_id: str | None = Workout.extract_workout_id(existing_workout) if existing_workout else None
+
+                if existing_event:
+                    if event.date < date.today() + timedelta(weeks=1):
+                        event_id: str = Event.extract_event_id(existing_event)
+                        payload: dict = event.create_event(event_id, workout_id)
+                        logging.info("Updating event '%s'", event.name)
+                        self.update_event(event_id, payload)
+                        c += 1
+                else:
+                    payload = event.create_event(workout_id=workout_id)
+                    logging.info("Creating event '%s'", event.name)
+                    self.save_event(payload)
+                    c += 1
+        if c == 0:
+            logging.info('No events to update')

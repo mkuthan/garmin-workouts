@@ -1,196 +1,60 @@
 #!/usr/bin/env python3
 
 import argparse
-import glob
 import logging
 import os
 import sys
 from datetime import date, timedelta
-import json
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.settings import settings
+from garminworkouts.models.settings import planning_workout_files, settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
-from garminworkouts.models.note import Note
-from garminworkouts.models.power import Power
-from garminworkouts.models.trainingplan import TrainingPlan
-from garminworkouts.models.extraction import Extraction
 from garminworkouts.utils.validators import writeable_dir
-from garminworkouts.models.fields import _WORKOUT_ID, _ID
 import account
-import re
 
 
-def command_activity_list(args) -> None:
-    with _garmin_client(args) as connection:
-        try:
-            start_date: date = date.today() - timedelta(days=7)
-            end_date: date = date.today()
-            activities: list[dict] = connection.get_activities_by_date(
-                startdate=start_date, enddate=end_date, activitytype='running')
-            for activity in activities:
-                id: str = activity.get('activityId', '')
-                logging.info("Downloading activity '%s'", id)
-                connection.download_activity(id)
-        except Exception as e:
-            logging.error("An error occurred: %s", str(e))
+def command_activity_list() -> None:
+    with _garmin_client() as connection:
+        connection.activity_list()
 
 
 def command_trainingplan_reset(args) -> None:
-    workouts, notes, plan = settings(args)
-    with _garmin_client(args) as connection:
-        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-        for workout in workouts:
-            workout_name: str = workout.get_workout_name()
-            existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
-            if existing_workout and plan in existing_workout.get('description'):
-                workout_id: str = Workout.extract_workout_id(existing_workout)
-                try:
-                    logging.info("Deleting workout '%s'", workout_name)
-                    connection.delete_workout(workout_id)
-                except Exception as e:
-                    logging.error("Error deleting workout '%s': %s", workout_name, str(e))
-
-
-@staticmethod
-def update_workouts(ue, workouts, plan, connection) -> None:
-    workouts_by_name: dict[str, Workout] = {w.get_workout_name(): w for w in workouts}
-
-    existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-    c: int = 0
-
-    for wname in ue:
-        existing_workout: dict | None = existing_workouts_by_name.get(wname)
-        description: dict | None = existing_workout.get('description') if existing_workout else None
-        if description and plan in description:
-            workout_id: str = Workout.extract_workout_id(existing_workout)
-            workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
-            workout_author: dict = Workout.extract_workout_author(existing_workout)
-            workout: Workout = workouts_by_name[wname]
-            payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
-            logging.info("Updating workout '%s'", wname)
-            connection.update_workout(workout_id, payload)
-            c += 1
-
-    for workout in workouts:
-        day_d, *_ = workout.get_workout_date()
-        if date.today() <= day_d < date.today() + timedelta(weeks=2):
-            workout_name: str = workout.get_workout_name()
-            existing_workout = existing_workouts_by_name.get(workout_name)
-            if not existing_workout:
-                payload = workout.create_workout()
-                logging.info("Creating workout '%s'", workout_name)
-                workout_id = Workout.extract_workout_id(connection.save_workout(payload))
-                connection.schedule_workout(workout_id, day_d.isoformat())
-                c += 1
-    if c == 0:
-        logging.info('No workouts to update')
-
-
-@staticmethod
-def update_notes(ne, notes, plan, connection) -> None:
-    for note in notes:
-        day_d, _, _ = note.get_note_date()
-        if date.today() <= day_d < date.today() + timedelta(weeks=2):
-            note_name: str = note.get_note_name()
-            existing_note: dict | None = ne.get(note_name)
-            if not existing_note:
-                payload = note.create_note(date=day_d.isoformat())
-                logging.info("Creating note '%s'", note_name)
-                connection.save_note(trainingplan=True, note=payload)
-            else:
-                note_id = existing_note.get('noteId')
-                note_obj = ne[note_name]
-                payload = note_obj.create_note(note_id)
-                logging.info("Updating note '%s'", note_name)
-                if existing_note.get('trainingPlanId'):
-                    connection.update_note(trainingplan=True, note_id=note_id, note=payload)
-                    connection.save_note(trainingplan=True, note=payload)
-                else:
-                    connection.update_note(trainingplan=False, note_id=note_id, note=payload)
-                    connection.save_note(trainingplan=False, note=payload)
+    with _garmin_client() as connection:
+        connection.trainingplan_reset(args)
 
 
 def command_trainingplan_import(args) -> None:
     workouts, notes, plan = settings(args)
 
-    with _garmin_client(args) as connection:
+    with _garmin_client() as connection:
         ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
 
-        update_workouts(ue, workouts, plan, connection)
-        update_notes(ne, notes, plan, connection)
+        connection.update_workouts(ue, workouts, plan)
+        connection.update_notes(ne, notes, plan)
 
 
 def command_event_import(args) -> None:
-    c: int = 0
-    try:
-        planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
-    except FileExistsError:
-        planning = {}
-    if args.trainingplan in planning:
-        event_files = glob.glob(planning.get(args.trainingplan, {}).get('workouts'))
-    elif '.yaml' in args.trainingplan:
-        event_files: list[str] = glob.glob(args.trainingplan)
-    else:
-        print(args.trainingplan + ' not found in planning, please check "planning.yaml"')
-        event_files = []
-
+    event_files, _, _ = planning_workout_files(args)
     event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
     events: list = [Event(event_config) for event_config in event_configs]
 
-    with _garmin_client(args) as connection:
-        existing_events_by_name: dict = {Event.extract_event_name(w): w for w in connection.list_events()}
-        existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in connection.list_workouts()}
-
-        for event in events:
-            if event.date >= date.today():
-                existing_event: dict | None = existing_events_by_name.get(event.name)
-                existing_workout: dict | None = existing_workouts_by_name.get(event.name)
-                workout_id: str | None = Workout.extract_workout_id(existing_workout) if existing_workout else None
-
-                if existing_event:
-                    if event.date < date.today() + timedelta(weeks=1):
-                        event_id: str = Event.extract_event_id(existing_event)
-                        payload: dict = event.create_event(event_id, workout_id)
-                        logging.info("Updating event '%s'", event.name)
-                        connection.update_event(event_id, payload)
-                        c += 1
-                else:
-                    payload = event.create_event(workout_id=workout_id)
-                    logging.info("Creating event '%s'", event.name)
-                    connection.save_event(payload)
-                    c += 1
-        if c == 0:
-            logging.info('No events to update')
+    with _garmin_client() as connection:
+        connection.update_events(events)
         command_trainingplan_import(args)
 
 
 def command_find_events(args) -> None:
-    with _garmin_client(args) as connection:
-        events = connection.find_events()
-        for subev in events:
-            for ev in subev:
-                ev_a = json.loads(ev.decode('utf-8'))
-                if ('administrativeArea' in ev_a) and (ev_a.get('administrativeArea') is not None) and (
-                     ev_a.get('administrativeArea', {}).get('countryCode') is not None):
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'),
-                                                ev_a.get('administrativeArea', {}).get('countryCode'))
-                else:
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'))
-                if not os.path.exists(newpath):
-                    os.makedirs(newpath)
-                file: str = os.path.join(newpath, ev_a.get('eventRef') + '.yaml')
-                Extraction.event_export_yaml(event=connection.get(ev_a.get('detailsEndpoints')[0].get('url')
-                                                                  ).json(), filename=file)
+    with _garmin_client() as connection:
+        connection._find_events()
 
 
 def command_trainingplan_metrics(args) -> None:
     workouts, *_ = settings(args)
 
-    mileage: list[float] = [float(0) for i in range(24, -11, -1)]
+    mileage: list[float] = [float(0) for _ in range(24, -11, -1)]
     duration: list[timedelta] = [timedelta(seconds=0) for i in range(24, -11, -1)]
-    tss: list[float] = [float(0) for i in range(24, -11, -1)]
+    tss: list[float] = [float(0) for _ in range(24, -11, -1)]
 
     day_min: date | None = None
     day_max: date | None = None
@@ -222,184 +86,74 @@ def command_trainingplan_metrics(args) -> None:
 
 
 def command_workout_export(args) -> None:
-    with _garmin_client(args) as connection:
-        for workout in connection.list_workouts():
-            workout_id: str = Workout.extract_workout_id(workout)
-            workout_name: str = Workout.extract_workout_name(workout)
-            file: str = os.path.join(args.directory, str(workout_id) + '.fit')
-            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            connection.download_workout(workout_id, file)
+    with _garmin_client() as connection:
+        connection.workout_export(args=args)
 
 
 def command_workout_export_yaml(args) -> None:
-    with _garmin_client(args) as connection:
-        for workout in connection.external_workouts(account.locale):
-            code: str = workout.get('workoutSourceId', '')
-            sport: str = workout.get('sportTypeKey', '')
-            difficulty: str = workout.get('difficulty', '')
-            workout: dict = connection.get_external_workout(code, account.locale)
-            workout[_WORKOUT_ID] = code
-
-            workout_id: str = Workout.extract_workout_id(workout)
-            workout_name: str = Workout.extract_workout_name(workout)
-            newpath: str = os.path.join('.', 'workouts', sport, difficulty)
-            if not os.path.exists(newpath):
-                os.makedirs(newpath)
-            file: str = os.path.join(newpath, str(workout_id) + '.yaml')
-            logging.info("Exporting workout '%s' into '%s'", workout_name, file)
-            Extraction.workout_export_yaml(workout, file)
-
-        for tp in connection.list_trainingplans(account.locale):
-            tp: dict = TrainingPlan.export_trainingplan(tp)
-            tp_type: str = tp.get('type', '')
-            tp_subtype: str = tp.get('subtype', '')
-            tp_level: str = tp.get('level', '')
-            tp_version: str = tp.get('version', '')
-            tp_name: str = ''.join(letter for letter in tp.get('name', '') if letter.isalnum())
-
-            tp = connection.schedule_training_plan(tp.get(_ID), str(date.today()))
-
-            if tp_subtype == 'RunningOther':
-                tp_subtype = tp_name
-                tp_name = ''
-
-            if (tp_subtype.lower() == tp_name.lower()) or ((tp_subtype + tp_type).lower() == tp_name.lower()):
-                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version)
-            else:
-                newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version,
-                                            tp_name)
-
-            for w in connection.get_training_plan(TrainingPlan.export_trainingplan(tp).get(_ID), account.locale):
-                week: str = w.get('weekId')
-                day: str = w.get('dayOfWeekId')
-                name: str = f'R{week}_{day}'
-
-                if not os.path.exists(newpath):
-                    os.makedirs(newpath)
-
-                file: str = os.path.join(newpath, name + '.yaml')
-
-                if w.get('taskWorkout'):
-                    workout_id: str = w.get('taskWorkout', {}).get('workoutId')
-                    workout_data = connection.get_workout(workout_id)
-                    workout = workout_data.json()
-                    logging.info("Exporting workout '%s' into '%s'", name, file)
-                    Extraction.workout_export_yaml(workout, file)
-                if w.get('taskNote'):
-                    config = {}
-                    config['name'] = w.get('taskNote', {}).get('note')
-                    config['content'] = w.get('taskNote', {}).get('noteDescription')
-                    note = Note(config)
-                    logging.info("Exporting note '%s' into '%s'", name, file)
-                    Extraction.note_export_yaml(note, file)
-
-            connection.delete_training_plan(tp.get('trainingPlanId'))
+    with _garmin_client() as connection:
+        connection.workout_export_yaml()
 
 
 def command_workout_list(args) -> None:
-    with _garmin_client(args) as connection:
-        for workout in connection.list_workouts():
-            Workout.print_workout_summary(workout)
+    with _garmin_client() as connection:
+        connection.workout_list()
 
 
 def command_event_list(args) -> None:
-    with _garmin_client(args) as connection:
-        for event in connection.list_events():
-            Event.print_event_summary(event)
+    with _garmin_client() as connection:
+        connection.event_list()
 
 
-def command_trainingplan_list(args) -> None:
-    with _garmin_client(args) as connection:
-        for tp in connection.list_trainingplans(account.locale):
-            TrainingPlan.print_trainingplan_summary(tp)
+def command_trainingplan_list() -> None:
+    with _garmin_client() as connection:
+        connection.trainingplan_list()
 
 
-def command_challenge_list(args) -> None:
-    with _garmin_client(args) as connection:
+def command_challenge_list() -> None:
+    with _garmin_client() as connection:
         connection.list_challenge()
 
 
 def command_workout_schedule(args) -> None:
-    with _garmin_client(args) as connection:
+    with _garmin_client() as connection:
         connection.schedule_workout(args.workout_id, args.date)
 
 
 def command_workout_get(args) -> None:
-    with _garmin_client(args) as connection:
+    with _garmin_client() as connection:
         Workout.print_workout_json(connection.get_workout(args.id))
 
 
 def command_event_get(args) -> None:
-    with _garmin_client(args) as connection:
+    with _garmin_client() as connection:
         Event.print_event_json(connection.get_event(args.id))
 
 
 def command_workout_delete(args) -> None:
-    with _garmin_client(args) as connection:
-        logging.info("Deleting workout '%s'", args.id)
+    with _garmin_client() as connection:
         connection.delete_workout(args.id)
 
 
-def _garmin_client(args) -> GarminClient:
+def command_user_zones() -> None:
+    with _garmin_client() as connection:
+        connection.user_zones()
+
+
+def command_update_types() -> None:
+    with _garmin_client() as connection:
+        connection.get_types()
+
+
+def updateGarmin() -> None:
+    with _garmin_client() as connection:
+        connection.updateGarmin()
+
+
+def _garmin_client() -> GarminClient:
     return GarminClient(
         email=account.EMAIL,
         password=account.PASSWORD)
-
-
-def command_user_zones(args) -> None:
-    zones, hr_zones, data = Workout(
-        [],
-        [],
-        account.vV02,
-        account.fmin,
-        account.fmax,
-        account.flt,
-        account.rFTP,
-        account.cFTP,
-        str(''),
-        date.today()
-        ).hr_zones()
-
-    pzones, rpower_zones, cpower_zones, pdata = Power.power_zones(account.rFTP, account.cFTP)
-
-    with _garmin_client(args) as connection:
-        connection.save_hr_zones(data)
-        connection.save_power_zones(pdata)
-
-    Workout([],
-            [],
-            account.vV02,
-            account.fmin,
-            account.fmax,
-            account.flt,
-            account.rFTP,
-            account.cFTP,
-            str(''),
-            date.today()
-            ).zones()
-
-
-def command_update_types(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.get_types()
-
-
-def updateGarmin(args):
-    file_path = "./garminworkouts/garmin/garminclient.py"
-    flags = 0
-    with _garmin_client(args) as connection:
-        subs: str = connection.version
-
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text = re.findall('_GARMIN_VERSION = "(.*)\"', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(subs, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
-
-        connection.get_types()
 
 
 def main() -> None:
