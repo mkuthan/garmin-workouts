@@ -4,7 +4,7 @@ from datetime import datetime, date, timedelta
 from requests import Response
 from typing import Any, Literal, Generator, Optional
 from garminworkouts.models.event import Event
-from garminworkouts.models.fields import _ID, _WORKOUT_ID
+from garminworkouts.models.fields import (_ID, _WORKOUT, create_field_name)
 from garminworkouts.models.note import Note
 from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.workout import Workout
@@ -294,7 +294,7 @@ class GarminClient(object):
         logging.info(f"Requesting activities by date from {startdate} to {enddate}")
         while True:
             params["start"] = str(start)
-            print(f"Requesting activities {start} to {start+limit}")
+            logging.info(f"Requesting activities {start} to {start+limit}")
             act: Response = self.get(url, params=params).json()
             if act:
                 activities.extend(act)
@@ -353,124 +353,59 @@ class GarminClient(object):
         url: str = f"{self._WORKOUT_SERVICE_ENDPOINT}/workout/types"
         response: dict = self.get(url).json()
 
-        flags = 0
-
         dict_str = "\n    "
         for type in response.get('workoutStepTypes', dict):
             dict_str += f"'{str(type.get('stepTypeKey'))}': {type.get('stepTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents: str = file.read()
-            text: str = re.findall(r'STEP_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='STEP_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutSportTypes', dict):
             dict_str += f"'{str(type.get('sportTypeKey'))}': {type.get('sportTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'SPORT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='SPORT_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutConditionTypes', dict):
             dict_str += f"'{str(type.get('conditionTypeKey'))}': {type.get('conditionTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'END_CONDITIONS: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='END_CONDITIONS')
 
         dict_str = "\n    "
         for type in response.get('workoutIntensityTypes', dict):
             dict_str += f"'{str(type.get('intensityTypeKey'))}': {type.get('intensityTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'INTENSITY_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='INTENSITY_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutTargetTypes', dict):
             dict_str += f"'{str(type.get('workoutTargetTypeKey'))}': {type.get('workoutTargetTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'TARGET_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='TARGET_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutEquipmentTypes', dict):
             dict_str += f"'{str(type.get('equipmentTypeKey'))}': {type.get('equipmentTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'EQUIPMENT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='EQUIPMENT_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutStrokeTypes', dict):
             dict_str += f"'{str(type.get('strokeTypeKey'))}': {type.get('strokeTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'STROKE_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='STROKE_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutSwimInstructionTypes', dict):
             dict_str += f"'{str(type.get('swimInstructionTypeKey'))}': {type.get('swimInstructionTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'SWIM_INSTRUCTION_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='SWIM_INSTRUCTION_TYPES')
 
         dict_str = "\n    "
         for type in response.get('workoutDrillTypes', dict):
             dict_str += f"'{str(type.get('drillTypeKey'))}': {type.get('drillTypeId')},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'DRILL_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='DRILL_TYPES')
 
         self.get_activity_types(file_path)
         self.get_event_types(file_path)
@@ -485,15 +420,7 @@ class GarminClient(object):
         for type in response:
             dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
 
-        flags = 0
-        with open(file_path, "r+") as file:
-            file_contents: str = file.read()
-            text: str = re.findall(r'ACTIVITY_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='ACTIVITY_TYPES')
 
     def get_event_types(self, file_path) -> None:
         url: str = f"{self._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
@@ -503,15 +430,7 @@ class GarminClient(object):
         for type in response:
             dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
 
-        flags = 0
-        with open(file_path, "r+") as file:
-            file_contents: str = file.read()
-            text: str = re.findall(r'EVENT_TYPES: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='EVENT_TYPES')
 
     def get_golf_types(self, file_path) -> None:
         url = f"{self._GOLF_COMMUNITY_ENDPOINT}/types"
@@ -521,15 +440,7 @@ class GarminClient(object):
         for type in response:
             dict_str += f"'{str(type.get('name'))}': {str(type.get('value'))},\n    "
 
-        flags = 0
-        with open(file_path, "r+") as file:
-            file_contents = file.read()
-            text: str = re.findall(r'GOLF_CLUB: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='GOLF_CLUB')
 
         url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
         response = self.get(url).json()
@@ -538,14 +449,7 @@ class GarminClient(object):
         for type in response:
             dict_str += f"'{str(type.get('name'))}': {str(type.get('id'))},\n    "
 
-        with open(file_path, "r+") as file:
-            file_contents: str = file.read()
-            text: str = re.findall(r'GOLF_FLEX: dict\[str, int\] = \{([^}]*)\}', file_contents)[0]
-            text_pattern = re.compile(re.escape(text), flags)
-            file_contents = text_pattern.sub(dict_str, file_contents)
-            file.seek(0)
-            file.truncate()
-            file.write(file_contents)
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='GOLF_FLEX')
 
     def get_strength_types(self) -> None:
         url: str = "/web-data/exercises/Exercises.json"
@@ -783,7 +687,7 @@ class GarminClient(object):
             sport: str = workout.get('sportTypeKey', '')
             difficulty: str = workout.get('difficulty', '')
             workout: dict = self.get_external_workout(code, account.locale)
-            workout[_WORKOUT_ID] = code
+            workout[create_field_name(_WORKOUT, _ID)] = code
 
             workout_id: str = Workout.extract_workout_id(workout)
             workout_name: str = Workout.extract_workout_name(workout)
@@ -932,3 +836,24 @@ class GarminClient(object):
                     c += 1
         if c == 0:
             logging.info('No events to update')
+
+    @staticmethod
+    def update_type_dict(file_path: str, dict_str: str, type_dict: str) -> None:
+        """
+        Updates the dictionary string for a given club name in a file.
+
+        Parameters:
+        - file_path: The path to the file to be updated.
+        - dict_str: The new dictionary string to replace the old one.
+        - type_dict: The name of the club whose dictionary is to be updated.
+        """
+        flags = 0
+        pattern_str: str = f'{type_dict}: dict\\[str, int\\] = \\{{([^}}]*)\\}}'
+        with open(file_path, "r+") as file:
+            file_contents: str = file.read()
+            text: str = re.findall(pattern_str, file_contents)[0]
+            text_pattern: re.Pattern[str] = re.compile(re.escape(text), flags)
+            file_contents = text_pattern.sub(dict_str, file_contents)
+            file.seek(0)
+            file.truncate()
+            file.write(file_contents)
