@@ -14,20 +14,20 @@ from garminworkouts.utils.validators import writeable_dir
 import account
 
 
-def command_activity_list() -> None:
-    with _garmin_client() as connection:
+def command_activity_list(args) -> None:
+    with _garmin_client(args) as connection:
         connection.activity_list()
 
 
 def command_trainingplan_reset(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.trainingplan_reset(args)
 
 
 def command_trainingplan_import(args) -> None:
     workouts, notes, plan = settings(args)
 
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
 
         connection.update_workouts(ue, workouts, plan)
@@ -39,13 +39,13 @@ def command_event_import(args) -> None:
     event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
     events: list = [Event(event_config) for event_config in event_configs]
 
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.update_events(events)
         command_trainingplan_import(args)
 
 
 def command_find_events(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection._find_events()
 
 
@@ -86,71 +86,71 @@ def command_trainingplan_metrics(args) -> None:
 
 
 def command_workout_export(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.workout_export(args=args)
 
 
 def command_workout_export_yaml(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.workout_export_yaml()
 
 
 def command_workout_list(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.workout_list()
 
 
 def command_event_list(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.event_list()
 
 
-def command_trainingplan_list() -> None:
-    with _garmin_client() as connection:
+def command_trainingplan_list(args) -> None:
+    with _garmin_client(args) as connection:
         connection.trainingplan_list()
 
 
-def command_challenge_list() -> None:
-    with _garmin_client() as connection:
+def command_challenge_list(args) -> None:
+    with _garmin_client(args) as connection:
         connection.list_challenge()
 
 
 def command_workout_schedule(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.schedule_workout(args.workout_id, args.date)
 
 
 def command_workout_get(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         Workout.print_workout_json(connection.get_workout(args.id))
 
 
 def command_event_get(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         Event.print_event_json(connection.get_event(args.id))
 
 
 def command_workout_delete(args) -> None:
-    with _garmin_client() as connection:
+    with _garmin_client(args) as connection:
         connection.delete_workout(args.id)
 
 
-def command_user_zones() -> None:
-    with _garmin_client() as connection:
+def command_user_zones(args) -> None:
+    with _garmin_client(args) as connection:
         connection.user_zones()
 
 
-def command_update_types() -> None:
-    with _garmin_client() as connection:
+def command_update_types(args) -> None:
+    with _garmin_client(args) as connection:
         connection.get_types()
 
 
-def updateGarmin() -> None:
-    with _garmin_client() as connection:
+def updateGarmin(args) -> None:
+    with _garmin_client(args) as connection:
         connection.updateGarmin()
 
 
-def _garmin_client() -> GarminClient:
+def _garmin_client(args) -> GarminClient:
     return GarminClient(
         email=account.EMAIL,
         password=account.PASSWORD)
