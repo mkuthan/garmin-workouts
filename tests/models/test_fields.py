@@ -1,10 +1,10 @@
 import unittest
-from garminworkouts.models.fields import (SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, END_CONDITIONS, TARGET_TYPES,
+from garminworkouts.models.fields import (SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, CONDITION_TYPES, TARGET_TYPES,
                                           EVENT_TYPES,
                                           ACTIVITY_TYPES,
                                           UNIT_TYPES,
                                           DRILL_TYPES,
-                                          EQUIPMENT_TYPES, STROKE_TYPES, SWIM_INSTRUCTION_TYPES, _SPORT_TYPE_KEY,
+                                          EQUIPMENT_TYPES, STROKE_TYPES, SWIMINSTRUCTION_TYPES, _SPORT_TYPE_KEY,
                                           _SPORT_TYPE_ID, _INTENSITY_TYPE_KEY, _INTENSITY_TYPE_ID, _TARGET, _ZONE,
                                           _SECONDARY_TARGET, _SECONDARY_ZONE, _STEP_TYPE_ID, _STEP_TYPE_KEY,
                                           _CONDITION_TYPE_ID,
@@ -43,7 +43,7 @@ class FieldsTestCase(unittest.TestCase):
         self.assertEqual(get_step_type('invalid'), {})
 
     def test_get_end_condition(self) -> None:
-        for type, index in END_CONDITIONS.items():
+        for type, index in CONDITION_TYPES.items():
             self.assertEqual(get_end_condition(type), {_CONDITION_TYPE_ID: index, _CONDITION_TYPE_KEY: type})
         self.assertEqual(get_end_condition('invalid'), {})
 
@@ -65,7 +65,7 @@ class FieldsTestCase(unittest.TestCase):
         self.assertEqual(get_stroke_type('invalid'), {})
 
     def test_get_swim_instruction_type(self) -> None:
-        for type, index in SWIM_INSTRUCTION_TYPES.items():
+        for type, index in SWIMINSTRUCTION_TYPES.items():
             self.assertEqual(get_swim_instruction_type(type), {
                              _SWIM_INSTRUCTION_TYPE_ID: index, _SWIM_INSTRUCTION_TYPE_KEY: type})
         self.assertEqual(get_stroke_type('invalid'), {})

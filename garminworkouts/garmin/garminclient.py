@@ -353,59 +353,15 @@ class GarminClient(object):
         url: str = f"{self._WORKOUT_SERVICE_ENDPOINT}/workout/types"
         response: dict = self.get(url).json()
 
-        dict_str = "\n    "
-        for type in response.get('workoutStepTypes', dict):
-            dict_str += f"'{str(type.get('stepTypeKey'))}': {type.get('stepTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='STEP_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutSportTypes', dict):
-            dict_str += f"'{str(type.get('sportTypeKey'))}': {type.get('sportTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='SPORT_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutConditionTypes', dict):
-            dict_str += f"'{str(type.get('conditionTypeKey'))}': {type.get('conditionTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='END_CONDITIONS')
-
-        dict_str = "\n    "
-        for type in response.get('workoutIntensityTypes', dict):
-            dict_str += f"'{str(type.get('intensityTypeKey'))}': {type.get('intensityTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='INTENSITY_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutTargetTypes', dict):
-            dict_str += f"'{str(type.get('workoutTargetTypeKey'))}': {type.get('workoutTargetTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='TARGET_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutEquipmentTypes', dict):
-            dict_str += f"'{str(type.get('equipmentTypeKey'))}': {type.get('equipmentTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='EQUIPMENT_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutStrokeTypes', dict):
-            dict_str += f"'{str(type.get('strokeTypeKey'))}': {type.get('strokeTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='STROKE_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutSwimInstructionTypes', dict):
-            dict_str += f"'{str(type.get('swimInstructionTypeKey'))}': {type.get('swimInstructionTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='SWIM_INSTRUCTION_TYPES')
-
-        dict_str = "\n    "
-        for type in response.get('workoutDrillTypes', dict):
-            dict_str += f"'{str(type.get('drillTypeKey'))}': {type.get('drillTypeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='DRILL_TYPES')
+        self.process_workout_types(file_path, response, 'step')
+        self.process_workout_types(file_path, response, 'sport')
+        self.process_workout_types(file_path, response, 'condition')
+        self.process_workout_types(file_path, response, 'intensity')
+        self.process_workout_types(file_path, response, 'target')
+        self.process_workout_types(file_path, response, 'equipment')
+        self.process_workout_types(file_path, response, 'stroke')
+        self.process_workout_types(file_path, response, 'swimInstruction')
+        self.process_workout_types(file_path, response, 'drill')
 
         self.get_activity_types(file_path)
         self.get_event_types(file_path)
@@ -416,40 +372,54 @@ class GarminClient(object):
         url: str = f"{self._ACTIVITY_SERVICE_ENDPOINT}/activity/activityTypes"
         response: dict = self.get(url).json()
 
-        dict_str = "\n    "
-        for type in response:
-            dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='ACTIVITY_TYPES')
+        self.process_activity_types(file_path, response, 'activity')
 
     def get_event_types(self, file_path) -> None:
         url: str = f"{self._ACTIVITY_SERVICE_ENDPOINT}/activity/eventTypes"
         response: dict = self.get(url).json()
 
+        self.process_activity_types(file_path, response, 'event')
+
+    def process_workout_types(self, file_path: str, response: dict, name: str) -> None:
+        capitalized_name: str = name[0].upper() + name[1:] if name else ""
+        if name == 'target':
+            cname = 'workoutTarget'
+        else:
+            cname: str = name
+        dict_str = "\n    "
+        for type in response.get(f'workout{capitalized_name}Types', dict):
+            dict_str += f"'{str(type.get(f'{cname}TypeKey'))}': {type.get(f'{cname}TypeId')},\n    "
+
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict=f'{name.upper()}_TYPES')
+
+    def process_activity_types(self, file_path: str, response: dict, name: str) -> None:
         dict_str = "\n    "
         for type in response:
             dict_str += f"'{str(type.get('typeKey'))}': {type.get('typeId')},\n    "
 
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='EVENT_TYPES')
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict=f'{name.upper()}_TYPES')
+
+    def process_golf_types(self, file_path: str, response: dict, name: str) -> None:
+        if name == 'club':
+            key = 'value'
+        else:
+            key = 'id'
+        dict_str = "\n    "
+        for type in response:
+            dict_str += f"'{str(type.get('name'))}': {str(type.get(key))},\n    "
+
+        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict=f'GOLF_{name.upper()}')
 
     def get_golf_types(self, file_path) -> None:
         url = f"{self._GOLF_COMMUNITY_ENDPOINT}/types"
         response: dict = self.get(url).json()
 
-        dict_str = "\n    "
-        for type in response:
-            dict_str += f"'{str(type.get('name'))}': {str(type.get('value'))},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='GOLF_CLUB')
+        self.process_golf_types(file_path, response, 'club')
 
         url: str = f"{self._GOLF_COMMUNITY_ENDPOINT}/flex-types"
         response = self.get(url).json()
 
-        dict_str = "\n    "
-        for type in response:
-            dict_str += f"'{str(type.get('name'))}': {str(type.get('id'))},\n    "
-
-        GarminClient.update_type_dict(file_path=file_path, dict_str=dict_str, type_dict='GOLF_FLEX')
+        self.process_golf_types(file_path, response, 'flex')
 
     def get_strength_types(self) -> None:
         url: str = "/web-data/exercises/Exercises.json"
