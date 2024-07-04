@@ -1,10 +1,10 @@
+from typing import Any
 from garminworkouts.models.types import (EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPES,
                                          END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES,
                                          SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES)
 
 _WORKOUT = 'workout'
 _SPORT = 'sport'
-_SUBSPORT = 'subsport'
 _DESCRIPTION = 'description'
 _TARGET = 'target'
 _TYPE = 'type'
@@ -43,144 +43,127 @@ _EXERCISE = 'exercise'
 _AUTHOR = 'author'
 
 
-_WORKOUT_ID: str = f'{_WORKOUT}{_ID.capitalize()}'
-_WORKOUT_NAME: str = f'{_WORKOUT}{_NAME.capitalize()}'
-_WORKOUT_OWNER_ID: str = f'{_OWNER}{_ID.capitalize()}'
-_WORKOUT_SPORT_TYPE: str = f'{_SPORT}{_TYPE.capitalize()}'
-_WORKOUT_SUBSPORT_TYPE: str = f'sub{_SPORT.capitalize()}{_TYPE.capitalize()}'
-_WORKOUT_SEGMENTS: str = f'{_WORKOUT}{_SEGMENT.capitalize()}s'
-_WORKOUT_STEPS: str = f'{_WORKOUT}{_STEP.capitalize()}s'
-_WORKOUT_ORDER: str = f'{_SEGMENT}{_ORDER.capitalize()}'
-_SPORT_TYPE: str = f'{_SPORT}{_TYPE.capitalize()}'
-_INTENSITY_TYPE: str = f'{_INTENSITY}{_TYPE.capitalize()}'
-_STEP_TYPE: str = f'{_STEP}{_TYPE.capitalize()}'
-_CONDITION_TYPE: str = f'{_CONDITION}{_TYPE.capitalize()}'
-_STROKE_TYPE: str = f'{_STROKE}{_TYPE.capitalize()}'
-_EQUIPMENT_TYPE: str = f'{_EQUIPMENT}{_TYPE.capitalize()}'
-_SWIM_INSTRUCTION_TYPE: str = f'{_SWIM_INSTRUCTION}{_TYPE.capitalize()}'
-_DRILL_TYPE: str = f'{_DRILL}{_TYPE.capitalize()}'
+def create_field_name(prefix, suffix) -> str:
+    return f'{prefix}{suffix.capitalize()}'
+
+
+def create_field_value(key: str, value: Any, name: str) -> dict:
+    return {
+        f'{key}Id': value,
+        f'{key}Key': name,
+    } if value else {}
+
+
+_SUBSPORT: str = create_field_name('sub', _SPORT)
+_WORKOUT_ID: str = create_field_name(_WORKOUT, _ID)
+_WORKOUT_NAME: str = create_field_name(_WORKOUT, _NAME)
+_WORKOUT_OWNER_ID: str = create_field_name(_OWNER, _ID)
+_WORKOUT_SPORT_TYPE: str = create_field_name(_SPORT, _TYPE)
+_WORKOUT_SUBSPORT_TYPE: str = create_field_name(_SUBSPORT, _TYPE)
+_WORKOUT_SEGMENTS: str = create_field_name(_WORKOUT, _SEGMENT + 's')
+_WORKOUT_STEPS: str = create_field_name(_WORKOUT, _STEP + 's')
+_WORKOUT_ORDER: str = create_field_name(_SEGMENT, _ORDER)
+_SPORT_TYPE: str = create_field_name(_SPORT, _TYPE)
+_INTENSITY_TYPE: str = create_field_name(_INTENSITY, _TYPE)
+_STEP_TYPE: str = create_field_name(_STEP, _TYPE)
+_CONDITION_TYPE: str = create_field_name(_CONDITION, _TYPE)
+_STROKE_TYPE: str = create_field_name(_STROKE, _TYPE)
+_EQUIPMENT_TYPE: str = create_field_name(_EQUIPMENT, _TYPE)
+_SWIM_INSTRUCTION_TYPE: str = create_field_name(_SWIM_INSTRUCTION, _TYPE)
+_DRILL_TYPE: str = create_field_name(_DRILL, _TYPE)
 _ACTIVITY_TYPE: str = _TYPE
 _EVENT_TYPE: str = _TYPE
-_END_CONDITION: str = f'end{_CONDITION.capitalize()}'
-_WORKOUT_TARGET: str = f'{_WORKOUT}{_TARGET.capitalize()}{_TYPE.capitalize()}'
+_END_CONDITION: str = create_field_name('end', _CONDITION)
+_WORKOUT_TARGET: str = create_field_name(create_field_name(_WORKOUT, _TARGET), _TYPE)
 
-_EVENT_NAME: str = f'{_EVENT}{_NAME.capitalize()}'
-_EVENT_TIME: str = f'{_EVENT}{_TIME.capitalize()}{_LOCAL.capitalize()}'
-_COURSE_ID: str = f'{_COURSE}{_ID.capitalize()}'
+_EVENT_NAME: str = create_field_name(_EVENT, _NAME)
+_EVENT_TIME: str = create_field_name(_EVENT, _TIME + _LOCAL)
+_COURSE_ID: str = create_field_name(_COURSE, _ID)
 
-_SPORT_TYPE_ID: str = f'{_SPORT_TYPE}{_ID.capitalize()}'
-_SPORT_TYPE_KEY: str = f'{_SPORT_TYPE}{_KEY.capitalize()}'
-_INTENSITY_TYPE_ID: str = f'{_INTENSITY_TYPE}{_ID.capitalize()}'
-_INTENSITY_TYPE_KEY: str = f'{_INTENSITY_TYPE}{_KEY.capitalize()}'
-_STEP_TYPE_ID: str = f'{_STEP_TYPE}{_ID.capitalize()}'
-_STEP_TYPE_KEY: str = f'{_STEP_TYPE}{_KEY.capitalize()}'
-_CONDITION_TYPE_ID: str = f'{_CONDITION_TYPE}{_ID.capitalize()}'
-_CONDITION_TYPE_KEY: str = f'{_CONDITION_TYPE}{_KEY.capitalize()}'
-_WORKOUT_TARGET_ID: str = f'{_WORKOUT_TARGET}{_ID.capitalize()}'
-_WORKOUT_TARGET_KEY: str = f'{_WORKOUT_TARGET}{_KEY.capitalize()}'
-_STROKE_TYPE_ID: str = f'{_STROKE_TYPE}{_ID.capitalize()}'
-_STROKE_TYPE_KEY: str = f'{_STROKE_TYPE}{_KEY.capitalize()}'
-_EQUIPMENT_TYPE_ID: str = f'{_EQUIPMENT_TYPE}{_ID.capitalize()}'
-_EQUIPMENT_TYPE_KEY: str = f'{_EQUIPMENT_TYPE}{_KEY.capitalize()}'
-_SECONDARY_TARGET: str = f'{_SECONDARY}{_TARGET.capitalize()}'
-_SECONDARY_ZONE: str = f'{_SECONDARY}{_ZONE.capitalize()}'
-_WEIGHT_VALUE: str = f'{_WEIGHT}{_VALUE.capitalize()}'
-_WEIGHT_UNIT: str = f'{_WEIGHT}{_UNIT.capitalize()}'
-_UNIT_ID: str = f'{_UNIT}{_ID.capitalize()}'
-_UNIT_KEY: str = f'{_UNIT}{_KEY.capitalize()}'
-_SWIM_INSTRUCTION_TYPE_ID: str = f'{_SWIM_INSTRUCTION_TYPE}{_ID.capitalize()}'
-_SWIM_INSTRUCTION_TYPE_KEY: str = f'{_SWIM_INSTRUCTION_TYPE}{_KEY.capitalize()}'
-_DRILL_TYPE_ID: str = f'{_DRILL_TYPE}{_ID.capitalize()}'
-_DRILL_TYPE_KEY: str = f'{_DRILL_TYPE}{_KEY.capitalize()}'
-_ACTIVITY_TYPE_ID: str = f'{_ACTIVITY_TYPE}{_ID.capitalize()}'
-_ACTIVITY_TYPE_KEY: str = f'{_ACTIVITY_TYPE}{_KEY.capitalize()}'
-_EVENT_TYPE_ID: str = f'{_EVENT_TYPE}{_ID.capitalize()}'
-_EVENT_TYPE_KEY: str = f'{_EVENT_TYPE}{_KEY.capitalize()}'
-_STEP_ORDER: str = f'{_STEP}{_ORDER.capitalize()}'
-_EXERCISE_NAME: str = f'{_EXERCISE}{_NAME.capitalize()}'
-_STEPS: str = f'{_STEP}s'
-_CHILD_STEP_ID: str = f'child{_STEP.capitalize()}{_ID.capitalize()}'
+_SPORT_TYPE_ID: str = create_field_name(_SPORT_TYPE, _ID)
+_SPORT_TYPE_KEY: str = create_field_name(_SPORT_TYPE, _KEY)
+_INTENSITY_TYPE_ID: str = create_field_name(_INTENSITY_TYPE, _ID)
+_INTENSITY_TYPE_KEY: str = create_field_name(_INTENSITY_TYPE, _KEY)
+_STEP_TYPE_ID: str = create_field_name(_STEP_TYPE, _ID)
+_STEP_TYPE_KEY: str = create_field_name(_STEP_TYPE, _KEY)
+_CONDITION_TYPE_ID: str = create_field_name(_CONDITION_TYPE, _ID)
+_CONDITION_TYPE_KEY: str = create_field_name(_CONDITION_TYPE, _KEY)
+_WORKOUT_TARGET_ID: str = create_field_name(_WORKOUT_TARGET, _ID)
+_WORKOUT_TARGET_KEY: str = create_field_name(_WORKOUT_TARGET, _KEY)
+_STROKE_TYPE_ID: str = create_field_name(_STROKE_TYPE, _ID)
+_STROKE_TYPE_KEY: str = create_field_name(_STROKE_TYPE, _KEY)
+_EQUIPMENT_TYPE_ID: str = create_field_name(_EQUIPMENT_TYPE, _ID)
+_EQUIPMENT_TYPE_KEY: str = create_field_name(_EQUIPMENT_TYPE, _KEY)
+_SECONDARY_TARGET: str = create_field_name(_SECONDARY, _TARGET)
+_SECONDARY_ZONE: str = create_field_name(_SECONDARY, _ZONE)
+_WEIGHT_VALUE: str = create_field_name(_WEIGHT, _VALUE)
+_WEIGHT_UNIT: str = create_field_name(_WEIGHT, _UNIT)
+_UNIT_ID: str = create_field_name(_UNIT, _ID)
+_UNIT_KEY: str = create_field_name(_UNIT, _KEY)
+_SWIM_INSTRUCTION_TYPE_ID: str = create_field_name(_SWIM_INSTRUCTION_TYPE, _ID)
+_SWIM_INSTRUCTION_TYPE_KEY: str = create_field_name(_SWIM_INSTRUCTION_TYPE, _KEY)
+_DRILL_TYPE_ID: str = create_field_name(_DRILL_TYPE, _ID)
+_DRILL_TYPE_KEY: str = create_field_name(_DRILL_TYPE, _KEY)
+_ACTIVITY_TYPE_ID: str = create_field_name(_ACTIVITY_TYPE, _ID)
+_ACTIVITY_TYPE_KEY: str = create_field_name(_ACTIVITY_TYPE, _KEY)
+_EVENT_TYPE_ID: str = create_field_name(_EVENT_TYPE, _ID)
+_EVENT_TYPE_KEY: str = create_field_name(_EVENT_TYPE, _KEY)
+_STEP_ORDER: str = create_field_name(_STEP, _ORDER)
+_EXERCISE_NAME: str = create_field_name(_EXERCISE, _NAME)
+_STEPS: str = _STEP + 's'
+_CHILD_STEP_ID: str = create_field_name(create_field_name('child', _STEP), _ID)
 _ITERATIONS = 'numberOfIterations'
 _REPEAT = 'smartRepeat'
 _REPEAT_DURATION = 'repeatDuration'
 _COMPARE = 'compare'
-_STEP_ID: str = f'{_STEP}{_ID.capitalize()}'
-_END_CONDITION_VALUE: str = f'{_END_CONDITION}{_VALUE.capitalize()}'
-_END_CONDITION_COMPARE: str = f'{_END_CONDITION}{_COMPARE.capitalize()}'
-_END_CONDITION_ZONE: str = f'{_END_CONDITION}{_ZONE.capitalize()}'
+_STEP_ID: str = create_field_name(_STEP, _ID)
+_END_CONDITION_VALUE: str = create_field_name(_END_CONDITION, _VALUE)
+_END_CONDITION_COMPARE: str = create_field_name(_END_CONDITION, _COMPARE)
+_END_CONDITION_ZONE: str = create_field_name(_END_CONDITION, _ZONE)
 _REPEAT_GROUP = 'RepeatGroupDTO'
 _EXECUTABLE_STEP = 'ExecutableStepDTO'
-_PREFERRED_END_CONDITION_UNIT: str = f'preferredEnd{_CONDITION.capitalize()}{_UNIT.capitalize()}'
+_PREFERRED_END_CONDITION_UNIT: str = create_field_name(create_field_name('preferredEnd', _CONDITION), _UNIT)
 
 _ESTIMATED_DURATION = 'estimatedDurationInSecs'
 _ESTIMATED_DISTANCE = 'estimatedDistanceInMeters'
 _AVG_SPEED = 'avgTrainingSpeed'
 
 
-@staticmethod
 def get_sport_type(sport_type) -> dict:
-    return {
-            _SPORT_TYPE_ID: SPORT_TYPES.get(sport_type),
-            _SPORT_TYPE_KEY: sport_type,
-        } if sport_type and sport_type in SPORT_TYPES else {}
+    return create_field_value(create_field_name(_SPORT, _TYPE), SPORT_TYPES.get(sport_type, ''), str(sport_type))
 
 
-@staticmethod
 def get_intensity_type(target_type) -> dict:
-    return {
-            _INTENSITY_TYPE_ID: INTENSITY_TYPES.get(target_type),
-            _INTENSITY_TYPE_KEY: target_type,
-        } if target_type and target_type in INTENSITY_TYPES else {}
+    return create_field_value(create_field_name(_INTENSITY, _TYPE), INTENSITY_TYPES.get(target_type), target_type)
 
 
-@staticmethod
 def get_target_fields(secondary) -> tuple[str, str]:
-    target: str = _TARGET if not secondary else _SECONDARY_TARGET
-    zone: str = _ZONE if not secondary else _SECONDARY_ZONE
+    target: str = create_field_name(_TARGET, '') if not secondary else create_field_name(_SECONDARY, _TARGET)
+    zone: str = create_field_name(_ZONE, '') if not secondary else create_field_name(_SECONDARY, _ZONE)
     return target, zone
 
 
-@staticmethod
 def get_step_type(step_type) -> dict:
-    return {
-        _STEP_TYPE_ID: STEP_TYPES.get(step_type),
-        _STEP_TYPE_KEY: step_type,
-    } if step_type and step_type in STEP_TYPES else {}
+    return create_field_value(create_field_name(_STEP, _TYPE), STEP_TYPES.get(step_type), step_type)
 
 
-@staticmethod
 def get_end_condition(end_condition) -> dict:
-    return {
-        _CONDITION_TYPE_ID: END_CONDITIONS.get(end_condition),
-        _CONDITION_TYPE_KEY: end_condition,
-    } if end_condition and end_condition in END_CONDITIONS else {}
+    return create_field_value(create_field_name(_CONDITION, _TYPE), END_CONDITIONS.get(end_condition), end_condition)
 
 
-@staticmethod
 def get_target_type(target_type) -> dict:
-    return {
-        _WORKOUT_TARGET_ID: TARGET_TYPES.get(target_type),
-        _WORKOUT_TARGET_KEY: target_type,
-    } if target_type and target_type in TARGET_TYPES else {}
+    return create_field_value(create_field_name(create_field_name(_WORKOUT, _TARGET), _TYPE),
+                              TARGET_TYPES.get(target_type), target_type)
 
 
-@staticmethod
 def get_stroke_type(stroke_type) -> dict:
-    return {
-        _STROKE_TYPE_ID: STROKE_TYPES.get(stroke_type),
-        _STROKE_TYPE_KEY: stroke_type,
-    } if stroke_type and stroke_type in STROKE_TYPES else {}
+    return create_field_value(create_field_name(_STROKE, _TYPE), STROKE_TYPES.get(stroke_type), stroke_type)
 
 
-@staticmethod
 def get_equipment_type(equipment_type) -> dict:
-    return {
-        _EQUIPMENT_TYPE_ID: EQUIPMENT_TYPES.get(equipment_type),
-        _EQUIPMENT_TYPE_KEY: equipment_type,
-    } if equipment_type and equipment_type in EQUIPMENT_TYPES else {}
+    return create_field_value(create_field_name(_EQUIPMENT, _TYPE), EQUIPMENT_TYPES.get(equipment_type), equipment_type)
 
 
-@staticmethod
 def get_weight(weight, unit) -> dict:
     return {
         _WEIGHT_VALUE: weight,
@@ -188,7 +171,6 @@ def get_weight(weight, unit) -> dict:
     } if weight else {}
 
 
-@staticmethod
 def get_unit_type(unit) -> dict:
     return {
         _UNIT_ID: UNIT_TYPES[unit][0],
@@ -203,10 +185,9 @@ def get_estimate(type) -> dict[str, dict]:
     return {
         'estimateType': type,
         'estimatedDistanceUnit': get_unit_type(unit)
-        } if type else {}
+    } if type else {}
 
 
-@staticmethod
 def get_pool(pool) -> dict:
     if pool == '25m':
         length = 25
@@ -221,32 +202,21 @@ def get_pool(pool) -> dict:
     return {
         'poolLength': length,
         'poolLengthUnit': get_unit_type(unit)
-        } if pool else {}
+    } if pool else {}
 
 
 def get_swim_instruction_type(instruction) -> dict:
-    return {
-        _SWIM_INSTRUCTION_TYPE_ID: SWIM_INSTRUCTION_TYPES.get(instruction),
-        _SWIM_INSTRUCTION_TYPE_KEY: instruction,
-    } if instruction and instruction in SWIM_INSTRUCTION_TYPES else {}
+    return create_field_value(create_field_name(_SWIM_INSTRUCTION, _TYPE), SWIM_INSTRUCTION_TYPES.get(instruction),
+                              instruction)
 
 
 def get_drill_type(drill) -> dict:
-    return {
-        _DRILL_TYPE_ID: DRILL_TYPES.get(drill),
-        _DRILL_TYPE_KEY: drill,
-    } if drill and drill in DRILL_TYPES else {}
+    return create_field_value(create_field_name(_DRILL, _TYPE), DRILL_TYPES.get(drill), drill)
 
 
 def get_activity_type(activity) -> dict:
-    return {
-        _ACTIVITY_TYPE_ID: ACTIVITY_TYPES.get(activity),
-        _ACTIVITY_TYPE_KEY: activity,
-    } if activity and activity in ACTIVITY_TYPES else {}
+    return create_field_value(_ACTIVITY_TYPE, ACTIVITY_TYPES.get(activity), activity)
 
 
 def get_event_type(event) -> dict:
-    return {
-        _EVENT_TYPE_ID: EVENT_TYPES.get(event),
-        _EVENT_TYPE_KEY: event,
-    } if event and event in EVENT_TYPES else {}
+    return create_field_value(_EVENT_TYPE, EVENT_TYPES.get(event), event)

@@ -12,12 +12,12 @@ from garminworkouts.models.date import get_date
 from garminworkouts.models.fields import (get_sport_type, get_target_type, get_step_type,
                                           _WORKOUT_ID, _WORKOUT_NAME, _DESCRIPTION, _WORKOUT_OWNER_ID,
                                           _WORKOUT_SPORT_TYPE, _WORKOUT_SEGMENTS, _WORKOUT_ORDER, _WORKOUT_STEPS,
-                                          _STEP_TYPE, _TYPE, _SPORT, _DATE, _TARGET, _NAME, _SECONDARY, _REPEAT_GROUP,
+                                          _STEP_TYPE, _TYPE, _SPORT, _DATE, _TARGET, _NAME, _SECONDARY,
                                           _DURATION, _WEIGHT, _CONDITION_TYPE_KEY, _CATEGORY, _STEP_ORDER,
                                           _EXERCISE_NAME, _WORKOUT_TARGET_KEY, _STEPS, _REPEAT, _ITERATIONS,
                                           _CHILD_STEP_ID, _SUBSPORT, _END_CONDITION, _END_CONDITION_VALUE, _AUTHOR,
                                           _PREFERRED_END_CONDITION_UNIT, _WORKOUT_SUBSPORT_TYPE, _ESTIMATED_DURATION,
-                                          _ESTIMATED_DISTANCE, _AVG_SPEED, _REPEAT_DURATION,
+                                          _ESTIMATED_DISTANCE, _AVG_SPEED, _REPEAT_DURATION, _REPEAT_GROUP,
                                           get_estimate, get_pool, get_end_condition)
 import logging
 
