@@ -1,7 +1,7 @@
 from typing import Any
 from garminworkouts.models.types import (EVENT_TYPES, SPORT_TYPES, INTENSITY_TYPES, STEP_TYPES, UNIT_TYPES,
-                                         END_CONDITIONS, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES,
-                                         SWIM_INSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES)
+                                         CONDITION_TYPES, TARGET_TYPES, STROKE_TYPES, EQUIPMENT_TYPES,
+                                         SWIMINSTRUCTION_TYPES, DRILL_TYPES, ACTIVITY_TYPES)
 
 _WORKOUT = 'workout'
 _SPORT = 'sport'
@@ -148,7 +148,7 @@ def get_step_type(step_type) -> dict:
 
 
 def get_end_condition(end_condition) -> dict:
-    return create_field_value(create_field_name(_CONDITION, _TYPE), END_CONDITIONS.get(end_condition), end_condition)
+    return create_field_value(create_field_name(_CONDITION, _TYPE), CONDITION_TYPES.get(end_condition), end_condition)
 
 
 def get_target_type(target_type) -> dict:
@@ -206,7 +206,7 @@ def get_pool(pool) -> dict:
 
 
 def get_swim_instruction_type(instruction) -> dict:
-    return create_field_value(create_field_name(_SWIM_INSTRUCTION, _TYPE), SWIM_INSTRUCTION_TYPES.get(instruction),
+    return create_field_value(create_field_name(_SWIM_INSTRUCTION, _TYPE), SWIMINSTRUCTION_TYPES.get(instruction),
                               instruction)
 
 

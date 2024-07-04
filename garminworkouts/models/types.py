@@ -48,7 +48,7 @@ STEP_TYPES: dict[str, int] = {
     'main': 8,
 }
 
-END_CONDITIONS: dict[str, int] = {
+CONDITION_TYPES: dict[str, int] = {
     'calories': 4,
     'distance': 3,
     'heart.rate': 6,
@@ -109,7 +109,7 @@ STROKE_TYPES: dict[str, int] = {
     'reverse_individual_medley_by_round': 10,
     }
 
-SWIM_INSTRUCTION_TYPES: dict[str, int] = {
+SWIMINSTRUCTION_TYPES: dict[str, int] = {
     'recovery': 1,
     'very_easy': 2,
     'easy': 3,
