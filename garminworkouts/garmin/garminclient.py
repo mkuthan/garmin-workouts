@@ -1,4 +1,3 @@
-import json
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
@@ -490,7 +489,7 @@ class GarminClient(object):
         url: str = f"{self._BIOMETRIC_SERVICE_ENDPOINT}/powerZones/all"
         return self.put(url, json=zones)
 
-    def find_events(self) -> Generator[Response, dict, None]:
+    def find_events(self) -> Generator[dict, Any, None]:
         url = "race-search/events"
 
         d1 = datetime.today()
@@ -514,7 +513,7 @@ class GarminClient(object):
         while True:
             params['fromDate'] = d1.strftime('%Y-%m-%d')
             params['toDate'] = d2.strftime('%Y-%m-%d')
-            ev: Response = self.get(url, params=params).json()
+            ev: dict = self.get(url, params=params).json()
             if ev:
                 yield ev
                 d1: datetime = d2
@@ -591,20 +590,21 @@ class GarminClient(object):
         self.get_types()
 
     def _find_events(self) -> None:
-        events = self.find_events()
+        events: Generator[dict, Any, None] = self.find_events()
         for subev in events:
             for ev in subev:
-                ev_a = json.loads(ev.decode('utf-8'))
-                if ('administrativeArea' in ev_a) and (ev_a.get('administrativeArea') is not None) and (
-                     ev_a.get('administrativeArea', {}).get('countryCode') is not None):
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'),
-                                                ev_a.get('administrativeArea', {}).get('countryCode'))
+                if ('administrativeArea' in ev) and\
+                    (ev.get('administrativeArea', {}) is not None) and\
+                        (ev.get('administrativeArea', {}).get('countryCode') is not None):
+                    newpath: str = os.path.join('.', 'exported', 'events',
+                                                ev.get('eventType', ''),
+                                                ev.get('administrativeArea', {}).get('countryCode', ''))
                 else:
-                    newpath: str = os.path.join('.', 'exported', 'events', ev_a.get('eventType'))
+                    newpath: str = os.path.join('.', 'exported', 'events', ev.get('eventType', ''))
                 if not os.path.exists(newpath):
                     os.makedirs(newpath)
-                file: str = os.path.join(newpath, ev_a.get('eventRef') + '.yaml')
-                Extraction.event_export_yaml(event=self.get(ev_a.get('detailsEndpoints')[0].get('url')
+                file: str = os.path.join(newpath, ev.get('eventRef', '') + '.yaml')
+                Extraction.event_export_yaml(event=self.get(ev.get('detailsEndpoints', '')[0].get('url', '')
                                                             ).json(), filename=file)
 
     def workout_export(self, args) -> None:
