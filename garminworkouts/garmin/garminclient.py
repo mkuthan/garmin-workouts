@@ -549,22 +549,19 @@ class GarminClient(object):
                 f"{GarminClient._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/"
                 f"{challenge.get('uuid')}/optIn/"
                 f"{datetime.today().strftime('%Y-%m-%d')}"
-                )
+            )
 
             self.post(url)
 
     def activity_list(self) -> None:
-        try:
-            start_date: date = date.today() - timedelta(days=7)
-            end_date: date = date.today()
-            activities: list[dict] = self.get_activities_by_date(
-                startdate=start_date, enddate=end_date, activitytype='running')
-            for activity in activities:
-                id: str = activity.get('activityId', '')
-                logging.info("Downloading activity '%s'", id)
-                self.download_activity(id)
-        except Exception as e:
-            logging.error("An error occurred: %s", str(e))
+        start_date: date = date.today() - timedelta(days=7)
+        end_date: date = date.today()
+        activities: list[dict] = self.get_activities_by_date(
+            startdate=start_date, enddate=end_date, activitytype='running')
+        for activity in activities:
+            id: str = activity.get('activityId', '')
+            logging.info("Downloading activity '%s'", id)
+            self.download_activity(id)
 
     def trainingplan_reset(self, args) -> None:
         workouts, notes, plan = settings(args)
@@ -574,11 +571,8 @@ class GarminClient(object):
             existing_workout: dict | None = existing_workouts_by_name.get(workout_name)
             if existing_workout and plan in existing_workout.get('description'):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
-                try:
-                    logging.info("Deleting workout '%s'", workout_name)
-                    self.delete_workout(workout_id)
-                except Exception as e:
-                    logging.error("Error deleting workout '%s': %s", workout_name, str(e))
+                logging.info("Deleting workout '%s'", workout_name)
+                self.delete_workout(workout_id)
 
     def updateGarmin(self) -> None:
         file_path = "./garminworkouts/garmin/garminclient.py"
