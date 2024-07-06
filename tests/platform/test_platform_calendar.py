@@ -1,4 +1,5 @@
 from datetime import date
+from unittest.mock import MagicMock, patch
 from garminworkouts.garmin.garminclient import GarminClient
 
 
@@ -13,3 +14,106 @@ def test_get_calendar(authed_gclient: GarminClient) -> None:
     assert len(updateable_elements) >= 0
     assert len(checkable_elements) >= 0
     assert len(note_elements) >= 0
+
+
+def test_get_calendar_workout(authed_gclient: GarminClient) -> None:
+    with patch.object(authed_gclient, 'get') as mock_get, \
+            patch.object(authed_gclient, 'delete') as mock_delete:
+        mock_get.return_value.json.return_value = {
+            "calendarItems": [
+                {
+                    "itemType": "workout",
+                    "workoutId": "123",
+                    "date": "2021-01-01",
+                    "title": "Test Workout",
+                },
+            ],
+        }
+        mock_delete.return_value = MagicMock(status_code=200)
+
+        updateable_elements, checkable_elements, note_elements = authed_gclient.get_calendar(date.today())
+        assert len(updateable_elements) >= 0
+        assert len(checkable_elements) >= 0
+        assert len(note_elements) >= 0
+
+
+def custom_get_side_effect_activity(arg) -> MagicMock:
+    date_w: date = date.today()
+    year = str(date_w.year)
+    month = str(date_w.month - 1)
+    activity_id = '123'
+
+    # Custom logic to return different values based on args or kwargs
+    if arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}":
+        return MagicMock(json=lambda: {
+            "calendarItems": [
+                {
+                    "itemType": "activity",
+                    "id": "123",
+                    "date": "2021-01-01",
+                    "title": "Test Activity",
+                },
+            ],
+        })
+    elif arg == f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}/workouts":
+        return MagicMock(status_code=200, json=lambda: [{
+            "workoutName": "Test Workout",
+        }])
+    else:
+        return MagicMock(status_code=404)
+
+
+def test_get_calendar_activity(authed_gclient: GarminClient) -> None:
+    with patch.object(authed_gclient, 'get') as mock_get:
+        mock_get.side_effect = custom_get_side_effect_activity
+
+        updateable_elements, checkable_elements, note_elements = authed_gclient.get_calendar(date.today())
+        assert len(updateable_elements) >= 0
+        assert len(checkable_elements) >= 0
+        assert len(note_elements) >= 0
+
+
+def custom_get_side_effect_note(arg) -> MagicMock:
+    date_w: date = date.today()
+    year = str(date_w.year)
+    month = str(date_w.month - 1)
+    note_id = '123'
+
+    # Custom logic to return different values based on args or kwargs
+    if arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}":
+        return MagicMock(json=lambda: {
+            "calendarItems": [
+                {
+                    "itemType": "note",
+                    "id": "123",
+                    "date": "2021-01-01",
+                    "trainingPlanId": "123",
+                },
+                {
+                    "itemType": "note",
+                    "id": "123",
+                    "date": "2021-01-01",
+                    "trainingPlanId": None,
+                },
+            ],
+        })
+    elif arg == f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}":
+        return MagicMock(status_code=200, json=lambda: {
+            "noteName": "Test Note",
+        })
+    elif f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}":
+        return MagicMock(status_code=200, json=lambda: {
+            "noteName": "Test Note",
+        })
+    else:
+        return MagicMock(status_code=404)
+
+
+def test_get_calendar_note(authed_gclient: GarminClient) -> None:
+    with patch.object(authed_gclient, 'get') as mock_get:
+        mock_get.side_effect = custom_get_side_effect_note
+
+        updateable_elements, checkable_elements, note_elements = authed_gclient.get_calendar(date.today())
+        assert len(updateable_elements) >= 0
+        assert len(checkable_elements) >= 0
+        assert len(note_elements) >= 0

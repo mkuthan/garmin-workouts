@@ -1,6 +1,7 @@
 from garminworkouts.garmin.garminclient import GarminClient
 from unittest.mock import patch, MagicMock
 import os
+import shutil
 
 
 def custom_get_side_effect(url, params) -> MagicMock:
@@ -51,3 +52,4 @@ def test_download_activity(authed_gclient: GarminClient) -> None:
 
         output_file: str = f"./activities/{str(activity_id)}.zip"
         os.remove(output_file)
+        shutil.rmtree("./activities")
