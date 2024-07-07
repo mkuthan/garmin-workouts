@@ -1,6 +1,6 @@
 name: "21_6"
-description: "Additional"
+description: "W3-Long Run"
 sport: "running"
 
 steps:
-  - !include recovery_7.yaml
+  - !include aerobic_14.yaml
