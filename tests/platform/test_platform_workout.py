@@ -1,3 +1,4 @@
+from requests import Response
 from garminworkouts.garmin.garminclient import GarminClient
 from tests.trainingplans.base_test import BaseTest
 import os
@@ -37,7 +38,7 @@ def test_get_note(authed_gclient: GarminClient) -> None:
     with patch.object(authed_gclient, 'get') as mock_get:
         note_id = 123
         mock_get.return_value = [{'uuid': '123', 'note': 'Sample note'}]
-        note = authed_gclient.get_note(True, note_id)
+        note: Response = authed_gclient.get_note(True, note_id)
         mock_get.assert_called_once_with(f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}")
 
         assert note

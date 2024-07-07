@@ -6,7 +6,7 @@ from garminworkouts.config import configreader
 
 class MyTestCase(unittest.TestCase):
     def test_read_config(self) -> None:
-        config_file = os.path.join(os.path.dirname(__file__), 'test_configreader.yaml')
+        config_file: str = os.path.join(os.path.dirname(__file__), 'test_configreader.yaml')
         config: dict = configreader.read_config(config_file)
 
         expected_config: dict = {

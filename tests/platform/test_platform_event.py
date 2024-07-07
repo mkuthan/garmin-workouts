@@ -25,6 +25,7 @@ def test_find_events(authed_gclient: GarminClient) -> None:
 
     # Assert that the list is not empty
     assert len(events) > 0
+    shutil.rmtree('./exported')
 
 
 def mock_generator():

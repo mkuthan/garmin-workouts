@@ -8,7 +8,7 @@ from garminworkouts.config import includeloader
 
 class MyTestCase(unittest.TestCase):
     def test_read_generator(self) -> None:
-        config_file = os.path.join(os.path.dirname(__file__), 'test_generator.yaml')
+        config_file: str = os.path.join(os.path.dirname(__file__), 'test_generator.yaml')
         config: dict = configreader.read_config(config_file)
 
         expected_config: dict = {
