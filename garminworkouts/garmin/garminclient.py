@@ -1,3 +1,4 @@
+import json
 import logging
 from datetime import datetime, date, timedelta
 from requests import Response
@@ -160,7 +161,6 @@ class GarminClient(object):
         return self.put(url, json=workout)
 
     def delete_workout(self, workout_id) -> Response:
-        logging.info("Deleting workout '%s'", workout_id)
         url: str = f"{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"
         return self.delete(url)
 
@@ -593,6 +593,8 @@ class GarminClient(object):
         events: Generator[dict, Any, None] = self.find_events()
         for subev in events:
             for ev in subev:
+                if isinstance(ev, bytes):
+                    ev: dict = json.loads(ev.decode('utf-8'))
                 if ('administrativeArea' in ev) and\
                     (ev.get('administrativeArea', {}) is not None) and\
                         (ev.get('administrativeArea', {}).get('countryCode') is not None):
