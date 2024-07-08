@@ -101,6 +101,9 @@ def test_updateGarmin(authed_gclient: GarminClient) -> None:
         authed_gclient.updateGarmin()
         assert mock_get_types.call_count == 1
 
+    authed_gclient.version = GarminClient._GARMIN_VERSION
+    authed_gclient.updateGarmin()
+
 
 def test_workout_list(authed_gclient: GarminClient) -> None:
     with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts:
