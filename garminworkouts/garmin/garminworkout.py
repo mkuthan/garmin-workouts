@@ -116,6 +116,7 @@ class GarminWorkout(GarminEvent):
             logging.info("Exporting workout '%s' into '%s'", workout_name, file)
             Extraction.workout_export_yaml(workout, file)
 
+    def export_trainingplans(self) -> None:
         for tp in self.list_trainingplans(account.locale):
             tp: dict = TrainingPlan.export_trainingplan(tp)
             tp_type: str = tp.get('type', '')
@@ -161,3 +162,7 @@ class GarminWorkout(GarminEvent):
                     Extraction.note_export_yaml(note, file)
 
             self.delete_training_plan(tp.get('trainingPlanId'))
+
+    def external_workout_export_yaml(self) -> None:
+        self.workout_export_yaml()
+        self.export_trainingplans()
