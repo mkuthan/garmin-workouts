@@ -14,11 +14,6 @@ from garminworkouts.utils.validators import writeable_dir
 import account
 
 
-def command_activity_list(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.activity_list()
-
-
 def command_trainingplan_reset(args) -> None:
     with _garmin_client(args) as connection:
         connection.trainingplan_reset(args)
@@ -95,26 +90,6 @@ def command_workout_export_yaml(args) -> None:
         connection.workout_export_yaml()
 
 
-def command_workout_list(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.workout_list()
-
-
-def command_event_list(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.event_list()
-
-
-def command_trainingplan_list(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.trainingplan_list()
-
-
-def command_challenge_list(args) -> None:
-    with _garmin_client(args) as connection:
-        connection.list_challenge()
-
-
 def command_workout_schedule(args) -> None:
     with _garmin_client(args) as connection:
         connection.schedule_workout(args.workout_id, args.date)
@@ -138,6 +113,31 @@ def command_workout_delete(args) -> None:
 def command_user_zones(args) -> None:
     with _garmin_client(args) as connection:
         connection.user_zones()
+
+
+def command_workout_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.workout_list()
+
+
+def command_event_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.event_list()
+
+
+def command_challenge_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.list_challenge()
+
+
+def command_trainingplan_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.trainingplan_list()
+
+
+def command_activity_list(args) -> None:
+    with _garmin_client(args) as connection:
+        connection.activity_list()
 
 
 def command_update_types(args) -> None:
