@@ -24,25 +24,39 @@ class GarminClient(GarminWorkout):
             item_type: Any = item.get('itemType')
 
             if item_type == 'workout':
-                if item_date < date:
-                    logging.info("Deleting workout '%s'", item.get('title'))
-                    self.delete_workout(item.get('workoutId'))
-                elif item_date < date_plus_days:
-                    updateable_elements.append(item.get('title'))
-
+                self.workout_update(date, updateable_elements, date_plus_days, item, item_date)
+            elif item_type == 'note':
+                self.note_update(date, note_elements, date_plus_days, item, item_date)
             elif item_type == 'activity':
                 payload: dict = self.get_activity_workout(item.get('id'))
                 if 'workoutName' in payload:
                     checkable_elements.append(payload.get('workoutName', str))
 
-            elif item_type == 'note':
-                if item.get('trainingPlanId'):
-                    payload = self.get_note(trainingplan=True, note_id=item.get('id')).json()
-                else:
-                    payload = self.get_note(trainingplan=False, note_id=item.get('id')).json()
-                note_elements[payload.get('noteName')] = payload
-
         return updateable_elements, checkable_elements, note_elements
+
+    def note_update(self, date, note_elements, date_plus_days, item, item_date) -> None:
+        if item_date < date:
+            logging.info("Deleting note '%s'", item.get('title'))
+            if item.get('trainingPlanId'):
+                self.delete_training_plan_note(item.get('trainingPlanId'), item.get('id'))
+            else:
+                self.delete_note(note_id=item.get('id'))
+        elif item_date < date_plus_days:
+            if item.get('trainingPlanId'):
+                payload = self.get_note(trainingplan=True, note_id=item.get('id')).json()
+            else:
+                payload = self.get_note(trainingplan=False, note_id=item.get('id')).json()
+            note_elements[payload.get('noteName')] = payload
+
+    def workout_update(self, date, updateable_elements, date_plus_days, item, item_date) -> None:
+        if item_date < date:
+            logging.info("Deleting workout '%s'", item.get('title'))
+            if item.get('trainingPlanId'):
+                self.delete_training_plan_workout(item.get('trainingPlanId'), item.get('id'))
+            else:
+                self.delete_workout(item.get('workoutId'))
+        elif item_date < date_plus_days:
+            updateable_elements.append(item.get('title'))
 
     def trainingplan_reset(self, args) -> None:
         workouts, notes, plan = settings(args)
