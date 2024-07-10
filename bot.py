@@ -94,9 +94,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     with open('./debug.log', 'r') as file:
         assert query.message is not None
         try:
-            await query.message.reply_text(text=file.read())
+            await query.message.reply_text(text=file.read())  # type: ignore
         except Exception:
-            await query.message.reply_text(text='debug.log is empty')
+            await query.message.reply_text(text='debug.log is empty')  # type: ignore
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -128,7 +128,10 @@ async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
     """Remove job with given name. Returns whether job was removed."""
-    current_jobs = context.job_queue.get_jobs_by_name(name)
+    if context.job_queue is not None:
+        current_jobs = context.job_queue.get_jobs_by_name(name)
+    else:
+        current_jobs = []
     if not current_jobs:
         return False
     for job in current_jobs:
@@ -138,30 +141,40 @@ def remove_job_if_exists(name: str, context: ContextTypes.DEFAULT_TYPE) -> bool:
 
 async def set_timer(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Add a job to the queue."""
-    chat_id = update.effective_message.chat_id
+    if update.effective_message is not None:
+        chat_id = update.effective_message.chat_id
+    else:
+        chat_id = None  # or handle the case when update.effective_message is None
     try:
         job_removed = remove_job_if_exists(str(chat_id), context)
-        context.job_queue.run_repeating(callback=recurrent,
-                                        first=datetime.time(
-                                            hour=3, minute=00, second=00,
-                                            tzinfo=tz.gettz('Europe/Madrid')),
-                                        interval=datetime.timedelta(hours=24))
+        if context.job_queue is not None:
+            context.job_queue.run_repeating(callback=recurrent,
+                                            first=datetime.time(
+                                                hour=3, minute=00, second=00,
+                                                tzinfo=tz.gettz('Europe/Madrid')),
+                                            interval=datetime.timedelta(hours=24))
 
         text = "Recurrent workout update successfully set!"
         if job_removed:
             text += " Old one was removed."
-        await update.effective_message.reply_text(text)
+        if update.effective_message is not None:
+            await update.effective_message.reply_text(text)
 
     except (IndexError, ValueError):
-        await update.effective_message.reply_text("Usage: Recurrent workout update")
+        if update.effective_message is not None:
+            await update.effective_message.reply_text("Usage: Recurrent workout update")
 
 
 async def unset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Remove the job if the user changed their mind."""
-    chat_id = update.message.chat_id
+    if update.message is not None:
+        chat_id = update.message.chat_id
+    else:
+        chat_id = None  # or handle the case when update.message is None
     job_removed = remove_job_if_exists(str(chat_id), context)
     text = "Recurrent task successfully cancelled!" if job_removed else "You have no active timer."
-    await update.message.reply_text(text)
+    if update.message is not None:
+        await update.message.reply_text(text)
 
 
 def main() -> None:
@@ -175,11 +188,12 @@ def main() -> None:
     application.add_handler(CommandHandler("set", set_timer))
     application.add_handler(CommandHandler("unset", unset))
 
-    application.job_queue.run_repeating(callback=recurrent,
-                                        first=datetime.time(
-                                            hour=3, minute=00, second=00,
-                                            tzinfo=tz.gettz('Europe/Madrid')),
-                                        interval=datetime.timedelta(hours=24))
+    if application.job_queue is not None:
+        application.job_queue.run_repeating(callback=recurrent,
+                                            first=datetime.time(
+                                                hour=3, minute=00, second=00,
+                                                tzinfo=tz.gettz('Europe/Madrid')),
+                                            interval=datetime.timedelta(hours=24))
 
     # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
