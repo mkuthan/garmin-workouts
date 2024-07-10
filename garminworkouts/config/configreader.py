@@ -15,7 +15,7 @@ def read_config(filename) -> dict:
                 data['steps'][i] = step
                 i += 1
             test_name: str = os.path.basename(filename).split('.')[0]
-            if not data['name'] in test_name:
+            if not data.get('name', '') in test_name and 'goal' not in data:
                 logging.warning(f"Name in config file '{data['name']}' does not match filename '{test_name}'")
 
     return data
