@@ -109,9 +109,28 @@ def custom_get_side_effect_note(arg) -> MagicMock:
         return MagicMock(status_code=404)
 
 
+def custom_delete_side_effect_note(arg) -> MagicMock:
+    plan_id = '123'
+    note_id = '123'
+
+    # Custom logic to return different values based on args or kwargs
+    if arg == f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/noteTask/{plan_id}/{note_id}":
+        return MagicMock(status_code=200, json=lambda: {
+            "noteName": "Test Note",
+        })
+    elif arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}":
+        return MagicMock(status_code=200, json=lambda: {
+            "noteName": "Test Note",
+        })
+    else:
+        return MagicMock(status_code=404)
+
+
 def test_get_calendar_note(authed_gclient: GarminClient) -> None:
-    with patch.object(authed_gclient, 'get') as mock_get:
+    with patch.object(authed_gclient, 'get') as mock_get, \
+         patch.object(authed_gclient, 'delete') as mock_delete:
         mock_get.side_effect = custom_get_side_effect_note
+        mock_delete.side_effect = custom_delete_side_effect_note
 
         updateable_elements, checkable_elements, note_elements = authed_gclient.get_calendar(date.today())
         assert len(updateable_elements) >= 0
