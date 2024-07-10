@@ -37,6 +37,14 @@ class GarminTrainingplan(GarminActivity):
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/trainingplan/{plan_id}"
         return self.delete(url)
 
+    def delete_training_plan_workout(self, plan_id, workout_id) -> Response:
+        url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/workoutTask/{plan_id}/{workout_id}"
+        return self.delete(url)
+
+    def delete_training_plan_note(self, plan_id, note_id) -> Response:
+        url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/noteTask/{plan_id}/{note_id}"
+        return self.delete(url)
+
     def trainingplan_list(self) -> None:
         for tp in self.list_trainingplans(account.locale):
             TrainingPlan.print_trainingplan_summary(tp)
