@@ -81,6 +81,8 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             d = generator.race_generator(duration, objective)
         case 'PlankPushHold':
             d = generator.plankpushhold_generator(duration)
+        case 'PlankPushAngel':
+            d = generator.plankpushangel_generator(duration)
         case 'CalfHoldLunge':
             d = generator.calfholdlunge_generator(duration)
         case 'CalfLunge':
