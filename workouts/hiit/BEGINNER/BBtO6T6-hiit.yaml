@@ -13,46 +13,38 @@ sport: hiit
 steps:
 - &id001
   - category: LUNGE
-    description: ''
     duration: 0:00:20
     exerciseName: LUNGE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
   - category: CRUNCH
-    description: ''
     duration: 0:00:20
     exerciseName: CRUNCH
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
   - category: TOTAL_BODY
-    description: ''
     duration: 0:00:20
     exerciseName: BURPEE
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
   - category: PLANK
-    description: ''
     duration: 0:00:20
     exerciseName: PLANK
     target: {type: no.target}
     type: interval
-  - description: ''
-    duration: 0:00:10
+  - duration: 0:00:10
     target: {type: no.target}
     type: rest
-  - description: ''
+  - duration: lap.button
     target: {type: no.target}
     type: rest
 - *id001
