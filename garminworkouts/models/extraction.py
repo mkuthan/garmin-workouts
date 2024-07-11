@@ -29,7 +29,7 @@ class Extraction(object):
     @staticmethod
     def target_extraction(step_json, step) -> dict:
         step['target'] = {}
-
+        step['target']['type'] = 'no.target'
         if 'targetType' in step_json and step_json['targetType']:
             target_type_key: Any = step_json['targetType']['workoutTargetTypeKey']
 
