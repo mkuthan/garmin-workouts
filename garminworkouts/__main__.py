@@ -87,7 +87,7 @@ def command_workout_export(args) -> None:
 
 def command_workout_export_yaml(args) -> None:
     with _garmin_client(args) as connection:
-        connection.workout_export_yaml()
+        connection.external_workout_export_yaml()
 
 
 def command_workout_schedule(args) -> None:

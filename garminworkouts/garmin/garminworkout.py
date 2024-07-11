@@ -5,7 +5,6 @@ from typing import Any, Generator
 from requests import Response
 from garminworkouts.garmin.garminevent import GarminEvent
 from garminworkouts.models.extraction import Extraction
-from garminworkouts.models.note import Note
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.trainingplan import TrainingPlan
 from garminworkouts.models.fields import (_ID, _WORKOUT, create_field_name)
@@ -150,16 +149,15 @@ class GarminWorkout(GarminEvent):
                 if w.get('taskWorkout'):
                     workout_id: str = w.get('taskWorkout', {}).get('workoutId')
                     workout_data: Response = self.get_workout(workout_id)
-                    workout = workout_data.json()
+                    workout: dict = workout_data.json()
                     logging.info("Exporting workout '%s' into '%s'", name, file)
                     Extraction.workout_export_yaml(workout, file)
                 if w.get('taskNote'):
                     config: dict = {}
                     config['name'] = w.get('taskNote', {}).get('note')
                     config['content'] = w.get('taskNote', {}).get('noteDescription')
-                    note = Note(config)
                     logging.info("Exporting note '%s' into '%s'", name, file)
-                    Extraction.note_export_yaml(note, file)
+                    Extraction.note_export_yaml(config, file)
 
             self.delete_training_plan(tp.get('trainingPlanId'))
 
