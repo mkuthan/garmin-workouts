@@ -144,22 +144,32 @@ class GarminWorkout(GarminEvent):
                 if not os.path.exists(newpath):
                     os.makedirs(newpath)
 
-                file: str = os.path.join(newpath, name + '.yaml')
-
                 if w.get('taskWorkout'):
                     workout_id: str = w.get('taskWorkout', {}).get('workoutId')
                     workout_data: Response = self.get_workout(workout_id)
                     workout: dict = workout_data.json()
+                    file = self.generate_filename(newpath, name, workout.get('workoutName', ''))
+
                     logging.info("Exporting workout '%s' into '%s'", name, file)
                     Extraction.workout_export_yaml(workout, file)
                 if w.get('taskNote'):
                     config: dict = {}
-                    config['name'] = w.get('taskNote', {}).get('note')
+                    config['name'] = w.get('taskNote', {}).get('note', '')
                     config['content'] = w.get('taskNote', {}).get('noteDescription')
+                    file: str = self.generate_filename(newpath, name, w.get('taskNote', {}).get('note', ''))
+
                     logging.info("Exporting note '%s' into '%s'", name, file)
                     Extraction.note_export_yaml(config, file)
 
             self.delete_training_plan(tp.get('trainingPlanId'))
+
+    def generate_filename(self, newpath: str, name: str, ww: str) -> str:
+        if 'a-' in ww or 'a -' in ww:
+            name = name + 'a'
+        if 'b-' in ww or 'b -' in ww:
+            name = name + 'b'
+        file: str = os.path.join(newpath, name + '.yaml')
+        return file
 
     def external_workout_export_yaml(self) -> None:
         self.workout_export_yaml()
