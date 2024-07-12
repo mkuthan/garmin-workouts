@@ -1,0 +1,11 @@
+description: " \u2022 Run in Z2, easy pace, 30 minutes. \n \u2022 Cool down, 5 to\
+  \ 10 minutes. \n \u2022 Stretch."
+name: W06D3a-Recovery Run
+sport: running
+steps:
+- duration: 0:30:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

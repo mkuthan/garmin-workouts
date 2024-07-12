@@ -1,0 +1,11 @@
+description: "\u2022 Morning run.\r\n \u2022 Run, recovery pace, 30 minutes.\r\n \u2022\
+  \ Cool down, 5 to 10 minutes.\r\n \u2022 Stretch."
+name: W10D2a-Recovery Run
+sport: running
+steps:
+- duration: 0:30:00
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown
