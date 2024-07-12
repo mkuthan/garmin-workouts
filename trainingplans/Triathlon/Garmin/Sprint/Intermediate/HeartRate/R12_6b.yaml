@@ -1,0 +1,12 @@
+description: " \u2022 Bike, Z2, 20 minutes, 95 RPM.\n \u2022 Cool down, 5 to 10 minutes.\n\
+  \ \u2022 Stretch.\n \u2022 Use the bike ride to check that gears and brakes are\
+  \ working properly. "
+name: W12D6b-Easy Bike
+sport: cycling
+steps:
+- duration: 0:20:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

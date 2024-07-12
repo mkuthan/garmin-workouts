@@ -1,0 +1,12 @@
+description: "\u2022 Bike, Z2, 20 minutes, 95 RPM.\n\u2022 Use the bike ride just\
+  \ to check your gears and brakes to make sure everything is working. Try to do both\
+  \ of these workouts in the morning and relax in the evening."
+name: W12D6b-Easy Bike
+sport: cycling
+steps:
+- duration: 0:20:00
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

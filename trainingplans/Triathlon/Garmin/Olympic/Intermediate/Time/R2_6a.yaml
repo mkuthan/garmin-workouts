@@ -1,0 +1,20 @@
+description: "\u2022 Bike, easy effort, 55 minutes. Bike, moderate effort, 20 minutes.\
+  \ Repeat 2 times.\n\u2022 Cool down, 5-10 minutes.\n\u2022 Keep cadence around 90-95\
+  \ RPM.\n\u2022 Ride on hilly terrain. Don't worry too much if your heart rate goes\
+  \ up for short periods during the 55 minutes over hills. Stay in seat over any hills\
+  \ and pedal smoothly. Aim for 30-50 grams of carbs per hour.\n\u2022 Straight off\
+  \ the bike and into the run."
+name: W02D6a-Bike/Run Brick
+sport: cycling
+steps:
+- &id001
+  - duration: 0:55:00
+    target: {type: no.target}
+    type: interval
+  - duration: 0:20:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

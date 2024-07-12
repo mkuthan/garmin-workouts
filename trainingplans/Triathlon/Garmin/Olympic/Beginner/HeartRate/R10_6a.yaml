@@ -1,0 +1,19 @@
+description: "\u2022 Bike, Z1, 45 minutes. Bike, Z2, 15 minutes. Repeat 2 times.\n\
+  \ \u2022 Ride on hilly terrain. Don't worry too much if your heart rate goes into\
+  \ Z2 or even Z3 for short periods during the 45 minutes of Z1 over hills.\n \u2022\
+  \ Aim for 30-50 grams of carbs per hour.\n \u2022 Straight off the bike and into\
+  \ the run."
+name: W10D6a-Long Bike/Run Brick
+sport: cycling
+steps:
+- &id001
+  - duration: 0:45:00
+    target: {type: heart.rate.zone, zone: '1'}
+    type: interval
+  - duration: 0:15:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: interval
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

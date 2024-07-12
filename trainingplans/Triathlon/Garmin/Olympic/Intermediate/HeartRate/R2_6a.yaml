@@ -1,0 +1,20 @@
+description: "\u2022 Bike, Z1, 55 minutes. Bike, Z2, 20 minutes. Repeat 2 times.\r\
+  \n \u2022 Cool down, 5-10 minutes.\r\n \u2022 Keep cadence around 90-95 RPM.\r\n\
+  \ \u2022 Ride on hilly terrain. Don't worry too much if your heart rate goes into\
+  \ Z2 or even Z3 for short periods during the 55 minute Z1 over hills. Stay in seat\
+  \ over any hills and pedal smoothly. Aim for 30-50 grams of carbs per hour.\r\n\
+  \ \u2022 Straight off the bike and into the run."
+name: W02D6a-Bike/Run Brick
+sport: cycling
+steps:
+- &id001
+  - duration: 0:55:00
+    target: {type: heart.rate.zone, zone: '1'}
+    type: interval
+  - duration: 0:20:00
+    target: {type: heart.rate.zone, zone: '2'}
+    type: interval
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

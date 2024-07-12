@@ -1,0 +1,12 @@
+description: "\u2022 Bike, Z1, 5 minutes, 90 RPM.\n \u2022 Bike, Z1, 5 minutes, 80\
+  \ RPM.\n \u2022 Bike, Z1, 25 minutes, 95 RPM.\n \u2022 Bike, very easy, 5 minutes.\n\
+  \ \u2022 Cool down, 5-10 minutes.\n \u2022 Straight off the bike and into the run."
+name: W01D6a-Bike/Run Brick
+sport: cycling
+steps:
+- duration: 0:35:00
+  target: {type: heart.rate.zone, zone: '1'}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval

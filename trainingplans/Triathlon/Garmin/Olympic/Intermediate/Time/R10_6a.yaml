@@ -1,0 +1,30 @@
+description: "\u2022 Race simulation brick. Use race kit.\r\n\u2022 Bike, easy effort,\
+  \ 5 minutes, 85 RPM.\r\n\u2022 Bike, moderate effort, 5 minutes, 90 RPM.\r\n\u2022\
+  \ Bike, med-high effort, 5 minutes, 95 RPM.\r\n\u2022 Bike, easy effort, 5 minutes.\r\
+  \n\u2022 Bike, med-high effort, 30km, 95 RPM.\r\n\u2022 Bike, easy effort, 10 minutes.\r\
+  \n\u2022 Straight off the bike and into the run.\r\n\u2022 Use this session to practice\
+  \ pacing for the race."
+name: W10D6a-Bike/Run Brick
+sport: cycling
+steps:
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 30.0km
+  target: {type: no.target}
+  type: interval
+- duration: 0:10:00
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

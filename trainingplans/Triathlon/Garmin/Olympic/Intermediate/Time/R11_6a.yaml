@@ -1,0 +1,26 @@
+description: "\u2022 Bike, easy effort, 5 minutes, 85 RPM.\r\n\u2022 Bike, moderate\
+  \ effort, 5 minutes, 90 RPM.\r\n\u2022 Bike, med-high effort, 5 minutes, 95 RPM.\r\
+  \n\u2022 Bike, easy effort, 5 minutes.\r\n\u2022 Bike, med-high effort, 30 minutes,\
+  \ 95 RPM.\r\n\u2022 Off the bike and straight into the run.\r\n\u2022 Practice pacing,\
+  \ and use race equipment."
+name: W11D6a-Bike/Run Brick
+sport: cycling
+steps:
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:05:00
+  target: {type: no.target}
+  type: interval
+- duration: 0:30:00
+  target: {type: no.target}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

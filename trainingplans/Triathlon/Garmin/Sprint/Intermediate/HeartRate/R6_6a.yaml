@@ -1,0 +1,28 @@
+description: " \u2022 Bike, Z1, 85 RPM, 5 minutes.\n \u2022 Bike, Z2, 90 RPM, 5 minutes.\n\
+  \ \u2022 Bike, Z3, 95 RPM, 5 minutes.\n \u2022 Bike, Z1, 5 minutes.\n \u2022 Bike,\
+  \ Z3, 95 RPM, 30 minutes.\n \u2022 Bike, Z1, 10 minutes.\n \u2022 Straight off the\
+  \ bike into the run."
+name: W06D6a-Bike/Run Brick
+sport: cycling
+steps:
+- duration: 0:05:00
+  target: {type: heart.rate.zone, zone: '1'}
+  type: interval
+- duration: 0:05:00
+  target: {type: heart.rate.zone, zone: '2'}
+  type: interval
+- duration: 0:05:00
+  target: {type: heart.rate.zone, zone: '3'}
+  type: interval
+- duration: 0:05:00
+  target: {type: heart.rate.zone, zone: '1'}
+  type: interval
+- duration: 0:30:00
+  target: {type: heart.rate.zone, zone: '3'}
+  type: interval
+- duration: 0:10:00
+  target: {type: heart.rate.zone, zone: '1'}
+  type: interval
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown

@@ -1,0 +1,19 @@
+description: "\u2022 Bike, easy effort, 35 minutes. Bike, moderate effort, 10 minutes.\
+  \ Repeat 2 times.\n\u2022 Ride on hilly terrain. Don't worry too much if your heart\
+  \ rate goes higher for short periods during the ride. Stay in the seat over any\
+  \ hills and pedal smoothly.\n\u2022 During this bike/run brick workout, aim for\
+  \ 30-50 grams of carbs per hour.\n\u2022 Straight off the bike and into the run."
+name: W02D6a-Bike/Run Brick
+sport: cycling
+steps:
+- &id001
+  - duration: 0:35:00
+    target: {type: no.target}
+    type: interval
+  - duration: 0:10:00
+    target: {type: no.target}
+    type: interval
+- *id001
+- duration: lap.button
+  target: {type: no.target}
+  type: cooldown
