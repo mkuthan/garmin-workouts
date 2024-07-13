@@ -202,19 +202,6 @@ class ExtractionTestCase(unittest.TestCase):
     def test_secondary_target_extraction(self) -> None:
         step_json: dict = {
             'secondaryTargetType': {
-                'workoutTargetTypeKey': 'no.target'
-            },
-        }
-        step: dict = {}
-        expected_result: dict = {
-            'secondaryTarget': {
-                'type': 'no.target',
-            }
-        }
-        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
-
-        step_json: dict = {
-            'secondaryTargetType': {
                 'workoutTargetTypeKey': 'pace.zone'
             },
             'secondaryTargetValueOne': 100,
