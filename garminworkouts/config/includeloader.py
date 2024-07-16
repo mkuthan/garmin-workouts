@@ -1,7 +1,7 @@
 import os
-
 import yaml
-import garminworkouts.config.generator as generator
+import garminworkouts.config.generators.running as running
+import garminworkouts.config.generators.strength as strength
 import datetime
 
 
@@ -46,49 +46,57 @@ def step_generator(s, duration, objective) -> dict | list[dict]:
 def generator_struct(s, duration, objective, step) -> dict | list[dict]:
     match step:
         case 'recovery':
-            d: dict | list[dict] = generator.recovery_step_generator(duration, 'p' in s)
+            d: dict | list[dict] = running.simple_step.recovery_step_generator(duration, 'p' in s)
         case 'aerobic':
-            d = generator.aerobic_step_generator(duration, 'p' in s)
+            d = running.simple_step.aerobic_step_generator(duration, 'p' in s)
         case 'lt':
-            d = generator.lt_step_generator(s, duration, 'p' in s)
+            d = running.simple_step.lt_step_generator(s, duration, 'p' in s)
         case 'lr':
-            d = generator.lr_step_generator(duration, 'p' in s)
+            d = running.simple_step.lr_step_generator(duration, 'p' in s)
         case 'marathon':
-            d = generator.marathon_step_generator(s, duration, 'p' in s)
+            d = running.simple_step.marathon_step_generator(s, duration, 'p' in s)
         case 'hm':
-            d = generator.hm_step_generator(s, duration, 'p' in s)
+            d = running.simple_step.hm_step_generator(s, duration, 'p' in s)
         case 'tuneup':
-            d = generator.tuneup_step_generator(duration)
+            d = running.simple_step.tuneup_step_generator(duration)
         case 'warmup':
-            d = generator.warmup_step_generator(duration)
+            d = running.simple_step.warmup_step_generator(duration)
         case 'cooldown':
-            d = generator.cooldown_step_generator(duration, 'p' in s)
+            d = running.simple_step.cooldown_step_generator(duration, 'p' in s)
         case 'walk':
-            d = generator.walk_step_generator(duration)
+            d = running.simple_step.walk_step_generator(duration)
         case 'stride':
-            d = generator.stride_generator(duration)
+            d = running.multi_step.stride_generator(duration)
         case 'longhill':
-            d = generator.longhill_generator(duration)
+            d = running.multi_step.longhill_generator(duration)
         case 'hill':
-            d = generator.hill_generator(duration)
+            d = running.multi_step.hill_generator()
         case 'acceleration':
-            d = generator.acceleration_generator(duration)
+            d = running.multi_step.acceleration_generator()
         case 'series':
-            d = generator.series_generator(duration)
+            d = running.multi_step.series_generator(duration)
         case 'anaerobic':
-            d = generator.anaerobic_generator(duration)
+            d = running.multi_step.anaerobic_generator(duration)
         case 'race':
-            d = generator.race_generator(duration, objective)
+            d = running.multi_step.race_generator(duration, objective)
         case 'PlankPushHold':
-            d = generator.plankpushhold_generator(duration)
+            d = strength.multi_step.plank_push_hold_generator(duration)
         case 'PlankPushAngel':
-            d = generator.plankpushangel_generator(duration)
+            d = strength.multi_step.plank_push_angel_generator(duration)
         case 'CalfHoldLunge':
-            d = generator.calfholdlunge_generator(duration)
+            d = strength.multi_step.calf_hold_lunge_generator(duration)
         case 'CalfLunge':
-            d = generator.calflunge_generator(duration)
+            d = strength.multi_step.calf_lunge_side_generator(duration)
         case 'CalfSquatHold':
-            d = generator.calfsquathold_generator(duration)
+            d = strength.multi_step.calf_squat_hold_generator(duration)
+        case 'ClimberShouldertapPlankrot':
+            d = strength.multi_step.climber_shoulder_tap_plank_rot_generator(duration)
+        case 'CalfHoldSquat':
+            d = strength.multi_step.calf_hold_squat_generator(duration)
+        case 'LegRaiseHoldSitup':
+            d = strength.multi_step.leg_raise_hold_situp(duration)
+        case 'MaxPushups':
+            d = strength.multi_step.max_pushups()
         case _:
             d = {}
 

@@ -1,84 +1,5 @@
+from garminworkouts.config.generators.base import step_generator
 from garminworkouts.models.duration import Duration
-
-
-def recovery_step_generator(duration, pace=False) -> dict:
-    return step_generator(
-        type='recovery',
-        duration=duration,
-        target='RECOVERY_PACE',
-        description='Recovery pace') if pace else step_generator(
-        type='recovery',
-        duration=duration,
-        target='RECOVERY_HEART_RATE',
-        description='Recovery pace')
-
-
-def aerobic_step_generator(duration, pace=False) -> dict:
-    return step_generator(
-        duration=duration,
-        target='AEROBIC_PACE',
-        description='Aerobic pace') if pace else step_generator(
-        duration=duration,
-        target='AEROBIC_HEART_RATE',
-        description='Aerobic pace')
-
-
-def lt_step_generator(target: str, duration, pace=False) -> dict:
-    d, s = margin_generator(target)
-    return step_generator(
-        duration=duration,
-        target=d + 'THRESHOLD_PACE',
-        description=s + 'Threshold pace') if pace else step_generator(
-        duration,
-        target=d + 'THRESHOLD_HEART_RATE',
-        description=s + 'Threshold pace')
-
-
-def lr_step_generator(duration, pace=False) -> dict:
-    return step_generator(
-        duration=duration,
-        target='LONG_RUN_PACE',
-        description='Long run pace') if pace else step_generator(
-        duration=duration,
-        target='LONG_RUN_HEART_RATE',
-        description='Long run pace')
-
-
-def marathon_step_generator(target: str, duration, pace=False) -> dict:
-    d, s = margin_generator(target)
-    return step_generator(
-        duration=duration,
-        target=d + 'MARATHON_PACE',
-        description=s + 'Marathon pace') if pace else step_generator(
-        duration=duration,
-        target=d + 'MARATHON_HEART_RATE',
-        description=s + 'Marathon pace')
-
-
-def hm_step_generator(target: str, duration, pace=False) -> dict:
-    d, s = margin_generator(target)
-    return step_generator(
-        duration=duration,
-        target=d + 'HALF_MARATHON_PACE',
-        description=s + 'Half Marathon pace')
-
-
-def tuneup_step_generator(duration) -> dict:
-    return step_generator(duration=duration, target='10KM_PACE', description='10K pace run')
-
-
-def warmup_step_generator(duration) -> dict:
-    return step_generator(type='warmup', duration=duration, target='AEROBIC_HEART_RATE', description='Warm up')
-
-
-def cooldown_step_generator(duration, pace=False) -> dict:
-    return step_generator(
-        type='cooldown', duration=duration, target='AEROBIC_PACE', description='Cool down') if pace else step_generator(
-        type='cooldown', duration=duration, target='AEROBIC_HEART_RATE', description='Cool down')
-
-
-def walk_step_generator(duration) -> dict:
-    return step_generator(type='rest', duration=duration, target='WALK', description='Walk')
 
 
 def stride_generator(duration) -> list[dict]:
@@ -88,14 +9,14 @@ def stride_generator(duration) -> list[dict]:
     return steps
 
 
-def hill_generator(duration) -> list[dict]:
+def hill_generator() -> list[dict]:
     steps: list[dict] = []
     steps.append(step_generator(duration='0:10', target='1KM_PACE', description='Hill climbing'))
     steps.append(step_generator(type='rest', duration='0:20', target='RECOVERY_PACE', description='Recovery pace'))
     return steps
 
 
-def acceleration_generator(duration) -> list[dict]:
+def acceleration_generator() -> list[dict]:
     steps: list[dict] = []
     steps.append(step_generator(duration='0:30', target='1KM_PACE', description='Accelerations'))
     steps.append(step_generator(type='rest', duration='0:30', target='RECOVERY_PACE', description='Recovery pace'))
@@ -242,30 +163,6 @@ def race_generator(duration, objective):
                 return race_steps_generator(z1='15km', z2='25km', z3='2.2km', description=title)
 
 
-def step_generator(duration: str,
-                   target: str = 'NO_TARGET',
-                   type: str = 'interval', description: str = '',
-                   category: str | None = None,
-                   exerciseName: str | None = None) -> dict:
-    return {'type': type, 'duration': duration, 'target': target, 'description': description, 'category': category,
-            'exerciseName': exerciseName}
-
-
-def margin_generator(target: str) -> tuple[str, str]:
-    if '>' in target:
-        d, target = target.split('>')
-        s: str = d + 's quicker than '
-        d: str = d + '>'
-    elif '<' in target:
-        d, target = target.split('<')
-        s = d + 's slower than '
-        d = d + '<'
-    else:
-        d = ''
-        s = ''
-    return d, s
-
-
 def race_steps_generator(z1=None, z2=None, z3=None, z4=None, description='') -> list[dict]:
     steps: list[dict] = []
     if z1 is not None:
@@ -276,112 +173,4 @@ def race_steps_generator(z1=None, z2=None, z3=None, z4=None, description='') -> 
         steps.append(step_generator(duration=z3, target='HEART_RATE_ZONE_3', description=description))
     if z4 is not None:
         steps.append(step_generator(duration=z4, target='HEART_RATE_ZONE_4', description=description))
-    return steps
-
-
-def plankpushhold_generator(duration) -> list[dict]:
-    steps: list[dict] = []
-    med = str(int(int(duration) / 2))
-    steps.append(step_generator(
-        category='PLANK',
-        description='Shoulder taps',
-        duration=duration + 'reps',
-        exerciseName='STRAIGHT_ARM_PLANK_WITH_SHOULDER_TOUCH'))
-    steps.append(step_generator(
-        category='PUSH_UP',
-        duration=med + 'reps',
-        exerciseName='PUSH_UP'))
-    steps.append(step_generator(
-        category='PLANK',
-        description='Shoulder taps',
-        duration='lap.button',
-        exerciseName='PLANK'))
-    steps.append(step_generator(
-        type='rest',
-        duration='2:00'))
-    return steps
-
-
-def calflunge_generator(duration) -> list[dict]:
-    steps: list[dict] = []
-    steps.append(step_generator(
-        category='CALF_RAISE',
-        duration=duration + 'reps',
-        exerciseName='CALF_RAISE'))
-    steps.append(step_generator(
-        category='LUNGE',
-        duration=duration + 'reps',
-        exerciseName='LUNGE'))
-    steps.append(step_generator(
-        category='LUNGE',
-        duration=duration + 'reps',
-        exerciseName='SIDE_LUNGE'))
-    steps.append(step_generator(
-        type='rest',
-        duration='2:00'))
-    return steps
-
-
-def calfholdlunge_generator(duration) -> list[dict]:
-    steps: list[dict] = []
-    steps.append(step_generator(
-        category='CALF_RAISE',
-        duration=duration + 'reps',
-        exerciseName='CALF_RAISE'))
-    steps.append(step_generator(
-        category='CALF_RAISE',
-        description=duration + '-count hold',
-        duration='lap.button',
-        exerciseName='CALF_RAISE'))
-    steps.append(step_generator(
-        category='LUNGE',
-        duration=duration + 'reps',
-        exerciseName='LUNGE'))
-    steps.append(step_generator(
-        type='rest',
-        duration='2:00'))
-    return steps
-
-
-def calfsquathold_generator(duration) -> list[dict]:
-    steps: list[dict] = []
-    steps.append(step_generator(
-        category='CALF_RAISE',
-        duration=duration + 'reps',
-        exerciseName='CALF_RAISE'))
-    steps.append(step_generator(
-        category='SQUAT',
-        duration=duration + 'reps',
-        exerciseName='SQUAT'))
-    steps.append(step_generator(
-        category='SQUAT',
-        description=duration + '-count hold',
-        duration='lap.button',
-        exerciseName='SQUAT'))
-    steps.append(step_generator(
-        type='rest',
-        duration='2:00'))
-    return steps
-
-
-def plankpushangel_generator(duration) -> list[dict]:
-    steps: list[dict] = []
-    med = str(int(int(duration) / 2))
-    steps.append(step_generator(
-        category='PLANK',
-        description='Shoulder taps',
-        duration=duration + 'reps',
-        exerciseName='STRAIGHT_ARM_PLANK_WITH_SHOULDER_TOUCH'))
-    steps.append(step_generator(
-        category='PUSH_UP',
-        duration=med + 'reps',
-        exerciseName='PUSH_UP'))
-    steps.append(step_generator(
-        category='SHOULDER_STABILITY',
-        description=duration + ' reverse angels',
-        duration=duration + 'reps',
-        exerciseName='LYING_EXTERNAL_ROTATION'))
-    steps.append(step_generator(
-        type='rest',
-        duration='2:00'))
     return steps
