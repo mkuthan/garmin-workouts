@@ -10,7 +10,7 @@ class GarminTypes(GarminApi):
     _GOLF_COMMUNITY_ENDPOINT = "/gcs-golfcommunity/api/v2/club"
 
     def updateGarmin(self) -> None:
-        file_path = "./garminworkouts/garmin/garminapi.py"
+        file_path = os.path.join(".", "garminworkouts", "garmin", "garminapi.py")
         flags = 0
         subs: str = self.version
 
