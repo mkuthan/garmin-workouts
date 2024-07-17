@@ -136,7 +136,7 @@ class GarminWorkout(GarminEvent):
                 newpath: str = os.path.join('.', 'trainingplans', tp_type, 'Garmin', tp_subtype, tp_level, tp_version,
                                             tp_name)
 
-            for w in self.get_training_plan(TrainingPlan.export_trainingplan(tp).get(_ID), account.locale):
+            for w in self.get_training_plan(TrainingPlan.export_trainingplan(tp).get(_ID)):
                 week: str = w.get('weekId')
                 day: str = w.get('dayOfWeekId')
                 name: str = f'R{week}_{day}'
