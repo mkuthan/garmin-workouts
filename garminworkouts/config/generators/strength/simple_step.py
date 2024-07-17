@@ -1,5 +1,5 @@
 from garminworkouts.config.generators.base import step_generator
-from garminworkouts.models.strength import MAP
+from garminworkouts.models.strength_map import MAP
 
 
 def plank_shoulder_tap_rep_generator(duration) -> dict:
@@ -144,7 +144,7 @@ def exercise_generator(category='', exercise_name='', duration='', execution='')
         return step_generator(
             category=category,
             description=description,
-            duration=f"{duration} reps",
+            duration=f"{duration}reps",
             exerciseName=exercise_name)
     elif execution == 'hold':
         return step_generator(
