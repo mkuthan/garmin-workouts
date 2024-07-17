@@ -26,12 +26,9 @@ class GarminTrainingplan(GarminActivity):
         }
         return self.get(url, params=params).json()
 
-    def get_training_plan(self, plan_id, locale) -> dict:
+    def get_training_plan(self, plan_id) -> dict:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/tasks/{plan_id}"
-        params: dict = {
-            "localeKey": locale,
-        }
-        return self.get(url, params=params).json()
+        return self.get(url).json()
 
     def delete_training_plan(self, plan_id) -> Response:
         url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/trainingplan/{plan_id}"
