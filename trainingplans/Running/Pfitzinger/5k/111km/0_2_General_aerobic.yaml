@@ -4,3 +4,6 @@ sport: "running"
 
 steps:
   - !include aerobic_11.yaml
+  - &series
+    - !include aerobic_8.yaml
+    - !include aerobic_6.yaml

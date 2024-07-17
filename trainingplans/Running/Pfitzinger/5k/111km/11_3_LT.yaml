@@ -6,6 +6,7 @@ steps:
   - !include aerobic_8.yaml
   - !include lt_10min.yaml
   - !include precovery_3min.yaml
-  - !include lt_8min.yaml
-  - !include precovery_3min.yaml
-  - !include lt_8min.yaml  
+  - &series
+    - !include lt_8min.yaml
+    - !include precovery_3min.yaml
+  - *series 

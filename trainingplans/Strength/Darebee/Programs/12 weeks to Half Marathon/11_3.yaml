@@ -1,0 +1,10 @@
+name: '11_3'
+description: Strength
+sport: strength_training
+steps:
+- &id001
+  - !include CalfHoldSquat_14reps.yaml
+- *id001
+- *id001
+- *id001
+- *id001
