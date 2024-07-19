@@ -44,10 +44,42 @@ def test_get_note(authed_gclient: GarminClient) -> None:
         assert note
 
 
-class WorkoutestCase(BaseTest):
+class WorkoutTestCase(BaseTest):
     def test_workout(self) -> None:
         workout_files: list = [
             os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1', '21_1.yaml'),
             os.path.join('.', 'trainingplans', 'Running', '*', '5k', 'Beginner', 'Time', 'R1_1.yaml')
         ]
         self.platform_workout_files(workout_files)
+
+
+def test_generate_filename_with_a_in_ww(authed_gclient: GarminClient) -> None:
+    newpath = ''
+    name = 'R1_1'
+    ww = 'W01D01a -'
+    expected_filename = 'R1_1a.yaml'
+
+    filename: str = authed_gclient.generate_filename(newpath, name, ww)
+    assert filename == expected_filename
+
+
+def test_generate_filename_with_b_in_ww(authed_gclient: GarminClient) -> None:
+    newpath = ''
+    name = 'R2_2'
+    ww = 'W02D02b -'
+    expected_filename = 'R2_2b.yaml'
+
+    filename: str = authed_gclient.generate_filename(newpath, name, ww)
+
+    assert filename == expected_filename
+
+
+def test_generate_filename_without_a_or_b_in_ww(authed_gclient: GarminClient) -> None:
+    newpath = ''
+    name = 'R3_3'
+    ww = 'Workout'
+    expected_filename = 'R3_3.yaml'
+
+    filename: str = authed_gclient.generate_filename(newpath, name, ww)
+
+    assert filename == expected_filename

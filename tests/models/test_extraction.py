@@ -24,7 +24,7 @@ class ExtractionTestCase(unittest.TestCase):
             },
             'endConditionValue': 60
         }
-        step: dict = {}
+
         expected_result: dict = {
             'duration': '0:01:00'
         }
@@ -36,7 +36,7 @@ class ExtractionTestCase(unittest.TestCase):
             },
             'endConditionValue': 5000
         }
-        step = {}
+
         expected_result = {
             'duration': '5.0km'
         }
@@ -48,7 +48,7 @@ class ExtractionTestCase(unittest.TestCase):
             },
             'endConditionValue': 10
         }
-        step = {}
+
         expected_result = {
             'duration': '10reps'
         }
@@ -60,7 +60,7 @@ class ExtractionTestCase(unittest.TestCase):
             },
             'endConditionValue': 10
         }
-        step = {}
+
         expected_result = {
             'duration': '10cal'
         }
@@ -73,7 +73,7 @@ class ExtractionTestCase(unittest.TestCase):
             'endConditionValue': 150,
             'endConditionCompare': '>'
         }
-        step = {}
+
         expected_result = {
             'duration': '150ppm>'
         }
@@ -85,7 +85,7 @@ class ExtractionTestCase(unittest.TestCase):
             },
             'endConditionValue': None,
         }
-        step = {}
+
         expected_result = {
             'duration': 'lap.button',
         }
@@ -100,7 +100,7 @@ class ExtractionTestCase(unittest.TestCase):
                 },
                 'endConditionValue': 10
             }
-            step = {}
+
             with self.assertRaises(ValueError):
                 Extraction.end_condition_extraction(step_json, step)
 
@@ -130,7 +130,7 @@ class ExtractionTestCase(unittest.TestCase):
             'targetValueOne': 80,
             'targetValueTwo': 100
         }
-        step = {}
+
         expected_result = {
             'target': {
                 'type': 'cadence',
@@ -148,7 +148,7 @@ class ExtractionTestCase(unittest.TestCase):
             'targetValueOne': 120,
             'targetValueTwo': 150
         }
-        step = {}
+
         expected_result = {
             'target': {
                 'type': 'heart.rate.zone',
@@ -165,7 +165,7 @@ class ExtractionTestCase(unittest.TestCase):
             'targetValueOne': 200,
             'targetValueTwo': 250
         }
-        step = {}
+
         expected_result = {
             'target': {
                 'type': 'power.zone',
@@ -179,7 +179,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'workoutTargetTypeKey': 'no.target'
             }
         }
-        step: dict = {}
+
         expected_result: dict = {
             'target': {
                 'type': 'no.target'
@@ -225,7 +225,7 @@ class ExtractionTestCase(unittest.TestCase):
             'secondaryTargetValueOne': 80,
             'secondaryTargetValueTwo': 100
         }
-        step = {}
+
         expected_result = {
             'secondaryTarget': {
                 'type': 'cadence',
@@ -243,7 +243,7 @@ class ExtractionTestCase(unittest.TestCase):
             'secondaryTargetValueOne': 120,
             'secondaryTargetValueTwo': 150
         }
-        step = {}
+
         expected_result = {
             'secondaryTarget': {
                 'type': 'heart.rate.zone',
@@ -260,13 +260,22 @@ class ExtractionTestCase(unittest.TestCase):
             'secondaryTargetValueOne': 200,
             'secondaryTargetValueTwo': 250
         }
-        step = {}
+
         expected_result = {
             'secondaryTarget': {
                 'type': 'power.zone',
                 'zone': '3'
             }
         }
+        self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
+
+        step_json = {
+            'secondaryTargetType': {
+                'workoutTargetTypeKey': 'no.target'
+            },
+        }
+
+        expected_result = {}
         self.assertEqual(Extraction.secondary_target_extraction(step_json, step), expected_result)
 
         for target in ('speed.zone', 'grade', 'heart.rate.lap', 'power.lap', 'power.3s', 'power.10s', 'power.30s',
@@ -276,7 +285,7 @@ class ExtractionTestCase(unittest.TestCase):
                     'workoutTargetTypeKey': target
                 }
             }
-            step = {}
+
             with self.assertRaises(ValueError):
                 Extraction.secondary_target_extraction(step_json, step)
 
@@ -299,7 +308,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'unitKey': 'pound'
             }
         }
-        step = {}
+
         expected_result = {
             'weight': '150pound'
         }
@@ -311,7 +320,7 @@ class ExtractionTestCase(unittest.TestCase):
                 'unitKey': 'invalid'
             }
         }
-        step = {}
+
         with self.assertRaises(ValueError):
             Extraction.weight_extraction(step_json, step)
 
