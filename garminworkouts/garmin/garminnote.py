@@ -17,8 +17,11 @@ class GarminNote(GarminTrainingplan):
         url: str = f"{self._CALENDAR_SERVICE_ENDPOINT}/note"
         return self.post(url, json=note).json()
 
-    def update_note(self, note_id, note) -> Response:
-        url: str = f"{self._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
+    def update_note(self, trainingplan, note_id, note) -> Response:
+        if trainingplan:
+            url: str = f"{self._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}"
+        else:
+            url: str = f"{self._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}"
         return self.put(url, json=note)
 
     def delete_note(self, note_id) -> Response:

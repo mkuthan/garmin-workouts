@@ -148,18 +148,19 @@ class GarminWorkout(GarminEvent):
                     workout_id: str = w.get('taskWorkout', {}).get('workoutId')
                     workout_data: Response = self.get_workout(workout_id)
                     workout: dict = workout_data.json()
-                    file = self.generate_filename(newpath, name, workout.get('workoutName', ''))
+                    file = self.generate_filename(newpath=newpath, name=name, ww=workout.get('workoutName', ''))
 
                     logging.info("Exporting workout '%s' into '%s'", name, file)
-                    Extraction.workout_export_yaml(workout, file)
+                    Extraction.workout_export_yaml(workout=workout, filename=file)
                 if w.get('taskNote'):
                     config: dict = {}
                     config['name'] = w.get('taskNote', {}).get('note', '')
                     config['content'] = w.get('taskNote', {}).get('noteDescription')
-                    file: str = self.generate_filename(newpath, name, w.get('taskNote', {}).get('note', ''))
+                    file: str = self.generate_filename(newpath=newpath, name=name,
+                                                       ww=w.get('taskNote', {}).get('note', ''))
 
                     logging.info("Exporting note '%s' into '%s'", name, file)
-                    Extraction.note_export_yaml(config, file)
+                    Extraction.note_export_yaml(note=config, filename=file)
 
             self.delete_training_plan(tp.get('trainingPlanId'))
 

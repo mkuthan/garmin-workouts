@@ -118,10 +118,10 @@ class GarminClient(GarminWorkout):
                     payload = note_obj.create_note(note_id)
                     logging.info("Updating note '%s'", note_name)
                     if existing_note.get('trainingPlanId'):
-                        self.update_note(note_id=note_id, note=payload)
+                        self.update_note(note_id=note_id, trainingplan=True, note=payload)
                         self.save_note(note=payload)
                     else:
-                        self.update_note(note_id=note_id, note=payload)
+                        self.update_note(note_id=note_id, trainingplan=False, note=payload)
                         self.save_note(note=payload)
 
     def update_events(self, events) -> None:
