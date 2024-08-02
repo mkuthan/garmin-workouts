@@ -1,9 +1,9 @@
-pip==24.1.2
-setuptools==71.0.2
+pip==24.2
+setuptools==72.1.0
 wheel == 0.43.0
 requests==2.32.3
 pyyaml==6.0.1
-numpy==2.0.0
+numpy==2.0.1
 xlrd==2.0.1
 pandas==2.2.2
 cloudscraper==1.2.71
