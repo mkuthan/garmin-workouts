@@ -4,6 +4,7 @@ import unittest
 from garminworkouts.config import configreader
 from garminworkouts.config import includeloader
 from garminworkouts.config.generators import running, strength
+from garminworkouts.config.generators.strength.simple_step import exercise_generator
 
 
 class MyTestCase(unittest.TestCase):
@@ -447,6 +448,16 @@ class MyTestCase(unittest.TestCase):
             type='rest',
             duration='2:00'))
         self.assertEqual(strength.multi_step.plank_push_angel_generator(duration), steps)
+
+
+class TestExerciseGenerator(unittest.TestCase):
+    def test_invalid_category(self) -> None:
+        with self.assertRaises(KeyError):
+            exercise_generator(category='invalid', exercise_name='push_up', duration='10', execution='reps')
+
+    def test_invalid_exercise_name(self) -> None:
+        with self.assertRaises(ValueError):
+            exercise_generator(category='CARDIO', exercise_name='invalid_exercise', duration='10', execution='reps')
 
 
 if __name__ == '__main__':
