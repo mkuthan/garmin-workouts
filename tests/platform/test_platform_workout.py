@@ -1,8 +1,8 @@
+from unittest.mock import patch
 from requests import Response
 from garminworkouts.garmin.garminclient import GarminClient
 from tests.trainingplans.base_test import BaseTest
 import os
-from unittest.mock import patch
 
 
 def test_external_workouts(authed_gclient: GarminClient) -> None:
@@ -40,6 +40,19 @@ def test_get_note(authed_gclient: GarminClient) -> None:
         mock_get.return_value = [{'uuid': '123', 'note': 'Sample note'}]
         note: Response = authed_gclient.get_note(True, note_id)
         mock_get.assert_called_once_with(f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}")
+
+        assert note
+
+
+def test_update_note_trainingplan_true(authed_gclient: GarminClient) -> None:
+    with patch.object(authed_gclient, 'put') as mock_put:
+        note_id = 123
+        mock_put.return_value = [{'uuid': '123', 'note': 'Sample note'}]
+        note: Response = authed_gclient.update_note(trainingplan=True, note_id=note_id, note=[
+                                                    {'uuid': '123', 'note': 'Sample note'}])
+        mock_put.assert_called_once_with(
+            f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}",
+            json=[{'uuid': '123', 'note': 'Sample note'}])
 
         assert note
 
