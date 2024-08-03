@@ -36,7 +36,11 @@ def command_event_import(args) -> None:
 
     with _garmin_client(args) as connection:
         connection.update_events(events)
-        command_trainingplan_import(args)
+        workouts, notes, plan = settings(args)
+
+        ue, _, _ = connection.get_calendar(date=date.today(), days=7)
+
+        connection.update_workouts(ue, workouts, plan)
 
 
 def command_find_events(args) -> None:
