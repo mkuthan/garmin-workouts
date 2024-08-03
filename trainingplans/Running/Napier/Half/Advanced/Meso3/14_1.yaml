@@ -10,7 +10,7 @@ steps:
   - *INTERVAL
   - *INTERVAL
   - *INTERVAL
-  - !include &SERIES anaerobic_30s.yaml
+  - &SERIES !include anaerobic_30s.yaml
   - *SERIES
   - *SERIES
   - *SERIES

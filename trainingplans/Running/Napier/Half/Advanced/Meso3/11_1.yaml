@@ -4,13 +4,11 @@ sport: "running"
 
 steps:
   - !include warmup_3.yaml
-  - &HILL
-    - !include hill.yaml
+  - &HILL !include hill.yaml
   - *HILL
   - *HILL
   - *HILL
-  - &SERIES
-    - !include longhill_90s.yaml
+  - &SERIES !include longhill_90s.yaml
   - *SERIES
   - *SERIES
   - *SERIES

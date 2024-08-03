@@ -8,8 +8,7 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - &SERIES
-    - !include longhill_1min.yaml
+  - &SERIES !include longhill_1min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

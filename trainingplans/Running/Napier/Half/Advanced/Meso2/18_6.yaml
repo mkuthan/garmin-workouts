@@ -3,7 +3,7 @@ description: "W3-Short Run + Pace Change"
 sport: "running"
 
 steps:
-  - !include aerobic_4.yaml
+  - !include warmup_4.yaml
   - &INTERVAL
     - !include 20<hm_3.yaml
     - !include precovery_1.yaml
