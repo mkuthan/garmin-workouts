@@ -46,61 +46,59 @@ def step_generator(s, duration, objective) -> dict | list[dict]:
 def generator_struct(s, duration, objective, step) -> dict | list[dict]:
     match step:
         case 'recovery':
-            d: dict | list[dict] = running.simple_step.recovery_step_generator(duration, 'p' in s)
+            return running.simple_step.recovery_step_generator(duration, 'p' in s)
         case 'aerobic':
-            d = running.simple_step.aerobic_step_generator(duration, 'p' in s)
+            return running.simple_step.aerobic_step_generator(duration, 'p' in s)
         case 'lt':
-            d = running.simple_step.lt_step_generator(s, duration, 'p' in s)
+            return running.simple_step.lt_step_generator(s, duration, 'p' in s)
         case 'lr':
-            d = running.simple_step.lr_step_generator(duration, 'p' in s)
+            return running.simple_step.lr_step_generator(duration, 'p' in s)
         case 'marathon':
-            d = running.simple_step.marathon_step_generator(s, duration, 'p' in s)
+            return running.simple_step.marathon_step_generator(s, duration, 'p' in s)
         case 'hm':
-            d = running.simple_step.hm_step_generator(s, duration, 'p' in s)
+            return running.simple_step.hm_step_generator(s, duration, 'p' in s)
         case 'tuneup':
-            d = running.simple_step.tuneup_step_generator(duration)
+            return running.simple_step.tuneup_step_generator(duration)
         case 'warmup':
-            d = running.simple_step.warmup_step_generator(duration)
+            return running.simple_step.warmup_step_generator(duration)
         case 'cooldown':
-            d = running.simple_step.cooldown_step_generator(duration, 'p' in s)
+            return running.simple_step.cooldown_step_generator(duration, 'p' in s)
         case 'walk':
-            d = running.simple_step.walk_step_generator(duration)
+            return running.simple_step.walk_step_generator(duration)
         case 'stride':
-            d = running.multi_step.stride_generator(duration)
+            return running.multi_step.stride_generator(duration)
         case 'longhill':
-            d = running.multi_step.longhill_generator(duration)
+            return running.multi_step.longhill_generator(duration)
         case 'hill':
-            d = running.multi_step.hill_generator()
+            return running.multi_step.hill_generator()
         case 'acceleration':
-            d = running.multi_step.acceleration_generator()
+            return running.multi_step.acceleration_generator()
         case 'series':
-            d = running.multi_step.series_generator(duration)
+            return running.multi_step.series_generator(duration)
         case 'anaerobic':
-            d = running.multi_step.anaerobic_generator(duration)
+            return running.multi_step.anaerobic_generator(duration)
         case 'race':
-            d = running.multi_step.race_generator(duration, objective)
+            return running.multi_step.race_generator(duration, objective)
         case 'PlankPushHold':
-            d = strength.multi_step.plank_push_hold_generator(duration)
+            return strength.multi_step.plank_push_hold_generator(duration)
         case 'PlankPushAngel':
-            d = strength.multi_step.plank_push_angel_generator(duration)
+            return strength.multi_step.plank_push_angel_generator(duration)
         case 'CalfHoldLunge':
-            d = strength.multi_step.calf_hold_lunge_generator(duration)
+            return strength.multi_step.calf_hold_lunge_generator(duration)
         case 'CalfLunge':
-            d = strength.multi_step.calf_lunge_side_generator(duration)
+            return strength.multi_step.calf_lunge_side_generator(duration)
         case 'CalfSquatHold':
-            d = strength.multi_step.calf_squat_hold_generator(duration)
+            return strength.multi_step.calf_squat_hold_generator(duration)
         case 'ClimberShouldertapPlankrot':
-            d = strength.multi_step.climber_shoulder_tap_plank_rot_generator(duration)
+            return strength.multi_step.climber_shoulder_tap_plank_rot_generator(duration)
         case 'CalfHoldSquat':
-            d = strength.multi_step.calf_hold_squat_generator(duration)
+            return strength.multi_step.calf_hold_squat_generator(duration)
         case 'LegRaiseHoldSitup':
-            d = strength.multi_step.leg_raise_hold_situp(duration)
+            return strength.multi_step.leg_raise_hold_situp(duration)
         case 'MaxPushups':
-            d = strength.multi_step.max_pushups()
+            return strength.multi_step.max_pushups()
         case _:
-            d = {}
-
-    return d
+            return {}
 
 
 class IncludeLoader(yaml.SafeLoader):
