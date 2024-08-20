@@ -17,8 +17,6 @@ steps:
   - !include plr_1.yaml
   - !include lr_5.yaml
   - !include marathon_20min.yaml
-  - !include 10<pmarathon_20min.yaml
-  - !include 10>pmarathon_20min.yaml
   - !include hm_20min.yaml
   - !include 10<hm_20min.yaml
   - !include 10>hm_20min.yaml

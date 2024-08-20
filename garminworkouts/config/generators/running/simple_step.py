@@ -49,9 +49,6 @@ def marathon_step_generator(target: str, duration, pace=False) -> dict:
     return step_generator(
         duration=duration,
         target=d + 'MARATHON_PACE',
-        description=s + 'Marathon pace') if pace else step_generator(
-        duration=duration,
-        target=d + 'MARATHON_HEART_RATE',
         description=s + 'Marathon pace')
 
 
