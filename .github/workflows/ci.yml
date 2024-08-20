@@ -49,11 +49,19 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pytest --cov=garminworkouts --cov-report=xml --ignore=garminworkouts/__main__.py tests
-      - uses: codecov/codecov-action@v4.5.0
-        env:
-            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        with:          
+      - run: pytest --cov --junitxml=junit.xml
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4.5.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          env_vars: PYTHON_VERSION
+          flags: unittests
+          verbose: true
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           env_vars: PYTHON_VERSION
           flags: unittests
           verbose: true
