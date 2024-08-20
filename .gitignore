@@ -5,6 +5,7 @@ __pycache__
 exported
 *.json
 planning.yaml
+.coverage
 coverage.xml
 exported
 events/*.yaml
