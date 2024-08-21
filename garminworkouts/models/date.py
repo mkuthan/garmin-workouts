@@ -5,9 +5,14 @@ def get_date(name, race, date_ini) -> tuple[date, int, int]:
     try:
         if name.startswith('R'):
             week: int = -int(name[1:name.index('_')])
-        else:
+        elif '_' in name:
             week = int(name[0:name.index('_')])
-        day = int(name[name.index('_') + 1:name.index('_') + 2])
+        else:
+            week = -int(name[1:name.index('D')])
+        if '_' in name:
+            day = int(name[name.index('_') + 1:name.index('_') + 2])
+        else:
+            day = int(name[name.index('D') + 1:name.index('-')])
         return race - timedelta(weeks=week + 1) + timedelta(days=day), week, day
     except ValueError:
         if isinstance(date_ini, dict):

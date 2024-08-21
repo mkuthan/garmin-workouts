@@ -113,16 +113,14 @@ class GarminClient(GarminWorkout):
                     logging.info("Creating note '%s'", note_name)
                     self.save_note(note=payload)
                 else:
-                    note_id: str | None = existing_note.get('noteId')
-                    note_obj: Note = ne.get(note_name)
-                    payload = note_obj.create_note(note_id)
                     logging.info("Updating note '%s'", note_name)
-                    if existing_note.get('trainingPlanId'):
-                        self.update_note(note_id=note_id, trainingplan=True, note=payload)
-                        self.save_note(note=payload)
+                    note_id: str | None = existing_note.get('id')
+                    if existing_note.get('trainingPlanId', None):
+                        self.update_note(note_id=note_id, trainingplan=True, note=existing_note)
+                        self.save_note(note=existing_note)
                     else:
-                        self.update_note(note_id=note_id, trainingplan=False, note=payload)
-                        self.save_note(note=payload)
+                        self.update_note(note_id=note_id, trainingplan=False, note=existing_note)
+                        self.save_note(note=existing_note)
 
     def update_events(self, events) -> None:
         c: int = 0

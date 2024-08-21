@@ -5,8 +5,8 @@ from garminworkouts.models.date import get_date
 class Note:
     def __init__(self, config, race=date.today()) -> None:
         self.config = config
-        self.name = config.get('name', '')
-        self.content = config.get('content', '')
+        self.name: str = config.get('name', '')
+        self.content: str = config.get('content', '')
         self.race: date = race
 
     def get_note_name(self) -> str:

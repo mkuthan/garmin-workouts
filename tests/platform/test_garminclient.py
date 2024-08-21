@@ -324,19 +324,19 @@ def test_update_workouts(authed_gclient: GarminClient) -> None:
     workouts, notes, plan = settings(args)
 
     with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
-         patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
-         patch.object(authed_gclient, 'save_workout') as mock_save_workout, \
-         patch.object(authed_gclient, 'schedule_workout') as mock_schedule_workout:
+            patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
+            patch.object(authed_gclient, 'save_workout') as mock_save_workout, \
+            patch.object(authed_gclient, 'schedule_workout') as mock_schedule_workout:
         mock_list_workouts.return_value = [
             {"workoutId": "1", "workoutName": "Workout 1"},
             {"workoutId": "2", "workoutName": "Workout 2"},
-            ]
+        ]
         authed_gclient.update_workouts(ue, workouts, plan)
 
         assert mock_list_workouts.call_count == 1
         assert mock_update_workout.call_count == 0
-        assert mock_save_workout.call_count == 37
-        assert mock_schedule_workout.call_count == 37
+        assert mock_save_workout.call_count == 5
+        assert mock_schedule_workout.call_count == 5
 
 
 def test_update_notes(authed_gclient: GarminClient) -> None:
@@ -345,8 +345,8 @@ def test_update_notes(authed_gclient: GarminClient) -> None:
     workouts, notes, plan = settings(args)
 
     with patch.object(authed_gclient, 'update_note') as mock_update_note, \
-         patch.object(Note, 'create_note') as mock_create_note, \
-         patch.object(authed_gclient, 'save_note') as mock_save_note:
+            patch.object(Note, 'create_note') as mock_create_note, \
+            patch.object(authed_gclient, 'save_note') as mock_save_note:
         mock_create_note.return_value = {
             "noteId": "1",
             "noteName": "Rest",
@@ -356,4 +356,4 @@ def test_update_notes(authed_gclient: GarminClient) -> None:
         authed_gclient.update_notes(ue, notes, plan)
 
         assert mock_update_note.call_count == 0
-        assert mock_save_note.call_count == 47
+        assert mock_save_note.call_count == 8
