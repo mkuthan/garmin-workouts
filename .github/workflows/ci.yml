@@ -5,6 +5,7 @@ on:
     paths:
       - 'garminworkouts/**'
       - 'tests/**'
+      - 'requirements.txt'
   pull_request_target:
     paths:
       - 'garminworkouts/**'
