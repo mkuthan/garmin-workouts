@@ -50,7 +50,7 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pytest --cov --junitxml=junit.xml
+      - run: pytest --cov --junitxml=junit.xml --ignore=tests
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4.5.0
         with:
