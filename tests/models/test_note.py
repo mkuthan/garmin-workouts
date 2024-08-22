@@ -51,7 +51,3 @@ class TestNote(unittest.TestCase):
         config: dict[str, str] = {'name': 'Race_2_5', 'content': 'Custom content'}
         note = Note(config)
         self.assertEqual(note.get_note_content(), 'Custom content')
-
-
-if __name__ == '__main__':
-    unittest.main()

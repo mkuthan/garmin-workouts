@@ -72,14 +72,13 @@ class TestTarget(unittest.TestCase):
     def test_invalid_value_order(self) -> None:
         with self.assertRaises(TypeError):
             Target(target='heart.rate.zone', value_one=200, value_two=100, zone=None, secondary=False)
+        with self.assertRaises(TypeError):
             Target(target='pace.zone', value_one=100, value_two=200, zone=6, secondary=False)
 
     def test_invalid_numeric_type(self) -> None:
         with self.assertRaises(TypeError):
             Target(target='power.zone', value_one='100', value_two=200, zone=None, secondary=True)
+        with self.assertRaises(TypeError):
             Target(target='power.zone', value_one='100', value_two='200', zone=None, secondary=True)
+        with self.assertRaises(TypeError):
             Target(target='power.zone', value_one=100, value_two='200', zone=None, secondary=True)
-
-
-if __name__ == '__main__':
-    unittest.main()

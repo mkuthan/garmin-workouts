@@ -43,9 +43,9 @@ def custom_get_side_effect_activity(arg) -> MagicMock:
     month = str(date_w.month - 1)
     activity_id = '123'
 
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}":
-        return MagicMock(json=lambda: {
+        a = MagicMock(json=lambda: {
             "calendarItems": [
                 {
                     "itemType": "activity",
@@ -56,11 +56,10 @@ def custom_get_side_effect_activity(arg) -> MagicMock:
             ],
         })
     elif arg == f"{GarminClient._ACTIVITY_SERVICE_ENDPOINT}/activity/{activity_id}/workouts":
-        return MagicMock(status_code=200, json=lambda: [{
+        a = MagicMock(status_code=200, json=lambda: [{
             "workoutName": "Test Workout",
         }])
-    else:
-        return MagicMock(status_code=404)
+    return a
 
 
 def test_get_calendar_activity(authed_gclient: GarminClient) -> None:
@@ -79,9 +78,9 @@ def custom_get_side_effect_note(arg) -> MagicMock:
     month = str(date_w.month - 1)
     note_id = '123'
 
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}":
-        return MagicMock(json=lambda: {
+        a = MagicMock(json=lambda: {
             "calendarItems": [
                 {
                     "itemType": "note",
@@ -98,32 +97,30 @@ def custom_get_side_effect_note(arg) -> MagicMock:
             ],
         })
     elif arg == f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}":
-        return MagicMock(status_code=200, json=lambda: {
+        a = MagicMock(status_code=200, json=lambda: {
             "noteName": "Test Note",
         })
     elif f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}":
-        return MagicMock(status_code=200, json=lambda: {
+        a = MagicMock(status_code=200, json=lambda: {
             "noteName": "Test Note",
         })
-    else:
-        return MagicMock(status_code=404)
+    return a
 
 
 def custom_delete_side_effect_note(arg) -> MagicMock:
     plan_id = '123'
     note_id = '123'
 
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/noteTask/{plan_id}/{note_id}":
-        return MagicMock(status_code=200, json=lambda: {
+        a = MagicMock(status_code=200, json=lambda: {
             "noteName": "Test Note",
         })
     elif arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}":
-        return MagicMock(status_code=200, json=lambda: {
+        a = MagicMock(status_code=200, json=lambda: {
             "noteName": "Test Note",
         })
-    else:
-        return MagicMock(status_code=404)
+    return a
 
 
 def test_get_calendar_note(authed_gclient: GarminClient) -> None:

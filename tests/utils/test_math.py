@@ -29,7 +29,3 @@ class MathTestCase(unittest.TestCase):
         norm_pwr = 200
         ftp = 200
         self.assertEqual(math.training_stress_score(seconds, norm_pwr, ftp), 100)
-
-
-if __name__ == '__main__':
-    unittest.main()

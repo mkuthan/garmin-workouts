@@ -35,7 +35,3 @@ class TestGetDate(unittest.TestCase):
         date_ini: dict[str, int] = {'year': 2023, 'month': 2, 'day': 15}
         expected_output: tuple[date, int, int] = (date(2023, 2, 15), 0, 0)
         self.assertEqual(get_date(name, race, date_ini), expected_output)
-
-
-if __name__ == '__main__':
-    unittest.main()

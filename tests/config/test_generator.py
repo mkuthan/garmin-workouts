@@ -442,7 +442,3 @@ class TestExerciseGenerator(unittest.TestCase):
     def test_invalid_exercise_name(self) -> None:
         with self.assertRaises(ValueError):
             exercise_generator(category='CARDIO', exercise_name='invalid_exercise', duration='10', execution='reps')
-
-
-if __name__ == '__main__':
-    unittest.main()

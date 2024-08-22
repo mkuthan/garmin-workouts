@@ -54,7 +54,3 @@ class FunctionalTestCase(unittest.TestCase):
     def test_filter_empty_nested_value_is_empty_list(self):
         value = ["k1", "v1", "k2", ["k3", "v3", "k4", []]]
         self.assertEqual(functional.filter_empty(value), ["k1", "v1", "k2", ["k3", "v3", "k4"]])
-
-
-if __name__ == '__main__':
-    unittest.main()

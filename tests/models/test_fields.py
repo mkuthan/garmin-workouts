@@ -113,7 +113,3 @@ class FieldsTestCase(unittest.TestCase):
         self.assertEqual(get_pool('50m'), {'poolLength': 50, 'poolLengthUnit': {
                          _UNIT_ID: 1, _UNIT_KEY: 'meter', _FACTOR: 100.0}})
         self.assertEqual(get_pool(None), {})
-
-
-if __name__ == '__main__':
-    unittest.main()

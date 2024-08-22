@@ -22,43 +22,39 @@ def test_get_mfa(authed_gclient: GarminClient) -> None:
 
 
 def custom_get_side_effect_no_error(arg) -> MagicMock:
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == "/userprofile-service/userprofile/user-settings":
-        return MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
+        a = MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
     elif arg == "/info-service/api/system/release-system":
-        return MagicMock(json=lambda: [{"version": GarminClient._GARMIN_VERSION}])
-    else:
-        return MagicMock(status_code=404)
+        a = MagicMock(json=lambda: [{"version": GarminClient._GARMIN_VERSION}])
+    return a
 
 
 def custom_get_side_effect_update_version(arg) -> MagicMock:
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == "/userprofile-service/userprofile/user-settings":
-        return MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
+        a = MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
     elif arg == "/info-service/api/system/release-system":
-        return MagicMock(json=lambda: [{"version": "1.0.0"}])
-    else:
-        return MagicMock(status_code=404)
+        a = MagicMock(json=lambda: [{"version": "1.0.0"}])
+    return a
 
 
 def custom_get_side_effect_error_version(arg) -> MagicMock:
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == "/userprofile-service/userprofile/user-settings":
-        return MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
+        a = MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
     elif arg == "/info-service/api/system/release-system":
-        return MagicMock(json=lambda: [{"version2": "1.0.0"}])
-    else:
-        return MagicMock(status_code=404)
+        a = MagicMock(json=lambda: [{"version2": "1.0.0"}])
+    return a
 
 
 def custom_get_side_effect_error_version2(arg) -> MagicMock:
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if arg == "/userprofile-service/userprofile/user-settings":
-        return MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
+        a = MagicMock(json=lambda: {"userData": {"measurementSystem": "metric"}})
     elif arg == "/info-service/api/system/release-system":
-        return MagicMock(json=lambda: [])
-    else:
-        return MagicMock(status_code=404)
+        a = MagicMock(json=lambda: [])
+    return a
 
 
 def test_login_no_error(authed_gclient: GarminClient) -> None:
@@ -357,3 +353,17 @@ def test_update_notes(authed_gclient: GarminClient) -> None:
 
         assert mock_update_note.call_count == 0
         assert mock_save_note.call_count == 8
+
+
+def test_update_events_no_events(authed_gclient: GarminClient) -> None:
+    with patch.object(authed_gclient, 'list_events') as mock_list_events, \
+            patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
+            patch.object(authed_gclient, 'save_event') as mock_save_event:
+        mock_list_events.return_value = []
+        mock_list_workouts.return_value = []
+
+        authed_gclient.update_events([])
+
+        assert mock_list_events.call_count == 1
+        assert mock_list_workouts.call_count == 1
+        assert mock_save_event.call_count == 0

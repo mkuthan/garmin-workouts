@@ -5,13 +5,12 @@ import shutil
 
 
 def custom_get_side_effect(url, params) -> MagicMock:
-    # Custom logic to return different values based on args or kwargs
+    a = MagicMock(status_code=404)
     if url == "/activitylist-service/activities/search/activities" and params.get('start') == '0':
-        return MagicMock(json=lambda: {'uuid': '123'})
+        a = MagicMock(json=lambda: {'uuid': '123'})
     elif url == "/activitylist-service/activities/search/activities":
-        return MagicMock(json=lambda: None)
-    else:
-        return MagicMock(status_code=404)
+        a = MagicMock(json=lambda: None)
+    return a
 
 
 def test_get_activities_by_date(authed_gclient: GarminClient) -> None:

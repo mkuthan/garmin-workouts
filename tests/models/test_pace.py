@@ -53,7 +53,3 @@ class TestPace(unittest.TestCase):
     def test_to_pace_with_vVO2_and_diff(self) -> None:
         pace = Pace('5:30')
         self.assertEqual(pace.to_pace('3:00', 500), 1.2048192771084336)
-
-
-if __name__ == '__main__':
-    unittest.main()

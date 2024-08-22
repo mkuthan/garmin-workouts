@@ -104,7 +104,3 @@ class DurationTestCase(unittest.TestCase):
 
         duration = Duration('1:30:00')
         self.assertEqual(duration.to_seconds(), 5400)
-
-
-if __name__ == '__main__':
-    unittest.main()

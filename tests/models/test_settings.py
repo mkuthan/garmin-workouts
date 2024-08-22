@@ -55,7 +55,3 @@ class TestSettingsFunction(unittest.TestCase):
             self.assertEqual(len(workouts), 0)
             self.assertEqual(len(notes), 0)
             self.assertEqual(plan, '')
-
-
-if __name__ == '__main__':
-    unittest.main()

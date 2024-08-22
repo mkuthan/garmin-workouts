@@ -34,7 +34,3 @@ class MyTestCase(unittest.TestCase):
         }
 
         self.assertDictEqual(config, expected_config)
-
-
-if __name__ == '__main__':
-    unittest.main()

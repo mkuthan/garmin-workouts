@@ -1,4 +1,3 @@
-import unittest
 from unittest import mock
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.__main__ import (_garmin_client, updateGarmin, command_update_types,
@@ -65,7 +64,3 @@ def test__garmin_client(mock_garmin_client) -> None:
 
     # Assert that the result is an instance of GarminClient
     assert isinstance(result, GarminClient)
-
-
-if __name__ == '__main__':
-    unittest.main()

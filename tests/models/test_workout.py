@@ -603,7 +603,3 @@ class ZonesTestCase(unittest.TestCase):
             }
 
         self.assertEqual(workout.get_estimated_duration(), expected_duration)
-
-
-if __name__ == '__main__':
-    unittest.main()

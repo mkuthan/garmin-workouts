@@ -60,7 +60,3 @@ class TestEvent(unittest.TestCase):
         self.assertEqual(self.event_data['courseId'], 'Test Course')
         self.assertEqual(self.event_data['eventPrivacy']['isShareable'], False)
         self.assertEqual(self.event_data['eventCustomization']['customGoal']['value'], 3600)
-
-
-if __name__ == '__main__':
-    unittest.main()

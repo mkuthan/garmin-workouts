@@ -51,7 +51,3 @@ class PowerTestCase(unittest.TestCase):
         self.assertEqual(rpower_zones, [130, 160, 180, 200, 229, 260, 300, 340])
         self.assertEqual(cpower_zones, [162, 200, 225, 250, 287, 325, 375, 425])
         self.assertEqual(len(data), 2)
-
-
-if __name__ == '__main__':
-    unittest.main()
