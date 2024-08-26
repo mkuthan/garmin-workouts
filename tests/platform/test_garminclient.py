@@ -317,7 +317,7 @@ def test_note_update_delete_trainingplan(authed_gclient: GarminClient) -> None:
 def test_update_workouts(authed_gclient: GarminClient) -> None:
     ue: list[str] = ["Workout 1", "Workout 2"]
     args = argparse.Namespace(trainingplan='trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml')
-    workouts, notes, plan = settings(args)
+    workouts, notes, events, plan = settings(args)
 
     with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
             patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
@@ -338,7 +338,7 @@ def test_update_workouts(authed_gclient: GarminClient) -> None:
 def test_update_notes(authed_gclient: GarminClient) -> None:
     ue: dict = {}
     args = argparse.Namespace(trainingplan='trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml')
-    workouts, notes, plan = settings(args)
+    workouts, notes, events, plan = settings(args)
 
     with patch.object(authed_gclient, 'update_note') as mock_update_note, \
             patch.object(Note, 'create_note') as mock_create_note, \

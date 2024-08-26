@@ -59,7 +59,7 @@ class GarminClient(GarminWorkout):
             updateable_elements.append(item.get('title'))
 
     def trainingplan_reset(self, args) -> None:
-        workouts, notes, plan = settings(args)
+        workouts, notes, events, plan = settings(args)
         existing_workouts_by_name: dict = {Workout.extract_workout_name(w): w for w in self.list_workouts()}
         for workout in workouts:
             workout_name: str = workout.get_workout_name()

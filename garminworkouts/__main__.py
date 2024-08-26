@@ -5,9 +5,8 @@ import logging
 import os
 import sys
 from datetime import date, timedelta
-from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
-from garminworkouts.models.settings import planning_workout_files, settings
+from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
 from garminworkouts.models.event import Event
 from garminworkouts.utils.validators import writeable_dir
@@ -20,7 +19,7 @@ def command_trainingplan_reset(args) -> None:
 
 
 def command_trainingplan_import(args) -> None:
-    workouts, notes, plan = settings(args)
+    workouts, notes, events, plan = settings(args)
 
     with _garmin_client(args) as connection:
         ue, ce, ne = connection.get_calendar(date=date.today(), days=7)
@@ -30,16 +29,11 @@ def command_trainingplan_import(args) -> None:
 
 
 def command_event_import(args) -> None:
-    event_files, _, _ = planning_workout_files(args)
-    event_configs: list[dict] = [configreader.read_config(event_file) for event_file in event_files]
-    events: list = [Event(event_config) for event_config in event_configs]
+    workouts, notes, events, plan = settings(args)
 
     with _garmin_client(args) as connection:
-        connection.update_events(events)
-        workouts, notes, plan = settings(args)
-
         ue, _, _ = connection.get_calendar(date=date.today(), days=7)
-
+        connection.update_events(events)
         connection.update_workouts(ue, workouts, plan)
 
 
