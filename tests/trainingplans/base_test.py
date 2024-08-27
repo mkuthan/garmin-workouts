@@ -16,7 +16,7 @@ class BaseTest(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = argparse.Namespace(trainingplan=tp)
-                workouts, notes, _ = settings(args)
+                workouts, notes, *_ = settings(args)
                 self.assertGreater(len(workouts) + len(notes), 0, tp + ' has not files')
 
     def platform_workout_files(self, tp_list) -> None:
@@ -24,7 +24,7 @@ class BaseTest(unittest.TestCase):
         for tp in tp_list:
             with self.subTest():
                 args = argparse.Namespace(trainingplan=tp)
-                workouts, notes, plan = settings(args)
+                workouts, notes, events, plan = settings(args)
                 for workout in workouts:
                     self.assertNotEqual(
                         workout.duration == datetime.timedelta(seconds=0) and workout.mileage == 0,

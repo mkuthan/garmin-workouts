@@ -11,4 +11,4 @@ class Arg(object):
 
 
 args = Arg(trainingplan=os.path.join('.', 'tests', 'test_configs', '*.yaml'))
-workouts, notes, plan = settings(args)
+workouts, notes, events, plan = settings(args)
