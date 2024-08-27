@@ -17,13 +17,14 @@ def extract_duration(s) -> str:
         duration: str = s
     elif 'km' in s:
         duration = s
+    elif 'mile' in s:
+        duration = str(float(s.split('mile')[0])*1.609) + 'km'
     elif 'm' in s:
         duration = s
     elif 'k' in s:
         duration = s.split('k')[0] + 'km'
     elif 'half' in s:
         duration = '21.1km'
-
     else:
         duration = s.replace(',', '.') + 'km'
     return duration
