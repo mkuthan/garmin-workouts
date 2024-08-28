@@ -14,7 +14,7 @@ class GarminChallenge(GarminWellness):
             logging.info("No new available challenges")
         else:
             for challenge in challenges:
-                logging.info("Challenge sign up: '%s'", challenge)
+                logging.info("Challenge sign up: '%s'", challenge.get("badgeChallengeName"))
                 url: str = (
                     f"{self._BADGE_CHALLENGE_ENDPOINT}/badgeChallenge/"
                     f"{challenge.get('uuid')}/optIn/"
