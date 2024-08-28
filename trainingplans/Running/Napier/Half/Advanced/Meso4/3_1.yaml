@@ -6,7 +6,7 @@ steps:
   - !include warmup_3.yaml
   - &SERIES
     - !include 10>plt_3min.yaml
-    - !include paerobic_2min.yaml
+    - !include precovery_2min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

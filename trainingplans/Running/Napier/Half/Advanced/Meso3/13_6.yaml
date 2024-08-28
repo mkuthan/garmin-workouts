@@ -3,6 +3,6 @@ description: "W3-Tempo Run"
 sport: "running"
 
 steps:
-  - !include recovery_3.yaml
+  - !include warmup_3.yaml
   - !include 20<hm_14.yaml
-  - !include recovery_3.yaml
+  - !include cooldown_3.yaml

@@ -15,4 +15,4 @@ steps:
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include walk_5min.yam
+  - !include cooldown_5min.yam

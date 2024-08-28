@@ -3,6 +3,6 @@ description: "W2-Tempo Run"
 sport: "running"
 
 steps:
-  - !include recovery_30min.yaml
+  - !include warmup_30min.yaml
   - !include lt_10min.yaml
-  - !include recovery_10min.yaml
+  - !include cooldown_10min.yaml

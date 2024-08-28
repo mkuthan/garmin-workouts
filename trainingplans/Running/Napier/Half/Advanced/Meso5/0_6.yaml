@@ -3,7 +3,7 @@ description: "W2-Activation"
 sport: "running"
 
 steps:
-  - !include aerobic_30min.yaml
+  - !include warmup_30min.yaml
   - &HILL !include hill.yaml
   - *HILL
   - *HILL

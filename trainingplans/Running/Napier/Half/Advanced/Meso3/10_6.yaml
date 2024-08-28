@@ -5,4 +5,4 @@ sport: "running"
 steps:
   - !include warmup_4.yaml
   - !include 15<hm_14.yaml
-  - !include aerobic_4.yaml
+  - !include cooldown_4.yaml
