@@ -61,6 +61,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     keyboard: list[list[InlineKeyboardButton]] = []
     keyboard.append([InlineKeyboardButton('Zones', callback_data='Zones')])
+    keyboard.append([InlineKeyboardButton('Challenges', callback_data='Challenges')])
     for key in planning.keys():
         keyboard.append([InlineKeyboardButton(key, callback_data=key)])
 
@@ -86,6 +87,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         cmd: str = str("python -m garminworkouts event-import Races")
     elif workout == 'Zones':
         cmd: str = str("python -m garminworkouts user-zones")
+    elif workout == 'Challenges':
+        cmd: str = str("python -m garminworkouts challenge-signup")
     else:
         cmd = str("python -m garminworkouts trainingplan-import ") + workout
 
