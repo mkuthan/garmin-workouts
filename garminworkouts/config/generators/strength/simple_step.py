@@ -53,7 +53,7 @@ def calf_raise_hold_generator(duration) -> dict:
 def leg_raise_rep_generator(duration) -> dict:
     return exercise_generator(
         category='LEG_RAISE',
-        exercise_name='HANGING_LEG_RAISE',
+        exercise_name='LYING_STRAIGHT_LEG_RAISE',
         duration=duration,
         execution='reps')
 
@@ -61,7 +61,7 @@ def leg_raise_rep_generator(duration) -> dict:
 def leg_raise_hold_generator(duration) -> dict:
     return exercise_generator(
         category='LEG_RAISE',
-        exercise_name='HANGING_LEG_RAISE',
+        exercise_name='LYING_STRAIGHT_LEG_RAISE',
         duration=duration,
         execution='hold')
 
@@ -125,6 +125,62 @@ def reverse_angel_rep_generator(duration) -> dict:
     return exercise_generator(
         category='SHOULDER_STABILITY',
         exercise_name='LYING_EXTERNAL_ROTATION',
+        duration=duration,
+        execution='reps')
+
+
+def up_down_plank_generator(duration) -> dict:
+    return exercise_generator(
+        category='ELBOW_PLANK_PIKE_JACKS',
+        exercise_name='PLANK',
+        duration=duration,
+        execution='reps')
+
+
+def elbow_plank_hold_generator(duration) -> dict:
+    return exercise_generator(
+        category='ELBOW_PLANK_PIKE_JACKS',
+        exercise_name='PLANK',
+        duration=duration,
+        execution='hold')
+
+
+def flutter_kick_generator(duration) -> dict:
+    return exercise_generator(
+        category='CRUNCH',
+        exercise_name='FLUTTER_KICKS',
+        duration=duration,
+        execution='reps')
+
+
+def circle_generator(duration) -> dict:
+    return exercise_generator(
+        category='CRUNCH',
+        exercise_name='FLUTTER_KICKS',
+        duration=duration,
+        execution='reps')
+
+
+def high_crunch(duration) -> dict:
+    return exercise_generator(
+        category='CRUNCH',
+        exercise_name='FLUTTER_KICKS',
+        duration=duration,
+        execution='reps')
+
+
+def leg_circle_generator(duration) -> dict:
+    return exercise_generator(
+        category='CRUNCH',
+        exercise_name='FLUTTER_KICKS',
+        duration=duration,
+        execution='reps')
+
+
+def high_crunch_generator(duration) -> dict:
+    return exercise_generator(
+        category='CRUNCH',
+        exercise_name='CRUNCH',
         duration=duration,
         execution='reps')
 

@@ -86,7 +86,7 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             return strength.multi_step.plank_push_angel_generator(duration)
         case 'CalfHoldLunge':
             return strength.multi_step.calf_hold_lunge_generator(duration)
-        case 'CalfLunge':
+        case 'CalfLungeSide':
             return strength.multi_step.calf_lunge_side_generator(duration)
         case 'CalfSquatHold':
             return strength.multi_step.calf_squat_hold_generator(duration)
@@ -98,6 +98,12 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             return strength.multi_step.leg_raise_hold_situp(duration)
         case 'MaxPushups':
             return strength.multi_step.max_pushups()
+        case 'ShoulderTapUpdownPlankHold':
+            return strength.multi_step.shoulder_tap_updown_plank_hold(duration)
+        case 'FlutterKickCrunch':
+            return strength.multi_step.flutter_kick_circle_high_crunch(duration)
+        case 'PlankRotationWalkOutAltRaises':
+            return strength.multi_step.plank_rotation_walkout_altraises(duration)
         case _:
             return {}
 

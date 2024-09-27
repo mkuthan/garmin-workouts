@@ -1,9 +1,9 @@
-name: '5_6'
+name: '8_5'
 description: Strength
 sport: strength_training
 steps:
 - &id001
-  - !include CalfLungeSide_12reps.yaml
+  - !include LegRaiseHoldSitup_10reps.yaml
 - *id001
 - *id001
 - *id001

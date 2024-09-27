@@ -3,7 +3,7 @@ description: Strength
 sport: strength_training
 steps:
 - &id001
-  - !include CalfLunge_14reps.yaml
+  - !include CalfLungeSide_14reps.yaml
 - *id001
 - *id001
 - *id001

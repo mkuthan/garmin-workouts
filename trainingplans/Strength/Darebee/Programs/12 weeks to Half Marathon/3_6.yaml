@@ -1,0 +1,10 @@
+name: "3_6"
+description: Strength
+sport: strength_training
+steps:
+  - &id001
+    - !include MaxPushups.yaml
+  - *id001
+  - *id001
+  - *id001
+  - *id001
