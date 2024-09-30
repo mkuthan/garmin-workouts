@@ -1,3 +1,4 @@
+import os
 from garminworkouts.models.strength import (BANDED_EXERCISES, BATTLE_ROPE, BENCH_PRESS, BIKE_OUTDOOR, CALF_RAISE,
                                             CARDIO, CARRY, CHOP, CORE, CRUNCH, CURL, DEADLIFT, ELLIPTICAL, FLOOR_CLIMB,
                                             FLYE, HIP_RAISE, HIP_STABILITY, HIP_SWING, HYPEREXTENSION, INDOOR_BIKE,
@@ -56,3 +57,41 @@ MAP = {
     'TRICEPS_EXTENSION': TRICEPS_EXTENSION,
     'WARM_UP': WARM_UP,
 }
+
+
+def generate_functions(_list, _exercises):
+    functions = []
+    for exercise_name in _exercises.keys():
+        function_name_rep = exercise_name.lower() + '_rep_generator'
+        function_name_hold = exercise_name.lower() + '_hold_generator'
+        function_code = f"""
+
+def {function_name_rep}(duration) -> dict:
+    return exercise_generator(
+        category='{_list}',
+        exercise_name='{exercise_name}',
+        duration=duration,
+        execution='reps')
+
+
+def {function_name_hold}(duration) -> dict:
+    return exercise_generator(
+        category='{_list}',
+        exercise_name='{exercise_name}',
+        duration=duration,
+        execution='hold')
+"""
+        functions.append(function_code)
+    return functions
+
+# Write the generated functions to a file
+
+
+def write_functions_to_file(functions, output_file_path):
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+
+    with open(output_file_path, 'w') as file:
+        file.write("from garminworkouts.config.generators.strength.simple_step import exercise_generator\n")
+        for function in functions:
+            file.write(function)

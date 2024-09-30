@@ -96,6 +96,8 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             return strength.multi_step.calf_hold_squat_generator(duration)
         case 'LegRaiseHoldSitup':
             return strength.multi_step.leg_raise_hold_situp(duration)
+        case 'LegRaiseHoldSKneetwist':
+            return strength.multi_step.leg_raise_hold_kneetwist(duration)
         case 'MaxPushups':
             return strength.multi_step.max_pushups()
         case 'ShoulderTapUpdownPlankHold':
