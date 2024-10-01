@@ -88,6 +88,8 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             return strength.multi_step.calf_hold_lunge_generator(duration)
         case 'CalfLungeSide':
             return strength.multi_step.calf_lunge_side_generator(duration)
+        case 'CalfLungeSquat':
+            return strength.multi_step.calf_lunge_squat_generator(duration)
         case 'CalfSquatHold':
             return strength.multi_step.calf_squat_hold_generator(duration)
         case 'ClimberShouldertapPlankrot':

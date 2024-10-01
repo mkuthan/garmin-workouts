@@ -37,6 +37,15 @@ def calf_lunge_side_generator(duration) -> list[dict]:
     return steps
 
 
+def calf_lunge_squat_generator(duration) -> list[dict]:
+    steps: list[dict] = []
+    steps.append(calf_raise_rep_generator(duration))
+    steps.append(lunge_rep_generator(duration))
+    steps.append(squat_rep_generator(duration))
+    steps.append(rest_generator('2:00'))
+    return steps
+
+
 def calf_hold_lunge_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(calf_raise_rep_generator(duration))

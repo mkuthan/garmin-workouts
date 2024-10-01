@@ -5,4 +5,4 @@ sport: "running"
 steps:
   - !include warmup_20min.yaml
   - !include lt_20min.yaml
-  - !include cooldwown_10min.yaml
+  - !include cooldown_10min.yaml
