@@ -1,0 +1,182 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "update",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "garmin-update"
+            ]
+        },
+        {
+            "name": "find-events",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "find-events"
+            ]
+        },
+        {
+            "name": "activity-list",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "activity-list"
+            ]
+        },
+        {
+            "name": "trainingplan-list",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": false,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "trainingplan-list"
+            ]
+        },
+        {
+            "name": "export-yaml",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "workout-export-yaml"
+            ]
+        },
+        {
+            "name": "events",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "event-import",
+                "Races"
+            ]
+        },
+        {
+            "name": "user-zones",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "user-zones"
+            ]
+        },
+        {
+            "name": "trainingplan-metrics",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "trainingplan-metrics",
+                "./trainingplans/Running/Holmer/Marathon/*.yaml"
+            ]
+        },
+        {
+            "name": "trainingplan-metrics2",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "trainingplan-metrics",
+                "./trainingplans/Cycling/Garmin/Crit/Advanced/HeartRate/RacePhase1Base/*.yaml"
+            ]
+        },
+        {
+            "name": "trainingplan-import",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": false,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "trainingplan-import",
+                "HalfGasteiz2024"
+            ]
+        },
+        {
+            "name": "trainingplan-reset",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": false,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "trainingplan-reset",
+                "Planks"
+            ]
+        },
+        {
+            "name": "note-list",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": false,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "note-list"
+            ]
+        },
+        {
+            "name": "challenge",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "garminworkouts",
+            "justMyCode": true,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            },
+            "args": [
+                "challenge-signup"
+            ]
+        },
+    ]
+}
