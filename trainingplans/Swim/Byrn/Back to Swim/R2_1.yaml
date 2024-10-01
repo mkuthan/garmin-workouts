@@ -1,0 +1,37 @@
+name: R2_1
+sport: swimming
+description: 12x50, 3x100, 100
+steps:
+- &id001
+  - description: "12x50m Steady. Keep one eye in the water when you breathe. \n Take your Steady pace from the last swim and figure out what that means per 50. In my case it’s about 49s per 50 \n Rest is not less than 5 seconds, not more than 10 seconds, in my case… 12x50 leave on 55s and I’ll come in on 49, or so \n If you don’t know how to use a pace clock, or don’t have one, then simply take 2 slow, deep breaths between 50s"
+    duration: 50m
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- &id002
+  - description: "3x100 \n Take the pace from the 2nd 300 (last week) and see if you can hit it three times in a row. If you double the send off from your 50, and subtract 5s, then that should give you 5-10s rest, in my case… 55+55-5 is 1:45 send off and I’ll come in 1:36, or so. Same deal if you’re swimming on feel… two slow, deep breaths between swims"
+    duration: 100m
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- description: 100 Mixer to Finish. A “mixer” is when you can change the stroke you do, no pace pressure, rest as you like.
+  duration: 100m
+  target: {type: no.target}
+  type: cooldown

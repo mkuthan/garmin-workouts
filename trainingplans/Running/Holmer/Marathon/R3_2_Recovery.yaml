@@ -1,0 +1,10 @@
+name: "R3_2"
+description: "Recovery+Hills"
+sport: "running"
+
+steps:
+  - !include recovery_12mile.yaml
+  - !include &HILL hill.yaml
+  - *HILL
+  - *HILL
+  - *HILL
