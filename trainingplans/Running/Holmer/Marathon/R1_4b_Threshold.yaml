@@ -1,0 +1,10 @@
+name: "R1_4b"
+description: "Marathon Pace"
+sport: "running"
+
+steps:
+  - !include warmup_10min.yaml
+  - !include lt_1mile.yaml
+  - !include lt_1mile.yaml
+  - !include lt_1mile.yaml
+  - !include cooldown_5min.yaml

@@ -1,0 +1,33 @@
+name: R1_6
+sport: swimming
+description: "6x50, 2x300, 200.
+  Head Position Tips: One eye in the water when you breathe
+  When Breathing: Chin Up, Chin Down. Look slightly backwards
+  When Not Breathing : Head Still, Chin Down"
+steps:
+  - &id001
+    - description: We’re going to take a look at your paces. First we get you relaxed. 6x50 5-10s rest on each. Relaxed speed. 1-2-3 Breathe 1-2-3 Breathe. Keep one eye in the water when you breathe. This will keep your head down and, therefore, your hips up
+      duration: 50m
+      target: { type: no.target }
+      type: interval
+    - duration: 0:00:10
+      target: { type: no.target }
+      type: rest
+  - *id001
+  - *id001
+  - *id001
+  - *id001
+  - *id001
+  - &id002
+    - description: Now, we’re going to swim 2x300 with 15s rest between the two swims. If you need to break the swims up then that is OK. Include the extra rest in the total time for the interval. The second swim should be a little bit faster than the first swim. Start relaxed - if you get this right then your average pace for the first swim will be close to your Steady pace and your average pace for the second swim will be close to your Threshold pace. Make a note of the two average paces in your training diary. Also compare the paces, and the feel, the first 50 you swam in this session.
+      duration: 300m
+      target: { type: no.target }
+      type: interval
+    - duration: 0:00:15
+      target: { type: no.target }
+      type: rest
+  - *id002
+  - description: 200 Mixer to Finish. A “mixer” is when you can change the stroke you do, no pace pressure, rest as you like.
+    duration: 200m
+    target: { type: no.target }
+    type: cooldown

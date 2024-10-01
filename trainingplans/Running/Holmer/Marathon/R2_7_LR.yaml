@@ -1,0 +1,6 @@
+name: "R2_7"
+description: "Long Run"
+sport: "running"
+
+steps:
+  - !include lr_19mile.yaml

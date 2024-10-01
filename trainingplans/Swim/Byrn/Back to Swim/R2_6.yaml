@@ -1,0 +1,12 @@
+name: R2_6
+sport: swimming
+description: "2x500 \n First 500 Easy! \n If your easy pace is 2 min per 100 or slower then I want you to use a pullbuoy, buoyancy shorts or short fins \n Use 3/5/3/5 breathing - three strokes, breathe, five strokes, breathe, repeat \n Relax as much as possible \n You’re going to be OK - relax into the way this feels \n If you stick with it then you will notice the breathing pattern forces you to relax \n If you have to pause, for extra air, then keep the clock running \n Your average pace at the end is your “easy pace” \n Second 500 Steady - 3 stroke breathing, note pace"
+steps:
+- &id001
+  - duration: 500m
+    target: { type: no.target }
+    type: interval
+  - duration: 0:00:10
+    target: { type: no.target }
+    type: rest
+- *id001

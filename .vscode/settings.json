@@ -1,0 +1,19 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./tests",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.testing.pytestArgs": [
+        "-v",
+        "tests/",
+    ]
+}

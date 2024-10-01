@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pytest with coverage",
+            "type": "shell",
+            "command": "pytest --cov=garminworkouts --cov-report=xml tests",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

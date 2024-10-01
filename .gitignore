@@ -3,7 +3,7 @@ __pycache__
 .venv
 .coverage.xml
 exported
-*.json
+garminconnect/*.json
 planning.yaml
 .coverage
 coverage.xml

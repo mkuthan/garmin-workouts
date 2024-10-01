@@ -1,0 +1,37 @@
+name: R1_1
+sport: swimming
+description: 12x50m, 3x100m, Mixer to Finish
+steps:
+- &id001
+  - description: 12x50m 5-10s rest on each. Relaxed speed. 1-2-3 Breathe 1-2-3 Breathe. Keep one eye in the water when you breathe. This will keep your head down and, therefore, your hips up
+    duration: 50m
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- *id001
+- &id002
+  - description: 3x100 on 10-15s rest. Keep the 1-2-3 Breathe 1-2-3 Breathe Pattern. See if you can speed up each 100, this is called DESCENDING. Note how fast you go for Steady, Moderate, Fast
+    duration: 100m
+    target: {type: no.target}
+    type: interval
+  - duration: 0:00:10
+    target: {type: no.target}
+    type: rest
+- *id002
+- *id002
+- description: 100 Mixer to Finish. A “mixer” is when you can change the stroke you do, no pace pressure, rest as you like.
+  duration: 100m
+  target: {type: no.target}
+  type: cooldown
