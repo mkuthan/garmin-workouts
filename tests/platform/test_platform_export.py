@@ -71,7 +71,9 @@ def test_export_trainingplans(authed_gclient: GarminClient) -> None:
             })
         mock_delete_training_plan.return_value = MagicMock(status_code=200)
         authed_gclient.export_trainingplans()
-        shutil.rmtree(os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'TestTrainingPlan'))
+        training_plan_path = os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'TestTrainingPlan')
+        if os.path.exists(training_plan_path):
+            shutil.rmtree(training_plan_path)
 
 
 def test_export_trainingplans2(authed_gclient: GarminClient) -> None:
@@ -122,7 +124,9 @@ def test_export_trainingplans2(authed_gclient: GarminClient) -> None:
         })
         mock_delete_training_plan.return_value = MagicMock(status_code=200)
         authed_gclient.export_trainingplans()
-        shutil.rmtree(os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'EE5k'))
+        training_plan_path = os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'EE5k')
+        if os.path.exists(training_plan_path):
+            shutil.rmtree(training_plan_path)
 
 
 def test_external_workout_export_yaml(authed_gclient: GarminClient) -> None:
