@@ -1,6 +1,7 @@
 import shutil
 from unittest.mock import MagicMock, patch
 from garminworkouts.garmin.garminclient import GarminClient
+import os
 
 
 def test_export_external_workouts(authed_gclient: GarminClient) -> None:
@@ -70,6 +71,7 @@ def test_export_trainingplans(authed_gclient: GarminClient) -> None:
             })
         mock_delete_training_plan.return_value = MagicMock(status_code=200)
         authed_gclient.export_trainingplans()
+        shutil.rmtree(os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'TestTrainingPlan'))
 
 
 def test_export_trainingplans2(authed_gclient: GarminClient) -> None:
@@ -120,6 +122,7 @@ def test_export_trainingplans2(authed_gclient: GarminClient) -> None:
         })
         mock_delete_training_plan.return_value = MagicMock(status_code=200)
         authed_gclient.export_trainingplans()
+        shutil.rmtree(os.path.join('.', 'trainingplans', 'Running', 'Garmin', 'EE5k'))
 
 
 def test_external_workout_export_yaml(authed_gclient: GarminClient) -> None:
