@@ -113,13 +113,23 @@ async def recurrent(context: ContextTypes.DEFAULT_TYPE) -> None:
     await context.bot.send_message(chat_id, text='Daily trainingplan update')
     planning: dict = configreader.read_config(os.path.join('.', 'events', 'planning', 'planning.yaml'))
 
+    # Process all plans except 'Races'
     for plan in planning:
-        await context.bot.send_message(chat_id, text='Updating ' + plan)
         if plan != 'Races':
+            await context.bot.send_message(chat_id, text='Updating ' + plan)
             cmd: str = str("python -m garminworkouts trainingplan-import " + plan)
-        else:
-            cmd: str = str("python -m garminworkouts event-import Races")
+            subprocess.run(cmd, shell=True, capture_output=True)
 
+            with open('./debug.log', 'r') as file:
+                try:
+                    await context.bot.send_message(chat_id, text=file.read())
+                except Exception:
+                    await context.bot.send_message(chat_id, text='debug.log is empty')
+
+    # Process 'Races' at the end
+    if 'Races' in planning:
+        await context.bot.send_message(chat_id, text='Updating Races')
+        cmd: str = str("python -m garminworkouts event-import Races")
         subprocess.run(cmd, shell=True, capture_output=True)
 
         with open('./debug.log', 'r') as file:
