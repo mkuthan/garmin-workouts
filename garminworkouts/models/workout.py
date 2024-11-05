@@ -99,14 +99,15 @@ class Workout(object):
         if '_' not in self.config.get(_NAME, ''):
             return str(self.config.get(_NAME))
         else:
+            le = 25
             description: str = self.config.get(_DESCRIPTION, '')
             if not description:
                 description = ''
-
+            description = description.replace("W1-", "").replace("W2-", "").replace("W3-", "").replace(" + ", "+")
             if (self.plan != '') and (_DESCRIPTION in self.config) and (description is not None) and \
-               (len(description) < 20) and ('\n' not in description):
+               (len(description) < le) and ('\n' not in description):
                 return f"{self.config.get(_NAME, '')}-{description}"
-            elif len(description) >= 20:
+            elif len(description) >= le:
                 return f"{self.config.get(_NAME)}-{description.split(' ')[0]}"
             else:
                 return str(self.config.get(_NAME))
