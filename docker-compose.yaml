@@ -5,15 +5,15 @@ services:
     container_name: garminworkouts-bot
     build:
       context: ./
-      args:
-        GARMIN_USERNAME: ${GARMIN_USERNAME}
-        GARMIN_PASSWORD: ${GARMIN_PASSWORD}
-        vV02: ${vV02}
-        fmin: ${fmin}
-        fmax: ${fmax}
-        flt: ${flt}
-        rFTP: ${rFTP}
-        cFTP: ${cFTP}
-        BOT_TOKEN: ${BOT_TOKEN}
+    environment:
+      GARMIN_USERNAME: ${GARMIN_USERNAME}
+      GARMIN_PASSWORD: ${GARMIN_PASSWORD}
+      vV02: ${vV02}
+      fmin: ${fmin}
+      fmax: ${fmax}
+      flt: ${flt}
+      rFTP: ${rFTP}
+      cFTP: ${cFTP}
+      BOT_TOKEN: ${BOT_TOKEN}
     volumes:
       - ./events:/usr/src/app/events

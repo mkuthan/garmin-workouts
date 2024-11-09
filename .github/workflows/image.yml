@@ -9,15 +9,6 @@ on:
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot
-  GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
-  GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
-  vV02: ${{ secrets.vV02 }}
-  fmin: ${{ secrets.fmin }}
-  fmax: ${{ secrets.fmax }}
-  flt: ${{ secrets.flt }}
-  rFTP: ${{ secrets.rFTP }}
-  cFTP: ${{ secrets.cFTP }}
-  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
 
 jobs:
   build:
@@ -73,15 +64,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             PLATFORM: ${{ matrix.platform }}
-            GARMIN_USERNAME: ${{ env.GARMIN_USERNAME }}
-            GARMIN_PASSWORD: ${{ env.GARMIN_PASSWORD }}
-            vV02: ${{ env.vV02 }}
-            fmin: ${{ env.fmin }}
-            fmax: ${{ env.fmax }}
-            flt: ${{ env.flt }}
-            rFTP: ${{ env.rFTP }}
-            cFTP: ${{ env.cFTP }}
-            BOT_TOKEN: ${{ env.BOT_TOKEN }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
       
       - name: Export digest
