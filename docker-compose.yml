@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   bot:
     container_name: garminworkouts-bot
@@ -15,5 +13,7 @@ services:
       rFTP: ${rFTP}
       cFTP: ${cFTP}
       BOT_TOKEN: ${BOT_TOKEN}
+      VOLUME: ${VOLUME}
     volumes:
-      - ./events:/usr/src/app/events
+      - ${VOLUME}/events:/usr/src/app/events
+      - ${VOLUME}/garminconnect:/usr/src/app/garminconnect
