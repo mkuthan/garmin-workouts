@@ -93,7 +93,7 @@ def climber_shoulder_tap_plank_rot_generator(duration) -> list[dict]:
     return steps
 
 
-def leg_raise_hold_situp(duration) -> list[dict]:
+def leg_raise_hold_situp_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(leg_raise_rep_generator(duration))
     steps.append(leg_raise_hold_generator(duration))
@@ -102,7 +102,7 @@ def leg_raise_hold_situp(duration) -> list[dict]:
     return steps
 
 
-def leg_raise_hold_kneetwist(duration) -> list[dict]:
+def leg_raise_hold_kneetwist_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(leg_raise_rep_generator(duration))
     steps.append(leg_raise_hold_generator(duration))
@@ -111,14 +111,14 @@ def leg_raise_hold_kneetwist(duration) -> list[dict]:
     return steps
 
 
-def max_pushups() -> list[dict]:
+def max_pushups_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(max_pushup_generator())
     steps.append(rest_generator('0:30'))
     return steps
 
 
-def shoulder_tap_updown_plank_hold(duration) -> list[dict]:
+def shoulder_tap_updown_plank_hold_generator(duration) -> list[dict]:
     steps: list[dict] = []
     med = str(int(int(duration) / 2))
     steps.append(plank_shoulder_tap_rep_generator(duration))
@@ -128,7 +128,17 @@ def shoulder_tap_updown_plank_hold(duration) -> list[dict]:
     return steps
 
 
-def flutter_kick_circle_high_crunch(duration) -> list[dict]:
+def shoulder_tap_plank_rotation_updown_plank_generator(duration) -> list[dict]:
+    steps: list[dict] = []
+    med = str(int(int(duration) / 2))
+    steps.append(plank_shoulder_tap_rep_generator(duration))
+    steps.append(plank_rotation_generator(duration))
+    steps.append(up_down_plank_generator(med))
+    steps.append(rest_generator('2:00'))
+    return steps
+
+
+def flutter_kick_circle_high_crunch_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(flutter_kicks_rep_generator(duration))
     steps.append(leg_circle_generator(duration))
@@ -137,7 +147,7 @@ def flutter_kick_circle_high_crunch(duration) -> list[dict]:
     return steps
 
 
-def flutter_kick_heeltap_crunch(duration) -> list[dict]:
+def flutter_kick_heeltap_crunch_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(flutter_kicks_rep_generator(duration))
     steps.append(leg_circle_generator(duration))
@@ -146,7 +156,7 @@ def flutter_kick_heeltap_crunch(duration) -> list[dict]:
     return steps
 
 
-def plank_rotation_walkout_altraises(duration) -> list[dict]:
+def plank_rotation_walkout_altraises_generator(duration) -> list[dict]:
     steps: list[dict] = []
     med = str(int(int(duration) / 2))
     steps.append(plank_rotation_generator(duration))

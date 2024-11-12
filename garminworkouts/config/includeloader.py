@@ -1,4 +1,5 @@
 import os
+import re
 import yaml
 import garminworkouts.config.generators.running as running
 import garminworkouts.config.generators.strength as strength
@@ -97,19 +98,27 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
         case 'CalfHoldSquat':
             return strength.multi_step.calf_hold_squat_generator(duration)
         case 'LegRaiseHoldSitup':
-            return strength.multi_step.leg_raise_hold_situp(duration)
+            return strength.multi_step.leg_raise_hold_situp_generator(duration)
         case 'LegRaiseHoldSKneetwist':
-            return strength.multi_step.leg_raise_hold_kneetwist(duration)
+            return strength.multi_step.leg_raise_hold_kneetwist_generator(duration)
         case 'MaxPushups':
-            return strength.multi_step.max_pushups()
+            return strength.multi_step.max_pushups_generator(duration)
         case 'ShoulderTapUpdownPlankHold':
-            return strength.multi_step.shoulder_tap_updown_plank_hold(duration)
+            return strength.multi_step.shoulder_tap_updown_plank_hold_generator(duration)
         case 'FlutterKickCrunch':
-            return strength.multi_step.flutter_kick_circle_high_crunch(duration)
+            return strength.multi_step.flutter_kick_circle_high_crunch_generator(duration)
         case 'PlankRotationWalkOutAltRaises':
-            return strength.multi_step.plank_rotation_walkout_altraises(duration)
+            return strength.multi_step.plank_rotation_walkout_altraises_generator(duration)
         case _:
-            return {}
+            try:
+                return getattr(strength.multi_step, camel_to_snake(step) + '_generator')(duration)
+            except AttributeError:
+                return {}
+
+
+def camel_to_snake(name):
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name)
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
 
 class IncludeLoader(yaml.SafeLoader):
