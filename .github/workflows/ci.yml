@@ -81,39 +81,18 @@ jobs:
           fi
 
   tag:
-    runs-on: ubuntu-latest
     needs: [result]
+    if: ${{ needs.build.result }} == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
 
-      - name: Get the latest tag
-        id: get_latest_tag
-        run: |
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v2.0.0")
-          echo "latest_tag=$latest_tag" >> $GITHUB_ENV
-
-      - name: Increment tag
-        id: increment_tag
-        run: |
-          latest_tag=${{ env.latest_tag }}
-          if [ -z "$latest_tag" ]; then
-            new_tag="v1.0.0"
-          else
-            IFS='.' read -r -a parts <<< "${latest_tag#v}"
-            major=${parts[0]}
-            minor=${parts[1]}
-            patch=${parts[2]}
-            new_tag=$(printf "v%s.%s.%d" "$major" "$minor" "$((patch + 1))")
-          fi
-          echo "new_tag=$new_tag" >> $GITHUB_ENV
-
-      - name: Push new tag
-        if: ${{ needs.build.result == 'success' }}
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git tag ${{ env.new_tag }}
-          git push origin ${{ env.new_tag }}
+      - name: Increment and tag with CalVer
+        uses: mani-sh-reddy/calver-increment@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YEAR_FORMAT: "YY"
