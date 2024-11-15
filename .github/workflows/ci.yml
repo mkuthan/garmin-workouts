@@ -90,7 +90,7 @@ jobs:
       - name: Get the latest tag
         id: get_latest_tag
         run: |
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v2.0.0")
           echo "latest_tag=$latest_tag" >> $GITHUB_ENV
 
       - name: Increment tag
