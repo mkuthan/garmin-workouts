@@ -82,11 +82,15 @@ class GarminClient(GarminWorkout):
                 workout_id: str = Workout.extract_workout_id(existing_workout)
                 workout_owner_id: str = Workout.extract_workout_owner_id(existing_workout)
                 workout_author: dict = Workout.extract_workout_author(existing_workout)
-                workout: Workout = workouts_by_name[wname]
-                payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
-                logging.info("Updating workout '%s'", wname)
-                self.update_workout(workout_id, payload)
-                c += 1
+                try:
+                    workout: Workout = workouts_by_name[wname]
+                    payload: dict = workout.create_workout(workout_id, workout_owner_id, workout_author)
+                    logging.info("Updating workout '%s'", wname)
+                    self.update_workout(workout_id, payload)
+                    c += 1
+                except KeyError:
+                    logging.info("Deleting workout '%s'", wname)
+                    self.delete_workout(workout_id)
 
         for workout in workouts:
             day_d, *_ = workout.get_workout_date()
