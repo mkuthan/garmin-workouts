@@ -1,8 +1,8 @@
-name: Garmin update
+name: "Garmin update"
 
 on:
   schedule:
-    - cron: "*/60 * * * *"
+    - cron: "0 * * * *" # Runs every hour
 
 env:
   GARMIN_USERNAME: ${{ secrets.GARMIN_USERNAME }}
@@ -29,6 +29,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
       - uses: ./.github/actions/setup
+      # Run the Garmin workouts update script
       - run: python -m garminworkouts garmin-update
 
       # Commit all changed files back to the repository

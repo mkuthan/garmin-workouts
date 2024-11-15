@@ -1,6 +1,6 @@
-name: Build docker images
+name: build-docker-images
 
-on:  
+on:
   workflow_run:
     workflows: ["CI", "Dependabot auto-merge"]
     types:
@@ -35,12 +35,12 @@ jobs:
           images: |
             ${{ env.REGISTRY_IMAGE }}
           tags: |
-            type=ref,event=tag
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+            type=ref, event=tag
+            type=ref, event=branch
+            type=ref, event=pr
+            type=semver, pattern={{version}}
+            type=semver, pattern={{major}}.{{minor}}
+            type=semver, pattern={{major}}
             type=sha
       
       - name: Set up QEMU
@@ -64,7 +64,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             PLATFORM: ${{ matrix.platform }}
-          outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+          outputs: |
+            type=image,
+            name=${{ env.REGISTRY_IMAGE }},
+            push-by-digest=true,
+            name-canonical=true,
+            push=true
       
       - name: Export digest
         run: |
@@ -110,7 +115,12 @@ jobs:
       - name: Create manifest list and push
         working-directory: /tmp/digests
         run: |
-          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+          # Extract tags from Docker metadata output
+          tags=$(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON")
+          
+          # Create manifest list and push
+          docker buildx imagetools create \
+            $tags \
             $(printf '${{ env.REGISTRY_IMAGE }}@sha256:%s ' *)
 
       - name: Inspect image

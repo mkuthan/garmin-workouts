@@ -1,14 +1,14 @@
 queue_rules:
   - name: dep-update
     batch_size: 10
-    batch_max_wait_time: 30 min
+    batch_max_wait_time: "1800"
     queue_conditions:
-      - author = dependabot[bot]
+      - author == dependabot[bot]
 
 pull_request_rules:
   - name: Automatically merge Dependabot PRs
     conditions:
-      - author = dependabot[bot]
+      - author == dependabot[bot]
     actions:
       queue:
   - name: Automatically approve Dependabot PRs

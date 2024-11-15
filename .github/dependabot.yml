@@ -7,17 +7,20 @@ updates:
     rebase-strategy: "disabled"
     commit-message:
       prefix: "actions"
+      prefix-development: "actions dev"
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
+    rebase-strategy: "disabled"
     commit-message:
       prefix: "pip prod"
-      prefix-development: "pip dev"
       include: "scope"
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+    rebase-strategy: "disabled"
     commit-message:
       prefix: "docker"
+      prefix-development: "docker dev"

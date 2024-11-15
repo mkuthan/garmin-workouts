@@ -7,7 +7,8 @@ name: Mark stale issues and pull requests
 
 on:
   schedule:
-  - cron: '44 5 * * *'
+  # Runs at 5:00 AM every day
+  - cron: '00 5 * * *'
 
 jobs:
   stale:
@@ -20,8 +21,7 @@ jobs:
     steps:
     - uses: actions/stale@v9
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'Stale issue message'
-        stale-pr-message: 'Stale pull request message'
-        stale-issue-label: 'no-issue-activity'
-        stale-pr-label: 'no-pr-activity'
+        stale-issue-message: 'This issue has been automatically marked as stale due to inactivity.'
+        stale-pr-message: 'This pull request has been automatically marked as stale due to inactivity.'
+        stale-issue-label: 'stale-issue'
+        stale-pr-label: 'stale-pr'
