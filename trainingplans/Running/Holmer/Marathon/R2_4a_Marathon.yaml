@@ -6,6 +6,6 @@ steps:
   - !include warmup_4mile.yaml
   - &id1
     - !include 20<marathon_5.yaml
-    - !include walk_5min.yaml
+    - !include recovery_5min.yaml
   - *id1
   - !include cooldown_3mile.yaml

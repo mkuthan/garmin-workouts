@@ -10,7 +10,7 @@ steps:
   - *HILL
   - &SERIES
     - !include 10>plt_1min.yam
-    - !include walk_2min.yam
+    - !include recovery_2min.yam
   - *SERIES
   - *SERIES
   - *SERIES

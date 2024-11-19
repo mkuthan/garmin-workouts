@@ -15,7 +15,7 @@ steps:
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include walk_5min.yaml
+  - !include recovery_5min.yaml
   - &ANAER !include anaerobic_30s.yaml
   - *ANAER
   - *ANAER

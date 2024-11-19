@@ -67,7 +67,7 @@ def longhill_generator(duration) -> list[dict]:
 def anaerobic_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(step_generator(duration, '1500M_PACE', description='Series @1500 pace'))
-    steps.append(step_generator(type='rest', duration='1:00', target='WALK', description='Recovery pace'))
+    steps.append(step_generator(type='rest', duration='1:00', target='RECOVERY_PACE', description='Recovery pace'))
     return steps
 
 
