@@ -4,9 +4,8 @@ sport: "running"
 
 steps:
   - !include warmup_7.yaml
-  - !include &SERIES ../series_800m.yaml
+  - !include &SERIES series_800m.yaml
   - *SERIES
   - *SERIES
   - *SERIES
   - *SERIES
- 
