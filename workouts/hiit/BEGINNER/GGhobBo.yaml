@@ -1,7 +1,10 @@
 description: 'After a five-minute dynamic warmup, complete the following workout:
   40 seconds of intense work, where you try and get as many reps of each exercise,
-  followed by 20 seconds of rest. Do this 40/20 for 10 minutes followed by stretching
-  for a cool down. For an additional challenge, try burpees instead of squat thrusts.'
+  followed by 20 seconds of rest.
+
+  Do this 40/20 for 10 minutes followed by stretching for a cool down.
+
+  For an additional challenge, try burpees instead of squat thrusts.'
 name: 40/20 Squat Thrusts
 sport: hiit
 steps:

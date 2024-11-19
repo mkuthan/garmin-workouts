@@ -2,13 +2,21 @@ description: '90 Minute Workout
 
   - Warm up.
 
-  - Ride 1 minute at max. effort, 8 minutes at recovery pace.
+  - Ride 1 minute at max.
 
-  - Ride 4 minutes at max. effort, 10 minutes at recovery pace.
+  effort, 8 minutes at recovery pace.
 
-  - Ride 10 minutes at max. effort, 5 minutes at recovery pace.
+  - Ride 4 minutes at max.
 
-  - Ride 1 minute hard, 1 minute at recovery pace. Repeat 4 times.
+  effort, 10 minutes at recovery pace.
+
+  - Ride 10 minutes at max.
+
+  effort, 5 minutes at recovery pace.
+
+  - Ride 1 minute hard, 1 minute at recovery pace.
+
+  Repeat 4 times.
 
   - Ride 4 minutes hard, 3 minutes at recovery pace.
 
@@ -16,8 +24,10 @@ description: '90 Minute Workout
 
 
   This is a really tough workout that will prepare you to do repeated, sustained high
-  power efforts. The goal is to try to avoid dropping off by the last repetition,
-  so start a bit conservatively.'
+  power efforts.
+
+  The goal is to try to avoid dropping off by the last repetition, so start a bit
+  conservatively.'
 name: Max. Effort Intervals
 sport: cycling
 steps:

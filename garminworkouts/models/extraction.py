@@ -5,6 +5,29 @@ from typing import Any
 
 class Extraction(object):
     @staticmethod
+    def description_formatting(description: str) -> str:
+        if description is None:
+            return ''
+
+        if 'rest20s' in description:
+            description = description.replace('rest20s', 'rest\n 20s')
+        if not any(substring in description for substring in ['Dr.', '. Complete', '\u2022']):
+            description = description.replace('. ', '.\n')
+        if '.Try' in description:
+            description = description.replace('.Try', '.\nTry')
+        if ':20s' in description:
+            description = description.replace(':20s', ':\n-20s')
+        if '.8 sets' in description:
+            description = description.replace('.8 sets', '.\n-8 sets')
+        if ')8 sets' in description:
+            description = description.replace(')8 sets', ')\n-8 sets')
+        if '.Workout' in description:
+            description = description.replace('.Workout', '.\nWorkout')
+        if 'push-ups.Benchmark' in description:
+            description = description.replace('push-ups.Benchmark', 'push-ups.\nBenchmark')
+        return description
+
+    @staticmethod
     def end_condition_extraction(step_json, step) -> dict:
         end_condition: str = step_json['endCondition']['conditionTypeKey']
         end_condition_value: Any = step_json['endConditionValue']
@@ -153,7 +176,7 @@ class Extraction(object):
             'sport': workout['sportType'].get('sportTypeKey', ''),
             **({'subsport': workout.get('subSportType', '') if 'subSportType' in workout else ''}
                if workout.get('subSportType', '') else {}),
-            'description': workout.get('description', ''),
+            'description': Extraction.description_formatting(workout.get('description', '')),
             'steps': [],
         }
 
