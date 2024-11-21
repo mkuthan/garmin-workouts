@@ -267,7 +267,7 @@ class MyTestCase(unittest.TestCase):
                             'exerciseName': None,
                         },
                          {
-                            'type': 'rest', 'duration': '1:00', 'target': 'WALK', 'description': 'Recovery pace',
+                            'type': 'rest', 'duration': '1:00', 'target': 'RECOVERY_PACE', 'description': 'Recovery pace',
                             'category': None,
                             'exerciseName': None,
                         }],
