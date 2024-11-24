@@ -1,11 +1,13 @@
 name: build-docker-images
 
 on:
+  push:
+    tags:
+      - "*"
   workflow_run:
     workflows: ["CI", "Dependabot auto-merge"]
     types:
       - completed
-
 
 env:
   REGISTRY_IMAGE: ${{ secrets.DOCKER_USERNAME }}/garminworkouts-bot
@@ -23,11 +25,11 @@ jobs:
       - name: Prepare
         run: |
           platform=${{ matrix.platform }}
-          echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV  
-      
+          echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
+
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -35,22 +37,25 @@ jobs:
           images: |
             ${{ env.REGISTRY_IMAGE }}
           tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
             type=match,pattern=\d+\.\d+\.\d+
             type=match,pattern=\d+\.\d+
             type=match,pattern=\d+
-      
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      
+
       - name: Build and push by digest
         id: build
         uses: docker/build-push-action@v6
@@ -61,12 +66,12 @@ jobs:
           build-args: |
             PLATFORM: ${{ matrix.platform }}
           outputs: type=image,name=${{ env.REGISTRY_IMAGE }},push-by-digest=true,name-canonical=true,push=true
-      
+
       - name: Export digest
         run: |
           mkdir -p /tmp/digests
           digest="${{ steps.build.outputs.digest }}"
-          touch "/tmp/digests/${digest#sha256:}"     
+          touch "/tmp/digests/${digest#sha256:}"
 
       - name: Upload digest
         uses: actions/upload-artifact@v4
@@ -85,9 +90,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: /tmp/digests
-          pattern: digests-*          
+          pattern: digests-*
           merge-multiple: true
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -108,7 +113,7 @@ jobs:
         run: |
           # Extract tags from Docker metadata output
           tags=$(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON")
-          
+
           # Create manifest list and push
           docker buildx imagetools create \
             $tags \
@@ -117,7 +122,7 @@ jobs:
       - name: Inspect image
         run: |
           docker buildx imagetools inspect ${{ env.REGISTRY_IMAGE }}:${{ steps.meta.outputs.version }}
-        
+
       - name: Docker Scout
         id: docker-scout
         uses: docker/scout-action@v1.15.1
