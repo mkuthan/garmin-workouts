@@ -1,10 +1,9 @@
 name: build-docker-images
 
 on:
-  workflow_run:
-    workflows: ["CI", "Dependabot auto-merge"]
-    types:
-      - completed
+  push:
+    tags:
+      - '*'
 
 
 env:
@@ -37,11 +36,9 @@ jobs:
           tags: |
             type=ref, event=tag
             type=ref, event=branch
-            type=ref, event=pr
             type=semver, pattern={{version}}
             type=semver, pattern={{major}}.{{minor}}
             type=semver, pattern={{major}}
-            type=sha
       
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
