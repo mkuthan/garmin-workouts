@@ -6,11 +6,11 @@ steps:
   - !include warmup_3.yaml
   - &SERIES
     - !include hm_1.yaml
-    - !include recovery_1.yaml
+    - !include precovery_1.yaml
   - *SERIES
   - *SERIES
   - *SERIES
-  - !include recovery_5min.yaml
+  - !include precovery_5min.yaml
   - &ANAER !include anaerobic_30s.yaml
   - *ANAER
   - *ANAER
