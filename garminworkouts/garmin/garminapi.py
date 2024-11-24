@@ -19,7 +19,9 @@ class GarminApi(object):
     def login(self, /, tokenstore: Optional[str] = None) -> Literal[True]:
         is_cn = False
         self.garth = garth.Client(
-            domain="garmin.cn" if is_cn else "garmin.com"
+            domain="garmin.cn" if is_cn else "garmin.com",
+            pool_connections=20,
+            pool_maxsize=20
         )
         """Log in using Garth."""
         if tokenstore:
