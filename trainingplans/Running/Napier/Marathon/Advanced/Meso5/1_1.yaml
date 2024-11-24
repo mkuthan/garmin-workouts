@@ -8,8 +8,8 @@ steps:
   - *HILL
   - *HILL
   - *HILL
-  - !include 35<lt_7min.yaml
-  - !include 25<lt_7min.yaml
-  - !include 15<lt_7min.yaml
-  - !include 5<lt_7min.yaml
-  - !include 5>lt_7min.yaml
+  - !include 35<plt_7min.yaml
+  - !include 25<plt_7min.yaml
+  - !include 15<plt_7min.yaml
+  - !include 5<plt_7min.yaml
+  - !include 5>plt_7min.yaml
