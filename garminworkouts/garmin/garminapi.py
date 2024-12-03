@@ -10,7 +10,7 @@ garth.http.USER_AGENT = {}
 
 class GarminApi(object):
     _GARMIN_SUBDOMAIN = "connectapi"
-    _GARMIN_VERSION = "24.23.6.0"
+    _GARMIN_VERSION = "24.24.0.181"
 
     def __init__(self, email, password) -> None:
         self.email: str = email
