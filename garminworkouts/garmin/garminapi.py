@@ -4,9 +4,6 @@ from typing import Literal, Optional
 import garth
 import os
 
-# Temp fix for API change!
-garth.http.USER_AGENT = {}
-
 
 class GarminApi(object):
     _GARMIN_SUBDOMAIN = "connectapi"
