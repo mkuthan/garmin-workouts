@@ -1,4 +1,5 @@
 import json
+import math
 from typing import Any
 from garminworkouts.models.workoutstep import WorkoutStep
 from garminworkouts.models.pace import Pace
@@ -74,6 +75,8 @@ class Workout(object):
         else:
             self.cardio_values(flatten_steps)
 
+        self.training_load()
+
         if bool(config) and self.mileage == 0 and self.sec == 0:
             raise ValueError('Null workout')
 
@@ -132,6 +135,7 @@ class Workout(object):
         self.sec: float = sec
         self.duration = timedelta(seconds=sec)
         self.mileage = round(meters / 1000, 2)
+        self.reps = 0
         self.tss = round(sec / 3600 * (self.ratio) ** 2 / 100, 0)
         try:
             self.pace: float = self.sec/self.mileage
@@ -168,6 +172,7 @@ class Workout(object):
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
+        self.reps = 0
         try:
             self.norm_pwr: float = float(normalized_power(xs))
         except ValueError:
@@ -190,6 +195,7 @@ class Workout(object):
         self.sec = sec
         self.duration = timedelta(seconds=sec)
         self.mileage: float = round(meters/1000, 2)
+        self.reps = 0
 
     def cardio_values(self, flatten_steps) -> None:
         sec: float = 0
@@ -217,8 +223,127 @@ class Workout(object):
         self.ratio = float(0)
         self.sec = sec
         self.duration = timedelta(seconds=sec)
-        self.mileage: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
-        self.tss: float = round(sec/3600 * self.ratio ** 2 / 100)
+        self.mileage = 0
+        self.reps: float = len(flatten_steps) if sec == 0 and reps == 0 else reps
+
+    def training_load(self):
+        self.ECOs = 0
+        intensity_factor_list = []
+        Rdist = [0] * 8
+
+        for step in self.config.get('steps'):
+            ECOs, intensity_factor_list, Rdist = self.process_step(step, intensity_factor_list, Rdist)
+            self.ECOs += self.calculate_ECOs(ECOs, intensity_factor_list)
+
+        self.Rdist = Rdist
+
+        if self.sport_type != 'strength_training':
+            assert self.ECOs > 0
+
+    def process_step(self, step, intensity_factor_list, Rdist):
+        interval, recovery, rest, warmup, cooldown, other, maxIF, ECOs = 0, 0, 0, 0, 0, 0, 0, 0
+
+        if not isinstance(step, list):
+            step = [step]
+
+        for substep in step:
+            duration_secs, duration_meters = self.extract_step_duration(substep)
+            c, intensity_factor, Rdist = self.get_intensity_factor(duration_secs, duration_meters, Rdist)
+            maxIF = max(maxIF, intensity_factor)
+            intensity_factor_list.append(intensity_factor)
+            ECOs += round(c * duration_secs * intensity_factor / 60, 0)
+            interval, recovery, rest, warmup, cooldown, other = self.update_durations(substep, duration_secs, interval,
+                                                                                      recovery, rest, warmup, cooldown,
+                                                                                      other)
+
+        if len(step) > 1:
+            ECOs *= 1 - self.calculate_p(interval, recovery, rest, warmup, cooldown, other, maxIF) / 100
+
+        return ECOs, intensity_factor_list, Rdist
+
+    def get_intensity_factor(self, duration_secs, duration_meters, Rdist):
+        match self.sport_type:
+            case 'running':
+                c = 1.0
+                intensity_factor, Rdist = self.intensity_factor(
+                    round(duration_meters / duration_secs / self.vVO2.to_pace(), 2), duration_secs, Rdist)
+            case 'cycling':
+                c = 0.5
+                intensity_factor = 1.0
+            case 'swimming':
+                c = 0.75
+                intensity_factor = 1.0
+            case _:
+                c = 0.4
+                intensity_factor = 1.0
+        return c, intensity_factor, Rdist
+
+    def update_durations(self, substep, duration_secs, interval, recovery, rest, warmup, cooldown, other):
+        match substep.get('type'):
+            case 'interval':
+                interval += duration_secs
+            case 'recovery':
+                recovery += duration_secs
+            case 'rest':
+                rest += duration_secs
+            case 'warmup':
+                warmup += duration_secs
+            case 'cooldown':
+                cooldown += duration_secs
+            case _:
+                other += duration_secs
+        return interval, recovery, rest, warmup, cooldown, other
+
+    def calculate_p(self, interval, recovery, rest, warmup, cooldown, other, maxIF):
+        if (recovery + rest) == 0:
+            return 0.0
+        elif maxIF <= 3.0:
+            return (recovery + rest) / (interval + recovery + rest + warmup + cooldown + other) * 100
+        else:
+            D = interval / (recovery + rest)
+            if maxIF <= 5.0:
+                return 20.204 * math.log(D) - 50.791
+            elif maxIF <= 9.0:
+                return 40.257 * math.log(D) - 35.627
+            elif maxIF <= 15.0:
+                return 37.085 * math.log(D) - 6.219
+            else:
+                return 89.204 * D - 270532
+
+    def calculate_ECOs(self, ECOs, intensity_factor_list):
+        if len(intensity_factor_list) == 1:
+            return ECOs
+        else:
+            return ECOs * (1 + intensity_factor_list[-1]/intensity_factor_list[-2] / 10)
+
+    def intensity_factor(self, v: float, duration_secs, Rdist):
+        if v < 0.5:
+            c = 0.0
+        elif v >= 0.5 and v < 0.65:  # R0
+            c = 1.0
+            Rdist[0] += duration_secs
+        elif v >= 0.65 and v < 0.75:  # R1
+            c = 2.0
+            Rdist[1] += duration_secs
+        elif v >= 0.75 and v < 0.875:  # R2
+            c = 3.0
+            Rdist[2] += duration_secs
+        elif v >= 0.875 and v < 0.95:  # R3
+            c = 5.0
+            Rdist[3] += duration_secs
+        elif v >= 0.95 and v < 1.05:  # R3+
+            c = 9.0
+            Rdist[4] += duration_secs
+        elif v >= 1.05 and v < 1.20:  # R4
+            c = 15.0
+            Rdist[5] += duration_secs
+        elif v >= 1.20 and v < 1.50:  # R5
+            c = 40.0
+            Rdist[6] += duration_secs
+        else:
+            c = 50.0  # R6
+            Rdist[7] += duration_secs
+        return c, Rdist
 
     def extract_step_duration(self, step) -> tuple[float, float]:
         end_condition: dict = WorkoutStep._end_condition(step)
@@ -422,7 +547,8 @@ class Workout(object):
                             + str(timedelta(seconds=self.sec/self.mileage))[3:7]
                             + ' min/km - '
                             + str(round(self.ratio, 2)).format('2:2f') + '% vVO2. '
-                            + 'rTSS: ' + str(self.tss).format('2:2f'))
+                            + 'rTSS: ' + str(self.tss).format('2:2f') + '. '
+                            + 'ECOs: ' + str(round(self.ECOs, 2)).format('2:2f') + '. ')
         elif self.sport_type == 'cycling':
             description = 'FTP %d, TSS %d, NP %d, IF %.2f' % (
                 float(self.cFTP.power[:-1]), self.tss, self.norm_pwr, self.int_fct)

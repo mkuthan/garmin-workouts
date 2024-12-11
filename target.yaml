@@ -40,3 +40,12 @@ POWER_ZONE_6: {type: "power.zone", min: "1.16", max: "1.28" }
 POWER_ZONE_7: {type: "power.zone", min: "1.29", max: "1.45" }
 CADENCE: {type: "cadence", min: "175", max: "185" }
 NO_TARGET: {type: "no.target" }
+R0: {type: "pace.zone", min: "0.65", max: "0.50" }
+R1: {type: "pace.zone", min: "0.70", max: "0.65" }
+R1+: {type: "pace.zone", min: "0.75", max: "0.70" }
+R2: {type: "pace.zone", min: "0.87", max: "0.75" }
+R3: {type: "pace.zone", min: "0.95", max: "0.88" }
+R3+: {type: "pace.zone", min: "1.05", max: "0.95" }
+R4: {type: "pace.zone", min: "1.20", max: "1.05" }
+R5: {type: "pace.zone", min: "1.50", max: "1.20" }
+R6: {type: "pace.zone", min: "1.8", max: "1.5" }

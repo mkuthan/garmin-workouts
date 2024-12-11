@@ -47,6 +47,22 @@ def step_generator(s, duration, objective) -> dict | list[dict]:
 @staticmethod
 def generator_struct(s, duration, objective, step) -> dict | list[dict]:
     match step:
+        case 'R0':
+            return running.simple_step.R0_step_generator(duration)
+        case 'R1':
+            return running.simple_step.R1_step_generator(duration)
+        case 'R2':
+            return running.simple_step.R2_step_generator(duration)
+        case 'R3':
+            return running.simple_step.R3_step_generator(duration)
+        case 'R3p':
+            return running.simple_step.R3p_step_generator(duration)
+        case 'R4':
+            return running.simple_step.R4_step_generator(duration)
+        case 'R5':
+            return running.simple_step.R5_step_generator(duration)
+        case 'R6':
+            return running.simple_step.R6_step_generator(duration)
         case 'recovery':
             return running.simple_step.recovery_step_generator(duration, 'p' in s)
         case 'aerobic':

@@ -1,6 +1,62 @@
 from garminworkouts.config.generators.base import margin_generator, step_generator
 
 
+def R0_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R0',
+        description='R0 pace zone')
+
+
+def R1_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R1',
+        description='R1 pace zone')
+
+
+def R2_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R2',
+        description='R2 pace zone')
+
+
+def R3_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R3',
+        description='R3 pace zone')
+
+
+def R3p_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R3+',
+        description='R3+ pace zone')
+
+
+def R4_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R4',
+        description='R4 pace zone')
+
+
+def R5_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R5',
+        description='R5 pace zone')
+
+
+def R6_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R6',
+        description='R6 pace zone')
+
+
 def recovery_step_generator(duration, pace=False) -> dict:
     return step_generator(
         type='recovery',
