@@ -45,12 +45,14 @@ def step_generator(s, duration, objective) -> dict | list[dict]:
 
 
 @staticmethod
-def generator_struct(s, duration, objective, step) -> dict | list[dict]:
+def generator_struct(name, duration, objective, step) -> dict | list[dict]:
     match step:
         case 'R0':
             return running.simple_step.R0_step_generator(duration)
         case 'R1':
             return running.simple_step.R1_step_generator(duration)
+        case 'R1p':
+            return running.simple_step.R1p_step_generator(duration)
         case 'R2':
             return running.simple_step.R2_step_generator(duration)
         case 'R3':
@@ -63,24 +65,26 @@ def generator_struct(s, duration, objective, step) -> dict | list[dict]:
             return running.simple_step.R5_step_generator(duration)
         case 'R6':
             return running.simple_step.R6_step_generator(duration)
+        case 'series':
+            return running.multi_step.Rseries_generator(objective, duration)
         case 'recovery':
-            return running.simple_step.recovery_step_generator(duration, 'p' in s)
+            return running.simple_step.recovery_step_generator(duration, 'p' in name)
         case 'aerobic':
-            return running.simple_step.aerobic_step_generator(duration, 'p' in s)
+            return running.simple_step.aerobic_step_generator(duration, 'p' in name)
         case 'lt':
-            return running.simple_step.lt_step_generator(s, duration, 'p' in s)
+            return running.simple_step.lt_step_generator(name, duration, 'p' in name)
         case 'lr':
-            return running.simple_step.lr_step_generator(duration, 'p' in s)
+            return running.simple_step.lr_step_generator(duration, 'p' in name)
         case 'marathon':
-            return running.simple_step.marathon_step_generator(s, duration, 'p' in s)
+            return running.simple_step.marathon_step_generator(name, duration, 'p' in name)
         case 'hm':
-            return running.simple_step.hm_step_generator(s, duration, 'p' in s)
+            return running.simple_step.hm_step_generator(name, duration, 'p' in name)
         case 'tuneup':
             return running.simple_step.tuneup_step_generator(duration)
         case 'warmup':
             return running.simple_step.warmup_step_generator(duration)
         case 'cooldown':
-            return running.simple_step.cooldown_step_generator(duration, 'p' in s)
+            return running.simple_step.cooldown_step_generator(duration, 'p' in name)
         case 'walk':
             return running.simple_step.walk_step_generator(duration)
         case 'stride':
@@ -153,24 +157,34 @@ class IncludeLoader(yaml.SafeLoader):
         else:
             s = os.path.split(filename)[-1]
             s = s.split('.')[0].split('_')
+            name = s[0]
+            duration = extract_duration(s[1]) if len(s) >= 2 else ''
+
+            if 'series' in name:
+                duration = [extract_duration(s[1]), extract_duration(s[2])]
+                s = name.split('-')
+                name = s[0]
+                objective = [s[1], s[2]]
+            else:
+                objective = int(s[2].split('sub')[1]) if len(s) >= 3 else 0
 
             try:
                 d = step_generator(
-                    s[0],
-                    extract_duration(s[1]) if len(s) >= 2 else '',
-                    int(s[2].split('sub')[1]) if len(s) >= 3 else 0)
+                    name,
+                    duration,
+                    objective)
             except ValueError:
                 print(filename)
                 d = step_generator(
-                    s[0],
-                    extract_duration(s[1]) if len(s) >= 2 else '',
-                    0)
+                    name,
+                    duration,
+                    objective)
             except IndexError:
                 print(filename)
                 d = step_generator(
-                    s[0],
-                    extract_duration(s[1]) if len(s) >= 2 else '',
-                    0)
+                    name,
+                    duration,
+                    objective)
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]

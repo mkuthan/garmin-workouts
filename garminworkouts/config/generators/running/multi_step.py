@@ -2,6 +2,21 @@ from garminworkouts.config.generators.base import step_generator
 from garminworkouts.models.duration import Duration
 
 
+def Rseries_generator(objective, duration) -> list[dict]:
+    steps: list[dict] = []
+    steps.append(step_generator(
+        type='interval',
+        duration=duration[0],
+        target=objective[0],
+        description=objective[0] + ' pace'))
+    steps.append(step_generator(
+        type='rest',
+        duration=duration[1],
+        target=objective[1],
+        description=objective[1] + ' pace'))
+    return steps
+
+
 def stride_generator(duration) -> list[dict]:
     steps: list[dict] = []
     steps.append(step_generator(duration=duration, target='1KM_PACE', description='Strides pace'))

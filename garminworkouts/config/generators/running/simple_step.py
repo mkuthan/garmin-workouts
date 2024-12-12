@@ -15,6 +15,13 @@ def R1_step_generator(duration) -> dict:
         description='R1 pace zone')
 
 
+def R1p_step_generator(duration) -> dict:
+    return step_generator(
+        duration=duration,
+        target='R1+',
+        description='R1+ pace zone')
+
+
 def R2_step_generator(duration) -> dict:
     return step_generator(
         duration=duration,
