@@ -65,7 +65,7 @@ def generator_struct(name, duration, objective, step) -> dict | list[dict]:
             return running.simple_step.R5_step_generator(duration)
         case 'R6':
             return running.simple_step.R6_step_generator(duration)
-        case 'series':
+        case 'intervals':
             return running.multi_step.Rseries_generator(objective, duration)
         case 'recovery':
             return running.simple_step.recovery_step_generator(duration, 'p' in name)
@@ -160,7 +160,7 @@ class IncludeLoader(yaml.SafeLoader):
             name = s[0]
             duration = extract_duration(s[1]) if len(s) >= 2 else ''
 
-            if 'series' in name:
+            if 'intervals' in name:
                 duration = [extract_duration(s[1]), extract_duration(s[2])]
                 s = name.split('-')
                 name = s[0]
