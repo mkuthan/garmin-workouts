@@ -1,0 +1,6 @@
+name: "15_2"
+description: "Recovery Run"
+sport: "running"
+
+steps:
+  - !include R0_45min.yaml

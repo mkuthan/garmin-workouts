@@ -1,0 +1,16 @@
+name: "17_1"
+description: "Pace Change"
+sport: "running"
+
+steps:
+  - !include R0_15min.yaml
+  - &SERIES !include intervals-R3-R0_90s_2min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES

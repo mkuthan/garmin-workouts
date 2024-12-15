@@ -1,0 +1,7 @@
+name: "18_3"
+description: "35' R0 + 15' R2"
+sport: "running"
+
+steps:
+  - !include R0_30min.yaml
+  - !include R2_15min.yaml

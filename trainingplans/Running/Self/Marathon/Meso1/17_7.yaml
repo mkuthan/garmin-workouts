@@ -1,0 +1,6 @@
+name: "17_7"
+description: "Recovery Run"
+sport: "running"
+
+steps:
+  - !include R0_60min.yaml

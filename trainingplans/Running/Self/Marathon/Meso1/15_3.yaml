@@ -1,0 +1,8 @@
+name: "15_3"
+description: "Medium Long Run"
+sport: "running"
+
+steps:
+  - !include R0_40min.yaml
+  - !include R1_40min.yaml
+  - !include R2_10min.yaml
