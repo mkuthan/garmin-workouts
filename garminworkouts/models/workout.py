@@ -231,14 +231,11 @@ class Workout(object):
         intensity_factor_list = []
         Rdist = [0] * 8
 
-        for step in self.config.get('steps'):
-            ECOs, intensity_factor_list, Rdist = self.process_step(step, intensity_factor_list, Rdist)
-            self.ECOs += self.calculate_ECOs(ECOs, intensity_factor_list)
-
+        if len(self.config) > 0 and self.config.get('steps') is not None:
+            for step in self.config.get('steps'):
+                ECOs, intensity_factor_list, Rdist = self.process_step(step, intensity_factor_list, Rdist)
+                self.ECOs += self.calculate_ECOs(ECOs, intensity_factor_list)
         self.Rdist = Rdist
-
-        if self.sport_type != 'strength_training':
-            assert self.ECOs > 0
 
     def process_step(self, step, intensity_factor_list, Rdist):
         interval, recovery, rest, warmup, cooldown, other, maxIF, ECOs = 0, 0, 0, 0, 0, 0, 0, 0

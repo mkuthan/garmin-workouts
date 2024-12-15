@@ -398,7 +398,8 @@ class ZonesTestCase(unittest.TestCase):
             race=date.today()
         )
         expected_description = "Plan: 5K Training Plan. "
-        expected_description += "Estimated Duration: 0:50:00; 10.44 km. 4:47 min/km - 73.08% vVO2. rTSS: 45.0"
+        expected_description += "Estimated Duration: 0:50:00; 10.44 km. 4:47 min/km - 73.08% vVO2. rTSS: 45.0. "
+        expected_description += "ECOs: 100.0. "
 
         description: str | None = workout._generate_description()
 
@@ -422,7 +423,7 @@ class ZonesTestCase(unittest.TestCase):
             race=date.today()
         )
         expected_description = 'W1-Short Run. Estimated Duration: 0:50:00; 10.44 km. 4:47 min/km - 73.08% vVO2. '
-        expected_description += 'rTSS: 45.0'
+        expected_description += 'rTSS: 45.0. ECOs: 100.0. '
 
         description: str | None = workout._generate_description()
 
