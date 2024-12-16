@@ -18,4 +18,4 @@ pytest-vcr==1.0.2
 pytest-cov==6.0.0
 flake8==7.1.1
 ipykernel==6.29.5
-matplotlib==3.9.3
+matplotlib==3.10.0
