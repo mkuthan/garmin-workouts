@@ -77,7 +77,7 @@ class Workout(object):
 
         self.training_load()
 
-        if bool(config) and self.mileage == 0 and self.sec == 0:
+        if bool(config) and self.mileage == 0 and self.sec == 0 and self.reps == 0:
             raise ValueError('Null workout')
 
     def zones(self) -> None:
@@ -263,7 +263,8 @@ class Workout(object):
             case 'running':
                 c = 1.0
                 intensity_factor, Rdist = self.intensity_factor(
-                    round(duration_meters / duration_secs / self.vVO2.to_pace(), 2), duration_secs, Rdist)
+                    round(duration_meters / duration_secs / self.vVO2.to_pace(), 2),
+                    duration_secs, Rdist) if duration_secs > 0 else (0, Rdist)
             case 'cycling':
                 c = 0.5
                 intensity_factor = 1.0
@@ -311,7 +312,8 @@ class Workout(object):
         if len(intensity_factor_list) == 1:
             return ECOs
         else:
-            return ECOs * (1 + intensity_factor_list[-1]/intensity_factor_list[-2] / 10)
+            return ECOs * (1 + intensity_factor_list[-1]/intensity_factor_list[-2] / 10
+                           ) if intensity_factor_list[-2] > 0 else ECOs
 
     def intensity_factor(self, v: float, duration_secs, Rdist):
         if v < 0.5:

@@ -30,6 +30,4 @@ steps:
   - !include series_1000m.yaml
   - !include anaerobic_1000m.yaml
   - !include race_5k_sub20.yaml
-  - !include rr_5k_sub20.yaml
-  - !include race_5k_subk.yaml
-  - !include walk_1_1.yaml
+  - !include walk_1.yaml
