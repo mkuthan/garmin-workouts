@@ -95,3 +95,38 @@ def write_functions_to_file(functions, output_file_path):
         file.write("from garminworkouts.config.generators.strength.simple_step import exercise_generator\n")
         for function in functions:
             file.write(function)
+
+
+def write_test_functions_to_file(exercises, exercise_list, output_file_path):
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+
+    with open(output_file_path, 'w') as file:
+        file.write("import pytest\n\n")
+        file.write(f"from garminworkouts.config.generators.strength.{exercises.lower()} import (\n    ")
+        for exercise_name in exercise_list.keys():
+            function_name_rep = exercise_name.lower() + '_rep_generator'
+            function_name_hold = exercise_name.lower() + '_hold_generator'
+            file.write(function_name_rep)
+            file.write(",\n    ")
+            file.write(function_name_hold)
+            file.write(",\n    ")
+        file.write(")\n\n\n")
+        file.write("@pytest.mark.parametrize(\"generator, exercise_name, execution\", [\n    ")
+        for exercise_name in exercise_list.keys():
+            function_name_rep = exercise_name.lower() + '_rep_generator'
+            function_name_hold = exercise_name.lower() + '_hold_generator'
+            file.write(f"({function_name_rep}, '{exercise_name}', 'reps'),\n    ")
+            file.write(f"({function_name_hold}, '{exercise_name}', 'hold'),\n    ")
+        file.write("])\n")
+        d = 10
+        file.write(f"""def test_exercise_generators(generator, exercise_name, execution):
+    duration = "{d}reps" if execution == 'reps' else 'lap.button'
+    description = exercise_name.replace('_', ' ').title() if execution == 'reps' else "{d}-count hold"
+    result = generator({d})
+    assert result['category'] == '{exercises}'
+    assert result['exerciseName'] == exercise_name
+    assert result['duration'] == duration
+    assert result['target'] == 'NO_TARGET'
+    assert result['description'] == description
+""")
