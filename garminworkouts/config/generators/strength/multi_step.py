@@ -111,7 +111,7 @@ def leg_raise_hold_kneetwist_generator(duration) -> list[dict]:
     return steps
 
 
-def max_pushups_generator(duration) -> list[dict]:
+def max_pushups_generator() -> list[dict]:
     steps: list[dict] = []
     steps.append(max_pushup_generator())
     steps.append(rest_generator('0:30'))
