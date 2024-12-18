@@ -45,10 +45,7 @@ from garminworkouts.config.generators.running.simple_step import (
                                 'category': None, 'exerciseName': None}),
 ])
 def test_step_generators(generator, duration, expected):
-    if isinstance(duration, tuple):
-        result = generator(*duration)
-    else:
-        result = generator(duration)
+    result = generator(duration)
     assert result == expected
 
 
