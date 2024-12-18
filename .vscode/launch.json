@@ -121,7 +121,7 @@
             },
             "args": [
                 "trainingplan-metrics",
-                "./trainingplans/Cycling/Garmin/Crit/Advanced/HeartRate/RacePhase1Base/*.yaml"
+                "Madrid2025"
             ]
         },
         {
@@ -135,7 +135,7 @@
             },
             "args": [
                 "trainingplan-import",
-                "HalfGasteiz2024"
+                "Madrid2025"
             ]
         },
         {
