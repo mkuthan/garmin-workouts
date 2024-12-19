@@ -4,7 +4,7 @@ import argparse
 import logging
 import os
 import sys
-from datetime import date, timedelta
+from datetime import date
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.settings import settings
 from garminworkouts.models.workout import Workout
@@ -44,43 +44,7 @@ def command_find_events(args) -> None:
 
 def command_trainingplan_metrics(args) -> None:
     workouts, *_ = settings(args)
-
-    mileage: list[float] = [float(0) for _ in range(24, -11, -1)]
-    duration: list[timedelta] = [timedelta(seconds=0) for i in range(24, -11, -1)]
-    tss: list[float] = [float(0) for _ in range(24, -11, -1)]
-    ECOs: list[float] = [float(0) for _ in range(24, -11, -1)]
-
-    day_min: date | None = None
-    day_max: date | None = None
-
-    for workout in workouts:
-        workout_name: str = workout.get_workout_name()
-        day_d, week, _ = workout.get_workout_date()
-        if day_min is None:
-            day_min = day_d
-        if day_max is None:
-            day_max = day_d
-        if day_min > day_d:
-            day_min = day_d
-        if day_max < day_d:
-            day_max = day_d
-        mileage[week] += workout.mileage
-        duration[week] += workout.duration
-        tss[week] += + workout.tss * workout.duration.seconds
-        ECOs[week] += workout.ECOs
-
-        print(workout_name + ' -',
-              str(round(workout.mileage, 2)) + ' km -',
-              str(workout.duration) + ' -',
-              str(round(workout.ECOs, 2)) + ' ECOs')
-
-    logging.info('From ' + str(day_min) + ' to ' + str(day_max))
-    for i in range(24, -11, -1):
-        if mileage[i] > float(0):
-            logging.info('Week ' + str(i) + ': '
-                         + str(round(mileage[i], 2)) + ' km - '
-                         + 'Duration: ' + str(duration[i]) + ' - '
-                         + 'ECOs: ' + str(round(ECOs[i], 2)))
+    Workout.load_metrics(workouts=workouts)
 
 
 def command_workout_export(args) -> None:

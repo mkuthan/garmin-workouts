@@ -1,11 +1,11 @@
 name: "17_6"
-description: "Pace Change"
+description: "4x(20' R0 + 5' R2)"
 sport: "running"
 
 steps:
   - &SERIES
     - !include R0_20min.yaml
-    - !include marathon_5min.yaml
+    - !include R2_5min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

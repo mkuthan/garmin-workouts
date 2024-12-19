@@ -2,7 +2,8 @@ import re
 import os
 from typing import Any
 from garminworkouts.garmin.garminapi import GarminApi
-from garminworkouts.models.strength_map import MAP, generate_functions, write_functions_to_file
+from garminworkouts.models.strength_map import (MAP, generate_functions, write_functions_to_file,
+                                                write_test_functions_to_file)
 
 
 class GarminTypes(GarminApi):
@@ -151,6 +152,10 @@ class GarminTypes(GarminApi):
                 ".", "garminworkouts", "config", "generators", "strength", exercises.lower() + ".py")
             write_functions_to_file(functions, output_file_path)
             print(f"Functions written to {output_file_path}")
+
+            output_test_file_path: str = os.path.join(
+                ".", "tests", "config", "generators", "strength", "test_" + exercises.lower() + ".py")
+            write_test_functions_to_file(exercises, exercise_list, output_test_file_path)
 
     @staticmethod
     def update_type_dict(file_path: str, dict_str: str, type_dict: str) -> None:

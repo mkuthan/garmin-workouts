@@ -23,6 +23,10 @@ NikeLists: list[str] = [
     os.path.join('trainingplans', 'Running', 'Nike', 'Marathon', '*.yaml'),
 ]
 
+SelfLists: list[str] = [
+    os.path.join('trainingplans', 'Running', 'Self', 'Marathon', '*', '*.yaml'),
+]
+
 
 Garmin5k: list[str] = [
     os.path.join('trainingplans', 'Running', '*', '5k', 'Beginner', 'Time', '*.yaml'),

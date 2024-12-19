@@ -4,6 +4,7 @@ import yaml
 import garminworkouts.config.generators.running as running
 import garminworkouts.config.generators.strength as strength
 import datetime
+import logging
 
 
 @staticmethod
@@ -76,9 +77,9 @@ def generator_struct(name, duration, objective, step) -> dict | list[dict]:
         case 'lr':
             return running.simple_step.lr_step_generator(duration, 'p' in name)
         case 'marathon':
-            return running.simple_step.marathon_step_generator(name, duration, 'p' in name)
+            return running.simple_step.marathon_step_generator(name, duration)
         case 'hm':
-            return running.simple_step.hm_step_generator(name, duration, 'p' in name)
+            return running.simple_step.hm_step_generator(name, duration)
         case 'tuneup':
             return running.simple_step.tuneup_step_generator(duration)
         case 'warmup':
@@ -122,7 +123,7 @@ def generator_struct(name, duration, objective, step) -> dict | list[dict]:
         case 'LegRaiseHoldSKneetwist':
             return strength.multi_step.leg_raise_hold_kneetwist_generator(duration)
         case 'MaxPushups':
-            return strength.multi_step.max_pushups_generator(duration)
+            return strength.multi_step.max_pushups_generator()
         case 'ShoulderTapUpdownPlankHold':
             return strength.multi_step.shoulder_tap_updown_plank_hold_generator(duration)
         case 'FlutterKickCrunch':
@@ -169,28 +170,19 @@ class IncludeLoader(yaml.SafeLoader):
                 objective = int(s[2].split('sub')[1]) if len(s) >= 3 else 0
 
             try:
-                d = step_generator(
-                    name,
-                    duration,
-                    objective)
+                d = step_generator(name, duration, objective)
             except ValueError:
-                print(filename)
-                d = step_generator(
-                    name,
-                    duration,
-                    objective)
+                logging.error(filename)
+                d = []
             except IndexError:
-                print(filename)
-                d = step_generator(
-                    name,
-                    duration,
-                    objective)
+                logging.error(filename)
+                d = []
 
         if isinstance(d, list) and len(d) == 1:
             d = d[0]
 
         if len(d) == 0:
-            print(filename + ' not found; empty step defined')
+            logging.error(filename + ' not found; empty step defined')
 
         return d
 

@@ -3,7 +3,7 @@ description: "Progression"
 sport: "running"
 
 steps:
-  - !include R0_30min.yaml
+  - !include 75<marathon_30min.yaml
   - !include 60<marathon_30min.yaml
   - !include 45<marathon_30min.yaml
   - !include 30<marathon_30min.yaml

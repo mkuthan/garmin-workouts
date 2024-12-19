@@ -3,9 +3,9 @@ description: "Progression Run"
 sport: "running"
 
 steps:
-  - !include warmup_3.yaml
-  - !include 40<lt_6min.yaml
-  - !include 30<lt_6min.yaml
-  - !include 20<lt_6min.yaml
-  - !include 10<lt_6min.yaml
-  - !include lt_6min.yaml
+  - !include R0_15min.yaml
+  - !include 40<R2_6min.yaml
+  - !include 30<R2_6min.yaml
+  - !include 20<R2_6min.yaml
+  - !include 10<R2_6min.yaml
+  - !include R2_6min.yaml

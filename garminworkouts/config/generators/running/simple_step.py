@@ -107,7 +107,7 @@ def lr_step_generator(duration, pace=False) -> dict:
         description='Long run pace')
 
 
-def marathon_step_generator(target: str, duration, pace=False) -> dict:
+def marathon_step_generator(target: str, duration) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,
@@ -115,7 +115,7 @@ def marathon_step_generator(target: str, duration, pace=False) -> dict:
         description=s + 'Marathon pace')
 
 
-def hm_step_generator(target: str, duration, pace=False) -> dict:
+def hm_step_generator(target: str, duration) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,

@@ -11,5 +11,5 @@ pytest-httpserver==1.1.0
 python-decouple==3.8
 python-telegram-bot[job-queue]==21.9
 bpython == 0.24
-certifi==2024.8.30
+certifi==2024.12.14
 garth==0.5.2
