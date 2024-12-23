@@ -1,7 +1,0 @@
-name: "17_2A"
-description: "Test VAM"
-sport: "running"
-
-steps:
-  - !include R0_15min.yaml
-  - !include R3p_6min.yaml

@@ -1,0 +1,9 @@
+name: "14_3"
+description: "4x(15' R0 + 7' R2)"
+sport: "running"
+
+steps:
+  - !include &HILL intervals-R0-R2_15min_7min.yaml
+  - *HILL
+  - *HILL
+  - *HILL

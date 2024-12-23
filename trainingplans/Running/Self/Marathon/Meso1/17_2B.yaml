@@ -1,6 +1,0 @@
-name: "17_2B"
-description: "15' R0"
-sport: "running"
-
-steps:
-  - !include R0_15min.yaml

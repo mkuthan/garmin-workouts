@@ -1,6 +1,11 @@
 name: "16_4"
-description: "45' R0"
+description: "Progression Run"
 sport: "running"
 
 steps:
-  - !include R0_45min.yaml
+  - !include R0_15min.yaml
+  - !include 40<plt_6min.yaml
+  - !include 30<plt_6min.yaml
+  - !include 20<plt_6min.yaml
+  - !include 10<plt_6min.yaml
+  - !include plt_6min.yaml
