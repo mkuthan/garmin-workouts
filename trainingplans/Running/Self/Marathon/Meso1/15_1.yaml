@@ -1,7 +1,0 @@
-name: "15_1"
-description: "40' R0 + 10' R3"
-sport: "running"
-
-steps:
-  - !include R0_40min.yaml
-  - !include R3_10min.yaml

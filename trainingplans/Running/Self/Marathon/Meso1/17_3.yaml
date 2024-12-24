@@ -1,8 +1,0 @@
-name: "17_3"
-description: "2x(15' R0 + 5' R2)"
-sport: "running"
-
-steps:
-  - &SERIES !include intervals-R0-R2_15min_5min.yaml
-  - *SERIES
-  - !include R0_10min.yaml
