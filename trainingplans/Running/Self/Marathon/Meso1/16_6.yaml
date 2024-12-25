@@ -3,5 +3,6 @@ description: "Tempo Run"
 sport: "running"
 
 steps:
-  - !include R0_60min.yaml
+  - !include R0_30min.yaml
+  - !include R1_30min.yaml
   - !include 20<marathon_60min.yaml

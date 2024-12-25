@@ -3,4 +3,5 @@ description: "45' R0"
 sport: "running"
 
 steps:
-  - !include R0_45min.yaml
+  - !include R0_30min.yaml
+  - !include R1_15min.yaml
