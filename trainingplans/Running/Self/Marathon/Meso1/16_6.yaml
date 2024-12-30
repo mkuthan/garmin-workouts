@@ -1,8 +1,8 @@
 name: "16_6"
-description: "Tempo Run"
+description: "R2 Tempo Run"
 sport: "running"
 
 steps:
   - !include R0_30min.yaml
   - !include R1_30min.yaml
-  - !include 20<marathon_60min.yaml
+  - !include 20<R2_30min.yaml
