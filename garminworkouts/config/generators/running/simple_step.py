@@ -18,28 +18,30 @@ def R1_step_generator(duration) -> dict:
 def R1p_step_generator(duration) -> dict:
     return step_generator(
         duration=duration,
-        target='R1+',
+        target='R1p',
         description='R1+ pace zone')
 
 
-def R2_step_generator(duration) -> dict:
+def R2_step_generator(target, duration) -> dict:
+    d, s = margin_generator(target)
     return step_generator(
         duration=duration,
-        target='R2',
-        description='R2 pace zone')
+        target=d + 'R2',
+        description=s + 'R2 pace zone')
 
 
-def R3_step_generator(duration) -> dict:
+def R3_step_generator(target, duration) -> dict:
+    d, s = margin_generator(target)
     return step_generator(
         duration=duration,
-        target='R3',
-        description='R3 pace zone')
+        target=d + 'R3',
+        description=s + 'R3 pace zone')
 
 
 def R3p_step_generator(duration) -> dict:
     return step_generator(
         duration=duration,
-        target='R3+',
+        target='R3p',
         description='R3+ pace zone')
 
 

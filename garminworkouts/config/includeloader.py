@@ -55,9 +55,9 @@ def generator_struct(name, duration, objective, step) -> dict | list[dict]:
         case 'R1p':
             return running.simple_step.R1p_step_generator(duration)
         case 'R2':
-            return running.simple_step.R2_step_generator(duration)
+            return running.simple_step.R2_step_generator(name, duration)
         case 'R3':
-            return running.simple_step.R3_step_generator(duration)
+            return running.simple_step.R3_step_generator(name, duration)
         case 'R3p':
             return running.simple_step.R3p_step_generator(duration)
         case 'R4':
