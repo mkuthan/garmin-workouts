@@ -1,0 +1,10 @@
+name: "13_3"
+description: "Pace Change"
+sport: "running"
+
+steps:
+  - !include R0_13min.yaml
+  - &SERIES !include intervals-R0-R3_2min_6min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES

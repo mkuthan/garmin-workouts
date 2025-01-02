@@ -1,10 +1,10 @@
 name: "12_1"
-description: "W1-Hills + Pace Change"
+description: "W1-Hills+Pace Change"
 sport: "running"
 
 steps:
   - !include warmup_3.yaml
-  - &HILL !include hill.yaml
+  - !include &HILL hill.yaml
   - *HILL
   - *HILL
   - *HILL

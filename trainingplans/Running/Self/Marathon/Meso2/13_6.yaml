@@ -1,0 +1,9 @@
+name: "13_6"
+description: "Tempo Run"
+sport: "running"
+
+steps:
+  - !include R1_15min.yaml
+  - !include R1p_15min.yaml
+  - !include 20<marathon_60min.yaml
+  - !include R1p_15min.yaml

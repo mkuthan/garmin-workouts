@@ -1,10 +1,10 @@
-name: "17_1"
-description: "10x(1'30 R3+2'R0)"
+name: "12_3"
+description: "Pace Change"
 sport: "running"
 
 steps:
-  - !include R0_15min.yaml
-  - !include &SERIES intervals-R3-R0_90s_2min.yaml
+  - !include R0_13min.yaml
+  - &SERIES !include intervals-R0-R3_2min_1min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

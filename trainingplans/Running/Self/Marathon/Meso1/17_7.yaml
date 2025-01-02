@@ -1,9 +1,9 @@
 name: "17_7"
-description: "3x(10' R0+5' R1)"
+description: "3x(10'R0+5'R1)"
 sport: "running"
 
 steps:
   - !include R0_15min.yaml
-  - &SERIES !include intervals-R0-R1_10min_5min.yaml
+  - !include &SERIES intervals-R0-R1_10min_5min.yaml
   - *SERIES
   - *SERIES

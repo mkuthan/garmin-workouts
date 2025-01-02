@@ -1,9 +1,9 @@
 name: "15_6"
-description: "Progression Run"
+description: "R2 Progression"
 sport: "running"
 
 steps:
   - !include R0_15min.yaml
-  - !include 40<marathon_90min.yaml
-  - !include 30<marathon_30min.yaml
-  - !include 20<marathon_15min.yaml
+  - !include 40<R2_90min.yaml
+  - !include 30<R2_30min.yaml
+  - !include 20<R2_15min.yaml

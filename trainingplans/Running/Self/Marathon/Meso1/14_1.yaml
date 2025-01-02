@@ -1,10 +1,10 @@
 name: "14_1"
-description: "Pace Change"
+description: "5x(6'R2+8'R0)"
 sport: "running"
 
 steps:
-  - !include R0_15min.yaml
-  - &SERIES !include intervals-R2-R1_8min_4min.yaml
+  - !include R0_10min.yaml
+  - &SERIES !include intervals-R0-R2_8min_6min.yaml
   - *SERIES
   - *SERIES
   - *SERIES

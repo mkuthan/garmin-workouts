@@ -1,5 +1,5 @@
 name: "0_3"
-description: "W1-Pace Change + VO2max"
+description: "W1-Pace Change+VO2max"
 sport: "running"
 
 steps:
@@ -11,7 +11,7 @@ steps:
   - *SERIES
   - *SERIES
   - !include precovery_5min.yaml
-  - &ANAER !include anaerobic_30s.yaml
+  - !include &ANAER anaerobic_30s.yaml
   - *ANAER
   - *ANAER
   - *ANAER

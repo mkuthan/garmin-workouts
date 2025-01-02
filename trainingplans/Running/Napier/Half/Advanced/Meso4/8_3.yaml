@@ -1,10 +1,10 @@
 name: "8_3"
-description: "W2-Short Run + Hills"
+description: "W2-Short Run+Hills"
 sport: "running"
 
 steps:
   - !include warmup_30min.yaml
-  - &HILL !include hill.yaml
+  - !include &HILL hill.yaml
   - *HILL
   - *HILL
   - *HILL

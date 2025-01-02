@@ -1,0 +1,21 @@
+name: "13_1"
+description: "Anaerobic"
+sport: "running"
+
+steps:
+  - !include R1_15min.yaml
+  - !include &HILL intervals-R0-R4_20s_10s.yaml
+  - *HILL
+  - *HILL
+  - *HILL
+  - !include &SERIES intervals-R0-R3_2min_1min.yaml
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - *SERIES
+  - !include R0_4min.yaml
+  - !include &SERIES2 intervals-R0-R3p_90s_1min.yaml
+  - *SERIES2
+  - *SERIES2
+  - *SERIES2
