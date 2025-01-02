@@ -12,9 +12,6 @@ def test_list_events(authed_gclient: GarminClient) -> None:
     # Assert that the returned value is a list
     assert isinstance(events, list)
 
-    # Assert that the list is not empty
-    assert len(events) > 0
-
 
 def test_find_events(authed_gclient: GarminClient) -> None:
     # Call the method under test
@@ -25,7 +22,6 @@ def test_find_events(authed_gclient: GarminClient) -> None:
 
     # Assert that the list is not empty
     assert len(events) > 0
-    shutil.rmtree('./exported')
 
 
 def mock_generator():

@@ -3,7 +3,7 @@ import os
 
 
 class EnvDefault(argparse.Action):
-    def __init__(self, env_var, required=True, default=None, **kwargs):
+    def __init__(self, env_var, required=True, default=None, **kwargs) -> None:
         if not default and env_var:
             if env_var in os.environ:
                 default = os.environ[env_var]
@@ -12,5 +12,5 @@ class EnvDefault(argparse.Action):
         super(EnvDefault, self).__init__(default=default, required=required,
                                          **kwargs)
 
-    def __call__(self, parser, namespace, values, option_string=None):
+    def __call__(self, parser, namespace, values, option_string=None) -> None:
         setattr(namespace, self.dest, values)

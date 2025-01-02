@@ -17,10 +17,6 @@ from garminworkouts.config.generators.running.simple_step import (
                              'description': 'R1 pace zone', 'category': None, 'exerciseName': None}),
     (R1p_step_generator, 30, {'type': 'interval', 'duration': 30, 'target': 'R1p', 'description': 'R1+ pace zone',
                               'category': None, 'exerciseName': None}),
-    (R2_step_generator, 40, {'type': 'interval', 'duration': 40, 'target': 'R2', 'description': 'R2 pace zone',
-                             'category': None, 'exerciseName': None}),
-    (R3_step_generator, 50, {'type': 'interval', 'duration': 50, 'target': 'R3', 'description': 'R3 pace zone',
-                             'category': None, 'exerciseName': None}),
     (R3p_step_generator, 60, {'type': 'interval', 'duration': 60, 'target': 'R3p', 'description': 'R3+ pace zone',
                               'category': None, 'exerciseName': None}),
     (R4_step_generator, 70, {'type': 'interval', 'duration': 70, 'target': 'R4', 'description': 'R4 pace zone',
@@ -54,6 +50,10 @@ def test_step_generators(generator, duration, expected):
                                             'description': 'Marathon pace', 'category': None, 'exerciseName': None}),
         (hm_step_generator, '', 210, {'type': 'interval', 'duration': 210, 'target': 'HALF_MARATHON_PACE',
                                       'description': 'Half Marathon pace', 'category': None, 'exerciseName': None}),
+        (R2_step_generator, '', 40, {'type': 'interval', 'duration': 40, 'target': 'R2', 'description': 'R2 pace zone',
+                                     'category': None, 'exerciseName': None}),
+        (R3_step_generator, '', 50, {'type': 'interval', 'duration': 50, 'target': 'R3', 'description': 'R3 pace zone',
+                                     'category': None, 'exerciseName': None}),
     ])
 def test_target_duration_generators(generator, target, duration, expected):
     result = generator(target, duration)
