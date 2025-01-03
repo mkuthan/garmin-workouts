@@ -447,3 +447,19 @@ def squat_clean_and_jerk_hold_generator(duration) -> dict:
         exercise_name='SQUAT_CLEAN_AND_JERK',
         duration=duration,
         execution='hold')
+
+
+def snatch_rep_generator(duration) -> dict:
+    return exercise_generator(
+        category='OLYMPIC_LIFT',
+        exercise_name='SNATCH',
+        duration=duration,
+        execution='reps')
+
+
+def snatch_hold_generator(duration) -> dict:
+    return exercise_generator(
+        category='OLYMPIC_LIFT',
+        exercise_name='SNATCH',
+        duration=duration,
+        execution='hold')

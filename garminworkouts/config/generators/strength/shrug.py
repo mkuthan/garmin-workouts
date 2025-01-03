@@ -319,3 +319,19 @@ def wide_grip_jump_shrug_hold_generator(duration) -> dict:
         exercise_name='WIDE_GRIP_JUMP_SHRUG',
         duration=duration,
         execution='hold')
+
+
+def upright_row_rep_generator(duration) -> dict:
+    return exercise_generator(
+        category='SHRUG',
+        exercise_name='UPRIGHT_ROW',
+        duration=duration,
+        execution='reps')
+
+
+def upright_row_hold_generator(duration) -> dict:
+    return exercise_generator(
+        category='SHRUG',
+        exercise_name='UPRIGHT_ROW',
+        duration=duration,
+        execution='hold')

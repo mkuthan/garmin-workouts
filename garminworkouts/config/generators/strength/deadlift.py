@@ -383,3 +383,19 @@ def wide_grip_barbell_deadlift_hold_generator(duration) -> dict:
         exercise_name='WIDE_GRIP_BARBELL_DEADLIFT',
         duration=duration,
         execution='hold')
+
+
+def straight_leg_deadlift_rep_generator(duration) -> dict:
+    return exercise_generator(
+        category='DEADLIFT',
+        exercise_name='STRAIGHT_LEG_DEADLIFT',
+        duration=duration,
+        execution='reps')
+
+
+def straight_leg_deadlift_hold_generator(duration) -> dict:
+    return exercise_generator(
+        category='DEADLIFT',
+        exercise_name='STRAIGHT_LEG_DEADLIFT',
+        duration=duration,
+        execution='hold')

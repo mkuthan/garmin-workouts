@@ -41,6 +41,8 @@ from garminworkouts.config.generators.strength.shrug import (
     wide_grip_barbell_shrug_hold_generator,
     wide_grip_jump_shrug_rep_generator,
     wide_grip_jump_shrug_hold_generator,
+    upright_row_rep_generator,
+    upright_row_hold_generator,
     )
 
 
@@ -85,6 +87,8 @@ from garminworkouts.config.generators.strength.shrug import (
     (wide_grip_barbell_shrug_hold_generator, 'WIDE_GRIP_BARBELL_SHRUG', 'hold'),
     (wide_grip_jump_shrug_rep_generator, 'WIDE_GRIP_JUMP_SHRUG', 'reps'),
     (wide_grip_jump_shrug_hold_generator, 'WIDE_GRIP_JUMP_SHRUG', 'hold'),
+    (upright_row_rep_generator, 'UPRIGHT_ROW', 'reps'),
+    (upright_row_hold_generator, 'UPRIGHT_ROW', 'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

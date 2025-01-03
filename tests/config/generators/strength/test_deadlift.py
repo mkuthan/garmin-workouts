@@ -49,6 +49,8 @@ from garminworkouts.config.generators.strength.deadlift import (
     trap_bar_deadlift_hold_generator,
     wide_grip_barbell_deadlift_rep_generator,
     wide_grip_barbell_deadlift_hold_generator,
+    straight_leg_deadlift_rep_generator,
+    straight_leg_deadlift_hold_generator,
     )
 
 
@@ -101,6 +103,8 @@ from garminworkouts.config.generators.strength.deadlift import (
     (trap_bar_deadlift_hold_generator, 'TRAP_BAR_DEADLIFT', 'hold'),
     (wide_grip_barbell_deadlift_rep_generator, 'WIDE_GRIP_BARBELL_DEADLIFT', 'reps'),
     (wide_grip_barbell_deadlift_hold_generator, 'WIDE_GRIP_BARBELL_DEADLIFT', 'hold'),
+    (straight_leg_deadlift_rep_generator, 'STRAIGHT_LEG_DEADLIFT', 'reps'),
+    (straight_leg_deadlift_hold_generator, 'STRAIGHT_LEG_DEADLIFT', 'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

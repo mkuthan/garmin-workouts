@@ -57,6 +57,8 @@ from garminworkouts.config.generators.strength.olympic_lift import (
     split_jerk_hold_generator,
     squat_clean_and_jerk_rep_generator,
     squat_clean_and_jerk_hold_generator,
+    snatch_rep_generator,
+    snatch_hold_generator,
     )
 
 
@@ -117,6 +119,8 @@ from garminworkouts.config.generators.strength.olympic_lift import (
     (split_jerk_hold_generator, 'SPLIT_JERK', 'hold'),
     (squat_clean_and_jerk_rep_generator, 'SQUAT_CLEAN_AND_JERK', 'reps'),
     (squat_clean_and_jerk_hold_generator, 'SQUAT_CLEAN_AND_JERK', 'hold'),
+    (snatch_rep_generator, 'SNATCH', 'reps'),
+    (snatch_hold_generator, 'SNATCH', 'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'
