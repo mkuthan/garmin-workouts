@@ -77,42 +77,42 @@ def command_workout_delete(args) -> None:
         connection.delete_workout(args.id)
 
 
-def command_user_zones() -> None:
+def command_user_zones(args) -> None:
     with _garmin_client() as connection:
         connection.user_zones()
 
 
-def command_workout_list() -> None:
+def command_workout_list(args) -> None:
     with _garmin_client() as connection:
         connection.workout_list()
 
 
-def command_event_list() -> None:
+def command_event_list(args) -> None:
     with _garmin_client() as connection:
         connection.event_list()
 
 
-def command_challenge_list() -> None:
+def command_challenge_list(args) -> None:
     with _garmin_client() as connection:
         connection.list_challenge()
 
 
-def command_trainingplan_list() -> None:
+def command_trainingplan_list(args) -> None:
     with _garmin_client() as connection:
         connection.trainingplan_list()
 
 
-def command_activity_list() -> None:
+def command_activity_list(args) -> None:
     with _garmin_client() as connection:
         connection.activity_list()
 
 
-def command_update_types() -> None:
+def command_update_types(args) -> None:
     with _garmin_client() as connection:
         connection.get_types()
 
 
-def update_garmin() -> None:
+def update_garmin(args) -> None:
     with _garmin_client() as connection:
         connection.updateGarmin()
 
