@@ -94,8 +94,7 @@ def test_activity_list(authed_gclient: GarminClient) -> None:
             assert mock_download_activity.call_count == 3
 
 
-def test_updateGarmin(authed_gclient: GarminClient) -> None:
-    authed_gclient.version = "2.0.0"
+def test_update_garmin(authed_gclient: GarminClient) -> None:
 
     with patch.object(authed_gclient, 'get_types') as mock_get_types:
         authed_gclient.updateGarmin()
@@ -117,12 +116,11 @@ def test_workout_list(authed_gclient: GarminClient) -> None:
 
 
 def test_event_list(authed_gclient: GarminClient) -> None:
-    with patch.object(authed_gclient, 'list_events') as mock_list_events:
-        mock_list_events.return_value = [
-            {"eventId": "1", "eventName": "Event 1", "date": "2021-01-01", "location": "Location 1"},
-            {"eventId": "2", "eventName": "Event 2", "date": "2021-01-02", "location": "Location 2"},
-            {"eventId": "3", "eventName": "Event 3", "date": "2021-01-03", "location": "Location 3"},
-        ]
+    with patch.object(authed_gclient, 'list_events', return_value=[
+        {"eventId": "1", "eventName": "Event 1", "date": "2021-01-01", "location": "Location 1"},
+        {"eventId": "2", "eventName": "Event 2", "date": "2021-01-02", "location": "Location 2"},
+        {"eventId": "3", "eventName": "Event 3", "date": "2021-01-03", "location": "Location 3"},
+    ]) as mock_list_events:
         authed_gclient.event_list()
         assert mock_list_events.call_count == 1
 
@@ -219,7 +217,7 @@ def test_workout_update_add_workout(authed_gclient: GarminClient) -> None:
     assert "Workout 2" == updateable_elements[0]
 
 
-def test_workout_update_delete_trainingplan(authed_gclient: GarminClient) -> None:
+def test_workout_update_delete_training_plan(authed_gclient: GarminClient) -> None:
     date_today: date = date.today()
     date_plus_days: date = date_today + timedelta(days=7)
     item: dict[str, str] = {
@@ -297,7 +295,7 @@ def test_note_update_add_note_tp(authed_gclient: GarminClient) -> None:
     assert "Note 2" in updateable_elements
 
 
-def test_note_update_delete_trainingplan(authed_gclient: GarminClient) -> None:
+def test_note_update_delete_training_plan(authed_gclient: GarminClient) -> None:
     date_today: date = date.today()
     date_plus_days: date = date_today + timedelta(days=7)
     item: dict[str, str] = {
@@ -317,7 +315,7 @@ def test_note_update_delete_trainingplan(authed_gclient: GarminClient) -> None:
 def test_update_workouts(authed_gclient: GarminClient) -> None:
     ue: list[str] = ["Workout 1", "Workout 2"]
     args = argparse.Namespace(trainingplan='trainingplans/*/Garmin/5k/Beginner/HeartRate/*.yaml')
-    workouts, notes, events, plan = settings(args)
+    workouts, _, _, plan = settings(args)
 
     with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
             patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
@@ -331,8 +329,8 @@ def test_update_workouts(authed_gclient: GarminClient) -> None:
 
         assert mock_list_workouts.call_count == 1
         assert mock_update_workout.call_count == 0
-        assert mock_save_workout.call_count == 5
-        assert mock_schedule_workout.call_count == 5
+        assert mock_save_workout.call_count == 37
+        assert mock_schedule_workout.call_count == 37
 
 
 def test_update_notes(authed_gclient: GarminClient) -> None:
