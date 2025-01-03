@@ -1608,6 +1608,10 @@ DEADLIFT = {
         'primaryMuscles': ['HAMSTRINGS', 'LOWER_BACK'],
         'secondaryMuscles': ['LATS', 'TRAPS', 'FOREARM', 'QUADS', 'GLUTES', 'ADDUCTORS'],
     },
+    'STRAIGHT_LEG_DEADLIFT': {
+        'primaryMuscles': ['HAMSTRINGS', 'LOWER_BACK'],
+        'secondaryMuscles': ['TRAPS', 'LATS', 'GLUTES', 'ADDUCTORS'],
+    },
     }
 
 ELLIPTICAL = {
@@ -2987,6 +2991,10 @@ OLYMPIC_LIFT = {
         'secondaryMuscles': [
             'CALVES', 'SHOULDERS', 'TRAPS', 'BICEPS', 'FOREARM', 'LOWER_BACK', 'ADDUCTORS', 'TRICEPS'
         ],
+    },
+    'SNATCH': {
+        'primaryMuscles': ['GLUTES', 'SHOULDERS', 'QUADS', 'TRAPS'],
+        'secondaryMuscles': ['ABS', 'BICEPS', 'HAMSTRINGS', 'LOWER_BACK', 'TRAPS', 'TRICEPS', 'ADDUCTORS'],
     },
     }
 
@@ -4888,6 +4896,10 @@ SHRUG = {
     'WIDE_GRIP_JUMP_SHRUG': {
         'primaryMuscles': ['SHOULDERS'],
         'secondaryMuscles': ['GLUTES', 'HIPS', 'TRAPS', 'QUADS', 'CALVES'],
+    },
+    'UPRIGHT_ROW': {
+        'primaryMuscles': ['SHOULDERS'],
+        'secondaryMuscles': ['TRAPS', 'BICEPS', 'FOREARM'],
     },
     }
 
