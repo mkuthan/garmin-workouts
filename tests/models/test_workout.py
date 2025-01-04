@@ -1,5 +1,5 @@
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from unittest.mock import patch
 import account
 import logging
@@ -9,6 +9,7 @@ from garminworkouts.models.workout import Workout
 from garminworkouts.models.pace import Pace
 from garminworkouts.models.power import Power
 from garminworkouts.config import configreader
+import math
 
 
 class ZonesTestCase(unittest.TestCase):
@@ -604,3 +605,198 @@ class ZonesTestCase(unittest.TestCase):
             }
 
         self.assertEqual(workout.get_estimated_duration(), expected_duration)
+
+    def test_load_metrics(self) -> None:
+        # Create mock workouts
+        target: dict = configreader.read_config(r'target.yaml')
+
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1',
+                                         '21_1.yaml')
+        config: dict = configreader.read_config(workout_file)
+        workout1 = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date(2024, 1, 1)
+        )
+
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso1',
+                                         '21_2.yaml')
+        config: dict = configreader.read_config(workout_file)
+        workout2 = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date(2024, 1, 1)
+        )
+
+        workouts = [workout2, workout1]
+
+        # Call load_metrics
+        mileage, duration, tss, ECOs, Rdist, Rdists, day_min, day_max = Workout.load_metrics(workouts)
+
+        # Assert the results
+        self.assertEqual(mileage[21], 14.44)
+        self.assertEqual(duration[21], timedelta(seconds=4377))
+        self.assertEqual(tss[21], 154278.0)
+        self.assertEqual(ECOs[21], 123.0)
+        self.assertEqual(Rdist, [1377, 3000, 0, 0, 0, 0, 0, 0])
+        self.assertEqual(Rdists[21], [1377, 3000, 0, 0, 0, 0, 0, 0])
+        self.assertEqual(day_min, date(2023, 8, 1))
+        self.assertEqual(day_max, date(2023, 8, 2))
+
+        with self.assertLogs(level=logging.INFO) as cm:
+            Workout.load_metrics(workouts)
+
+        log_messages = cm.output
+        self.assertEqual(['INFO:root:From 2023-08-01 to 2023-08-02',
+                          'INFO:root:Week 21: 14.44 km - Duration: 1:12:57 - ECOs: 123.0'], log_messages)
+
+
+class TestCalculateP(unittest.TestCase):
+    def setUp(self):
+        self.workout = Workout(
+                config={},
+                target=[],
+                vVO2=Pace('5:00'),
+                fmin=60,
+                fmax=200,
+                flt=185,
+                rFTP=Power('400w'),
+                cFTP=Power('200w'),
+                plan='',
+                race=date.today()
+            )
+
+    def test_calculate_p_no_recovery_or_rest(self):
+        result = self.workout.calculate_p(100, 0, 0, 50, 50, 50, 2.0)
+        self.assertEqual(result, 0.0)
+
+    def test_calculate_p_maxIF_less_than_or_equal_to_3(self):
+        result = self.workout.calculate_p(100, 50, 50, 50, 50, 50, 2.0)
+        expected = (50 + 50) / (100 + 50 + 50 + 50 + 50 + 50) * 100
+        self.assertAlmostEqual(result, expected)
+
+    def test_calculate_p_maxIF_less_than_or_equal_to_5(self):
+        result = self.workout.calculate_p(100, 50, 50, 50, 50, 50, 4.0)
+        D = 100 / (50 + 50)
+        expected = 20.204 * math.log(D) - 50.791
+        self.assertAlmostEqual(result, expected)
+
+    def test_calculate_p_maxIF_less_than_or_equal_to_9(self):
+        result = self.workout.calculate_p(100, 50, 50, 50, 50, 50, 8.0)
+        D = 100 / (50 + 50)
+        expected = 40.257 * math.log(D) - 35.627
+        self.assertAlmostEqual(result, expected)
+
+    def test_calculate_p_maxIF_less_than_or_equal_to_15(self):
+        result = self.workout.calculate_p(100, 50, 50, 50, 50, 50, 14.0)
+        D = 100 / (50 + 50)
+        expected = 37.085 * math.log(D) - 6.219
+        self.assertAlmostEqual(result, expected)
+
+    def test_calculate_p_maxIF_greater_than_15(self):
+        result = self.workout.calculate_p(100, 50, 50, 50, 50, 50, 16.0)
+        D = 100 / (50 + 50)
+        expected = 89.204 * D - 270532
+        self.assertAlmostEqual(result, expected)
+
+
+class TestIntensityFactor(unittest.TestCase):
+    def setUp(self):
+        self.workout = Workout(
+            config={},
+            target=[],
+            vVO2=Pace('5:00'),
+            fmin=60,
+            fmax=200,
+            flt=185,
+            rFTP=Power('400w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date.today()
+            )
+
+    def test_intensity_factor_below_0_5(self):
+        v = 0.4
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 0.0)
+        self.assertEqual(Rdist, [0, 0, 0, 0, 0, 0, 0, 0])
+
+    def test_intensity_factor_R0(self):
+        v = 0.6
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 1.0)
+        self.assertEqual(Rdist, [100, 0, 0, 0, 0, 0, 0, 0])
+
+    def test_intensity_factor_R1(self):
+        v = 0.7
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 2.0)
+        self.assertEqual(Rdist, [0, 100, 0, 0, 0, 0, 0, 0])
+
+    def test_intensity_factor_R2(self):
+        v = 0.8
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 3.0)
+        self.assertEqual(Rdist, [0, 0, 100, 0, 0, 0, 0, 0])
+
+    def test_intensity_factor_R3(self):
+        v = 0.9
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 5.0)
+        self.assertEqual(Rdist, [0, 0, 0, 100, 0, 0, 0, 0])
+
+    def test_intensity_factor_R3_plus(self):
+        v = 1.0
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 9.0)
+        self.assertEqual(Rdist, [0, 0, 0, 0, 100, 0, 0, 0])
+
+    def test_intensity_factor_R4(self):
+        v = 1.1
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 15.0)
+        self.assertEqual(Rdist, [0, 0, 0, 0, 0, 100, 0, 0])
+
+    def test_intensity_factor_R5(self):
+        v = 1.3
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 40.0)
+        self.assertEqual(Rdist, [0, 0, 0, 0, 0, 0, 100, 0])
+
+    def test_intensity_factor_R6(self):
+        v = 1.6
+        duration_secs = 100
+        Rdist = [0] * 8
+        c, Rdist = self.workout.intensity_factor(v, duration_secs, Rdist)
+        self.assertEqual(c, 50.0)
+        self.assertEqual(Rdist, [0, 0, 0, 0, 0, 0, 0, 100])

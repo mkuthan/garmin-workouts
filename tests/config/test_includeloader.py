@@ -1,6 +1,8 @@
 import unittest
-from unittest.mock import patch
-from garminworkouts.config.includeloader import generator_struct
+from unittest.mock import patch, mock_open
+from garminworkouts.config.includeloader import (generator_struct, extract_duration, IncludeLoader)
+import os
+import yaml
 import garminworkouts.config.generators.running as running
 import garminworkouts.config.generators.strength as strength
 
@@ -111,3 +113,95 @@ class TestGeneratorStruct(unittest.TestCase):
         self.assertEqual(generator_struct('test', '10min', 0, 'PlankRotationWalkOutAltRaises'),
                          {'step': 'PlankRotationWalkOutAltRaises'})
         self.assertEqual(generator_struct('test', '10min', 0, 'NonExistentStep'), {})
+
+
+class TestExtractDuration(unittest.TestCase):
+    def test_extract_duration_minutes(self):
+        self.assertEqual(extract_duration('10min'), '0:10:00')
+        self.assertEqual(extract_duration('5.5min'), '0:05:30')
+
+    def test_extract_duration_seconds(self):
+        self.assertEqual(extract_duration('30s'), '0:00:30')
+        self.assertEqual(extract_duration('90s'), '0:01:30')
+
+    def test_extract_duration_reps(self):
+        self.assertEqual(extract_duration('15reps'), '15')
+
+    def test_extract_duration_colon_format(self):
+        self.assertEqual(extract_duration('00:30:00'), '00:30:00')
+
+    def test_extract_duration_km(self):
+        self.assertEqual(extract_duration('5km'), '5km')
+
+    def test_extract_duration_mile(self):
+        self.assertEqual(extract_duration('1mile'), '1.609km')
+        self.assertEqual(extract_duration('2mile'), '3.218km')
+
+    def test_extract_duration_meters(self):
+        self.assertEqual(extract_duration('500m'), '500m')
+
+    def test_extract_duration_k(self):
+        self.assertEqual(extract_duration('10k'), '10km')
+
+    def test_extract_duration_half(self):
+        self.assertEqual(extract_duration('half'), '21.1km')
+
+    def test_extract_duration_default(self):
+        self.assertEqual(extract_duration('3,5'), '3.5km')
+        self.assertEqual(extract_duration('4.2'), '4.2km')
+
+
+class TestIncludeLoader(unittest.TestCase):
+
+    def setUp(self):
+        self.loader = IncludeLoader
+
+    @patch('os.path.isfile')
+    @patch('builtins.open', new_callable=mock_open, read_data="test: data")
+    @patch('yaml.load')
+    def test_include_file_exists(self, mock_yaml_load, mock_open, mock_isfile):
+        mock_isfile.return_value = True
+        mock_yaml_load.return_value = {'test': 'data'}
+
+        node = yaml.ScalarNode(tag='!include', value='test.yaml')
+        mock_file = mock_open(read_data="")
+        mock_file.name = 'mocked_file.yaml'
+        loader_instance = self.loader(stream=mock_file)
+        result = loader_instance.include(node)
+
+        mock_open.assert_called_with(os.path.join(loader_instance._root, 'test.yaml'), 'r')
+        mock_yaml_load.assert_called_with(mock_open(), IncludeLoader)
+        self.assertEqual(result, {'test': 'data'})
+
+    @patch('builtins.open', new_callable=mock_open)
+    def test_include_file_not_exists1(self, mock_open):
+        name = 'inntervals-R09-R1_10min_5min_sub3.yaml'
+        node = yaml.ScalarNode(tag='!include', value=name)
+        mock_file = mock_open(read_data="")
+        mock_file.name = name
+        mock_file.read = lambda size=None: ''
+        loader_instance = self.loader(stream=mock_file)
+        result = loader_instance.include(node)
+        self.assertEqual(result, [])
+
+    @patch('builtins.open', new_callable=mock_open)
+    def test_include_file_not_exists2(self, mock_open):
+        name = 'inntervals_xmin.yaml'
+        node = yaml.ScalarNode(tag='!include', value=name)
+        mock_file = mock_open(read_data="")
+        mock_file.name = name
+        mock_file.read = lambda size=None: ''
+        loader_instance = self.loader(stream=mock_file)
+        result = loader_instance.include(node)
+        self.assertEqual(result, [])
+
+    @patch('builtins.open', new_callable=mock_open)
+    def test_include_file_not_exists3(self, mock_open):
+        name = 'anerobic_x.yaml'
+        node = yaml.ScalarNode(tag='!include', value=name)
+        mock_file = mock_open(read_data="")
+        mock_file.name = name
+        mock_file.read = lambda size=None: ''
+        loader_instance = self.loader(stream=mock_file)
+        result = loader_instance.include(node)
+        self.assertEqual(result, {})

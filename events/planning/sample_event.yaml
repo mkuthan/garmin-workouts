@@ -1,0 +1,10 @@
+name: Half Marathon
+date: { day: 1, month: 1, year: 2024 }
+url: https://www.xxx.com/
+location: London, UK
+time: "10:30"
+distance: 21.1
+goal: "1:30:00"
+sport: "running"
+steps:
+  - !include race_half_sub90.yaml

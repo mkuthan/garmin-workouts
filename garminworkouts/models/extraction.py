@@ -5,14 +5,14 @@ from typing import Any
 
 class Extraction(object):
     @staticmethod
-    def description_formatting(description: str) -> str:
+    def description_formatting(description: str | None) -> str:
         if description is None:
             return ''
 
         if 'rest20s' in description:
             description = description.replace('rest20s', 'rest\n 20s')
         if not any(substring in description for substring in ['Dr.', '. Complete', '\u2022']):
-            description = description.replace('. ', '.\n')
+            description = description.replace('. ', '.\n').replace('.\n', '.\n ')
         if '.Try' in description:
             description = description.replace('.Try', '.\nTry')
         if ':20s' in description:

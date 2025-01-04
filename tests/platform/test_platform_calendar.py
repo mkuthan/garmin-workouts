@@ -76,7 +76,6 @@ def custom_get_side_effect_note(arg) -> MagicMock:
     date_w: date = date.today()
     year = str(date_w.year)
     month = str(date_w.month - 1)
-    note_id = '123'
 
     a = MagicMock(status_code=404)
     if arg == f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/year/{year}/month/{month}":
@@ -95,14 +94,6 @@ def custom_get_side_effect_note(arg) -> MagicMock:
                     "trainingPlanId": None,
                 },
             ],
-        })
-    elif arg == f"{GarminClient._TRAINING_PLAN_SERVICE_ENDPOINT}/scheduled/notes/{note_id}":
-        a = MagicMock(status_code=200, json=lambda: {
-            "noteName": "Test Note",
-        })
-    elif f"{GarminClient._CALENDAR_SERVICE_ENDPOINT}/note/{note_id}":
-        a = MagicMock(status_code=200, json=lambda: {
-            "noteName": "Test Note",
         })
     return a
 

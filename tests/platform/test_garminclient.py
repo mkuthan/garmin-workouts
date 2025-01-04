@@ -3,8 +3,10 @@ import os
 from unittest.mock import Mock, patch, MagicMock
 from garminworkouts.garmin.garminclient import GarminClient
 from datetime import date, timedelta
+from garminworkouts.models.event import Event
 from garminworkouts.models.note import Note
 from garminworkouts.models.settings import settings
+from garminworkouts.models.workout import Workout
 
 
 def test_enter(authed_gclient: GarminClient) -> None:
@@ -365,3 +367,99 @@ def test_update_events_no_events(authed_gclient: GarminClient) -> None:
         assert mock_list_events.call_count == 1
         assert mock_list_workouts.call_count == 1
         assert mock_save_event.call_count == 0
+
+
+def test_update_workouts_no_updates(authed_gclient: GarminClient) -> None:
+    ue: list[str] = ["Workout 1", "Workout 2"]
+    workouts: list[Workout] = []
+    plan: str = "Plan 1"
+
+    with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
+         patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
+         patch.object(authed_gclient, 'save_workout') as mock_save_workout, \
+         patch.object(authed_gclient, 'schedule_workout') as mock_schedule_workout:
+        mock_list_workouts.return_value = [
+            {"workoutId": "1", "workoutName": "Workout 1"},
+            {"workoutId": "2", "workoutName": "Workout 2"},
+        ]
+        authed_gclient.update_workouts(ue, workouts, plan)
+
+        assert mock_list_workouts.call_count == 1
+        assert mock_update_workout.call_count == 0
+        assert mock_save_workout.call_count == 0
+        assert mock_schedule_workout.call_count == 0
+
+
+def test_update_workouts_with_updates(authed_gclient: GarminClient) -> None:
+    ue: list[str] = ["Workout 1"]
+    workouts: list[Workout] = [Mock(get_workout_name=lambda: "Workout 1",
+                                    get_workout_date=lambda: [date.today()])]
+    plan: str = "Plan 1"
+
+    with patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
+            patch.object(authed_gclient, 'update_workout') as mock_update_workout, \
+            patch.object(authed_gclient, 'save_workout') as mock_save_workout, \
+            patch.object(authed_gclient, 'schedule_workout') as mock_schedule_workout:
+        mock_list_workouts.return_value = [
+            {"workoutId": "1", "workoutName": "Workout 1", "description": "Plan 1"}
+        ]
+        authed_gclient.update_workouts(ue, workouts, plan)
+
+        assert mock_list_workouts.call_count == 1
+        assert mock_update_workout.call_count == 1
+        assert mock_save_workout.call_count == 0
+        assert mock_schedule_workout.call_count == 0
+
+
+def test_update_notes_no_updates(authed_gclient: GarminClient) -> None:
+    ne: dict = {}
+    notes: list[Note] = []
+    plan: str = "Plan 1"
+
+    with patch.object(authed_gclient, 'save_note') as mock_save_note:
+        authed_gclient.update_notes(ne, notes, plan)
+
+        assert mock_save_note.call_count == 0
+
+
+def test_update_notes_with_updates(authed_gclient: GarminClient) -> None:
+    ne: dict = {}
+    notes: list[Note] = [Mock(get_note_name=lambda: "Note 1", get_note_date=lambda: [date.today(), 0, 0])]
+    plan: str = "Plan 1"
+
+    with patch.object(authed_gclient, 'save_note') as mock_save_note:
+        authed_gclient.update_notes(ne, notes, plan)
+
+        assert mock_save_note.call_count == 1
+
+
+def test_update_events_no_updates(authed_gclient: GarminClient) -> None:
+    events: list[Event] = []
+
+    with patch.object(authed_gclient, 'list_events') as mock_list_events, \
+            patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
+            patch.object(authed_gclient, 'save_event') as mock_save_event:
+        mock_list_events.return_value = []
+        mock_list_workouts.return_value = []
+
+        authed_gclient.update_events(events)
+
+        assert mock_list_events.call_count == 1
+        assert mock_list_workouts.call_count == 1
+        assert mock_save_event.call_count == 0
+
+
+def test_update_events_with_updates(authed_gclient: GarminClient) -> None:
+    events: list[Event] = [Mock(date=date.today(), name="Event 1")]
+
+    with patch.object(authed_gclient, 'list_events') as mock_list_events, \
+            patch.object(authed_gclient, 'list_workouts') as mock_list_workouts, \
+            patch.object(authed_gclient, 'save_event') as mock_save_event:
+        mock_list_events.return_value = []
+        mock_list_workouts.return_value = []
+
+        authed_gclient.update_events(events)
+
+        assert mock_list_events.call_count == 1
+        assert mock_list_workouts.call_count == 1
+        assert mock_save_event.call_count == 1

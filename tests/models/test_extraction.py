@@ -472,50 +472,57 @@ class ExtractionTestCase(unittest.TestCase):
 
         os.remove(filename)
 
+    def test_description_formatting(self) -> None:
+        # Test case 1: description is None
+        description = None
+        expected_result = ''
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
 
-'''    def test_workout_export_yaml(self) -> None:
-        workout = {
-            'workoutName': 'My Workout',
-            'sportType': {'sportTypeKey': 'running'},
-            'description': 'This is a test workout',
-            'workoutSegments': [
-                {
-                    'workoutSteps': [
-                        {
-                            'stepType': {'stepTypeKey': 'step'},
-                            'endCondition': {'conditionTypeKey': 'time'},
-                            'endConditionValue': 60
-                        },
-                        {
-                            'stepType': {'stepTypeKey': 'step'},
-                            'endCondition': {'conditionTypeKey': 'distance'},
-                            'endConditionValue': 5000
-                        }
-                    ]
-                }
-            ]
-        }
-        filename = 'test_workout.yaml'
-        Extraction.workout_export_yaml(workout, filename)
+        # Test case 2: description contains 'rest20s'
+        description = 'This is a rest20s test.'
+        expected_result = 'This is a rest\n 20s test.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
 
-        with open(filename, 'r') as file:
-            exported_workout = yaml.safe_load(file)
+        # Test case 3: description does not contain 'Dr.', '. Complete', or '\u2022'
+        description = 'This is a test. Complete the task.'
+        expected_result = 'This is a test. Complete the task.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
 
-        expected_workout = {
-            'name': 'My Workout',
-            'sport': 'running',
-            'description': 'This is a test workout',
-            'steps': [
-                {
-                    'type': 'step',
-                    'duration': '0:01:00'
-                },
-                {
-                    'type': 'step',
-                    'duration': '5.0km'
-                }
-            ]
-        }
+        # Test case 4: description contains '.Try'
+        description = 'This is a test.Try to complete it.'
+        expected_result = 'This is a test.\nTry to complete it.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
 
-        self.assertEqual(exported_workout, expected_workout)
-'''
+        # Test case 5: description contains ':20s'
+        description = 'Run for 5:20s.'
+        expected_result = 'Run for 5:\n-20s.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
+
+        # Test case 6: description contains '.8 sets'
+        description = 'Do this exercise.8 sets of it.'
+        expected_result = 'Do this exercise.\n-8 sets of it.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
+
+        # Test case 7: description contains ')8 sets'
+        description = 'Complete the cycle)8 sets.'
+        expected_result = 'Complete the cycle)\n-8 sets.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
+
+        # Test case 8: description contains '.Workout'
+        description = 'This is a test.Workout session.'
+        expected_result = 'This is a test.\nWorkout session.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
+
+        # Test case 9: description contains 'push-ups.Benchmark'
+        description = 'Do push-ups.Benchmark your progress.'
+        expected_result = 'Do push-ups.\nBenchmark your progress.'
+        self.assertEqual(Extraction.description_formatting(description), expected_result)
+
+        # Test case 10: description contains multiple patterns
+        description = 'This is a rest20s test. Complete the task.Try to finish it:20s.8 sets)8 sets.Workout session.\
+            push-ups.Benchmark'
+        expected_result = (
+            'This is a rest\n 20s test. Complete the task.\nTry to finish it:\n-20s.\n-8 sets)\n-8 sets.\n'
+            'Workout session.            push-ups.\nBenchmark'
+        )
+        self.assertEqual(Extraction.description_formatting(description), expected_result)

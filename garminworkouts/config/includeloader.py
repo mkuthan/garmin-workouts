@@ -156,26 +156,24 @@ class IncludeLoader(yaml.SafeLoader):
             with open(filename, 'r') as f:
                 d = yaml.load(f, IncludeLoader)
         else:
-            s = os.path.split(filename)[-1]
-            s = s.split('.')[0].split('_')
-            name = s[0]
-            duration = extract_duration(s[1]) if len(s) >= 2 else ''
-
-            if 'intervals' in name:
-                duration = [extract_duration(s[1]), extract_duration(s[2])]
-                s = name.split('-')
-                name = s[0]
-                objective = [s[1], s[2]]
-            else:
-                objective = int(s[2].split('sub')[1]) if len(s) >= 3 else 0
-
             try:
+                s = os.path.split(filename)[-1]
+                s = s.split('.')[0].split('_')
+                name = s[0]
+                duration = extract_duration(s[1]) if len(s) >= 2 else ''
+
+                if 'intervals' in name:
+                    duration = [extract_duration(s[1]), extract_duration(s[2])]
+                    s = name.split('-')
+                    name = s[0]
+                    objective = [s[1], s[2]]
+                else:
+                    objective = int(s[2].split('sub')[1]) if len(s) >= 3 else 0
+
                 d = step_generator(name, duration, objective)
             except ValueError:
-                logging.error(filename)
                 d = []
             except IndexError:
-                logging.error(filename)
                 d = []
 
         if isinstance(d, list) and len(d) == 1:

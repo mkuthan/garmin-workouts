@@ -59,3 +59,19 @@ class TestSettingsFunction(unittest.TestCase):
             self.assertEqual(len(notes), 0)
             self.assertEqual(len(events), 0)
             self.assertEqual(plan, '')
+
+    def test_settings_event(self) -> None:
+        defaultPlanning: dict = {
+            'tp': {
+                'workouts': 'events/planning/sample_event.yaml',
+                'year': 2024,
+                'month': 1,
+                'day': 1
+            }
+        }
+        args = argparse.Namespace(trainingplan='tp')
+        workouts, notes, events, plan = settings(args, defaultPlanning=defaultPlanning)
+        self.assertEqual(len(workouts), 1)
+        self.assertEqual(len(notes), 0)
+        self.assertEqual(len(events), 1)
+        self.assertEqual(plan, 'tp')
