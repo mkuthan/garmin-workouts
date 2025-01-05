@@ -9,10 +9,18 @@ from garminworkouts.config.generators.strength.run_indoor import (
 
 
 @pytest.mark.parametrize("generator, exercise_name, execution", [
-    (indoor_track_run_rep_generator, 'INDOOR_TRACK_RUN', 'reps'),
-    (indoor_track_run_hold_generator, 'INDOOR_TRACK_RUN', 'hold'),
-    (treadmill_rep_generator, 'TREADMILL', 'reps'),
-    (treadmill_hold_generator, 'TREADMILL', 'hold'),
+    (indoor_track_run_rep_generator,
+     'INDOOR_TRACK_RUN',
+     'reps'),
+    (indoor_track_run_hold_generator,
+     'INDOOR_TRACK_RUN',
+     'hold'),
+    (treadmill_rep_generator,
+     'TREADMILL',
+     'reps'),
+    (treadmill_hold_generator,
+     'TREADMILL',
+     'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

@@ -642,7 +642,23 @@ class ZonesTestCase(unittest.TestCase):
             race=date(2024, 1, 1)
         )
 
-        workouts = [workout2, workout1]
+        workout_file: str = os.path.join('.', 'trainingplans', 'Running', 'Napier', 'Half', 'Advanced', 'Meso2',
+                                         '20_2.yaml')
+        config: dict = configreader.read_config(workout_file)
+        workout3 = Workout(
+            config=config,
+            target=target,
+            vVO2=Pace('3:30'),
+            fmin=44,
+            fmax=183,
+            flt=167,
+            rFTP=Power('200w'),
+            cFTP=Power('200w'),
+            plan='',
+            race=date(2024, 1, 1)
+        )
+
+        workouts = [workout2, workout1, workout3]
 
         # Call load_metrics
         mileage, duration, tss, ECOs, Rdist, Rdists, day_min, day_max = Workout.load_metrics(workouts)
@@ -652,17 +668,18 @@ class ZonesTestCase(unittest.TestCase):
         self.assertEqual(duration[21], timedelta(seconds=4377))
         self.assertEqual(tss[21], 154278.0)
         self.assertEqual(ECOs[21], 123.0)
-        self.assertEqual(Rdist, [1377, 3000, 0, 0, 0, 0, 0, 0])
+        self.assertEqual(Rdist, [3099, 3000, 0, 0, 0, 0, 0, 0])
         self.assertEqual(Rdists[21], [1377, 3000, 0, 0, 0, 0, 0, 0])
         self.assertEqual(day_min, date(2023, 8, 1))
-        self.assertEqual(day_max, date(2023, 8, 2))
+        self.assertEqual(day_max, date(2023, 8, 9))
 
         with self.assertLogs(level=logging.INFO) as cm:
             Workout.load_metrics(workouts)
 
         log_messages = cm.output
-        self.assertEqual(['INFO:root:From 2023-08-01 to 2023-08-02',
-                          'INFO:root:Week 21: 14.44 km - Duration: 1:12:57 - ECOs: 123.0'], log_messages)
+        self.assertEqual(['INFO:root:From 2023-08-01 to 2023-08-09',
+                          'INFO:root:Week 21: 14.44 km - Duration: 1:12:57 - ECOs: 123.0',
+                          'INFO:root:Week 20: 5.0 km - Duration: 0:28:42 - ECOs: 29.0'], log_messages)
 
 
 class TestCalculateP(unittest.TestCase):

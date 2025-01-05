@@ -11,12 +11,24 @@ from garminworkouts.config.generators.strength.indoor_bike import (
 
 
 @pytest.mark.parametrize("generator, exercise_name, execution", [
-    (air_bike_rep_generator, 'AIR_BIKE', 'reps'),
-    (air_bike_hold_generator, 'AIR_BIKE', 'hold'),
-    (assault_bike_rep_generator, 'ASSAULT_BIKE', 'reps'),
-    (assault_bike_hold_generator, 'ASSAULT_BIKE', 'hold'),
-    (stationary_bike_rep_generator, 'STATIONARY_BIKE', 'reps'),
-    (stationary_bike_hold_generator, 'STATIONARY_BIKE', 'hold'),
+    (air_bike_rep_generator,
+     'AIR_BIKE',
+     'reps'),
+    (air_bike_hold_generator,
+     'AIR_BIKE',
+     'hold'),
+    (assault_bike_rep_generator,
+     'ASSAULT_BIKE',
+     'reps'),
+    (assault_bike_hold_generator,
+     'ASSAULT_BIKE',
+     'hold'),
+    (stationary_bike_rep_generator,
+     'STATIONARY_BIKE',
+     'reps'),
+    (stationary_bike_hold_generator,
+     'STATIONARY_BIKE',
+     'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

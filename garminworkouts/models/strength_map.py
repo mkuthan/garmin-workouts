@@ -116,8 +116,8 @@ def write_test_functions_to_file(exercises, exercise_list, output_file_path):
         for exercise_name in exercise_list.keys():
             function_name_rep = exercise_name.lower() + '_rep_generator'
             function_name_hold = exercise_name.lower() + '_hold_generator'
-            file.write(f"({function_name_rep}, '{exercise_name}', 'reps'),\n    ")
-            file.write(f"({function_name_hold}, '{exercise_name}', 'hold'),\n    ")
+            file.write(f"({function_name_rep},\n     '{exercise_name}',\n     'reps'),\n    ")
+            file.write(f"({function_name_hold},\n     '{exercise_name}',\n     'hold'),\n    ")
         file.write("])\n")
         d = 10
         file.write(f"""def test_exercise_generators(generator, exercise_name, execution):

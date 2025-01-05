@@ -7,8 +7,12 @@ from garminworkouts.config.generators.strength.stair_stepper import (
 
 
 @pytest.mark.parametrize("generator, exercise_name, execution", [
-    (stair_stepper_rep_generator, 'STAIR_STEPPER', 'reps'),
-    (stair_stepper_hold_generator, 'STAIR_STEPPER', 'hold'),
+    (stair_stepper_rep_generator,
+     'STAIR_STEPPER',
+     'reps'),
+    (stair_stepper_hold_generator,
+     'STAIR_STEPPER',
+     'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

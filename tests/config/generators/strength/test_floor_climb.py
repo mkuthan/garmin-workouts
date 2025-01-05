@@ -7,8 +7,12 @@ from garminworkouts.config.generators.strength.floor_climb import (
 
 
 @pytest.mark.parametrize("generator, exercise_name, execution", [
-    (floor_climb_rep_generator, 'FLOOR_CLIMB', 'reps'),
-    (floor_climb_hold_generator, 'FLOOR_CLIMB', 'hold'),
+    (floor_climb_rep_generator,
+     'FLOOR_CLIMB',
+     'reps'),
+    (floor_climb_hold_generator,
+     'FLOOR_CLIMB',
+     'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'

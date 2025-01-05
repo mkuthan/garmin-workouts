@@ -7,8 +7,12 @@ from garminworkouts.config.generators.strength.bike_outdoor import (
 
 
 @pytest.mark.parametrize("generator, exercise_name, execution", [
-    (bike_rep_generator, 'BIKE', 'reps'),
-    (bike_hold_generator, 'BIKE', 'hold'),
+    (bike_rep_generator,
+     'BIKE',
+     'reps'),
+    (bike_hold_generator,
+     'BIKE',
+     'hold'),
     ])
 def test_exercise_generators(generator, exercise_name, execution):
     duration = "10reps" if execution == 'reps' else 'lap.button'
