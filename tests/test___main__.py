@@ -26,14 +26,18 @@ def test_command_event_list(mock_garmin_client, authed_gclient: GarminClient) ->
 def test_command_find_events(mock_garmin_client, authed_gclient: GarminClient) -> None:
     mock_garmin_client.return_value = authed_gclient
 
-    assert command_find_events(None) is None
+    with mock.patch.object(authed_gclient, '_find_events') as mock_command_user_zones:
+        mock_command_user_zones.return_value = None
+        assert command_find_events(None) is None
 
 
 @mock.patch('garminworkouts.__main__._garmin_client')
 def test_command_user_zones(mock_garmin_client, authed_gclient: GarminClient) -> None:
     mock_garmin_client.return_value = authed_gclient
 
-    assert command_user_zones(None) is None
+    with mock.patch.object(authed_gclient, 'user_zones') as mock_command_user_zones:
+        mock_command_user_zones.return_value = None
+        assert command_user_zones(None) is None
 
 
 @mock.patch('garminworkouts.__main__._garmin_client')
