@@ -138,7 +138,7 @@ def _garmin_client() -> GarminClient:
         password=password)
 
 
-def main() -> None:
+def main() -> None:  # pragma: no cover
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description='Manage Garmin Connect workout(s)'
@@ -301,7 +301,7 @@ def main() -> None:
 
 debug_file = './debug.log'
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     try:
         os.remove(debug_file)
     except FileNotFoundError:
