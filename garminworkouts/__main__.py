@@ -24,8 +24,8 @@ def command_trainingplan_import(args) -> None:
     with _garmin_client() as connection:
         ue, _, ne = connection.get_calendar(date=date.today(), days=7)
 
-        connection.update_workouts(ue, workouts, plan)
-        connection.update_notes(ne, notes, plan)
+        connection.update_workouts(ue=ue, workouts=workouts, plan=plan)
+        connection.update_notes(ne=ne, notes=notes, plan=plan)
 
 
 def command_event_import(args) -> None:
@@ -33,8 +33,8 @@ def command_event_import(args) -> None:
 
     with _garmin_client() as connection:
         ue, _, _ = connection.get_calendar(date=date.today(), days=7)
-        connection.update_events(events)
-        connection.update_workouts(ue, workouts, plan)
+        connection.update_events(events=events)
+        connection.update_workouts(ue=ue, workouts=workouts, plan=plan)
 
 
 def command_find_events(args) -> None:
@@ -49,7 +49,7 @@ def command_trainingplan_metrics(args) -> None:
 
 def command_workout_export(args) -> None:
     with _garmin_client() as connection:
-        connection.workout_export(args=args)
+        connection.workout_export(args)
 
 
 def command_workout_export_yaml(args) -> None:
@@ -59,22 +59,22 @@ def command_workout_export_yaml(args) -> None:
 
 def command_workout_schedule(args) -> None:
     with _garmin_client() as connection:
-        connection.schedule_workout(args.workout_id, args.date)
+        connection.schedule_workout(workout_id=args.id, date=args.date)
 
 
 def command_workout_get(args) -> None:
     with _garmin_client() as connection:
-        Workout.print_workout_json(connection.get_workout(args.id))
+        Workout.print_workout_json(connection.get_workout(workout_id=args.id))
 
 
 def command_event_get(args) -> None:
     with _garmin_client() as connection:
-        Event.print_event_json(connection.get_event(args.id))
+        Event.print_event_json(connection.get_event(event_id=args.id))
 
 
 def command_workout_delete(args) -> None:
     with _garmin_client() as connection:
-        connection.delete_workout(args.id)
+        connection.delete_workout(workout_id=args.workout_id)
 
 
 def command_user_zones(args) -> None:
@@ -224,7 +224,7 @@ def main() -> None:
         'workout-schedule',
         description='Schedule a workout')
     parser_import.add_argument(
-        '--workout_id',
+        '--id',
         '-w',
         required=True,
         help='Workout id to schedule')
