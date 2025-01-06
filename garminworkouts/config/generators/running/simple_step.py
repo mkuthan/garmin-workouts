@@ -22,7 +22,7 @@ def R1p_step_generator(duration) -> dict:
         description='R1+ pace zone')
 
 
-def R2_step_generator(target, duration) -> dict:
+def R2_step_generator(duration, target) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,
@@ -30,7 +30,7 @@ def R2_step_generator(target, duration) -> dict:
         description=s + 'R2 pace zone')
 
 
-def R3_step_generator(target, duration) -> dict:
+def R3_step_generator(duration, target) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,
@@ -88,13 +88,13 @@ def aerobic_step_generator(duration, pace=False) -> dict:
         description='Aerobic pace')
 
 
-def lt_step_generator(target: str, duration, pace=False) -> dict:
+def lt_step_generator(duration, target: str, pace=False) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,
         target=d + 'THRESHOLD_PACE',
         description=s + 'Threshold pace') if pace else step_generator(
-        duration,
+        duration=duration,
         target=d + 'THRESHOLD_HEART_RATE',
         description=s + 'Threshold pace')
 
@@ -109,7 +109,7 @@ def lr_step_generator(duration, pace=False) -> dict:
         description='Long run pace')
 
 
-def marathon_step_generator(target: str, duration) -> dict:
+def marathon_step_generator(duration, target: str) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,
@@ -117,7 +117,7 @@ def marathon_step_generator(target: str, duration) -> dict:
         description=s + 'Marathon pace')
 
 
-def hm_step_generator(target: str, duration) -> dict:
+def hm_step_generator(duration, target: str) -> dict:
     d, s = margin_generator(target)
     return step_generator(
         duration=duration,

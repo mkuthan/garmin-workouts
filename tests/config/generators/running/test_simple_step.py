@@ -45,34 +45,34 @@ def test_step_generators(generator, duration, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize("generator, target, duration, expected", [
-        (marathon_step_generator, '', 200, {'type': 'interval', 'duration': 200, 'target': 'MARATHON_PACE',
-                                            'description': 'Marathon pace', 'category': None, 'exerciseName': None}),
-        (hm_step_generator, '', 210, {'type': 'interval', 'duration': 210, 'target': 'HALF_MARATHON_PACE',
-                                      'description': 'Half Marathon pace', 'category': None, 'exerciseName': None}),
-        (R2_step_generator, '', 40, {'type': 'interval', 'duration': 40, 'target': 'R2', 'description': 'R2 pace zone',
-                                     'category': None, 'exerciseName': None}),
-        (R3_step_generator, '', 50, {'type': 'interval', 'duration': 50, 'target': 'R3', 'description': 'R3 pace zone',
-                                     'category': None, 'exerciseName': None}),
+@pytest.mark.parametrize("generator, duration, target, expected", [
+    (marathon_step_generator, 200, '', {'type': 'interval', 'duration': 200, 'target': 'MARATHON_PACE',
+                                        'description': 'Marathon pace', 'category': None, 'exerciseName': None}),
+    (hm_step_generator, 210, '', {'type': 'interval', 'duration': 210, 'target': 'HALF_MARATHON_PACE',
+                                  'description': 'Half Marathon pace', 'category': None, 'exerciseName': None}),
+    (R2_step_generator, 40, '', {'type': 'interval', 'duration': 40, 'target': 'R2', 'description': 'R2 pace zone',
+                                 'category': None, 'exerciseName': None}),
+    (R3_step_generator, 50, '', {'type': 'interval', 'duration': 50, 'target': 'R3', 'description': 'R3 pace zone',
+                                 'category': None, 'exerciseName': None}),
     ])
-def test_target_duration_generators(generator, target, duration, expected):
-    result = generator(target, duration)
+def test_target_duration_generators(generator, duration, target, expected):
+    result = generator(duration, target)
     assert result == expected
 
 
-@pytest.mark.parametrize("generator, target, duration, pace, expected", [
-        (lt_step_generator, '', 220, False, {'type': 'interval', 'duration': 220, 'target': 'THRESHOLD_HEART_RATE',
-                                             'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
-        (lt_step_generator, '', 230, True, {'type': 'interval', 'duration': 230, 'target': 'THRESHOLD_PACE',
-                                            'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
-        (lr_step_generator, None, 240, False, {'type': 'interval', 'duration': 240, 'target': 'LONG_RUN_HEART_RATE',
-                                               'description': 'Long run pace', 'category': None, 'exerciseName': None}),
-        (lr_step_generator, None, 250, True, {'type': 'interval', 'duration': 250, 'target': 'LONG_RUN_PACE',
-                                              'description': 'Long run pace', 'category': None, 'exerciseName': None}),
+@pytest.mark.parametrize("generator, duration, target, pace, expected", [
+    (lt_step_generator, 220, '', False, {'type': 'interval', 'duration': 220, 'target': 'THRESHOLD_HEART_RATE',
+                                         'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
+    (lt_step_generator, 230, '', True, {'type': 'interval', 'duration': 230, 'target': 'THRESHOLD_PACE',
+                                        'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
+    (lr_step_generator, 240, None, False, {'type': 'interval', 'duration': 240, 'target': 'LONG_RUN_HEART_RATE',
+                                           'description': 'Long run pace', 'category': None, 'exerciseName': None}),
+    (lr_step_generator,  250, None, True, {'type': 'interval', 'duration': 250, 'target': 'LONG_RUN_PACE',
+                                           'description': 'Long run pace', 'category': None, 'exerciseName': None}),
     ])
 def test_lt_lr_generators(generator, target, duration, pace, expected):
     if target is not None:
-        result = generator(target, duration, pace)
+        result = generator(duration, target, pace)
     else:
         result = generator(duration, pace)
     assert result == expected
