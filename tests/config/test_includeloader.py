@@ -1,10 +1,11 @@
 import unittest
 from unittest.mock import patch, mock_open
-from garminworkouts.config.includeloader import (generator_struct, extract_duration, IncludeLoader)
+from garminworkouts.config.includeloader import (IncludeLoader, camel_to_snake, extract_duration, generator_struct,
+                                                 step_generator)
 import os
 import yaml
-import garminworkouts.config.generators.running as running
 import garminworkouts.config.generators.strength as strength
+import garminworkouts.config.generators.running as running
 
 
 class TestGeneratorStruct(unittest.TestCase):
@@ -114,6 +115,53 @@ class TestGeneratorStruct(unittest.TestCase):
                          {'step': 'PlankRotationWalkOutAltRaises'})
         self.assertEqual(generator_struct('test', '10min', 0, 'NonExistentStep'), {})
 
+    def test_step_generator(self):
+        self.assertEqual(step_generator('R0', '10min', 0), {'step': 'R0'})
+        self.assertEqual(step_generator('R1', '10min', 0), {'step': 'R1'})
+        self.assertEqual(step_generator('R1p', '10min', 0), {'step': 'R1p'})
+        self.assertEqual(step_generator('R2', '10min', 0), {'step': 'R2'})
+        self.assertEqual(step_generator('R3', '10min', 0), {'step': 'R3'})
+        self.assertEqual(step_generator('R3p', '10min', 0), {'step': 'R3p'})
+        self.assertEqual(step_generator('R4', '10min', 0), {'step': 'R4'})
+        self.assertEqual(step_generator('R5', '10min', 0), {'step': 'R5'})
+        self.assertEqual(step_generator('R6', '10min', 0), {'step': 'R6'})
+        self.assertEqual(step_generator('intervals', '10min', 0), {'step': 'intervals'})
+        self.assertEqual(step_generator('recovery', '10min', 0), {'step': 'recovery'})
+        self.assertEqual(step_generator('aerobic', '10min', 0), {'step': 'aerobic'})
+        self.assertEqual(step_generator('lt', '10min', 0), {'step': 'lt'})
+        self.assertEqual(step_generator('lr', '10min', 0), {'step': 'lr'})
+        self.assertEqual(step_generator('marathon', '10min', 0), {'step': 'marathon'})
+        self.assertEqual(step_generator('hm', '10min', 0), {'step': 'hm'})
+        self.assertEqual(step_generator('tuneup', '10min', 0), {'step': 'tuneup'})
+        self.assertEqual(step_generator('warmup', '10min', 0), {'step': 'warmup'})
+        self.assertEqual(step_generator('cooldown', '10min', 0), {'step': 'cooldown'})
+        self.assertEqual(step_generator('walk', '10min', 0), {'step': 'walk'})
+        self.assertEqual(step_generator('stride', '10min', 0), {'step': 'stride'})
+        self.assertEqual(step_generator('longhill', '10min', 0), {'step': 'longhill'})
+        self.assertEqual(step_generator('hill', '10min', 0), {'step': 'hill'})
+        self.assertEqual(step_generator('acceleration', '10min', 0), {'step': 'acceleration'})
+        self.assertEqual(step_generator('series', '10min', 0), {'step': 'series'})
+        self.assertEqual(step_generator('anaerobic', '10min', 0), {'step': 'anaerobic'})
+        self.assertEqual(step_generator('race', '10min', 0), {'step': 'race'})
+        self.assertEqual(step_generator('PlankPushHold', '10min', 0), {'step': 'PlankPushHold'})
+        self.assertEqual(step_generator('PlankPushAngel', '10min', 0), {'step': 'PlankPushAngel'})
+        self.assertEqual(step_generator('CalfHoldLunge', '10min', 0), {'step': 'CalfHoldLunge'})
+        self.assertEqual(step_generator('CalfLungeSide', '10min', 0), {'step': 'CalfLungeSide'})
+        self.assertEqual(step_generator('CalfLungeSquat', '10min', 0), {'step': 'CalfLungeSquat'})
+        self.assertEqual(step_generator('CalfSquatHold', '10min', 0), {'step': 'CalfSquatHold'})
+        self.assertEqual(step_generator('ClimberShouldertapPlankrot', '10min', 0),
+                         {'step': 'ClimberShouldertapPlankrot'})
+        self.assertEqual(step_generator('CalfHoldSquat', '10min', 0), {'step': 'CalfHoldSquat'})
+        self.assertEqual(step_generator('LegRaiseHoldSitup', '10min', 0), {'step': 'LegRaiseHoldSitup'})
+        self.assertEqual(step_generator('LegRaiseHoldSKneetwist', '10min', 0), {'step': 'LegRaiseHoldSKneetwist'})
+        self.assertEqual(step_generator('MaxPushups', '10min', 0), {'step': 'MaxPushups'})
+        self.assertEqual(step_generator('ShoulderTapUpdownPlankHold', '10min', 0),
+                         {'step': 'ShoulderTapUpdownPlankHold'})
+        self.assertEqual(step_generator('FlutterKickCrunch', '10min', 0), {'step': 'FlutterKickCrunch'})
+        self.assertEqual(step_generator('PlankRotationWalkOutAltRaises', '10min', 0),
+                         {'step': 'PlankRotationWalkOutAltRaises'})
+        self.assertEqual(step_generator('NonExistentStep', '10min', 0), {})
+
 
 class TestExtractDuration(unittest.TestCase):
     def test_extract_duration_minutes(self):
@@ -175,10 +223,10 @@ class TestIncludeLoader(unittest.TestCase):
 
     @patch('builtins.open', new_callable=mock_open)
     def test_include_file_not_exists1(self, mock_open):
-        name = 'inntervals-R09-R1_10min_5min_sub3.yaml'
-        node = yaml.ScalarNode(tag='!include', value=name)
+        filename = 'inntervals-R09-R1_10min_5min_sub3.yaml'
+        node = yaml.ScalarNode(tag='!include', value=filename)
         mock_file = mock_open(read_data="")
-        mock_file.name = name
+        mock_file.name = filename
         mock_file.read = lambda size=None: ''
         loader_instance = self.loader(stream=mock_file)
         result = loader_instance.include(node)
@@ -186,10 +234,10 @@ class TestIncludeLoader(unittest.TestCase):
 
     @patch('builtins.open', new_callable=mock_open)
     def test_include_file_not_exists2(self, mock_open):
-        name = 'inntervals_xmin.yaml'
-        node = yaml.ScalarNode(tag='!include', value=name)
+        filename = 'inntervals_xmin.yaml'
+        node = yaml.ScalarNode(tag='!include', value=filename)
         mock_file = mock_open(read_data="")
-        mock_file.name = name
+        mock_file.name = filename
         mock_file.read = lambda size=None: ''
         loader_instance = self.loader(stream=mock_file)
         result = loader_instance.include(node)
@@ -197,11 +245,23 @@ class TestIncludeLoader(unittest.TestCase):
 
     @patch('builtins.open', new_callable=mock_open)
     def test_include_file_not_exists3(self, mock_open):
-        name = 'anerobic_x.yaml'
-        node = yaml.ScalarNode(tag='!include', value=name)
+        filename = 'anerobic_x.yaml'
+        node = yaml.ScalarNode(tag='!include', value=filename)
         mock_file = mock_open(read_data="")
-        mock_file.name = name
+        mock_file.name = filename
         mock_file.read = lambda size=None: ''
         loader_instance = self.loader(stream=mock_file)
         result = loader_instance.include(node)
         self.assertEqual(result, {})
+
+
+class TestCamelToSnake(unittest.TestCase):
+    def test_camel_to_snake(self):
+        self.assertEqual(camel_to_snake('CamelCase'), 'camel_case')
+        self.assertEqual(camel_to_snake('camelCase'), 'camel_case')
+        self.assertEqual(camel_to_snake('CamelCamelCase'), 'camel_camel_case')
+        self.assertEqual(camel_to_snake('Camel2Camel2Case'), 'camel2_camel2_case')
+        self.assertEqual(camel_to_snake('getHTTPResponseCode'), 'get_http_response_code')
+        self.assertEqual(camel_to_snake('get2HTTPResponseCode'), 'get2_http_response_code')
+        self.assertEqual(camel_to_snake('HTTPResponseCode'), 'http_response_code')
+        self.assertEqual(camel_to_snake('HTTPResponseCodeXYZ'), 'http_response_code_xyz')
