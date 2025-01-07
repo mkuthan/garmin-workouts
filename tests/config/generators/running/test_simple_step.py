@@ -13,8 +13,8 @@ from garminworkouts.config.generators.running.simple_step import (
 @pytest.mark.parametrize("generator, duration, expected", [
     (R0_step_generator, 10, {'type': 'interval', 'duration': 10, 'target': 'R0', 'description': 'R0 pace zone',
                              'category': None, 'exerciseName': None}),
-    (R1_step_generator, 20, {'type': 'interval', 'type': 'interval', 'duration': 20, 'target': 'R1',
-                             'description': 'R1 pace zone', 'category': None, 'exerciseName': None}),
+    (R1_step_generator, 20, {'type': 'interval', 'duration': 20, 'target': 'R1', 'description': 'R1 pace zone',
+                             'category': None, 'exerciseName': None}),
     (R1p_step_generator, 30, {'type': 'interval', 'duration': 30, 'target': 'R1p', 'description': 'R1+ pace zone',
                               'category': None, 'exerciseName': None}),
     (R3p_step_generator, 60, {'type': 'interval', 'duration': 60, 'target': 'R3p', 'description': 'R3+ pace zone',
@@ -25,23 +25,46 @@ from garminworkouts.config.generators.running.simple_step import (
                              'category': None, 'exerciseName': None}),
     (R6_step_generator, 90, {'type': 'interval', 'duration': 90, 'target': 'R6', 'description': 'R6 pace zone',
                              'category': None, 'exerciseName': None}),
-    (recovery_step_generator, 100, {'type': 'recovery', 'duration': 100,
-     'target': 'RECOVERY_HEART_RATE', 'description': 'Recovery pace', 'category': None, 'exerciseName': None}),
-    (aerobic_step_generator, 110, {'type': 'interval', 'duration': 110, 'target': 'AEROBIC_HEART_RATE',
-                                   'description': 'Aerobic pace',
-                                   'category': None, 'exerciseName': None}),
-    (tuneup_step_generator, 160, {'type': 'interval', 'duration': 160, 'target': '10KM_PACE',
-                                  'description': '10K pace run',
-                                  'category': None, 'exerciseName': None}),
-    (warmup_step_generator, 170, {'type': 'warmup', 'duration': 170,
-     'target': 'AEROBIC_HEART_RATE', 'description': 'Warm up', 'category': None, 'exerciseName': None}),
-    (cooldown_step_generator, 180, {'type': 'cooldown', 'duration': 180,
-     'target': 'AEROBIC_HEART_RATE', 'description': 'Cool down', 'category': None, 'exerciseName': None}),
-    (walk_step_generator, 190, {'type': 'rest', 'duration': 190, 'target': 'WALK', 'description': 'Walk',
-                                'category': None, 'exerciseName': None}),
+    (walk_step_generator, 190,  {'type': 'rest', 'duration': 190, 'target': 'WALK', 'description': 'Walk',
+                                 'category': None, 'exerciseName': None}),
+    (tuneup_step_generator, 160,
+     {'type': 'interval', 'duration': 160, 'target': '10KM_PACE', 'description': '10K pace run',
+      'category': None, 'exerciseName': None}),
+    (warmup_step_generator, 170,
+     {'type': 'warmup', 'duration': 170, 'target': 'AEROBIC_HEART_RATE', 'description': 'Warm up',
+      'category': None, 'exerciseName': None}),
 ])
-def test_step_generators(generator, duration, expected):
+def test_single_use_generators(generator, duration, expected):
     result = generator(duration)
+    assert result == expected
+
+
+@pytest.mark.parametrize("generator, duration, pace, expected", [
+    (recovery_step_generator, 100, False,
+     {'type': 'recovery', 'duration': 100, 'target': 'RECOVERY_HEART_RATE', 'description': 'Recovery pace',
+      'category': None, 'exerciseName': None}),
+    (aerobic_step_generator, 110,  False,
+     {'type': 'interval', 'duration': 110, 'target': 'AEROBIC_HEART_RATE', 'description': 'Aerobic pace',
+      'category': None, 'exerciseName': None}),
+    (cooldown_step_generator, 180,  False,
+     {'type': 'cooldown', 'duration': 180, 'target': 'AEROBIC_HEART_RATE', 'description': 'Cool down',
+      'category': None, 'exerciseName': None}),
+    (recovery_step_generator, 100, True,
+     {'type': 'recovery', 'duration': 100, 'target': 'RECOVERY_PACE', 'description': 'Recovery pace',
+      'category': None, 'exerciseName': None}),
+    (aerobic_step_generator, 110,  True,
+     {'type': 'interval', 'duration': 110, 'target': 'AEROBIC_PACE', 'description': 'Aerobic pace',
+      'category': None, 'exerciseName': None}),
+    (cooldown_step_generator, 180,  True,
+     {'type': 'cooldown', 'duration': 180, 'target': 'AEROBIC_PACE', 'description': 'Cool down',
+      'category': None, 'exerciseName': None}),
+    (lr_step_generator, 240, False, {'type': 'interval', 'duration': 240, 'target': 'LONG_RUN_HEART_RATE',
+                                     'description': 'Long run pace', 'category': None, 'exerciseName': None}),
+    (lr_step_generator,  250, True, {'type': 'interval', 'duration': 250, 'target': 'LONG_RUN_PACE',
+                                     'description': 'Long run pace', 'category': None, 'exerciseName': None}),
+])
+def test_pace_generators(generator, duration, pace, expected):
+    result = generator(duration, pace)
     assert result == expected
 
 
@@ -65,12 +88,9 @@ def test_target_duration_generators(generator, duration, target, expected):
                                          'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
     (lt_step_generator, 230, '', True, {'type': 'interval', 'duration': 230, 'target': 'THRESHOLD_PACE',
                                         'description': 'Threshold pace', 'category': None, 'exerciseName': None}),
-    (lr_step_generator, 240, None, False, {'type': 'interval', 'duration': 240, 'target': 'LONG_RUN_HEART_RATE',
-                                           'description': 'Long run pace', 'category': None, 'exerciseName': None}),
-    (lr_step_generator,  250, None, True, {'type': 'interval', 'duration': 250, 'target': 'LONG_RUN_PACE',
-                                           'description': 'Long run pace', 'category': None, 'exerciseName': None}),
+
     ])
-def test_lt_lr_generators(generator, target, duration, pace, expected):
+def test_lt_generators(generator, target, duration, pace, expected):
     if target is not None:
         result = generator(duration, target, pace)
     else:
