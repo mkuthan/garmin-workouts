@@ -11,10 +11,7 @@ class Workout:
     _WORKOUT_DESCRIPTION_FIELD = "description"
     _WORKOUT_OWNER_ID_FIELD = "ownerId"
 
-    _CYCLING_SPORT_TYPE = {
-        "sportTypeId": 2,
-        "sportTypeKey": "cycling"
-    }
+    _CYCLING_SPORT_TYPE = {"sportTypeId": 2, "sportTypeKey": "cycling"}
 
     _INTERVAL_STEP_TYPE = {
         "stepTypeId": 3,
@@ -42,9 +39,9 @@ class Workout:
                 {
                     "segmentOrder": 1,
                     "sportType": self._CYCLING_SPORT_TYPE,
-                    "workoutSteps": self._steps(self.config["steps"])
+                    "workoutSteps": self._steps(self.config["steps"]),
                 }
-            ]
+            ],
         }
 
     def get_workout_name(self):
@@ -141,7 +138,7 @@ class Workout:
             "childStepId": child_step_id,
             "numberOfIterations": repeats,
             "workoutSteps": nested_steps,
-            "smartRepeat": False
+            "smartRepeat": False,
         }
 
     def _interval_step(self, step_config, child_step_id, step_order):
@@ -154,7 +151,7 @@ class Workout:
             "endConditionValue": self._end_condition_value(step_config),
             "targetType": self._target_type(step_config),
             "targetValueOne": self._target_value_one(step_config),
-            "targetValueTwo": self._target_value_two(step_config)
+            "targetValueTwo": self._target_value_two(step_config),
         }
 
     @staticmethod
@@ -166,10 +163,7 @@ class Workout:
         duration = self._get_duration(step_config)
         type_id = 2 if duration else 1
         type_key = "time" if duration else "lap.button"
-        return {
-            "conditionTypeId": type_id,
-            "conditionTypeKey": type_key
-        }
+        return {"conditionTypeId": type_id, "conditionTypeKey": type_key}
 
     def _end_condition_value(self, step_config):
         duration = self._get_duration(step_config)
@@ -184,10 +178,7 @@ class Workout:
         power = self._get_power(step_config)
         type_id = 2 if power else 1
         type_key = "power.zone" if power else "no.target"
-        return {
-            "workoutTargetTypeId": type_id,
-            "workoutTargetTypeKey": type_key
-        }
+        return {"workoutTargetTypeId": type_id, "workoutTargetTypeKey": type_key}
 
     def _target_value_one(self, step_config):
         power = self._get_power(step_config)

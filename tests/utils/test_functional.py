@@ -48,5 +48,5 @@ class FunctionalTestCase(unittest.TestCase):
         self.assertEqual(functional.filter_empty(value), {"k1": "v1", "k2": {"k3": "v3"}})
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

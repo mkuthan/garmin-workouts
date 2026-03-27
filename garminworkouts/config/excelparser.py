@@ -96,7 +96,7 @@ def excel_to_yaml(filename, seconds_block=10):  # noqa: C901
         step = create_steps(i)
         steps = steps + step
 
-    yaml_text = f'{workout_name}\n{steps}'
+    yaml_text = f"{workout_name}\n{steps}"
 
     filename = filename.split(".xls")[0] + ".yaml"
     with open(filename, "w") as fout:

@@ -36,15 +36,9 @@ def _save_cookie_jar(session):
 
 def _authenticate(session, connect_url, sso_url, username, password):
     url = sso_url + "/sso/signin"
-    headers = {'origin': 'https://sso.garmin.com'}
-    params = {
-        "service": "https://connect.garmin.com/modern"
-    }
-    data = {
-        "username": username,
-        "password": password,
-        "embed": "false"
-    }
+    headers = {"origin": "https://sso.garmin.com"}
+    params = {"service": "https://connect.garmin.com/modern"}
+    data = {"username": username, "password": password, "embed": "false"}
 
     auth_response = session.post(url, headers=headers, params=params, data=data)
     auth_response.raise_for_status()

@@ -31,5 +31,5 @@ class MathTestCase(unittest.TestCase):
         self.assertEqual(math.training_stress_score(seconds, norm_pwr, ftp), 100)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

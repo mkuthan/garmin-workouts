@@ -78,38 +78,58 @@ def _garmin_client(args):
         sso_url=args.sso_url,
         username=args.username,
         password=args.password,
-        cookie_jar=args.cookie_jar
+        cookie_jar=args.cookie_jar,
     )
 
 
 def main():
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-                                     description="Manage Garmin Connect workout(s)")
-    parser.add_argument("--username", "-u", action=EnvDefault, env_var="GARMIN_USERNAME",
-                        required=True, help="Garmin Connect account username")
-    parser.add_argument("--password", "-p", action=EnvDefault, env_var="GARMIN_PASSWORD",
-                        required=True, help="Garmin Connect account password")
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Manage Garmin Connect workout(s)"
+    )
+    parser.add_argument(
+        "--username",
+        "-u",
+        action=EnvDefault,
+        env_var="GARMIN_USERNAME",
+        required=True,
+        help="Garmin Connect account username",
+    )
+    parser.add_argument(
+        "--password",
+        "-p",
+        action=EnvDefault,
+        env_var="GARMIN_PASSWORD",
+        required=True,
+        help="Garmin Connect account password",
+    )
     parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
     parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
     parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
-    parser.add_argument("--debug", action='store_true', help="Enables more detailed messages")
+    parser.add_argument("--debug", action="store_true", help="Enables more detailed messages")
 
     subparsers = parser.add_subparsers(title="Commands")
 
     parser_import = subparsers.add_parser("import", description="Import workout(s) from file(s) into Garmin Connect")
-    parser_import.add_argument("workout",
-                               help="File(s) with workout(s) to import, "
-                                    "wildcards are supported e.g: sample_workouts/*.yaml")
-    parser_import.add_argument("--ftp", required=True, type=int,
-                               help="FTP to calculate absolute target power from relative value")
-    parser_import.add_argument("--target-power-diff", default=0.05, type=float,
-                               help="Percent of target power to calculate final target power range")
+    parser_import.add_argument(
+        "workout", help="File(s) with workout(s) to import, wildcards are supported e.g: sample_workouts/*.yaml"
+    )
+    parser_import.add_argument(
+        "--ftp", required=True, type=int, help="FTP to calculate absolute target power from relative value"
+    )
+    parser_import.add_argument(
+        "--target-power-diff",
+        default=0.05,
+        type=float,
+        help="Percent of target power to calculate final target power range",
+    )
     parser_import.set_defaults(func=command_import)
 
-    parser_export = subparsers.add_parser("export",
-                                          description="Export all workouts from Garmin Connect and save into directory")
-    parser_export.add_argument("directory", type=writeable_dir,
-                               help="Destination directory where workout(s) will be exported")
+    parser_export = subparsers.add_parser(
+        "export", description="Export all workouts from Garmin Connect and save into directory"
+    )
+    parser_export.add_argument(
+        "directory", type=writeable_dir, help="Destination directory where workout(s) will be exported"
+    )
     parser_export.set_defaults(func=command_export)
 
     parser_list = subparsers.add_parser("list", description="List all workouts")

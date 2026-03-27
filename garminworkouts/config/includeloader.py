@@ -4,7 +4,6 @@ import yaml
 
 
 class IncludeLoader(yaml.SafeLoader):
-
     def __init__(self, stream):
         self._root = os.path.split(stream.name)[0]
 
@@ -17,4 +16,4 @@ class IncludeLoader(yaml.SafeLoader):
             return yaml.load(f, IncludeLoader)
 
 
-IncludeLoader.add_constructor('!include', IncludeLoader.include)
+IncludeLoader.add_constructor("!include", IncludeLoader.include)

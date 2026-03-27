@@ -7,10 +7,7 @@ from garminworkouts.garmin.session import connect, disconnect
 class GarminClient:
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
 
-    _REQUIRED_HEADERS = {
-        "Referer": "https://connect.garmin.com/modern/workouts",
-        "nk": "NT"
-    }
+    _REQUIRED_HEADERS = {"Referer": "https://connect.garmin.com/modern/workouts", "nk": "NT"}
 
     def __init__(self, connect_url, sso_url, username, password, cookie_jar):
         self.connect_url = connect_url
@@ -28,12 +25,8 @@ class GarminClient:
 
     def list_workouts(self, batch_size=100):
         for start_index in range(0, sys.maxsize, batch_size):
-
             url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workouts"
-            params = {
-                "start": start_index,
-                "limit": batch_size
-            }
+            params = {"start": start_index, "limit": batch_size}
             response = self.session.get(url, headers=GarminClient._REQUIRED_HEADERS, params=params)
             response.raise_for_status()
 

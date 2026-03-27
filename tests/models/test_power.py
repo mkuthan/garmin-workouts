@@ -23,7 +23,7 @@ class PowerTestCase(unittest.TestCase):
             ("100W", 100),
             ("100w", 100),
             ("1000W", 1000),
-            ("1000w", 1000)
+            ("1000w", 1000),
         ]
 
         for power, watts in valid_powers:
@@ -43,12 +43,7 @@ class PowerTestCase(unittest.TestCase):
     def test_power_to_watts_conversion_with_valid_diff(self):
         power = "100"
         ftp = 200
-        valid_diffs = [
-            (0.5, 300),
-            (0.05, 210),
-            (-0.05, 190),
-            (-0.5, 100)
-        ]
+        valid_diffs = [(0.5, 300), (0.05, 210), (-0.05, 190), (-0.5, 100)]
         for diff, watts in valid_diffs:
             with self.subTest(msg=f"Expected {watts} watts for diff '{diff}' (power={power}, ftp={ftp})"):
                 self.assertEqual(Power(power).to_watts(ftp, diff), watts)
@@ -65,12 +60,7 @@ class PowerTestCase(unittest.TestCase):
     def test_power_to_watts_conversion_with_valid_ftp(self):
         power = "50"
         diff = 0
-        valid_ftps = [
-            (0, 0),
-            (100, 50),
-            (250, 125),
-            (999, 500)
-        ]
+        valid_ftps = [(0, 0), (100, 50), (250, 125), (999, 500)]
         for ftp, watts in valid_ftps:
             with self.subTest(msg=f"Expected {watts} watts for ftp '{ftp}' (power={power}, diff={diff})"):
                 self.assertEqual(Power(power).to_watts(ftp, diff), watts)
@@ -85,5 +75,5 @@ class PowerTestCase(unittest.TestCase):
                     Power(power).to_watts(ftp, diff)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
