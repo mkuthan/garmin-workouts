@@ -1,0 +1,26 @@
+[tools]
+python = "3.14"
+
+[tasks.sync]
+description = "Sync project dependencies"
+run = "uv sync --dev"
+
+[tasks.test]
+description = "Run tests"
+run = "uv run pytest --cov=garminworkouts --cov-report=xml tests"
+
+[tasks.lint]
+description = "Run linter"
+run = "uv run ruff check"
+
+[tasks.format]
+description = "Format code"
+run = "uv run ruff format"
+
+[tasks.lint-format]
+description = "Check code formatting"
+run = "uv run ruff format --check"
+
+[tasks.check]
+description = "Run all checks (lint, lint-format, test)"
+depends = ["lint", "lint-format", "test"]
