@@ -59,7 +59,7 @@ def excel_to_yaml(filename, seconds_block=10):  # noqa: C901
         df["n_blocks"] = df["n_blocks"].apply(lambda x: int(x * perc))
 
     workout_name = filename.replace("_", " ").split(".xls")[0].split("/")[-1]
-    workout_name = 'name: "{}"\n'.format(workout_name)
+    workout_name = f'name: "{workout_name}"\n'
 
     def create_steps(i, df=df):
         start = df.loc[i, "start"]
@@ -76,13 +76,13 @@ def excel_to_yaml(filename, seconds_block=10):  # noqa: C901
             seconds_block = int(seconds / n_blocks)
             minutes_ = int(seconds_block / 60)
             seconds_ = int((float(seconds_block / 60) - int(seconds_block / 60)) * 60)
-            duration = "{minutes}:{seconds}".format(minutes=minutes_, seconds=seconds_)
+            duration = f"{minutes_}:{seconds_}"
             power_dif = abs(end - start)
             power_step = power_dif / n_blocks
             steps_text = ""
             total_time = 0
             while total_time <= seconds:
-                text = '  - {{ power: {0}{1}, duration: "{2}" }}\n'.format(int(start), power_type, duration)
+                text = f'  - {{ power: {int(start)}{power_type}, duration: "{duration}" }}\n'
                 steps_text = steps_text + text
                 if start <= end:
                     start = start + power_step
@@ -96,7 +96,7 @@ def excel_to_yaml(filename, seconds_block=10):  # noqa: C901
         step = create_steps(i)
         steps = steps + step
 
-    yaml_text = '{workout_name}\n{steps}'.format(workout_name=workout_name, steps=steps)
+    yaml_text = f'{workout_name}\n{steps}'
 
     filename = filename.split(".xls")[0] + ".yaml"
     with open(filename, "w") as fout:

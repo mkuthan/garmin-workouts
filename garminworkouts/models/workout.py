@@ -5,7 +5,7 @@ from garminworkouts.models.power import Power
 from garminworkouts.utils import functional, math
 
 
-class Workout(object):
+class Workout:
     _WORKOUT_ID_FIELD = "workoutId"
     _WORKOUT_NAME_FIELD = "workoutName"
     _WORKOUT_DESCRIPTION_FIELD = "description"
@@ -75,7 +75,7 @@ class Workout(object):
         workout_id = Workout.extract_workout_id(workout)
         workout_name = Workout.extract_workout_name(workout)
         workout_description = Workout.extract_workout_description(workout)
-        print("{0} {1:20} {2}".format(workout_id, workout_name, workout_description))
+        print(f"{workout_id} {workout_name:20} {workout_description}")
 
     def _generate_description(self):
         # TODO: calculate Time in Zones
@@ -98,7 +98,7 @@ class Workout(object):
         int_fct = math.intensity_factor(norm_pwr, self.ftp)
         tss = math.training_stress_score(seconds, norm_pwr, self.ftp)
 
-        return "FTP %d, TSS %d, NP %d, IF %.2f" % (self.ftp, tss, norm_pwr, int_fct)
+        return f"FTP {self.ftp}, TSS {int(tss)}, NP {int(norm_pwr)}, IF {int_fct:.2f}"
 
     def _steps(self, steps_config):
         steps, step_order, child_step_id = self._steps_recursive(steps_config, 0, None)

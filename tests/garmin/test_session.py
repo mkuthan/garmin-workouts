@@ -55,7 +55,7 @@ class SessionTestCase(unittest.TestCase):
             .expect_request("/sso/signin", method="POST", data=self._signin_data()) \
             .respond_with_data('response_url = "https://connect.garmin.com/modern?foo=bar"')
 
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             self._try_connect()
 
     def test_authentication_failed_signin(self):

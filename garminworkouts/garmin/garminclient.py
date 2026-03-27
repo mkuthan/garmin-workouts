@@ -4,7 +4,7 @@ import sys
 from garminworkouts.garmin.session import connect, disconnect
 
 
-class GarminClient(object):
+class GarminClient:
     _WORKOUT_SERVICE_ENDPOINT = "/proxy/workout-service"
 
     _REQUIRED_HEADERS = {
@@ -41,8 +41,7 @@ class GarminClient(object):
             if not response_jsons or response_jsons == []:
                 break
 
-            for response_json in response_jsons:
-                yield response_json
+            yield from response_jsons
 
     def get_workout(self, workout_id):
         url = f"{self.connect_url}{GarminClient._WORKOUT_SERVICE_ENDPOINT}/workout/{workout_id}"

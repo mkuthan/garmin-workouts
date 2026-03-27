@@ -8,8 +8,8 @@ import os
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
 from garminworkouts.models.workout import Workout
-from garminworkouts.utils.validators import writeable_dir
 from garminworkouts.utils.envdefault import EnvDefault
+from garminworkouts.utils.validators import writeable_dir
 
 
 def command_import(args):

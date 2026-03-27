@@ -30,6 +30,9 @@ jobs:
       - name: Update environment
         run: uv sync --all-extras --dev
 
+      - name: Run linter
+        run: uv run ruff check
+
       - name: Run tests
         run: uv run pytest --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 

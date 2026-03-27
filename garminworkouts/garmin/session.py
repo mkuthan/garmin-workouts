@@ -58,5 +58,5 @@ def _authenticate(session, connect_url, sso_url, username, password):
 def _extract_auth_ticket(auth_response):
     match = re.search(r'response_url\s*=\s*".*\?ticket=(.+)"', auth_response)
     if not match:
-        raise Exception("Unable to extract auth ticket URL from:\n%s" % auth_response)
+        raise ValueError(f"Unable to extract auth ticket URL from:\n{auth_response}")
     return match.group(1)

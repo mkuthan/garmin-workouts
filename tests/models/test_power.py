@@ -27,7 +27,7 @@ class PowerTestCase(unittest.TestCase):
         ]
 
         for power, watts in valid_powers:
-            with self.subTest(msg="Expected %d watts for '%s' (ftp=%s, diff=%s)" % (watts, power, ftp, diff)):
+            with self.subTest(msg=f"Expected {watts} watts for '{power}' (ftp={ftp}, diff={diff})"):
                 self.assertEqual(Power(power).to_watts(ftp, diff), watts)
 
     def test_invalid_power_to_watts_conversion(self):
@@ -36,7 +36,7 @@ class PowerTestCase(unittest.TestCase):
         invalid_powers = ["-1", "-1%", "2500", "2500%", "-1W", "5000W", "foo", "foo%", "fooW"]
 
         for power in invalid_powers:
-            with self.subTest(msg="Expected ValueError for '%s" % power):
+            with self.subTest(msg=f"Expected ValueError for '{power}'"):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp, diff)
 
@@ -50,7 +50,7 @@ class PowerTestCase(unittest.TestCase):
             (-0.5, 100)
         ]
         for diff, watts in valid_diffs:
-            with self.subTest(msg="Expected %d watts for diff '%s' (power=%s, ftp=%s)" % (watts, diff, power, ftp)):
+            with self.subTest(msg=f"Expected {watts} watts for diff '{diff}' (power={power}, ftp={ftp})"):
                 self.assertEqual(Power(power).to_watts(ftp, diff), watts)
 
     def test_power_to_watts_conversion_with_invalid_diff(self):
@@ -58,7 +58,7 @@ class PowerTestCase(unittest.TestCase):
         ftp = 200
         invalid_diffs = [-1.0, 1.0, "foo"]
         for diff in invalid_diffs:
-            with self.subTest(msg="Expected ValueError for '%s" % diff):
+            with self.subTest(msg=f"Expected ValueError for '{diff}'"):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp, diff)
 
@@ -72,7 +72,7 @@ class PowerTestCase(unittest.TestCase):
             (999, 500)
         ]
         for ftp, watts in valid_ftps:
-            with self.subTest(msg="Expected %d watts for ftp '%s' (power=%s, diff=%s)" % (watts, ftp, power, diff)):
+            with self.subTest(msg=f"Expected {watts} watts for ftp '{ftp}' (power={power}, diff={diff})"):
                 self.assertEqual(Power(power).to_watts(ftp, diff), watts)
 
     def test_power_to_watts_conversion_with_invalid_ftp(self):
@@ -80,7 +80,7 @@ class PowerTestCase(unittest.TestCase):
         diff = 0
         invalid_ftps = [-1, 1000, "foo"]
         for ftp in invalid_ftps:
-            with self.subTest(msg="Expected ValueError for '%s" % ftp):
+            with self.subTest(msg=f"Expected ValueError for '{ftp}"):
                 with self.assertRaises(ValueError):
                     Power(power).to_watts(ftp, diff)
 

@@ -1,7 +1,0 @@
-[flake8]
-count = True
-max-complexity = 10
-max-line-length = 120
-show-source = True
-statistics = True
-

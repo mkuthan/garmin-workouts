@@ -16,7 +16,7 @@ class Duration:
             [seconds] = self._tokenize()
             return self._to_seconds(seconds)
         else:
-            raise ValueError("Unknown duration %s, expected format HH:MM:SS" % self.duration)
+            raise ValueError(f"Unknown duration {self.duration}, expected format HH:MM:SS")
 
     def _tokenize(self):
         return self.duration.split(":")
@@ -33,10 +33,10 @@ class Duration:
     @staticmethod
     def _to_seconds(seconds, minutes=0, hours=0):
         if not 0 <= int(seconds) < 60:
-            raise ValueError("Seconds must be between 0 and 59 but was %s" % seconds)
+            raise ValueError(f"Seconds must be between 0 and 59 but was {seconds}")
         if not 0 <= int(minutes) < 60:
-            raise ValueError("Minutes must be between 0 and 59 but was %s" % seconds)
+            raise ValueError(f"Minutes must be between 0 and 59 but was {seconds}")
         if not 0 <= int(hours) < 24:
-            raise ValueError("Hours must be between 0 and 23 but was %s" % seconds)
+            raise ValueError(f"Hours must be between 0 and 23 but was {seconds}")
 
         return int(hours) * 3600 + int(minutes) * 60 + int(seconds)
