@@ -4,9 +4,19 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    rebase-strategy: "disabled"
-  - package-ecosystem: "pip"
+    commit-message:
+      prefix: "chore"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+  - package-ecosystem: "uv"
     directory: "/"
     schedule:
       interval: "weekly"
-    rebase-strategy: "disabled"
+    commit-message:
+      prefix: "chore"
+    groups:
+      github-actions:
+        patterns:
+          - "*"

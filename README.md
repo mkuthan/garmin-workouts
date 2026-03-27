@@ -19,6 +19,7 @@ Features:
 Requirements:
 
 * Python 3.x ([doc](https://www.python.org/downloads/))
+* uv ([doc](https://docs.astral.sh/uv/))
 
 Clone this repo:
 
@@ -26,23 +27,17 @@ Clone this repo:
 git clone https://github.com/mkuthan/garmin-workouts.git
 ```
 
-Use the venv command to create a virtual copy of the entire Python installation.:
+Install dependencies with uv:
 
 ```shell
 cd garmin-workouts
-python3 -m venv venv
+uv sync --dev
 ```
 
-Set your shell to use the venv paths for Python by activating the virtual environment:
+Optionally, install tool versions from `mise.toml` first:
 
 ```shell
-source venv/bin/activate
-```
-
-Install dependencies:
-
-```shell
-pip3 install -r requirements.txt
+mise install
 ```
 
 ## Usage
@@ -64,7 +59,7 @@ export GARMIN_PASSWORD=password
 Alternatively use `-u` and `-p` command line arguments:
 
 ```shell
-python -m garminworkouts -u [USERNAME] -p [PASSWORD]
+uv run garmin-workouts -u [USERNAME] -p [PASSWORD]
 ```
 
 ### Import Workouts
@@ -73,7 +68,7 @@ Import workouts into Garmin Connect from definitions in [YAML](https://yaml.org)
 If the workout already exists it will be updated:
 
 ```shell
-python -m garminworkouts import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
+uv run garmin-workouts import --ftp [YOUR_FTP] 'sample_workouts/*.yaml'
 ```
 
 Sample workout definition:
@@ -172,7 +167,7 @@ wish to give your values in W instead of % of your FTP:
 You can then import as with the `yaml` files:
 
 ```shell
-python -m garminworkouts import --ftp [YOUR_FTP] my.workout.xlsx
+uv run garmin-workouts import --ftp [YOUR_FTP] my.workout.xlsx
 ```
 
 This will generate a `yaml` file with the name `my.workout.xlsx`. The name of the workout will be "my.workout".
@@ -183,7 +178,7 @@ Export all workouts from Garmin Connect into local directory as FIT files.
 This is the easiest way to synchronize all workouts with Garmin device:
 
 ```shell
-python -m garminworkouts export /mnt/GARMIN/NewFiles
+uv run garmin-workouts export /mnt/GARMIN/NewFiles
 ```
 
 ### List Workouts
@@ -191,7 +186,7 @@ python -m garminworkouts export /mnt/GARMIN/NewFiles
 Print summary for all workouts (workout identifier, workout name and description):
 
 ```shell
-$ python -m garminworkouts list
+$ uv run garmin-workouts list
 188952654 VO2MAX 5x4           FTP 214, TSS 80, NP 205, IF 0.96
 188952362 TEMPO 3x15           FTP 214, TSS 68, NP 172, IF 0.81
 188952359 SS 3x12              FTP 214, TSS 65, NP 178, IF 0.83
@@ -210,7 +205,7 @@ $ python -m garminworkouts list
 Print full workout definition (as JSON):
 
 ```shell
-$ python -m garminworkouts get --id [WORKOUT_ID]
+$ uv run garmin-workouts get --id [WORKOUT_ID]
 {"workoutId": 188952654, "ownerId": 2043461, "workoutName": "VO2MAX 5x4", "description": "FTP 214, TSS 80, NP 205, IF 0.96", "updatedDate": "2020-02-11T14:37:56.0", ...
 ```
 
@@ -219,7 +214,7 @@ $ python -m garminworkouts get --id [WORKOUT_ID]
 Permanently delete workout from Garmin Connect:
 
 ```shell
-python -m garminworkouts delete --id [WORKOUT_ID]
+uv run garmin-workouts delete --id [WORKOUT_ID]
 ```
 
 ### Schedule  Workouts
@@ -229,5 +224,5 @@ The workout number is the last digits of the URL here: 234567894
 Note: the date format is as follows : 2021-12-31
 
 ```shell
-python -m garminworkouts schedule -d [DATE] -w [WORKOUT_ID]
+uv run garmin-workouts schedule -d [DATE] -w [WORKOUT_ID]
 ```
