@@ -25,7 +25,9 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
+pythonpath = "."
 testpaths = ["tests"]
+addopts = "-rA --cov=garminworkouts --cov-branch --cov-fail-under=98"
 
 [tool.ruff]
 line-length = 120
