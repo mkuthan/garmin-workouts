@@ -1,3 +1,6 @@
+[env]
+_.file = ".env"
+
 [tools]
 python = "3.14"
 
@@ -7,7 +10,7 @@ run = "uv sync --dev"
 
 [tasks.test]
 description = "Run tests"
-run = "uv run pytest --cov=garminworkouts --cov-report=xml tests"
+run = "uv run pytest"
 
 [tasks.lint]
 description = "Run linter"
