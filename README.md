@@ -49,18 +49,22 @@ It is required due to strict request limits for Garmin [SSO](https://en.wikipedi
 
 ### Authentication
 
-Define Garmin connect account credentials as `GARMIN_USERNAME` and `GARMIN_PASSWORD` environment variables:
+Run login once (supports MFA). If username/password are not provided via
+`--username` / `--password` (or `GARMIN_USERNAME` / `GARMIN_PASSWORD`), the CLI
+prompts for them interactively:
 
 ```shell
-export GARMIN_USERNAME=username
-export GARMIN_PASSWORD=password
+uv run garmin-workouts login
 ```
 
-Alternatively use `-u` and `-p` command line arguments:
+This saves a local session token store (`.garmin-session` by default, directory-style path).
+All other commands reuse this session non-interactively.
 
-```shell
-uv run garmin-workouts -u [USERNAME] -p [PASSWORD]
-```
+If you point `--cookie-jar` to an existing legacy file path,
+`garmin-workouts` automatically uses `<path>.session` as the token store directory
+to stay compatible with `garminconnect` token store semantics.
+
+If the session expires or is missing, run `uv run garmin-workouts login` again.
 
 ### Import Workouts
 

@@ -1,78 +1,59 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
-import requests
-from pytest_httpserver import HTTPServer
-
-from garminworkouts.garmin.session import connect, disconnect
+from garminworkouts.garmin.session import SessionLoginRequiredError, connect, login
 
 
 class SessionTestCase(unittest.TestCase):
-    def setUp(self):
-        self.httpserver = HTTPServer()
-        self.httpserver.start()
-        self.addCleanup(self.httpserver.stop)
+    @patch("garminworkouts.garmin.session.Garmin")
+    def test_login_calls_garmin_login_with_tokenstore(self, garmin_cls):
+        client = garmin_cls.return_value
 
-        self.url = f"http://{self.httpserver.host}:{self.httpserver.port}"
-        self.username = "any-username"
-        self.password = "any-password"
+        login(username="user", password="pass", session_file="/tmp/garmin-session")
 
-    def test_already_authenticated(self):
-        self._modern_settings_request(status=200)
-        self._try_connect()
+        garmin_cls.assert_called_once_with("user", "pass")
+        client.login.assert_called_once_with(tokenstore="/tmp/garmin-session")
 
-    def test_authentication_succeeded(self):
-        self._modern_settings_request(status=403)
+    @patch("garminworkouts.garmin.session.Garmin")
+    def test_connect_loads_existing_session_file(self, garmin_cls):
+        client = garmin_cls.return_value
 
-        self.httpserver.expect_request("/sso/signin", method="POST", data=self._signin_data()).respond_with_data(
-            'response_url = "https://connect.garmin.com/modern?ticket=any-auth-ticket"'
-        )
+        result = connect(session_file="/tmp/garmin-session")
 
-        self.httpserver.expect_request("/modern", query_string={"ticket": "any-auth-ticket"}).respond_with_data()
+        garmin_cls.assert_called_once_with()
+        self.assertIs(result, client)
+        client.login.assert_called_once_with(tokenstore="/tmp/garmin-session")
 
-        self._try_connect()
+    @patch("garminworkouts.garmin.session.Garmin")
+    def test_connect_raises_login_required_when_session_missing(self, garmin_cls):
+        client = garmin_cls.return_value
+        client.login.side_effect = FileNotFoundError("session not found")
 
-    def test_authentication_failed_wrong_ticket(self):
-        self._modern_settings_request(status=403)
+        with self.assertRaises(SessionLoginRequiredError):
+            connect(session_file="/tmp/missing")
 
-        self.httpserver.expect_request("/sso/signin", method="POST", data=self._signin_data()).respond_with_data(
-            'response_url = "https://connect.garmin.com/modern?ticket=any-auth-ticket"'
-        )
+    @patch("garminworkouts.garmin.session.Garmin")
+    def test_login_uses_file_path_fallback_directory_for_tokenstore(self, garmin_cls):
+        client = garmin_cls.return_value
 
-        self.httpserver.expect_request("/modern", query_string={"ticket": "any-auth-ticket"}).respond_with_data(
-            status=403
-        )
+        with TemporaryDirectory() as tmp:
+            session_file = Path(tmp) / "legacy-cookies.txt"
+            session_file.write_text("cookies")
 
-        with self.assertRaises(requests.exceptions.HTTPError):
-            self._try_connect()
+            login(username="user", password="pass", session_file=str(session_file))
 
-    def test_authentication_failed_unknown_ticket(self):
-        self._modern_settings_request(status=403)
+            client.login.assert_called_once_with(tokenstore=f"{session_file}.session")
 
-        self.httpserver.expect_request("/sso/signin", method="POST", data=self._signin_data()).respond_with_data(
-            'response_url = "https://connect.garmin.com/modern?foo=bar"'
-        )
+    @patch("garminworkouts.garmin.session.Garmin")
+    def test_connect_uses_file_path_fallback_directory_for_tokenstore(self, garmin_cls):
+        client = garmin_cls.return_value
 
-        with self.assertRaises(ValueError):
-            self._try_connect()
+        with TemporaryDirectory() as tmp:
+            session_file = Path(tmp) / "legacy-cookies.txt"
+            session_file.write_text("cookies")
 
-    def test_authentication_failed_signin(self):
-        self._modern_settings_request(status=403)
+            connect(session_file=str(session_file))
 
-        self.httpserver.expect_request("/sso/signin", method="POST", data=self._signin_data()).respond_with_data(
-            status=403
-        )
-
-        with self.assertRaises(requests.exceptions.HTTPError):
-            self._try_connect()
-
-    def _try_connect(self):
-        session = connect(
-            connect_url=self.url, sso_url=self.url, username=self.username, password=self.password, cookie_jar=None
-        )
-        disconnect(session)
-
-    def _modern_settings_request(self, status):
-        self.httpserver.expect_request("/modern/settings").respond_with_data(status=status)
-
-    def _signin_data(self):
-        return f"username={self.username}&password={self.password}&embed=false"
+            client.login.assert_called_once_with(tokenstore=f"{session_file}.session")
