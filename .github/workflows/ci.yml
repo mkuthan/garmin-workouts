@@ -39,7 +39,7 @@ jobs:
       - name: Run tests
         run: uv run pytest --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         with:
           env_vars: PYTHON_VERSION
 
