@@ -5,11 +5,11 @@ description = "Command line tools for managing Garmin Connect workouts"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "requests==2.32.3",
-    "pyyaml==6.0.2",
-    "numpy==2.2.2",
-    "xlrd==2.0.1",
-    "pandas==2.2.3",
+    "requests==2.33.1",
+    "pyyaml==6.0.3",
+    "numpy==2.2.6",
+    "xlrd==2.0.2",
+    "pandas==2.3.3",
     "cloudscraper==1.2.71",
 ]
 
@@ -20,7 +20,7 @@ garmin-workouts = "garminworkouts.__main__:main"
 dev = [
     "pytest",
     "pytest-cov",
-    "pytest-httpserver==1.1.1",
+    "pytest-httpserver==1.1.5",
     "ruff",
 ]
 
