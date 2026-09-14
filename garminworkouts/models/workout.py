@@ -109,7 +109,7 @@ class Workout:
 
         for step_config in steps_config[1:]:
             (repeats, prev_step_config) = steps_config_agg[-1]
-            if prev_step_config == step_config:  # repeated step
+            if isinstance(step_config, list) and prev_step_config == step_config:  # repeated group
                 steps_config_agg[-1] = (repeats + 1, step_config)
             else:
                 steps_config_agg.append((1, step_config))
