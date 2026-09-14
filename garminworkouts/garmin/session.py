@@ -1,56 +1,61 @@
-import os
-import re
-from http import cookiejar
+from pathlib import Path
 
-import cloudscraper
+try:
+    from garminconnect import (
+        Garmin,
+        GarminConnectAuthenticationError,
+        GarminConnectConnectionError,
+    )
+except ModuleNotFoundError:  # pragma: no cover
+    Garmin = None
 
+    class GarminConnectAuthenticationError(Exception):
+        pass
 
-def connect(connect_url, sso_url, username, password, cookie_jar):
-    session = cloudscraper.CloudScraper()
-    _load_cookie_jar(session, cookie_jar)
-
-    url = connect_url + "/modern/settings"
-    response = session.get(url, allow_redirects=False)
-    if response.status_code != 200:
-        _authenticate(session, connect_url, sso_url, username, password)
-
-    return session
-
-
-def disconnect(session):
-    _save_cookie_jar(session)
-    session.close()
+    class GarminConnectConnectionError(Exception):
+        pass
 
 
-def _load_cookie_jar(session, cookie_jar):
-    if cookie_jar:
-        session.cookies = cookiejar.LWPCookieJar(cookie_jar)
-        if os.path.isfile(cookie_jar):
-            session.cookies.load(ignore_discard=True, ignore_expires=True)
+class SessionLoginRequiredError(RuntimeError):
+    pass
 
 
-def _save_cookie_jar(session):
-    if isinstance(session.cookies, cookiejar.LWPCookieJar):
-        session.cookies.save(ignore_discard=True, ignore_expires=True)
+LOGIN_REQUIRED_MESSAGE = "You're not logged in. Run 'garmin-workouts login' first."
 
 
-def _authenticate(session, connect_url, sso_url, username, password):
-    url = sso_url + "/sso/signin"
-    headers = {"origin": "https://sso.garmin.com"}
-    params = {"service": "https://connect.garmin.com/modern"}
-    data = {"username": username, "password": password, "embed": "false"}
-
-    auth_response = session.post(url, headers=headers, params=params, data=data)
-    auth_response.raise_for_status()
-
-    auth_ticket = _extract_auth_ticket(auth_response.text)
-
-    response = session.get(connect_url + "/modern", params={"ticket": auth_ticket})
-    response.raise_for_status()
+def _require_garmin():
+    if Garmin is None:
+        raise RuntimeError("garminconnect dependency is required")
+    return Garmin
 
 
-def _extract_auth_ticket(auth_response):
-    match = re.search(r'response_url\s*=\s*".*\?ticket=(.+)"', auth_response)
-    if not match:
-        raise ValueError(f"Unable to extract auth ticket URL from:\n{auth_response}")
-    return match.group(1)
+def _normalize_tokenstore(session_file: str) -> str:
+    session_path = Path(session_file)
+    if session_path.exists() and session_path.is_file():
+        return f"{session_file}.session"
+    return session_file
+
+
+def login(username: str, password: str, session_file: str) -> None:
+    garmin_cls = _require_garmin()
+    api = garmin_cls(username, password)
+    api.login(tokenstore=_normalize_tokenstore(session_file))
+
+
+def connect(session_file: str) -> Garmin:
+    garmin_cls = _require_garmin()
+    try:
+        api = garmin_cls()
+        api.login(tokenstore=_normalize_tokenstore(session_file))
+        return api
+    except (
+        FileNotFoundError,
+        OSError,
+        GarminConnectAuthenticationError,
+        GarminConnectConnectionError,
+    ) as exc:
+        raise SessionLoginRequiredError(LOGIN_REQUIRED_MESSAGE) from exc
+
+
+def disconnect(_api) -> None:
+    return None

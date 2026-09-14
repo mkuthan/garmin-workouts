@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 
 import argparse
+import getpass
 import glob
 import logging
 import os
 
 from garminworkouts.config import configreader
 from garminworkouts.garmin.garminclient import GarminClient
+from garminworkouts.garmin.session import (
+    SessionLoginRequiredError,
+)
+from garminworkouts.garmin.session import (
+    login as session_login,
+)
 from garminworkouts.models.workout import Workout
 from garminworkouts.utils.envdefault import EnvDefault
 from garminworkouts.utils.validators import writeable_dir
@@ -72,6 +79,13 @@ def command_delete(args):
         connection.delete_workout(args.id)
 
 
+def command_login(args):
+    username = args.username or input("Garmin username: ")
+    password = args.password or getpass.getpass("Garmin password: ")
+    session_login(username=username, password=password, session_file=args.cookie_jar)
+    logging.info("Login successful")
+
+
 def _garmin_client(args):
     return GarminClient(
         connect_url=args.connect_url,
@@ -91,7 +105,7 @@ def main():
         "-u",
         action=EnvDefault,
         env_var="GARMIN_USERNAME",
-        required=True,
+        required=False,
         help="Garmin Connect account username",
     )
     parser.add_argument(
@@ -99,10 +113,12 @@ def main():
         "-p",
         action=EnvDefault,
         env_var="GARMIN_PASSWORD",
-        required=True,
+        required=False,
         help="Garmin Connect account password",
     )
-    parser.add_argument("--cookie-jar", default=".garmin-cookies.txt", help="Filename with authentication cookies")
+    parser.add_argument(
+        "--cookie-jar", default=".garmin-session", help="Session directory path used for Garmin token store"
+    )
     parser.add_argument("--connect-url", default="https://connect.garmin.com", help="Garmin Connect url")
     parser.add_argument("--sso-url", default="https://sso.garmin.com", help="Garmin SSO url")
     parser.add_argument("--debug", action="store_true", help="Enables more detailed messages")
@@ -148,13 +164,20 @@ def main():
     parser_delete.add_argument("--id", required=True, help="Workout id, use list command to get workouts identifiers")
     parser_delete.set_defaults(func=command_delete)
 
+    parser_login = subparsers.add_parser("login", description="Login and save Garmin session")
+    parser_login.set_defaults(func=command_login)
+
     args = parser.parse_args()
 
     logging_level = logging.DEBUG if args.debug else logging.INFO
     logging.basicConfig(level=logging_level)
 
     if hasattr(args, "func"):
-        args.func(args)
+        try:
+            args.func(args)
+        except SessionLoginRequiredError as exc:
+            logging.error(str(exc))
+            raise SystemExit(1) from exc
     else:
         parser.print_usage()
 
