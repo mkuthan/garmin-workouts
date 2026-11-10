@@ -35,8 +35,8 @@ class Duration:
         if not 0 <= int(seconds) < 60:
             raise ValueError(f"Seconds must be between 0 and 59 but was {seconds}")
         if not 0 <= int(minutes) < 60:
-            raise ValueError(f"Minutes must be between 0 and 59 but was {seconds}")
+            raise ValueError(f"Minutes must be between 0 and 59 but was {minutes}")
         if not 0 <= int(hours) < 24:
-            raise ValueError(f"Hours must be between 0 and 23 but was {seconds}")
+            raise ValueError(f"Hours must be between 0 and 23 but was {hours}")
 
         return int(hours) * 3600 + int(minutes) * 60 + int(seconds)
